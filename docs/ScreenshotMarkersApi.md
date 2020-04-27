@@ -1,0 +1,256 @@
+# \ScreenshotMarkersApi
+
+All URIs are relative to *https://api.phrase.com/v2*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**ScreenshotMarkerCreate**](ScreenshotMarkersApi.md#ScreenshotMarkerCreate) | **Post** /projects/{project_id}/screenshots/{screenshot_id}/markers | Create a screenshot marker
+[**ScreenshotMarkerDelete**](ScreenshotMarkersApi.md#ScreenshotMarkerDelete) | **Delete** /projects/{project_id}/screenshots/{screenshot_id}/markers | Delete a screenshot marker
+[**ScreenshotMarkerShow**](ScreenshotMarkersApi.md#ScreenshotMarkerShow) | **Get** /projects/{project_id}/screenshots/{screenshot_id}/markers/{id} | Get a single screenshot marker
+[**ScreenshotMarkerUpdate**](ScreenshotMarkersApi.md#ScreenshotMarkerUpdate) | **Patch** /projects/{project_id}/screenshots/{screenshot_id}/markers | Update a screenshot marker
+[**ScreenshotMarkersList**](ScreenshotMarkersApi.md#ScreenshotMarkersList) | **Get** /projects/{project_id}/screenshots/{id}/markers | List screenshot markers
+
+
+
+## ScreenshotMarkerCreate
+
+> ScreenshotMarkerCreate(ctx, projectId, screenshotId, screenshotMarkerCreate, optional)
+
+Create a screenshot marker
+
+Create a new screenshot marker.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**screenshotId** | **string**| Screenshot ID | 
+**screenshotMarkerCreate** | [**ScreenshotMarkerCreate**](ScreenshotMarkerCreate.md)|  | 
+ **optional** | ***ScreenshotMarkerCreateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a ScreenshotMarkerCreateOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ScreenshotMarkerDelete
+
+> ScreenshotMarkerDelete(ctx, projectId, screenshotId, optional)
+
+Delete a screenshot marker
+
+Delete an existing screenshot marker.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**screenshotId** | **string**| Screenshot ID | 
+ **optional** | ***ScreenshotMarkerDeleteOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a ScreenshotMarkerDeleteOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ScreenshotMarkerShow
+
+> map[string]interface{} ScreenshotMarkerShow(ctx, projectId, screenshotId, id, optional)
+
+Get a single screenshot marker
+
+Get details on a single screenshot marker for a given project.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**screenshotId** | **string**| Screenshot ID | 
+**id** | **string**| ID | 
+ **optional** | ***ScreenshotMarkerShowOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a ScreenshotMarkerShowOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**map[string]interface{}**](object.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ScreenshotMarkerUpdate
+
+> ScreenshotMarker ScreenshotMarkerUpdate(ctx, projectId, screenshotId, screenshotMarkerUpdate, optional)
+
+Update a screenshot marker
+
+Update an existing screenshot marker.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**screenshotId** | **string**| Screenshot ID | 
+**screenshotMarkerUpdate** | [**ScreenshotMarkerUpdate**](ScreenshotMarkerUpdate.md)|  | 
+ **optional** | ***ScreenshotMarkerUpdateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a ScreenshotMarkerUpdateOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**ScreenshotMarker**](screenshot_marker.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ScreenshotMarkersList
+
+> []map[string]interface{} ScreenshotMarkersList(ctx, projectId, id, optional)
+
+List screenshot markers
+
+List all screenshot markers for the given project.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**id** | **string**| ID | 
+ **optional** | ***ScreenshotMarkersListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a ScreenshotMarkersListOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **page** | **optional.Int32**| Page number | 
+ **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+
+### Return type
+
+[**[]map[string]interface{}**](object.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
