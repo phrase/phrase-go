@@ -1,4 +1,7 @@
 package phrase
+import (
+	"time"
+)
 // JobCreate struct for JobCreate
 type JobCreate struct {
 	// specify the branch to use
@@ -8,9 +11,9 @@ type JobCreate struct {
 	// Briefing for the translators
 	Briefing string `json:"briefing,omitempty"`
 	// Date the job should be finished
-	DueDate string `json:"due_date,omitempty"`
+	DueDate time.Time `json:"due_date,omitempty"`
 	// tags of keys that should be included within the job
-	Tags string `json:"tags,omitempty"`
+	Tags []string `json:"tags,omitempty"`
 	// ids of keys that should be included within the job
-	TranslationKeyIds string `json:"translation_key_ids,omitempty"`
+	TranslationKeyIds []string `json:"translation_key_ids,omitempty"`
 }

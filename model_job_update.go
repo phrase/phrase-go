@@ -1,4 +1,7 @@
 package phrase
+import (
+	"time"
+)
 // JobUpdate struct for JobUpdate
 type JobUpdate struct {
 	// specify the branch to use
@@ -8,5 +11,5 @@ type JobUpdate struct {
 	// Briefing for the translators
 	Briefing string `json:"briefing,omitempty"`
 	// Date the job should be finished
-	DueDate string `json:"due_date,omitempty"`
+	DueDate time.Time `json:"due_date,omitempty"`
 }

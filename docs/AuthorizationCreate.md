@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Note** | **string** | A note to help you remember what the access is used for. | [optional] 
-**Scopes** | **string** | A list of scopes that the access can be used for. | [optional] 
-**ExpiresAt** | **string** | Expiration date for the authorization token. Null means no expiration date (default). | [optional] 
+**Scopes** | **[]string** | A list of scopes that the access can be used for. | [optional] 
+**ExpiresAt** | [**time.Time**](time.Time.md) | Expiration date for the authorization token. Null means no expiration date (default). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1188,8 +1188,10 @@ paths:
                 permissions:
                   description: Additional permissions depending on invitation role.
                     Available permissions are <code>create_upload</code> and <code>review_translations</code>
-                  example: '{"create_upload":true,"review_translations":true}'
-                  type: string
+                  example:
+                    create_upload: true
+                    review_translations: true
+                  type: object
               title: invitation/create
               type: object
         required: true
@@ -1459,8 +1461,9 @@ paths:
                   type: string
                 permissions:
                   description: Additional permissions depending on invitation role.
-                  example: '{"create_upload":true}'
-                  type: string
+                  example:
+                    create_upload: true
+                  type: object
               title: invitation/update
               type: object
         required: true
@@ -2241,15 +2244,15 @@ paths:
                   description: Indicates whether locale is the default locale. If
                     set to true, the previous default locale the project is no longer
                     the default locale.
-                  type: string
+                  type: boolean
                 main:
                   description: Indicates whether locale is a main locale. Main locales
                     are part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
                     target="_blank">Verification System</a> feature.
-                  type: string
+                  type: boolean
                 rtl:
                   description: Indicates whether locale is a RTL (Right-to-Left) locale.
-                  type: string
+                  type: boolean
                 source_locale_id:
                   description: Source locale. Can be the name or public id of the
                     locale. Preferred is the public id.
@@ -2259,16 +2262,16 @@ paths:
                   description: Indicates that new translations for this locale should
                     be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
                     target="_blank">Advanced Workflows</a> feature.
-                  type: string
+                  type: boolean
                 unverify_updated_translations:
                   description: Indicates that updated translations for this locale
                     should be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
                     target="_blank">Advanced Workflows</a> feature.
-                  type: string
+                  type: boolean
                 autotranslate:
                   description: If set, translations for this locale will be fetched
                     automatically, right after creation.
-                  type: string
+                  type: boolean
               title: locale/create
               type: object
         required: true
@@ -2596,15 +2599,15 @@ paths:
                   description: Indicates whether locale is the default locale. If
                     set to true, the previous default locale the project is no longer
                     the default locale.
-                  type: string
+                  type: boolean
                 main:
                   description: Indicates whether locale is a main locale. Main locales
                     are part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
                     target="_blank">Verification System</a> feature.
-                  type: string
+                  type: boolean
                 rtl:
                   description: Indicates whether locale is a RTL (Right-to-Left) locale.
-                  type: string
+                  type: boolean
                 source_locale_id:
                   description: Source locale. Can be the name or public id of the
                     locale. Preferred is the public id.
@@ -2614,16 +2617,16 @@ paths:
                   description: Indicates that new translations for this locale should
                     be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
                     target="_blank">Advanced Workflows</a> feature.
-                  type: string
+                  type: boolean
                 unverify_updated_translations:
                   description: Indicates that updated translations for this locale
                     should be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
                     target="_blank">Advanced Workflows</a> feature.
-                  type: string
+                  type: boolean
                 autotranslate:
                   description: If set, translations for this locale will be fetched
                     automatically, right after creation.
-                  type: string
+                  type: boolean
               title: locale/update
               type: object
         required: true
@@ -2743,27 +2746,27 @@ paths:
                 include_empty_translations:
                   description: Indicates whether keys without translations should
                     be included in the output as well.
-                  type: string
+                  type: boolean
                 include_translated_keys:
                   description: Include translated keys in the locale file. Use in
                     combination with include_empty_translations to obtain only untranslated
                     keys.
-                  type: string
+                  type: boolean
                 keep_notranslate_tags:
                   description: Indicates whether [NOTRANSLATE] tags should be kept.
-                  type: string
+                  type: boolean
                 convert_emoji:
                   description: This option is obsolete. Projects that were created
                     on or after Nov 29th 2019 or that did not contain emoji by then
                     will not require this flag any longer since emoji are now supported
                     natively.
-                  type: string
+                  type: boolean
                 format_options:
                   description: 'Additional formatting and render options. See the
                     <a href="https://help.phrase.com/help/supported-platforms-and-formats">format
                     guide</a> for a list of options available for each format. Specify
                     format options like this: <code>...&format_options[foo]=bar</code>'
-                  type: string
+                  type: object
                 encoding:
                   description: Enforces a specific encoding on the file contents.
                     Valid options are "UTF-8", "UTF-16" and "ISO-8859-1".
@@ -2772,15 +2775,15 @@ paths:
                   description: Indicates whether the locale file should skip all unverified
                     translations. This parameter is deprecated and should be replaced
                     with <code>include_unverified_translations</code>.
-                  type: string
+                  type: boolean
                 include_unverified_translations:
                   description: if set to false unverified translations are excluded
-                  type: string
+                  type: boolean
                 use_last_reviewed_version:
                   description: If set to true the last reviewed version of a translation
                     is used. This is only available if the review workflow (currently
                     in beta) is enabled for the project.
-                  type: string
+                  type: boolean
                 fallback_locale_id:
                   description: If a key has no translation in the locale being downloaded
                     the translation in the fallback locale will be used. Provide the
@@ -2974,28 +2977,32 @@ paths:
                   type: string
                 platforms:
                   description: List of platforms the distribution should support.
-                  example: '["android","ios"]'
-                  type: string
+                  example:
+                  - android
+                  - ios
+                  items:
+                    type: string
+                  type: array
                 format_options:
                   description: Additional formatting and render options. Only <code>enclose_in_cdata</code>
                     is available for platform <code>android</code>.
                   example: '{xml:{enclose_in_cdata:''1''}}'
-                  type: string
+                  type: object
                 fallback_to_non_regional_locale:
                   description: Indicates whether to fallback to non regional locale
                     when locale can not be found
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
                 fallback_to_default_locale:
                   description: Indicates whether to fallback to projects default locale
                     when locale can not be found
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
                 use_last_reviewed_version:
                   description: Use last reviewed instead of latest translation in
                     a project
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
               title: distribution/create
               type: object
         required: true
@@ -3257,28 +3264,32 @@ paths:
                   type: string
                 platforms:
                   description: List of platforms the distribution should support.
-                  example: '["android","ios"]'
-                  type: string
+                  example:
+                  - android
+                  - ios
+                  items:
+                    type: string
+                  type: array
                 format_options:
                   description: Additional formatting and render options. Only <code>enclose_in_cdata</code>
                     is available for platform <code>android</code>.
                   example: '{xml:{enclose_in_cdata:''1''}}'
-                  type: string
+                  type: object
                 fallback_to_non_regional_locale:
                   description: Indicates whether to fallback to non regional locale
                     when locale can not be found
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
                 fallback_to_default_locale:
                   description: Indicates whether to fallback to projects default locale
                     when locale can not be found
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
                 use_last_reviewed_version:
                   description: Use last reviewed instead of latest translation in
                     a project
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
               title: distribution/update
               type: object
         required: true
@@ -3488,8 +3499,12 @@ paths:
                   type: string
                 platforms:
                   description: List of platforms the release should support.
-                  example: '["android","ios"]'
-                  type: string
+                  example:
+                  - android
+                  - ios
+                  items:
+                    type: string
+                  type: array
                 branch:
                   description: Branch used for release
                   example: my-feature-branch
@@ -3771,8 +3786,12 @@ paths:
                   type: string
                 platforms:
                   description: List of platforms the release should support.
-                  example: '["android","ios"]'
-                  type: string
+                  example:
+                  - android
+                  - ios
+                  items:
+                    type: string
+                  type: array
                 branch:
                   description: Branch used for release
                   example: my-feature-branch
@@ -4094,16 +4113,22 @@ paths:
                   type: string
                 due_date:
                   description: Date the job should be finished
-                  example: 2017-08-15
+                  format: date-time
                   type: string
                 tags:
                   description: tags of keys that should be included within the job
-                  example: '["myUploadTag"]'
-                  type: string
+                  example:
+                  - myUploadTag
+                  items:
+                    type: string
+                  type: array
                 translation_key_ids:
                   description: ids of keys that should be included within the job
-                  example: '["abcd1234cdef1234abcd1234cdef1234"]'
-                  type: string
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
               title: job/create
               type: object
         required: true
@@ -4429,7 +4454,7 @@ paths:
                   type: string
                 due_date:
                   description: Date the job should be finished
-                  example: 2017-08-15
+                  format: date-time
                   type: string
               title: job/update
               type: object
@@ -4828,8 +4853,11 @@ paths:
                   type: string
                 translation_key_ids:
                   description: ids of keys that should added to the job
-                  example: '["abcd1234cdef1234abcd1234cdef1234"]'
-                  type: string
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
               title: job/keys/delete
               type: object
         required: true
@@ -4926,8 +4954,11 @@ paths:
                   type: string
                 translation_key_ids:
                   description: ids of keys that should added to the job
-                  example: '["abcd1234cdef1234abcd1234cdef1234"]'
-                  type: string
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
               title: job/keys/create
               type: object
         required: true
@@ -5121,8 +5152,12 @@ paths:
                   type: string
                 space_ids:
                   description: List of space ids the glossary should be assigned to.
-                  example: '["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"]'
-                  type: string
+                  example:
+                  - abcd1234abcd1234abcd1234
+                  - abcd1234abcd1234abcd1235
+                  items:
+                    type: string
+                  type: array
               title: glossary/create
               type: object
         required: true
@@ -5381,8 +5416,12 @@ paths:
                   type: string
                 space_ids:
                   description: List of space ids the glossary should be assigned to.
-                  example: '["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"]'
-                  type: string
+                  example:
+                  - abcd1234abcd1234abcd1234
+                  - abcd1234abcd1234abcd1235
+                  items:
+                    type: string
+                  type: array
               title: glossary/update
               type: object
         required: true
@@ -5557,12 +5596,17 @@ paths:
                   type: string
                 scopes:
                   description: A list of scopes that the access can be used for.
-                  example: '["read","write"]'
-                  type: string
+                  example:
+                  - read
+                  - write
+                  items:
+                    type: string
+                  type: array
                 expires_at:
                   description: Expiration date for the authorization token. Null means
                     no expiration date (default).
                   example: 2015-03-30T09:52:53Z
+                  format: date-time
                   type: string
               title: authorization/create
               type: object
@@ -5795,12 +5839,17 @@ paths:
                   type: string
                 scopes:
                   description: A list of scopes that the access can be used for.
-                  example: '["read","write"]'
-                  type: string
+                  example:
+                  - read
+                  - write
+                  items:
+                    type: string
+                  type: array
                 expires_at:
                   description: Expiration date for the authorization token. Null means
                     no expiration date (default).
                   example: 2015-03-30T09:52:53Z
+                  format: date-time
                   type: string
               title: authorization/update
               type: object
@@ -7101,7 +7150,7 @@ paths:
                   type: string
                 active:
                   description: Whether webhook is active or inactive
-                  type: string
+                  type: boolean
               title: webhook/create
               type: object
         required: true
@@ -7364,7 +7413,7 @@ paths:
                   type: string
                 active:
                   description: Whether webhook is active or inactive
-                  type: string
+                  type: boolean
               title: webhook/update
               type: object
         required: true
@@ -7647,7 +7696,7 @@ paths:
                   type: string
                 file:
                   description: File to be imported
-                  example: /path/to/my/file.json
+                  format: binary
                   type: string
                 file_format:
                   description: File format. Auto-detected when possible and not specified.
@@ -7666,23 +7715,23 @@ paths:
                 update_translations:
                   description: Indicates whether existing translations should be updated
                     with the file content.
-                  type: string
+                  type: boolean
                 update_descriptions:
                   description: Existing key descriptions will be updated with the
                     file content. Empty descriptions overwrite existing descriptions.
-                  type: string
+                  type: boolean
                 convert_emoji:
                   description: This option is obsolete. Providing the option will
                     cause a bad request error.
-                  type: string
+                  type: boolean
                 skip_upload_tags:
                   description: Indicates whether the upload should not create upload
                     tags.
-                  type: string
+                  type: boolean
                 skip_unverification:
                   description: Indicates whether the upload should unverify updated
                     translations.
-                  type: string
+                  type: boolean
                 file_encoding:
                   description: Enforces a specific encoding on the file contents.
                     Valid options are "UTF-8", "UTF-16" and "ISO-8859-1".
@@ -7692,21 +7741,21 @@ paths:
                     and the columns the translations to those locales are contained
                     in.
                   example: '{"en": "2"}'
-                  type: string
+                  type: object
                 format_options:
                   description: Additional options available for specific formats.
                     See our format guide for complete list.
                   example: '{"foo": "bar"}'
-                  type: string
+                  type: object
                 autotranslate:
                   description: If set, translations for the uploaded language will
                     be fetched automatically.
-                  type: string
+                  type: boolean
                 mark_reviewed:
                   description: Indicated whether the imported translations should
                     be marked as reviewed. This setting is available if the review
                     workflow (currently beta) is enabled for the project.
-                  type: string
+                  type: boolean
               title: upload/create
               type: object
         required: true
@@ -8168,8 +8217,8 @@ paths:
                   type: string
                 gitlab_project_id:
                   description: ID of the related GitLab Project.
-                  example: "12345"
-                  type: string
+                  example: 12345
+                  type: integer
                 gitlab_branch_name:
                   description: Name of the GitLab Branch.
                   example: feature-development
@@ -9210,15 +9259,15 @@ paths:
                 shares_translation_memory:
                   description: Indicates whether the project should share the account's
                     translation memory
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
                 project_image:
                   description: Image to identify the project
-                  example: /path/to/my/project-screenshot.png
+                  format: binary
                   type: string
                 remove_project_image:
                   description: Indicates whether the project image should be deleted.
-                  type: string
+                  type: boolean
                 account_id:
                   description: Account ID to specify the actual account the project
                     should be created in. Required if the requesting user is a member
@@ -9478,15 +9527,15 @@ paths:
                 shares_translation_memory:
                   description: Indicates whether the project should share the account's
                     translation memory
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
                 project_image:
                   description: Image to identify the project
-                  example: /path/to/my/project-screenshot.png
+                  format: binary
                   type: string
                 remove_project_image:
                   description: Indicates whether the project image should be deleted.
-                  type: string
+                  type: boolean
                 account_id:
                   description: Account ID to specify the actual account the project
                     should be created in. Required if the requesting user is a member
@@ -9722,8 +9771,11 @@ paths:
                   type: string
                 user_ids:
                   description: Array of user ids to be assigned to the job locale
-                  example: '["abcd1234cdef1234abcd1234cdef1234"]'
-                  type: string
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
               title: job_locales/create
               type: object
         required: true
@@ -10038,8 +10090,11 @@ paths:
                   type: string
                 user_ids:
                   description: Array of user ids to be assigned to the job locale
-                  example: '["abcd1234cdef1234abcd1234cdef1234"]'
-                  type: string
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
               title: job_locale/update
               type: object
         required: true
@@ -11471,8 +11526,10 @@ paths:
                 permissions:
                   description: Additional permissions depending on member role. Available
                     permissions are <code>create_upload</code> and <code>review_translations</code>
-                  example: '{"create_upload":true,"review_translations":true}'
-                  type: string
+                  example:
+                    create_upload: true
+                    review_translations: true
+                  type: object
               title: member/update
               type: object
         required: true
@@ -11667,7 +11724,7 @@ paths:
                   type: string
                 filename:
                   description: Screenshot file
-                  example: /path/to/my/screenshot.png
+                  format: binary
                   type: string
               title: screenshot/create
               type: object
@@ -11927,7 +11984,7 @@ paths:
                   type: string
                 filename:
                   description: Screenshot file
-                  example: /path/to/my/screenshot.png
+                  format: binary
                   type: string
               title: screenshot/update
               type: object
@@ -12140,12 +12197,12 @@ paths:
                 translatable:
                   description: Indicates whether the term should be used for all languages
                     or can be translated
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
                 case_sensitive:
                   description: Indicates whether the term is case sensitive
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
               title: glossary_term/create
               type: object
         required: true
@@ -12429,12 +12486,12 @@ paths:
                 translatable:
                   description: Indicates whether the term should be used for all languages
                     or can be translated
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
                 case_sensitive:
                   description: Indicates whether the term is case sensitive
-                  example: "true"
-                  type: string
+                  example: true
+                  type: boolean
               title: glossary_term/update
               type: object
         required: true
@@ -13631,7 +13688,7 @@ paths:
                   type: string
                 plural:
                   description: Indicates whether key supports pluralization
-                  type: string
+                  type: boolean
                 name_plural:
                   description: Plural name for the key (used in some file formats,
                     e.g. Gettext)
@@ -13650,25 +13707,25 @@ paths:
                 max_characters_allowed:
                   description: Max. number of characters translations for this key
                     can have.
-                  example: "140"
-                  type: string
+                  example: 140
+                  type: integer
                 screenshot:
                   description: Screenshot/image for the key. This parameter is deprecated.
                     Please use the Screenshots endpoint instead.
-                  example: /path/to/my/screenshot.png
+                  format: binary
                   type: string
                 remove_screenshot:
                   description: Indicates whether the screenshot will be deleted. This
                     parameter is deprecated. Please use the Screenshots endpoint instead.
-                  type: string
+                  type: boolean
                 unformatted:
                   description: Indicates whether the key should be exported as "unformatted".
                     Supported by Android XML and other formats.
-                  type: string
+                  type: boolean
                 xml_space_preserve:
                   description: Indicates whether the key should be exported with "xml:space=preserve".
                     Supported by several XML-based formats.
-                  type: string
+                  type: boolean
                 original_file:
                   description: Original file attribute. Used in some formats, e.g.
                     XLIFF.
@@ -14157,7 +14214,7 @@ paths:
                   type: string
                 plural:
                   description: Indicates whether key supports pluralization
-                  type: string
+                  type: boolean
                 name_plural:
                   description: Plural name for the key (used in some file formats,
                     e.g. Gettext)
@@ -14176,25 +14233,25 @@ paths:
                 max_characters_allowed:
                   description: Max. number of characters translations for this key
                     can have.
-                  example: "140"
-                  type: string
+                  example: 140
+                  type: integer
                 screenshot:
                   description: Screenshot/image for the key. This parameter is deprecated.
                     Please use the Screenshots endpoint instead.
-                  example: /path/to/my/screenshot.png
+                  format: binary
                   type: string
                 remove_screenshot:
                   description: Indicates whether the screenshot will be deleted. This
                     parameter is deprecated. Please use the Screenshots endpoint instead.
-                  type: string
+                  type: boolean
                 unformatted:
                   description: Indicates whether the key should be exported as "unformatted".
                     Supported by Android XML and other formats.
-                  type: string
+                  type: boolean
                 xml_space_preserve:
                   description: Indicates whether the key should be exported with "xml:space=preserve".
                     Supported by several XML-based formats.
-                  type: string
+                  type: boolean
                 original_file:
                   description: Original file attribute. Used in some formats, e.g.
                     XLIFF.
@@ -14648,8 +14705,12 @@ paths:
                   description: List of target locales you want the source content
                     translate to. Can be the name or public id of the target locales.
                     Preferred is the public id.
-                  example: '["1234abcd1234abcd1234abcd1234abcd","abcd1234abcd1234abcd1234abcd1234"]'
-                  type: string
+                  example:
+                  - 1234abcd1234abcd1234abcd1234abcd
+                  - abcd1234abcd1234abcd1234abcd1234
+                  items:
+                    type: string
+                  type: array
                 translation_type:
                   description: 'Name of the quality level, availability depends on
                     the LSP. Can be one of:  standard, pro (for orders processed by
@@ -14671,15 +14732,15 @@ paths:
                   type: string
                 unverify_translations_upon_delivery:
                   description: Unverify translations upon delivery.
-                  type: string
+                  type: boolean
                 include_untranslated_keys:
                   description: Order translations for keys with untranslated content
                     in the selected target locales.
-                  type: string
+                  type: boolean
                 include_unverified_translations:
                   description: Order translations for keys with unverified content
                     in the selected target locales.
-                  type: string
+                  type: boolean
                 category:
                   description: Category to use (required for orders processed by TextMaster).
                   example: C021
@@ -14687,12 +14748,12 @@ paths:
                 quality:
                   description: Extra proofreading option to ensure consistency in
                     vocabulary and style. Only available for orders processed by TextMaster.
-                  type: string
+                  type: boolean
                 priority:
                   description: Indicates whether the priority option should be ordered
                     which decreases turnaround time by 30%. Available only for orders
                     processed by TextMaster.
-                  type: string
+                  type: boolean
               title: order/create
               type: object
         required: true
@@ -15940,16 +16001,16 @@ paths:
                   description: Indicates whether translation is unverified. Part of
                     the <a href="https://help.phrase.com/help/verification-and-proofreading"
                     target="_blank">Advanced Workflows</a> feature.
-                  type: string
+                  type: boolean
                 excluded:
                   description: Indicates whether translation is excluded.
-                  type: string
+                  type: boolean
                 autotranslate:
                   description: Indicates whether the translation should be auto-translated.
                     Responses with status 422 if provided for translation within a
                     non-default locale or the project does not have the Autopilot
                     feature enabled.
-                  type: string
+                  type: boolean
               title: translation/create
               type: object
         required: true
@@ -16573,16 +16634,16 @@ paths:
                   description: Indicates whether translation is unverified. Part of
                     the <a href="https://help.phrase.com/help/verification-and-proofreading"
                     target="_blank">Advanced Workflows</a> feature.
-                  type: string
+                  type: boolean
                 excluded:
                   description: Indicates whether translation is excluded.
-                  type: string
+                  type: boolean
                 autotranslate:
                   description: Indicates whether the translation should be auto-translated.
                     Responses with status 422 if provided for translation within a
                     non-default locale or the project does not have the Autopilot
                     feature enabled.
-                  type: string
+                  type: boolean
               title: translation/update
               type: object
         required: true
@@ -18897,8 +18958,10 @@ components:
         permissions:
           description: Additional permissions depending on invitation role. Available
             permissions are <code>create_upload</code> and <code>review_translations</code>
-          example: '{"create_upload":true,"review_translations":true}'
-          type: string
+          example:
+            create_upload: true
+            review_translations: true
+          type: object
       title: invitation/create
       type: object
     invitation:
@@ -18948,8 +19011,9 @@ components:
           type: string
         permissions:
           description: Additional permissions depending on invitation role.
-          example: '{"create_upload":true}'
-          type: string
+          example:
+            create_upload: true
+          type: object
       title: invitation/update
       type: object
     screenshot_marker_create:
@@ -19058,15 +19122,15 @@ components:
         default:
           description: Indicates whether locale is the default locale. If set to true,
             the previous default locale the project is no longer the default locale.
-          type: string
+          type: boolean
         main:
           description: Indicates whether locale is a main locale. Main locales are
             part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
             target="_blank">Verification System</a> feature.
-          type: string
+          type: boolean
         rtl:
           description: Indicates whether locale is a RTL (Right-to-Left) locale.
-          type: string
+          type: boolean
         source_locale_id:
           description: Source locale. Can be the name or public id of the locale.
             Preferred is the public id.
@@ -19076,16 +19140,16 @@ components:
           description: Indicates that new translations for this locale should be marked
             as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
             target="_blank">Advanced Workflows</a> feature.
-          type: string
+          type: boolean
         unverify_updated_translations:
           description: Indicates that updated translations for this locale should
             be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
             target="_blank">Advanced Workflows</a> feature.
-          type: string
+          type: boolean
         autotranslate:
           description: If set, translations for this locale will be fetched automatically,
             right after creation.
-          type: string
+          type: boolean
       title: locale/create
       type: object
     locale_show:
@@ -19121,15 +19185,15 @@ components:
         default:
           description: Indicates whether locale is the default locale. If set to true,
             the previous default locale the project is no longer the default locale.
-          type: string
+          type: boolean
         main:
           description: Indicates whether locale is a main locale. Main locales are
             part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
             target="_blank">Verification System</a> feature.
-          type: string
+          type: boolean
         rtl:
           description: Indicates whether locale is a RTL (Right-to-Left) locale.
-          type: string
+          type: boolean
         source_locale_id:
           description: Source locale. Can be the name or public id of the locale.
             Preferred is the public id.
@@ -19139,16 +19203,16 @@ components:
           description: Indicates that new translations for this locale should be marked
             as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
             target="_blank">Advanced Workflows</a> feature.
-          type: string
+          type: boolean
         unverify_updated_translations:
           description: Indicates that updated translations for this locale should
             be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
             target="_blank">Advanced Workflows</a> feature.
-          type: string
+          type: boolean
         autotranslate:
           description: If set, translations for this locale will be fetched automatically,
             right after creation.
-          type: string
+          type: boolean
       title: locale/update
       type: object
     locale_download:
@@ -19175,24 +19239,24 @@ components:
         include_empty_translations:
           description: Indicates whether keys without translations should be included
             in the output as well.
-          type: string
+          type: boolean
         include_translated_keys:
           description: Include translated keys in the locale file. Use in combination
             with include_empty_translations to obtain only untranslated keys.
-          type: string
+          type: boolean
         keep_notranslate_tags:
           description: Indicates whether [NOTRANSLATE] tags should be kept.
-          type: string
+          type: boolean
         convert_emoji:
           description: This option is obsolete. Projects that were created on or after
             Nov 29th 2019 or that did not contain emoji by then will not require this
             flag any longer since emoji are now supported natively.
-          type: string
+          type: boolean
         format_options:
           description: 'Additional formatting and render options. See the <a href="https://help.phrase.com/help/supported-platforms-and-formats">format
             guide</a> for a list of options available for each format. Specify format
             options like this: <code>...&format_options[foo]=bar</code>'
-          type: string
+          type: object
         encoding:
           description: Enforces a specific encoding on the file contents. Valid options
             are "UTF-8", "UTF-16" and "ISO-8859-1".
@@ -19201,15 +19265,15 @@ components:
           description: Indicates whether the locale file should skip all unverified
             translations. This parameter is deprecated and should be replaced with
             <code>include_unverified_translations</code>.
-          type: string
+          type: boolean
         include_unverified_translations:
           description: if set to false unverified translations are excluded
-          type: string
+          type: boolean
         use_last_reviewed_version:
           description: If set to true the last reviewed version of a translation is
             used. This is only available if the review workflow (currently in beta)
             is enabled for the project.
-          type: string
+          type: boolean
         fallback_locale_id:
           description: If a key has no translation in the locale being downloaded
             the translation in the fallback locale will be used. Provide the public
@@ -19252,27 +19316,31 @@ components:
           type: string
         platforms:
           description: List of platforms the distribution should support.
-          example: '["android","ios"]'
-          type: string
+          example:
+          - android
+          - ios
+          items:
+            type: string
+          type: array
         format_options:
           description: Additional formatting and render options. Only <code>enclose_in_cdata</code>
             is available for platform <code>android</code>.
           example: '{xml:{enclose_in_cdata:''1''}}'
-          type: string
+          type: object
         fallback_to_non_regional_locale:
           description: Indicates whether to fallback to non regional locale when locale
             can not be found
-          example: "true"
-          type: string
+          example: true
+          type: boolean
         fallback_to_default_locale:
           description: Indicates whether to fallback to projects default locale when
             locale can not be found
-          example: "true"
-          type: string
+          example: true
+          type: boolean
         use_last_reviewed_version:
           description: Use last reviewed instead of latest translation in a project
-          example: "true"
-          type: string
+          example: true
+          type: boolean
       title: distribution/create
       type: object
     project_short:
@@ -19327,27 +19395,31 @@ components:
           type: string
         platforms:
           description: List of platforms the distribution should support.
-          example: '["android","ios"]'
-          type: string
+          example:
+          - android
+          - ios
+          items:
+            type: string
+          type: array
         format_options:
           description: Additional formatting and render options. Only <code>enclose_in_cdata</code>
             is available for platform <code>android</code>.
           example: '{xml:{enclose_in_cdata:''1''}}'
-          type: string
+          type: object
         fallback_to_non_regional_locale:
           description: Indicates whether to fallback to non regional locale when locale
             can not be found
-          example: "true"
-          type: string
+          example: true
+          type: boolean
         fallback_to_default_locale:
           description: Indicates whether to fallback to projects default locale when
             locale can not be found
-          example: "true"
-          type: string
+          example: true
+          type: boolean
         use_last_reviewed_version:
           description: Use last reviewed instead of latest translation in a project
-          example: "true"
-          type: string
+          example: true
+          type: boolean
       title: distribution/update
       type: object
     release_preview:
@@ -19392,8 +19464,12 @@ components:
           type: string
         platforms:
           description: List of platforms the release should support.
-          example: '["android","ios"]'
-          type: string
+          example:
+          - android
+          - ios
+          items:
+            type: string
+          type: array
         branch:
           description: Branch used for release
           example: my-feature-branch
@@ -19442,8 +19518,12 @@ components:
           type: string
         platforms:
           description: List of platforms the release should support.
-          example: '["android","ios"]'
-          type: string
+          example:
+          - android
+          - ios
+          items:
+            type: string
+          type: array
         branch:
           description: Branch used for release
           example: my-feature-branch
@@ -19508,16 +19588,22 @@ components:
           type: string
         due_date:
           description: Date the job should be finished
-          example: 2017-08-15
+          format: date-time
           type: string
         tags:
           description: tags of keys that should be included within the job
-          example: '["myUploadTag"]'
-          type: string
+          example:
+          - myUploadTag
+          items:
+            type: string
+          type: array
         translation_key_ids:
           description: ids of keys that should be included within the job
-          example: '["abcd1234cdef1234abcd1234cdef1234"]'
-          type: string
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
       title: job/create
       type: object
     job_show:
@@ -19552,7 +19638,7 @@ components:
           type: string
         due_date:
           description: Date the job should be finished
-          example: 2017-08-15
+          format: date-time
           type: string
       title: job/update
       type: object
@@ -19588,8 +19674,11 @@ components:
           type: string
         translation_key_ids:
           description: ids of keys that should added to the job
-          example: '["abcd1234cdef1234abcd1234cdef1234"]'
-          type: string
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
       title: job/keys/create
       type: object
     job_keys_delete:
@@ -19600,8 +19689,11 @@ components:
           type: string
         translation_key_ids:
           description: ids of keys that should added to the job
-          example: '["abcd1234cdef1234abcd1234cdef1234"]'
-          type: string
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
       title: job/keys/delete
       type: object
     glossary_create:
@@ -19616,8 +19708,12 @@ components:
           type: string
         space_ids:
           description: List of space ids the glossary should be assigned to.
-          example: '["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"]'
-          type: string
+          example:
+          - abcd1234abcd1234abcd1234
+          - abcd1234abcd1234abcd1235
+          items:
+            type: string
+          type: array
       title: glossary/create
       type: object
     glossary:
@@ -19651,8 +19747,12 @@ components:
           type: string
         space_ids:
           description: List of space ids the glossary should be assigned to.
-          example: '["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"]'
-          type: string
+          example:
+          - abcd1234abcd1234abcd1234
+          - abcd1234abcd1234abcd1235
+          items:
+            type: string
+          type: array
       title: glossary/update
       type: object
     authorization_create:
@@ -19663,12 +19763,17 @@ components:
           type: string
         scopes:
           description: A list of scopes that the access can be used for.
-          example: '["read","write"]'
-          type: string
+          example:
+          - read
+          - write
+          items:
+            type: string
+          type: array
         expires_at:
           description: Expiration date for the authorization token. Null means no
             expiration date (default).
           example: 2015-03-30T09:52:53Z
+          format: date-time
           type: string
       title: authorization/create
       type: object
@@ -19704,12 +19809,17 @@ components:
           type: string
         scopes:
           description: A list of scopes that the access can be used for.
-          example: '["read","write"]'
-          type: string
+          example:
+          - read
+          - write
+          items:
+            type: string
+          type: array
         expires_at:
           description: Expiration date for the authorization token. Null means no
             expiration date (default).
           example: 2015-03-30T09:52:53Z
+          format: date-time
           type: string
       title: authorization/update
       type: object
@@ -19872,7 +19982,7 @@ components:
           type: string
         active:
           description: Whether webhook is active or inactive
-          type: string
+          type: boolean
       title: webhook/create
       type: object
     webhook:
@@ -19913,7 +20023,7 @@ components:
           type: string
         active:
           description: Whether webhook is active or inactive
-          type: string
+          type: boolean
       title: webhook/update
       type: object
     uploads_list:
@@ -19932,7 +20042,7 @@ components:
           type: string
         file:
           description: File to be imported
-          example: /path/to/my/file.json
+          format: binary
           type: string
         file_format:
           description: File format. Auto-detected when possible and not specified.
@@ -19951,21 +20061,21 @@ components:
         update_translations:
           description: Indicates whether existing translations should be updated with
             the file content.
-          type: string
+          type: boolean
         update_descriptions:
           description: Existing key descriptions will be updated with the file content.
             Empty descriptions overwrite existing descriptions.
-          type: string
+          type: boolean
         convert_emoji:
           description: This option is obsolete. Providing the option will cause a
             bad request error.
-          type: string
+          type: boolean
         skip_upload_tags:
           description: Indicates whether the upload should not create upload tags.
-          type: string
+          type: boolean
         skip_unverification:
           description: Indicates whether the upload should unverify updated translations.
-          type: string
+          type: boolean
         file_encoding:
           description: Enforces a specific encoding on the file contents. Valid options
             are "UTF-8", "UTF-16" and "ISO-8859-1".
@@ -19974,21 +20084,21 @@ components:
           description: Optional, format specific mapping between locale names and
             the columns the translations to those locales are contained in.
           example: '{"en": "2"}'
-          type: string
+          type: object
         format_options:
           description: Additional options available for specific formats. See our
             format guide for complete list.
           example: '{"foo": "bar"}'
-          type: string
+          type: object
         autotranslate:
           description: If set, translations for the uploaded language will be fetched
             automatically.
-          type: string
+          type: boolean
         mark_reviewed:
           description: Indicated whether the imported translations should be marked
             as reviewed. This setting is available if the review workflow (currently
             beta) is enabled for the project.
-          type: string
+          type: boolean
       title: upload/create
       type: object
     upload_show:
@@ -20099,8 +20209,8 @@ components:
           type: string
         gitlab_project_id:
           description: ID of the related GitLab Project.
-          example: "12345"
-          type: string
+          example: 12345
+          type: integer
         gitlab_branch_name:
           description: Name of the GitLab Branch.
           example: feature-development
@@ -20264,15 +20374,15 @@ components:
         shares_translation_memory:
           description: Indicates whether the project should share the account's translation
             memory
-          example: "true"
-          type: string
+          example: true
+          type: boolean
         project_image:
           description: Image to identify the project
-          example: /path/to/my/project-screenshot.png
+          format: binary
           type: string
         remove_project_image:
           description: Indicates whether the project image should be deleted.
-          type: string
+          type: boolean
         account_id:
           description: Account ID to specify the actual account the project should
             be created in. Required if the requesting user is a member of multiple
@@ -20297,15 +20407,15 @@ components:
         shares_translation_memory:
           description: Indicates whether the project should share the account's translation
             memory
-          example: "true"
-          type: string
+          example: true
+          type: boolean
         project_image:
           description: Image to identify the project
-          example: /path/to/my/project-screenshot.png
+          format: binary
           type: string
         remove_project_image:
           description: Indicates whether the project image should be deleted.
-          type: string
+          type: boolean
         account_id:
           description: Account ID to specify the actual account the project should
             be created in. Required if the requesting user is a member of multiple
@@ -20334,8 +20444,11 @@ components:
           type: string
         user_ids:
           description: Array of user ids to be assigned to the job locale
-          example: '["abcd1234cdef1234abcd1234cdef1234"]'
-          type: string
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
       title: job_locales/create
       type: object
     job_locale_show:
@@ -20389,8 +20502,11 @@ components:
           type: string
         user_ids:
           description: Array of user ids to be assigned to the job locale
-          example: '["abcd1234cdef1234abcd1234cdef1234"]'
-          type: string
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
       title: job_locale/update
       type: object
     job_locale_complete:
@@ -20537,8 +20653,10 @@ components:
         permissions:
           description: Additional permissions depending on member role. Available
             permissions are <code>create_upload</code> and <code>review_translations</code>
-          example: '{"create_upload":true,"review_translations":true}'
-          type: string
+          example:
+            create_upload: true
+            review_translations: true
+          type: object
       title: member/update
       type: object
     screenshot_create:
@@ -20553,7 +20671,7 @@ components:
           type: string
         filename:
           description: Screenshot file
-          example: /path/to/my/screenshot.png
+          format: binary
           type: string
       title: screenshot/create
       type: object
@@ -20589,7 +20707,7 @@ components:
           type: string
         filename:
           description: Screenshot file
-          example: /path/to/my/screenshot.png
+          format: binary
           type: string
       title: screenshot/update
       type: object
@@ -20606,12 +20724,12 @@ components:
         translatable:
           description: Indicates whether the term should be used for all languages
             or can be translated
-          example: "true"
-          type: string
+          example: true
+          type: boolean
         case_sensitive:
           description: Indicates whether the term is case sensitive
-          example: "true"
-          type: string
+          example: true
+          type: boolean
       title: glossary_term/create
       type: object
     glossary_term:
@@ -20651,12 +20769,12 @@ components:
         translatable:
           description: Indicates whether the term should be used for all languages
             or can be translated
-          example: "true"
-          type: string
+          example: true
+          type: boolean
         case_sensitive:
           description: Indicates whether the term is case sensitive
-          example: "true"
-          type: string
+          example: true
+          type: boolean
       title: glossary_term/update
       type: object
     tags_list:
@@ -20805,7 +20923,7 @@ components:
           type: string
         plural:
           description: Indicates whether key supports pluralization
-          type: string
+          type: boolean
         name_plural:
           description: Plural name for the key (used in some file formats, e.g. Gettext)
           example: home.index.headlines
@@ -20821,25 +20939,25 @@ components:
           type: string
         max_characters_allowed:
           description: Max. number of characters translations for this key can have.
-          example: "140"
-          type: string
+          example: 140
+          type: integer
         screenshot:
           description: Screenshot/image for the key. This parameter is deprecated.
             Please use the Screenshots endpoint instead.
-          example: /path/to/my/screenshot.png
+          format: binary
           type: string
         remove_screenshot:
           description: Indicates whether the screenshot will be deleted. This parameter
             is deprecated. Please use the Screenshots endpoint instead.
-          type: string
+          type: boolean
         unformatted:
           description: Indicates whether the key should be exported as "unformatted".
             Supported by Android XML and other formats.
-          type: string
+          type: boolean
         xml_space_preserve:
           description: Indicates whether the key should be exported with "xml:space=preserve".
             Supported by several XML-based formats.
-          type: string
+          type: boolean
         original_file:
           description: Original file attribute. Used in some formats, e.g. XLIFF.
           type: string
@@ -20933,7 +21051,7 @@ components:
           type: string
         plural:
           description: Indicates whether key supports pluralization
-          type: string
+          type: boolean
         name_plural:
           description: Plural name for the key (used in some file formats, e.g. Gettext)
           example: home.index.headlines
@@ -20949,25 +21067,25 @@ components:
           type: string
         max_characters_allowed:
           description: Max. number of characters translations for this key can have.
-          example: "140"
-          type: string
+          example: 140
+          type: integer
         screenshot:
           description: Screenshot/image for the key. This parameter is deprecated.
             Please use the Screenshots endpoint instead.
-          example: /path/to/my/screenshot.png
+          format: binary
           type: string
         remove_screenshot:
           description: Indicates whether the screenshot will be deleted. This parameter
             is deprecated. Please use the Screenshots endpoint instead.
-          type: string
+          type: boolean
         unformatted:
           description: Indicates whether the key should be exported as "unformatted".
             Supported by Android XML and other formats.
-          type: string
+          type: boolean
         xml_space_preserve:
           description: Indicates whether the key should be exported with "xml:space=preserve".
             Supported by several XML-based formats.
-          type: string
+          type: boolean
         original_file:
           description: Original file attribute. Used in some formats, e.g. XLIFF.
           type: string
@@ -21053,8 +21171,12 @@ components:
           description: List of target locales you want the source content translate
             to. Can be the name or public id of the target locales. Preferred is the
             public id.
-          example: '["1234abcd1234abcd1234abcd1234abcd","abcd1234abcd1234abcd1234abcd1234"]'
-          type: string
+          example:
+          - 1234abcd1234abcd1234abcd1234abcd
+          - abcd1234abcd1234abcd1234abcd1234
+          items:
+            type: string
+          type: array
         translation_type:
           description: 'Name of the quality level, availability depends on the LSP.
             Can be one of:  standard, pro (for orders processed by Gengo) and one
@@ -21075,15 +21197,15 @@ components:
           type: string
         unverify_translations_upon_delivery:
           description: Unverify translations upon delivery.
-          type: string
+          type: boolean
         include_untranslated_keys:
           description: Order translations for keys with untranslated content in the
             selected target locales.
-          type: string
+          type: boolean
         include_unverified_translations:
           description: Order translations for keys with unverified content in the
             selected target locales.
-          type: string
+          type: boolean
         category:
           description: Category to use (required for orders processed by TextMaster).
           example: C021
@@ -21091,12 +21213,12 @@ components:
         quality:
           description: Extra proofreading option to ensure consistency in vocabulary
             and style. Only available for orders processed by TextMaster.
-          type: string
+          type: boolean
         priority:
           description: Indicates whether the priority option should be ordered which
             decreases turnaround time by 30%. Available only for orders processed
             by TextMaster.
-          type: string
+          type: boolean
       title: order/create
       type: object
     order_show:
@@ -21290,15 +21412,15 @@ components:
           description: Indicates whether translation is unverified. Part of the <a
             href="https://help.phrase.com/help/verification-and-proofreading" target="_blank">Advanced
             Workflows</a> feature.
-          type: string
+          type: boolean
         excluded:
           description: Indicates whether translation is excluded.
-          type: string
+          type: boolean
         autotranslate:
           description: Indicates whether the translation should be auto-translated.
             Responses with status 422 if provided for translation within a non-default
             locale or the project does not have the Autopilot feature enabled.
-          type: string
+          type: boolean
       title: translation/create
       type: object
     translations_by_locale:
@@ -21387,15 +21509,15 @@ components:
           description: Indicates whether translation is unverified. Part of the <a
             href="https://help.phrase.com/help/verification-and-proofreading" target="_blank">Advanced
             Workflows</a> feature.
-          type: string
+          type: boolean
         excluded:
           description: Indicates whether translation is excluded.
-          type: string
+          type: boolean
         autotranslate:
           description: Indicates whether the translation should be auto-translated.
             Responses with status 422 if provided for translation within a non-default
             locale or the project does not have the Autopilot feature enabled.
-          type: string
+          type: boolean
       title: translation/update
       type: object
     translation_verify:

@@ -8,5 +8,5 @@ type MemberUpdate struct {
 	// List of locale ids the user has access to.
 	LocaleIds string `json:"locale_ids,omitempty"`
 	// Additional permissions depending on member role. Available permissions are <code>create_upload</code> and <code>review_translations</code>
-	Permissions string `json:"permissions,omitempty"`
+	Permissions map[string]interface{} `json:"permissions,omitempty"`
 }

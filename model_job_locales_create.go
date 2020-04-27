@@ -6,5 +6,5 @@ type JobLocalesCreate struct {
 	// locale id
 	LocaleId string `json:"locale_id,omitempty"`
 	// Array of user ids to be assigned to the job locale
-	UserIds string `json:"user_ids,omitempty"`
+	UserIds []string `json:"user_ids,omitempty"`
 }

@@ -1,4 +1,7 @@
 package phrase
+import (
+	"os"
+)
 // ScreenshotUpdate struct for ScreenshotUpdate
 type ScreenshotUpdate struct {
 	// Name of the screenshot
@@ -6,5 +9,5 @@ type ScreenshotUpdate struct {
 	// Description of the screenshot
 	Description string `json:"description,omitempty"`
 	// Screenshot file
-	Filename string `json:"filename,omitempty"`
+	Filename *os.File `json:"filename,omitempty"`
 }

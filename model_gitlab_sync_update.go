@@ -6,7 +6,7 @@ type GitlabSyncUpdate struct {
 	// Code of the related Phrase Project.
 	PhraseProjectCode string `json:"phrase_project_code,omitempty"`
 	// ID of the related GitLab Project.
-	GitlabProjectId string `json:"gitlab_project_id,omitempty"`
+	GitlabProjectId int32 `json:"gitlab_project_id,omitempty"`
 	// Name of the GitLab Branch.
 	GitlabBranchName string `json:"gitlab_branch_name,omitempty"`
 }
