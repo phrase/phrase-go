@@ -358,16 +358,16 @@ Import translations from GitLab to Phrase according to the .phraseapp.yml file w
  * @param gitlabSyncImportParameters
  * @param optional nil or *GitlabSyncImportOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return []map[string]interface{}
+@return []Upload
 */
-func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSyncId string, gitlabSyncImportParameters GitlabSyncImportParameters, localVarOptionals *GitlabSyncImportOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSyncId string, gitlabSyncImportParameters GitlabSyncImportParameters, localVarOptionals *GitlabSyncImportOpts) ([]Upload, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Upload
 	)
 
 	// create path and map variables
@@ -434,7 +434,7 @@ func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSync
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Upload
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -470,16 +470,16 @@ List all GitLab Sync Settings for which synchronisation with Phrase and GitLab i
  * @param gitlabSyncListParameters
  * @param optional nil or *GitlabSyncListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return []map[string]interface{}
+@return []GitlabSync
 */
-func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncListParameters GitlabSyncListParameters, localVarOptionals *GitlabSyncListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncListParameters GitlabSyncListParameters, localVarOptionals *GitlabSyncListOpts) ([]GitlabSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []GitlabSync
 	)
 
 	// create path and map variables
@@ -544,7 +544,7 @@ func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncLi
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []GitlabSync
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -694,16 +694,16 @@ Updates a single GitLab Sync Setting.
  * @param gitlabSyncUpdateParameters
  * @param optional nil or *GitlabSyncUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return GitlabSync
 */
-func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string, gitlabSyncUpdateParameters GitlabSyncUpdateParameters, localVarOptionals *GitlabSyncUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string, gitlabSyncUpdateParameters GitlabSyncUpdateParameters, localVarOptionals *GitlabSyncUpdateOpts) (GitlabSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  GitlabSync
 	)
 
 	// create path and map variables
@@ -770,7 +770,7 @@ func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v GitlabSync
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

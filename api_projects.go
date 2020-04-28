@@ -207,16 +207,16 @@ Get details on a single project.
  * @param id ID
  * @param optional nil or *ProjectShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return Project
+@return ProjectDetails
 */
-func (a *ProjectsApiService) ProjectShow(ctx _context.Context, id string, localVarOptionals *ProjectShowOpts) (Project, *APIResponse, error) {
+func (a *ProjectsApiService) ProjectShow(ctx _context.Context, id string, localVarOptionals *ProjectShowOpts) (ProjectDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Project
+		localVarReturnValue  ProjectDetails
 	)
 
 	// create path and map variables
@@ -281,7 +281,7 @@ func (a *ProjectsApiService) ProjectShow(ctx _context.Context, id string, localV
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v Project
+			var v ProjectDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -318,16 +318,16 @@ Update an existing project.
  * @param projectUpdateParameters
  * @param optional nil or *ProjectUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return ProjectDetails
 */
-func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, projectUpdateParameters ProjectUpdateParameters, localVarOptionals *ProjectUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, projectUpdateParameters ProjectUpdateParameters, localVarOptionals *ProjectUpdateOpts) (ProjectDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  ProjectDetails
 	)
 
 	// create path and map variables
@@ -394,7 +394,7 @@ func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, proj
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v ProjectDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

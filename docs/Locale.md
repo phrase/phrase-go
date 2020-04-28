@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Main** | **bool** |  | [optional] 
 **Rtl** | **bool** |  | [optional] 
 **PluralForms** | **[]string** |  | [optional] 
-**SourceLocale** | [**map[string]interface{}**](object.md) |  | [optional] 
+**SourceLocale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

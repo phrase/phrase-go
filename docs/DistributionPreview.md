@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
-**Project** | [**map[string]interface{}**](object.md) |  | [optional] 
+**Project** | [**ProjectShort**](project_short.md) |  | [optional] 
 **Platforms** | **[]string** |  | [optional] 
 **ReleaseCount** | **int32** |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 

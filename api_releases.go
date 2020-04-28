@@ -221,16 +221,16 @@ Publish a release for production.
  * @param id ID
  * @param optional nil or *ReleasePublishOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Release
 */
-func (a *ReleasesApiService) ReleasePublish(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleasePublishOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *ReleasesApiService) ReleasePublish(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleasePublishOpts) (Release, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Release
 	)
 
 	// create path and map variables
@@ -299,7 +299,7 @@ func (a *ReleasesApiService) ReleasePublish(ctx _context.Context, accountId stri
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Release
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -454,16 +454,16 @@ Update an existing release.
  * @param releaseUpdateParameters
  * @param optional nil or *ReleaseUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Release
 */
-func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId string, distributionId string, id string, releaseUpdateParameters ReleaseUpdateParameters, localVarOptionals *ReleaseUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId string, distributionId string, id string, releaseUpdateParameters ReleaseUpdateParameters, localVarOptionals *ReleaseUpdateOpts) (Release, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Release
 	)
 
 	// create path and map variables
@@ -534,7 +534,7 @@ func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId strin
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Release
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

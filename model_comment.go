@@ -6,7 +6,7 @@ import (
 type Comment struct {
 	Id string `json:"id,omitempty"`
 	Message string `json:"message,omitempty"`
-	User map[string]interface{} `json:"user,omitempty"`
+	User UserPreview `json:"user,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 }

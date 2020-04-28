@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## JobComplete
 
-> map[string]interface{} JobComplete(ctx, projectId, id, jobCompleteParameters, optional)
+> JobDetails JobComplete(ctx, projectId, id, jobCompleteParameters, optional)
 
 Complete a job
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobDetails**](job_details.md)
 
 ### Authorization
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ## JobKeysCreate
 
-> map[string]interface{} JobKeysCreate(ctx, projectId, id, jobKeysCreateParameters, optional)
+> JobDetails JobKeysCreate(ctx, projectId, id, jobKeysCreateParameters, optional)
 
 Add keys to job
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobDetails**](job_details.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ## JobReopen
 
-> map[string]interface{} JobReopen(ctx, projectId, id, jobReopenParameters, optional)
+> JobDetails JobReopen(ctx, projectId, id, jobReopenParameters, optional)
 
 Reopen a job
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobDetails**](job_details.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ## JobShow
 
-> map[string]interface{} JobShow(ctx, projectId, id, jobShowParameters, optional)
+> JobDetails JobShow(ctx, projectId, id, jobShowParameters, optional)
 
 Get a single job
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**JobDetails**](job_details.md)
 
 ### Authorization
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ## JobStart
 
-> map[string]interface{} JobStart(ctx, projectId, id, jobStartParameters, optional)
+> JobDetails JobStart(ctx, projectId, id, jobStartParameters, optional)
 
 Start a job
 
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobDetails**](job_details.md)
 
 ### Authorization
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 ## JobUpdate
 
-> map[string]interface{} JobUpdate(ctx, projectId, id, jobUpdateParameters, optional)
+> JobDetails JobUpdate(ctx, projectId, id, jobUpdateParameters, optional)
 
 Update a job
 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobDetails**](job_details.md)
 
 ### Authorization
 

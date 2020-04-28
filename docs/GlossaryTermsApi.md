@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ## GlossaryTermUpdate
 
-> map[string]interface{} GlossaryTermUpdate(ctx, accountId, glossaryId, id, glossaryTermUpdateParameters, optional)
+> GlossaryTerm GlossaryTermUpdate(ctx, accountId, glossaryId, id, glossaryTermUpdateParameters, optional)
 
 Update a glossary term
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**GlossaryTerm**](glossary_term.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ## GlossaryTermsList
 
-> []map[string]interface{} GlossaryTermsList(ctx, accountId, glossaryId, optional)
+> []GlossaryTerm GlossaryTermsList(ctx, accountId, glossaryId, optional)
 
 List glossary terms
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]GlossaryTerm**](glossary_term.md)
 
 ### Authorization
 

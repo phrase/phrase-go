@@ -9,5 +9,5 @@ type ScreenshotMarker struct {
 	PresentationType string `json:"presentation_type,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
-	TranslationKey map[string]interface{} `json:"translation_key,omitempty"`
+	TranslationKey TranslationKey `json:"translation_key,omitempty"`
 }

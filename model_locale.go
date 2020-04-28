@@ -11,7 +11,7 @@ type Locale struct {
 	Main bool `json:"main,omitempty"`
 	Rtl bool `json:"rtl,omitempty"`
 	PluralForms []string `json:"plural_forms,omitempty"`
-	SourceLocale map[string]interface{} `json:"source_locale,omitempty"`
+	SourceLocale LocalePreview `json:"source_locale,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 }

@@ -214,16 +214,16 @@ Get details on a single style guide.
  * @param id ID
  * @param optional nil or *StyleguideShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return StyleguideDetails
 */
-func (a *StyleGuidesApiService) StyleguideShow(ctx _context.Context, projectId string, id string, localVarOptionals *StyleguideShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *StyleGuidesApiService) StyleguideShow(ctx _context.Context, projectId string, id string, localVarOptionals *StyleguideShowOpts) (StyleguideDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  StyleguideDetails
 	)
 
 	// create path and map variables
@@ -290,7 +290,7 @@ func (a *StyleGuidesApiService) StyleguideShow(ctx _context.Context, projectId s
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v StyleguideDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -328,16 +328,16 @@ Update an existing style guide.
  * @param styleguideUpdateParameters
  * @param optional nil or *StyleguideUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return StyleguideDetails
 */
-func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId string, id string, styleguideUpdateParameters StyleguideUpdateParameters, localVarOptionals *StyleguideUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId string, id string, styleguideUpdateParameters StyleguideUpdateParameters, localVarOptionals *StyleguideUpdateOpts) (StyleguideDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  StyleguideDetails
 	)
 
 	// create path and map variables
@@ -406,7 +406,7 @@ func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v StyleguideDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

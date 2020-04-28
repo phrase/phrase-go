@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## TranslationExclude
 
-> map[string]interface{} TranslationExclude(ctx, projectId, id, translationExcludeParameters, optional)
+> TranslationDetails TranslationExclude(ctx, projectId, id, translationExcludeParameters, optional)
 
 Exclude a translation from export
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**TranslationDetails**](translation_details.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ## TranslationInclude
 
-> map[string]interface{} TranslationInclude(ctx, projectId, id, translationIncludeParameters, optional)
+> TranslationDetails TranslationInclude(ctx, projectId, id, translationIncludeParameters, optional)
 
 Revoke exclusion of a translation in export
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**TranslationDetails**](translation_details.md)
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ## TranslationReview
 
-> map[string]interface{} TranslationReview(ctx, projectId, id, translationReviewParameters, optional)
+> TranslationDetails TranslationReview(ctx, projectId, id, translationReviewParameters, optional)
 
 Review a translation
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**TranslationDetails**](translation_details.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ## TranslationShow
 
-> map[string]interface{} TranslationShow(ctx, projectId, id, translationShowParameters, optional)
+> TranslationDetails TranslationShow(ctx, projectId, id, translationShowParameters, optional)
 
 Get a single translation
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**TranslationDetails**](translation_details.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ## TranslationUnverify
 
-> map[string]interface{} TranslationUnverify(ctx, projectId, id, translationUnverifyParameters, optional)
+> TranslationDetails TranslationUnverify(ctx, projectId, id, translationUnverifyParameters, optional)
 
 Mark a translation as unverified
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**TranslationDetails**](translation_details.md)
 
 ### Authorization
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ## TranslationUpdate
 
-> map[string]interface{} TranslationUpdate(ctx, projectId, id, translationUpdateParameters, optional)
+> TranslationDetails TranslationUpdate(ctx, projectId, id, translationUpdateParameters, optional)
 
 Update a translation
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**TranslationDetails**](translation_details.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ## TranslationVerify
 
-> map[string]interface{} TranslationVerify(ctx, projectId, id, translationVerifyParameters, optional)
+> TranslationDetails TranslationVerify(ctx, projectId, id, translationVerifyParameters, optional)
 
 Verify a translation
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**TranslationDetails**](translation_details.md)
 
 ### Authorization
 
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsByKey
 
-> []map[string]interface{} TranslationsByKey(ctx, projectId, keyId, translationsByKeyParameters, optional)
+> []Translation TranslationsByKey(ctx, projectId, keyId, translationsByKeyParameters, optional)
 
 List translations by key
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Translation**](translation.md)
 
 ### Authorization
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsByLocale
 
-> []map[string]interface{} TranslationsByLocale(ctx, projectId, localeId, translationsByLocaleParameters, optional)
+> []Translation TranslationsByLocale(ctx, projectId, localeId, translationsByLocaleParameters, optional)
 
 List translations by locale
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Translation**](translation.md)
 
 ### Authorization
 
@@ -518,7 +518,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsExclude
 
-> map[string]interface{} TranslationsExclude(ctx, projectId, translationsExcludeParameters, optional)
+> AffectedCount TranslationsExclude(ctx, projectId, translationsExcludeParameters, optional)
 
 Set exclude from export flag on translations selected by query
 
@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**AffectedCount**](affected_count.md)
 
 ### Authorization
 
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsInclude
 
-> map[string]interface{} TranslationsInclude(ctx, projectId, translationsIncludeParameters, optional)
+> AffectedCount TranslationsInclude(ctx, projectId, translationsIncludeParameters, optional)
 
 Remove exlude from import flag from translations selected by query
 
@@ -594,7 +594,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**AffectedCount**](affected_count.md)
 
 ### Authorization
 
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsReview
 
-> map[string]interface{} TranslationsReview(ctx, projectId, translationsReviewParameters, optional)
+> AffectedCount TranslationsReview(ctx, projectId, translationsReviewParameters, optional)
 
 Review translations selected by query
 
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**AffectedCount**](affected_count.md)
 
 ### Authorization
 
@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsSearch
 
-> []map[string]interface{} TranslationsSearch(ctx, projectId, translationsSearchParameters, optional)
+> []Translation TranslationsSearch(ctx, projectId, translationsSearchParameters, optional)
 
 Search translations
 
@@ -739,7 +739,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Translation**](translation.md)
 
 ### Authorization
 
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsUnverify
 
-> map[string]interface{} TranslationsUnverify(ctx, projectId, translationsUnverifyParameters, optional)
+> AffectedCount TranslationsUnverify(ctx, projectId, translationsUnverifyParameters, optional)
 
 Mark translations selected by query as unverified
 
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**AffectedCount**](affected_count.md)
 
 ### Authorization
 

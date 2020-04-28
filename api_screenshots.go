@@ -328,16 +328,16 @@ Update an existing screenshot.
  * @param screenshotUpdateParameters
  * @param optional nil or *ScreenshotUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Screenshot
 */
-func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId string, id string, screenshotUpdateParameters ScreenshotUpdateParameters, localVarOptionals *ScreenshotUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId string, id string, screenshotUpdateParameters ScreenshotUpdateParameters, localVarOptionals *ScreenshotUpdateOpts) (Screenshot, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Screenshot
 	)
 
 	// create path and map variables
@@ -406,7 +406,7 @@ func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Screenshot
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -446,16 +446,16 @@ List all screenshots for the given project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Screenshot
 */
-func (a *ScreenshotsApiService) ScreenshotsList(ctx _context.Context, projectId string, localVarOptionals *ScreenshotsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *ScreenshotsApiService) ScreenshotsList(ctx _context.Context, projectId string, localVarOptionals *ScreenshotsListOpts) ([]Screenshot, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Screenshot
 	)
 
 	// create path and map variables
@@ -526,7 +526,7 @@ func (a *ScreenshotsApiService) ScreenshotsList(ctx _context.Context, projectId 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Screenshot
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

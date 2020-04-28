@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ## ProjectShow
 
-> Project ProjectShow(ctx, id, optional)
+> ProjectDetails ProjectShow(ctx, id, optional)
 
 Get a single project
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Project**](project.md)
+[**ProjectDetails**](project_details.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## ProjectUpdate
 
-> map[string]interface{} ProjectUpdate(ctx, id, projectUpdateParameters, optional)
+> ProjectDetails ProjectUpdate(ctx, id, projectUpdateParameters, optional)
 
 Update a project
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**ProjectDetails**](project_details.md)
 
 ### Authorization
 

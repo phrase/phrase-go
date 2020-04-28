@@ -638,16 +638,16 @@ Update an existing comment.
  * @param commentUpdateParameters
  * @param optional nil or *CommentUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Comment
 */
-func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId string, keyId string, id string, commentUpdateParameters CommentUpdateParameters, localVarOptionals *CommentUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId string, keyId string, id string, commentUpdateParameters CommentUpdateParameters, localVarOptionals *CommentUpdateOpts) (Comment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Comment
 	)
 
 	// create path and map variables
@@ -718,7 +718,7 @@ func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId strin
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Comment
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -760,16 +760,16 @@ List all comments for a key.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Comment
 */
-func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, commentsListParameters CommentsListParameters, localVarOptionals *CommentsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, commentsListParameters CommentsListParameters, localVarOptionals *CommentsListOpts) ([]Comment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Comment
 	)
 
 	// create path and map variables
@@ -844,7 +844,7 @@ func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Comment
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

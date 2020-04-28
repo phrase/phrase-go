@@ -31,16 +31,16 @@ Confirm an existing order and send it to the provider for translation. Same cons
  * @param orderConfirmParameters
  * @param optional nil or *OrderConfirmOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationOrder
 */
-func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, id string, orderConfirmParameters OrderConfirmParameters, localVarOptionals *OrderConfirmOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, id string, orderConfirmParameters OrderConfirmParameters, localVarOptionals *OrderConfirmOpts) (TranslationOrder, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationOrder
 	)
 
 	// create path and map variables
@@ -109,7 +109,7 @@ func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationOrder
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -453,16 +453,16 @@ List all orders for the given project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []TranslationOrder
 */
-func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, ordersListParameters OrdersListParameters, localVarOptionals *OrdersListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, ordersListParameters OrdersListParameters, localVarOptionals *OrdersListOpts) ([]TranslationOrder, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []TranslationOrder
 	)
 
 	// create path and map variables
@@ -535,7 +535,7 @@ func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, or
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []TranslationOrder
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

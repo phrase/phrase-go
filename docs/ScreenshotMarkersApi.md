@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## ScreenshotMarkerShow
 
-> map[string]interface{} ScreenshotMarkerShow(ctx, projectId, screenshotId, id, optional)
+> ScreenshotMarker ScreenshotMarkerShow(ctx, projectId, screenshotId, id, optional)
 
 Get a single screenshot marker
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**ScreenshotMarker**](screenshot_marker.md)
 
 ### Authorization
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ## ScreenshotMarkersList
 
-> []map[string]interface{} ScreenshotMarkersList(ctx, projectId, id, optional)
+> []ScreenshotMarker ScreenshotMarkersList(ctx, projectId, id, optional)
 
 List screenshot markers
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]ScreenshotMarker**](screenshot_marker.md)
 
 ### Authorization
 

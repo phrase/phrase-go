@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## LocaleShow
 
-> map[string]interface{} LocaleShow(ctx, projectId, id, localeShowParameters, optional)
+> LocaleDetails LocaleShow(ctx, projectId, id, localeShowParameters, optional)
 
 Get a single locale
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**LocaleDetails**](locale_details.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ## LocaleUpdate
 
-> map[string]interface{} LocaleUpdate(ctx, projectId, id, localeUpdateParameters, optional)
+> LocaleDetails LocaleUpdate(ctx, projectId, id, localeUpdateParameters, optional)
 
 Update a locale
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**LocaleDetails**](locale_details.md)
 
 ### Authorization
 

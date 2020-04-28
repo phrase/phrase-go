@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ## TagShow
 
-> map[string]interface{} TagShow(ctx, projectId, name, tagShowParameters, optional)
+> TagWithStats TagShow(ctx, projectId, name, tagShowParameters, optional)
 
 Get a single tag
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**TagWithStats**](tag_with_stats.md)
 
 ### Authorization
 

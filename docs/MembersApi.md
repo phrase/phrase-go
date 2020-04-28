@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ## MemberUpdate
 
-> map[string]interface{} MemberUpdate(ctx, accountId, id, memberUpdateParameters, optional)
+> Member MemberUpdate(ctx, accountId, id, memberUpdateParameters, optional)
 
 Update a member
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Member**](member.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## MembersList
 
-> []map[string]interface{} MembersList(ctx, accountId, optional)
+> []Member MembersList(ctx, accountId, optional)
 
 List members
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Member**](member.md)
 
 ### Authorization
 

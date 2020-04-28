@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ## CommentUpdate
 
-> map[string]interface{} CommentUpdate(ctx, projectId, keyId, id, commentUpdateParameters, optional)
+> Comment CommentUpdate(ctx, projectId, keyId, id, commentUpdateParameters, optional)
 
 Update a comment
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Comment**](comment.md)
 
 ### Authorization
 
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 ## CommentsList
 
-> []map[string]interface{} CommentsList(ctx, projectId, keyId, commentsListParameters, optional)
+> []Comment CommentsList(ctx, projectId, keyId, commentsListParameters, optional)
 
 List comments
 
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Comment**](comment.md)
 
 ### Authorization
 

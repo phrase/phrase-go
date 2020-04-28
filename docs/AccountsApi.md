@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## AccountShow
 
-> Account AccountShow(ctx, id, optional)
+> AccountDetails AccountShow(ctx, id, optional)
 
 Get a single account
 
@@ -38,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Account**](account.md)
+[**AccountDetails**](account_details.md)
 
 ### Authorization
 

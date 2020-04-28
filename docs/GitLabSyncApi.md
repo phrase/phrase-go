@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncImport
 
-> []map[string]interface{} GitlabSyncImport(ctx, gitlabSyncId, gitlabSyncImportParameters, optional)
+> []Upload GitlabSyncImport(ctx, gitlabSyncId, gitlabSyncImportParameters, optional)
 
 Import from GitLab to Phrase
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Upload**](upload.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncList
 
-> []map[string]interface{} GitlabSyncList(ctx, gitlabSyncListParameters, optional)
+> []GitlabSync GitlabSyncList(ctx, gitlabSyncListParameters, optional)
 
 List GitLab syncs
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]GitlabSync**](gitlab_sync.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncUpdate
 
-> map[string]interface{} GitlabSyncUpdate(ctx, id, gitlabSyncUpdateParameters, optional)
+> GitlabSync GitlabSyncUpdate(ctx, id, gitlabSyncUpdateParameters, optional)
 
 Update single Sync Setting
 
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**GitlabSync**](gitlab_sync.md)
 
 ### Authorization
 

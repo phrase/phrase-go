@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## StyleguideShow
 
-> map[string]interface{} StyleguideShow(ctx, projectId, id, optional)
+> StyleguideDetails StyleguideShow(ctx, projectId, id, optional)
 
 Get a single style guide
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**StyleguideDetails**](styleguide_details.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## StyleguideUpdate
 
-> map[string]interface{} StyleguideUpdate(ctx, projectId, id, styleguideUpdateParameters, optional)
+> StyleguideDetails StyleguideUpdate(ctx, projectId, id, styleguideUpdateParameters, optional)
 
 Update a style guide
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**StyleguideDetails**](styleguide_details.md)
 
 ### Authorization
 

@@ -518,16 +518,16 @@ Update an existing branch.
  * @param branchUpdateParameters
  * @param optional nil or *BranchUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Branch
 */
-func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string, name string, branchUpdateParameters BranchUpdateParameters, localVarOptionals *BranchUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string, name string, branchUpdateParameters BranchUpdateParameters, localVarOptionals *BranchUpdateOpts) (Branch, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Branch
 	)
 
 	// create path and map variables
@@ -596,7 +596,7 @@ func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Branch
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -636,16 +636,16 @@ List all branches the of the current project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Branch
 */
-func (a *BranchesApiService) BranchesList(ctx _context.Context, projectId string, localVarOptionals *BranchesListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *BranchesApiService) BranchesList(ctx _context.Context, projectId string, localVarOptionals *BranchesListOpts) ([]Branch, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Branch
 	)
 
 	// create path and map variables
@@ -716,7 +716,7 @@ func (a *BranchesApiService) BranchesList(ctx _context.Context, projectId string
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Branch
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

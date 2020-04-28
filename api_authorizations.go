@@ -318,16 +318,16 @@ Update an existing authorization.
  * @param authorizationUpdateParameters
  * @param optional nil or *AuthorizationUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Authorization
 */
-func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id string, authorizationUpdateParameters AuthorizationUpdateParameters, localVarOptionals *AuthorizationUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id string, authorizationUpdateParameters AuthorizationUpdateParameters, localVarOptionals *AuthorizationUpdateOpts) (Authorization, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Authorization
 	)
 
 	// create path and map variables
@@ -394,7 +394,7 @@ func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Authorization
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -433,16 +433,16 @@ List all your authorizations.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Authorization
 */
-func (a *AuthorizationsApiService) AuthorizationsList(ctx _context.Context, localVarOptionals *AuthorizationsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *AuthorizationsApiService) AuthorizationsList(ctx _context.Context, localVarOptionals *AuthorizationsListOpts) ([]Authorization, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Authorization
 	)
 
 	// create path and map variables
@@ -511,7 +511,7 @@ func (a *AuthorizationsApiService) AuthorizationsList(ctx _context.Context, loca
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Authorization
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

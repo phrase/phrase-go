@@ -10,7 +10,7 @@ type Translation struct {
 	Excluded bool `json:"excluded,omitempty"`
 	PluralSuffix string `json:"plural_suffix,omitempty"`
 	Key KeyPreview `json:"key,omitempty"`
-	Locale map[string]interface{} `json:"locale,omitempty"`
+	Locale LocalePreview `json:"locale,omitempty"`
 	Placeholders []string `json:"placeholders,omitempty"`
 	State string `json:"state,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`

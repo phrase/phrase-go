@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## AuthorizationUpdate
 
-> map[string]interface{} AuthorizationUpdate(ctx, id, authorizationUpdateParameters, optional)
+> Authorization AuthorizationUpdate(ctx, id, authorizationUpdateParameters, optional)
 
 Update an authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Authorization**](authorization.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ## AuthorizationsList
 
-> []map[string]interface{} AuthorizationsList(ctx, optional)
+> []Authorization AuthorizationsList(ctx, optional)
 
 List authorizations
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Authorization**](authorization.md)
 
 ### Authorization
 

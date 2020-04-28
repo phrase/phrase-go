@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ## ReleasePublish
 
-> map[string]interface{} ReleasePublish(ctx, accountId, distributionId, id, optional)
+> Release ReleasePublish(ctx, accountId, distributionId, id, optional)
 
 Publish a release
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Release**](release.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ## ReleaseUpdate
 
-> map[string]interface{} ReleaseUpdate(ctx, accountId, distributionId, id, releaseUpdateParameters, optional)
+> Release ReleaseUpdate(ctx, accountId, distributionId, id, releaseUpdateParameters, optional)
 
 Update a release
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Release**](release.md)
 
 ### Authorization
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## VersionShow
 
-> map[string]interface{} VersionShow(ctx, projectId, translationId, id, versionShowParameters, optional)
+> TranslationVersionWithUser VersionShow(ctx, projectId, translationId, id, versionShowParameters, optional)
 
 Get a single version
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**TranslationVersionWithUser**](translation_version_with_user.md)
 
 ### Authorization
 

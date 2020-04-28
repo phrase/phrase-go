@@ -313,16 +313,16 @@ Get details on a single locale for a given project.
  * @param localeShowParameters
  * @param optional nil or *LocaleShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return LocaleDetails
 */
-func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, id string, localeShowParameters LocaleShowParameters, localVarOptionals *LocaleShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, id string, localeShowParameters LocaleShowParameters, localVarOptionals *LocaleShowOpts) (LocaleDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  LocaleDetails
 	)
 
 	// create path and map variables
@@ -391,7 +391,7 @@ func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, i
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v LocaleDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -429,16 +429,16 @@ Update an existing locale.
  * @param localeUpdateParameters
  * @param optional nil or *LocaleUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return LocaleDetails
 */
-func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string, id string, localeUpdateParameters LocaleUpdateParameters, localVarOptionals *LocaleUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string, id string, localeUpdateParameters LocaleUpdateParameters, localVarOptionals *LocaleUpdateOpts) (LocaleDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  LocaleDetails
 	)
 
 	// create path and map variables
@@ -507,7 +507,7 @@ func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v LocaleDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

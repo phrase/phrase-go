@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## GlossariesList
 
-> []map[string]interface{} GlossariesList(ctx, accountId, optional)
+> []Glossary GlossariesList(ctx, accountId, optional)
 
 List glossaries
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Glossary**](glossary.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ## GlossaryUpdate
 
-> map[string]interface{} GlossaryUpdate(ctx, accountId, id, glossaryUpdateParameters, optional)
+> Glossary GlossaryUpdate(ctx, accountId, id, glossaryUpdateParameters, optional)
 
 Update a glossary
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Glossary**](glossary.md)
 
 ### Authorization
 

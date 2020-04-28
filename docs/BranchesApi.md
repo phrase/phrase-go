@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ## BranchUpdate
 
-> map[string]interface{} BranchUpdate(ctx, projectId, name, branchUpdateParameters, optional)
+> Branch BranchUpdate(ctx, projectId, name, branchUpdateParameters, optional)
 
 Update a branch
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Branch**](branch.md)
 
 ### Authorization
 
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
 
 ## BranchesList
 
-> []map[string]interface{} BranchesList(ctx, projectId, optional)
+> []Branch BranchesList(ctx, projectId, optional)
 
 List branches
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Branch**](branch.md)
 
 ### Authorization
 

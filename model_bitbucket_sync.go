@@ -9,5 +9,5 @@ type BitbucketSync struct {
 	LastExportToBitbucketAt time.Time `json:"last_export_to_bitbucket_at,omitempty"`
 	LastImportFromBitbucketAt time.Time `json:"last_import_from_bitbucket_at,omitempty"`
 	ValidPhraseappYaml bool `json:"valid_phraseapp_yaml,omitempty"`
-	PhraseappProjects []map[string]interface{} `json:"phraseapp_projects,omitempty"`
+	PhraseappProjects []ProjectShort `json:"phraseapp_projects,omitempty"`
 }

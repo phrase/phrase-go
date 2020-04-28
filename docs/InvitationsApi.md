@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ## InvitationResend
 
-> map[string]interface{} InvitationResend(ctx, accountId, id, optional)
+> Invitation InvitationResend(ctx, accountId, id, optional)
 
 Resend an invitation
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Invitation**](invitation.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ## InvitationUpdate
 
-> map[string]interface{} InvitationUpdate(ctx, accountId, id, invitationUpdateParameters, optional)
+> Invitation InvitationUpdate(ctx, accountId, id, invitationUpdateParameters, optional)
 
 Update an invitation
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Invitation**](invitation.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ## InvitationsList
 
-> []map[string]interface{} InvitationsList(ctx, accountId, optional)
+> []Invitation InvitationsList(ctx, accountId, optional)
 
 List invitations
 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Invitation**](invitation.md)
 
 ### Authorization
 

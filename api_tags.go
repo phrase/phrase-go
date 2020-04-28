@@ -218,16 +218,16 @@ Get details and progress information on a single tag for a given project.
  * @param tagShowParameters
  * @param optional nil or *TagShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TagWithStats
 */
-func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name string, tagShowParameters TagShowParameters, localVarOptionals *TagShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name string, tagShowParameters TagShowParameters, localVarOptionals *TagShowOpts) (TagWithStats, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TagWithStats
 	)
 
 	// create path and map variables
@@ -296,7 +296,7 @@ func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name st
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TagWithStats
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

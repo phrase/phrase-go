@@ -8,7 +8,7 @@ type Distribution struct {
 	Name string `json:"name,omitempty"`
 	Project ProjectShort `json:"project,omitempty"`
 	Platforms []string `json:"platforms,omitempty"`
-	Releases []map[string]interface{} `json:"releases,omitempty"`
+	Releases []ReleasePreview `json:"releases,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	DeletedAt time.Time `json:"deleted_at,omitempty"`
 }

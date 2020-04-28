@@ -6,7 +6,7 @@ import (
 type Glossary struct {
 	Id string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
-	Projects []map[string]interface{} `json:"projects,omitempty"`
+	Projects []ProjectShort `json:"projects,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 }

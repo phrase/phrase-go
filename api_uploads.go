@@ -242,16 +242,16 @@ List all uploads for the given project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Upload
 */
-func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, uploadsListParameters UploadsListParameters, localVarOptionals *UploadsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, uploadsListParameters UploadsListParameters, localVarOptionals *UploadsListOpts) ([]Upload, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Upload
 	)
 
 	// create path and map variables
@@ -324,7 +324,7 @@ func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Upload
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ## KeyShow
 
-> map[string]interface{} KeyShow(ctx, projectId, id, keyShowParameters, optional)
+> TranslationKeyDetails KeyShow(ctx, projectId, id, keyShowParameters, optional)
 
 Get a single key
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**TranslationKeyDetails**](translation_key_details.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## KeyUpdate
 
-> map[string]interface{} KeyUpdate(ctx, projectId, id, keyUpdateParameters, optional)
+> TranslationKeyDetails KeyUpdate(ctx, projectId, id, keyUpdateParameters, optional)
 
 Update a key
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**TranslationKeyDetails**](translation_key_details.md)
 
 ### Authorization
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ## KeysSearch
 
-> []map[string]interface{} KeysSearch(ctx, projectId, keysSearchParameters, optional)
+> []TranslationKey KeysSearch(ctx, projectId, keysSearchParameters, optional)
 
 Search keys
 
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]TranslationKey**](translation_key.md)
 
 ### Authorization
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 ## KeysTag
 
-> map[string]interface{} KeysTag(ctx, projectId, keysTagParameters, optional)
+> AffectedResources KeysTag(ctx, projectId, keysTagParameters, optional)
 
 Add tags to collection of keys
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**AffectedResources**](affected_resources.md)
 
 ### Authorization
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 
 ## KeysUntag
 
-> map[string]interface{} KeysUntag(ctx, projectId, keysUntagParameters, optional)
+> AffectedResources KeysUntag(ctx, projectId, keysUntagParameters, optional)
 
 Remove tags from collection of keys
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**AffectedResources**](affected_resources.md)
 
 ### Authorization
 

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## JobLocaleComplete
 
-> map[string]interface{} JobLocaleComplete(ctx, projectId, jobId, id, jobLocaleCompleteParameters, optional)
+> JobLocale JobLocaleComplete(ctx, projectId, jobId, id, jobLocaleCompleteParameters, optional)
 
 Complete a job locale
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobLocale**](job_locale.md)
 
 ### Authorization
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ## JobLocaleReopen
 
-> map[string]interface{} JobLocaleReopen(ctx, projectId, jobId, id, jobLocaleReopenParameters, optional)
+> JobLocale JobLocaleReopen(ctx, projectId, jobId, id, jobLocaleReopenParameters, optional)
 
 Reopen a job locale
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobLocale**](job_locale.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ## JobLocaleUpdate
 
-> map[string]interface{} JobLocaleUpdate(ctx, projectId, jobId, id, jobLocaleUpdateParameters, optional)
+> JobLocale JobLocaleUpdate(ctx, projectId, jobId, id, jobLocaleUpdateParameters, optional)
 
 Update a job locale
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobLocale**](job_locale.md)
 
 ### Authorization
 
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 ## JobLocalesList
 
-> []map[string]interface{} JobLocalesList(ctx, projectId, jobId, jobLocalesListParameters, optional)
+> []JobLocale JobLocalesList(ctx, projectId, jobId, jobLocalesListParameters, optional)
 
 List job locales
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]JobLocale**](job_locale.md)
 
 ### Authorization
 

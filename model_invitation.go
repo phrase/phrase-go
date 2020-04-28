@@ -8,8 +8,8 @@ type Invitation struct {
 	Email string `json:"email,omitempty"`
 	Role string `json:"role,omitempty"`
 	State string `json:"state,omitempty"`
-	Projects []map[string]interface{} `json:"projects,omitempty"`
-	Locales []map[string]interface{} `json:"locales,omitempty"`
+	Projects []ProjectShort `json:"projects,omitempty"`
+	Locales []LocalePreview `json:"locales,omitempty"`
 	Permissions map[string]interface{} `json:"permissions,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	UpdatedAt time.Time `json:"updated_at,omitempty"`

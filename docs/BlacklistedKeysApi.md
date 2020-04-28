@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## BlacklistedKeyUpdate
 
-> map[string]interface{} BlacklistedKeyUpdate(ctx, projectId, id, blacklistedKeyUpdateParameters, optional)
+> BlacklistedKey BlacklistedKeyUpdate(ctx, projectId, id, blacklistedKeyUpdateParameters, optional)
 
 Update a blacklisted key
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**BlacklistedKey**](blacklisted_key.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ## BlacklistedKeysList
 
-> []map[string]interface{} BlacklistedKeysList(ctx, projectId, optional)
+> []BlacklistedKey BlacklistedKeysList(ctx, projectId, optional)
 
 List blacklisted keys
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]BlacklistedKey**](blacklisted_key.md)
 
 ### Authorization
 

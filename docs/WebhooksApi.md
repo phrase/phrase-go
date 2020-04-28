@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ## WebhookUpdate
 
-> map[string]interface{} WebhookUpdate(ctx, projectId, id, webhookUpdateParameters, optional)
+> Webhook WebhookUpdate(ctx, projectId, id, webhookUpdateParameters, optional)
 
 Update a webhook
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Webhook**](webhook.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ## WebhooksList
 
-> []map[string]interface{} WebhooksList(ctx, projectId, optional)
+> []Webhook WebhooksList(ctx, projectId, optional)
 
 List webhooks
 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Webhook**](webhook.md)
 
 ### Authorization
 

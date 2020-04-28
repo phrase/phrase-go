@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## ScreenshotUpdate
 
-> map[string]interface{} ScreenshotUpdate(ctx, projectId, id, screenshotUpdateParameters, optional)
+> Screenshot ScreenshotUpdate(ctx, projectId, id, screenshotUpdateParameters, optional)
 
 Update a screenshot
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Screenshot**](screenshot.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ## ScreenshotsList
 
-> []map[string]interface{} ScreenshotsList(ctx, projectId, optional)
+> []Screenshot ScreenshotsList(ctx, projectId, optional)
 
 List screenshots
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Screenshot**](screenshot.md)
 
 ### Authorization
 

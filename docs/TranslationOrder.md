@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **TranslationType** | **string** |  | [optional] 
 **ProgressPercent** | **int32** |  | [optional] 
 **SourceLocale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
-**TargetLocales** | [**[]map[string]interface{}**](object.md) |  | [optional] 
+**TargetLocales** | [**[]LocalePreview**](locale_preview.md) |  | [optional] 
 **Tag** | **string** |  | [optional] 
 **Styleguide** | [**StyleguidePreview**](styleguide_preview.md) |  | [optional] 
 **UnverifyTranslationsUponDelivery** | **bool** |  | [optional] 

@@ -13,7 +13,7 @@ type TranslationOrder struct {
 	TranslationType string `json:"translation_type,omitempty"`
 	ProgressPercent int32 `json:"progress_percent,omitempty"`
 	SourceLocale LocalePreview `json:"source_locale,omitempty"`
-	TargetLocales []map[string]interface{} `json:"target_locales,omitempty"`
+	TargetLocales []LocalePreview `json:"target_locales,omitempty"`
 	Tag string `json:"tag,omitempty"`
 	Styleguide StyleguidePreview `json:"styleguide,omitempty"`
 	UnverifyTranslationsUponDelivery bool `json:"unverify_translations_upon_delivery,omitempty"`

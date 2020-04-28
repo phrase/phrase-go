@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## UploadsList
 
-> []map[string]interface{} UploadsList(ctx, projectId, uploadsListParameters, optional)
+> []Upload UploadsList(ctx, projectId, uploadsListParameters, optional)
 
 List uploads
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Upload**](upload.md)
 
 ### Authorization
 

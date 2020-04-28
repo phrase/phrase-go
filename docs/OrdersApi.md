@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## OrderConfirm
 
-> map[string]interface{} OrderConfirm(ctx, projectId, id, orderConfirmParameters, optional)
+> TranslationOrder OrderConfirm(ctx, projectId, id, orderConfirmParameters, optional)
 
 Confirm an order
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**TranslationOrder**](translation_order.md)
 
 ### Authorization
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ## OrdersList
 
-> []map[string]interface{} OrdersList(ctx, projectId, ordersListParameters, optional)
+> []TranslationOrder OrdersList(ctx, projectId, ordersListParameters, optional)
 
 List orders
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]TranslationOrder**](translation_order.md)
 
 ### Authorization
 

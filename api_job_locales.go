@@ -32,16 +32,16 @@ Mark a job locale as completed.
  * @param jobLocaleCompleteParameters
  * @param optional nil or *JobLocaleCompleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return JobLocale
 */
-func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId string, jobId string, id string, jobLocaleCompleteParameters JobLocaleCompleteParameters, localVarOptionals *JobLocaleCompleteOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId string, jobId string, id string, jobLocaleCompleteParameters JobLocaleCompleteParameters, localVarOptionals *JobLocaleCompleteOpts) (JobLocale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobLocale
 	)
 
 	// create path and map variables
@@ -112,7 +112,7 @@ func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v JobLocale
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -249,16 +249,16 @@ Mark a job locale as uncompleted.
  * @param jobLocaleReopenParameters
  * @param optional nil or *JobLocaleReopenOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return JobLocale
 */
-func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId string, jobId string, id string, jobLocaleReopenParameters JobLocaleReopenParameters, localVarOptionals *JobLocaleReopenOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId string, jobId string, id string, jobLocaleReopenParameters JobLocaleReopenParameters, localVarOptionals *JobLocaleReopenOpts) (JobLocale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobLocale
 	)
 
 	// create path and map variables
@@ -329,7 +329,7 @@ func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId s
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v JobLocale
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -487,16 +487,16 @@ Update an existing job locale.
  * @param jobLocaleUpdateParameters
  * @param optional nil or *JobLocaleUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return JobLocale
 */
-func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId string, jobId string, id string, jobLocaleUpdateParameters JobLocaleUpdateParameters, localVarOptionals *JobLocaleUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId string, jobId string, id string, jobLocaleUpdateParameters JobLocaleUpdateParameters, localVarOptionals *JobLocaleUpdateOpts) (JobLocale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobLocale
 	)
 
 	// create path and map variables
@@ -567,7 +567,7 @@ func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId s
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v JobLocale
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -704,16 +704,16 @@ List all job locales for a given job.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []JobLocale
 */
-func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId string, jobId string, jobLocalesListParameters JobLocalesListParameters, localVarOptionals *JobLocalesListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId string, jobId string, jobLocalesListParameters JobLocalesListParameters, localVarOptionals *JobLocalesListOpts) ([]JobLocale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []JobLocale
 	)
 
 	// create path and map variables
@@ -788,7 +788,7 @@ func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId st
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []JobLocale
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

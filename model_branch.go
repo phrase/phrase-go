@@ -9,6 +9,6 @@ type Branch struct {
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 	MergedAt time.Time `json:"merged_at,omitempty"`
 	MergedBy UserPreview `json:"merged_by,omitempty"`
-	CreatedBy map[string]interface{} `json:"created_by,omitempty"`
+	CreatedBy UserPreview `json:"created_by,omitempty"`
 	State string `json:"state,omitempty"`
 }

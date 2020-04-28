@@ -420,16 +420,16 @@ Update an existing webhook.
  * @param webhookUpdateParameters
  * @param optional nil or *WebhookUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Webhook
 */
-func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId string, id string, webhookUpdateParameters WebhookUpdateParameters, localVarOptionals *WebhookUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId string, id string, webhookUpdateParameters WebhookUpdateParameters, localVarOptionals *WebhookUpdateOpts) (Webhook, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Webhook
 	)
 
 	// create path and map variables
@@ -498,7 +498,7 @@ func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId strin
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Webhook
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -538,16 +538,16 @@ List all webhooks for the given project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Webhook
 */
-func (a *WebhooksApiService) WebhooksList(ctx _context.Context, projectId string, localVarOptionals *WebhooksListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *WebhooksApiService) WebhooksList(ctx _context.Context, projectId string, localVarOptionals *WebhooksListOpts) ([]Webhook, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Webhook
 	)
 
 	// create path and map variables
@@ -618,7 +618,7 @@ func (a *WebhooksApiService) WebhooksList(ctx _context.Context, projectId string
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Webhook
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

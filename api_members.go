@@ -236,16 +236,16 @@ Update user permissions in the account. Developers and translators need &lt;code
  * @param memberUpdateParameters
  * @param optional nil or *MemberUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Member
 */
-func (a *MembersApiService) MemberUpdate(ctx _context.Context, accountId string, id string, memberUpdateParameters MemberUpdateParameters, localVarOptionals *MemberUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *MembersApiService) MemberUpdate(ctx _context.Context, accountId string, id string, memberUpdateParameters MemberUpdateParameters, localVarOptionals *MemberUpdateOpts) (Member, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Member
 	)
 
 	// create path and map variables
@@ -314,7 +314,7 @@ func (a *MembersApiService) MemberUpdate(ctx _context.Context, accountId string,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Member
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -354,16 +354,16 @@ Get all users active in the account. It also lists resources like projects and l
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Member
 */
-func (a *MembersApiService) MembersList(ctx _context.Context, accountId string, localVarOptionals *MembersListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *MembersApiService) MembersList(ctx _context.Context, accountId string, localVarOptionals *MembersListOpts) ([]Member, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Member
 	)
 
 	// create path and map variables
@@ -434,7 +434,7 @@ func (a *MembersApiService) MembersList(ctx _context.Context, accountId string, 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Member
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

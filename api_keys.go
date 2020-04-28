@@ -218,16 +218,16 @@ Get details on a single key for a given project.
  * @param keyShowParameters
  * @param optional nil or *KeyShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationKeyDetails
 */
-func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id string, keyShowParameters KeyShowParameters, localVarOptionals *KeyShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id string, keyShowParameters KeyShowParameters, localVarOptionals *KeyShowOpts) (TranslationKeyDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationKeyDetails
 	)
 
 	// create path and map variables
@@ -296,7 +296,7 @@ func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id stri
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationKeyDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -334,16 +334,16 @@ Update an existing key.
  * @param keyUpdateParameters
  * @param optional nil or *KeyUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationKeyDetails
 */
-func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id string, keyUpdateParameters KeyUpdateParameters, localVarOptionals *KeyUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id string, keyUpdateParameters KeyUpdateParameters, localVarOptionals *KeyUpdateOpts) (TranslationKeyDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationKeyDetails
 	)
 
 	// create path and map variables
@@ -412,7 +412,7 @@ func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id st
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationKeyDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -689,16 +689,16 @@ Search keys for the given project matching query.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []TranslationKey
 */
-func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keysSearchParameters KeysSearchParameters, localVarOptionals *KeysSearchOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keysSearchParameters KeysSearchParameters, localVarOptionals *KeysSearchOpts) ([]TranslationKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []TranslationKey
 	)
 
 	// create path and map variables
@@ -771,7 +771,7 @@ func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keys
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []TranslationKey
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -808,16 +808,16 @@ Tags all keys matching query. Same constraints as list.
  * @param keysTagParameters
  * @param optional nil or *KeysTagOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return AffectedResources
 */
-func (a *KeysApiService) KeysTag(ctx _context.Context, projectId string, keysTagParameters KeysTagParameters, localVarOptionals *KeysTagOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeysTag(ctx _context.Context, projectId string, keysTagParameters KeysTagParameters, localVarOptionals *KeysTagOpts) (AffectedResources, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  AffectedResources
 	)
 
 	// create path and map variables
@@ -884,7 +884,7 @@ func (a *KeysApiService) KeysTag(ctx _context.Context, projectId string, keysTag
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v AffectedResources
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -921,16 +921,16 @@ Removes specified tags from keys matching query.
  * @param keysUntagParameters
  * @param optional nil or *KeysUntagOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return AffectedResources
 */
-func (a *KeysApiService) KeysUntag(ctx _context.Context, projectId string, keysUntagParameters KeysUntagParameters, localVarOptionals *KeysUntagOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeysUntag(ctx _context.Context, projectId string, keysUntagParameters KeysUntagParameters, localVarOptionals *KeysUntagOpts) (AffectedResources, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  AffectedResources
 	)
 
 	// create path and map variables
@@ -997,7 +997,7 @@ func (a *KeysApiService) KeysUntag(ctx _context.Context, projectId string, keysU
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v AffectedResources
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

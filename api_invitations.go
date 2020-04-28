@@ -214,16 +214,16 @@ Resend the invitation email (must not be accepted yet). Access token scope must 
  * @param id ID
  * @param optional nil or *InvitationResendOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Invitation
 */
-func (a *InvitationsApiService) InvitationResend(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationResendOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *InvitationsApiService) InvitationResend(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationResendOpts) (Invitation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Invitation
 	)
 
 	// create path and map variables
@@ -290,7 +290,7 @@ func (a *InvitationsApiService) InvitationResend(ctx _context.Context, accountId
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Invitation
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -441,16 +441,16 @@ Update an existing invitation (must not be accepted yet). The &lt;code&gt;email&
  * @param invitationUpdateParameters
  * @param optional nil or *InvitationUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Invitation
 */
-func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId string, id string, invitationUpdateParameters InvitationUpdateParameters, localVarOptionals *InvitationUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId string, id string, invitationUpdateParameters InvitationUpdateParameters, localVarOptionals *InvitationUpdateOpts) (Invitation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Invitation
 	)
 
 	// create path and map variables
@@ -519,7 +519,7 @@ func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v Invitation
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -559,16 +559,16 @@ List invitations for an account. It will also list the accessible resources like
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Invitation
 */
-func (a *InvitationsApiService) InvitationsList(ctx _context.Context, accountId string, localVarOptionals *InvitationsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *InvitationsApiService) InvitationsList(ctx _context.Context, accountId string, localVarOptionals *InvitationsListOpts) ([]Invitation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Invitation
 	)
 
 	// create path and map variables
@@ -639,7 +639,7 @@ func (a *InvitationsApiService) InvitationsList(ctx _context.Context, accountId 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Invitation
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

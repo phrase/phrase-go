@@ -5,5 +5,5 @@ type Member struct {
 	Email string `json:"email,omitempty"`
 	Username string `json:"username,omitempty"`
 	Role string `json:"role,omitempty"`
-	Projects []map[string]interface{} `json:"projects,omitempty"`
+	Projects []ProjectLocales `json:"projects,omitempty"`
 }

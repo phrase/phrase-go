@@ -29,16 +29,16 @@ Get details on a single account.
  * @param id ID
  * @param optional nil or *AccountShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return Account
+@return AccountDetails
 */
-func (a *AccountsApiService) AccountShow(ctx _context.Context, id string, localVarOptionals *AccountShowOpts) (Account, *APIResponse, error) {
+func (a *AccountsApiService) AccountShow(ctx _context.Context, id string, localVarOptionals *AccountShowOpts) (AccountDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Account
+		localVarReturnValue  AccountDetails
 	)
 
 	// create path and map variables
@@ -103,7 +103,7 @@ func (a *AccountsApiService) AccountShow(ctx _context.Context, id string, localV
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v Account
+			var v AccountDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

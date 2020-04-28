@@ -123,16 +123,16 @@ Set exclude from export flag on an existing translation.
  * @param translationExcludeParameters
  * @param optional nil or *TranslationExcludeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationDetails
 */
-func (a *TranslationsApiService) TranslationExclude(ctx _context.Context, projectId string, id string, translationExcludeParameters TranslationExcludeParameters, localVarOptionals *TranslationExcludeOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationExclude(ctx _context.Context, projectId string, id string, translationExcludeParameters TranslationExcludeParameters, localVarOptionals *TranslationExcludeOpts) (TranslationDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationDetails
 	)
 
 	// create path and map variables
@@ -201,7 +201,7 @@ func (a *TranslationsApiService) TranslationExclude(ctx _context.Context, projec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -239,16 +239,16 @@ Remove exclude from export flag from an existing translation.
  * @param translationIncludeParameters
  * @param optional nil or *TranslationIncludeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationDetails
 */
-func (a *TranslationsApiService) TranslationInclude(ctx _context.Context, projectId string, id string, translationIncludeParameters TranslationIncludeParameters, localVarOptionals *TranslationIncludeOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationInclude(ctx _context.Context, projectId string, id string, translationIncludeParameters TranslationIncludeParameters, localVarOptionals *TranslationIncludeOpts) (TranslationDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationDetails
 	)
 
 	// create path and map variables
@@ -317,7 +317,7 @@ func (a *TranslationsApiService) TranslationInclude(ctx _context.Context, projec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -355,16 +355,16 @@ Mark an existing translation as reviewed.
  * @param translationReviewParameters
  * @param optional nil or *TranslationReviewOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationDetails
 */
-func (a *TranslationsApiService) TranslationReview(ctx _context.Context, projectId string, id string, translationReviewParameters TranslationReviewParameters, localVarOptionals *TranslationReviewOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationReview(ctx _context.Context, projectId string, id string, translationReviewParameters TranslationReviewParameters, localVarOptionals *TranslationReviewOpts) (TranslationDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationDetails
 	)
 
 	// create path and map variables
@@ -433,7 +433,7 @@ func (a *TranslationsApiService) TranslationReview(ctx _context.Context, project
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -471,16 +471,16 @@ Get details on a single translation.
  * @param translationShowParameters
  * @param optional nil or *TranslationShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationDetails
 */
-func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId string, id string, translationShowParameters TranslationShowParameters, localVarOptionals *TranslationShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId string, id string, translationShowParameters TranslationShowParameters, localVarOptionals *TranslationShowOpts) (TranslationDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationDetails
 	)
 
 	// create path and map variables
@@ -549,7 +549,7 @@ func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -587,16 +587,16 @@ Mark an existing translation as unverified.
  * @param translationUnverifyParameters
  * @param optional nil or *TranslationUnverifyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationDetails
 */
-func (a *TranslationsApiService) TranslationUnverify(ctx _context.Context, projectId string, id string, translationUnverifyParameters TranslationUnverifyParameters, localVarOptionals *TranslationUnverifyOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationUnverify(ctx _context.Context, projectId string, id string, translationUnverifyParameters TranslationUnverifyParameters, localVarOptionals *TranslationUnverifyOpts) (TranslationDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationDetails
 	)
 
 	// create path and map variables
@@ -665,7 +665,7 @@ func (a *TranslationsApiService) TranslationUnverify(ctx _context.Context, proje
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -703,16 +703,16 @@ Update an existing translation.
  * @param translationUpdateParameters
  * @param optional nil or *TranslationUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationDetails
 */
-func (a *TranslationsApiService) TranslationUpdate(ctx _context.Context, projectId string, id string, translationUpdateParameters TranslationUpdateParameters, localVarOptionals *TranslationUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationUpdate(ctx _context.Context, projectId string, id string, translationUpdateParameters TranslationUpdateParameters, localVarOptionals *TranslationUpdateOpts) (TranslationDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationDetails
 	)
 
 	// create path and map variables
@@ -781,7 +781,7 @@ func (a *TranslationsApiService) TranslationUpdate(ctx _context.Context, project
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -819,16 +819,16 @@ Verify an existing translation.
  * @param translationVerifyParameters
  * @param optional nil or *TranslationVerifyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationDetails
 */
-func (a *TranslationsApiService) TranslationVerify(ctx _context.Context, projectId string, id string, translationVerifyParameters TranslationVerifyParameters, localVarOptionals *TranslationVerifyOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationVerify(ctx _context.Context, projectId string, id string, translationVerifyParameters TranslationVerifyParameters, localVarOptionals *TranslationVerifyOpts) (TranslationDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationDetails
 	)
 
 	// create path and map variables
@@ -897,7 +897,7 @@ func (a *TranslationsApiService) TranslationVerify(ctx _context.Context, project
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -939,16 +939,16 @@ List translations for a specific key.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Translation
 */
-func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, projectId string, keyId string, translationsByKeyParameters TranslationsByKeyParameters, localVarOptionals *TranslationsByKeyOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, projectId string, keyId string, translationsByKeyParameters TranslationsByKeyParameters, localVarOptionals *TranslationsByKeyOpts) ([]Translation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Translation
 	)
 
 	// create path and map variables
@@ -1023,7 +1023,7 @@ func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, project
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Translation
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1065,16 +1065,16 @@ List translations for a specific locale. If you want to download all translation
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Translation
 */
-func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, projectId string, localeId string, translationsByLocaleParameters TranslationsByLocaleParameters, localVarOptionals *TranslationsByLocaleOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, projectId string, localeId string, translationsByLocaleParameters TranslationsByLocaleParameters, localVarOptionals *TranslationsByLocaleOpts) ([]Translation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Translation
 	)
 
 	// create path and map variables
@@ -1149,7 +1149,7 @@ func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, proj
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Translation
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1186,16 +1186,16 @@ Exclude translations matching query from locale export.
  * @param translationsExcludeParameters
  * @param optional nil or *TranslationsExcludeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, projectId string, translationsExcludeParameters TranslationsExcludeParameters, localVarOptionals *TranslationsExcludeOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, projectId string, translationsExcludeParameters TranslationsExcludeParameters, localVarOptionals *TranslationsExcludeOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  AffectedCount
 	)
 
 	// create path and map variables
@@ -1262,7 +1262,7 @@ func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, proje
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v AffectedCount
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1299,16 +1299,16 @@ Include translations matching query in locale export.
  * @param translationsIncludeParameters
  * @param optional nil or *TranslationsIncludeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsInclude(ctx _context.Context, projectId string, translationsIncludeParameters TranslationsIncludeParameters, localVarOptionals *TranslationsIncludeOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsInclude(ctx _context.Context, projectId string, translationsIncludeParameters TranslationsIncludeParameters, localVarOptionals *TranslationsIncludeOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  AffectedCount
 	)
 
 	// create path and map variables
@@ -1375,7 +1375,7 @@ func (a *TranslationsApiService) TranslationsInclude(ctx _context.Context, proje
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v AffectedCount
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1535,16 +1535,16 @@ Review translations matching query.
  * @param translationsReviewParameters
  * @param optional nil or *TranslationsReviewOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsReview(ctx _context.Context, projectId string, translationsReviewParameters TranslationsReviewParameters, localVarOptionals *TranslationsReviewOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsReview(ctx _context.Context, projectId string, translationsReviewParameters TranslationsReviewParameters, localVarOptionals *TranslationsReviewOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  AffectedCount
 	)
 
 	// create path and map variables
@@ -1611,7 +1611,7 @@ func (a *TranslationsApiService) TranslationsReview(ctx _context.Context, projec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v AffectedCount
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1652,16 +1652,16 @@ Search translations for the given project. Provides the same search interface as
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []map[string]interface{}
+@return []Translation
 */
-func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projectId string, translationsSearchParameters TranslationsSearchParameters, localVarOptionals *TranslationsSearchOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projectId string, translationsSearchParameters TranslationsSearchParameters, localVarOptionals *TranslationsSearchOpts) ([]Translation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Translation
 	)
 
 	// create path and map variables
@@ -1734,7 +1734,7 @@ func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string]interface{}
+			var v []Translation
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1771,16 +1771,16 @@ Mark translations matching query as unverified.
  * @param translationsUnverifyParameters
  * @param optional nil or *TranslationsUnverifyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, projectId string, translationsUnverifyParameters TranslationsUnverifyParameters, localVarOptionals *TranslationsUnverifyOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, projectId string, translationsUnverifyParameters TranslationsUnverifyParameters, localVarOptionals *TranslationsUnverifyOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  AffectedCount
 	)
 
 	// create path and map variables
@@ -1847,7 +1847,7 @@ func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, proj
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v AffectedCount
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

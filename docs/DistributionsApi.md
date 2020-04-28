@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## DistributionUpdate
 
-> map[string]interface{} DistributionUpdate(ctx, accountId, id, distributionUpdateParameters, optional)
+> Distribution DistributionUpdate(ctx, accountId, id, distributionUpdateParameters, optional)
 
 Update a distribution
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Distribution**](distribution.md)
 
 ### Authorization
 

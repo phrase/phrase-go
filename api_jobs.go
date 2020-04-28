@@ -31,16 +31,16 @@ Mark a job as completed.
  * @param jobCompleteParameters
  * @param optional nil or *JobCompleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return JobDetails
 */
-func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id string, jobCompleteParameters JobCompleteParameters, localVarOptionals *JobCompleteOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id string, jobCompleteParameters JobCompleteParameters, localVarOptionals *JobCompleteOpts) (JobDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobDetails
 	)
 
 	// create path and map variables
@@ -109,7 +109,7 @@ func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v JobDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -334,16 +334,16 @@ Add multiple keys to a existing job.
  * @param jobKeysCreateParameters
  * @param optional nil or *JobKeysCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return JobDetails
 */
-func (a *JobsApiService) JobKeysCreate(ctx _context.Context, projectId string, id string, jobKeysCreateParameters JobKeysCreateParameters, localVarOptionals *JobKeysCreateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobKeysCreate(ctx _context.Context, projectId string, id string, jobKeysCreateParameters JobKeysCreateParameters, localVarOptionals *JobKeysCreateOpts) (JobDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobDetails
 	)
 
 	// create path and map variables
@@ -412,7 +412,7 @@ func (a *JobsApiService) JobKeysCreate(ctx _context.Context, projectId string, i
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v JobDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -545,16 +545,16 @@ Mark a job as uncompleted.
  * @param jobReopenParameters
  * @param optional nil or *JobReopenOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return JobDetails
 */
-func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id string, jobReopenParameters JobReopenParameters, localVarOptionals *JobReopenOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id string, jobReopenParameters JobReopenParameters, localVarOptionals *JobReopenOpts) (JobDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobDetails
 	)
 
 	// create path and map variables
@@ -623,7 +623,7 @@ func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id st
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v JobDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -661,16 +661,16 @@ Get details on a single job for a given project.
  * @param jobShowParameters
  * @param optional nil or *JobShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return JobDetails
 */
-func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id string, jobShowParameters JobShowParameters, localVarOptionals *JobShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id string, jobShowParameters JobShowParameters, localVarOptionals *JobShowOpts) (JobDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobDetails
 	)
 
 	// create path and map variables
@@ -739,7 +739,7 @@ func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id stri
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v JobDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -777,16 +777,16 @@ Starts an existing job in state draft.
  * @param jobStartParameters
  * @param optional nil or *JobStartOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return JobDetails
 */
-func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id string, jobStartParameters JobStartParameters, localVarOptionals *JobStartOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id string, jobStartParameters JobStartParameters, localVarOptionals *JobStartOpts) (JobDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobDetails
 	)
 
 	// create path and map variables
@@ -855,7 +855,7 @@ func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id str
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v JobDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -893,16 +893,16 @@ Update an existing job.
  * @param jobUpdateParameters
  * @param optional nil or *JobUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return JobDetails
 */
-func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id string, jobUpdateParameters JobUpdateParameters, localVarOptionals *JobUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id string, jobUpdateParameters JobUpdateParameters, localVarOptionals *JobUpdateOpts) (JobDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobDetails
 	)
 
 	// create path and map variables
@@ -971,7 +971,7 @@ func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id st
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v JobDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -32,16 +32,16 @@ Get details on a single version.
  * @param versionShowParameters
  * @param optional nil or *VersionShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return TranslationVersionWithUser
 */
-func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, versionShowParameters VersionShowParameters, localVarOptionals *VersionShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, versionShowParameters VersionShowParameters, localVarOptionals *VersionShowOpts) (TranslationVersionWithUser, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  TranslationVersionWithUser
 	)
 
 	// create path and map variables
@@ -112,7 +112,7 @@ func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v TranslationVersionWithUser
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

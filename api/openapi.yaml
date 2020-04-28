@@ -781,52 +781,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/paths/~1projects~1%7Bproject_id%7D~1styleguides/get/responses/200/content/application~1json/schema/items'
-                - example:
-                    public_url: https://phrase.com/styleguide/my-project/26f065cf597be340
-                    audience: customer-facing
-                    target_audience: teenager
-                    grammatical_person: first_person_singular
-                    vocabulary_type: technical
-                    business: We are a travel site that helps customers find the best
-                      hotels and flights.
-                    company_branding: ACME Inc. should never be translated.
-                    formatting: Never use capital letters
-                    glossary_terms: Appartement, cabin, loft
-                    grammar_consistency: ""
-                    literal_translation: Neutral
-                    overall_tone: Tone should be fun and light
-                    samples: http://www.myexample.com/my/document/path/to/samples.pdf
-                  properties:
-                    public_url:
-                      type: string
-                    audience:
-                      type: string
-                    target_audience:
-                      type: string
-                    grammatical_person:
-                      type: string
-                    vocabulary_type:
-                      type: string
-                    business:
-                      type: string
-                    company_branding:
-                      type: string
-                    formatting:
-                      type: string
-                    glossary_terms:
-                      type: string
-                    grammar_consistency:
-                      type: string
-                    literal_translation:
-                      type: string
-                    overall_tone:
-                      type: string
-                    samples:
-                      type: string
-                  title: styleguide_details
-                  type: object
+                $ref: '#/components/schemas/styleguide_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -976,7 +931,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1styleguides~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/styleguide_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -1089,7 +1044,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1invitations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/invitation'
                 type: array
           description: OK
           headers:
@@ -1472,7 +1427,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1invitations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/invitation'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -1561,7 +1516,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1invitations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/invitation'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -1663,7 +1618,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1screenshots~1%7Bscreenshot_id%7D~1markers/patch/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/screenshot_marker'
                 type: array
           description: OK
           headers:
@@ -1754,7 +1709,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1screenshots~1%7Bscreenshot_id%7D~1markers/patch/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/screenshot_marker'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -2470,38 +2425,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/paths/~1projects~1%7Bproject_id%7D~1locales/get/responses/200/content/application~1json/schema/items'
-                - example:
-                    statistics:
-                      keys_total_count: 2120
-                      keys_untranslated_count: 100
-                      words_total_count: 3102102
-                      translations_completed_count: 1920
-                      translations_unverified_count: 32
-                      unverified_words_count: 129
-                      missing_words_count: 3920
-                  properties:
-                    statistics:
-                      properties:
-                        keys_total_count:
-                          type: integer
-                        keys_untranslated_count:
-                          type: integer
-                        words_total_count:
-                          type: integer
-                        translations_completed_count:
-                          type: integer
-                        translations_unverified_count:
-                          type: integer
-                        unverified_words_count:
-                          type: integer
-                        missing_words_count:
-                          type: integer
-                      title: locale_statistics
-                      type: object
-                  title: locale_details
-                  type: object
+                $ref: '#/components/schemas/locale_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -2635,7 +2559,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1locales~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/locale_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -3298,7 +3222,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/distribution'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -3804,7 +3728,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bdistribution_id%7D~1releases~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/release'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -3899,7 +3823,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bdistribution_id%7D~1releases~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/release'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -4329,36 +4253,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs/get/responses/200/content/application~1json/schema/items'
-                - example:
-                    owner:
-                      id: abcd1234cdef1234abcd1234cdef1234
-                      username: joe.doe
-                      name: Joe Doe
-                    job_tag_name: Job_123
-                    locales:
-                    - id: abcd1234cdef1234abcd1234cdef1234
-                      name: English
-                      code: en-GB
-                    keys:
-                    - id: dbcd1234cdef1234abcd1234cdef1234
-                      name: greeting.hello
-                  properties:
-                    owner:
-                      $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema/properties/merged_by'
-                    job_tag_name:
-                      type: string
-                    locales:
-                      items:
-                        $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-                      type: array
-                    keys:
-                      items:
-                        $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations/get/responses/200/content/application~1json/schema/items/properties/key'
-                      type: array
-                  title: job_details
-                  type: object
+                $ref: '#/components/schemas/job_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -4464,7 +4359,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/job_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -4565,7 +4460,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/job_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -4663,7 +4558,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/job_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -4761,7 +4656,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/job_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -4967,7 +4862,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/job_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -5066,7 +4961,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1glossaries~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/glossary'
                 type: array
           description: OK
           headers:
@@ -5430,7 +5325,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1glossaries~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/glossary'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -5522,7 +5417,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1authorizations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/authorization'
                 type: array
           description: OK
           headers:
@@ -5859,7 +5754,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1authorizations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/authorization'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -6248,7 +6143,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1keys~1%7Bkey_id%7D~1comments~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/comment'
                 type: array
           description: OK
           headers:
@@ -6659,7 +6554,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1keys~1%7Bkey_id%7D~1comments~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/comment'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -7060,7 +6955,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1webhooks~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/webhook'
                 type: array
           description: OK
           headers:
@@ -7422,7 +7317,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1webhooks~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/webhook'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -7612,7 +7507,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1uploads~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/upload'
                 type: array
           description: OK
           headers:
@@ -7952,7 +7847,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1gitlab_syncs~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/gitlab_sync'
                 type: array
           description: OK
           headers:
@@ -8231,7 +8126,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1gitlab_syncs~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/gitlab_sync'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -8328,7 +8223,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1uploads~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/upload'
                 type: array
           description: OK
           headers:
@@ -8762,18 +8657,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1%7Btranslation_id%7D~1versions/get/responses/200/content/application~1json/schema/items'
-                - example:
-                    user:
-                      id: abcd1234cdef1234abcd1234cdef1234
-                      username: joe.doe
-                      name: Joe Doe
-                  properties:
-                    user:
-                      $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema/properties/merged_by'
-                  title: translation_version_with_user
-                  type: object
+                $ref: '#/components/schemas/translation_version_with_user'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -9430,18 +9314,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/project'
-                - example:
-                    slug: my-android-project
-                    shares_translation_memory: true
-                  properties:
-                    slug:
-                      type: string
-                    shares_translation_memory:
-                      type: boolean
-                  title: project_details
-                  type: object
+                $ref: '#/components/schemas/project_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -9550,7 +9423,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/project_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -9676,7 +9549,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bjob_id%7D~1locale~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/job_locale'
                 type: array
           description: OK
           headers:
@@ -10103,7 +9976,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bjob_id%7D~1locale~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/job_locale'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -10211,7 +10084,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bjob_id%7D~1locale~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/job_locale'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -10317,7 +10190,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bjob_id%7D~1locale~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/job_locale'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -10415,7 +10288,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/branch'
                 type: array
           description: OK
           headers:
@@ -10751,7 +10624,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/branch'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -11101,15 +10974,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/components/schemas/account'
-                - example:
-                    slug: company-account
-                  properties:
-                    slug:
-                      type: string
-                  title: account_details
-                  type: object
+                $ref: '#/components/schemas/account_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -11268,7 +11133,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1members~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/member'
                 type: array
           description: OK
           headers:
@@ -11538,7 +11403,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1members~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/member'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -11639,7 +11504,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1screenshots~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/screenshot'
                 type: array
           description: OK
           headers:
@@ -11994,7 +11859,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1screenshots~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/screenshot'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -12103,7 +11968,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1glossaries~1%7Bglossary_id%7D~1terms~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/glossary_term'
                 type: array
           description: OK
           headers:
@@ -12500,7 +12365,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1glossaries~1%7Bglossary_id%7D~1terms~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/glossary_term'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -12896,40 +12761,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/paths/~1projects~1%7Bproject_id%7D~1tags/get/responses/200/content/application~1json/schema/items'
-                - example:
-                    statistics:
-                    - locale:
-                        id: abcd1234cdef1234abcd1234cdef1234
-                        name: de
-                        code: de-DE
-                      statistics:
-                        keys_total_count: 12
-                        translations_completed_count: 9
-                        translations_unverified_count: 11
-                        keys_untranslated_count: 3
-                  properties:
-                    statistics:
-                      items:
-                        properties:
-                          locale:
-                            $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-                          statistics:
-                            properties:
-                              keys_total_count:
-                                type: integer
-                              translations_completed_count:
-                                type: integer
-                              translations_unverified_count:
-                                type: integer
-                              keys_untranslated_count:
-                                type: integer
-                            type: object
-                        type: object
-                      type: array
-                  title: tag_with_stats
-                  type: object
+                $ref: '#/components/schemas/tag_with_stats'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -13024,7 +12856,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1blacklisted_keys~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/blacklisted_key'
                 type: array
           description: OK
           headers:
@@ -13361,7 +13193,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1blacklisted_keys~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/blacklisted_key'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -13883,7 +13715,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1keys/get/responses/200/content/application~1json/schema/items'
+                  $ref: '#/components/schemas/translation_key'
                 type: array
           description: OK
           headers:
@@ -14081,43 +13913,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/paths/~1projects~1%7Bproject_id%7D~1keys/get/responses/200/content/application~1json/schema/items'
-                - example:
-                    name_plural: home.index.headlines
-                    comments_count: 2
-                    data_type: string
-                    max_characters_allowed: 140
-                    screenshot_url: http://assets.example.com/screenshot.png
-                    unformatted: false
-                    xml_space_preserve: false
-                    original_file: ""
-                    format_value_type: ""
-                    creator:
-                      id: abcd1234cdef1234abcd1234cdef1234
-                      username: joe.doe
-                      name: Joe Doe
-                  properties:
-                    name_plural:
-                      type: string
-                    comments_count:
-                      type: integer
-                    max_characters_allowed:
-                      type: integer
-                    screenshot_url:
-                      type: string
-                    unformatted:
-                      type: boolean
-                    xml_space_preserve:
-                      type: boolean
-                    original_file:
-                      type: string
-                    format_value_type:
-                      type: string
-                    creator:
-                      $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema/properties/merged_by'
-                  title: translation_key_details
-                  type: object
+                $ref: '#/components/schemas/translation_key_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -14272,7 +14068,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1keys~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/translation_key_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -14389,7 +14185,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1keys/delete/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/affected_resources'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -14496,7 +14292,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1keys/delete/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/affected_resources'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -14610,7 +14406,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/translation_order'
                 type: array
           description: OK
           headers:
@@ -15053,7 +14849,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/translation_order'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -16152,7 +15948,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations/get/responses/200/content/application~1json/schema/items'
+                  $ref: '#/components/schemas/translation'
                 type: array
           description: OK
           headers:
@@ -16287,7 +16083,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations/get/responses/200/content/application~1json/schema/items'
+                  $ref: '#/components/schemas/translation'
                 type: array
           description: OK
           headers:
@@ -16417,7 +16213,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations/get/responses/200/content/application~1json/schema/items'
+                  $ref: '#/components/schemas/translation'
                 type: array
           description: OK
           headers:
@@ -16521,21 +16317,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations/get/responses/200/content/application~1json/schema/items'
-                - example:
-                    user:
-                      id: abcd1234cdef1234abcd1234cdef1234
-                      username: joe.doe
-                      name: Joe Doe
-                    word_count: 2
-                  properties:
-                    user:
-                      $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema/properties/merged_by'
-                    word_count:
-                      type: integer
-                  title: translation_details
-                  type: object
+                $ref: '#/components/schemas/translation_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -16652,7 +16434,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/translation_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -16751,7 +16533,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/translation_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -16849,7 +16631,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/translation_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -16947,7 +16729,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/translation_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -17045,7 +16827,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/translation_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -17143,7 +16925,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/translation_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -17352,7 +17134,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1verify/patch/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/affected_count'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -17449,7 +17231,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1verify/patch/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/affected_count'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -17553,7 +17335,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1verify/patch/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/affected_count'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -17659,7 +17441,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations~1verify/patch/responses/200/content/application~1json/schema'
+                $ref: '#/components/schemas/affected_count'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -18648,7 +18430,27 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/errors'
+            example:
+              message: Validation Failed
+              errors:
+              - resource: Resource
+                field: name
+                message: can't be blank
+            properties:
+              message:
+                type: string
+              errors:
+                items:
+                  properties:
+                    resource:
+                      type: string
+                    field:
+                      type: string
+                    message:
+                      type: string
+                  type: object
+                type: array
+            type: object
       description: Unprocessable entity
       headers:
         X-Rate-Limit-Limit:
@@ -18669,6 +18471,226 @@ components:
     "503":
       description: Server error
   schemas:
+    authorization:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        note: My Deploy Script
+        token_last_eight: 1234abcd
+        hashed_token: abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234
+        scopes:
+        - read
+        expires_at: 2015-03-30T09:52:53Z
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        note:
+          type: string
+        token_last_eight:
+          type: string
+        hashed_token:
+          type: string
+        scopes:
+          items:
+            type: string
+          type: array
+        expires_at:
+          format: date-time
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: authorization
+      type: object
+    authorization_with_token:
+      allOf:
+      - $ref: '#/components/schemas/authorization'
+      - $ref: '#/components/schemas/authorization_with_token_1'
+    bitbucket_sync:
+      example:
+        id: aad1ar91-0331-4181-b90p-4crdnv0bd812
+        repository_name: some-repository
+        last_export_to_bitbucket_at: 2015-01-28T09:52:53Z
+        last_import_from_bitbucket_at: 2015-01-28T09:52:53Z
+        valid_phraseapp_yaml: true
+        phraseapp_projects:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        repository_name:
+          type: string
+        last_export_to_bitbucket_at:
+          format: date-time
+          type: string
+        last_import_from_bitbucket_at:
+          format: date-time
+          type: string
+        valid_phraseapp_yaml:
+          type: boolean
+        phraseapp_projects:
+          items:
+            $ref: '#/components/schemas/project_short'
+          type: array
+      title: bitbucket_sync
+      type: object
+    bitbucket_sync_export_response:
+      example:
+        status_path: https://bitbucket.sync.phraseapp.com/export_to_bitbucket_status
+      properties:
+        status_path:
+          type: string
+      title: bitbucket_sync_export_response
+      type: object
+    gitlab_sync:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        project_id: ft5yufdh1234cdef1234abc5d12d4cdef123
+        gitlab_project_id: 18188930
+        gitlab_branch_name: master
+        auto_import: true
+        auto_import_secret: import_secret
+        auto_import_url: import_url
+        self_hosted_api_url: www.example.com/api/v4
+        last_exported_at: 2015-01-28T12:55:14.000+00:00
+        last_imported_at: 2015-01-28T12:55:14.000+00:00
+        last_status: success
+      properties:
+        id:
+          type: string
+        project_id:
+          type: string
+        gitlab_project_id:
+          type: integer
+        gitlab_branch_name:
+          type: string
+        auto_import:
+          type: boolean
+        auto_import_secret:
+          type: string
+        auto_import_url:
+          type: string
+        self_hosted_api_url:
+          type: string
+        last_exported_at:
+          format: date-time
+          type: string
+        last_imported_at:
+          format: date-time
+          type: string
+        last_status:
+          type: string
+      title: gitlab_sync
+      type: object
+    gitlab_sync_export:
+      example:
+        merge_request_id: 1234
+        merge_request_web_url: https://gitlab.com/account/project/-/merge_requests/1234
+      properties:
+        merge_request_id:
+          type: integer
+        merge_request_web_url:
+          type: string
+      title: gitlab_sync_export
+      type: object
+    gitlab_sync_history:
+      example:
+        type: history
+        attributes:
+          status: success
+          action: import
+          errors:
+          - error message one
+          - error message two
+          date: 2015-01-28T12:55:14.000+00:00
+          details:
+            auto_import: false
+      properties:
+        status:
+          type: integer
+        action:
+          type: string
+        errors:
+          items:
+            type: string
+          type: array
+        date:
+          format: date-time
+          type: string
+        details:
+          type: object
+      title: gitlab_sync_history
+      type: object
+    blacklisted_key:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        name: date.formats.*
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: blacklisted_key
+      type: object
+    comment:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        message: Some message...
+        user:
+          id: abcd1234cdef1234abcd1234cdef1234
+          username: joe.doe
+          name: Joe Doe
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        message:
+          type: string
+        user:
+          $ref: '#/components/schemas/user_preview'
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: comment
+      type: object
+    key_preview:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        plural:
+          type: boolean
+      title: key_preview
+      type: object
+    affected_count:
+      example:
+        records_affected: 96
+      properties:
+        records_affected:
+          type: integer
+      title: affected_count
+      type: object
     account:
       example:
         id: abcd1234
@@ -18690,6 +18712,377 @@ components:
           format: date-time
           type: string
       title: account
+      type: object
+    account_details:
+      allOf:
+      - $ref: '#/components/schemas/account'
+      - $ref: '#/components/schemas/account_details_1'
+    member:
+      example:
+        id: acbdacbdacbdacbdacbdacbd
+        email: foo@bar.com
+        username: myname
+        role: Manager
+        projects:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+          locales:
+          - id: abcd1234cdef1234abcd1234cdef1234
+            name: English
+            code: en-Gb
+        permissions:
+        - create_upload: true
+          review_translations: true
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        username:
+          type: string
+        role:
+          type: string
+        projects:
+          items:
+            $ref: '#/components/schemas/project_locales'
+          type: array
+      title: member
+      type: object
+    invitation:
+      example:
+        id: acbdacbdacbdacbdacbdacbd
+        email: foo@bar.com
+        role: Manager
+        state: accepted
+        projects:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        locales:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: English
+          code: en-GB
+        permissions:
+        - create_upload: true
+          review_translations: true
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+        accepted_at: 2015-02-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+        state:
+          type: string
+        projects:
+          items:
+            $ref: '#/components/schemas/project_short'
+          type: array
+        locales:
+          items:
+            $ref: '#/components/schemas/locale_preview'
+          type: array
+        permissions:
+          type: object
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        accepted_at:
+          format: date-time
+          type: string
+      title: invitation
+      type: object
+    glossary:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        name: My glossary
+        projects:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        spaces:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: My Project Space
+          projects_count: 1
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        projects:
+          items:
+            $ref: '#/components/schemas/project_short'
+          type: array
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: glossary
+      type: object
+    glossary_term:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1233
+        term: Save
+        description: This term is used on the 'Save' buttons of our website
+        translatable: true
+        case_sensitive: true
+        translations:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          locale_code: fr-FR
+          content: Entasser
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        - id: abcd1234cdef1234abcd1234cdef1235
+          locale_code: de-DE
+          content: Speichern
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        term:
+          type: string
+        description:
+          type: string
+        translatable:
+          type: boolean
+        case_sensitive:
+          type: boolean
+        translations:
+          items:
+            $ref: '#/components/schemas/glossary_term_translation'
+          type: array
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: glossary_term
+      type: object
+    glossary_term_translation:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        locale_code: en-US
+        content: Save
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        locale_code:
+          type: string
+        content:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: glossary_term_translation
+      type: object
+    project_short:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        name: My Android Project
+        main_format: xml
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        main_format:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: project_short
+      type: object
+    project_locales:
+      allOf:
+      - $ref: '#/components/schemas/project_short'
+      - $ref: '#/components/schemas/project_locales_1'
+    locale_preview:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        name: English
+        code: en-GB
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        code:
+          type: string
+      title: locale_preview
+      type: object
+    locale:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        name: de
+        code: de-DE
+        default: true
+        main: false
+        rtl: false
+        plural_forms:
+        - zero
+        - one
+        - other
+        source_locale:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: en
+          code: en-GB
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        code:
+          type: string
+        default:
+          type: boolean
+        main:
+          type: boolean
+        rtl:
+          type: boolean
+        plural_forms:
+          items:
+            type: string
+          type: array
+        source_locale:
+          $ref: '#/components/schemas/locale_preview'
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: locale
+      type: object
+    locale_statistics:
+      properties:
+        keys_total_count:
+          type: integer
+        keys_untranslated_count:
+          type: integer
+        words_total_count:
+          type: integer
+        translations_completed_count:
+          type: integer
+        translations_unverified_count:
+          type: integer
+        unverified_words_count:
+          type: integer
+        missing_words_count:
+          type: integer
+      title: locale_statistics
+      type: object
+    locale_details:
+      allOf:
+      - $ref: '#/components/schemas/locale'
+      - $ref: '#/components/schemas/locale_details_1'
+    upload:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        filename: example.json
+        format: json
+        state: success
+        tag: tag
+        summary:
+          locales_created: 2
+          translation_keys_created: 162
+          translation_keys_updated: 10
+          translation_keys_unmentioned: 0
+          translations_created: 291
+          translations_updated: 3
+          tags_created: 2
+          translation_keys_ignored: 0
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        filename:
+          type: string
+        format:
+          type: string
+        state:
+          type: string
+        tag:
+          type: string
+        summary:
+          $ref: '#/components/schemas/upload_summary'
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: upload
+      type: object
+    format:
+      example:
+        name: Ruby/Rails YAML
+        api_name: yml
+        description: YAML file format for use with Ruby/Rails applications
+        extension: yml
+        default_encoding: UTF-8
+        importable: true
+        exportable: true
+        default_file: ./config/locales/<locale_name>.yml
+        renders_default_locale: false
+        includes_locale_information: true
+      properties:
+        name:
+          type: string
+        api_name:
+          type: string
+        description:
+          type: string
+        extension:
+          type: string
+        default_encoding:
+          type: string
+        importable:
+          type: boolean
+        exportable:
+          type: boolean
+        default_file:
+          type: string
+        renders_default_locale:
+          type: boolean
+        includes_locale_information:
+          type: boolean
+      title: format
       type: object
     project:
       example:
@@ -18718,6 +19111,351 @@ components:
           format: date-time
           type: string
       title: project
+      type: object
+    project_details:
+      allOf:
+      - $ref: '#/components/schemas/project'
+      - $ref: '#/components/schemas/project_details_1'
+    styleguide:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        title: My Style Guide
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: styleguide
+      type: object
+    styleguide_preview:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        title: My Style Guide
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+      title: styleguide_preview
+      type: object
+    styleguide_details:
+      allOf:
+      - $ref: '#/components/schemas/styleguide'
+      - $ref: '#/components/schemas/styleguide_details_1'
+    tag:
+      example:
+        name: my-feature
+        keys_count: 8
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        name:
+          type: string
+        keys_count:
+          type: integer
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: tag
+      type: object
+    tag_with_stats:
+      allOf:
+      - $ref: '#/components/schemas/tag'
+      - $ref: '#/components/schemas/tag_with_stats_1'
+    translation:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        content: My translation
+        unverified: false
+        excluded: false
+        plural_suffix: ""
+        key:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: home.index.headline
+          plural: false
+        locale:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: de
+          code: de-DE
+        placeholders:
+        - '%{count}'
+        state: translated
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        unverified:
+          type: boolean
+        excluded:
+          type: boolean
+        plural_suffix:
+          type: string
+        key:
+          $ref: '#/components/schemas/key_preview'
+        locale:
+          $ref: '#/components/schemas/locale_preview'
+        placeholders:
+          items:
+            type: string
+          type: array
+        state:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: translation
+      type: object
+    translation_details:
+      allOf:
+      - $ref: '#/components/schemas/translation'
+      - $ref: '#/components/schemas/translation_details_1'
+    translation_key:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        name: home.index.headline
+        description: My description for this key...
+        name_hash: 1b31d2580ce324f246f66b3be00ed399
+        plural: false
+        tags:
+        - awesome-feature
+        - needs-proofreading
+        data_type: string
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        name_hash:
+          type: string
+        plural:
+          type: boolean
+        tags:
+          items:
+            type: string
+          type: array
+        data_type:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: translation_key
+      type: object
+    translation_key_details:
+      allOf:
+      - $ref: '#/components/schemas/translation_key'
+      - $ref: '#/components/schemas/translation_key_details_1'
+    affected_resources:
+      example:
+        records_affected: 2
+      properties:
+        records_affected:
+          type: integer
+      title: affected_resources
+      type: object
+    translation_order:
+      example:
+        id: 30AB4884
+        lsp: gengo
+        amount_in_cents: 1152
+        currency: usd
+        message: Please make everything sound really nice :)
+        state: confirmed
+        translation_type: pro
+        progress_percent: 50
+        source_locale:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: en
+          code: en-GB
+        target_locales:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: de
+          code: de-DE
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: fr
+          code: fr-FR
+        tag: latest-upload
+        styleguide:
+          id: abcd1234cdef1234abcd1234cdef1234
+          title: My Styleguide
+        unverify_translations_upon_delivery: true
+        quality: true
+        priority: true
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        lsp:
+          type: string
+        amount_in_cents:
+          type: integer
+        currency:
+          type: string
+        message:
+          type: string
+        state:
+          type: string
+        translation_type:
+          type: string
+        progress_percent:
+          type: integer
+        source_locale:
+          $ref: '#/components/schemas/locale_preview'
+        target_locales:
+          items:
+            $ref: '#/components/schemas/locale_preview'
+          type: array
+        tag:
+          type: string
+        styleguide:
+          $ref: '#/components/schemas/styleguide_preview'
+        unverify_translations_upon_delivery:
+          type: boolean
+        quality:
+          type: boolean
+        priority:
+          type: boolean
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: translation_order
+      type: object
+    translation_version:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        content: My translation
+        plural_suffix: ""
+        key:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: home.index.headline
+          plural: false
+        locale:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: en
+          code: en-GB
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+        changed_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        plural_suffix:
+          type: string
+        key:
+          $ref: '#/components/schemas/key_preview'
+        locale:
+          $ref: '#/components/schemas/locale_preview'
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        changed_at:
+          format: date-time
+          type: string
+      title: translation_version
+      type: object
+    translation_version_with_user:
+      allOf:
+      - $ref: '#/components/schemas/translation_version'
+      - $ref: '#/components/schemas/translation_version_with_user_1'
+    user_preview:
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+      title: user_preview
+      type: object
+    user:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        username: joe.doe
+        name: Joe Doe
+        email: joe@phrase.com
+        position: Lead Developer
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        position:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: user
+      type: object
+    webhook:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        callback_url: http://example.com/hooks/phraseapp-notifications
+        description: My webhook for chat notifications
+        events: locales:create,translations:update
+        active: true
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        callback_url:
+          type: string
+        description:
+          type: string
+        events:
+          items:
+            type: string
+          type: array
+        active:
+          type: boolean
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: webhook
       type: object
     space:
       example:
@@ -18760,51 +19498,26 @@ components:
           type: array
       title: space
       type: object
-    errors:
+    job:
       example:
-        message: Validation Failed
-        errors:
-        - resource: Resource
-          field: name
-          message: can't be blank
-      properties:
-        message:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/errors_errors'
-          type: array
-      type: object
-    format:
-      example: '{"name":"Ruby/Rails YAML","api_name":"yml","description":"YAML file
-        format for use with Ruby/Rails applications","extension":"yml","default_encoding":"UTF-8","importable":true,"exportable":true,"default_file":"./config/locales/<locale_name>.yml","renders_default_locale":false,"includes_locale_information":true}'
-      properties:
-        name:
-          type: string
-        api_name:
-          type: string
-        description:
-          type: string
-        extension:
-          type: string
-        default_encoding:
-          type: string
-        importable:
-          type: boolean
-        exportable:
-          type: boolean
-        default_file:
-          type: string
-        renders_default_locale:
-          type: boolean
-        includes_locale_information:
-          type: boolean
-    styleguide:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","title":"My Style Guide","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
+        id: 626ea67628690c73ac86ac81eec2d185
+        name: Translations for new Feature
+        briefing: Some instructions for the translators
+        due_date: 2017-02-28T09:52:53Z
+        state: completed
+        created_at: 2017-01-28T09:52:53Z
+        updated_at: 2017-01-28T09:52:53Z
       properties:
         id:
           type: string
-        title:
+        name:
+          type: string
+        briefing:
+          type: string
+        due_date:
+          format: date-time
+          type: string
+        state:
           type: string
         created_at:
           format: date-time
@@ -18812,6 +19525,350 @@ components:
         updated_at:
           format: date-time
           type: string
+      title: job
+      type: object
+    job_details:
+      allOf:
+      - $ref: '#/components/schemas/job'
+      - $ref: '#/components/schemas/job_details_1'
+    job_preview:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+      title: job_preview
+      type: object
+    job_locale:
+      example:
+        id: 626ea67628690c73ac86ac81eec2d185
+        job:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Job 1
+          state: completed
+        users:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          username: joe.doe
+          name: Joe Doe
+        locale:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: English
+          code: en-GB
+      properties:
+        id:
+          type: string
+        job:
+          $ref: '#/components/schemas/job_preview'
+        locale:
+          $ref: '#/components/schemas/locale_preview'
+        users:
+          items:
+            $ref: '#/components/schemas/user_preview'
+          type: array
+      title: job_locale
+      type: object
+    branch:
+      example:
+        name: new-branch
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+        merged_at: 2015-01-28T09:52:53Z
+        merged_by:
+          id: abcd1234cdef1234abcd1234cdef1234
+          username: joe.doe
+          name: Joe Doe
+        created_by:
+          id: abcd1234cdef1234abcd1234cdef1234
+          username: joe.doe
+          name: Joe Doe
+        state: success
+      properties:
+        name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        merged_at:
+          format: date-time
+          type: string
+        merged_by:
+          $ref: '#/components/schemas/user_preview'
+        created_by:
+          $ref: '#/components/schemas/user_preview'
+        state:
+          type: string
+      title: branch
+      type: object
+    distribution_preview:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        name: Android Distribution
+        project:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        platforms:
+        - android
+        release_count: 10
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        project:
+          $ref: '#/components/schemas/project_short'
+        platforms:
+          items:
+            type: string
+          type: array
+        release_count:
+          type: integer
+        created_at:
+          format: date-time
+          type: string
+        deleted_at:
+          format: date-time
+          type: string
+      title: distribution_preview
+      type: object
+    distribution:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        name: Android Distribution
+        project:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        platforms:
+        - android
+        releases:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          version: 1
+          project:
+            id: abcd1234cdef1234abcd1234cdef1234
+            name: My Android Project
+            main_format: xml
+            created_at: 2015-01-28T09:52:53Z
+            updated_at: 2015-01-28T09:52:53Z
+          platforms:
+          - android
+          environments:
+          - development
+          locale_codes:
+          - de
+          - en
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        project:
+          $ref: '#/components/schemas/project_short'
+        platforms:
+          items:
+            type: string
+          type: array
+        releases:
+          items:
+            $ref: '#/components/schemas/release_preview'
+          type: array
+        created_at:
+          format: date-time
+          type: string
+        deleted_at:
+          format: date-time
+          type: string
+      title: distribution
+      type: object
+    release_preview:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        version: 1
+        project:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        platforms:
+        - android
+        environments:
+        - development
+        locale_codes:
+        - de
+        - en
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        app_min_version:
+          type: string
+        app_max_version:
+          type: string
+        description:
+          type: string
+        platforms:
+          items:
+            type: string
+          type: array
+        environments:
+          items:
+            type: string
+          type: array
+        locale_codes:
+          items:
+            type: string
+          type: array
+        project:
+          $ref: '#/components/schemas/project_short'
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: release_preview
+      type: object
+    release:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        version: 1
+        project:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        platforms:
+        - android
+        environments:
+        - development
+        - production
+        locales:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: English
+          code: en-GB
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        version:
+          type: integer
+        app_min_version:
+          type: string
+        app_max_version:
+          type: string
+        description:
+          type: string
+        platforms:
+          items:
+            type: string
+          type: array
+        environments:
+          items:
+            type: string
+          type: array
+        locales:
+          items:
+            $ref: '#/components/schemas/locale_preview'
+          type: array
+        project:
+          $ref: '#/components/schemas/project_short'
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: release
+      type: object
+    screenshot:
+      example:
+        id: d2e056aa9e70b01121f41693e344f5ee
+        name: A screenshot name
+        description: A screenshot description
+        screenshot_url: http://assets.example.com/screenshot.png
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+        markers_count: 0
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        screenshot_url:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        markers_count:
+          type: integer
+      title: screenshot
+      type: object
+    screenshot_marker:
+      example:
+        id: d2e056aa9e70b01121f41693e344f5ee
+        presentation:
+          x: 10
+          y: 10
+          w: 10
+          h: 10
+        presentation_type: default
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+        translation_key:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: home.index.headline
+          description: My description for this key...
+          name_hash: 1b31d2580ce324f246f66b3be00ed399
+          plural: false
+          tags:
+          - awesome-feature
+          - needs-proofreading
+          data_type: string
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        presentation:
+          type: string
+        presentation_type:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        translation_key:
+          $ref: '#/components/schemas/translation_key'
+      title: screenshot_marker
+      type: object
     styleguide_create_parameters:
       properties:
         title:
@@ -18964,37 +20021,6 @@ components:
           type: object
       title: invitation/create/parameters
       type: object
-    invitation:
-      example: '{"id":"acbdacbdacbdacbdacbdacbd","email":"foo@bar.com","role":"Manager","state":"accepted","projects":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}],"locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}],"permissions":[{"create_upload":true,"review_translations":true}],"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","accepted_at":"2015-02-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        email:
-          type: string
-        role:
-          type: string
-        state:
-          type: string
-        projects:
-          items:
-            $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/project'
-          type: array
-        locales:
-          items:
-            $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-          type: array
-        permissions:
-          type: object
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-        accepted_at:
-          format: date-time
-          type: string
     invitation_update_parameters:
       properties:
         role:
@@ -19052,24 +20078,6 @@ components:
           type: string
       title: screenshot_marker/update/parameters
       type: object
-    screenshot_marker:
-      example: '{"id":"d2e056aa9e70b01121f41693e344f5ee","presentation":{"x":10,"y":10,"w":10,"h":10},"presentation_type":"default","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","translation_key":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"home.index.headline","description":"My
-        description for this key...","name_hash":"1b31d2580ce324f246f66b3be00ed399","plural":false,"tags":["awesome-feature","needs-proofreading"],"data_type":"string","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}}'
-      properties:
-        id:
-          type: string
-        presentation:
-          type: string
-        presentation_type:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-        translation_key:
-          $ref: '#/paths/~1projects~1%7Bproject_id%7D~1keys/get/responses/200/content/application~1json/schema/items'
     locales_list_parameters:
       properties:
         branch:
@@ -19078,33 +20086,6 @@ components:
           type: string
       title: locales/list/parameters
       type: object
-    locale:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"de","code":"de-DE","default":true,"main":false,"rtl":false,"plural_forms":["zero","one","other"],"source_locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"en","code":"en-GB"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        code:
-          type: string
-        default:
-          type: boolean
-        main:
-          type: boolean
-        rtl:
-          type: boolean
-        plural_forms:
-          items:
-            type: string
-          type: array
-        source_locale:
-          $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     locale_create_parameters:
       properties:
         branch:
@@ -19282,28 +20263,6 @@ components:
           type: string
       title: locale/download/parameters
       type: object
-    distribution_preview:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"Android Distribution","project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},"platforms":["android"],"release_count":10,"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        project:
-          $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/project'
-        platforms:
-          items:
-            type: string
-          type: array
-        release_count:
-          type: integer
-        created_at:
-          format: date-time
-          type: string
-        deleted_at:
-          format: date-time
-          type: string
     distribution_create_parameters:
       properties:
         name:
@@ -19343,46 +20302,6 @@ components:
           type: boolean
       title: distribution/create/parameters
       type: object
-    project_short:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        main_format:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-    distribution:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"Android Distribution","project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},"platforms":["android"],"releases":[{"id":"abcd1234cdef1234abcd1234cdef1234","version":1,"project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},"platforms":["android"],"environments":["development"],"locale_codes":["de","en"],"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}],"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        project:
-          $ref: '#/components/schemas/project_short'
-        platforms:
-          items:
-            type: string
-          type: array
-        releases:
-          items:
-            $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bdistribution_id%7D~1releases/get/responses/200/content/application~1json/schema/items'
-          type: array
-        created_at:
-          format: date-time
-          type: string
-        deleted_at:
-          format: date-time
-          type: string
     distribution_update_parameters:
       properties:
         name:
@@ -19422,40 +20341,6 @@ components:
           type: boolean
       title: distribution/update/parameters
       type: object
-    release_preview:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","version":1,"project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},"platforms":["android"],"environments":["development"],"locale_codes":["de","en"],"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        version:
-          type: integer
-        app_min_version:
-          type: string
-        app_max_version:
-          type: string
-        description:
-          type: string
-        platforms:
-          items:
-            type: string
-          type: array
-        environments:
-          items:
-            type: string
-          type: array
-        locale_codes:
-          items:
-            type: string
-          type: array
-        project:
-          $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/project'
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     release_create_parameters:
       properties:
         description:
@@ -19476,40 +20361,6 @@ components:
           type: string
       title: release/create/parameters
       type: object
-    release:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","version":1,"project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},"platforms":["android"],"environments":["development","production"],"locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}],"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        version:
-          type: integer
-        app_min_version:
-          type: string
-        app_max_version:
-          type: string
-        description:
-          type: string
-        platforms:
-          items:
-            type: string
-          type: array
-        environments:
-          items:
-            type: string
-          type: array
-        locales:
-          items:
-            $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-          type: array
-        project:
-          $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/project'
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     release_update_parameters:
       properties:
         description:
@@ -19551,27 +20402,6 @@ components:
           type: string
       title: jobs/list/parameters
       type: object
-    job:
-      example: '{"id":"626ea67628690c73ac86ac81eec2d185","name":"Translations for
-        new Feature","briefing":"Some instructions for the translators","due_date":"2017-02-28T09:52:53Z","state":"completed","created_at":"2017-01-28T09:52:53Z","updated_at":"2017-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        briefing:
-          type: string
-        due_date:
-          format: date-time
-          type: string
-        state:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     job_create_parameters:
       properties:
         branch:
@@ -19716,25 +20546,6 @@ components:
           type: array
       title: glossary/create/parameters
       type: object
-    glossary:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My glossary","projects":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}],"spaces":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Project Space","projects_count":1,"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}],"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        projects:
-          items:
-            $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/project'
-          type: array
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     glossary_update_parameters:
       properties:
         name:
@@ -19777,30 +20588,6 @@ components:
           type: string
       title: authorization/create/parameters
       type: object
-    authorization:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","note":"My Deploy Script","token_last_eight":"1234abcd","hashed_token":"abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234","scopes":["read"],"expires_at":"2015-03-30T09:52:53Z","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        note:
-          type: string
-        token_last_eight:
-          type: string
-        hashed_token:
-          type: string
-        scopes:
-          items:
-            type: string
-          type: array
-        expires_at:
-          format: date-time
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     authorization_update_parameters:
       properties:
         note:
@@ -19833,26 +20620,6 @@ components:
           type: string
       title: bitbucket_syncs/list/parameters
       type: object
-    bitbucket_sync:
-      example: '{"id":"aad1ar91-0331-4181-b90p-4crdnv0bd812","repository_name":"some-repository","last_export_to_bitbucket_at":"2015-01-28T09:52:53Z","last_import_from_bitbucket_at":"2015-01-28T09:52:53Z","valid_phraseapp_yaml":true,"phraseapp_projects":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}]}'
-      properties:
-        id:
-          type: string
-        repository_name:
-          type: string
-        last_export_to_bitbucket_at:
-          format: date-time
-          type: string
-        last_import_from_bitbucket_at:
-          format: date-time
-          type: string
-        valid_phraseapp_yaml:
-          type: boolean
-        phraseapp_projects:
-          items:
-            $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/project'
-          type: array
     bitbucket_sync_export_parameters:
       properties:
         account_id:
@@ -19863,11 +20630,6 @@ components:
           type: string
       title: bitbucket_sync/export/parameters
       type: object
-    bitbucket_sync_export_response:
-      example: '{"status_path":"https://bitbucket.sync.phraseapp.com/export_to_bitbucket_status"}'
-      properties:
-        status_path:
-          type: string
     bitbucket_sync_import_parameters:
       properties:
         account_id:
@@ -19906,22 +20668,6 @@ components:
           type: string
       title: comment/show/parameters
       type: object
-    comment:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","message":"Some message...","user":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        message:
-          type: string
-        user:
-          $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema/properties/merged_by'
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     comment_delete_parameters:
       properties:
         branch:
@@ -19985,28 +20731,6 @@ components:
           type: boolean
       title: webhook/create/parameters
       type: object
-    webhook:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","callback_url":"http://example.com/hooks/phraseapp-notifications","description":"My
-        webhook for chat notifications","events":"locales:create,translations:update","active":true,"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        callback_url:
-          type: string
-        description:
-          type: string
-        events:
-          items:
-            type: string
-          type: array
-        active:
-          type: boolean
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     webhook_update_parameters:
       properties:
         callback_url:
@@ -20109,45 +20833,6 @@ components:
           type: string
       title: upload/show/parameters
       type: object
-    upload_summary:
-      properties:
-        locales_created:
-          type: integer
-        translation_keys_created:
-          type: integer
-        translation_keys_updated:
-          type: integer
-        translation_keys_unmentioned:
-          type: integer
-        translations_created:
-          type: integer
-        translations_updated:
-          type: integer
-        tags_created:
-          type: integer
-        translation_keys_ignored:
-          type: integer
-    upload:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","filename":"example.json","format":"json","state":"success","tag":"tag","summary":{"locales_created":2,"translation_keys_created":162,"translation_keys_updated":10,"translation_keys_unmentioned":0,"translations_created":291,"translations_updated":3,"tags_created":2,"translation_keys_ignored":0},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        filename:
-          type: string
-        format:
-          type: string
-        state:
-          type: string
-        tag:
-          type: string
-        summary:
-          $ref: '#/components/schemas/upload_summary'
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     gitlab_sync_list_parameters:
       properties:
         account_id:
@@ -20168,33 +20853,6 @@ components:
           type: string
       title: gitlab_sync/show/parameters
       type: object
-    gitlab_sync:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","project_id":"ft5yufdh1234cdef1234abc5d12d4cdef123","gitlab_project_id":18188930,"gitlab_branch_name":"master","auto_import":true,"auto_import_secret":"import_secret","auto_import_url":"import_url","self_hosted_api_url":"www.example.com/api/v4","last_exported_at":"2015-01-28T12:55:14.000+00:00","last_imported_at":"2015-01-28T12:55:14.000+00:00","last_status":"success"}'
-      properties:
-        id:
-          type: string
-        project_id:
-          type: string
-        gitlab_project_id:
-          type: integer
-        gitlab_branch_name:
-          type: string
-        auto_import:
-          type: boolean
-        auto_import_secret:
-          type: string
-        auto_import_url:
-          type: string
-        self_hosted_api_url:
-          type: string
-        last_exported_at:
-          format: date-time
-          type: string
-        last_imported_at:
-          format: date-time
-          type: string
-        last_status:
-          type: string
     gitlab_sync_update_parameters:
       properties:
         account_id:
@@ -20247,13 +20905,6 @@ components:
           type: string
       title: gitlab_sync/export/parameters
       type: object
-    gitlab_sync_export:
-      example: '{"merge_request_id":1234,"merge_request_web_url":"https://gitlab.com/account/project/-/merge_requests/1234"}'
-      properties:
-        merge_request_id:
-          type: integer
-        merge_request_web_url:
-          type: string
     gitlab_sync_history_parameters:
       properties:
         account_id:
@@ -20264,23 +20915,6 @@ components:
           type: string
       title: gitlab_sync/history/parameters
       type: object
-    gitlab_sync_history:
-      example: '{"type":"history","attributes":{"status":"success","action":"import","errors":["error
-        message one","error message two"],"date":"2015-01-28T12:55:14.000+00:00","details":{"auto_import":false}}}'
-      properties:
-        status:
-          type: integer
-        action:
-          type: string
-        errors:
-          items:
-            type: string
-          type: array
-        date:
-          format: date-time
-          type: string
-        details:
-          type: object
     versions_list_parameters:
       properties:
         branch:
@@ -20289,28 +20923,6 @@ components:
           type: string
       title: versions/list/parameters
       type: object
-    translation_version:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","content":"My translation","plural_suffix":"","key":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"home.index.headline","plural":false},"locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"en","code":"en-GB"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","changed_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        content:
-          type: string
-        plural_suffix:
-          type: string
-        key:
-          $ref: '#/paths/~1projects~1%7Bproject_id%7D~1translations/get/responses/200/content/application~1json/schema/items/properties/key'
-        locale:
-          $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-        changed_at:
-          format: date-time
-          type: string
     version_show_parameters:
       properties:
         branch:
@@ -20343,21 +20955,6 @@ components:
           type: string
       title: glossary_term_translation/update/parameters
       type: object
-    glossary_term_translation:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","locale_code":"en-US","content":"Save","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        locale_code:
-          type: string
-        content:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     project_create_parameters:
       properties:
         name:
@@ -20459,29 +21056,6 @@ components:
           type: string
       title: job_locale/show/parameters
       type: object
-    job_preview:
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        state:
-          type: string
-    job_locale:
-      example: '{"id":"626ea67628690c73ac86ac81eec2d185","job":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Job 1","state":"completed"},"users":[{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe"}],"locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}}'
-      properties:
-        id:
-          type: string
-        job:
-          $ref: '#/components/schemas/job_preview'
-        locale:
-          $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-        users:
-          items:
-            $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema/properties/merged_by'
-          type: array
     job_locale_delete_parameters:
       properties:
         branch:
@@ -20533,36 +21107,6 @@ components:
           type: string
       title: branch/create/parameters
       type: object
-    user_preview:
-      properties:
-        id:
-          type: string
-        username:
-          type: string
-        name:
-          type: string
-    branch:
-      example: '{"name":"new-branch","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","merged_at":"2015-01-28T09:52:53Z","merged_by":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe"},"created_by":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe"},"state":"success"}'
-      properties:
-        name:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-        merged_at:
-          format: date-time
-          type: string
-        merged_by:
-          $ref: '#/components/schemas/user_preview'
-        created_by:
-          $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema/properties/merged_by'
-        state:
-          type: string
     branch_update_parameters:
       properties:
         name:
@@ -20587,55 +21131,6 @@ components:
           type: string
       title: branch/compare/parameters
       type: object
-    user:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe","email":"joe@phrase.com","position":"Lead Developer","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        username:
-          type: string
-        name:
-          type: string
-        email:
-          type: string
-        position:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-    member:
-      example: '{"id":"acbdacbdacbdacbdacbdacbd","email":"foo@bar.com","username":"myname","role":"Manager","projects":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-Gb"}]}],"permissions":[{"create_upload":true,"review_translations":true}]}'
-      properties:
-        id:
-          type: string
-        email:
-          type: string
-        username:
-          type: string
-        role:
-          type: string
-        projects:
-          items:
-            allOf:
-            - $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/project'
-            - example:
-                locales:
-                - id: abcd1234cdef1234abcd1234cdef1234
-                  name: English
-                  code: en-GB
-              properties:
-                locales:
-                  items:
-                    $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-                  type: array
-              title: project_locales
-              type: object
-          type: array
     member_update_parameters:
       properties:
         role:
@@ -20675,26 +21170,6 @@ components:
           type: string
       title: screenshot/create/parameters
       type: object
-    screenshot:
-      example: '{"id":"d2e056aa9e70b01121f41693e344f5ee","name":"A screenshot name","description":"A
-        screenshot description","screenshot_url":"http://assets.example.com/screenshot.png","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","markers_count":0}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        screenshot_url:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-        markers_count:
-          type: integer
     screenshot_update_parameters:
       properties:
         name:
@@ -20732,30 +21207,6 @@ components:
           type: boolean
       title: glossary_term/create/parameters
       type: object
-    glossary_term:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1233","term":"Save","description":"This
-        term is used on the ''Save'' buttons of our website","translatable":true,"case_sensitive":true,"translations":[{"id":"abcd1234cdef1234abcd1234cdef1234","locale_code":"fr-FR","content":"Entasser","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},{"id":"abcd1234cdef1234abcd1234cdef1235","locale_code":"de-DE","content":"Speichern","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}],"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        term:
-          type: string
-        description:
-          type: string
-        translatable:
-          type: boolean
-        case_sensitive:
-          type: boolean
-        translations:
-          items:
-            $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1glossaries~1%7Bglossary_id%7D~1terms~1%7Bterm_id%7D~1translations~1%7Bid%7D/patch/responses/200/content/application~1json/schema'
-          type: array
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     glossary_term_update_parameters:
       properties:
         term:
@@ -20785,19 +21236,6 @@ components:
           type: string
       title: tags/list/parameters
       type: object
-    tag:
-      example: '{"name":"my-feature","keys_count":8,"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        name:
-          type: string
-        keys_count:
-          type: integer
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     tag_create_parameters:
       properties:
         branch:
@@ -20834,19 +21272,6 @@ components:
           type: string
       title: blacklisted_key/create/parameters
       type: object
-    blacklisted_key:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"date.formats.*","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     blacklisted_key_update_parameters:
       properties:
         name:
@@ -20880,32 +21305,6 @@ components:
           type: string
       title: keys/list/parameters
       type: object
-    translation_key:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"home.index.headline","description":"My
-        description for this key...","name_hash":"1b31d2580ce324f246f66b3be00ed399","plural":false,"tags":["awesome-feature","needs-proofreading"],"data_type":"string","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        name_hash:
-          type: string
-        plural:
-          type: boolean
-        tags:
-          items:
-            type: string
-          type: array
-        data_type:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     key_create_parameters:
       properties:
         branch:
@@ -20988,11 +21387,6 @@ components:
           type: string
       title: keys/delete/parameters
       type: object
-    affected_resources:
-      example: '{"records_affected":2}'
-      properties:
-        records_affected:
-          type: integer
     keys_search_parameters:
       properties:
         branch:
@@ -21229,65 +21623,6 @@ components:
           type: string
       title: order/show/parameters
       type: object
-    locale_preview:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        code:
-          type: string
-    styleguide_preview:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","title":"My Style Guide"}'
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-    translation_order:
-      example: '{"id":"30AB4884","lsp":"gengo","amount_in_cents":1152,"currency":"usd","message":"Please
-        make everything sound really nice :)","state":"confirmed","translation_type":"pro","progress_percent":50,"source_locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"en","code":"en-GB"},"target_locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"de","code":"de-DE"},{"id":"abcd1234cdef1234abcd1234cdef1234","name":"fr","code":"fr-FR"}],"tag":"latest-upload","styleguide":{"id":"abcd1234cdef1234abcd1234cdef1234","title":"My
-        Styleguide"},"unverify_translations_upon_delivery":true,"quality":true,"priority":true,"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        lsp:
-          type: string
-        amount_in_cents:
-          type: integer
-        currency:
-          type: string
-        message:
-          type: string
-        state:
-          type: string
-        translation_type:
-          type: string
-        progress_percent:
-          type: integer
-        source_locale:
-          $ref: '#/components/schemas/locale_preview'
-        target_locales:
-          items:
-            $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-          type: array
-        tag:
-          type: string
-        styleguide:
-          $ref: '#/components/schemas/styleguide_preview'
-        unverify_translations_upon_delivery:
-          type: boolean
-        quality:
-          type: boolean
-        priority:
-          type: boolean
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     order_delete_parameters:
       properties:
         branch:
@@ -21348,43 +21683,6 @@ components:
           type: string
       title: translations/list/parameters
       type: object
-    key_preview:
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        plural:
-          type: boolean
-    translation:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","content":"My translation","unverified":false,"excluded":false,"plural_suffix":"","key":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"home.index.headline","plural":false},"locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"de","code":"de-DE"},"placeholders":["%{count}"],"state":"translated","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        content:
-          type: string
-        unverified:
-          type: boolean
-        excluded:
-          type: boolean
-        plural_suffix:
-          type: string
-        key:
-          $ref: '#/components/schemas/key_preview'
-        locale:
-          $ref: '#/paths/~1projects~1%7Bproject_id%7D~1orders~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/source_locale'
-        placeholders:
-          items:
-            type: string
-          type: array
-        state:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     translation_create_parameters:
       properties:
         branch:
@@ -21580,11 +21878,6 @@ components:
           type: string
       title: translations/verify/parameters
       type: object
-    affected_count:
-      example: '{"records_affected":96}'
-      properties:
-        records_affected:
-          type: integer
     translations_unverify_parameters:
       properties:
         branch:
@@ -21657,14 +21950,161 @@ components:
           type: string
       title: translations/include/parameters
       type: object
-    errors_errors:
+    authorization_with_token_1:
+      example: '{"token":"abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234"}'
       properties:
-        resource:
+        token:
           type: string
-        field:
+    account_details_1:
+      example: '{"slug":"company-account"}'
+      properties:
+        slug:
           type: string
-        message:
+    project_locales_1:
+      example: '{"locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}]}'
+      properties:
+        locales:
+          items:
+            $ref: '#/components/schemas/locale_preview'
+          type: array
+    locale_details_1:
+      example: '{"statistics":{"keys_total_count":2120,"keys_untranslated_count":100,"words_total_count":3102102,"translations_completed_count":1920,"translations_unverified_count":32,"unverified_words_count":129,"missing_words_count":3920}}'
+      properties:
+        statistics:
+          $ref: '#/components/schemas/locale_statistics'
+    upload_summary:
+      properties:
+        locales_created:
+          type: integer
+        translation_keys_created:
+          type: integer
+        translation_keys_updated:
+          type: integer
+        translation_keys_unmentioned:
+          type: integer
+        translations_created:
+          type: integer
+        translations_updated:
+          type: integer
+        tags_created:
+          type: integer
+        translation_keys_ignored:
+          type: integer
+    project_details_1:
+      example: '{"slug":"my-android-project","shares_translation_memory":true}'
+      properties:
+        slug:
           type: string
+        shares_translation_memory:
+          type: boolean
+    styleguide_details_1:
+      example: '{"public_url":"https://phrase.com/styleguide/my-project/26f065cf597be340","audience":"customer-facing","target_audience":"teenager","grammatical_person":"first_person_singular","vocabulary_type":"technical","business":"We
+        are a travel site that helps customers find the best hotels and flights.","company_branding":"ACME
+        Inc. should never be translated.","formatting":"Never use capital letters","glossary_terms":"Appartement,
+        cabin, loft","grammar_consistency":"","literal_translation":"Neutral","overall_tone":"Tone
+        should be fun and light","samples":"http://www.myexample.com/my/document/path/to/samples.pdf"}'
+      properties:
+        public_url:
+          type: string
+        audience:
+          type: string
+        target_audience:
+          type: string
+        grammatical_person:
+          type: string
+        vocabulary_type:
+          type: string
+        business:
+          type: string
+        company_branding:
+          type: string
+        formatting:
+          type: string
+        glossary_terms:
+          type: string
+        grammar_consistency:
+          type: string
+        literal_translation:
+          type: string
+        overall_tone:
+          type: string
+        samples:
+          type: string
+    tag_with_stats_1_statistics:
+      properties:
+        keys_total_count:
+          type: integer
+        translations_completed_count:
+          type: integer
+        translations_unverified_count:
+          type: integer
+        keys_untranslated_count:
+          type: integer
+    tag_with_stats_1_statistics_1:
+      properties:
+        locale:
+          $ref: '#/components/schemas/locale_preview'
+        statistics:
+          $ref: '#/components/schemas/tag_with_stats_1_statistics'
+    tag_with_stats_1:
+      example: '{"statistics":[{"locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"de","code":"de-DE"},"statistics":{"keys_total_count":12,"translations_completed_count":9,"translations_unverified_count":11,"keys_untranslated_count":3}}]}'
+      properties:
+        statistics:
+          items:
+            $ref: '#/components/schemas/tag_with_stats_1_statistics_1'
+          type: array
+    translation_details_1:
+      example: '{"user":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
+        Doe"},"word_count":2}'
+      properties:
+        user:
+          $ref: '#/components/schemas/user_preview'
+        word_count:
+          type: integer
+    translation_key_details_1:
+      example: '{"name_plural":"home.index.headlines","comments_count":2,"data_type":"string","max_characters_allowed":140,"screenshot_url":"http://assets.example.com/screenshot.png","unformatted":false,"xml_space_preserve":false,"original_file":"","format_value_type":"","creator":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
+        Doe"}}'
+      properties:
+        name_plural:
+          type: string
+        comments_count:
+          type: integer
+        max_characters_allowed:
+          type: integer
+        screenshot_url:
+          type: string
+        unformatted:
+          type: boolean
+        xml_space_preserve:
+          type: boolean
+        original_file:
+          type: string
+        format_value_type:
+          type: string
+        creator:
+          $ref: '#/components/schemas/user_preview'
+    translation_version_with_user_1:
+      example: '{"user":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
+        Doe"}}'
+      properties:
+        user:
+          $ref: '#/components/schemas/user_preview'
+    job_details_1:
+      example: '{"owner":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
+        Doe"},"job_tag_name":"Job_123","locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}],"keys":[{"id":"dbcd1234cdef1234abcd1234cdef1234","name":"greeting.hello"}]}'
+      properties:
+        owner:
+          $ref: '#/components/schemas/user_preview'
+        job_tag_name:
+          type: string
+        locales:
+          items:
+            $ref: '#/components/schemas/locale_preview'
+          type: array
+        keys:
+          items:
+            $ref: '#/components/schemas/key_preview'
+          type: array
   securitySchemes:
     Token:
       description: Enter your token in the format **token TOKEN**
