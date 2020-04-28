@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## GlossaryTermCreate
 
-> GlossaryTermCreate(ctx, accountId, glossaryId, glossaryTermCreate, optional)
+> GlossaryTermCreate(ctx, accountId, glossaryId, glossaryTermCreateParameters, optional)
 
 Create a glossary term
 
@@ -28,7 +28,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
 **glossaryId** | **string**| Glossary ID | 
-**glossaryTermCreate** | [**GlossaryTermCreate**](GlossaryTermCreate.md)|  | 
+**glossaryTermCreateParameters** | [**GlossaryTermCreateParameters**](GlossaryTermCreateParameters.md)|  | 
  **optional** | ***GlossaryTermCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ## GlossaryTermUpdate
 
-> map[string]interface{} GlossaryTermUpdate(ctx, accountId, glossaryId, id, glossaryTermUpdate, optional)
+> map[string]interface{} GlossaryTermUpdate(ctx, accountId, glossaryId, id, glossaryTermUpdateParameters, optional)
 
 Update a glossary term
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 **accountId** | **string**| Account ID | 
 **glossaryId** | **string**| Glossary ID | 
 **id** | **string**| ID | 
-**glossaryTermUpdate** | [**GlossaryTermUpdate**](GlossaryTermUpdate.md)|  | 
+**glossaryTermUpdateParameters** | [**GlossaryTermUpdateParameters**](GlossaryTermUpdateParameters.md)|  | 
  **optional** | ***GlossaryTermUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

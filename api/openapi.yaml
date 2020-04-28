@@ -537,7 +537,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/styleguide_create'
+        $ref: '#/components/requestBodies/styleguide_create_parameters'
         content:
           application/json:
             schema:
@@ -604,7 +604,7 @@ paths:
                     for maintaining consistency.
                   example: http://www.myexample.com/my/document/path/to/samples.pdf
                   type: string
-              title: styleguide/create
+              title: styleguide/create/parameters
               type: object
         required: true
       responses:
@@ -901,7 +901,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/styleguide_update'
+        $ref: '#/components/requestBodies/styleguide_update_parameters'
         content:
           application/json:
             schema:
@@ -968,7 +968,7 @@ paths:
                     for maintaining consistency.
                   example: http://www.myexample.com/my/document/path/to/samples.pdf
                   type: string
-              title: styleguide/update
+              title: styleguide/update/parameters
               type: object
         required: true
       responses:
@@ -1161,7 +1161,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/invitation_create'
+        $ref: '#/components/requestBodies/invitation_create_parameters'
         content:
           application/json:
             schema:
@@ -1192,7 +1192,7 @@ paths:
                     create_upload: true
                     review_translations: true
                   type: object
-              title: invitation/create
+              title: invitation/create/parameters
               type: object
         required: true
       responses:
@@ -1441,7 +1441,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/invitation_update'
+        $ref: '#/components/requestBodies/invitation_update_parameters'
         content:
           application/json:
             schema:
@@ -1464,7 +1464,7 @@ paths:
                   example:
                     create_upload: true
                   type: object
-              title: invitation/update
+              title: invitation/update/parameters
               type: object
         required: true
       responses:
@@ -1906,7 +1906,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/screenshot_marker_update'
+        $ref: '#/components/requestBodies/screenshot_marker_update_parameters'
         content:
           application/json:
             schema:
@@ -1926,7 +1926,7 @@ paths:
                     and <code>h</code> in pixels).
                   example: '{ "x": 100, "y": 100, "w": 100, "h": 100 }'
                   type: string
-              title: screenshot_marker/update
+              title: screenshot_marker/update/parameters
               type: object
         required: true
       responses:
@@ -2015,7 +2015,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/screenshot_marker_create'
+        $ref: '#/components/requestBodies/screenshot_marker_create_parameters'
         content:
           application/json:
             schema:
@@ -2035,7 +2035,7 @@ paths:
                     and <code>h</code> in pixels).
                   example: '{ "x": 100, "y": 100, "w": 100, "h": 100 }'
                   type: string
-              title: screenshot_marker/create
+              title: screenshot_marker/create/parameters
               type: object
         required: true
       responses:
@@ -2133,7 +2133,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/locales_list'
+        $ref: '#/components/requestBodies/locales_list_parameters'
         content:
           application/json:
             schema:
@@ -2142,7 +2142,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: locales/list
+              title: locales/list/parameters
               type: object
         required: true
       responses:
@@ -2223,7 +2223,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/locale_create'
+        $ref: '#/components/requestBodies/locale_create_parameters'
         content:
           application/json:
             schema:
@@ -2272,7 +2272,7 @@ paths:
                   description: If set, translations for this locale will be fetched
                     automatically, right after creation.
                   type: boolean
-              title: locale/create
+              title: locale/create/parameters
               type: object
         required: true
       responses:
@@ -2360,7 +2360,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/locale_delete'
+        $ref: '#/components/requestBodies/locale_delete_parameters'
         content:
           application/json:
             schema:
@@ -2369,7 +2369,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: locale/delete
+              title: locale/delete/parameters
               type: object
         required: true
       responses:
@@ -2453,7 +2453,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/locale_show'
+        $ref: '#/components/requestBodies/locale_show_parameters'
         content:
           application/json:
             schema:
@@ -2462,7 +2462,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: locale/show
+              title: locale/show/parameters
               type: object
         required: true
       responses:
@@ -2578,7 +2578,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/locale_update'
+        $ref: '#/components/requestBodies/locale_update_parameters'
         content:
           application/json:
             schema:
@@ -2627,7 +2627,7 @@ paths:
                   description: If set, translations for this locale will be fetched
                     automatically, right after creation.
                   type: boolean
-              title: locale/update
+              title: locale/update/parameters
               type: object
         required: true
       responses:
@@ -2719,7 +2719,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/locale_download'
+        $ref: '#/components/requestBodies/locale_download_parameters'
         content:
           application/json:
             schema:
@@ -2790,7 +2790,7 @@ paths:
                     public ID of the locale that should be used as the fallback. Requires
                     include_empty_translations to be set to <code>true</code>.
                   type: string
-              title: locale/download
+              title: locale/download/parameters
               type: object
         required: true
       responses:
@@ -2962,7 +2962,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/distribution_create'
+        $ref: '#/components/requestBodies/distribution_create_parameters'
         content:
           application/json:
             schema:
@@ -3003,7 +3003,7 @@ paths:
                     a project
                   example: true
                   type: boolean
-              title: distribution/create
+              title: distribution/create/parameters
               type: object
         required: true
       responses:
@@ -3249,7 +3249,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/distribution_update'
+        $ref: '#/components/requestBodies/distribution_update_parameters'
         content:
           application/json:
             schema:
@@ -3290,7 +3290,7 @@ paths:
                     a project
                   example: true
                   type: boolean
-              title: distribution/update
+              title: distribution/update/parameters
               type: object
         required: true
       responses:
@@ -3488,7 +3488,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/release_create'
+        $ref: '#/components/requestBodies/release_create_parameters'
         content:
           application/json:
             schema:
@@ -3509,7 +3509,7 @@ paths:
                   description: Branch used for release
                   example: my-feature-branch
                   type: string
-              title: release/create
+              title: release/create/parameters
               type: object
         required: true
       responses:
@@ -3775,7 +3775,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/release_update'
+        $ref: '#/components/requestBodies/release_update_parameters'
         content:
           application/json:
             schema:
@@ -3796,7 +3796,7 @@ paths:
                   description: Branch used for release
                   example: my-feature-branch
                   type: string
-              title: release/update
+              title: release/update/parameters
               type: object
         required: true
       responses:
@@ -3988,7 +3988,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/jobs_list'
+        $ref: '#/components/requestBodies/jobs_list_parameters'
         content:
           application/json:
             schema:
@@ -4010,7 +4010,7 @@ paths:
                     <code>in_progress</code>, <code>completed</code>
                   example: completed
                   type: string
-              title: jobs/list
+              title: jobs/list/parameters
               type: object
         required: true
       responses:
@@ -4094,7 +4094,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_create'
+        $ref: '#/components/requestBodies/job_create_parameters'
         content:
           application/json:
             schema:
@@ -4129,7 +4129,7 @@ paths:
                   items:
                     type: string
                   type: array
-              title: job/create
+              title: job/create/parameters
               type: object
         required: true
       responses:
@@ -4219,7 +4219,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_delete'
+        $ref: '#/components/requestBodies/job_delete_parameters'
         content:
           application/json:
             schema:
@@ -4228,7 +4228,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job/delete
+              title: job/delete/parameters
               type: object
         required: true
       responses:
@@ -4312,7 +4312,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_show'
+        $ref: '#/components/requestBodies/job_show_parameters'
         content:
           application/json:
             schema:
@@ -4321,7 +4321,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job/show
+              title: job/show/parameters
               type: object
         required: true
       responses:
@@ -4435,7 +4435,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_update'
+        $ref: '#/components/requestBodies/job_update_parameters'
         content:
           application/json:
             schema:
@@ -4456,7 +4456,7 @@ paths:
                   description: Date the job should be finished
                   format: date-time
                   type: string
-              title: job/update
+              title: job/update/parameters
               type: object
         required: true
       responses:
@@ -4548,7 +4548,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_start'
+        $ref: '#/components/requestBodies/job_start_parameters'
         content:
           application/json:
             schema:
@@ -4557,7 +4557,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job/start
+              title: job/start/parameters
               type: object
         required: true
       responses:
@@ -4646,7 +4646,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_complete'
+        $ref: '#/components/requestBodies/job_complete_parameters'
         content:
           application/json:
             schema:
@@ -4655,7 +4655,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job/complete
+              title: job/complete/parameters
               type: object
         required: true
       responses:
@@ -4744,7 +4744,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_reopen'
+        $ref: '#/components/requestBodies/job_reopen_parameters'
         content:
           application/json:
             schema:
@@ -4753,7 +4753,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job/reopen
+              title: job/reopen/parameters
               type: object
         required: true
       responses:
@@ -4842,7 +4842,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_keys_delete'
+        $ref: '#/components/requestBodies/job_keys_delete_parameters'
         content:
           application/json:
             schema:
@@ -4858,7 +4858,7 @@ paths:
                   items:
                     type: string
                   type: array
-              title: job/keys/delete
+              title: job/keys/delete/parameters
               type: object
         required: true
       responses:
@@ -4943,7 +4943,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_keys_create'
+        $ref: '#/components/requestBodies/job_keys_create_parameters'
         content:
           application/json:
             schema:
@@ -4959,7 +4959,7 @@ paths:
                   items:
                     type: string
                   type: array
-              title: job/keys/create
+              title: job/keys/create/parameters
               type: object
         required: true
       responses:
@@ -5136,7 +5136,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/glossary_create'
+        $ref: '#/components/requestBodies/glossary_create_parameters'
         content:
           application/json:
             schema:
@@ -5158,7 +5158,7 @@ paths:
                   items:
                     type: string
                   type: array
-              title: glossary/create
+              title: glossary/create/parameters
               type: object
         required: true
       responses:
@@ -5400,7 +5400,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/glossary_update'
+        $ref: '#/components/requestBodies/glossary_update_parameters'
         content:
           application/json:
             schema:
@@ -5422,7 +5422,7 @@ paths:
                   items:
                     type: string
                   type: array
-              title: glossary/update
+              title: glossary/update/parameters
               type: object
         required: true
       responses:
@@ -5584,7 +5584,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/authorization_create'
+        $ref: '#/components/requestBodies/authorization_create_parameters'
         content:
           application/json:
             schema:
@@ -5608,7 +5608,7 @@ paths:
                   example: 2015-03-30T09:52:53Z
                   format: date-time
                   type: string
-              title: authorization/create
+              title: authorization/create/parameters
               type: object
         required: true
       responses:
@@ -5827,7 +5827,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/authorization_update'
+        $ref: '#/components/requestBodies/authorization_update_parameters'
         content:
           application/json:
             schema:
@@ -5851,7 +5851,7 @@ paths:
                   example: 2015-03-30T09:52:53Z
                   format: date-time
                   type: string
-              title: authorization/update
+              title: authorization/update/parameters
               type: object
         required: true
       responses:
@@ -5927,7 +5927,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/bitbucket_syncs_list'
+        $ref: '#/components/requestBodies/bitbucket_syncs_list_parameters'
         content:
           application/json:
             schema:
@@ -5938,7 +5938,7 @@ paths:
                     of multiple accounts.
                   example: abcd1234
                   type: string
-              title: bitbucket_syncs/list
+              title: bitbucket_syncs/list/parameters
               type: object
         required: true
       responses:
@@ -6021,7 +6021,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/bitbucket_sync_export'
+        $ref: '#/components/requestBodies/bitbucket_sync_export_parameters'
         content:
           application/json:
             schema:
@@ -6032,7 +6032,7 @@ paths:
                     of multiple accounts.
                   example: abcd1234
                   type: string
-              title: bitbucket_sync/export
+              title: bitbucket_sync/export/parameters
               type: object
         required: true
       responses:
@@ -6114,7 +6114,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/bitbucket_sync_import'
+        $ref: '#/components/requestBodies/bitbucket_sync_import_parameters'
         content:
           application/json:
             schema:
@@ -6125,7 +6125,7 @@ paths:
                     of multiple accounts.
                   example: abcd1234
                   type: string
-              title: bitbucket_sync/import
+              title: bitbucket_sync/import/parameters
               type: object
         required: true
       responses:
@@ -6230,7 +6230,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/comments_list'
+        $ref: '#/components/requestBodies/comments_list_parameters'
         content:
           application/json:
             schema:
@@ -6239,7 +6239,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: comments/list
+              title: comments/list/parameters
               type: object
         required: true
       responses:
@@ -6328,7 +6328,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/comment_create'
+        $ref: '#/components/requestBodies/comment_create_parameters'
         content:
           application/json:
             schema:
@@ -6341,7 +6341,7 @@ paths:
                   description: Comment message
                   example: Some message...
                   type: string
-              title: comment/create
+              title: comment/create/parameters
               type: object
         required: true
       responses:
@@ -6435,7 +6435,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/comment_delete'
+        $ref: '#/components/requestBodies/comment_delete_parameters'
         content:
           application/json:
             schema:
@@ -6444,7 +6444,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: comment/delete
+              title: comment/delete/parameters
               type: object
         required: true
       responses:
@@ -6536,7 +6536,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/comment_show'
+        $ref: '#/components/requestBodies/comment_show_parameters'
         content:
           application/json:
             schema:
@@ -6545,7 +6545,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: comment/show
+              title: comment/show/parameters
               type: object
         required: true
       responses:
@@ -6638,7 +6638,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/comment_update'
+        $ref: '#/components/requestBodies/comment_update_parameters'
         content:
           application/json:
             schema:
@@ -6651,7 +6651,7 @@ paths:
                   description: Comment message
                   example: Some message...
                   type: string
-              title: comment/update
+              title: comment/update/parameters
               type: object
         required: true
       responses:
@@ -6749,7 +6749,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/comment_mark_unread'
+        $ref: '#/components/requestBodies/comment_mark_unread_parameters'
         content:
           application/json:
             schema:
@@ -6758,7 +6758,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: comment/mark/unread
+              title: comment/mark/unread/parameters
               type: object
         required: true
       responses:
@@ -6851,7 +6851,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/comment_mark_check'
+        $ref: '#/components/requestBodies/comment_mark_check_parameters'
         content:
           application/json:
             schema:
@@ -6860,7 +6860,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: comment/mark/check
+              title: comment/mark/check/parameters
               type: object
         required: true
       responses:
@@ -6949,7 +6949,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/comment_mark_read'
+        $ref: '#/components/requestBodies/comment_mark_read_parameters'
         content:
           application/json:
             schema:
@@ -6958,7 +6958,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: comment/mark/read
+              title: comment/mark/read/parameters
               type: object
         required: true
       responses:
@@ -7130,7 +7130,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/webhook_create'
+        $ref: '#/components/requestBodies/webhook_create_parameters'
         content:
           application/json:
             schema:
@@ -7151,7 +7151,7 @@ paths:
                 active:
                   description: Whether webhook is active or inactive
                   type: boolean
-              title: webhook/create
+              title: webhook/create/parameters
               type: object
         required: true
       responses:
@@ -7393,7 +7393,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/webhook_update'
+        $ref: '#/components/requestBodies/webhook_update_parameters'
         content:
           application/json:
             schema:
@@ -7414,7 +7414,7 @@ paths:
                 active:
                   description: Whether webhook is active or inactive
                   type: boolean
-              title: webhook/update
+              title: webhook/update/parameters
               type: object
         required: true
       responses:
@@ -7594,7 +7594,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/uploads_list'
+        $ref: '#/components/requestBodies/uploads_list_parameters'
         content:
           application/json:
             schema:
@@ -7603,7 +7603,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: uploads/list
+              title: uploads/list/parameters
               type: object
         required: true
       responses:
@@ -7685,7 +7685,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/upload_create'
+        $ref: '#/components/requestBodies/upload_create_parameters'
         content:
           application/json:
             schema:
@@ -7756,7 +7756,7 @@ paths:
                     be marked as reviewed. This setting is available if the review
                     workflow (currently beta) is enabled for the project.
                   type: boolean
-              title: upload/create
+              title: upload/create/parameters
               type: object
         required: true
       responses:
@@ -7852,7 +7852,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/upload_show'
+        $ref: '#/components/requestBodies/upload_show_parameters'
         content:
           application/json:
             schema:
@@ -7861,7 +7861,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: upload/show
+              title: upload/show/parameters
               type: object
         required: true
       responses:
@@ -7932,7 +7932,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/gitlab_sync_list'
+        $ref: '#/components/requestBodies/gitlab_sync_list_parameters'
         content:
           application/json:
             schema:
@@ -7943,7 +7943,7 @@ paths:
                     a member of multiple accounts.
                   example: abcd1234
                   type: string
-              title: gitlab_sync/list
+              title: gitlab_sync/list/parameters
               type: object
         required: true
       responses:
@@ -8025,7 +8025,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/gitlab_sync_delete'
+        $ref: '#/components/requestBodies/gitlab_sync_delete_parameters'
         content:
           application/json:
             schema:
@@ -8036,7 +8036,7 @@ paths:
                     a member of multiple accounts.
                   example: abcd1234
                   type: string
-              title: gitlab_sync/delete
+              title: gitlab_sync/delete/parameters
               type: object
         required: true
       responses:
@@ -8112,7 +8112,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/gitlab_sync_show'
+        $ref: '#/components/requestBodies/gitlab_sync_show_parameters'
         content:
           application/json:
             schema:
@@ -8123,7 +8123,7 @@ paths:
                     a member of multiple accounts.
                   example: abcd1234
                   type: string
-              title: gitlab_sync/show
+              title: gitlab_sync/show/parameters
               type: object
         required: true
       responses:
@@ -8200,7 +8200,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/gitlab_sync_update'
+        $ref: '#/components/requestBodies/gitlab_sync_update_parameters'
         content:
           application/json:
             schema:
@@ -8223,7 +8223,7 @@ paths:
                   description: Name of the GitLab Branch.
                   example: feature-development
                   type: string
-              title: gitlab_sync/update
+              title: gitlab_sync/update/parameters
               type: object
         required: true
       responses:
@@ -8308,7 +8308,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/gitlab_sync_import'
+        $ref: '#/components/requestBodies/gitlab_sync_import_parameters'
         content:
           application/json:
             schema:
@@ -8319,7 +8319,7 @@ paths:
                     a member of multiple accounts.
                   example: abcd1234
                   type: string
-              title: gitlab_sync/import
+              title: gitlab_sync/import/parameters
               type: object
         required: true
       responses:
@@ -8405,7 +8405,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/gitlab_sync_export'
+        $ref: '#/components/requestBodies/gitlab_sync_export_parameters'
         content:
           application/json:
             schema:
@@ -8416,7 +8416,7 @@ paths:
                     a member of multiple accounts.
                   example: abcd1234
                   type: string
-              title: gitlab_sync/export
+              title: gitlab_sync/export/parameters
               type: object
         required: true
       responses:
@@ -8424,7 +8424,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/gitlab_sync_export_1'
+                $ref: '#/components/schemas/gitlab_sync_export'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -8517,7 +8517,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/gitlab_sync_history'
+        $ref: '#/components/requestBodies/gitlab_sync_history_parameters'
         content:
           application/json:
             schema:
@@ -8528,7 +8528,7 @@ paths:
                     a member of multiple accounts.
                   example: abcd1234
                   type: string
-              title: gitlab_sync/history
+              title: gitlab_sync/history/parameters
               type: object
         required: true
       responses:
@@ -8537,7 +8537,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/gitlab_sync_history_1'
+                  $ref: '#/components/schemas/gitlab_sync_history'
                 type: array
           description: OK
           headers:
@@ -8638,7 +8638,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/versions_list'
+        $ref: '#/components/requestBodies/versions_list_parameters'
         content:
           application/json:
             schema:
@@ -8647,7 +8647,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: versions/list
+              title: versions/list/parameters
               type: object
         required: true
       responses:
@@ -8745,7 +8745,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/version_show'
+        $ref: '#/components/requestBodies/version_show_parameters'
         content:
           application/json:
             schema:
@@ -8754,7 +8754,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: version/show
+              title: version/show/parameters
               type: object
         required: true
       responses:
@@ -8859,7 +8859,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/glossary_term_translation_create'
+        $ref: '#/components/requestBodies/glossary_term_translation_create_parameters'
         content:
           application/json:
             schema:
@@ -8872,7 +8872,7 @@ paths:
                   description: The content of the translation
                   example: My translated term
                   type: string
-              title: glossary_term_translation/create
+              title: glossary_term_translation/create/parameters
               type: object
         required: true
       responses:
@@ -9066,7 +9066,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/glossary_term_translation_update'
+        $ref: '#/components/requestBodies/glossary_term_translation_update_parameters'
         content:
           application/json:
             schema:
@@ -9079,7 +9079,7 @@ paths:
                   description: The content of the translation
                   example: My translated term
                   type: string
-              title: glossary_term_translation/update
+              title: glossary_term_translation/update/parameters
               type: object
         required: true
       responses:
@@ -9240,7 +9240,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/project_create'
+        $ref: '#/components/requestBodies/project_create_parameters'
         content:
           application/json:
             schema:
@@ -9274,7 +9274,7 @@ paths:
                     of multiple accounts.
                   example: abcd1234
                   type: string
-              title: project/create
+              title: project/create/parameters
               type: object
         required: true
       responses:
@@ -9508,7 +9508,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/project_update'
+        $ref: '#/components/requestBodies/project_update_parameters'
         content:
           application/json:
             schema:
@@ -9542,7 +9542,7 @@ paths:
                     of multiple accounts.
                   example: abcd1234
                   type: string
-              title: project/update
+              title: project/update/parameters
               type: object
         required: true
       responses:
@@ -9658,7 +9658,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/job_locales_list'
+        $ref: '#/components/requestBodies/job_locales_list_parameters'
         content:
           application/json:
             schema:
@@ -9667,7 +9667,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job_locales/list
+              title: job_locales/list/parameters
               type: object
         required: true
       responses:
@@ -9756,7 +9756,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_locales_create'
+        $ref: '#/components/requestBodies/job_locales_create_parameters'
         content:
           application/json:
             schema:
@@ -9776,7 +9776,7 @@ paths:
                   items:
                     type: string
                   type: array
-              title: job_locales/create
+              title: job_locales/create/parameters
               type: object
         required: true
       responses:
@@ -9871,7 +9871,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_locale_show'
+        $ref: '#/components/requestBodies/job_locale_show_parameters'
         content:
           application/json:
             schema:
@@ -9880,7 +9880,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job_locale/show
+              title: job_locale/show/parameters
               type: object
         required: true
       responses:
@@ -9974,7 +9974,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_locale_delete'
+        $ref: '#/components/requestBodies/job_locale_delete_parameters'
         content:
           application/json:
             schema:
@@ -9983,7 +9983,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job_locale/delete
+              title: job_locale/delete/parameters
               type: object
         required: true
       responses:
@@ -10075,7 +10075,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_locale_update'
+        $ref: '#/components/requestBodies/job_locale_update_parameters'
         content:
           application/json:
             schema:
@@ -10095,7 +10095,7 @@ paths:
                   items:
                     type: string
                   type: array
-              title: job_locale/update
+              title: job_locale/update/parameters
               type: object
         required: true
       responses:
@@ -10194,7 +10194,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_locale_complete'
+        $ref: '#/components/requestBodies/job_locale_complete_parameters'
         content:
           application/json:
             schema:
@@ -10203,7 +10203,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job_locale/complete
+              title: job_locale/complete/parameters
               type: object
         required: true
       responses:
@@ -10300,7 +10300,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/job_locale_reopen'
+        $ref: '#/components/requestBodies/job_locale_reopen_parameters'
         content:
           application/json:
             schema:
@@ -10309,7 +10309,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: job_locale/reopen
+              title: job_locale/reopen/parameters
               type: object
         required: true
       responses:
@@ -10485,7 +10485,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/branch_create'
+        $ref: '#/components/requestBodies/branch_create_parameters'
         content:
           application/json:
             schema:
@@ -10494,7 +10494,7 @@ paths:
                   description: Name of the branch
                   example: my-branch
                   type: string
-              title: branch/create
+              title: branch/create/parameters
               type: object
         required: true
       responses:
@@ -10734,7 +10734,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/branch_update'
+        $ref: '#/components/requestBodies/branch_update_parameters'
         content:
           application/json:
             schema:
@@ -10743,7 +10743,7 @@ paths:
                   description: Name of the branch
                   example: my-branch
                   type: string
-              title: branch/update
+              title: branch/update/parameters
               type: object
         required: true
       responses:
@@ -10832,7 +10832,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/branch_merge'
+        $ref: '#/components/requestBodies/branch_merge_parameters'
         content:
           application/json:
             schema:
@@ -10841,7 +10841,7 @@ paths:
                   description: strategy used for merge blocking, use_master or use_branch
                   example: use_master
                   type: string
-              title: branch/merge
+              title: branch/merge/parameters
               type: object
         required: true
       responses:
@@ -10926,7 +10926,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/branch_compare'
+        $ref: '#/components/requestBodies/branch_compare_parameters'
         content:
           application/json:
             schema:
@@ -10935,7 +10935,7 @@ paths:
                   description: Name of the branch
                   example: my-branch
                   type: string
-              title: branch/compare
+              title: branch/compare/parameters
               type: object
         required: true
       responses:
@@ -11506,7 +11506,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/member_update'
+        $ref: '#/components/requestBodies/member_update_parameters'
         content:
           application/json:
             schema:
@@ -11530,7 +11530,7 @@ paths:
                     create_upload: true
                     review_translations: true
                   type: object
-              title: member/update
+              title: member/update/parameters
               type: object
         required: true
       responses:
@@ -11709,7 +11709,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/screenshot_create'
+        $ref: '#/components/requestBodies/screenshot_create_parameters'
         content:
           application/json:
             schema:
@@ -11726,7 +11726,7 @@ paths:
                   description: Screenshot file
                   format: binary
                   type: string
-              title: screenshot/create
+              title: screenshot/create/parameters
               type: object
         required: true
       responses:
@@ -11969,7 +11969,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/screenshot_update'
+        $ref: '#/components/requestBodies/screenshot_update_parameters'
         content:
           application/json:
             schema:
@@ -11986,7 +11986,7 @@ paths:
                   description: Screenshot file
                   format: binary
                   type: string
-              title: screenshot/update
+              title: screenshot/update/parameters
               type: object
         required: true
       responses:
@@ -12181,7 +12181,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/glossary_term_create'
+        $ref: '#/components/requestBodies/glossary_term_create_parameters'
         content:
           application/json:
             schema:
@@ -12203,7 +12203,7 @@ paths:
                   description: Indicates whether the term is case sensitive
                   example: true
                   type: boolean
-              title: glossary_term/create
+              title: glossary_term/create/parameters
               type: object
         required: true
       responses:
@@ -12470,7 +12470,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/glossary_term_update'
+        $ref: '#/components/requestBodies/glossary_term_update_parameters'
         content:
           application/json:
             schema:
@@ -12492,7 +12492,7 @@ paths:
                   description: Indicates whether the term is case sensitive
                   example: true
                   type: boolean
-              title: glossary_term/update
+              title: glossary_term/update/parameters
               type: object
         required: true
       responses:
@@ -12596,7 +12596,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/tags_list'
+        $ref: '#/components/requestBodies/tags_list_parameters'
         content:
           application/json:
             schema:
@@ -12605,7 +12605,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: tags/list
+              title: tags/list/parameters
               type: object
         required: true
       responses:
@@ -12686,7 +12686,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/tag_create'
+        $ref: '#/components/requestBodies/tag_create_parameters'
         content:
           application/json:
             schema:
@@ -12699,7 +12699,7 @@ paths:
                   description: Name of the tag
                   example: my-feature
                   type: string
-              title: tag/create
+              title: tag/create/parameters
               type: object
         required: true
       responses:
@@ -12785,7 +12785,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/tag_delete'
+        $ref: '#/components/requestBodies/tag_delete_parameters'
         content:
           application/json:
             schema:
@@ -12794,7 +12794,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: tag/delete
+              title: tag/delete/parameters
               type: object
         required: true
       responses:
@@ -12879,7 +12879,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/tag_show'
+        $ref: '#/components/requestBodies/tag_show_parameters'
         content:
           application/json:
             schema:
@@ -12888,7 +12888,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: tag/show
+              title: tag/show/parameters
               type: object
         required: true
       responses:
@@ -13094,7 +13094,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/blacklisted_key_create'
+        $ref: '#/components/requestBodies/blacklisted_key_create_parameters'
         content:
           application/json:
             schema:
@@ -13103,7 +13103,7 @@ paths:
                   description: Blacklisted key name
                   example: date.formats.*
                   type: string
-              title: blacklisted_key/create
+              title: blacklisted_key/create/parameters
               type: object
         required: true
       responses:
@@ -13344,7 +13344,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/blacklisted_key_update'
+        $ref: '#/components/requestBodies/blacklisted_key_update_parameters'
         content:
           application/json:
             schema:
@@ -13353,7 +13353,7 @@ paths:
                   description: Blacklisted key name
                   example: date.formats.*
                   type: string
-              title: blacklisted_key/update
+              title: blacklisted_key/update/parameters
               type: object
         required: true
       responses:
@@ -13436,7 +13436,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/keys_delete'
+        $ref: '#/components/requestBodies/keys_delete_parameters'
         content:
           application/json:
             schema:
@@ -13454,7 +13454,7 @@ paths:
                     key when filtering for untranslated or translated keys.
                   example: abcd1234abcd1234abcd1234abcd1234
                   type: string
-              title: keys/delete
+              title: keys/delete/parameters
               type: object
         required: true
       responses:
@@ -13557,7 +13557,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/keys_list'
+        $ref: '#/components/requestBodies/keys_list_parameters'
         content:
           application/json:
             schema:
@@ -13583,7 +13583,7 @@ paths:
                     key when filtering for untranslated or translated keys.
                   example: abcd1234abcd1234abcd1234abcd1234
                   type: string
-              title: keys/list
+              title: keys/list/parameters
               type: object
         required: true
       responses:
@@ -13668,7 +13668,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/key_create'
+        $ref: '#/components/requestBodies/key_create_parameters'
         content:
           application/json:
             schema:
@@ -13738,7 +13738,7 @@ paths:
                   description: NSStringLocalizedFormatKey attribute. Used in .stringsdict
                     format.
                   type: string
-              title: key/create
+              title: key/create/parameters
               type: object
         required: true
       responses:
@@ -13848,7 +13848,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/keys_search'
+        $ref: '#/components/requestBodies/keys_search_parameters'
         content:
           application/json:
             schema:
@@ -13874,7 +13874,7 @@ paths:
                     key when filtering for untranslated or translated keys.
                   example: abcd1234abcd1234abcd1234abcd1234
                   type: string
-              title: keys/search
+              title: keys/search/parameters
               type: object
         required: true
       responses:
@@ -13971,7 +13971,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/key_delete'
+        $ref: '#/components/requestBodies/key_delete_parameters'
         content:
           application/json:
             schema:
@@ -13980,7 +13980,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: key/delete
+              title: key/delete/parameters
               type: object
         required: true
       responses:
@@ -14064,7 +14064,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/key_show'
+        $ref: '#/components/requestBodies/key_show_parameters'
         content:
           application/json:
             schema:
@@ -14073,7 +14073,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: key/show
+              title: key/show/parameters
               type: object
         required: true
       responses:
@@ -14194,7 +14194,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/key_update'
+        $ref: '#/components/requestBodies/key_update_parameters'
         content:
           application/json:
             schema:
@@ -14264,7 +14264,7 @@ paths:
                   description: NSStringLocalizedFormatKey attribute. Used in .stringsdict
                     format.
                   type: string
-              title: key/update
+              title: key/update/parameters
               type: object
         required: true
       responses:
@@ -14358,7 +14358,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/keys_tag'
+        $ref: '#/components/requestBodies/keys_tag_parameters'
         content:
           application/json:
             schema:
@@ -14381,7 +14381,7 @@ paths:
                     collection of keys
                   example: landing-page,release-1.2
                   type: string
-              title: keys/tag
+              title: keys/tag/parameters
               type: object
         required: true
       responses:
@@ -14465,7 +14465,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/keys_untag'
+        $ref: '#/components/requestBodies/keys_untag_parameters'
         content:
           application/json:
             schema:
@@ -14488,7 +14488,7 @@ paths:
                     the matching collection of keys
                   example: landing-page,release-1.2
                   type: string
-              title: keys/untag
+              title: keys/untag/parameters
               type: object
         required: true
       responses:
@@ -14592,7 +14592,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/orders_list'
+        $ref: '#/components/requestBodies/orders_list_parameters'
         content:
           application/json:
             schema:
@@ -14601,7 +14601,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: orders/list
+              title: orders/list/parameters
               type: object
         required: true
       responses:
@@ -14682,7 +14682,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/order_create'
+        $ref: '#/components/requestBodies/order_create_parameters'
         content:
           application/json:
             schema:
@@ -14754,7 +14754,7 @@ paths:
                     which decreases turnaround time by 30%. Available only for orders
                     processed by TextMaster.
                   type: boolean
-              title: order/create
+              title: order/create/parameters
               type: object
         required: true
       responses:
@@ -14847,7 +14847,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/order_delete'
+        $ref: '#/components/requestBodies/order_delete_parameters'
         content:
           application/json:
             schema:
@@ -14856,7 +14856,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: order/delete
+              title: order/delete/parameters
               type: object
         required: true
       responses:
@@ -14940,7 +14940,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/order_show'
+        $ref: '#/components/requestBodies/order_show_parameters'
         content:
           application/json:
             schema:
@@ -14949,7 +14949,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: order/show
+              title: order/show/parameters
               type: object
         required: true
       responses:
@@ -15036,7 +15036,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/order_confirm'
+        $ref: '#/components/requestBodies/order_confirm_parameters'
         content:
           application/json:
             schema:
@@ -15045,7 +15045,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: order/confirm
+              title: order/confirm/parameters
               type: object
         required: true
       responses:
@@ -15221,7 +15221,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/space_create'
+        $ref: '#/components/requestBodies/space_create_parameters'
         content:
           application/json:
             schema:
@@ -15230,7 +15230,7 @@ paths:
                   description: Name of the space
                   example: My Android Projects
                   type: string
-              title: space/create
+              title: space/create/parameters
               type: object
         required: true
       responses:
@@ -15470,7 +15470,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/space_update'
+        $ref: '#/components/requestBodies/space_update_parameters'
         content:
           application/json:
             schema:
@@ -15479,7 +15479,7 @@ paths:
                   description: New name of the space
                   example: My Android Projects
                   type: string
-              title: space/update
+              title: space/update/parameters
               type: object
         required: true
       responses:
@@ -15671,7 +15671,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/spaces_projects_create'
+        $ref: '#/components/requestBodies/spaces_projects_create_parameters'
         content:
           application/json:
             schema:
@@ -15680,7 +15680,7 @@ paths:
                   description: Project ID to add or to the Space
                   example: a4b3c2d1
                   type: string
-              title: spaces/projects/create
+              title: spaces/projects/create/parameters
               type: object
         required: true
       responses:
@@ -15864,7 +15864,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/translations_list'
+        $ref: '#/components/requestBodies/translations_list_parameters'
         content:
           application/json:
             schema:
@@ -15886,7 +15886,7 @@ paths:
                   description: q_description_placeholder
                   example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
                   type: string
-              title: translations/list
+              title: translations/list/parameters
               type: object
         required: true
       responses:
@@ -15970,7 +15970,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translation_create'
+        $ref: '#/components/requestBodies/translation_create_parameters'
         content:
           application/json:
             schema:
@@ -16011,7 +16011,7 @@ paths:
                     non-default locale or the project does not have the Autopilot
                     feature enabled.
                   type: boolean
-              title: translation/create
+              title: translation/create/parameters
               type: object
         required: true
       responses:
@@ -16121,7 +16121,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/translations_by_locale'
+        $ref: '#/components/requestBodies/translations_by_locale_parameters'
         content:
           application/json:
             schema:
@@ -16143,7 +16143,7 @@ paths:
                   description: q_description_placeholder
                   example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
                   type: string
-              title: translations/by_locale
+              title: translations/by_locale/parameters
               type: object
         required: true
       responses:
@@ -16256,7 +16256,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/translations_by_key'
+        $ref: '#/components/requestBodies/translations_by_key_parameters'
         content:
           application/json:
             schema:
@@ -16278,7 +16278,7 @@ paths:
                   description: q_description_placeholder
                   example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
                   type: string
-              title: translations/by_key
+              title: translations/by_key/parameters
               type: object
         required: true
       responses:
@@ -16386,7 +16386,7 @@ paths:
           type: integer
         style: form
       requestBody:
-        $ref: '#/components/requestBodies/translations_search'
+        $ref: '#/components/requestBodies/translations_search_parameters'
         content:
           application/json:
             schema:
@@ -16408,7 +16408,7 @@ paths:
                   description: q_description_placeholder
                   example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
                   type: string
-              title: translations/search
+              title: translations/search/parameters
               type: object
         required: true
       responses:
@@ -16504,7 +16504,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translation_show'
+        $ref: '#/components/requestBodies/translation_show_parameters'
         content:
           application/json:
             schema:
@@ -16513,7 +16513,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: translation/show
+              title: translation/show/parameters
               type: object
         required: true
       responses:
@@ -16612,7 +16612,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translation_update'
+        $ref: '#/components/requestBodies/translation_update_parameters'
         content:
           application/json:
             schema:
@@ -16644,7 +16644,7 @@ paths:
                     non-default locale or the project does not have the Autopilot
                     feature enabled.
                   type: boolean
-              title: translation/update
+              title: translation/update/parameters
               type: object
         required: true
       responses:
@@ -16734,7 +16734,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translation_verify'
+        $ref: '#/components/requestBodies/translation_verify_parameters'
         content:
           application/json:
             schema:
@@ -16743,7 +16743,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: translation/verify
+              title: translation/verify/parameters
               type: object
         required: true
       responses:
@@ -16832,7 +16832,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translation_unverify'
+        $ref: '#/components/requestBodies/translation_unverify_parameters'
         content:
           application/json:
             schema:
@@ -16841,7 +16841,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: translation/unverify
+              title: translation/unverify/parameters
               type: object
         required: true
       responses:
@@ -16930,7 +16930,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translation_review'
+        $ref: '#/components/requestBodies/translation_review_parameters'
         content:
           application/json:
             schema:
@@ -16939,7 +16939,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: translation/review
+              title: translation/review/parameters
               type: object
         required: true
       responses:
@@ -17028,7 +17028,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translation_exclude'
+        $ref: '#/components/requestBodies/translation_exclude_parameters'
         content:
           application/json:
             schema:
@@ -17037,7 +17037,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: translation/exclude
+              title: translation/exclude/parameters
               type: object
         required: true
       responses:
@@ -17126,7 +17126,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translation_include'
+        $ref: '#/components/requestBodies/translation_include_parameters'
         content:
           application/json:
             schema:
@@ -17135,7 +17135,7 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
-              title: translation/include
+              title: translation/include/parameters
               type: object
         required: true
       responses:
@@ -17216,7 +17216,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translations_verify'
+        $ref: '#/components/requestBodies/translations_verify_parameters'
         content:
           application/json:
             schema:
@@ -17238,7 +17238,7 @@ paths:
                   description: 'Order direction. Can be one of: asc, desc.'
                   example: desc
                   type: string
-              title: translations/verify
+              title: translations/verify/parameters
               type: object
         required: true
       responses:
@@ -17322,7 +17322,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translations_unverify'
+        $ref: '#/components/requestBodies/translations_unverify_parameters'
         content:
           application/json:
             schema:
@@ -17344,7 +17344,7 @@ paths:
                   description: 'Order direction. Can be one of: asc, desc.'
                   example: desc
                   type: string
-              title: translations/unverify
+              title: translations/unverify/parameters
               type: object
         required: true
       responses:
@@ -17428,7 +17428,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translations_review'
+        $ref: '#/components/requestBodies/translations_review_parameters'
         content:
           application/json:
             schema:
@@ -17441,7 +17441,7 @@ paths:
                   description: q_description_placeholder
                   example: PhraseApp*%reviewed:false%20tags:feature,center
                   type: string
-              title: translations/review
+              title: translations/review/parameters
               type: object
         required: true
       responses:
@@ -17523,7 +17523,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translations_exclude'
+        $ref: '#/components/requestBodies/translations_exclude_parameters'
         content:
           application/json:
             schema:
@@ -17545,7 +17545,7 @@ paths:
                   description: 'Order direction. Can be one of: asc, desc.'
                   example: desc
                   type: string
-              title: translations/exclude
+              title: translations/exclude/parameters
               type: object
         required: true
       responses:
@@ -17629,7 +17629,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/translations_include'
+        $ref: '#/components/requestBodies/translations_include_parameters'
         content:
           application/json:
             schema:
@@ -17651,7 +17651,7 @@ paths:
                   description: 'Order direction. Can be one of: asc, desc.'
                   example: desc
                   type: string
-              title: translations/include
+              title: translations/include/parameters
               type: object
         required: true
       responses:
@@ -17908,695 +17908,695 @@ components:
         type: integer
       style: form
   requestBodies:
-    upload_show:
+    comments_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/upload_show'
+            $ref: '#/components/schemas/comments_list_parameters'
       required: true
-    key_show:
+    gitlab_sync_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/key_show'
+            $ref: '#/components/schemas/gitlab_sync_show_parameters'
       required: true
-    job_complete:
+    translations_review_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_complete'
+            $ref: '#/components/schemas/translations_review_parameters'
       required: true
-    comment_create:
+    order_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/comment_create'
+            $ref: '#/components/schemas/order_delete_parameters'
       required: true
-    translation_exclude:
+    job_complete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translation_exclude'
+            $ref: '#/components/schemas/job_complete_parameters'
       required: true
-    order_delete:
+    job_keys_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/order_delete'
+            $ref: '#/components/schemas/job_keys_create_parameters'
       required: true
-    orders_list:
+    jobs_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/orders_list'
+            $ref: '#/components/schemas/jobs_list_parameters'
       required: true
-    keys_untag:
+    key_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/keys_untag'
+            $ref: '#/components/schemas/key_delete_parameters'
       required: true
-    styleguide_update:
+    translation_review_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/styleguide_update'
+            $ref: '#/components/schemas/translation_review_parameters'
       required: true
-    member_update:
+    locale_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/member_update'
+            $ref: '#/components/schemas/locale_create_parameters'
       required: true
-    comments_list:
+    key_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/comments_list'
+            $ref: '#/components/schemas/key_update_parameters'
       required: true
-    blacklisted_key_create:
+    job_locale_complete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/blacklisted_key_create'
+            $ref: '#/components/schemas/job_locale_complete_parameters'
       required: true
-    keys_tag:
+    upload_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/keys_tag'
+            $ref: '#/components/schemas/upload_show_parameters'
       required: true
-    jobs_list:
+    tags_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/jobs_list'
+            $ref: '#/components/schemas/tags_list_parameters'
       required: true
-    key_create:
+    glossary_term_translation_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/key_create'
+            $ref: '#/components/schemas/glossary_term_translation_create_parameters'
       required: true
-    keys_search:
+    job_reopen_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/keys_search'
+            $ref: '#/components/schemas/job_reopen_parameters'
       required: true
-    locales_list:
+    screenshot_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/locales_list'
+            $ref: '#/components/schemas/screenshot_update_parameters'
       required: true
-    job_keys_delete:
+    styleguide_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_keys_delete'
+            $ref: '#/components/schemas/styleguide_create_parameters'
       required: true
-    locale_delete:
+    locales_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/locale_delete'
+            $ref: '#/components/schemas/locales_list_parameters'
       required: true
-    job_locale_delete:
+    translation_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_locale_delete'
+            $ref: '#/components/schemas/translation_show_parameters'
       required: true
-    glossary_term_create:
+    branch_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/glossary_term_create'
+            $ref: '#/components/schemas/branch_update_parameters'
       required: true
-    job_update:
+    gitlab_sync_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_update'
+            $ref: '#/components/schemas/gitlab_sync_list_parameters'
       required: true
-    styleguide_create:
+    glossary_term_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/styleguide_create'
+            $ref: '#/components/schemas/glossary_term_create_parameters'
       required: true
-    translation_update:
+    branch_compare_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translation_update'
+            $ref: '#/components/schemas/branch_compare_parameters'
       required: true
-    translations_verify:
+    translation_verify_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translations_verify'
+            $ref: '#/components/schemas/translation_verify_parameters'
       required: true
-    job_locale_complete:
+    translation_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_locale_complete'
+            $ref: '#/components/schemas/translation_update_parameters'
       required: true
-    key_update:
+    locale_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/key_update'
+            $ref: '#/components/schemas/locale_update_parameters'
       required: true
-    order_confirm:
+    translations_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/order_confirm'
+            $ref: '#/components/schemas/translations_list_parameters'
       required: true
-    translations_review:
+    invitation_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translations_review'
+            $ref: '#/components/schemas/invitation_create_parameters'
       required: true
-    invitation_create:
+    comment_mark_check_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/invitation_create'
+            $ref: '#/components/schemas/comment_mark_check_parameters'
       required: true
-    bitbucket_syncs_list:
+    invitation_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/bitbucket_syncs_list'
+            $ref: '#/components/schemas/invitation_update_parameters'
       required: true
-    translations_by_key:
+    locale_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translations_by_key'
+            $ref: '#/components/schemas/locale_delete_parameters'
       required: true
-    space_update:
+    glossary_term_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/space_update'
+            $ref: '#/components/schemas/glossary_term_update_parameters'
       required: true
-    comment_delete:
+    translation_unverify_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/comment_delete'
+            $ref: '#/components/schemas/translation_unverify_parameters'
       required: true
-    tag_delete:
+    distribution_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/tag_delete'
+            $ref: '#/components/schemas/distribution_update_parameters'
       required: true
-    gitlab_sync_show:
+    webhook_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/gitlab_sync_show'
+            $ref: '#/components/schemas/webhook_update_parameters'
       required: true
-    glossary_update:
+    locale_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/glossary_update'
+            $ref: '#/components/schemas/locale_show_parameters'
       required: true
-    webhook_update:
+    styleguide_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/webhook_update'
+            $ref: '#/components/schemas/styleguide_update_parameters'
       required: true
-    order_show:
+    release_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/order_show'
+            $ref: '#/components/schemas/release_update_parameters'
       required: true
-    upload_create:
+    glossary_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/upload_create'
+            $ref: '#/components/schemas/glossary_update_parameters'
       required: true
-    translation_show:
+    glossary_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translation_show'
+            $ref: '#/components/schemas/glossary_create_parameters'
       required: true
-    comment_mark_read:
+    comment_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/comment_mark_read'
+            $ref: '#/components/schemas/comment_delete_parameters'
       required: true
-    versions_list:
+    upload_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/versions_list'
+            $ref: '#/components/schemas/upload_create_parameters'
       required: true
-    job_locale_show:
+    branch_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_locale_show'
+            $ref: '#/components/schemas/branch_create_parameters'
       required: true
-    glossary_term_update:
+    webhook_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/glossary_term_update'
+            $ref: '#/components/schemas/webhook_create_parameters'
       required: true
-    glossary_term_translation_update:
+    translations_exclude_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/glossary_term_translation_update'
+            $ref: '#/components/schemas/translations_exclude_parameters'
       required: true
-    job_locales_create:
+    translation_exclude_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_locales_create'
+            $ref: '#/components/schemas/translation_exclude_parameters'
       required: true
-    comment_mark_unread:
+    glossary_term_translation_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/comment_mark_unread'
+            $ref: '#/components/schemas/glossary_term_translation_update_parameters'
       required: true
-    job_locale_reopen:
+    translations_verify_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_locale_reopen'
+            $ref: '#/components/schemas/translations_verify_parameters'
       required: true
-    locale_download:
+    release_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/locale_download'
+            $ref: '#/components/schemas/release_create_parameters'
       required: true
-    translations_exclude:
+    distribution_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translations_exclude'
+            $ref: '#/components/schemas/distribution_create_parameters'
       required: true
-    screenshot_update:
+    translations_unverify_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/screenshot_update'
+            $ref: '#/components/schemas/translations_unverify_parameters'
       required: true
-    translations_unverify:
+    tag_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translations_unverify'
+            $ref: '#/components/schemas/tag_delete_parameters'
       required: true
-    job_delete:
+    keys_search_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_delete'
+            $ref: '#/components/schemas/keys_search_parameters'
       required: true
-    branch_compare:
+    translations_include_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/branch_compare'
+            $ref: '#/components/schemas/translations_include_parameters'
       required: true
-    branch_create:
+    key_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/branch_create'
+            $ref: '#/components/schemas/key_create_parameters'
       required: true
-    release_update:
+    job_locale_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/release_update'
+            $ref: '#/components/schemas/job_locale_delete_parameters'
       required: true
-    gitlab_sync_history:
+    job_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/gitlab_sync_history'
+            $ref: '#/components/schemas/job_delete_parameters'
       required: true
-    key_delete:
+    keys_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/key_delete'
+            $ref: '#/components/schemas/keys_delete_parameters'
       required: true
-    authorization_create:
+    versions_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/authorization_create'
+            $ref: '#/components/schemas/versions_list_parameters'
       required: true
-    job_show:
+    project_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_show'
+            $ref: '#/components/schemas/project_create_parameters'
       required: true
-    translation_verify:
+    bitbucket_sync_export_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translation_verify'
+            $ref: '#/components/schemas/bitbucket_sync_export_parameters'
       required: true
-    space_create:
+    uploads_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/space_create'
+            $ref: '#/components/schemas/uploads_list_parameters'
       required: true
-    bitbucket_sync_import:
+    keys_tag_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/bitbucket_sync_import'
+            $ref: '#/components/schemas/keys_tag_parameters'
       required: true
-    project_create:
+    blacklisted_key_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/project_create'
+            $ref: '#/components/schemas/blacklisted_key_update_parameters'
       required: true
-    distribution_update:
+    authorization_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/distribution_update'
+            $ref: '#/components/schemas/authorization_create_parameters'
       required: true
-    screenshot_marker_create:
+    job_locale_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/screenshot_marker_create'
+            $ref: '#/components/schemas/job_locale_show_parameters'
       required: true
-    locale_create:
+    space_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/locale_create'
+            $ref: '#/components/schemas/space_create_parameters'
       required: true
-    job_start:
+    tag_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_start'
+            $ref: '#/components/schemas/tag_create_parameters'
       required: true
-    job_create:
+    blacklisted_key_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_create'
+            $ref: '#/components/schemas/blacklisted_key_create_parameters'
       required: true
-    tags_list:
+    bitbucket_syncs_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/tags_list'
+            $ref: '#/components/schemas/bitbucket_syncs_list_parameters'
       required: true
-    order_create:
+    job_locale_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/order_create'
+            $ref: '#/components/schemas/job_locale_update_parameters'
       required: true
-    branch_merge:
+    order_confirm_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/branch_merge'
+            $ref: '#/components/schemas/order_confirm_parameters'
       required: true
-    gitlab_sync_update:
+    comment_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/gitlab_sync_update'
+            $ref: '#/components/schemas/comment_create_parameters'
       required: true
-    project_update:
+    job_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/project_update'
+            $ref: '#/components/schemas/job_update_parameters'
       required: true
-    keys_delete:
+    gitlab_sync_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/keys_delete'
+            $ref: '#/components/schemas/gitlab_sync_update_parameters'
       required: true
-    comment_show:
+    space_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/comment_show'
+            $ref: '#/components/schemas/space_update_parameters'
       required: true
-    blacklisted_key_update:
+    project_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/blacklisted_key_update'
+            $ref: '#/components/schemas/project_update_parameters'
       required: true
-    gitlab_sync_export:
+    translation_include_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/gitlab_sync_export'
+            $ref: '#/components/schemas/translation_include_parameters'
       required: true
-    job_reopen:
+    gitlab_sync_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_reopen'
+            $ref: '#/components/schemas/gitlab_sync_delete_parameters'
       required: true
-    spaces_projects_create:
+    translation_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/spaces_projects_create'
+            $ref: '#/components/schemas/translation_create_parameters'
       required: true
-    translations_list:
+    keys_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translations_list'
+            $ref: '#/components/schemas/keys_list_parameters'
       required: true
-    translations_search:
+    bitbucket_sync_import_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translations_search'
+            $ref: '#/components/schemas/bitbucket_sync_import_parameters'
       required: true
-    bitbucket_sync_export:
+    comment_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/bitbucket_sync_export'
+            $ref: '#/components/schemas/comment_update_parameters'
       required: true
-    distribution_create:
+    job_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/distribution_create'
+            $ref: '#/components/schemas/job_create_parameters'
       required: true
-    locale_show:
+    comment_mark_read_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/locale_show'
+            $ref: '#/components/schemas/comment_mark_read_parameters'
       required: true
-    translations_by_locale:
+    translations_by_locale_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translations_by_locale'
+            $ref: '#/components/schemas/translations_by_locale_parameters'
       required: true
-    translation_unverify:
+    screenshot_marker_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translation_unverify'
+            $ref: '#/components/schemas/screenshot_marker_update_parameters'
       required: true
-    translation_create:
+    comment_mark_unread_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translation_create'
+            $ref: '#/components/schemas/comment_mark_unread_parameters'
       required: true
-    comment_mark_check:
+    member_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/comment_mark_check'
+            $ref: '#/components/schemas/member_update_parameters'
       required: true
-    job_locale_update:
+    order_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_locale_update'
+            $ref: '#/components/schemas/order_create_parameters'
       required: true
-    translation_review:
+    job_keys_delete_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translation_review'
+            $ref: '#/components/schemas/job_keys_delete_parameters'
       required: true
-    authorization_update:
+    job_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/authorization_update'
+            $ref: '#/components/schemas/job_show_parameters'
       required: true
-    job_keys_create:
+    gitlab_sync_export_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_keys_create'
+            $ref: '#/components/schemas/gitlab_sync_export_parameters'
       required: true
-    comment_update:
+    screenshot_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/comment_update'
+            $ref: '#/components/schemas/screenshot_create_parameters'
       required: true
-    branch_update:
+    translations_by_key_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/branch_update'
+            $ref: '#/components/schemas/translations_by_key_parameters'
       required: true
-    gitlab_sync_import:
+    orders_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/gitlab_sync_import'
+            $ref: '#/components/schemas/orders_list_parameters'
       required: true
-    screenshot_marker_update:
+    translations_search_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/screenshot_marker_update'
+            $ref: '#/components/schemas/translations_search_parameters'
       required: true
-    gitlab_sync_delete:
+    locale_download_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/gitlab_sync_delete'
+            $ref: '#/components/schemas/locale_download_parameters'
       required: true
-    tag_create:
+    keys_untag_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/tag_create'
+            $ref: '#/components/schemas/keys_untag_parameters'
       required: true
-    keys_list:
+    screenshot_marker_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/keys_list'
+            $ref: '#/components/schemas/screenshot_marker_create_parameters'
       required: true
-    screenshot_create:
+    authorization_update_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/screenshot_create'
+            $ref: '#/components/schemas/authorization_update_parameters'
       required: true
-    version_show:
+    job_locales_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/version_show'
+            $ref: '#/components/schemas/job_locales_create_parameters'
       required: true
-    release_create:
+    branch_merge_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/release_create'
+            $ref: '#/components/schemas/branch_merge_parameters'
       required: true
-    glossary_term_translation_create:
+    gitlab_sync_import_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/glossary_term_translation_create'
+            $ref: '#/components/schemas/gitlab_sync_import_parameters'
       required: true
-    invitation_update:
+    job_start_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/invitation_update'
+            $ref: '#/components/schemas/job_start_parameters'
       required: true
-    webhook_create:
+    job_locale_reopen_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/webhook_create'
+            $ref: '#/components/schemas/job_locale_reopen_parameters'
       required: true
-    translations_include:
+    order_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translations_include'
+            $ref: '#/components/schemas/order_show_parameters'
       required: true
-    locale_update:
+    version_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/locale_update'
+            $ref: '#/components/schemas/version_show_parameters'
       required: true
-    gitlab_sync_list:
+    comment_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/gitlab_sync_list'
+            $ref: '#/components/schemas/comment_show_parameters'
       required: true
-    job_locales_list:
+    key_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/job_locales_list'
+            $ref: '#/components/schemas/key_show_parameters'
       required: true
-    uploads_list:
+    gitlab_sync_history_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/uploads_list'
+            $ref: '#/components/schemas/gitlab_sync_history_parameters'
       required: true
-    tag_show:
+    job_locales_list_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/tag_show'
+            $ref: '#/components/schemas/job_locales_list_parameters'
       required: true
-    translation_include:
+    tag_show_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/translation_include'
+            $ref: '#/components/schemas/tag_show_parameters'
       required: true
-    glossary_create:
+    spaces_projects_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/glossary_create'
+            $ref: '#/components/schemas/spaces_projects_create_parameters'
       required: true
   responses:
     "200":
@@ -18812,7 +18812,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    styleguide_create:
+    styleguide_create_parameters:
       properties:
         title:
           description: Style guide title
@@ -18872,9 +18872,9 @@ components:
             Even snippets or short paragraphs are helpful for maintaining consistency.
           example: http://www.myexample.com/my/document/path/to/samples.pdf
           type: string
-      title: styleguide/create
+      title: styleguide/create/parameters
       type: object
-    styleguide_update:
+    styleguide_update_parameters:
       properties:
         title:
           description: Style guide title
@@ -18934,9 +18934,9 @@ components:
             Even snippets or short paragraphs are helpful for maintaining consistency.
           example: http://www.myexample.com/my/document/path/to/samples.pdf
           type: string
-      title: styleguide/update
+      title: styleguide/update/parameters
       type: object
-    invitation_create:
+    invitation_create_parameters:
       properties:
         email:
           description: The email of the invited user. The <code>email</code> can not
@@ -18962,7 +18962,7 @@ components:
             create_upload: true
             review_translations: true
           type: object
-      title: invitation/create
+      title: invitation/create/parameters
       type: object
     invitation:
       example: '{"id":"acbdacbdacbdacbdacbdacbd","email":"foo@bar.com","role":"Manager","state":"accepted","projects":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
@@ -18995,7 +18995,7 @@ components:
         accepted_at:
           format: date-time
           type: string
-    invitation_update:
+    invitation_update_parameters:
       properties:
         role:
           description: Invitiation role, can be any of Manager, Developer, Translator
@@ -19014,9 +19014,9 @@ components:
           example:
             create_upload: true
           type: object
-      title: invitation/update
+      title: invitation/update/parameters
       type: object
-    screenshot_marker_create:
+    screenshot_marker_create_parameters:
       properties:
         key_id:
           description: Specify the Key ID which should be highlighted on the specified
@@ -19032,9 +19032,9 @@ components:
             of the marker itself (<code>w</code> and <code>h</code> in pixels).
           example: '{ "x": 100, "y": 100, "w": 100, "h": 100 }'
           type: string
-      title: screenshot_marker/create
+      title: screenshot_marker/create/parameters
       type: object
-    screenshot_marker_update:
+    screenshot_marker_update_parameters:
       properties:
         key_id:
           description: Specify the Key ID which should be highlighted on the specified
@@ -19050,7 +19050,7 @@ components:
             of the marker itself (<code>w</code> and <code>h</code> in pixels).
           example: '{ "x": 100, "y": 100, "w": 100, "h": 100 }'
           type: string
-      title: screenshot_marker/update
+      title: screenshot_marker/update/parameters
       type: object
     screenshot_marker:
       example: '{"id":"d2e056aa9e70b01121f41693e344f5ee","presentation":{"x":10,"y":10,"w":10,"h":10},"presentation_type":"default","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","translation_key":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"home.index.headline","description":"My
@@ -19070,13 +19070,13 @@ components:
           type: string
         translation_key:
           $ref: '#/paths/~1projects~1%7Bproject_id%7D~1keys/get/responses/200/content/application~1json/schema/items'
-    locales_list:
+    locales_list_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: locales/list
+      title: locales/list/parameters
       type: object
     locale:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"de","code":"de-DE","default":true,"main":false,"rtl":false,"plural_forms":["zero","one","other"],"source_locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"en","code":"en-GB"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
@@ -19105,7 +19105,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    locale_create:
+    locale_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -19150,25 +19150,25 @@ components:
           description: If set, translations for this locale will be fetched automatically,
             right after creation.
           type: boolean
-      title: locale/create
+      title: locale/create/parameters
       type: object
-    locale_show:
+    locale_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: locale/show
+      title: locale/show/parameters
       type: object
-    locale_delete:
+    locale_delete_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: locale/delete
+      title: locale/delete/parameters
       type: object
-    locale_update:
+    locale_update_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -19213,9 +19213,9 @@ components:
           description: If set, translations for this locale will be fetched automatically,
             right after creation.
           type: boolean
-      title: locale/update
+      title: locale/update/parameters
       type: object
-    locale_download:
+    locale_download_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -19280,7 +19280,7 @@ components:
             ID of the locale that should be used as the fallback. Requires include_empty_translations
             to be set to <code>true</code>.
           type: string
-      title: locale/download
+      title: locale/download/parameters
       type: object
     distribution_preview:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"Android Distribution","project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
@@ -19304,7 +19304,7 @@ components:
         deleted_at:
           format: date-time
           type: string
-    distribution_create:
+    distribution_create_parameters:
       properties:
         name:
           description: Name of the distribution
@@ -19341,7 +19341,7 @@ components:
           description: Use last reviewed instead of latest translation in a project
           example: true
           type: boolean
-      title: distribution/create
+      title: distribution/create/parameters
       type: object
     project_short:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
@@ -19383,7 +19383,7 @@ components:
         deleted_at:
           format: date-time
           type: string
-    distribution_update:
+    distribution_update_parameters:
       properties:
         name:
           description: Name of the distribution
@@ -19420,7 +19420,7 @@ components:
           description: Use last reviewed instead of latest translation in a project
           example: true
           type: boolean
-      title: distribution/update
+      title: distribution/update/parameters
       type: object
     release_preview:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","version":1,"project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
@@ -19456,7 +19456,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    release_create:
+    release_create_parameters:
       properties:
         description:
           description: Description of the release
@@ -19474,7 +19474,7 @@ components:
           description: Branch used for release
           example: my-feature-branch
           type: string
-      title: release/create
+      title: release/create/parameters
       type: object
     release:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","version":1,"project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
@@ -19510,7 +19510,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    release_update:
+    release_update_parameters:
       properties:
         description:
           description: Description of the release
@@ -19528,9 +19528,9 @@ components:
           description: Branch used for release
           example: my-feature-branch
           type: string
-      title: release/update
+      title: release/update/parameters
       type: object
-    jobs_list:
+    jobs_list_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -19549,7 +19549,7 @@ components:
             <code>in_progress</code>, <code>completed</code>
           example: completed
           type: string
-      title: jobs/list
+      title: jobs/list/parameters
       type: object
     job:
       example: '{"id":"626ea67628690c73ac86ac81eec2d185","name":"Translations for
@@ -19572,7 +19572,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    job_create:
+    job_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -19604,25 +19604,25 @@ components:
           items:
             type: string
           type: array
-      title: job/create
+      title: job/create/parameters
       type: object
-    job_show:
+    job_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job/show
+      title: job/show/parameters
       type: object
-    job_delete:
+    job_delete_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job/delete
+      title: job/delete/parameters
       type: object
-    job_update:
+    job_update_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -19640,48 +19640,33 @@ components:
           description: Date the job should be finished
           format: date-time
           type: string
-      title: job/update
+      title: job/update/parameters
       type: object
-    job_start:
+    job_start_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job/start
+      title: job/start/parameters
       type: object
-    job_complete:
+    job_complete_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job/complete
+      title: job/complete/parameters
       type: object
-    job_reopen:
+    job_reopen_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job/reopen
+      title: job/reopen/parameters
       type: object
-    job_keys_create:
-      properties:
-        branch:
-          description: specify the branch to use
-          example: my-feature-branch
-          type: string
-        translation_key_ids:
-          description: ids of keys that should added to the job
-          example:
-          - abcd1234cdef1234abcd1234cdef1234
-          items:
-            type: string
-          type: array
-      title: job/keys/create
-      type: object
-    job_keys_delete:
+    job_keys_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -19694,9 +19679,24 @@ components:
           items:
             type: string
           type: array
-      title: job/keys/delete
+      title: job/keys/create/parameters
       type: object
-    glossary_create:
+    job_keys_delete_parameters:
+      properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
+        translation_key_ids:
+          description: ids of keys that should added to the job
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+      title: job/keys/delete/parameters
+      type: object
+    glossary_create_parameters:
       properties:
         name:
           description: Name of the glossary
@@ -19714,7 +19714,7 @@ components:
           items:
             type: string
           type: array
-      title: glossary/create
+      title: glossary/create/parameters
       type: object
     glossary:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My glossary","projects":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
@@ -19735,7 +19735,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    glossary_update:
+    glossary_update_parameters:
       properties:
         name:
           description: Name of the glossary
@@ -19753,9 +19753,9 @@ components:
           items:
             type: string
           type: array
-      title: glossary/update
+      title: glossary/update/parameters
       type: object
-    authorization_create:
+    authorization_create_parameters:
       properties:
         note:
           description: A note to help you remember what the access is used for.
@@ -19775,7 +19775,7 @@ components:
           example: 2015-03-30T09:52:53Z
           format: date-time
           type: string
-      title: authorization/create
+      title: authorization/create/parameters
       type: object
     authorization:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","note":"My Deploy Script","token_last_eight":"1234abcd","hashed_token":"abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234","scopes":["read"],"expires_at":"2015-03-30T09:52:53Z","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
@@ -19801,7 +19801,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    authorization_update:
+    authorization_update_parameters:
       properties:
         note:
           description: A note to help you remember what the access is used for.
@@ -19821,9 +19821,9 @@ components:
           example: 2015-03-30T09:52:53Z
           format: date-time
           type: string
-      title: authorization/update
+      title: authorization/update/parameters
       type: object
-    bitbucket_syncs_list:
+    bitbucket_syncs_list_parameters:
       properties:
         account_id:
           description: Account ID to specify the actual account the project should
@@ -19831,7 +19831,7 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: bitbucket_syncs/list
+      title: bitbucket_syncs/list/parameters
       type: object
     bitbucket_sync:
       example: '{"id":"aad1ar91-0331-4181-b90p-4crdnv0bd812","repository_name":"some-repository","last_export_to_bitbucket_at":"2015-01-28T09:52:53Z","last_import_from_bitbucket_at":"2015-01-28T09:52:53Z","valid_phraseapp_yaml":true,"phraseapp_projects":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
@@ -19853,7 +19853,7 @@ components:
           items:
             $ref: '#/paths/~1accounts~1%7Baccount_id%7D~1distributions~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/project'
           type: array
-    bitbucket_sync_export:
+    bitbucket_sync_export_parameters:
       properties:
         account_id:
           description: Account ID to specify the actual account the project should
@@ -19861,14 +19861,14 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: bitbucket_sync/export
+      title: bitbucket_sync/export/parameters
       type: object
     bitbucket_sync_export_response:
       example: '{"status_path":"https://bitbucket.sync.phraseapp.com/export_to_bitbucket_status"}'
       properties:
         status_path:
           type: string
-    bitbucket_sync_import:
+    bitbucket_sync_import_parameters:
       properties:
         account_id:
           description: Account ID to specify the actual account the project should
@@ -19876,17 +19876,17 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: bitbucket_sync/import
+      title: bitbucket_sync/import/parameters
       type: object
-    comments_list:
+    comments_list_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: comments/list
+      title: comments/list/parameters
       type: object
-    comment_create:
+    comment_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -19896,15 +19896,15 @@ components:
           description: Comment message
           example: Some message...
           type: string
-      title: comment/create
+      title: comment/create/parameters
       type: object
-    comment_show:
+    comment_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: comment/show
+      title: comment/show/parameters
       type: object
     comment:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","message":"Some message...","user":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
@@ -19922,15 +19922,15 @@ components:
         updated_at:
           format: date-time
           type: string
-    comment_delete:
+    comment_delete_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: comment/delete
+      title: comment/delete/parameters
       type: object
-    comment_update:
+    comment_update_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -19940,33 +19940,33 @@ components:
           description: Comment message
           example: Some message...
           type: string
-      title: comment/update
+      title: comment/update/parameters
       type: object
-    comment_mark_check:
+    comment_mark_check_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: comment/mark/check
+      title: comment/mark/check/parameters
       type: object
-    comment_mark_unread:
+    comment_mark_unread_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: comment/mark/unread
+      title: comment/mark/unread/parameters
       type: object
-    comment_mark_read:
+    comment_mark_read_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: comment/mark/read
+      title: comment/mark/read/parameters
       type: object
-    webhook_create:
+    webhook_create_parameters:
       properties:
         callback_url:
           description: Callback URL to send requests to
@@ -19983,7 +19983,7 @@ components:
         active:
           description: Whether webhook is active or inactive
           type: boolean
-      title: webhook/create
+      title: webhook/create/parameters
       type: object
     webhook:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","callback_url":"http://example.com/hooks/phraseapp-notifications","description":"My
@@ -20007,7 +20007,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    webhook_update:
+    webhook_update_parameters:
       properties:
         callback_url:
           description: Callback URL to send requests to
@@ -20024,17 +20024,17 @@ components:
         active:
           description: Whether webhook is active or inactive
           type: boolean
-      title: webhook/update
+      title: webhook/update/parameters
       type: object
-    uploads_list:
+    uploads_list_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: uploads/list
+      title: uploads/list/parameters
       type: object
-    upload_create:
+    upload_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -20099,15 +20099,15 @@ components:
             as reviewed. This setting is available if the review workflow (currently
             beta) is enabled for the project.
           type: boolean
-      title: upload/create
+      title: upload/create/parameters
       type: object
-    upload_show:
+    upload_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: upload/show
+      title: upload/show/parameters
       type: object
     upload_summary:
       properties:
@@ -20148,7 +20148,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    gitlab_sync_list:
+    gitlab_sync_list_parameters:
       properties:
         account_id:
           description: Account ID to specify the actual account the GitLab Sync should
@@ -20156,9 +20156,9 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: gitlab_sync/list
+      title: gitlab_sync/list/parameters
       type: object
-    gitlab_sync_show:
+    gitlab_sync_show_parameters:
       properties:
         account_id:
           description: Account ID to specify the actual account the GitLab Sync should
@@ -20166,7 +20166,7 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: gitlab_sync/show
+      title: gitlab_sync/show/parameters
       type: object
     gitlab_sync:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","project_id":"ft5yufdh1234cdef1234abc5d12d4cdef123","gitlab_project_id":18188930,"gitlab_branch_name":"master","auto_import":true,"auto_import_secret":"import_secret","auto_import_url":"import_url","self_hosted_api_url":"www.example.com/api/v4","last_exported_at":"2015-01-28T12:55:14.000+00:00","last_imported_at":"2015-01-28T12:55:14.000+00:00","last_status":"success"}'
@@ -20195,7 +20195,7 @@ components:
           type: string
         last_status:
           type: string
-    gitlab_sync_update:
+    gitlab_sync_update_parameters:
       properties:
         account_id:
           description: Account ID to specify the actual account the GitLab Sync should
@@ -20215,9 +20215,9 @@ components:
           description: Name of the GitLab Branch.
           example: feature-development
           type: string
-      title: gitlab_sync/update
+      title: gitlab_sync/update/parameters
       type: object
-    gitlab_sync_delete:
+    gitlab_sync_delete_parameters:
       properties:
         account_id:
           description: Account ID to specify the actual account the GitLab Sync should
@@ -20225,9 +20225,9 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: gitlab_sync/delete
+      title: gitlab_sync/delete/parameters
       type: object
-    gitlab_sync_import:
+    gitlab_sync_import_parameters:
       properties:
         account_id:
           description: Account ID to specify the actual account the GitLab Sync should
@@ -20235,26 +20235,26 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: gitlab_sync/import
+      title: gitlab_sync/import/parameters
+      type: object
+    gitlab_sync_export_parameters:
+      properties:
+        account_id:
+          description: Account ID to specify the actual account the GitLab Sync should
+            be created in. Required if the requesting user is a member of multiple
+            accounts.
+          example: abcd1234
+          type: string
+      title: gitlab_sync/export/parameters
       type: object
     gitlab_sync_export:
-      properties:
-        account_id:
-          description: Account ID to specify the actual account the GitLab Sync should
-            be created in. Required if the requesting user is a member of multiple
-            accounts.
-          example: abcd1234
-          type: string
-      title: gitlab_sync/export
-      type: object
-    gitlab_sync_export_1:
       example: '{"merge_request_id":1234,"merge_request_web_url":"https://gitlab.com/account/project/-/merge_requests/1234"}'
       properties:
         merge_request_id:
           type: integer
         merge_request_web_url:
           type: string
-    gitlab_sync_history:
+    gitlab_sync_history_parameters:
       properties:
         account_id:
           description: Account ID to specify the actual account the GitLab Sync should
@@ -20262,9 +20262,9 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: gitlab_sync/history
+      title: gitlab_sync/history/parameters
       type: object
-    gitlab_sync_history_1:
+    gitlab_sync_history:
       example: '{"type":"history","attributes":{"status":"success","action":"import","errors":["error
         message one","error message two"],"date":"2015-01-28T12:55:14.000+00:00","details":{"auto_import":false}}}'
       properties:
@@ -20281,13 +20281,13 @@ components:
           type: string
         details:
           type: object
-    versions_list:
+    versions_list_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: versions/list
+      title: versions/list/parameters
       type: object
     translation_version:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","content":"My translation","plural_suffix":"","key":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"home.index.headline","plural":false},"locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"en","code":"en-GB"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","changed_at":"2015-01-28T09:52:53Z"}'
@@ -20311,15 +20311,15 @@ components:
         changed_at:
           format: date-time
           type: string
-    version_show:
+    version_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: version/show
+      title: version/show/parameters
       type: object
-    glossary_term_translation_create:
+    glossary_term_translation_create_parameters:
       properties:
         locale_code:
           description: Identifies the language for this translation
@@ -20329,9 +20329,9 @@ components:
           description: The content of the translation
           example: My translated term
           type: string
-      title: glossary_term_translation/create
+      title: glossary_term_translation/create/parameters
       type: object
-    glossary_term_translation_update:
+    glossary_term_translation_update_parameters:
       properties:
         locale_code:
           description: Identifies the language for this translation
@@ -20341,7 +20341,7 @@ components:
           description: The content of the translation
           example: My translated term
           type: string
-      title: glossary_term_translation/update
+      title: glossary_term_translation/update/parameters
       type: object
     glossary_term_translation:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","locale_code":"en-US","content":"Save","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
@@ -20358,7 +20358,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    project_create:
+    project_create_parameters:
       properties:
         name:
           description: Name of the project
@@ -20389,9 +20389,9 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: project/create
+      title: project/create/parameters
       type: object
-    project_update:
+    project_update_parameters:
       properties:
         name:
           description: Name of the project
@@ -20422,17 +20422,17 @@ components:
             accounts.
           example: abcd1234
           type: string
-      title: project/update
+      title: project/update/parameters
       type: object
-    job_locales_list:
+    job_locales_list_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job_locales/list
+      title: job_locales/list/parameters
       type: object
-    job_locales_create:
+    job_locales_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -20449,15 +20449,15 @@ components:
           items:
             type: string
           type: array
-      title: job_locales/create
+      title: job_locales/create/parameters
       type: object
-    job_locale_show:
+    job_locale_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job_locale/show
+      title: job_locale/show/parameters
       type: object
     job_preview:
       properties:
@@ -20482,15 +20482,15 @@ components:
           items:
             $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema/properties/merged_by'
           type: array
-    job_locale_delete:
+    job_locale_delete_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job_locale/delete
+      title: job_locale/delete/parameters
       type: object
-    job_locale_update:
+    job_locale_update_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -20507,31 +20507,31 @@ components:
           items:
             type: string
           type: array
-      title: job_locale/update
+      title: job_locale/update/parameters
       type: object
-    job_locale_complete:
+    job_locale_complete_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job_locale/complete
+      title: job_locale/complete/parameters
       type: object
-    job_locale_reopen:
+    job_locale_reopen_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: job_locale/reopen
+      title: job_locale/reopen/parameters
       type: object
-    branch_create:
+    branch_create_parameters:
       properties:
         name:
           description: Name of the branch
           example: my-branch
           type: string
-      title: branch/create
+      title: branch/create/parameters
       type: object
     user_preview:
       properties:
@@ -20563,29 +20563,29 @@ components:
           $ref: '#/paths/~1projects~1%7Bproject_id%7D~1branches~1%7Bname%7D/get/responses/200/content/application~1json/schema/properties/merged_by'
         state:
           type: string
-    branch_update:
+    branch_update_parameters:
       properties:
         name:
           description: Name of the branch
           example: my-branch
           type: string
-      title: branch/update
+      title: branch/update/parameters
       type: object
-    branch_merge:
+    branch_merge_parameters:
       properties:
         strategy:
           description: strategy used for merge blocking, use_master or use_branch
           example: use_master
           type: string
-      title: branch/merge
+      title: branch/merge/parameters
       type: object
-    branch_compare:
+    branch_compare_parameters:
       properties:
         name:
           description: Name of the branch
           example: my-branch
           type: string
-      title: branch/compare
+      title: branch/compare/parameters
       type: object
     user:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
@@ -20636,7 +20636,7 @@ components:
               title: project_locales
               type: object
           type: array
-    member_update:
+    member_update_parameters:
       properties:
         role:
           description: Member role, can be any of of Manager, Developer, Translator
@@ -20657,9 +20657,9 @@ components:
             create_upload: true
             review_translations: true
           type: object
-      title: member/update
+      title: member/update/parameters
       type: object
-    screenshot_create:
+    screenshot_create_parameters:
       properties:
         name:
           description: Name of the screenshot
@@ -20673,7 +20673,7 @@ components:
           description: Screenshot file
           format: binary
           type: string
-      title: screenshot/create
+      title: screenshot/create/parameters
       type: object
     screenshot:
       example: '{"id":"d2e056aa9e70b01121f41693e344f5ee","name":"A screenshot name","description":"A
@@ -20695,7 +20695,7 @@ components:
           type: string
         markers_count:
           type: integer
-    screenshot_update:
+    screenshot_update_parameters:
       properties:
         name:
           description: Name of the screenshot
@@ -20709,9 +20709,9 @@ components:
           description: Screenshot file
           format: binary
           type: string
-      title: screenshot/update
+      title: screenshot/update/parameters
       type: object
-    glossary_term_create:
+    glossary_term_create_parameters:
       properties:
         term:
           description: Glossary term
@@ -20730,7 +20730,7 @@ components:
           description: Indicates whether the term is case sensitive
           example: true
           type: boolean
-      title: glossary_term/create
+      title: glossary_term/create/parameters
       type: object
     glossary_term:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1233","term":"Save","description":"This
@@ -20756,7 +20756,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    glossary_term_update:
+    glossary_term_update_parameters:
       properties:
         term:
           description: Glossary term
@@ -20775,15 +20775,15 @@ components:
           description: Indicates whether the term is case sensitive
           example: true
           type: boolean
-      title: glossary_term/update
+      title: glossary_term/update/parameters
       type: object
-    tags_list:
+    tags_list_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: tags/list
+      title: tags/list/parameters
       type: object
     tag:
       example: '{"name":"my-feature","keys_count":8,"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
@@ -20798,7 +20798,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    tag_create:
+    tag_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -20808,31 +20808,31 @@ components:
           description: Name of the tag
           example: my-feature
           type: string
-      title: tag/create
+      title: tag/create/parameters
       type: object
-    tag_show:
+    tag_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: tag/show
+      title: tag/show/parameters
       type: object
-    tag_delete:
+    tag_delete_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: tag/delete
+      title: tag/delete/parameters
       type: object
-    blacklisted_key_create:
+    blacklisted_key_create_parameters:
       properties:
         name:
           description: Blacklisted key name
           example: date.formats.*
           type: string
-      title: blacklisted_key/create
+      title: blacklisted_key/create/parameters
       type: object
     blacklisted_key:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"date.formats.*","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
@@ -20847,15 +20847,15 @@ components:
         updated_at:
           format: date-time
           type: string
-    blacklisted_key_update:
+    blacklisted_key_update_parameters:
       properties:
         name:
           description: Blacklisted key name
           example: date.formats.*
           type: string
-      title: blacklisted_key/update
+      title: blacklisted_key/update/parameters
       type: object
-    keys_list:
+    keys_list_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -20878,7 +20878,7 @@ components:
             filtering for untranslated or translated keys.
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
-      title: keys/list
+      title: keys/list/parameters
       type: object
     translation_key:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"home.index.headline","description":"My
@@ -20906,7 +20906,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    key_create:
+    key_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -20969,9 +20969,9 @@ components:
           description: NSStringLocalizedFormatKey attribute. Used in .stringsdict
             format.
           type: string
-      title: key/create
+      title: key/create/parameters
       type: object
-    keys_delete:
+    keys_delete_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -20986,14 +20986,14 @@ components:
             filtering for untranslated or translated keys.
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
-      title: keys/delete
+      title: keys/delete/parameters
       type: object
     affected_resources:
       example: '{"records_affected":2}'
       properties:
         records_affected:
           type: integer
-    keys_search:
+    keys_search_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21016,25 +21016,25 @@ components:
             filtering for untranslated or translated keys.
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
-      title: keys/search
+      title: keys/search/parameters
       type: object
-    key_show:
+    key_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: key/show
+      title: key/show/parameters
       type: object
-    key_delete:
+    key_delete_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: key/delete
+      title: key/delete/parameters
       type: object
-    key_update:
+    key_update_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21097,9 +21097,9 @@ components:
           description: NSStringLocalizedFormatKey attribute. Used in .stringsdict
             format.
           type: string
-      title: key/update
+      title: key/update/parameters
       type: object
-    keys_tag:
+    keys_tag_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21119,9 +21119,9 @@ components:
             collection of keys
           example: landing-page,release-1.2
           type: string
-      title: keys/tag
+      title: keys/tag/parameters
       type: object
-    keys_untag:
+    keys_untag_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21141,17 +21141,17 @@ components:
             collection of keys
           example: landing-page,release-1.2
           type: string
-      title: keys/untag
+      title: keys/untag/parameters
       type: object
-    orders_list:
+    orders_list_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: orders/list
+      title: orders/list/parameters
       type: object
-    order_create:
+    order_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21219,15 +21219,15 @@ components:
             decreases turnaround time by 30%. Available only for orders processed
             by TextMaster.
           type: boolean
-      title: order/create
+      title: order/create/parameters
       type: object
-    order_show:
+    order_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: order/show
+      title: order/show/parameters
       type: object
     locale_preview:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}'
@@ -21288,47 +21288,47 @@ components:
         updated_at:
           format: date-time
           type: string
-    order_delete:
+    order_delete_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: order/delete
+      title: order/delete/parameters
       type: object
-    order_confirm:
+    order_confirm_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: order/confirm
+      title: order/confirm/parameters
       type: object
-    space_create:
+    space_create_parameters:
       properties:
         name:
           description: Name of the space
           example: My Android Projects
           type: string
-      title: space/create
+      title: space/create/parameters
       type: object
-    space_update:
+    space_update_parameters:
       properties:
         name:
           description: New name of the space
           example: My Android Projects
           type: string
-      title: space/update
+      title: space/update/parameters
       type: object
-    spaces_projects_create:
+    spaces_projects_create_parameters:
       properties:
         id:
           description: Project ID to add or to the Space
           example: a4b3c2d1
           type: string
-      title: spaces/projects/create
+      title: spaces/projects/create/parameters
       type: object
-    translations_list:
+    translations_list_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21346,7 +21346,7 @@ components:
           description: q_description_placeholder
           example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
           type: string
-      title: translations/list
+      title: translations/list/parameters
       type: object
     key_preview:
       properties:
@@ -21385,7 +21385,7 @@ components:
         updated_at:
           format: date-time
           type: string
-    translation_create:
+    translation_create_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21421,9 +21421,9 @@ components:
             Responses with status 422 if provided for translation within a non-default
             locale or the project does not have the Autopilot feature enabled.
           type: boolean
-      title: translation/create
+      title: translation/create/parameters
       type: object
-    translations_by_locale:
+    translations_by_locale_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21441,9 +21441,9 @@ components:
           description: q_description_placeholder
           example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
           type: string
-      title: translations/by_locale
+      title: translations/by_locale/parameters
       type: object
-    translations_by_key:
+    translations_by_key_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21461,9 +21461,9 @@ components:
           description: q_description_placeholder
           example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
           type: string
-      title: translations/by_key
+      title: translations/by_key/parameters
       type: object
-    translations_search:
+    translations_search_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21481,17 +21481,17 @@ components:
           description: q_description_placeholder
           example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
           type: string
-      title: translations/search
+      title: translations/search/parameters
       type: object
-    translation_show:
+    translation_show_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: translation/show
+      title: translation/show/parameters
       type: object
-    translation_update:
+    translation_update_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21518,49 +21518,49 @@ components:
             Responses with status 422 if provided for translation within a non-default
             locale or the project does not have the Autopilot feature enabled.
           type: boolean
-      title: translation/update
+      title: translation/update/parameters
       type: object
-    translation_verify:
+    translation_verify_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: translation/verify
+      title: translation/verify/parameters
       type: object
-    translation_unverify:
+    translation_unverify_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: translation/unverify
+      title: translation/unverify/parameters
       type: object
-    translation_review:
+    translation_review_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: translation/review
+      title: translation/review/parameters
       type: object
-    translation_exclude:
+    translation_exclude_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: translation/exclude
+      title: translation/exclude/parameters
       type: object
-    translation_include:
+    translation_include_parameters:
       properties:
         branch:
           description: specify the branch to use
           example: my-feature-branch
           type: string
-      title: translation/include
+      title: translation/include/parameters
       type: object
-    translations_verify:
+    translations_verify_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21578,14 +21578,14 @@ components:
           description: 'Order direction. Can be one of: asc, desc.'
           example: desc
           type: string
-      title: translations/verify
+      title: translations/verify/parameters
       type: object
     affected_count:
       example: '{"records_affected":96}'
       properties:
         records_affected:
           type: integer
-    translations_unverify:
+    translations_unverify_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21603,9 +21603,9 @@ components:
           description: 'Order direction. Can be one of: asc, desc.'
           example: desc
           type: string
-      title: translations/unverify
+      title: translations/unverify/parameters
       type: object
-    translations_review:
+    translations_review_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21615,9 +21615,9 @@ components:
           description: q_description_placeholder
           example: PhraseApp*%reviewed:false%20tags:feature,center
           type: string
-      title: translations/review
+      title: translations/review/parameters
       type: object
-    translations_exclude:
+    translations_exclude_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21635,9 +21635,9 @@ components:
           description: 'Order direction. Can be one of: asc, desc.'
           example: desc
           type: string
-      title: translations/exclude
+      title: translations/exclude/parameters
       type: object
-    translations_include:
+    translations_include_parameters:
       properties:
         branch:
           description: specify the branch to use
@@ -21655,7 +21655,7 @@ components:
           description: 'Order direction. Can be one of: asc, desc.'
           example: desc
           type: string
-      title: translations/include
+      title: translations/include/parameters
       type: object
     errors_errors:
       properties:

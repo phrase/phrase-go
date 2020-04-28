@@ -233,12 +233,12 @@ Update user permissions in the account. Developers and translators need &lt;code
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param id ID
- * @param memberUpdate
+ * @param memberUpdateParameters
  * @param optional nil or *MemberUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *MembersApiService) MemberUpdate(ctx _context.Context, accountId string, id string, memberUpdate MemberUpdate, localVarOptionals *MemberUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *MembersApiService) MemberUpdate(ctx _context.Context, accountId string, id string, memberUpdateParameters MemberUpdateParameters, localVarOptionals *MemberUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -279,7 +279,7 @@ func (a *MembersApiService) MemberUpdate(ctx _context.Context, accountId string,
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &memberUpdate
+	localVarPostBody = &memberUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

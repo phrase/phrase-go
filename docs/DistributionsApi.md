@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## DistributionCreate
 
-> DistributionCreate(ctx, accountId, distributionCreate, optional)
+> DistributionCreate(ctx, accountId, distributionCreateParameters, optional)
 
 Create a distribution
 
@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**distributionCreate** | [**DistributionCreate**](DistributionCreate.md)|  | 
+**distributionCreateParameters** | [**DistributionCreateParameters**](DistributionCreateParameters.md)|  | 
  **optional** | ***DistributionCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## DistributionUpdate
 
-> map[string]interface{} DistributionUpdate(ctx, accountId, id, distributionUpdate, optional)
+> map[string]interface{} DistributionUpdate(ctx, accountId, id, distributionUpdateParameters, optional)
 
 Update a distribution
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
 **id** | **string**| ID | 
-**distributionUpdate** | [**DistributionUpdate**](DistributionUpdate.md)|  | 
+**distributionUpdateParameters** | [**DistributionUpdateParameters**](DistributionUpdateParameters.md)|  | 
  **optional** | ***DistributionUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## InvitationCreate
 
-> InvitationCreate(ctx, accountId, invitationCreate, optional)
+> InvitationCreate(ctx, accountId, invitationCreateParameters, optional)
 
 Create a new invitation
 
@@ -28,7 +28,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**invitationCreate** | [**InvitationCreate**](InvitationCreate.md)|  | 
+**invitationCreateParameters** | [**InvitationCreateParameters**](InvitationCreateParameters.md)|  | 
  **optional** | ***InvitationCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ## InvitationUpdate
 
-> map[string]interface{} InvitationUpdate(ctx, accountId, id, invitationUpdate, optional)
+> map[string]interface{} InvitationUpdate(ctx, accountId, id, invitationUpdateParameters, optional)
 
 Update an invitation
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
 **id** | **string**| ID | 
-**invitationUpdate** | [**InvitationUpdate**](InvitationUpdate.md)|  | 
+**invitationUpdateParameters** | [**InvitationUpdateParameters**](InvitationUpdateParameters.md)|  | 
  **optional** | ***InvitationUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## SpaceCreate
 
-> SpaceCreate(ctx, accountId, spaceCreate, optional)
+> SpaceCreate(ctx, accountId, spaceCreateParameters, optional)
 
 Create a Space
 
@@ -30,7 +30,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**spaceCreate** | [**SpaceCreate**](SpaceCreate.md)|  | 
+**spaceCreateParameters** | [**SpaceCreateParameters**](SpaceCreateParameters.md)|  | 
  **optional** | ***SpaceCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ## SpaceUpdate
 
-> Space SpaceUpdate(ctx, accountId, id, spaceUpdate, optional)
+> Space SpaceUpdate(ctx, accountId, id, spaceUpdateParameters, optional)
 
 Update Space
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
 **id** | **string**| ID | 
-**spaceUpdate** | [**SpaceUpdate**](SpaceUpdate.md)|  | 
+**spaceUpdateParameters** | [**SpaceUpdateParameters**](SpaceUpdateParameters.md)|  | 
  **optional** | ***SpaceUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ## SpacesProjectsCreate
 
-> SpacesProjectsCreate(ctx, accountId, spaceId, spacesProjectsCreate, optional)
+> SpacesProjectsCreate(ctx, accountId, spaceId, spacesProjectsCreateParameters, optional)
 
 Add Project
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
 **spaceId** | **string**| Space ID | 
-**spacesProjectsCreate** | [**SpacesProjectsCreate**](SpacesProjectsCreate.md)|  | 
+**spacesProjectsCreateParameters** | [**SpacesProjectsCreateParameters**](SpacesProjectsCreateParameters.md)|  | 
  **optional** | ***SpacesProjectsCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

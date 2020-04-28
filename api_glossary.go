@@ -147,11 +147,11 @@ GlossaryCreate Create a glossary
 Create a new glossary.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
- * @param glossaryCreate
+ * @param glossaryCreateParameters
  * @param optional nil or *GlossaryCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *GlossaryApiService) GlossaryCreate(ctx _context.Context, accountId string, glossaryCreate GlossaryCreate, localVarOptionals *GlossaryCreateOpts) (*APIResponse, error) {
+func (a *GlossaryApiService) GlossaryCreate(ctx _context.Context, accountId string, glossaryCreateParameters GlossaryCreateParameters, localVarOptionals *GlossaryCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -189,7 +189,7 @@ func (a *GlossaryApiService) GlossaryCreate(ctx _context.Context, accountId stri
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &glossaryCreate
+	localVarPostBody = &glossaryCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -445,12 +445,12 @@ Update an existing glossary.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param id ID
- * @param glossaryUpdate
+ * @param glossaryUpdateParameters
  * @param optional nil or *GlossaryUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *GlossaryApiService) GlossaryUpdate(ctx _context.Context, accountId string, id string, glossaryUpdate GlossaryUpdate, localVarOptionals *GlossaryUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *GlossaryApiService) GlossaryUpdate(ctx _context.Context, accountId string, id string, glossaryUpdateParameters GlossaryUpdateParameters, localVarOptionals *GlossaryUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -491,7 +491,7 @@ func (a *GlossaryApiService) GlossaryUpdate(ctx _context.Context, accountId stri
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &glossaryUpdate
+	localVarPostBody = &glossaryUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ## GlossaryCreate
 
-> GlossaryCreate(ctx, accountId, glossaryCreate, optional)
+> GlossaryCreate(ctx, accountId, glossaryCreateParameters, optional)
 
 Create a glossary
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**glossaryCreate** | [**GlossaryCreate**](GlossaryCreate.md)|  | 
+**glossaryCreateParameters** | [**GlossaryCreateParameters**](GlossaryCreateParameters.md)|  | 
  **optional** | ***GlossaryCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ## GlossaryUpdate
 
-> map[string]interface{} GlossaryUpdate(ctx, accountId, id, glossaryUpdate, optional)
+> map[string]interface{} GlossaryUpdate(ctx, accountId, id, glossaryUpdateParameters, optional)
 
 Update a glossary
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
 **id** | **string**| ID | 
-**glossaryUpdate** | [**GlossaryUpdate**](GlossaryUpdate.md)|  | 
+**glossaryUpdateParameters** | [**GlossaryUpdateParameters**](GlossaryUpdateParameters.md)|  | 
  **optional** | ***GlossaryUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 ## TranslationCreate
 
-> TranslationCreate(ctx, projectId, translationCreate, optional)
+> TranslationCreate(ctx, projectId, translationCreateParameters, optional)
 
 Create a translation
 
@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**translationCreate** | [**TranslationCreate**](TranslationCreate.md)|  | 
+**translationCreateParameters** | [**TranslationCreateParameters**](TranslationCreateParameters.md)|  | 
  **optional** | ***TranslationCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## TranslationExclude
 
-> map[string]interface{} TranslationExclude(ctx, projectId, id, translationExclude, optional)
+> map[string]interface{} TranslationExclude(ctx, projectId, id, translationExcludeParameters, optional)
 
 Exclude a translation from export
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**translationExclude** | [**TranslationExclude**](TranslationExclude.md)|  | 
+**translationExcludeParameters** | [**TranslationExcludeParameters**](TranslationExcludeParameters.md)|  | 
  **optional** | ***TranslationExcludeOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ## TranslationInclude
 
-> map[string]interface{} TranslationInclude(ctx, projectId, id, translationInclude, optional)
+> map[string]interface{} TranslationInclude(ctx, projectId, id, translationIncludeParameters, optional)
 
 Revoke exclusion of a translation in export
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**translationInclude** | [**TranslationInclude**](TranslationInclude.md)|  | 
+**translationIncludeParameters** | [**TranslationIncludeParameters**](TranslationIncludeParameters.md)|  | 
  **optional** | ***TranslationIncludeOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ## TranslationReview
 
-> map[string]interface{} TranslationReview(ctx, projectId, id, translationReview, optional)
+> map[string]interface{} TranslationReview(ctx, projectId, id, translationReviewParameters, optional)
 
 Review a translation
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**translationReview** | [**TranslationReview**](TranslationReview.md)|  | 
+**translationReviewParameters** | [**TranslationReviewParameters**](TranslationReviewParameters.md)|  | 
  **optional** | ***TranslationReviewOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ## TranslationShow
 
-> map[string]interface{} TranslationShow(ctx, projectId, id, translationShow, optional)
+> map[string]interface{} TranslationShow(ctx, projectId, id, translationShowParameters, optional)
 
 Get a single translation
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**translationShow** | [**TranslationShow**](TranslationShow.md)|  | 
+**translationShowParameters** | [**TranslationShowParameters**](TranslationShowParameters.md)|  | 
  **optional** | ***TranslationShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ## TranslationUnverify
 
-> map[string]interface{} TranslationUnverify(ctx, projectId, id, translationUnverify, optional)
+> map[string]interface{} TranslationUnverify(ctx, projectId, id, translationUnverifyParameters, optional)
 
 Mark a translation as unverified
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**translationUnverify** | [**TranslationUnverify**](TranslationUnverify.md)|  | 
+**translationUnverifyParameters** | [**TranslationUnverifyParameters**](TranslationUnverifyParameters.md)|  | 
  **optional** | ***TranslationUnverifyOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ## TranslationUpdate
 
-> map[string]interface{} TranslationUpdate(ctx, projectId, id, translationUpdate, optional)
+> map[string]interface{} TranslationUpdate(ctx, projectId, id, translationUpdateParameters, optional)
 
 Update a translation
 
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**translationUpdate** | [**TranslationUpdate**](TranslationUpdate.md)|  | 
+**translationUpdateParameters** | [**TranslationUpdateParameters**](TranslationUpdateParameters.md)|  | 
  **optional** | ***TranslationUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ## TranslationVerify
 
-> map[string]interface{} TranslationVerify(ctx, projectId, id, translationVerify, optional)
+> map[string]interface{} TranslationVerify(ctx, projectId, id, translationVerifyParameters, optional)
 
 Verify a translation
 
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**translationVerify** | [**TranslationVerify**](TranslationVerify.md)|  | 
+**translationVerifyParameters** | [**TranslationVerifyParameters**](TranslationVerifyParameters.md)|  | 
  **optional** | ***TranslationVerifyOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsByKey
 
-> []map[string]interface{} TranslationsByKey(ctx, projectId, keyId, translationsByKey, optional)
+> []map[string]interface{} TranslationsByKey(ctx, projectId, keyId, translationsByKeyParameters, optional)
 
 List translations by key
 
@@ -430,7 +430,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
-**translationsByKey** | [**TranslationsByKey**](TranslationsByKey.md)|  | 
+**translationsByKeyParameters** | [**TranslationsByKeyParameters**](TranslationsByKeyParameters.md)|  | 
  **optional** | ***TranslationsByKeyOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsByLocale
 
-> []map[string]interface{} TranslationsByLocale(ctx, projectId, localeId, translationsByLocale, optional)
+> []map[string]interface{} TranslationsByLocale(ctx, projectId, localeId, translationsByLocaleParameters, optional)
 
 List translations by locale
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **localeId** | **string**| Locale ID | 
-**translationsByLocale** | [**TranslationsByLocale**](TranslationsByLocale.md)|  | 
+**translationsByLocaleParameters** | [**TranslationsByLocaleParameters**](TranslationsByLocaleParameters.md)|  | 
  **optional** | ***TranslationsByLocaleOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -518,7 +518,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsExclude
 
-> map[string]interface{} TranslationsExclude(ctx, projectId, translationsExclude, optional)
+> map[string]interface{} TranslationsExclude(ctx, projectId, translationsExcludeParameters, optional)
 
 Set exclude from export flag on translations selected by query
 
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**translationsExclude** | [**TranslationsExclude**](TranslationsExclude.md)|  | 
+**translationsExcludeParameters** | [**TranslationsExcludeParameters**](TranslationsExcludeParameters.md)|  | 
  **optional** | ***TranslationsExcludeOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsInclude
 
-> map[string]interface{} TranslationsInclude(ctx, projectId, translationsInclude, optional)
+> map[string]interface{} TranslationsInclude(ctx, projectId, translationsIncludeParameters, optional)
 
 Remove exlude from import flag from translations selected by query
 
@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**translationsInclude** | [**TranslationsInclude**](TranslationsInclude.md)|  | 
+**translationsIncludeParameters** | [**TranslationsIncludeParameters**](TranslationsIncludeParameters.md)|  | 
  **optional** | ***TranslationsIncludeOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsList
 
-> []Translation TranslationsList(ctx, projectId, translationsList, optional)
+> []Translation TranslationsList(ctx, projectId, translationsListParameters, optional)
 
 List all translations
 
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**translationsList** | [**TranslationsList**](TranslationsList.md)|  | 
+**translationsListParameters** | [**TranslationsListParameters**](TranslationsListParameters.md)|  | 
  **optional** | ***TranslationsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsReview
 
-> map[string]interface{} TranslationsReview(ctx, projectId, translationsReview, optional)
+> map[string]interface{} TranslationsReview(ctx, projectId, translationsReviewParameters, optional)
 
 Review translations selected by query
 
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**translationsReview** | [**TranslationsReview**](TranslationsReview.md)|  | 
+**translationsReviewParameters** | [**TranslationsReviewParameters**](TranslationsReviewParameters.md)|  | 
  **optional** | ***TranslationsReviewOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsSearch
 
-> []map[string]interface{} TranslationsSearch(ctx, projectId, translationsSearch, optional)
+> []map[string]interface{} TranslationsSearch(ctx, projectId, translationsSearchParameters, optional)
 
 Search translations
 
@@ -721,7 +721,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**translationsSearch** | [**TranslationsSearch**](TranslationsSearch.md)|  | 
+**translationsSearchParameters** | [**TranslationsSearchParameters**](TranslationsSearchParameters.md)|  | 
  **optional** | ***TranslationsSearchOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -757,7 +757,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsUnverify
 
-> map[string]interface{} TranslationsUnverify(ctx, projectId, translationsUnverify, optional)
+> map[string]interface{} TranslationsUnverify(ctx, projectId, translationsUnverifyParameters, optional)
 
 Mark translations selected by query as unverified
 
@@ -770,7 +770,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**translationsUnverify** | [**TranslationsUnverify**](TranslationsUnverify.md)|  | 
+**translationsUnverifyParameters** | [**TranslationsUnverifyParameters**](TranslationsUnverifyParameters.md)|  | 
  **optional** | ***TranslationsUnverifyOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -804,7 +804,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsVerify
 
-> AffectedCount TranslationsVerify(ctx, projectId, translationsVerify, optional)
+> AffectedCount TranslationsVerify(ctx, projectId, translationsVerifyParameters, optional)
 
 Verify translations selected by query
 
@@ -817,7 +817,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**translationsVerify** | [**TranslationsVerify**](TranslationsVerify.md)|  | 
+**translationsVerifyParameters** | [**TranslationsVerifyParameters**](TranslationsVerifyParameters.md)|  | 
  **optional** | ***TranslationsVerifyOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

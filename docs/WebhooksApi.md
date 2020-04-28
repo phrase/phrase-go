@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## WebhookCreate
 
-> WebhookCreate(ctx, projectId, webhookCreate, optional)
+> WebhookCreate(ctx, projectId, webhookCreateParameters, optional)
 
 Create a webhook
 
@@ -28,7 +28,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**webhookCreate** | [**WebhookCreate**](WebhookCreate.md)|  | 
+**webhookCreateParameters** | [**WebhookCreateParameters**](WebhookCreateParameters.md)|  | 
  **optional** | ***WebhookCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ## WebhookUpdate
 
-> map[string]interface{} WebhookUpdate(ctx, projectId, id, webhookUpdate, optional)
+> map[string]interface{} WebhookUpdate(ctx, projectId, id, webhookUpdateParameters, optional)
 
 Update a webhook
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**webhookUpdate** | [**WebhookUpdate**](WebhookUpdate.md)|  | 
+**webhookUpdateParameters** | [**WebhookUpdateParameters**](WebhookUpdateParameters.md)|  | 
  **optional** | ***WebhookUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

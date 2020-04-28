@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## OrderConfirm
 
-> map[string]interface{} OrderConfirm(ctx, projectId, id, orderConfirm, optional)
+> map[string]interface{} OrderConfirm(ctx, projectId, id, orderConfirmParameters, optional)
 
 Confirm an order
 
@@ -28,7 +28,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**orderConfirm** | [**OrderConfirm**](OrderConfirm.md)|  | 
+**orderConfirmParameters** | [**OrderConfirmParameters**](OrderConfirmParameters.md)|  | 
  **optional** | ***OrderConfirmOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ## OrderCreate
 
-> OrderCreate(ctx, projectId, orderCreate, optional)
+> OrderCreate(ctx, projectId, orderCreateParameters, optional)
 
 Create a new order
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**orderCreate** | [**OrderCreate**](OrderCreate.md)|  | 
+**orderCreateParameters** | [**OrderCreateParameters**](OrderCreateParameters.md)|  | 
  **optional** | ***OrderCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## OrderDelete
 
-> OrderDelete(ctx, projectId, id, orderDelete, optional)
+> OrderDelete(ctx, projectId, id, orderDeleteParameters, optional)
 
 Cancel an order
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**orderDelete** | [**OrderDelete**](OrderDelete.md)|  | 
+**orderDeleteParameters** | [**OrderDeleteParameters**](OrderDeleteParameters.md)|  | 
  **optional** | ***OrderDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ## OrderShow
 
-> TranslationOrder OrderShow(ctx, projectId, id, orderShow, optional)
+> TranslationOrder OrderShow(ctx, projectId, id, orderShowParameters, optional)
 
 Get a single order
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**orderShow** | [**OrderShow**](OrderShow.md)|  | 
+**orderShowParameters** | [**OrderShowParameters**](OrderShowParameters.md)|  | 
  **optional** | ***OrderShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ## OrdersList
 
-> []map[string]interface{} OrdersList(ctx, projectId, ordersList, optional)
+> []map[string]interface{} OrdersList(ctx, projectId, ordersListParameters, optional)
 
 List orders
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**ordersList** | [**OrdersList**](OrdersList.md)|  | 
+**ordersListParameters** | [**OrdersListParameters**](OrdersListParameters.md)|  | 
  **optional** | ***OrdersListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

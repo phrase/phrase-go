@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## StyleguideCreate
 
-> StyleguideCreate(ctx, projectId, styleguideCreate, optional)
+> StyleguideCreate(ctx, projectId, styleguideCreateParameters, optional)
 
 Create a style guide
 
@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**styleguideCreate** | [**StyleguideCreate**](StyleguideCreate.md)|  | 
+**styleguideCreateParameters** | [**StyleguideCreateParameters**](StyleguideCreateParameters.md)|  | 
  **optional** | ***StyleguideCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## StyleguideUpdate
 
-> map[string]interface{} StyleguideUpdate(ctx, projectId, id, styleguideUpdate, optional)
+> map[string]interface{} StyleguideUpdate(ctx, projectId, id, styleguideUpdateParameters, optional)
 
 Update a style guide
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**styleguideUpdate** | [**StyleguideUpdate**](StyleguideUpdate.md)|  | 
+**styleguideUpdateParameters** | [**StyleguideUpdateParameters**](StyleguideUpdateParameters.md)|  | 
  **optional** | ***StyleguideUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

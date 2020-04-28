@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ScreenshotCreate
 
-> ScreenshotCreate(ctx, projectId, screenshotCreate, optional)
+> ScreenshotCreate(ctx, projectId, screenshotCreateParameters, optional)
 
 Create a screenshot
 
@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**screenshotCreate** | [**ScreenshotCreate**](ScreenshotCreate.md)|  | 
+**screenshotCreateParameters** | [**ScreenshotCreateParameters**](ScreenshotCreateParameters.md)|  | 
  **optional** | ***ScreenshotCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## ScreenshotUpdate
 
-> map[string]interface{} ScreenshotUpdate(ctx, projectId, id, screenshotUpdate, optional)
+> map[string]interface{} ScreenshotUpdate(ctx, projectId, id, screenshotUpdateParameters, optional)
 
 Update a screenshot
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**screenshotUpdate** | [**ScreenshotUpdate**](ScreenshotUpdate.md)|  | 
+**screenshotUpdateParameters** | [**ScreenshotUpdateParameters**](ScreenshotUpdateParameters.md)|  | 
  **optional** | ***ScreenshotUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

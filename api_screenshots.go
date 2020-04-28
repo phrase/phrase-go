@@ -27,11 +27,11 @@ ScreenshotCreate Create a screenshot
 Create a new screenshot.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param screenshotCreate
+ * @param screenshotCreateParameters
  * @param optional nil or *ScreenshotCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, screenshotCreate ScreenshotCreate, localVarOptionals *ScreenshotCreateOpts) (*APIResponse, error) {
+func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, screenshotCreateParameters ScreenshotCreateParameters, localVarOptionals *ScreenshotCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &screenshotCreate
+	localVarPostBody = &screenshotCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -325,12 +325,12 @@ Update an existing screenshot.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param screenshotUpdate
+ * @param screenshotUpdateParameters
  * @param optional nil or *ScreenshotUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId string, id string, screenshotUpdate ScreenshotUpdate, localVarOptionals *ScreenshotUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId string, id string, screenshotUpdateParameters ScreenshotUpdateParameters, localVarOptionals *ScreenshotUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -371,7 +371,7 @@ func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &screenshotUpdate
+	localVarPostBody = &screenshotUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

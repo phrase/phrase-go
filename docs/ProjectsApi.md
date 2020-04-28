@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ProjectCreate
 
-> ProjectCreate(ctx, projectCreate, optional)
+> ProjectCreate(ctx, projectCreateParameters, optional)
 
 Create a project
 
@@ -26,7 +26,7 @@ Create a new project.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectCreate** | [**ProjectCreate**](ProjectCreate.md)|  | 
+**projectCreateParameters** | [**ProjectCreateParameters**](ProjectCreateParameters.md)|  | 
  **optional** | ***ProjectCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## ProjectUpdate
 
-> map[string]interface{} ProjectUpdate(ctx, id, projectUpdate, optional)
+> map[string]interface{} ProjectUpdate(ctx, id, projectUpdateParameters, optional)
 
 Update a project
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**projectUpdate** | [**ProjectUpdate**](ProjectUpdate.md)|  | 
+**projectUpdateParameters** | [**ProjectUpdateParameters**](ProjectUpdateParameters.md)|  | 
  **optional** | ***ProjectUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

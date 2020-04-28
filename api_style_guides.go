@@ -27,11 +27,11 @@ StyleguideCreate Create a style guide
 Create a new style guide.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param styleguideCreate
+ * @param styleguideCreateParameters
  * @param optional nil or *StyleguideCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId string, styleguideCreate StyleguideCreate, localVarOptionals *StyleguideCreateOpts) (*APIResponse, error) {
+func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId string, styleguideCreateParameters StyleguideCreateParameters, localVarOptionals *StyleguideCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &styleguideCreate
+	localVarPostBody = &styleguideCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -325,12 +325,12 @@ Update an existing style guide.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param styleguideUpdate
+ * @param styleguideUpdateParameters
  * @param optional nil or *StyleguideUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId string, id string, styleguideUpdate StyleguideUpdate, localVarOptionals *StyleguideUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId string, id string, styleguideUpdateParameters StyleguideUpdateParameters, localVarOptionals *StyleguideUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -371,7 +371,7 @@ func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &styleguideUpdate
+	localVarPostBody = &styleguideUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

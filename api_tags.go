@@ -27,11 +27,11 @@ TagCreate Create a tag
 Create a new tag.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param tagCreate
+ * @param tagCreateParameters
  * @param optional nil or *TagCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCreate TagCreate, localVarOptionals *TagCreateOpts) (*APIResponse, error) {
+func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCreateParameters TagCreateParameters, localVarOptionals *TagCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCr
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &tagCreate
+	localVarPostBody = &tagCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -120,11 +120,11 @@ Delete an existing tag.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param tagDelete
+ * @param tagDeleteParameters
  * @param optional nil or *TagDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name string, tagDelete TagDelete, localVarOptionals *TagDeleteOpts) (*APIResponse, error) {
+func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name string, tagDeleteParameters TagDeleteParameters, localVarOptionals *TagDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -164,7 +164,7 @@ func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &tagDelete
+	localVarPostBody = &tagDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -215,12 +215,12 @@ Get details and progress information on a single tag for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param tagShow
+ * @param tagShowParameters
  * @param optional nil or *TagShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name string, tagShow TagShow, localVarOptionals *TagShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name string, tagShowParameters TagShowParameters, localVarOptionals *TagShowOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -261,7 +261,7 @@ func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name st
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &tagShow
+	localVarPostBody = &tagShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -332,14 +332,14 @@ TagsList List tags
 List all tags for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param tagsList
+ * @param tagsListParameters
  * @param optional nil or *TagsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []Tag
 */
-func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, tagsList TagsList, localVarOptionals *TagsListOpts) ([]Tag, *APIResponse, error) {
+func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, tagsListParameters TagsListParameters, localVarOptionals *TagsListOpts) ([]Tag, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -384,7 +384,7 @@ func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, tagsLi
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &tagsList
+	localVarPostBody = &tagsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

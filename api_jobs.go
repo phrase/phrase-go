@@ -28,12 +28,12 @@ Mark a job as completed.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param jobComplete
+ * @param jobCompleteParameters
  * @param optional nil or *JobCompleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id string, jobComplete JobComplete, localVarOptionals *JobCompleteOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id string, jobCompleteParameters JobCompleteParameters, localVarOptionals *JobCompleteOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -74,7 +74,7 @@ func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobComplete
+	localVarPostBody = &jobCompleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -143,11 +143,11 @@ JobCreate Create a job
 Create a new job.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param jobCreate
+ * @param jobCreateParameters
  * @param optional nil or *JobCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *JobsApiService) JobCreate(ctx _context.Context, projectId string, jobCreate JobCreate, localVarOptionals *JobCreateOpts) (*APIResponse, error) {
+func (a *JobsApiService) JobCreate(ctx _context.Context, projectId string, jobCreateParameters JobCreateParameters, localVarOptionals *JobCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -185,7 +185,7 @@ func (a *JobsApiService) JobCreate(ctx _context.Context, projectId string, jobCr
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobCreate
+	localVarPostBody = &jobCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -236,11 +236,11 @@ Delete an existing job.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param jobDelete
+ * @param jobDeleteParameters
  * @param optional nil or *JobDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *JobsApiService) JobDelete(ctx _context.Context, projectId string, id string, jobDelete JobDelete, localVarOptionals *JobDeleteOpts) (*APIResponse, error) {
+func (a *JobsApiService) JobDelete(ctx _context.Context, projectId string, id string, jobDeleteParameters JobDeleteParameters, localVarOptionals *JobDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -280,7 +280,7 @@ func (a *JobsApiService) JobDelete(ctx _context.Context, projectId string, id st
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobDelete
+	localVarPostBody = &jobDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -331,12 +331,12 @@ Add multiple keys to a existing job.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param jobKeysCreate
+ * @param jobKeysCreateParameters
  * @param optional nil or *JobKeysCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *JobsApiService) JobKeysCreate(ctx _context.Context, projectId string, id string, jobKeysCreate JobKeysCreate, localVarOptionals *JobKeysCreateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobKeysCreate(ctx _context.Context, projectId string, id string, jobKeysCreateParameters JobKeysCreateParameters, localVarOptionals *JobKeysCreateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -377,7 +377,7 @@ func (a *JobsApiService) JobKeysCreate(ctx _context.Context, projectId string, i
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobKeysCreate
+	localVarPostBody = &jobKeysCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -447,11 +447,11 @@ Remove multiple keys from existing job.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param jobKeysDelete
+ * @param jobKeysDeleteParameters
  * @param optional nil or *JobKeysDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *JobsApiService) JobKeysDelete(ctx _context.Context, projectId string, id string, jobKeysDelete JobKeysDelete, localVarOptionals *JobKeysDeleteOpts) (*APIResponse, error) {
+func (a *JobsApiService) JobKeysDelete(ctx _context.Context, projectId string, id string, jobKeysDeleteParameters JobKeysDeleteParameters, localVarOptionals *JobKeysDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -491,7 +491,7 @@ func (a *JobsApiService) JobKeysDelete(ctx _context.Context, projectId string, i
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobKeysDelete
+	localVarPostBody = &jobKeysDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -542,12 +542,12 @@ Mark a job as uncompleted.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param jobReopen
+ * @param jobReopenParameters
  * @param optional nil or *JobReopenOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id string, jobReopen JobReopen, localVarOptionals *JobReopenOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id string, jobReopenParameters JobReopenParameters, localVarOptionals *JobReopenOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -588,7 +588,7 @@ func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id st
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobReopen
+	localVarPostBody = &jobReopenParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -658,12 +658,12 @@ Get details on a single job for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param jobShow
+ * @param jobShowParameters
  * @param optional nil or *JobShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id string, jobShow JobShow, localVarOptionals *JobShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id string, jobShowParameters JobShowParameters, localVarOptionals *JobShowOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -704,7 +704,7 @@ func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id stri
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobShow
+	localVarPostBody = &jobShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -774,12 +774,12 @@ Starts an existing job in state draft.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param jobStart
+ * @param jobStartParameters
  * @param optional nil or *JobStartOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id string, jobStart JobStart, localVarOptionals *JobStartOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id string, jobStartParameters JobStartParameters, localVarOptionals *JobStartOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -820,7 +820,7 @@ func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id str
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobStart
+	localVarPostBody = &jobStartParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -890,12 +890,12 @@ Update an existing job.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param jobUpdate
+ * @param jobUpdateParameters
  * @param optional nil or *JobUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id string, jobUpdate JobUpdate, localVarOptionals *JobUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id string, jobUpdateParameters JobUpdateParameters, localVarOptionals *JobUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -936,7 +936,7 @@ func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id st
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobUpdate
+	localVarPostBody = &jobUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1007,14 +1007,14 @@ JobsList List jobs
 List all jobs for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param jobsList
+ * @param jobsListParameters
  * @param optional nil or *JobsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []Job
 */
-func (a *JobsApiService) JobsList(ctx _context.Context, projectId string, jobsList JobsList, localVarOptionals *JobsListOpts) ([]Job, *APIResponse, error) {
+func (a *JobsApiService) JobsList(ctx _context.Context, projectId string, jobsListParameters JobsListParameters, localVarOptionals *JobsListOpts) ([]Job, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1059,7 +1059,7 @@ func (a *JobsApiService) JobsList(ctx _context.Context, projectId string, jobsLi
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobsList
+	localVarPostBody = &jobsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

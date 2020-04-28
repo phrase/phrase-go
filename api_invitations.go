@@ -27,11 +27,11 @@ InvitationCreate Create a new invitation
 Invite a person to an account. Developers and translators need &lt;code&gt;project_ids&lt;/code&gt; and &lt;code&gt;locale_ids&lt;/code&gt; assigned to access them. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
- * @param invitationCreate
+ * @param invitationCreateParameters
  * @param optional nil or *InvitationCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId string, invitationCreate InvitationCreate, localVarOptionals *InvitationCreateOpts) (*APIResponse, error) {
+func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId string, invitationCreateParameters InvitationCreateParameters, localVarOptionals *InvitationCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &invitationCreate
+	localVarPostBody = &invitationCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -438,12 +438,12 @@ Update an existing invitation (must not be accepted yet). The &lt;code&gt;email&
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param id ID
- * @param invitationUpdate
+ * @param invitationUpdateParameters
  * @param optional nil or *InvitationUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId string, id string, invitationUpdate InvitationUpdate, localVarOptionals *InvitationUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId string, id string, invitationUpdateParameters InvitationUpdateParameters, localVarOptionals *InvitationUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -484,7 +484,7 @@ func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &invitationUpdate
+	localVarPostBody = &invitationUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

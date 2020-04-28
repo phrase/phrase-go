@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## JobComplete
 
-> map[string]interface{} JobComplete(ctx, projectId, id, jobComplete, optional)
+> map[string]interface{} JobComplete(ctx, projectId, id, jobCompleteParameters, optional)
 
 Complete a job
 
@@ -33,7 +33,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobComplete** | [**JobComplete**](JobComplete.md)|  | 
+**jobCompleteParameters** | [**JobCompleteParameters**](JobCompleteParameters.md)|  | 
  **optional** | ***JobCompleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ## JobCreate
 
-> JobCreate(ctx, projectId, jobCreate, optional)
+> JobCreate(ctx, projectId, jobCreateParameters, optional)
 
 Create a job
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**jobCreate** | [**JobCreate**](JobCreate.md)|  | 
+**jobCreateParameters** | [**JobCreateParameters**](JobCreateParameters.md)|  | 
  **optional** | ***JobCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ## JobDelete
 
-> JobDelete(ctx, projectId, id, jobDelete, optional)
+> JobDelete(ctx, projectId, id, jobDeleteParameters, optional)
 
 Delete a job
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobDelete** | [**JobDelete**](JobDelete.md)|  | 
+**jobDeleteParameters** | [**JobDeleteParameters**](JobDeleteParameters.md)|  | 
  **optional** | ***JobDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ## JobKeysCreate
 
-> map[string]interface{} JobKeysCreate(ctx, projectId, id, jobKeysCreate, optional)
+> map[string]interface{} JobKeysCreate(ctx, projectId, id, jobKeysCreateParameters, optional)
 
 Add keys to job
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobKeysCreate** | [**JobKeysCreate**](JobKeysCreate.md)|  | 
+**jobKeysCreateParameters** | [**JobKeysCreateParameters**](JobKeysCreateParameters.md)|  | 
  **optional** | ***JobKeysCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ## JobKeysDelete
 
-> JobKeysDelete(ctx, projectId, id, jobKeysDelete, optional)
+> JobKeysDelete(ctx, projectId, id, jobKeysDeleteParameters, optional)
 
 Remove keys from job
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobKeysDelete** | [**JobKeysDelete**](JobKeysDelete.md)|  | 
+**jobKeysDeleteParameters** | [**JobKeysDeleteParameters**](JobKeysDeleteParameters.md)|  | 
  **optional** | ***JobKeysDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ## JobReopen
 
-> map[string]interface{} JobReopen(ctx, projectId, id, jobReopen, optional)
+> map[string]interface{} JobReopen(ctx, projectId, id, jobReopenParameters, optional)
 
 Reopen a job
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobReopen** | [**JobReopen**](JobReopen.md)|  | 
+**jobReopenParameters** | [**JobReopenParameters**](JobReopenParameters.md)|  | 
  **optional** | ***JobReopenOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ## JobShow
 
-> map[string]interface{} JobShow(ctx, projectId, id, jobShow, optional)
+> map[string]interface{} JobShow(ctx, projectId, id, jobShowParameters, optional)
 
 Get a single job
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobShow** | [**JobShow**](JobShow.md)|  | 
+**jobShowParameters** | [**JobShowParameters**](JobShowParameters.md)|  | 
  **optional** | ***JobShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ## JobStart
 
-> map[string]interface{} JobStart(ctx, projectId, id, jobStart, optional)
+> map[string]interface{} JobStart(ctx, projectId, id, jobStartParameters, optional)
 
 Start a job
 
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobStart** | [**JobStart**](JobStart.md)|  | 
+**jobStartParameters** | [**JobStartParameters**](JobStartParameters.md)|  | 
  **optional** | ***JobStartOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 ## JobUpdate
 
-> map[string]interface{} JobUpdate(ctx, projectId, id, jobUpdate, optional)
+> map[string]interface{} JobUpdate(ctx, projectId, id, jobUpdateParameters, optional)
 
 Update a job
 
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobUpdate** | [**JobUpdate**](JobUpdate.md)|  | 
+**jobUpdateParameters** | [**JobUpdateParameters**](JobUpdateParameters.md)|  | 
  **optional** | ***JobUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 
 ## JobsList
 
-> []Job JobsList(ctx, projectId, jobsList, optional)
+> []Job JobsList(ctx, projectId, jobsListParameters, optional)
 
 List jobs
 
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**jobsList** | [**JobsList**](JobsList.md)|  | 
+**jobsListParameters** | [**JobsListParameters**](JobsListParameters.md)|  | 
  **optional** | ***JobsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

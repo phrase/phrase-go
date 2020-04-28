@@ -27,11 +27,11 @@ BlacklistedKeyCreate Create a blacklisted key
 Create a new rule for blacklisting keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param blacklistedKeyCreate
+ * @param blacklistedKeyCreateParameters
  * @param optional nil or *BlacklistedKeyCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, projectId string, blacklistedKeyCreate BlacklistedKeyCreate, localVarOptionals *BlacklistedKeyCreateOpts) (*APIResponse, error) {
+func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, projectId string, blacklistedKeyCreateParameters BlacklistedKeyCreateParameters, localVarOptionals *BlacklistedKeyCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, p
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &blacklistedKeyCreate
+	localVarPostBody = &blacklistedKeyCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -325,12 +325,12 @@ Update an existing rule for blacklisting keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param blacklistedKeyUpdate
+ * @param blacklistedKeyUpdateParameters
  * @param optional nil or *BlacklistedKeyUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *BlacklistedKeysApiService) BlacklistedKeyUpdate(ctx _context.Context, projectId string, id string, blacklistedKeyUpdate BlacklistedKeyUpdate, localVarOptionals *BlacklistedKeyUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *BlacklistedKeysApiService) BlacklistedKeyUpdate(ctx _context.Context, projectId string, id string, blacklistedKeyUpdateParameters BlacklistedKeyUpdateParameters, localVarOptionals *BlacklistedKeyUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -371,7 +371,7 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyUpdate(ctx _context.Context, p
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &blacklistedKeyUpdate
+	localVarPostBody = &blacklistedKeyUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

@@ -29,11 +29,11 @@ Create a new glossary term translation.
  * @param accountId Account ID
  * @param glossaryId Glossary ID
  * @param termId Term ID
- * @param glossaryTermTranslationCreate
+ * @param glossaryTermTranslationCreateParameters
  * @param optional nil or *GlossaryTermTranslationCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreate GlossaryTermTranslationCreate, localVarOptionals *GlossaryTermTranslationCreateOpts) (*APIResponse, error) {
+func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreateParameters GlossaryTermTranslationCreateParameters, localVarOptionals *GlossaryTermTranslationCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -75,7 +75,7 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &glossaryTermTranslationCreate
+	localVarPostBody = &glossaryTermTranslationCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -226,12 +226,12 @@ Update an existing glossary term translation.
  * @param glossaryId Glossary ID
  * @param termId Term ID
  * @param id ID
- * @param glossaryTermTranslationUpdate
+ * @param glossaryTermTranslationUpdateParameters
  * @param optional nil or *GlossaryTermTranslationUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return GlossaryTermTranslation
 */
-func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationUpdate(ctx _context.Context, accountId string, glossaryId string, termId string, id string, glossaryTermTranslationUpdate GlossaryTermTranslationUpdate, localVarOptionals *GlossaryTermTranslationUpdateOpts) (GlossaryTermTranslation, *APIResponse, error) {
+func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationUpdate(ctx _context.Context, accountId string, glossaryId string, termId string, id string, glossaryTermTranslationUpdateParameters GlossaryTermTranslationUpdateParameters, localVarOptionals *GlossaryTermTranslationUpdateOpts) (GlossaryTermTranslation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -276,7 +276,7 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationUpdate(ctx _
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &glossaryTermTranslationUpdate
+	localVarPostBody = &glossaryTermTranslationUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

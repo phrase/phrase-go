@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## BlacklistedKeyCreate
 
-> BlacklistedKeyCreate(ctx, projectId, blacklistedKeyCreate, optional)
+> BlacklistedKeyCreate(ctx, projectId, blacklistedKeyCreateParameters, optional)
 
 Create a blacklisted key
 
@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**blacklistedKeyCreate** | [**BlacklistedKeyCreate**](BlacklistedKeyCreate.md)|  | 
+**blacklistedKeyCreateParameters** | [**BlacklistedKeyCreateParameters**](BlacklistedKeyCreateParameters.md)|  | 
  **optional** | ***BlacklistedKeyCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## BlacklistedKeyUpdate
 
-> map[string]interface{} BlacklistedKeyUpdate(ctx, projectId, id, blacklistedKeyUpdate, optional)
+> map[string]interface{} BlacklistedKeyUpdate(ctx, projectId, id, blacklistedKeyUpdateParameters, optional)
 
 Update a blacklisted key
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**blacklistedKeyUpdate** | [**BlacklistedKeyUpdate**](BlacklistedKeyUpdate.md)|  | 
+**blacklistedKeyUpdateParameters** | [**BlacklistedKeyUpdateParameters**](BlacklistedKeyUpdateParameters.md)|  | 
  **optional** | ***BlacklistedKeyUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

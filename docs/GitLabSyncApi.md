@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## GitlabSyncDelete
 
-> GitlabSyncDelete(ctx, id, gitlabSyncDelete, optional)
+> GitlabSyncDelete(ctx, id, gitlabSyncDeleteParameters, optional)
 
 Delete single Sync Setting
 
@@ -29,7 +29,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**gitlabSyncDelete** | [**GitlabSyncDelete**](GitlabSyncDelete.md)|  | 
+**gitlabSyncDeleteParameters** | [**GitlabSyncDeleteParameters**](GitlabSyncDeleteParameters.md)|  | 
  **optional** | ***GitlabSyncDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncExport
 
-> GitlabSyncExport1 GitlabSyncExport(ctx, gitlabSyncId, gitlabSyncExport, optional)
+> GitlabSyncExport GitlabSyncExport(ctx, gitlabSyncId, gitlabSyncExportParameters, optional)
 
 Export from Phrase to GitLab
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **gitlabSyncId** | **string**| Gitlab Sync ID | 
-**gitlabSyncExport** | [**GitlabSyncExport**](GitlabSyncExport.md)|  | 
+**gitlabSyncExportParameters** | [**GitlabSyncExportParameters**](GitlabSyncExportParameters.md)|  | 
  **optional** | ***GitlabSyncExportOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GitlabSyncExport1**](gitlab_sync_export_1.md)
+[**GitlabSyncExport**](gitlab_sync_export.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncHistory
 
-> []GitlabSyncHistory1 GitlabSyncHistory(ctx, gitlabSyncId, gitlabSyncHistory, optional)
+> []GitlabSyncHistory GitlabSyncHistory(ctx, gitlabSyncId, gitlabSyncHistoryParameters, optional)
 
 History of single Sync Setting
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **gitlabSyncId** | **string**| Gitlab Sync ID | 
-**gitlabSyncHistory** | [**GitlabSyncHistory**](GitlabSyncHistory.md)|  | 
+**gitlabSyncHistoryParameters** | [**GitlabSyncHistoryParameters**](GitlabSyncHistoryParameters.md)|  | 
  **optional** | ***GitlabSyncHistoryOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]GitlabSyncHistory1**](gitlab_sync_history_1.md)
+[**[]GitlabSyncHistory**](gitlab_sync_history.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncImport
 
-> []map[string]interface{} GitlabSyncImport(ctx, gitlabSyncId, gitlabSyncImport, optional)
+> []map[string]interface{} GitlabSyncImport(ctx, gitlabSyncId, gitlabSyncImportParameters, optional)
 
 Import from GitLab to Phrase
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **gitlabSyncId** | **string**| Gitlab Sync ID | 
-**gitlabSyncImport** | [**GitlabSyncImport**](GitlabSyncImport.md)|  | 
+**gitlabSyncImportParameters** | [**GitlabSyncImportParameters**](GitlabSyncImportParameters.md)|  | 
  **optional** | ***GitlabSyncImportOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncList
 
-> []map[string]interface{} GitlabSyncList(ctx, gitlabSyncList, optional)
+> []map[string]interface{} GitlabSyncList(ctx, gitlabSyncListParameters, optional)
 
 List GitLab syncs
 
@@ -218,7 +218,7 @@ List all GitLab Sync Settings for which synchronisation with Phrase and GitLab i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**gitlabSyncList** | [**GitlabSyncList**](GitlabSyncList.md)|  | 
+**gitlabSyncListParameters** | [**GitlabSyncListParameters**](GitlabSyncListParameters.md)|  | 
  **optional** | ***GitlabSyncListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncShow
 
-> GitlabSync GitlabSyncShow(ctx, id, gitlabSyncShow, optional)
+> GitlabSync GitlabSyncShow(ctx, id, gitlabSyncShowParameters, optional)
 
 Get single Sync Setting
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**gitlabSyncShow** | [**GitlabSyncShow**](GitlabSyncShow.md)|  | 
+**gitlabSyncShowParameters** | [**GitlabSyncShowParameters**](GitlabSyncShowParameters.md)|  | 
  **optional** | ***GitlabSyncShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncUpdate
 
-> map[string]interface{} GitlabSyncUpdate(ctx, id, gitlabSyncUpdate, optional)
+> map[string]interface{} GitlabSyncUpdate(ctx, id, gitlabSyncUpdateParameters, optional)
 
 Update single Sync Setting
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**gitlabSyncUpdate** | [**GitlabSyncUpdate**](GitlabSyncUpdate.md)|  | 
+**gitlabSyncUpdateParameters** | [**GitlabSyncUpdateParameters**](GitlabSyncUpdateParameters.md)|  | 
  **optional** | ***GitlabSyncUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

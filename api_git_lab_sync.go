@@ -27,11 +27,11 @@ GitlabSyncDelete Delete single Sync Setting
 Deletes a single GitLab Sync Setting.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param gitlabSyncDelete
+ * @param gitlabSyncDeleteParameters
  * @param optional nil or *GitlabSyncDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string, gitlabSyncDelete GitlabSyncDelete, localVarOptionals *GitlabSyncDeleteOpts) (*APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string, gitlabSyncDeleteParameters GitlabSyncDeleteParameters, localVarOptionals *GitlabSyncDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string,
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &gitlabSyncDelete
+	localVarPostBody = &gitlabSyncDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -119,19 +119,19 @@ GitlabSyncExport Export from Phrase to GitLab
 Export translations from Phrase to GitLab according to the .phraseapp.yml file within the GitLab repository.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param gitlabSyncId Gitlab Sync ID
- * @param gitlabSyncExport
+ * @param gitlabSyncExportParameters
  * @param optional nil or *GitlabSyncExportOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return GitlabSyncExport1
+@return GitlabSyncExport
 */
-func (a *GitLabSyncApiService) GitlabSyncExport(ctx _context.Context, gitlabSyncId string, gitlabSyncExport GitlabSyncExport, localVarOptionals *GitlabSyncExportOpts) (GitlabSyncExport1, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncExport(ctx _context.Context, gitlabSyncId string, gitlabSyncExportParameters GitlabSyncExportParameters, localVarOptionals *GitlabSyncExportOpts) (GitlabSyncExport, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GitlabSyncExport1
+		localVarReturnValue  GitlabSyncExport
 	)
 
 	// create path and map variables
@@ -163,7 +163,7 @@ func (a *GitLabSyncApiService) GitlabSyncExport(ctx _context.Context, gitlabSync
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &gitlabSyncExport
+	localVarPostBody = &gitlabSyncExportParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -198,7 +198,7 @@ func (a *GitLabSyncApiService) GitlabSyncExport(ctx _context.Context, gitlabSync
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v GitlabSyncExport1
+			var v GitlabSyncExport
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -234,21 +234,21 @@ GitlabSyncHistory History of single Sync Setting
 List history for a single Sync Setting.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param gitlabSyncId Gitlab Sync ID
- * @param gitlabSyncHistory
+ * @param gitlabSyncHistoryParameters
  * @param optional nil or *GitlabSyncHistoryOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
-@return []GitlabSyncHistory1
+@return []GitlabSyncHistory
 */
-func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyncId string, gitlabSyncHistory GitlabSyncHistory, localVarOptionals *GitlabSyncHistoryOpts) ([]GitlabSyncHistory1, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyncId string, gitlabSyncHistoryParameters GitlabSyncHistoryParameters, localVarOptionals *GitlabSyncHistoryOpts) ([]GitlabSyncHistory, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []GitlabSyncHistory1
+		localVarReturnValue  []GitlabSyncHistory
 	)
 
 	// create path and map variables
@@ -286,7 +286,7 @@ func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyn
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &gitlabSyncHistory
+	localVarPostBody = &gitlabSyncHistoryParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -321,7 +321,7 @@ func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyn
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v []GitlabSyncHistory1
+			var v []GitlabSyncHistory
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -355,12 +355,12 @@ GitlabSyncImport Import from GitLab to Phrase
 Import translations from GitLab to Phrase according to the .phraseapp.yml file within the GitLab repository.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param gitlabSyncId Gitlab Sync ID
- * @param gitlabSyncImport
+ * @param gitlabSyncImportParameters
  * @param optional nil or *GitlabSyncImportOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return []map[string]interface{}
 */
-func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSyncId string, gitlabSyncImport GitlabSyncImport, localVarOptionals *GitlabSyncImportOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSyncId string, gitlabSyncImportParameters GitlabSyncImportParameters, localVarOptionals *GitlabSyncImportOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -399,7 +399,7 @@ func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSync
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &gitlabSyncImport
+	localVarPostBody = &gitlabSyncImportParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -467,12 +467,12 @@ type GitlabSyncListOpts struct {
 GitlabSyncList List GitLab syncs
 List all GitLab Sync Settings for which synchronisation with Phrase and GitLab is activated.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param gitlabSyncList
+ * @param gitlabSyncListParameters
  * @param optional nil or *GitlabSyncListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return []map[string]interface{}
 */
-func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncList GitlabSyncList, localVarOptionals *GitlabSyncListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncListParameters GitlabSyncListParameters, localVarOptionals *GitlabSyncListOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -509,7 +509,7 @@ func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncLi
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &gitlabSyncList
+	localVarPostBody = &gitlabSyncListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -578,12 +578,12 @@ GitlabSyncShow Get single Sync Setting
 Shows a single GitLab Sync Setting.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param gitlabSyncShow
+ * @param gitlabSyncShowParameters
  * @param optional nil or *GitlabSyncShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return GitlabSync
 */
-func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, gitlabSyncShow GitlabSyncShow, localVarOptionals *GitlabSyncShowOpts) (GitlabSync, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, gitlabSyncShowParameters GitlabSyncShowParameters, localVarOptionals *GitlabSyncShowOpts) (GitlabSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -622,7 +622,7 @@ func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, g
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &gitlabSyncShow
+	localVarPostBody = &gitlabSyncShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -691,12 +691,12 @@ GitlabSyncUpdate Update single Sync Setting
 Updates a single GitLab Sync Setting.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param gitlabSyncUpdate
+ * @param gitlabSyncUpdateParameters
  * @param optional nil or *GitlabSyncUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string, gitlabSyncUpdate GitlabSyncUpdate, localVarOptionals *GitlabSyncUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string, gitlabSyncUpdateParameters GitlabSyncUpdateParameters, localVarOptionals *GitlabSyncUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -735,7 +735,7 @@ func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string,
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &gitlabSyncUpdate
+	localVarPostBody = &gitlabSyncUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

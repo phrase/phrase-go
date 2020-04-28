@@ -28,12 +28,12 @@ Confirm an existing order and send it to the provider for translation. Same cons
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param orderConfirm
+ * @param orderConfirmParameters
  * @param optional nil or *OrderConfirmOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, id string, orderConfirm OrderConfirm, localVarOptionals *OrderConfirmOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, id string, orderConfirmParameters OrderConfirmParameters, localVarOptionals *OrderConfirmOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -74,7 +74,7 @@ func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &orderConfirm
+	localVarPostBody = &orderConfirmParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -143,11 +143,11 @@ OrderCreate Create a new order
 Create a new order. Access token scope must include &lt;code&gt;orders.create&lt;/code&gt;.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param orderCreate
+ * @param orderCreateParameters
  * @param optional nil or *OrderCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, orderCreate OrderCreate, localVarOptionals *OrderCreateOpts) (*APIResponse, error) {
+func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, orderCreateParameters OrderCreateParameters, localVarOptionals *OrderCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -185,7 +185,7 @@ func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, o
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &orderCreate
+	localVarPostBody = &orderCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -236,11 +236,11 @@ Cancel an existing order. Must not yet be confirmed.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param orderDelete
+ * @param orderDeleteParameters
  * @param optional nil or *OrderDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, id string, orderDelete OrderDelete, localVarOptionals *OrderDeleteOpts) (*APIResponse, error) {
+func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, id string, orderDeleteParameters OrderDeleteParameters, localVarOptionals *OrderDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -280,7 +280,7 @@ func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, i
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &orderDelete
+	localVarPostBody = &orderDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -331,12 +331,12 @@ Get details on a single order.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param orderShow
+ * @param orderShowParameters
  * @param optional nil or *OrderShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return TranslationOrder
 */
-func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id string, orderShow OrderShow, localVarOptionals *OrderShowOpts) (TranslationOrder, *APIResponse, error) {
+func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id string, orderShowParameters OrderShowParameters, localVarOptionals *OrderShowOpts) (TranslationOrder, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -377,7 +377,7 @@ func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &orderShow
+	localVarPostBody = &orderShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -448,14 +448,14 @@ OrdersList List orders
 List all orders for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param ordersList
+ * @param ordersListParameters
  * @param optional nil or *OrdersListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []map[string]interface{}
 */
-func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, ordersList OrdersList, localVarOptionals *OrdersListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, ordersListParameters OrdersListParameters, localVarOptionals *OrdersListOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -500,7 +500,7 @@ func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, or
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &ordersList
+	localVarPostBody = &ordersListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

@@ -28,11 +28,11 @@ Create a new release.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param distributionId Distribution ID
- * @param releaseCreate
+ * @param releaseCreateParameters
  * @param optional nil or *ReleaseCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId string, distributionId string, releaseCreate ReleaseCreate, localVarOptionals *ReleaseCreateOpts) (*APIResponse, error) {
+func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId string, distributionId string, releaseCreateParameters ReleaseCreateParameters, localVarOptionals *ReleaseCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -72,7 +72,7 @@ func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId strin
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &releaseCreate
+	localVarPostBody = &releaseCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -451,12 +451,12 @@ Update an existing release.
  * @param accountId Account ID
  * @param distributionId Distribution ID
  * @param id ID
- * @param releaseUpdate
+ * @param releaseUpdateParameters
  * @param optional nil or *ReleaseUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId string, distributionId string, id string, releaseUpdate ReleaseUpdate, localVarOptionals *ReleaseUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId string, distributionId string, id string, releaseUpdateParameters ReleaseUpdateParameters, localVarOptionals *ReleaseUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -499,7 +499,7 @@ func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId strin
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &releaseUpdate
+	localVarPostBody = &releaseUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

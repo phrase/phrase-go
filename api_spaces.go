@@ -27,11 +27,11 @@ SpaceCreate Create a Space
 Create a new Space.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
- * @param spaceCreate
+ * @param spaceCreateParameters
  * @param optional nil or *SpaceCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, spaceCreate SpaceCreate, localVarOptionals *SpaceCreateOpts) (*APIResponse, error) {
+func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, spaceCreateParameters SpaceCreateParameters, localVarOptionals *SpaceCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, s
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &spaceCreate
+	localVarPostBody = &spaceCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -325,12 +325,12 @@ Update the specified Space.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param id ID
- * @param spaceUpdate
+ * @param spaceUpdateParameters
  * @param optional nil or *SpaceUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return Space
 */
-func (a *SpacesApiService) SpaceUpdate(ctx _context.Context, accountId string, id string, spaceUpdate SpaceUpdate, localVarOptionals *SpaceUpdateOpts) (Space, *APIResponse, error) {
+func (a *SpacesApiService) SpaceUpdate(ctx _context.Context, accountId string, id string, spaceUpdateParameters SpaceUpdateParameters, localVarOptionals *SpaceUpdateOpts) (Space, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -371,7 +371,7 @@ func (a *SpacesApiService) SpaceUpdate(ctx _context.Context, accountId string, i
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &spaceUpdate
+	localVarPostBody = &spaceUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -561,11 +561,11 @@ Adds an existing project to the space.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param spaceId Space ID
- * @param spacesProjectsCreate
+ * @param spacesProjectsCreateParameters
  * @param optional nil or *SpacesProjectsCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId string, spaceId string, spacesProjectsCreate SpacesProjectsCreate, localVarOptionals *SpacesProjectsCreateOpts) (*APIResponse, error) {
+func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId string, spaceId string, spacesProjectsCreateParameters SpacesProjectsCreateParameters, localVarOptionals *SpacesProjectsCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -605,7 +605,7 @@ func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &spacesProjectsCreate
+	localVarPostBody = &spacesProjectsCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

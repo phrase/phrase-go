@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ReleaseCreate
 
-> ReleaseCreate(ctx, accountId, distributionId, releaseCreate, optional)
+> ReleaseCreate(ctx, accountId, distributionId, releaseCreateParameters, optional)
 
 Create a release
 
@@ -29,7 +29,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
 **distributionId** | **string**| Distribution ID | 
-**releaseCreate** | [**ReleaseCreate**](ReleaseCreate.md)|  | 
+**releaseCreateParameters** | [**ReleaseCreateParameters**](ReleaseCreateParameters.md)|  | 
  **optional** | ***ReleaseCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 ## ReleaseUpdate
 
-> map[string]interface{} ReleaseUpdate(ctx, accountId, distributionId, id, releaseUpdate, optional)
+> map[string]interface{} ReleaseUpdate(ctx, accountId, distributionId, id, releaseUpdateParameters, optional)
 
 Update a release
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 **accountId** | **string**| Account ID | 
 **distributionId** | **string**| Distribution ID | 
 **id** | **string**| ID | 
-**releaseUpdate** | [**ReleaseUpdate**](ReleaseUpdate.md)|  | 
+**releaseUpdateParameters** | [**ReleaseUpdateParameters**](ReleaseUpdateParameters.md)|  | 
  **optional** | ***ReleaseUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

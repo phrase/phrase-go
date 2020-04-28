@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## KeyCreate
 
-> KeyCreate(ctx, projectId, keyCreate, optional)
+> KeyCreate(ctx, projectId, keyCreateParameters, optional)
 
 Create a key
 
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**keyCreate** | [**KeyCreate**](KeyCreate.md)|  | 
+**keyCreateParameters** | [**KeyCreateParameters**](KeyCreateParameters.md)|  | 
  **optional** | ***KeyCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ## KeyDelete
 
-> KeyDelete(ctx, projectId, id, keyDelete, optional)
+> KeyDelete(ctx, projectId, id, keyDeleteParameters, optional)
 
 Delete a key
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**keyDelete** | [**KeyDelete**](KeyDelete.md)|  | 
+**keyDeleteParameters** | [**KeyDeleteParameters**](KeyDeleteParameters.md)|  | 
  **optional** | ***KeyDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ## KeyShow
 
-> map[string]interface{} KeyShow(ctx, projectId, id, keyShow, optional)
+> map[string]interface{} KeyShow(ctx, projectId, id, keyShowParameters, optional)
 
 Get a single key
 
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**keyShow** | [**KeyShow**](KeyShow.md)|  | 
+**keyShowParameters** | [**KeyShowParameters**](KeyShowParameters.md)|  | 
  **optional** | ***KeyShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## KeyUpdate
 
-> map[string]interface{} KeyUpdate(ctx, projectId, id, keyUpdate, optional)
+> map[string]interface{} KeyUpdate(ctx, projectId, id, keyUpdateParameters, optional)
 
 Update a key
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**keyUpdate** | [**KeyUpdate**](KeyUpdate.md)|  | 
+**keyUpdateParameters** | [**KeyUpdateParameters**](KeyUpdateParameters.md)|  | 
  **optional** | ***KeyUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ## KeysDelete
 
-> AffectedResources KeysDelete(ctx, projectId, keysDelete, optional)
+> AffectedResources KeysDelete(ctx, projectId, keysDeleteParameters, optional)
 
 Delete collection of keys
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**keysDelete** | [**KeysDelete**](KeysDelete.md)|  | 
+**keysDeleteParameters** | [**KeysDeleteParameters**](KeysDeleteParameters.md)|  | 
  **optional** | ***KeysDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ## KeysList
 
-> []TranslationKey KeysList(ctx, projectId, keysList, optional)
+> []TranslationKey KeysList(ctx, projectId, keysListParameters, optional)
 
 List keys
 
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**keysList** | [**KeysList**](KeysList.md)|  | 
+**keysListParameters** | [**KeysListParameters**](KeysListParameters.md)|  | 
  **optional** | ***KeysListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ## KeysSearch
 
-> []map[string]interface{} KeysSearch(ctx, projectId, keysSearch, optional)
+> []map[string]interface{} KeysSearch(ctx, projectId, keysSearchParameters, optional)
 
 Search keys
 
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**keysSearch** | [**KeysSearch**](KeysSearch.md)|  | 
+**keysSearchParameters** | [**KeysSearchParameters**](KeysSearchParameters.md)|  | 
  **optional** | ***KeysSearchOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 ## KeysTag
 
-> map[string]interface{} KeysTag(ctx, projectId, keysTag, optional)
+> map[string]interface{} KeysTag(ctx, projectId, keysTagParameters, optional)
 
 Add tags to collection of keys
 
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**keysTag** | [**KeysTag**](KeysTag.md)|  | 
+**keysTagParameters** | [**KeysTagParameters**](KeysTagParameters.md)|  | 
  **optional** | ***KeysTagOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 
 ## KeysUntag
 
-> map[string]interface{} KeysUntag(ctx, projectId, keysUntag, optional)
+> map[string]interface{} KeysUntag(ctx, projectId, keysUntagParameters, optional)
 
 Remove tags from collection of keys
 
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**keysUntag** | [**KeysUntag**](KeysUntag.md)|  | 
+**keysUntagParameters** | [**KeysUntagParameters**](KeysUntagParameters.md)|  | 
  **optional** | ***KeysUntagOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

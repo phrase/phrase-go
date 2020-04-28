@@ -27,11 +27,11 @@ KeyCreate Create a key
 Create a new key.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param keyCreate
+ * @param keyCreateParameters
  * @param optional nil or *KeyCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *KeysApiService) KeyCreate(ctx _context.Context, projectId string, keyCreate KeyCreate, localVarOptionals *KeyCreateOpts) (*APIResponse, error) {
+func (a *KeysApiService) KeyCreate(ctx _context.Context, projectId string, keyCreateParameters KeyCreateParameters, localVarOptionals *KeyCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *KeysApiService) KeyCreate(ctx _context.Context, projectId string, keyCr
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keyCreate
+	localVarPostBody = &keyCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -120,11 +120,11 @@ Delete an existing key.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param keyDelete
+ * @param keyDeleteParameters
  * @param optional nil or *KeyDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id string, keyDelete KeyDelete, localVarOptionals *KeyDeleteOpts) (*APIResponse, error) {
+func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id string, keyDeleteParameters KeyDeleteParameters, localVarOptionals *KeyDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -164,7 +164,7 @@ func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id st
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keyDelete
+	localVarPostBody = &keyDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -215,12 +215,12 @@ Get details on a single key for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param keyShow
+ * @param keyShowParameters
  * @param optional nil or *KeyShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id string, keyShow KeyShow, localVarOptionals *KeyShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id string, keyShowParameters KeyShowParameters, localVarOptionals *KeyShowOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -261,7 +261,7 @@ func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id stri
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keyShow
+	localVarPostBody = &keyShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -331,12 +331,12 @@ Update an existing key.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param keyUpdate
+ * @param keyUpdateParameters
  * @param optional nil or *KeyUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id string, keyUpdate KeyUpdate, localVarOptionals *KeyUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id string, keyUpdateParameters KeyUpdateParameters, localVarOptionals *KeyUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -377,7 +377,7 @@ func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id st
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keyUpdate
+	localVarPostBody = &keyUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -446,12 +446,12 @@ KeysDelete Delete collection of keys
 Delete all keys matching query. Same constraints as list. Please limit the number of affected keys to about 1,000 as you might experience timeouts otherwise.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param keysDelete
+ * @param keysDeleteParameters
  * @param optional nil or *KeysDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return AffectedResources
 */
-func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, keysDelete KeysDelete, localVarOptionals *KeysDeleteOpts) (AffectedResources, *APIResponse, error) {
+func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, keysDeleteParameters KeysDeleteParameters, localVarOptionals *KeysDeleteOpts) (AffectedResources, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -490,7 +490,7 @@ func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, keys
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keysDelete
+	localVarPostBody = &keysDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -561,14 +561,14 @@ KeysList List keys
 List all keys for the given project. Alternatively you can POST requests to /search.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param keysList
+ * @param keysListParameters
  * @param optional nil or *KeysListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []TranslationKey
 */
-func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, keysList KeysList, localVarOptionals *KeysListOpts) ([]TranslationKey, *APIResponse, error) {
+func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, keysListParameters KeysListParameters, localVarOptionals *KeysListOpts) ([]TranslationKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -613,7 +613,7 @@ func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, keysLi
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keysList
+	localVarPostBody = &keysListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -684,14 +684,14 @@ KeysSearch Search keys
 Search keys for the given project matching query.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param keysSearch
+ * @param keysSearchParameters
  * @param optional nil or *KeysSearchOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []map[string]interface{}
 */
-func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keysSearch KeysSearch, localVarOptionals *KeysSearchOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keysSearchParameters KeysSearchParameters, localVarOptionals *KeysSearchOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -736,7 +736,7 @@ func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keys
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keysSearch
+	localVarPostBody = &keysSearchParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -805,12 +805,12 @@ KeysTag Add tags to collection of keys
 Tags all keys matching query. Same constraints as list.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param keysTag
+ * @param keysTagParameters
  * @param optional nil or *KeysTagOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *KeysApiService) KeysTag(ctx _context.Context, projectId string, keysTag KeysTag, localVarOptionals *KeysTagOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeysTag(ctx _context.Context, projectId string, keysTagParameters KeysTagParameters, localVarOptionals *KeysTagOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -849,7 +849,7 @@ func (a *KeysApiService) KeysTag(ctx _context.Context, projectId string, keysTag
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keysTag
+	localVarPostBody = &keysTagParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -918,12 +918,12 @@ KeysUntag Remove tags from collection of keys
 Removes specified tags from keys matching query.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param keysUntag
+ * @param keysUntagParameters
  * @param optional nil or *KeysUntagOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *KeysApiService) KeysUntag(ctx _context.Context, projectId string, keysUntag KeysUntag, localVarOptionals *KeysUntagOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *KeysApiService) KeysUntag(ctx _context.Context, projectId string, keysUntagParameters KeysUntagParameters, localVarOptionals *KeysUntagOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -962,7 +962,7 @@ func (a *KeysApiService) KeysUntag(ctx _context.Context, projectId string, keysU
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keysUntag
+	localVarPostBody = &keysUntagParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

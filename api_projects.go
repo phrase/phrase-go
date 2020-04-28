@@ -26,11 +26,11 @@ type ProjectCreateOpts struct {
 ProjectCreate Create a project
 Create a new project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectCreate
+ * @param projectCreateParameters
  * @param optional nil or *ProjectCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreate ProjectCreate, localVarOptionals *ProjectCreateOpts) (*APIResponse, error) {
+func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreateParameters ProjectCreateParameters, localVarOptionals *ProjectCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreate P
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &projectCreate
+	localVarPostBody = &projectCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -315,12 +315,12 @@ ProjectUpdate Update a project
 Update an existing project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param projectUpdate
+ * @param projectUpdateParameters
  * @param optional nil or *ProjectUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, projectUpdate ProjectUpdate, localVarOptionals *ProjectUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, projectUpdateParameters ProjectUpdateParameters, localVarOptionals *ProjectUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -359,7 +359,7 @@ func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, proj
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &projectUpdate
+	localVarPostBody = &projectUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

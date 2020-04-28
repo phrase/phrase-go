@@ -27,11 +27,11 @@ DistributionCreate Create a distribution
 Create a new distribution.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
- * @param distributionCreate
+ * @param distributionCreateParameters
  * @param optional nil or *DistributionCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accountId string, distributionCreate DistributionCreate, localVarOptionals *DistributionCreateOpts) (*APIResponse, error) {
+func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accountId string, distributionCreateParameters DistributionCreateParameters, localVarOptionals *DistributionCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accou
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &distributionCreate
+	localVarPostBody = &distributionCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -325,12 +325,12 @@ Update an existing distribution.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param id ID
- * @param distributionUpdate
+ * @param distributionUpdateParameters
  * @param optional nil or *DistributionUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accountId string, id string, distributionUpdate DistributionUpdate, localVarOptionals *DistributionUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accountId string, id string, distributionUpdateParameters DistributionUpdateParameters, localVarOptionals *DistributionUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -371,7 +371,7 @@ func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accou
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &distributionUpdate
+	localVarPostBody = &distributionUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

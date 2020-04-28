@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## JobLocaleComplete
 
-> map[string]interface{} JobLocaleComplete(ctx, projectId, jobId, id, jobLocaleComplete, optional)
+> map[string]interface{} JobLocaleComplete(ctx, projectId, jobId, id, jobLocaleCompleteParameters, optional)
 
 Complete a job locale
 
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
 **id** | **string**| ID | 
-**jobLocaleComplete** | [**JobLocaleComplete**](JobLocaleComplete.md)|  | 
+**jobLocaleCompleteParameters** | [**JobLocaleCompleteParameters**](JobLocaleCompleteParameters.md)|  | 
  **optional** | ***JobLocaleCompleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ## JobLocaleDelete
 
-> JobLocaleDelete(ctx, projectId, jobId, id, jobLocaleDelete, optional)
+> JobLocaleDelete(ctx, projectId, jobId, id, jobLocaleDeleteParameters, optional)
 
 Delete a job locale
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
 **id** | **string**| ID | 
-**jobLocaleDelete** | [**JobLocaleDelete**](JobLocaleDelete.md)|  | 
+**jobLocaleDeleteParameters** | [**JobLocaleDeleteParameters**](JobLocaleDeleteParameters.md)|  | 
  **optional** | ***JobLocaleDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ## JobLocaleReopen
 
-> map[string]interface{} JobLocaleReopen(ctx, projectId, jobId, id, jobLocaleReopen, optional)
+> map[string]interface{} JobLocaleReopen(ctx, projectId, jobId, id, jobLocaleReopenParameters, optional)
 
 Reopen a job locale
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
 **id** | **string**| ID | 
-**jobLocaleReopen** | [**JobLocaleReopen**](JobLocaleReopen.md)|  | 
+**jobLocaleReopenParameters** | [**JobLocaleReopenParameters**](JobLocaleReopenParameters.md)|  | 
  **optional** | ***JobLocaleReopenOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ## JobLocaleShow
 
-> JobLocale JobLocaleShow(ctx, projectId, jobId, id, jobLocaleShow, optional)
+> JobLocale JobLocaleShow(ctx, projectId, jobId, id, jobLocaleShowParameters, optional)
 
 Get a single job locale
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
 **id** | **string**| ID | 
-**jobLocaleShow** | [**JobLocaleShow**](JobLocaleShow.md)|  | 
+**jobLocaleShowParameters** | [**JobLocaleShowParameters**](JobLocaleShowParameters.md)|  | 
  **optional** | ***JobLocaleShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ## JobLocaleUpdate
 
-> map[string]interface{} JobLocaleUpdate(ctx, projectId, jobId, id, jobLocaleUpdate, optional)
+> map[string]interface{} JobLocaleUpdate(ctx, projectId, jobId, id, jobLocaleUpdateParameters, optional)
 
 Update a job locale
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
 **id** | **string**| ID | 
-**jobLocaleUpdate** | [**JobLocaleUpdate**](JobLocaleUpdate.md)|  | 
+**jobLocaleUpdateParameters** | [**JobLocaleUpdateParameters**](JobLocaleUpdateParameters.md)|  | 
  **optional** | ***JobLocaleUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ## JobLocalesCreate
 
-> JobLocalesCreate(ctx, projectId, jobId, jobLocalesCreate, optional)
+> JobLocalesCreate(ctx, projectId, jobId, jobLocalesCreateParameters, optional)
 
 Create a job locale
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
-**jobLocalesCreate** | [**JobLocalesCreate**](JobLocalesCreate.md)|  | 
+**jobLocalesCreateParameters** | [**JobLocalesCreateParameters**](JobLocalesCreateParameters.md)|  | 
  **optional** | ***JobLocalesCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 ## JobLocalesList
 
-> []map[string]interface{} JobLocalesList(ctx, projectId, jobId, jobLocalesList, optional)
+> []map[string]interface{} JobLocalesList(ctx, projectId, jobId, jobLocalesListParameters, optional)
 
 List job locales
 
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
-**jobLocalesList** | [**JobLocalesList**](JobLocalesList.md)|  | 
+**jobLocalesListParameters** | [**JobLocalesListParameters**](JobLocalesListParameters.md)|  | 
  **optional** | ***JobLocalesListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

@@ -1,6 +1,6 @@
 package phrase
 // GitlabSyncExport struct for GitlabSyncExport
 type GitlabSyncExport struct {
-	// Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
-	AccountId string `json:"account_id,omitempty"`
+	MergeRequestId int32 `json:"merge_request_id,omitempty"`
+	MergeRequestWebUrl string `json:"merge_request_web_url,omitempty"`
 }

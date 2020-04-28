@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## TagCreate
 
-> TagCreate(ctx, projectId, tagCreate, optional)
+> TagCreate(ctx, projectId, tagCreateParameters, optional)
 
 Create a tag
 
@@ -26,7 +26,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**tagCreate** | [**TagCreate**](TagCreate.md)|  | 
+**tagCreateParameters** | [**TagCreateParameters**](TagCreateParameters.md)|  | 
  **optional** | ***TagCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ## TagDelete
 
-> TagDelete(ctx, projectId, name, tagDelete, optional)
+> TagDelete(ctx, projectId, name, tagDeleteParameters, optional)
 
 Delete a tag
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**tagDelete** | [**TagDelete**](TagDelete.md)|  | 
+**tagDeleteParameters** | [**TagDeleteParameters**](TagDeleteParameters.md)|  | 
  **optional** | ***TagDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ## TagShow
 
-> map[string]interface{} TagShow(ctx, projectId, name, tagShow, optional)
+> map[string]interface{} TagShow(ctx, projectId, name, tagShowParameters, optional)
 
 Get a single tag
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**tagShow** | [**TagShow**](TagShow.md)|  | 
+**tagShowParameters** | [**TagShowParameters**](TagShowParameters.md)|  | 
  **optional** | ***TagShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ## TagsList
 
-> []Tag TagsList(ctx, projectId, tagsList, optional)
+> []Tag TagsList(ctx, projectId, tagsListParameters, optional)
 
 List tags
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**tagsList** | [**TagsList**](TagsList.md)|  | 
+**tagsListParameters** | [**TagsListParameters**](TagsListParameters.md)|  | 
  **optional** | ***TagsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

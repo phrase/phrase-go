@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## CommentCreate
 
-> CommentCreate(ctx, projectId, keyId, commentCreate, optional)
+> CommentCreate(ctx, projectId, keyId, commentCreateParameters, optional)
 
 Create a comment
 
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
-**commentCreate** | [**CommentCreate**](CommentCreate.md)|  | 
+**commentCreateParameters** | [**CommentCreateParameters**](CommentCreateParameters.md)|  | 
  **optional** | ***CommentCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ## CommentDelete
 
-> CommentDelete(ctx, projectId, keyId, id, commentDelete, optional)
+> CommentDelete(ctx, projectId, keyId, id, commentDeleteParameters, optional)
 
 Delete a comment
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentDelete** | [**CommentDelete**](CommentDelete.md)|  | 
+**commentDeleteParameters** | [**CommentDeleteParameters**](CommentDeleteParameters.md)|  | 
  **optional** | ***CommentDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ## CommentMarkCheck
 
-> CommentMarkCheck(ctx, projectId, keyId, id, commentMarkCheck, optional)
+> CommentMarkCheck(ctx, projectId, keyId, id, commentMarkCheckParameters, optional)
 
 Check if comment is read
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentMarkCheck** | [**CommentMarkCheck**](CommentMarkCheck.md)|  | 
+**commentMarkCheckParameters** | [**CommentMarkCheckParameters**](CommentMarkCheckParameters.md)|  | 
  **optional** | ***CommentMarkCheckOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ## CommentMarkRead
 
-> CommentMarkRead(ctx, projectId, keyId, id, commentMarkRead, optional)
+> CommentMarkRead(ctx, projectId, keyId, id, commentMarkReadParameters, optional)
 
 Mark a comment as read
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentMarkRead** | [**CommentMarkRead**](CommentMarkRead.md)|  | 
+**commentMarkReadParameters** | [**CommentMarkReadParameters**](CommentMarkReadParameters.md)|  | 
  **optional** | ***CommentMarkReadOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ## CommentMarkUnread
 
-> CommentMarkUnread(ctx, projectId, keyId, id, commentMarkUnread, optional)
+> CommentMarkUnread(ctx, projectId, keyId, id, commentMarkUnreadParameters, optional)
 
 Mark a comment as unread
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentMarkUnread** | [**CommentMarkUnread**](CommentMarkUnread.md)|  | 
+**commentMarkUnreadParameters** | [**CommentMarkUnreadParameters**](CommentMarkUnreadParameters.md)|  | 
  **optional** | ***CommentMarkUnreadOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ## CommentShow
 
-> Comment CommentShow(ctx, projectId, keyId, id, commentShow, optional)
+> Comment CommentShow(ctx, projectId, keyId, id, commentShowParameters, optional)
 
 Get a single comment
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentShow** | [**CommentShow**](CommentShow.md)|  | 
+**commentShowParameters** | [**CommentShowParameters**](CommentShowParameters.md)|  | 
  **optional** | ***CommentShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ## CommentUpdate
 
-> map[string]interface{} CommentUpdate(ctx, projectId, keyId, id, commentUpdate, optional)
+> map[string]interface{} CommentUpdate(ctx, projectId, keyId, id, commentUpdateParameters, optional)
 
 Update a comment
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentUpdate** | [**CommentUpdate**](CommentUpdate.md)|  | 
+**commentUpdateParameters** | [**CommentUpdateParameters**](CommentUpdateParameters.md)|  | 
  **optional** | ***CommentUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 ## CommentsList
 
-> []map[string]interface{} CommentsList(ctx, projectId, keyId, commentsList, optional)
+> []map[string]interface{} CommentsList(ctx, projectId, keyId, commentsListParameters, optional)
 
 List comments
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
-**commentsList** | [**CommentsList**](CommentsList.md)|  | 
+**commentsListParameters** | [**CommentsListParameters**](CommentsListParameters.md)|  | 
  **optional** | ***CommentsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

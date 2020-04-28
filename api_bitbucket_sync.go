@@ -27,12 +27,12 @@ BitbucketSyncExport Export from Phrase to Bitbucket
 Export translations from Phrase to Bitbucket according to the .phraseapp.yml file within the Bitbucket Repository.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param bitbucketSyncExport
+ * @param bitbucketSyncExportParameters
  * @param optional nil or *BitbucketSyncExportOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return BitbucketSyncExportResponse
 */
-func (a *BitbucketSyncApiService) BitbucketSyncExport(ctx _context.Context, id string, bitbucketSyncExport BitbucketSyncExport, localVarOptionals *BitbucketSyncExportOpts) (BitbucketSyncExportResponse, *APIResponse, error) {
+func (a *BitbucketSyncApiService) BitbucketSyncExport(ctx _context.Context, id string, bitbucketSyncExportParameters BitbucketSyncExportParameters, localVarOptionals *BitbucketSyncExportOpts) (BitbucketSyncExportResponse, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -71,7 +71,7 @@ func (a *BitbucketSyncApiService) BitbucketSyncExport(ctx _context.Context, id s
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &bitbucketSyncExport
+	localVarPostBody = &bitbucketSyncExportParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -140,11 +140,11 @@ BitbucketSyncImport Import to Phrase from Bitbucket
 Import translations from Bitbucket to Phrase according to the .phraseapp.yml file within the Bitbucket repository.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param bitbucketSyncImport
+ * @param bitbucketSyncImportParameters
  * @param optional nil or *BitbucketSyncImportOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id string, bitbucketSyncImport BitbucketSyncImport, localVarOptionals *BitbucketSyncImportOpts) (*APIResponse, error) {
+func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id string, bitbucketSyncImportParameters BitbucketSyncImportParameters, localVarOptionals *BitbucketSyncImportOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -182,7 +182,7 @@ func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id s
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &bitbucketSyncImport
+	localVarPostBody = &bitbucketSyncImportParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -231,12 +231,12 @@ type BitbucketSyncsListOpts struct {
 BitbucketSyncsList List Bitbucket syncs
 List all Bitbucket repositories for which synchronisation with Phrase is activated.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param bitbucketSyncsList
+ * @param bitbucketSyncsListParameters
  * @param optional nil or *BitbucketSyncsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return []BitbucketSync
 */
-func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, bitbucketSyncsList BitbucketSyncsList, localVarOptionals *BitbucketSyncsListOpts) ([]BitbucketSync, *APIResponse, error) {
+func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, bitbucketSyncsListParameters BitbucketSyncsListParameters, localVarOptionals *BitbucketSyncsListOpts) ([]BitbucketSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -273,7 +273,7 @@ func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, bitbu
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &bitbucketSyncsList
+	localVarPostBody = &bitbucketSyncsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

@@ -27,11 +27,11 @@ TranslationCreate Create a translation
 Create a translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param translationCreate
+ * @param translationCreateParameters
  * @param optional nil or *TranslationCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *TranslationsApiService) TranslationCreate(ctx _context.Context, projectId string, translationCreate TranslationCreate, localVarOptionals *TranslationCreateOpts) (*APIResponse, error) {
+func (a *TranslationsApiService) TranslationCreate(ctx _context.Context, projectId string, translationCreateParameters TranslationCreateParameters, localVarOptionals *TranslationCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *TranslationsApiService) TranslationCreate(ctx _context.Context, project
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationCreate
+	localVarPostBody = &translationCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -120,12 +120,12 @@ Set exclude from export flag on an existing translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param translationExclude
+ * @param translationExcludeParameters
  * @param optional nil or *TranslationExcludeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationExclude(ctx _context.Context, projectId string, id string, translationExclude TranslationExclude, localVarOptionals *TranslationExcludeOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationExclude(ctx _context.Context, projectId string, id string, translationExcludeParameters TranslationExcludeParameters, localVarOptionals *TranslationExcludeOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -166,7 +166,7 @@ func (a *TranslationsApiService) TranslationExclude(ctx _context.Context, projec
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationExclude
+	localVarPostBody = &translationExcludeParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -236,12 +236,12 @@ Remove exclude from export flag from an existing translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param translationInclude
+ * @param translationIncludeParameters
  * @param optional nil or *TranslationIncludeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationInclude(ctx _context.Context, projectId string, id string, translationInclude TranslationInclude, localVarOptionals *TranslationIncludeOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationInclude(ctx _context.Context, projectId string, id string, translationIncludeParameters TranslationIncludeParameters, localVarOptionals *TranslationIncludeOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -282,7 +282,7 @@ func (a *TranslationsApiService) TranslationInclude(ctx _context.Context, projec
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationInclude
+	localVarPostBody = &translationIncludeParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -352,12 +352,12 @@ Mark an existing translation as reviewed.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param translationReview
+ * @param translationReviewParameters
  * @param optional nil or *TranslationReviewOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationReview(ctx _context.Context, projectId string, id string, translationReview TranslationReview, localVarOptionals *TranslationReviewOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationReview(ctx _context.Context, projectId string, id string, translationReviewParameters TranslationReviewParameters, localVarOptionals *TranslationReviewOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -398,7 +398,7 @@ func (a *TranslationsApiService) TranslationReview(ctx _context.Context, project
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationReview
+	localVarPostBody = &translationReviewParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -468,12 +468,12 @@ Get details on a single translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param translationShow
+ * @param translationShowParameters
  * @param optional nil or *TranslationShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId string, id string, translationShow TranslationShow, localVarOptionals *TranslationShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId string, id string, translationShowParameters TranslationShowParameters, localVarOptionals *TranslationShowOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -514,7 +514,7 @@ func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationShow
+	localVarPostBody = &translationShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -584,12 +584,12 @@ Mark an existing translation as unverified.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param translationUnverify
+ * @param translationUnverifyParameters
  * @param optional nil or *TranslationUnverifyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationUnverify(ctx _context.Context, projectId string, id string, translationUnverify TranslationUnverify, localVarOptionals *TranslationUnverifyOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationUnverify(ctx _context.Context, projectId string, id string, translationUnverifyParameters TranslationUnverifyParameters, localVarOptionals *TranslationUnverifyOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -630,7 +630,7 @@ func (a *TranslationsApiService) TranslationUnverify(ctx _context.Context, proje
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationUnverify
+	localVarPostBody = &translationUnverifyParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -700,12 +700,12 @@ Update an existing translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param translationUpdate
+ * @param translationUpdateParameters
  * @param optional nil or *TranslationUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationUpdate(ctx _context.Context, projectId string, id string, translationUpdate TranslationUpdate, localVarOptionals *TranslationUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationUpdate(ctx _context.Context, projectId string, id string, translationUpdateParameters TranslationUpdateParameters, localVarOptionals *TranslationUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -746,7 +746,7 @@ func (a *TranslationsApiService) TranslationUpdate(ctx _context.Context, project
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationUpdate
+	localVarPostBody = &translationUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -816,12 +816,12 @@ Verify an existing translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param translationVerify
+ * @param translationVerifyParameters
  * @param optional nil or *TranslationVerifyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationVerify(ctx _context.Context, projectId string, id string, translationVerify TranslationVerify, localVarOptionals *TranslationVerifyOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationVerify(ctx _context.Context, projectId string, id string, translationVerifyParameters TranslationVerifyParameters, localVarOptionals *TranslationVerifyOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -862,7 +862,7 @@ func (a *TranslationsApiService) TranslationVerify(ctx _context.Context, project
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationVerify
+	localVarPostBody = &translationVerifyParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -934,14 +934,14 @@ List translations for a specific key.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param keyId Translation Key ID
- * @param translationsByKey
+ * @param translationsByKeyParameters
  * @param optional nil or *TranslationsByKeyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, projectId string, keyId string, translationsByKey TranslationsByKey, localVarOptionals *TranslationsByKeyOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, projectId string, keyId string, translationsByKeyParameters TranslationsByKeyParameters, localVarOptionals *TranslationsByKeyOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -988,7 +988,7 @@ func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, project
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationsByKey
+	localVarPostBody = &translationsByKeyParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1060,14 +1060,14 @@ List translations for a specific locale. If you want to download all translation
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param localeId Locale ID
- * @param translationsByLocale
+ * @param translationsByLocaleParameters
  * @param optional nil or *TranslationsByLocaleOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, projectId string, localeId string, translationsByLocale TranslationsByLocale, localVarOptionals *TranslationsByLocaleOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, projectId string, localeId string, translationsByLocaleParameters TranslationsByLocaleParameters, localVarOptionals *TranslationsByLocaleOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1114,7 +1114,7 @@ func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, proj
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationsByLocale
+	localVarPostBody = &translationsByLocaleParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1183,12 +1183,12 @@ TranslationsExclude Set exclude from export flag on translations selected by que
 Exclude translations matching query from locale export.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param translationsExclude
+ * @param translationsExcludeParameters
  * @param optional nil or *TranslationsExcludeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, projectId string, translationsExclude TranslationsExclude, localVarOptionals *TranslationsExcludeOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, projectId string, translationsExcludeParameters TranslationsExcludeParameters, localVarOptionals *TranslationsExcludeOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1227,7 +1227,7 @@ func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, proje
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationsExclude
+	localVarPostBody = &translationsExcludeParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1296,12 +1296,12 @@ TranslationsInclude Remove exlude from import flag from translations selected by
 Include translations matching query in locale export.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param translationsInclude
+ * @param translationsIncludeParameters
  * @param optional nil or *TranslationsIncludeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationsInclude(ctx _context.Context, projectId string, translationsInclude TranslationsInclude, localVarOptionals *TranslationsIncludeOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsInclude(ctx _context.Context, projectId string, translationsIncludeParameters TranslationsIncludeParameters, localVarOptionals *TranslationsIncludeOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1340,7 +1340,7 @@ func (a *TranslationsApiService) TranslationsInclude(ctx _context.Context, proje
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationsInclude
+	localVarPostBody = &translationsIncludeParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1411,14 +1411,14 @@ TranslationsList List all translations
 List translations for the given project. If you want to download all translations for one locale we recommend to use the &lt;code&gt;locales#download&lt;/code&gt; endpoint.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param translationsList
+ * @param translationsListParameters
  * @param optional nil or *TranslationsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []Translation
 */
-func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectId string, translationsList TranslationsList, localVarOptionals *TranslationsListOpts) ([]Translation, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectId string, translationsListParameters TranslationsListParameters, localVarOptionals *TranslationsListOpts) ([]Translation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1463,7 +1463,7 @@ func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectI
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationsList
+	localVarPostBody = &translationsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1532,12 +1532,12 @@ TranslationsReview Review translations selected by query
 Review translations matching query.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param translationsReview
+ * @param translationsReviewParameters
  * @param optional nil or *TranslationsReviewOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationsReview(ctx _context.Context, projectId string, translationsReview TranslationsReview, localVarOptionals *TranslationsReviewOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsReview(ctx _context.Context, projectId string, translationsReviewParameters TranslationsReviewParameters, localVarOptionals *TranslationsReviewOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1576,7 +1576,7 @@ func (a *TranslationsApiService) TranslationsReview(ctx _context.Context, projec
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationsReview
+	localVarPostBody = &translationsReviewParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1647,14 +1647,14 @@ TranslationsSearch Search translations
 Search translations for the given project. Provides the same search interface as &lt;code&gt;translations#index&lt;/code&gt; but allows POST requests to avoid limitations imposed by GET requests. If you want to download all translations for one locale we recommend to use the &lt;code&gt;locales#download&lt;/code&gt; endpoint.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param translationsSearch
+ * @param translationsSearchParameters
  * @param optional nil or *TranslationsSearchOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projectId string, translationsSearch TranslationsSearch, localVarOptionals *TranslationsSearchOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projectId string, translationsSearchParameters TranslationsSearchParameters, localVarOptionals *TranslationsSearchOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -1699,7 +1699,7 @@ func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projec
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationsSearch
+	localVarPostBody = &translationsSearchParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1768,12 +1768,12 @@ TranslationsUnverify Mark translations selected by query as unverified
 Mark translations matching query as unverified.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param translationsUnverify
+ * @param translationsUnverifyParameters
  * @param optional nil or *TranslationsUnverifyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, projectId string, translationsUnverify TranslationsUnverify, localVarOptionals *TranslationsUnverifyOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, projectId string, translationsUnverifyParameters TranslationsUnverifyParameters, localVarOptionals *TranslationsUnverifyOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1812,7 +1812,7 @@ func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, proj
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationsUnverify
+	localVarPostBody = &translationsUnverifyParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1881,12 +1881,12 @@ TranslationsVerify Verify translations selected by query
 Verify translations matching query.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param translationsVerify
+ * @param translationsVerifyParameters
  * @param optional nil or *TranslationsVerifyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsVerify(ctx _context.Context, projectId string, translationsVerify TranslationsVerify, localVarOptionals *TranslationsVerifyOpts) (AffectedCount, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsVerify(ctx _context.Context, projectId string, translationsVerifyParameters TranslationsVerifyParameters, localVarOptionals *TranslationsVerifyOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1925,7 +1925,7 @@ func (a *TranslationsApiService) TranslationsVerify(ctx _context.Context, projec
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &translationsVerify
+	localVarPostBody = &translationsVerifyParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

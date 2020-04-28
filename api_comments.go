@@ -28,11 +28,11 @@ Create a new comment for a key.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param keyId Translation Key ID
- * @param commentCreate
+ * @param commentCreateParameters
  * @param optional nil or *CommentCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId string, keyId string, commentCreate CommentCreate, localVarOptionals *CommentCreateOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId string, keyId string, commentCreateParameters CommentCreateParameters, localVarOptionals *CommentCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -72,7 +72,7 @@ func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId strin
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &commentCreate
+	localVarPostBody = &commentCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -124,11 +124,11 @@ Delete an existing comment.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentDelete
+ * @param commentDeleteParameters
  * @param optional nil or *CommentDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId string, keyId string, id string, commentDelete CommentDelete, localVarOptionals *CommentDeleteOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId string, keyId string, id string, commentDeleteParameters CommentDeleteParameters, localVarOptionals *CommentDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -170,7 +170,7 @@ func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId strin
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &commentDelete
+	localVarPostBody = &commentDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -222,11 +222,11 @@ Check if comment was marked as read. Returns 204 if read, 404 if unread.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentMarkCheck
+ * @param commentMarkCheckParameters
  * @param optional nil or *CommentMarkCheckOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId string, keyId string, id string, commentMarkCheck CommentMarkCheck, localVarOptionals *CommentMarkCheckOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId string, keyId string, id string, commentMarkCheckParameters CommentMarkCheckParameters, localVarOptionals *CommentMarkCheckOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -268,7 +268,7 @@ func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId st
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &commentMarkCheck
+	localVarPostBody = &commentMarkCheckParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -320,11 +320,11 @@ Mark a comment as read.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentMarkRead
+ * @param commentMarkReadParameters
  * @param optional nil or *CommentMarkReadOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId string, keyId string, id string, commentMarkRead CommentMarkRead, localVarOptionals *CommentMarkReadOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId string, keyId string, id string, commentMarkReadParameters CommentMarkReadParameters, localVarOptionals *CommentMarkReadOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -366,7 +366,7 @@ func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId str
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &commentMarkRead
+	localVarPostBody = &commentMarkReadParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -418,11 +418,11 @@ Mark a comment as unread.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentMarkUnread
+ * @param commentMarkUnreadParameters
  * @param optional nil or *CommentMarkUnreadOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId string, keyId string, id string, commentMarkUnread CommentMarkUnread, localVarOptionals *CommentMarkUnreadOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId string, keyId string, id string, commentMarkUnreadParameters CommentMarkUnreadParameters, localVarOptionals *CommentMarkUnreadOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -464,7 +464,7 @@ func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId s
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &commentMarkUnread
+	localVarPostBody = &commentMarkUnreadParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -516,12 +516,12 @@ Get details on a single comment.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentShow
+ * @param commentShowParameters
  * @param optional nil or *CommentShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return Comment
 */
-func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string, keyId string, id string, commentShow CommentShow, localVarOptionals *CommentShowOpts) (Comment, *APIResponse, error) {
+func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string, keyId string, id string, commentShowParameters CommentShowParameters, localVarOptionals *CommentShowOpts) (Comment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -564,7 +564,7 @@ func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string,
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &commentShow
+	localVarPostBody = &commentShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -635,12 +635,12 @@ Update an existing comment.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentUpdate
+ * @param commentUpdateParameters
  * @param optional nil or *CommentUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId string, keyId string, id string, commentUpdate CommentUpdate, localVarOptionals *CommentUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId string, keyId string, id string, commentUpdateParameters CommentUpdateParameters, localVarOptionals *CommentUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -683,7 +683,7 @@ func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId strin
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &commentUpdate
+	localVarPostBody = &commentUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -755,14 +755,14 @@ List all comments for a key.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param keyId Translation Key ID
- * @param commentsList
+ * @param commentsListParameters
  * @param optional nil or *CommentsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []map[string]interface{}
 */
-func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, commentsList CommentsList, localVarOptionals *CommentsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, commentsListParameters CommentsListParameters, localVarOptionals *CommentsListOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -809,7 +809,7 @@ func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &commentsList
+	localVarPostBody = &commentsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

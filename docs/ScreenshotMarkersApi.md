@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ScreenshotMarkerCreate
 
-> ScreenshotMarkerCreate(ctx, projectId, screenshotId, screenshotMarkerCreate, optional)
+> ScreenshotMarkerCreate(ctx, projectId, screenshotId, screenshotMarkerCreateParameters, optional)
 
 Create a screenshot marker
 
@@ -28,7 +28,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **screenshotId** | **string**| Screenshot ID | 
-**screenshotMarkerCreate** | [**ScreenshotMarkerCreate**](ScreenshotMarkerCreate.md)|  | 
+**screenshotMarkerCreateParameters** | [**ScreenshotMarkerCreateParameters**](ScreenshotMarkerCreateParameters.md)|  | 
  **optional** | ***ScreenshotMarkerCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ## ScreenshotMarkerUpdate
 
-> ScreenshotMarker ScreenshotMarkerUpdate(ctx, projectId, screenshotId, screenshotMarkerUpdate, optional)
+> ScreenshotMarker ScreenshotMarkerUpdate(ctx, projectId, screenshotId, screenshotMarkerUpdateParameters, optional)
 
 Update a screenshot marker
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **screenshotId** | **string**| Screenshot ID | 
-**screenshotMarkerUpdate** | [**ScreenshotMarkerUpdate**](ScreenshotMarkerUpdate.md)|  | 
+**screenshotMarkerUpdateParameters** | [**ScreenshotMarkerUpdateParameters**](ScreenshotMarkerUpdateParameters.md)|  | 
  **optional** | ***ScreenshotMarkerUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

@@ -27,11 +27,11 @@ LocaleCreate Create a locale
 Create a new locale.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param localeCreate
+ * @param localeCreateParameters
  * @param optional nil or *LocaleCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string, localeCreate LocaleCreate, localVarOptionals *LocaleCreateOpts) (*APIResponse, error) {
+func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string, localeCreateParameters LocaleCreateParameters, localVarOptionals *LocaleCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string,
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &localeCreate
+	localVarPostBody = &localeCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -120,11 +120,11 @@ Delete an existing locale.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param localeDelete
+ * @param localeDeleteParameters
  * @param optional nil or *LocaleDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string, id string, localeDelete LocaleDelete, localVarOptionals *LocaleDeleteOpts) (*APIResponse, error) {
+func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string, id string, localeDeleteParameters LocaleDeleteParameters, localVarOptionals *LocaleDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -164,7 +164,7 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &localeDelete
+	localVarPostBody = &localeDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -215,11 +215,11 @@ Download a locale in a specific file format.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param localeDownload
+ * @param localeDownloadParameters
  * @param optional nil or *LocaleDownloadOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId string, id string, localeDownload LocaleDownload, localVarOptionals *LocaleDownloadOpts) (*APIResponse, error) {
+func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId string, id string, localeDownloadParameters LocaleDownloadParameters, localVarOptionals *LocaleDownloadOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -259,7 +259,7 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &localeDownload
+	localVarPostBody = &localeDownloadParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -310,12 +310,12 @@ Get details on a single locale for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param localeShow
+ * @param localeShowParameters
  * @param optional nil or *LocaleShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, id string, localeShow LocaleShow, localVarOptionals *LocaleShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, id string, localeShowParameters LocaleShowParameters, localVarOptionals *LocaleShowOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -356,7 +356,7 @@ func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, i
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &localeShow
+	localVarPostBody = &localeShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -426,12 +426,12 @@ Update an existing locale.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param localeUpdate
+ * @param localeUpdateParameters
  * @param optional nil or *LocaleUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string, id string, localeUpdate LocaleUpdate, localVarOptionals *LocaleUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string, id string, localeUpdateParameters LocaleUpdateParameters, localVarOptionals *LocaleUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -472,7 +472,7 @@ func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string,
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &localeUpdate
+	localVarPostBody = &localeUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -543,14 +543,14 @@ LocalesList List locales
 List all locales for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param localesList
+ * @param localesListParameters
  * @param optional nil or *LocalesListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []Locale
 */
-func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, localesList LocalesList, localVarOptionals *LocalesListOpts) ([]Locale, *APIResponse, error) {
+func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, localesListParameters LocalesListParameters, localVarOptionals *LocalesListOpts) ([]Locale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -595,7 +595,7 @@ func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &localesList
+	localVarPostBody = &localesListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

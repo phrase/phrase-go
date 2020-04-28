@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## UploadCreate
 
-> UploadCreate(ctx, projectId, uploadCreate, optional)
+> UploadCreate(ctx, projectId, uploadCreateParameters, optional)
 
 Upload a new file
 
@@ -25,7 +25,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**uploadCreate** | [**UploadCreate**](UploadCreate.md)|  | 
+**uploadCreateParameters** | [**UploadCreateParameters**](UploadCreateParameters.md)|  | 
  **optional** | ***UploadCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ## UploadShow
 
-> Upload UploadShow(ctx, projectId, id, uploadShow, optional)
+> Upload UploadShow(ctx, projectId, id, uploadShowParameters, optional)
 
 View upload details
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**uploadShow** | [**UploadShow**](UploadShow.md)|  | 
+**uploadShowParameters** | [**UploadShowParameters**](UploadShowParameters.md)|  | 
  **optional** | ***UploadShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## UploadsList
 
-> []map[string]interface{} UploadsList(ctx, projectId, uploadsList, optional)
+> []map[string]interface{} UploadsList(ctx, projectId, uploadsListParameters, optional)
 
 List uploads
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**uploadsList** | [**UploadsList**](UploadsList.md)|  | 
+**uploadsListParameters** | [**UploadsListParameters**](UploadsListParameters.md)|  | 
  **optional** | ***UploadsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

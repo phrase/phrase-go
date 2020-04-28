@@ -26,11 +26,11 @@ type AuthorizationCreateOpts struct {
 AuthorizationCreate Create an authorization
 Create a new authorization.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param authorizationCreate
+ * @param authorizationCreateParameters
  * @param optional nil or *AuthorizationCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, authorizationCreate AuthorizationCreate, localVarOptionals *AuthorizationCreateOpts) (*APIResponse, error) {
+func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, authorizationCreateParameters AuthorizationCreateParameters, localVarOptionals *AuthorizationCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, aut
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &authorizationCreate
+	localVarPostBody = &authorizationCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -315,12 +315,12 @@ AuthorizationUpdate Update an authorization
 Update an existing authorization.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param authorizationUpdate
+ * @param authorizationUpdateParameters
  * @param optional nil or *AuthorizationUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id string, authorizationUpdate AuthorizationUpdate, localVarOptionals *AuthorizationUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id string, authorizationUpdateParameters AuthorizationUpdateParameters, localVarOptionals *AuthorizationUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -359,7 +359,7 @@ func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &authorizationUpdate
+	localVarPostBody = &authorizationUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

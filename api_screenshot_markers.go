@@ -28,11 +28,11 @@ Create a new screenshot marker.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param screenshotId Screenshot ID
- * @param screenshotMarkerCreate
+ * @param screenshotMarkerCreateParameters
  * @param optional nil or *ScreenshotMarkerCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Context, projectId string, screenshotId string, screenshotMarkerCreate ScreenshotMarkerCreate, localVarOptionals *ScreenshotMarkerCreateOpts) (*APIResponse, error) {
+func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Context, projectId string, screenshotId string, screenshotMarkerCreateParameters ScreenshotMarkerCreateParameters, localVarOptionals *ScreenshotMarkerCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -72,7 +72,7 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Contex
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &screenshotMarkerCreate
+	localVarPostBody = &screenshotMarkerCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -331,12 +331,12 @@ Update an existing screenshot marker.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param screenshotId Screenshot ID
- * @param screenshotMarkerUpdate
+ * @param screenshotMarkerUpdateParameters
  * @param optional nil or *ScreenshotMarkerUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return ScreenshotMarker
 */
-func (a *ScreenshotMarkersApiService) ScreenshotMarkerUpdate(ctx _context.Context, projectId string, screenshotId string, screenshotMarkerUpdate ScreenshotMarkerUpdate, localVarOptionals *ScreenshotMarkerUpdateOpts) (ScreenshotMarker, *APIResponse, error) {
+func (a *ScreenshotMarkersApiService) ScreenshotMarkerUpdate(ctx _context.Context, projectId string, screenshotId string, screenshotMarkerUpdateParameters ScreenshotMarkerUpdateParameters, localVarOptionals *ScreenshotMarkerUpdateOpts) (ScreenshotMarker, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -377,7 +377,7 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerUpdate(ctx _context.Contex
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &screenshotMarkerUpdate
+	localVarPostBody = &screenshotMarkerUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

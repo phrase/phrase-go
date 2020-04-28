@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ## MemberUpdate
 
-> map[string]interface{} MemberUpdate(ctx, accountId, id, memberUpdate, optional)
+> map[string]interface{} MemberUpdate(ctx, accountId, id, memberUpdateParameters, optional)
 
 Update a member
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
 **id** | **string**| ID | 
-**memberUpdate** | [**MemberUpdate**](MemberUpdate.md)|  | 
+**memberUpdateParameters** | [**MemberUpdateParameters**](MemberUpdateParameters.md)|  | 
  **optional** | ***MemberUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

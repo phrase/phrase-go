@@ -29,12 +29,12 @@ Mark a job locale as completed.
  * @param projectId Project ID
  * @param jobId Job ID
  * @param id ID
- * @param jobLocaleComplete
+ * @param jobLocaleCompleteParameters
  * @param optional nil or *JobLocaleCompleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId string, jobId string, id string, jobLocaleComplete JobLocaleComplete, localVarOptionals *JobLocaleCompleteOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId string, jobId string, id string, jobLocaleCompleteParameters JobLocaleCompleteParameters, localVarOptionals *JobLocaleCompleteOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -77,7 +77,7 @@ func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobLocaleComplete
+	localVarPostBody = &jobLocaleCompleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -148,11 +148,11 @@ Delete an existing job locale.
  * @param projectId Project ID
  * @param jobId Job ID
  * @param id ID
- * @param jobLocaleDelete
+ * @param jobLocaleDeleteParameters
  * @param optional nil or *JobLocaleDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId string, jobId string, id string, jobLocaleDelete JobLocaleDelete, localVarOptionals *JobLocaleDeleteOpts) (*APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId string, jobId string, id string, jobLocaleDeleteParameters JobLocaleDeleteParameters, localVarOptionals *JobLocaleDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -194,7 +194,7 @@ func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId s
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobLocaleDelete
+	localVarPostBody = &jobLocaleDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -246,12 +246,12 @@ Mark a job locale as uncompleted.
  * @param projectId Project ID
  * @param jobId Job ID
  * @param id ID
- * @param jobLocaleReopen
+ * @param jobLocaleReopenParameters
  * @param optional nil or *JobLocaleReopenOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId string, jobId string, id string, jobLocaleReopen JobLocaleReopen, localVarOptionals *JobLocaleReopenOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId string, jobId string, id string, jobLocaleReopenParameters JobLocaleReopenParameters, localVarOptionals *JobLocaleReopenOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -294,7 +294,7 @@ func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId s
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobLocaleReopen
+	localVarPostBody = &jobLocaleReopenParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -365,12 +365,12 @@ Get a single job locale for a given job.
  * @param projectId Project ID
  * @param jobId Job ID
  * @param id ID
- * @param jobLocaleShow
+ * @param jobLocaleShowParameters
  * @param optional nil or *JobLocaleShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return JobLocale
 */
-func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId string, jobId string, id string, jobLocaleShow JobLocaleShow, localVarOptionals *JobLocaleShowOpts) (JobLocale, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId string, jobId string, id string, jobLocaleShowParameters JobLocaleShowParameters, localVarOptionals *JobLocaleShowOpts) (JobLocale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -413,7 +413,7 @@ func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId str
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobLocaleShow
+	localVarPostBody = &jobLocaleShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -484,12 +484,12 @@ Update an existing job locale.
  * @param projectId Project ID
  * @param jobId Job ID
  * @param id ID
- * @param jobLocaleUpdate
+ * @param jobLocaleUpdateParameters
  * @param optional nil or *JobLocaleUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId string, jobId string, id string, jobLocaleUpdate JobLocaleUpdate, localVarOptionals *JobLocaleUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId string, jobId string, id string, jobLocaleUpdateParameters JobLocaleUpdateParameters, localVarOptionals *JobLocaleUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -532,7 +532,7 @@ func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId s
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobLocaleUpdate
+	localVarPostBody = &jobLocaleUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -602,11 +602,11 @@ Create a new job locale.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param jobId Job ID
- * @param jobLocalesCreate
+ * @param jobLocalesCreateParameters
  * @param optional nil or *JobLocalesCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId string, jobId string, jobLocalesCreate JobLocalesCreate, localVarOptionals *JobLocalesCreateOpts) (*APIResponse, error) {
+func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId string, jobId string, jobLocalesCreateParameters JobLocalesCreateParameters, localVarOptionals *JobLocalesCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -646,7 +646,7 @@ func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobLocalesCreate
+	localVarPostBody = &jobLocalesCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -699,14 +699,14 @@ List all job locales for a given job.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param jobId Job ID
- * @param jobLocalesList
+ * @param jobLocalesListParameters
  * @param optional nil or *JobLocalesListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []map[string]interface{}
 */
-func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId string, jobId string, jobLocalesList JobLocalesList, localVarOptionals *JobLocalesListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId string, jobId string, jobLocalesListParameters JobLocalesListParameters, localVarOptionals *JobLocalesListOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -753,7 +753,7 @@ func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId st
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &jobLocalesList
+	localVarPostBody = &jobLocalesListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

@@ -28,11 +28,11 @@ Compare branch with main branch.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param branchCompare
+ * @param branchCompareParameters
  * @param optional nil or *BranchCompareOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, branchCompare BranchCompare, localVarOptionals *BranchCompareOpts) (*APIResponse, error) {
+func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, branchCompareParameters BranchCompareParameters, localVarOptionals *BranchCompareOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -72,7 +72,7 @@ func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId strin
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &branchCompare
+	localVarPostBody = &branchCompareParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -122,11 +122,11 @@ BranchCreate Create a branch
 Create a new branch.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param branchCreate
+ * @param branchCreateParameters
  * @param optional nil or *BranchCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string, branchCreate BranchCreate, localVarOptionals *BranchCreateOpts) (*APIResponse, error) {
+func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string, branchCreateParameters BranchCreateParameters, localVarOptionals *BranchCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -164,7 +164,7 @@ func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &branchCreate
+	localVarPostBody = &branchCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -307,11 +307,11 @@ Merge an existing branch.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param branchMerge
+ * @param branchMergeParameters
  * @param optional nil or *BranchMergeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string, name string, branchMerge BranchMerge, localVarOptionals *BranchMergeOpts) (*APIResponse, error) {
+func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string, name string, branchMergeParameters BranchMergeParameters, localVarOptionals *BranchMergeOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -351,7 +351,7 @@ func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string,
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &branchMerge
+	localVarPostBody = &branchMergeParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -515,12 +515,12 @@ Update an existing branch.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param branchUpdate
+ * @param branchUpdateParameters
  * @param optional nil or *BranchUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string, name string, branchUpdate BranchUpdate, localVarOptionals *BranchUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string, name string, branchUpdateParameters BranchUpdateParameters, localVarOptionals *BranchUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -561,7 +561,7 @@ func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &branchUpdate
+	localVarPostBody = &branchUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

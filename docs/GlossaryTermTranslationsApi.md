@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## GlossaryTermTranslationCreate
 
-> GlossaryTermTranslationCreate(ctx, accountId, glossaryId, termId, glossaryTermTranslationCreate, optional)
+> GlossaryTermTranslationCreate(ctx, accountId, glossaryId, termId, glossaryTermTranslationCreateParameters, optional)
 
 Create a glossary term translation
 
@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 **accountId** | **string**| Account ID | 
 **glossaryId** | **string**| Glossary ID | 
 **termId** | **string**| Term ID | 
-**glossaryTermTranslationCreate** | [**GlossaryTermTranslationCreate**](GlossaryTermTranslationCreate.md)|  | 
+**glossaryTermTranslationCreateParameters** | [**GlossaryTermTranslationCreateParameters**](GlossaryTermTranslationCreateParameters.md)|  | 
  **optional** | ***GlossaryTermTranslationCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ## GlossaryTermTranslationUpdate
 
-> GlossaryTermTranslation GlossaryTermTranslationUpdate(ctx, accountId, glossaryId, termId, id, glossaryTermTranslationUpdate, optional)
+> GlossaryTermTranslation GlossaryTermTranslationUpdate(ctx, accountId, glossaryId, termId, id, glossaryTermTranslationUpdateParameters, optional)
 
 Update a glossary term translation
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 **glossaryId** | **string**| Glossary ID | 
 **termId** | **string**| Term ID | 
 **id** | **string**| ID | 
-**glossaryTermTranslationUpdate** | [**GlossaryTermTranslationUpdate**](GlossaryTermTranslationUpdate.md)|  | 
+**glossaryTermTranslationUpdateParameters** | [**GlossaryTermTranslationUpdateParameters**](GlossaryTermTranslationUpdateParameters.md)|  | 
  **optional** | ***GlossaryTermTranslationUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

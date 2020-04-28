@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## BitbucketSyncExport
 
-> BitbucketSyncExportResponse BitbucketSyncExport(ctx, id, bitbucketSyncExport, optional)
+> BitbucketSyncExportResponse BitbucketSyncExport(ctx, id, bitbucketSyncExportParameters, optional)
 
 Export from Phrase to Bitbucket
 
@@ -25,7 +25,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**bitbucketSyncExport** | [**BitbucketSyncExport**](BitbucketSyncExport.md)|  | 
+**bitbucketSyncExportParameters** | [**BitbucketSyncExportParameters**](BitbucketSyncExportParameters.md)|  | 
  **optional** | ***BitbucketSyncExportOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ## BitbucketSyncImport
 
-> BitbucketSyncImport(ctx, id, bitbucketSyncImport, optional)
+> BitbucketSyncImport(ctx, id, bitbucketSyncImportParameters, optional)
 
 Import to Phrase from Bitbucket
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**bitbucketSyncImport** | [**BitbucketSyncImport**](BitbucketSyncImport.md)|  | 
+**bitbucketSyncImportParameters** | [**BitbucketSyncImportParameters**](BitbucketSyncImportParameters.md)|  | 
  **optional** | ***BitbucketSyncImportOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## BitbucketSyncsList
 
-> []BitbucketSync BitbucketSyncsList(ctx, bitbucketSyncsList, optional)
+> []BitbucketSync BitbucketSyncsList(ctx, bitbucketSyncsListParameters, optional)
 
 List Bitbucket syncs
 
@@ -118,7 +118,7 @@ List all Bitbucket repositories for which synchronisation with Phrase is activat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**bitbucketSyncsList** | [**BitbucketSyncsList**](BitbucketSyncsList.md)|  | 
+**bitbucketSyncsListParameters** | [**BitbucketSyncsListParameters**](BitbucketSyncsListParameters.md)|  | 
  **optional** | ***BitbucketSyncsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

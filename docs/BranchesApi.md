@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## BranchCompare
 
-> BranchCompare(ctx, projectId, name, branchCompare, optional)
+> BranchCompare(ctx, projectId, name, branchCompareParameters, optional)
 
 Compare branches
 
@@ -30,7 +30,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**branchCompare** | [**BranchCompare**](BranchCompare.md)|  | 
+**branchCompareParameters** | [**BranchCompareParameters**](BranchCompareParameters.md)|  | 
  **optional** | ***BranchCompareOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ## BranchCreate
 
-> BranchCreate(ctx, projectId, branchCreate, optional)
+> BranchCreate(ctx, projectId, branchCreateParameters, optional)
 
 Create a branch
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**branchCreate** | [**BranchCreate**](BranchCreate.md)|  | 
+**branchCreateParameters** | [**BranchCreateParameters**](BranchCreateParameters.md)|  | 
  **optional** | ***BranchCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ## BranchMerge
 
-> BranchMerge(ctx, projectId, name, branchMerge, optional)
+> BranchMerge(ctx, projectId, name, branchMergeParameters, optional)
 
 Merge a branch
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**branchMerge** | [**BranchMerge**](BranchMerge.md)|  | 
+**branchMergeParameters** | [**BranchMergeParameters**](BranchMergeParameters.md)|  | 
  **optional** | ***BranchMergeOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ## BranchUpdate
 
-> map[string]interface{} BranchUpdate(ctx, projectId, name, branchUpdate, optional)
+> map[string]interface{} BranchUpdate(ctx, projectId, name, branchUpdateParameters, optional)
 
 Update a branch
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**branchUpdate** | [**BranchUpdate**](BranchUpdate.md)|  | 
+**branchUpdateParameters** | [**BranchUpdateParameters**](BranchUpdateParameters.md)|  | 
  **optional** | ***BranchUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

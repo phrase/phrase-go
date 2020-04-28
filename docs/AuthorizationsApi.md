@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## AuthorizationCreate
 
-> AuthorizationCreate(ctx, authorizationCreate, optional)
+> AuthorizationCreate(ctx, authorizationCreateParameters, optional)
 
 Create an authorization
 
@@ -26,7 +26,7 @@ Create a new authorization.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**authorizationCreate** | [**AuthorizationCreate**](AuthorizationCreate.md)|  | 
+**authorizationCreateParameters** | [**AuthorizationCreateParameters**](AuthorizationCreateParameters.md)|  | 
  **optional** | ***AuthorizationCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## AuthorizationUpdate
 
-> map[string]interface{} AuthorizationUpdate(ctx, id, authorizationUpdate, optional)
+> map[string]interface{} AuthorizationUpdate(ctx, id, authorizationUpdateParameters, optional)
 
 Update an authorization
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**authorizationUpdate** | [**AuthorizationUpdate**](AuthorizationUpdate.md)|  | 
+**authorizationUpdateParameters** | [**AuthorizationUpdateParameters**](AuthorizationUpdateParameters.md)|  | 
  **optional** | ***AuthorizationUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

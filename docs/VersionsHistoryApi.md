@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## VersionShow
 
-> map[string]interface{} VersionShow(ctx, projectId, translationId, id, versionShow, optional)
+> map[string]interface{} VersionShow(ctx, projectId, translationId, id, versionShowParameters, optional)
 
 Get a single version
 
@@ -26,7 +26,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **translationId** | **string**| Translation ID | 
 **id** | **string**| ID | 
-**versionShow** | [**VersionShow**](VersionShow.md)|  | 
+**versionShowParameters** | [**VersionShowParameters**](VersionShowParameters.md)|  | 
  **optional** | ***VersionShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ## VersionsList
 
-> []TranslationVersion VersionsList(ctx, projectId, translationId, versionsList, optional)
+> []TranslationVersion VersionsList(ctx, projectId, translationId, versionsListParameters, optional)
 
 List all versions
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **translationId** | **string**| Translation ID | 
-**versionsList** | [**VersionsList**](VersionsList.md)|  | 
+**versionsListParameters** | [**VersionsListParameters**](VersionsListParameters.md)|  | 
  **optional** | ***VersionsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

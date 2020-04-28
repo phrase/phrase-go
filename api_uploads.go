@@ -27,11 +27,11 @@ UploadCreate Upload a new file
 Upload a new language file. Creates necessary resources in your project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param uploadCreate
+ * @param uploadCreateParameters
  * @param optional nil or *UploadCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, uploadCreate UploadCreate, localVarOptionals *UploadCreateOpts) (*APIResponse, error) {
+func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, uploadCreateParameters UploadCreateParameters, localVarOptionals *UploadCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &uploadCreate
+	localVarPostBody = &uploadCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -120,12 +120,12 @@ View details and summary for a single upload.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param uploadShow
+ * @param uploadShowParameters
  * @param optional nil or *UploadShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return Upload
 */
-func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, id string, uploadShow UploadShow, localVarOptionals *UploadShowOpts) (Upload, *APIResponse, error) {
+func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, id string, uploadShowParameters UploadShowParameters, localVarOptionals *UploadShowOpts) (Upload, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -166,7 +166,7 @@ func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, i
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &uploadShow
+	localVarPostBody = &uploadShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -237,14 +237,14 @@ UploadsList List uploads
 List all uploads for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param uploadsList
+ * @param uploadsListParameters
  * @param optional nil or *UploadsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []map[string]interface{}
 */
-func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, uploadsList UploadsList, localVarOptionals *UploadsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, uploadsListParameters UploadsListParameters, localVarOptionals *UploadsListOpts) ([]map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -289,7 +289,7 @@ func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &uploadsList
+	localVarPostBody = &uploadsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

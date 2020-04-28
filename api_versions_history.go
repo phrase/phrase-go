@@ -29,12 +29,12 @@ Get details on a single version.
  * @param projectId Project ID
  * @param translationId Translation ID
  * @param id ID
- * @param versionShow
+ * @param versionShowParameters
  * @param optional nil or *VersionShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, versionShow VersionShow, localVarOptionals *VersionShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, versionShowParameters VersionShowParameters, localVarOptionals *VersionShowOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -77,7 +77,7 @@ func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &versionShow
+	localVarPostBody = &versionShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -149,14 +149,14 @@ List all versions for the given translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param translationId Translation ID
- * @param versionsList
+ * @param versionsListParameters
  * @param optional nil or *VersionsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
 @return []TranslationVersion
 */
-func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId string, translationId string, versionsList VersionsList, localVarOptionals *VersionsListOpts) ([]TranslationVersion, *APIResponse, error) {
+func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId string, translationId string, versionsListParameters VersionsListParameters, localVarOptionals *VersionsListOpts) ([]TranslationVersion, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -203,7 +203,7 @@ func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &versionsList
+	localVarPostBody = &versionsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

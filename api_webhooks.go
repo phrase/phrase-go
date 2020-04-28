@@ -27,11 +27,11 @@ WebhookCreate Create a webhook
 Create a new webhook.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param webhookCreate
+ * @param webhookCreateParameters
  * @param optional nil or *WebhookCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId string, webhookCreate WebhookCreate, localVarOptionals *WebhookCreateOpts) (*APIResponse, error) {
+func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId string, webhookCreateParameters WebhookCreateParameters, localVarOptionals *WebhookCreateOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -69,7 +69,7 @@ func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId strin
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &webhookCreate
+	localVarPostBody = &webhookCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -417,12 +417,12 @@ Update an existing webhook.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param webhookUpdate
+ * @param webhookUpdateParameters
  * @param optional nil or *WebhookUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return map[string]interface{}
 */
-func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId string, id string, webhookUpdate WebhookUpdate, localVarOptionals *WebhookUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId string, id string, webhookUpdateParameters WebhookUpdateParameters, localVarOptionals *WebhookUpdateOpts) (map[string]interface{}, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -463,7 +463,7 @@ func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId strin
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &webhookUpdate
+	localVarPostBody = &webhookUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

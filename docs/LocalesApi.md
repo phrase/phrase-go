@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## LocaleCreate
 
-> LocaleCreate(ctx, projectId, localeCreate, optional)
+> LocaleCreate(ctx, projectId, localeCreateParameters, optional)
 
 Create a locale
 
@@ -28,7 +28,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**localeCreate** | [**LocaleCreate**](LocaleCreate.md)|  | 
+**localeCreateParameters** | [**LocaleCreateParameters**](LocaleCreateParameters.md)|  | 
  **optional** | ***LocaleCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ## LocaleDelete
 
-> LocaleDelete(ctx, projectId, id, localeDelete, optional)
+> LocaleDelete(ctx, projectId, id, localeDeleteParameters, optional)
 
 Delete a locale
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**localeDelete** | [**LocaleDelete**](LocaleDelete.md)|  | 
+**localeDeleteParameters** | [**LocaleDeleteParameters**](LocaleDeleteParameters.md)|  | 
  **optional** | ***LocaleDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ## LocaleDownload
 
-> LocaleDownload(ctx, projectId, id, localeDownload, optional)
+> LocaleDownload(ctx, projectId, id, localeDownloadParameters, optional)
 
 Download a locale
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**localeDownload** | [**LocaleDownload**](LocaleDownload.md)|  | 
+**localeDownloadParameters** | [**LocaleDownloadParameters**](LocaleDownloadParameters.md)|  | 
  **optional** | ***LocaleDownloadOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## LocaleShow
 
-> map[string]interface{} LocaleShow(ctx, projectId, id, localeShow, optional)
+> map[string]interface{} LocaleShow(ctx, projectId, id, localeShowParameters, optional)
 
 Get a single locale
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**localeShow** | [**LocaleShow**](LocaleShow.md)|  | 
+**localeShowParameters** | [**LocaleShowParameters**](LocaleShowParameters.md)|  | 
  **optional** | ***LocaleShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ## LocaleUpdate
 
-> map[string]interface{} LocaleUpdate(ctx, projectId, id, localeUpdate, optional)
+> map[string]interface{} LocaleUpdate(ctx, projectId, id, localeUpdateParameters, optional)
 
 Update a locale
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**localeUpdate** | [**LocaleUpdate**](LocaleUpdate.md)|  | 
+**localeUpdateParameters** | [**LocaleUpdateParameters**](LocaleUpdateParameters.md)|  | 
  **optional** | ***LocaleUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ## LocalesList
 
-> []Locale LocalesList(ctx, projectId, localesList, optional)
+> []Locale LocalesList(ctx, projectId, localesListParameters, optional)
 
 List locales
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**localesList** | [**LocalesList**](LocalesList.md)|  | 
+**localesListParameters** | [**LocalesListParameters**](LocalesListParameters.md)|  | 
  **optional** | ***LocalesListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
