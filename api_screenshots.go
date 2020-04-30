@@ -33,10 +33,6 @@ Create a new screenshot.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, screenshotCreateParameters ScreenshotCreateParameters, localVarOptionals *ScreenshotCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("ScreenshotsApi")
-  fmt.Println("ScreenshotCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -129,10 +125,6 @@ Delete an existing screenshot.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("ScreenshotsApi")
-  fmt.Println("ScreenshotDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -226,10 +218,6 @@ Get details on a single screenshot for a given project.
 @return Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotShow(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotShowOpts) (Screenshot, *APIResponse, error) {
-
-  fmt.Println("ScreenshotsApi")
-  fmt.Println("ScreenshotShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -344,10 +332,6 @@ Update an existing screenshot.
 @return Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId string, id string, screenshotUpdateParameters ScreenshotUpdateParameters, localVarOptionals *ScreenshotUpdateOpts) (Screenshot, *APIResponse, error) {
-
-  fmt.Println("ScreenshotsApi")
-  fmt.Println("ScreenshotUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -466,10 +450,6 @@ List all screenshots for the given project.
 @return []Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotsList(ctx _context.Context, projectId string, localVarOptionals *ScreenshotsListOpts) ([]Screenshot, *APIResponse, error) {
-
-  fmt.Println("ScreenshotsApi")
-  fmt.Println("ScreenshotsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

@@ -34,10 +34,6 @@ Create a new release.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId string, distributionId string, releaseCreateParameters ReleaseCreateParameters, localVarOptionals *ReleaseCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("ReleasesApi")
-  fmt.Println("ReleaseCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -133,10 +129,6 @@ Delete an existing release.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *ReleasesApiService) ReleaseDelete(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleaseDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("ReleasesApi")
-  fmt.Println("ReleaseDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -233,10 +225,6 @@ Publish a release for production.
 @return Release
 */
 func (a *ReleasesApiService) ReleasePublish(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleasePublishOpts) (Release, *APIResponse, error) {
-
-  fmt.Println("ReleasesApi")
-  fmt.Println("ReleasePublish")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -353,10 +341,6 @@ Get details on a single release.
 @return Release
 */
 func (a *ReleasesApiService) ReleaseShow(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleaseShowOpts) (Release, *APIResponse, error) {
-
-  fmt.Println("ReleasesApi")
-  fmt.Println("ReleaseShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -474,10 +458,6 @@ Update an existing release.
 @return Release
 */
 func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId string, distributionId string, id string, releaseUpdateParameters ReleaseUpdateParameters, localVarOptionals *ReleaseUpdateOpts) (Release, *APIResponse, error) {
-
-  fmt.Println("ReleasesApi")
-  fmt.Println("ReleaseUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -599,10 +579,6 @@ List all releases for the given distribution.
 @return []ReleasePreview
 */
 func (a *ReleasesApiService) ReleasesList(ctx _context.Context, accountId string, distributionId string, localVarOptionals *ReleasesListOpts) ([]ReleasePreview, *APIResponse, error) {
-
-  fmt.Println("ReleasesApi")
-  fmt.Println("ReleasesList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

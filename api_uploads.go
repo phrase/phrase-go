@@ -33,10 +33,6 @@ Upload a new language file. Creates necessary resources in your project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, uploadCreateParameters UploadCreateParameters, localVarOptionals *UploadCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("UploadsApi")
-  fmt.Println("UploadCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -132,10 +128,6 @@ View details and summary for a single upload.
 @return Upload
 */
 func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, id string, localVarOptionals *UploadShowOpts) (Upload, *APIResponse, error) {
-
-  fmt.Println("UploadsApi")
-  fmt.Println("UploadShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -257,10 +249,6 @@ List all uploads for the given project.
 @return []Upload
 */
 func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, localVarOptionals *UploadsListOpts) ([]Upload, *APIResponse, error) {
-
-  fmt.Println("UploadsApi")
-  fmt.Println("UploadsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

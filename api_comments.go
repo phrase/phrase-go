@@ -34,10 +34,6 @@ Create a new comment for a key.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId string, keyId string, commentCreateParameters CommentCreateParameters, localVarOptionals *CommentCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("CommentsApi")
-  fmt.Println("CommentCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -135,10 +131,6 @@ Delete an existing comment.
  * @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("CommentsApi")
-  fmt.Println("CommentDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -239,10 +231,6 @@ Check if comment was marked as read. Returns 204 if read, 404 if unread.
  * @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkCheckOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("CommentsApi")
-  fmt.Println("CommentMarkCheck")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -342,10 +330,6 @@ Mark a comment as read.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId string, keyId string, id string, commentMarkReadParameters CommentMarkReadParameters, localVarOptionals *CommentMarkReadOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("CommentsApi")
-  fmt.Println("CommentMarkRead")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -445,10 +429,6 @@ Mark a comment as unread.
  * @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkUnreadOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("CommentsApi")
-  fmt.Println("CommentMarkUnread")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -550,10 +530,6 @@ Get details on a single comment.
 @return Comment
 */
 func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentShowOpts) (Comment, *APIResponse, error) {
-
-  fmt.Println("CommentsApi")
-  fmt.Println("CommentShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -674,10 +650,6 @@ Update an existing comment.
 @return Comment
 */
 func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId string, keyId string, id string, commentUpdateParameters CommentUpdateParameters, localVarOptionals *CommentUpdateOpts) (Comment, *APIResponse, error) {
-
-  fmt.Println("CommentsApi")
-  fmt.Println("CommentUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -801,10 +773,6 @@ List all comments for a key.
 @return []Comment
 */
 func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, localVarOptionals *CommentsListOpts) ([]Comment, *APIResponse, error) {
-
-  fmt.Println("CommentsApi")
-  fmt.Println("CommentsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

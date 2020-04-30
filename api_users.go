@@ -31,10 +31,6 @@ Show details for current User.
 @return User
 */
 func (a *UsersApiService) ShowUser(ctx _context.Context, localVarOptionals *ShowUserOpts) (User, *APIResponse, error) {
-
-  fmt.Println("UsersApi")
-  fmt.Println("ShowUser")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

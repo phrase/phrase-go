@@ -34,10 +34,6 @@ Create a new glossary term.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GlossaryTermsApiService) GlossaryTermCreate(ctx _context.Context, accountId string, glossaryId string, glossaryTermCreateParameters GlossaryTermCreateParameters, localVarOptionals *GlossaryTermCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("GlossaryTermsApi")
-  fmt.Println("GlossaryTermCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -133,10 +129,6 @@ Delete an existing glossary term.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GlossaryTermsApiService) GlossaryTermDelete(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("GlossaryTermsApi")
-  fmt.Println("GlossaryTermDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -233,10 +225,6 @@ Get details on a single glossary term.
 @return GlossaryTerm
 */
 func (a *GlossaryTermsApiService) GlossaryTermShow(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermShowOpts) (GlossaryTerm, *APIResponse, error) {
-
-  fmt.Println("GlossaryTermsApi")
-  fmt.Println("GlossaryTermShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -354,10 +342,6 @@ Update an existing glossary term.
 @return GlossaryTerm
 */
 func (a *GlossaryTermsApiService) GlossaryTermUpdate(ctx _context.Context, accountId string, glossaryId string, id string, glossaryTermUpdateParameters GlossaryTermUpdateParameters, localVarOptionals *GlossaryTermUpdateOpts) (GlossaryTerm, *APIResponse, error) {
-
-  fmt.Println("GlossaryTermsApi")
-  fmt.Println("GlossaryTermUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -479,10 +463,6 @@ List all glossary terms the current user has access to.
 @return []GlossaryTerm
 */
 func (a *GlossaryTermsApiService) GlossaryTermsList(ctx _context.Context, accountId string, glossaryId string, localVarOptionals *GlossaryTermsListOpts) ([]GlossaryTerm, *APIResponse, error) {
-
-  fmt.Println("GlossaryTermsApi")
-  fmt.Println("GlossaryTermsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

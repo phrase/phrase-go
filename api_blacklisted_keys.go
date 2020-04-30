@@ -33,10 +33,6 @@ Create a new rule for blacklisting keys.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, projectId string, blacklistedKeyCreateParameters BlacklistedKeyCreateParameters, localVarOptionals *BlacklistedKeyCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("BlacklistedKeysApi")
-  fmt.Println("BlacklistedKeyCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -129,10 +125,6 @@ Delete an existing rule for blacklisting keys.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyDelete(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("BlacklistedKeysApi")
-  fmt.Println("BlacklistedKeyDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -226,10 +218,6 @@ Get details on a single rule for blacklisting keys for a given project.
 @return BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyShow(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyShowOpts) (BlacklistedKey, *APIResponse, error) {
-
-  fmt.Println("BlacklistedKeysApi")
-  fmt.Println("BlacklistedKeyShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -344,10 +332,6 @@ Update an existing rule for blacklisting keys.
 @return BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyUpdate(ctx _context.Context, projectId string, id string, blacklistedKeyUpdateParameters BlacklistedKeyUpdateParameters, localVarOptionals *BlacklistedKeyUpdateOpts) (BlacklistedKey, *APIResponse, error) {
-
-  fmt.Println("BlacklistedKeysApi")
-  fmt.Println("BlacklistedKeyUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -466,10 +450,6 @@ List all rules for blacklisting keys for the given project.
 @return []BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeysList(ctx _context.Context, projectId string, localVarOptionals *BlacklistedKeysListOpts) ([]BlacklistedKey, *APIResponse, error) {
-
-  fmt.Println("BlacklistedKeysApi")
-  fmt.Println("BlacklistedKeysList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

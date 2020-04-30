@@ -36,10 +36,6 @@ Mark a job as completed.
 @return JobDetails
 */
 func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id string, jobCompleteParameters JobCompleteParameters, localVarOptionals *JobCompleteOpts) (JobDetails, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobComplete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -154,10 +150,6 @@ Create a new job.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *JobsApiService) JobCreate(ctx _context.Context, projectId string, jobCreateParameters JobCreateParameters, localVarOptionals *JobCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -252,10 +244,6 @@ Delete an existing job.
  * @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *JobsApiService) JobDelete(ctx _context.Context, projectId string, id string, localVarOptionals *JobDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -353,10 +341,6 @@ Add multiple keys to a existing job.
 @return JobDetails
 */
 func (a *JobsApiService) JobKeysCreate(ctx _context.Context, projectId string, id string, jobKeysCreateParameters JobKeysCreateParameters, localVarOptionals *JobKeysCreateOpts) (JobDetails, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobKeysCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -475,10 +459,6 @@ Remove multiple keys from existing job.
  * @param "TranslationKeyIds" (optional.Interface of []string) -  ids of keys that should added to the job
 */
 func (a *JobsApiService) JobKeysDelete(ctx _context.Context, projectId string, id string, localVarOptionals *JobKeysDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobKeysDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -587,10 +567,6 @@ Mark a job as uncompleted.
 @return JobDetails
 */
 func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id string, jobReopenParameters JobReopenParameters, localVarOptionals *JobReopenOpts) (JobDetails, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobReopen")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -708,10 +684,6 @@ Get details on a single job for a given project.
 @return JobDetails
 */
 func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id string, localVarOptionals *JobShowOpts) (JobDetails, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -829,10 +801,6 @@ Starts an existing job in state draft.
 @return JobDetails
 */
 func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id string, jobStartParameters JobStartParameters, localVarOptionals *JobStartOpts) (JobDetails, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobStart")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -949,10 +917,6 @@ Update an existing job.
 @return JobDetails
 */
 func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id string, jobUpdateParameters JobUpdateParameters, localVarOptionals *JobUpdateOpts) (JobDetails, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1079,10 +1043,6 @@ List all jobs for the given project.
 @return []Job
 */
 func (a *JobsApiService) JobsList(ctx _context.Context, projectId string, localVarOptionals *JobsListOpts) ([]Job, *APIResponse, error) {
-
-  fmt.Println("JobsApi")
-  fmt.Println("JobsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

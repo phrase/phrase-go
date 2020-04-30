@@ -33,10 +33,6 @@ Create a new distribution.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accountId string, distributionCreateParameters DistributionCreateParameters, localVarOptionals *DistributionCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("DistributionsApi")
-  fmt.Println("DistributionCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -129,10 +125,6 @@ Delete an existing distribution.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *DistributionsApiService) DistributionDelete(ctx _context.Context, accountId string, id string, localVarOptionals *DistributionDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("DistributionsApi")
-  fmt.Println("DistributionDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -226,10 +218,6 @@ Get details on a single distribution.
 @return Distribution
 */
 func (a *DistributionsApiService) DistributionShow(ctx _context.Context, accountId string, id string, localVarOptionals *DistributionShowOpts) (Distribution, *APIResponse, error) {
-
-  fmt.Println("DistributionsApi")
-  fmt.Println("DistributionShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -344,10 +332,6 @@ Update an existing distribution.
 @return Distribution
 */
 func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accountId string, id string, distributionUpdateParameters DistributionUpdateParameters, localVarOptionals *DistributionUpdateOpts) (Distribution, *APIResponse, error) {
-
-  fmt.Println("DistributionsApi")
-  fmt.Println("DistributionUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -466,10 +450,6 @@ List all distributions for the given account.
 @return []DistributionPreview
 */
 func (a *DistributionsApiService) DistributionsList(ctx _context.Context, accountId string, localVarOptionals *DistributionsListOpts) ([]DistributionPreview, *APIResponse, error) {
-
-  fmt.Println("DistributionsApi")
-  fmt.Println("DistributionsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

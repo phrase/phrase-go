@@ -33,10 +33,6 @@ Create a new webhook.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId string, webhookCreateParameters WebhookCreateParameters, localVarOptionals *WebhookCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("WebhooksApi")
-  fmt.Println("WebhookCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -129,10 +125,6 @@ Delete an existing webhook.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *WebhooksApiService) WebhookDelete(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("WebhooksApi")
-  fmt.Println("WebhookDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -226,10 +218,6 @@ Get details on a single webhook.
 @return Webhook
 */
 func (a *WebhooksApiService) WebhookShow(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookShowOpts) (Webhook, *APIResponse, error) {
-
-  fmt.Println("WebhooksApi")
-  fmt.Println("WebhookShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -342,10 +330,6 @@ Perform a test request for a webhook.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *WebhooksApiService) WebhookTest(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookTestOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("WebhooksApi")
-  fmt.Println("WebhookTest")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -440,10 +424,6 @@ Update an existing webhook.
 @return Webhook
 */
 func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId string, id string, webhookUpdateParameters WebhookUpdateParameters, localVarOptionals *WebhookUpdateOpts) (Webhook, *APIResponse, error) {
-
-  fmt.Println("WebhooksApi")
-  fmt.Println("WebhookUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -562,10 +542,6 @@ List all webhooks for the given project.
 @return []Webhook
 */
 func (a *WebhooksApiService) WebhooksList(ctx _context.Context, projectId string, localVarOptionals *WebhooksListOpts) ([]Webhook, *APIResponse, error) {
-
-  fmt.Println("WebhooksApi")
-  fmt.Println("WebhooksList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

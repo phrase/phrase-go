@@ -32,10 +32,6 @@ Create a new project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreateParameters ProjectCreateParameters, localVarOptionals *ProjectCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("ProjectsApi")
-  fmt.Println("ProjectCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -125,10 +121,6 @@ Delete an existing project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *ProjectsApiService) ProjectDelete(ctx _context.Context, id string, localVarOptionals *ProjectDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("ProjectsApi")
-  fmt.Println("ProjectDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -219,10 +211,6 @@ Get details on a single project.
 @return ProjectDetails
 */
 func (a *ProjectsApiService) ProjectShow(ctx _context.Context, id string, localVarOptionals *ProjectShowOpts) (ProjectDetails, *APIResponse, error) {
-
-  fmt.Println("ProjectsApi")
-  fmt.Println("ProjectShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -334,10 +322,6 @@ Update an existing project.
 @return ProjectDetails
 */
 func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, projectUpdateParameters ProjectUpdateParameters, localVarOptionals *ProjectUpdateOpts) (ProjectDetails, *APIResponse, error) {
-
-  fmt.Println("ProjectsApi")
-  fmt.Println("ProjectUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -453,10 +437,6 @@ List all projects the current user has access to.
 @return []Project
 */
 func (a *ProjectsApiService) ProjectsList(ctx _context.Context, localVarOptionals *ProjectsListOpts) ([]Project, *APIResponse, error) {
-
-  fmt.Println("ProjectsApi")
-  fmt.Println("ProjectsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

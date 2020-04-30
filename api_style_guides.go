@@ -33,10 +33,6 @@ Create a new style guide.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId string, styleguideCreateParameters StyleguideCreateParameters, localVarOptionals *StyleguideCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("StyleGuidesApi")
-  fmt.Println("StyleguideCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -129,10 +125,6 @@ Delete an existing style guide.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *StyleGuidesApiService) StyleguideDelete(ctx _context.Context, projectId string, id string, localVarOptionals *StyleguideDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("StyleGuidesApi")
-  fmt.Println("StyleguideDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -226,10 +218,6 @@ Get details on a single style guide.
 @return StyleguideDetails
 */
 func (a *StyleGuidesApiService) StyleguideShow(ctx _context.Context, projectId string, id string, localVarOptionals *StyleguideShowOpts) (StyleguideDetails, *APIResponse, error) {
-
-  fmt.Println("StyleGuidesApi")
-  fmt.Println("StyleguideShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -344,10 +332,6 @@ Update an existing style guide.
 @return StyleguideDetails
 */
 func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId string, id string, styleguideUpdateParameters StyleguideUpdateParameters, localVarOptionals *StyleguideUpdateOpts) (StyleguideDetails, *APIResponse, error) {
-
-  fmt.Println("StyleGuidesApi")
-  fmt.Println("StyleguideUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -466,10 +450,6 @@ List all styleguides for the given project.
 @return []Styleguide
 */
 func (a *StyleGuidesApiService) StyleguidesList(ctx _context.Context, projectId string, localVarOptionals *StyleguidesListOpts) ([]Styleguide, *APIResponse, error) {
-
-  fmt.Println("StyleGuidesApi")
-  fmt.Println("StyleguidesList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

@@ -33,10 +33,6 @@ Create a new Space.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, spaceCreateParameters SpaceCreateParameters, localVarOptionals *SpaceCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("SpacesApi")
-  fmt.Println("SpaceCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -129,10 +125,6 @@ Delete the specified Space.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *SpacesApiService) SpaceDelete(ctx _context.Context, accountId string, id string, localVarOptionals *SpaceDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("SpacesApi")
-  fmt.Println("SpaceDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -226,10 +218,6 @@ Show the specified Space.
 @return Space
 */
 func (a *SpacesApiService) SpaceShow(ctx _context.Context, accountId string, id string, localVarOptionals *SpaceShowOpts) (Space, *APIResponse, error) {
-
-  fmt.Println("SpacesApi")
-  fmt.Println("SpaceShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -344,10 +332,6 @@ Update the specified Space.
 @return Space
 */
 func (a *SpacesApiService) SpaceUpdate(ctx _context.Context, accountId string, id string, spaceUpdateParameters SpaceUpdateParameters, localVarOptionals *SpaceUpdateOpts) (Space, *APIResponse, error) {
-
-  fmt.Println("SpacesApi")
-  fmt.Println("SpaceUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -466,10 +450,6 @@ List all Spaces for the given account.
 @return []Space
 */
 func (a *SpacesApiService) SpacesList(ctx _context.Context, accountId string, localVarOptionals *SpacesListOpts) ([]Space, *APIResponse, error) {
-
-  fmt.Println("SpacesApi")
-  fmt.Println("SpacesList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -587,10 +567,6 @@ Adds an existing project to the space.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId string, spaceId string, spacesProjectsCreateParameters SpacesProjectsCreateParameters, localVarOptionals *SpacesProjectsCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("SpacesApi")
-  fmt.Println("SpacesProjectsCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -686,10 +662,6 @@ Removes a specified project from the specified space.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *SpacesApiService) SpacesProjectsDelete(ctx _context.Context, accountId string, spaceId string, id string, localVarOptionals *SpacesProjectsDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("SpacesApi")
-  fmt.Println("SpacesProjectsDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -789,10 +761,6 @@ List all projects for the specified Space.
 @return []Project
 */
 func (a *SpacesApiService) SpacesProjectsList(ctx _context.Context, accountId string, spaceId string, localVarOptionals *SpacesProjectsListOpts) ([]Project, *APIResponse, error) {
-
-  fmt.Println("SpacesApi")
-  fmt.Println("SpacesProjectsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

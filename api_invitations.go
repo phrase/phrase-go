@@ -33,10 +33,6 @@ Invite a person to an account. Developers and translators need &lt;code&gt;proje
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId string, invitationCreateParameters InvitationCreateParameters, localVarOptionals *InvitationCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("InvitationsApi")
-  fmt.Println("InvitationCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -129,10 +125,6 @@ Delete an existing invitation (must not be accepted yet). Access token scope mus
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *InvitationsApiService) InvitationDelete(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("InvitationsApi")
-  fmt.Println("InvitationDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -226,10 +218,6 @@ Resend the invitation email (must not be accepted yet). Access token scope must 
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationResend(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationResendOpts) (Invitation, *APIResponse, error) {
-
-  fmt.Println("InvitationsApi")
-  fmt.Println("InvitationResend")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -343,10 +331,6 @@ Get details on a single invitation. Access token scope must include &lt;code&gt;
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationShow(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationShowOpts) (Invitation, *APIResponse, error) {
-
-  fmt.Println("InvitationsApi")
-  fmt.Println("InvitationShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -461,10 +445,6 @@ Update an existing invitation (must not be accepted yet). The &lt;code&gt;email&
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId string, id string, invitationUpdateParameters InvitationUpdateParameters, localVarOptionals *InvitationUpdateOpts) (Invitation, *APIResponse, error) {
-
-  fmt.Println("InvitationsApi")
-  fmt.Println("InvitationUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -583,10 +563,6 @@ List invitations for an account. It will also list the accessible resources like
 @return []Invitation
 */
 func (a *InvitationsApiService) InvitationsList(ctx _context.Context, accountId string, localVarOptionals *InvitationsListOpts) ([]Invitation, *APIResponse, error) {
-
-  fmt.Println("InvitationsApi")
-  fmt.Println("InvitationsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

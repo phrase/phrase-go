@@ -37,10 +37,6 @@ List all glossaries the current user has access to.
 @return []Glossary
 */
 func (a *GlossaryApiService) GlossariesList(ctx _context.Context, accountId string, localVarOptionals *GlossariesListOpts) ([]Glossary, *APIResponse, error) {
-
-  fmt.Println("GlossaryApi")
-  fmt.Println("GlossariesList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -157,10 +153,6 @@ Create a new glossary.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GlossaryApiService) GlossaryCreate(ctx _context.Context, accountId string, glossaryCreateParameters GlossaryCreateParameters, localVarOptionals *GlossaryCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("GlossaryApi")
-  fmt.Println("GlossaryCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -253,10 +245,6 @@ Delete an existing glossary.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GlossaryApiService) GlossaryDelete(ctx _context.Context, accountId string, id string, localVarOptionals *GlossaryDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("GlossaryApi")
-  fmt.Println("GlossaryDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -350,10 +338,6 @@ Get details on a single glossary.
 @return Glossary
 */
 func (a *GlossaryApiService) GlossaryShow(ctx _context.Context, accountId string, id string, localVarOptionals *GlossaryShowOpts) (Glossary, *APIResponse, error) {
-
-  fmt.Println("GlossaryApi")
-  fmt.Println("GlossaryShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -468,10 +452,6 @@ Update an existing glossary.
 @return Glossary
 */
 func (a *GlossaryApiService) GlossaryUpdate(ctx _context.Context, accountId string, id string, glossaryUpdateParameters GlossaryUpdateParameters, localVarOptionals *GlossaryUpdateOpts) (Glossary, *APIResponse, error) {
-
-  fmt.Println("GlossaryApi")
-  fmt.Println("GlossaryUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}

@@ -35,10 +35,6 @@ Create a new glossary term translation.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreateParameters GlossaryTermTranslationCreateParameters, localVarOptionals *GlossaryTermTranslationCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("GlossaryTermTranslationsApi")
-  fmt.Println("GlossaryTermTranslationCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -137,10 +133,6 @@ Delete an existing glossary term translation.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _context.Context, accountId string, glossaryId string, termId string, id string, localVarOptionals *GlossaryTermTranslationDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("GlossaryTermTranslationsApi")
-  fmt.Println("GlossaryTermTranslationDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -241,10 +233,6 @@ Update an existing glossary term translation.
 @return GlossaryTermTranslation
 */
 func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationUpdate(ctx _context.Context, accountId string, glossaryId string, termId string, id string, glossaryTermTranslationUpdateParameters GlossaryTermTranslationUpdateParameters, localVarOptionals *GlossaryTermTranslationUpdateOpts) (GlossaryTermTranslation, *APIResponse, error) {
-
-  fmt.Println("GlossaryTermTranslationsApi")
-  fmt.Println("GlossaryTermTranslationUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}

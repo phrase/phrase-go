@@ -34,10 +34,6 @@ Deletes a single GitLab Sync Setting.
  * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
 */
 func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string, localVarOptionals *GitlabSyncDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("GitLabSyncApi")
-  fmt.Println("GitlabSyncDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -132,10 +128,6 @@ Export translations from Phrase to GitLab according to the .phraseapp.yml file w
 @return GitlabSyncExport
 */
 func (a *GitLabSyncApiService) GitlabSyncExport(ctx _context.Context, gitlabSyncId string, gitlabSyncExportParameters GitlabSyncExportParameters, localVarOptionals *GitlabSyncExportOpts) (GitlabSyncExport, *APIResponse, error) {
-
-  fmt.Println("GitLabSyncApi")
-  fmt.Println("GitlabSyncExport")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -254,10 +246,6 @@ List history for a single Sync Setting.
 @return []GitlabSyncHistory
 */
 func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyncId string, localVarOptionals *GitlabSyncHistoryOpts) ([]GitlabSyncHistory, *APIResponse, error) {
-
-  fmt.Println("GitLabSyncApi")
-  fmt.Println("GitlabSyncHistory")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -378,10 +366,6 @@ Import translations from GitLab to Phrase according to the .phraseapp.yml file w
 @return []Upload
 */
 func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSyncId string, gitlabSyncImportParameters GitlabSyncImportParameters, localVarOptionals *GitlabSyncImportOpts) ([]Upload, *APIResponse, error) {
-
-  fmt.Println("GitLabSyncApi")
-  fmt.Println("GitlabSyncImport")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -495,10 +479,6 @@ List all GitLab Sync Settings for which synchronisation with Phrase and GitLab i
 @return []GitlabSync
 */
 func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, localVarOptionals *GitlabSyncListOpts) ([]GitlabSync, *APIResponse, error) {
-
-  fmt.Println("GitLabSyncApi")
-  fmt.Println("GitlabSyncList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -612,10 +592,6 @@ Shows a single GitLab Sync Setting.
 @return GitlabSync
 */
 func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, localVarOptionals *GitlabSyncShowOpts) (GitlabSync, *APIResponse, error) {
-
-  fmt.Println("GitLabSyncApi")
-  fmt.Println("GitlabSyncShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -737,10 +713,6 @@ Updates a single GitLab Sync Setting.
 @return GitlabSync
 */
 func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string, localVarOptionals *GitlabSyncUpdateOpts) (GitlabSync, *APIResponse, error) {
-
-  fmt.Println("GitLabSyncApi")
-  fmt.Println("GitlabSyncUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}

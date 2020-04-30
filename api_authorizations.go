@@ -32,10 +32,6 @@ Create a new authorization.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, authorizationCreateParameters AuthorizationCreateParameters, localVarOptionals *AuthorizationCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("AuthorizationsApi")
-  fmt.Println("AuthorizationCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -125,10 +121,6 @@ Delete an existing authorization. API calls using that token will stop working.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *AuthorizationsApiService) AuthorizationDelete(ctx _context.Context, id string, localVarOptionals *AuthorizationDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("AuthorizationsApi")
-  fmt.Println("AuthorizationDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -219,10 +211,6 @@ Get details on a single authorization.
 @return Authorization
 */
 func (a *AuthorizationsApiService) AuthorizationShow(ctx _context.Context, id string, localVarOptionals *AuthorizationShowOpts) (Authorization, *APIResponse, error) {
-
-  fmt.Println("AuthorizationsApi")
-  fmt.Println("AuthorizationShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -334,10 +322,6 @@ Update an existing authorization.
 @return Authorization
 */
 func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id string, authorizationUpdateParameters AuthorizationUpdateParameters, localVarOptionals *AuthorizationUpdateOpts) (Authorization, *APIResponse, error) {
-
-  fmt.Println("AuthorizationsApi")
-  fmt.Println("AuthorizationUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -453,10 +437,6 @@ List all your authorizations.
 @return []Authorization
 */
 func (a *AuthorizationsApiService) AuthorizationsList(ctx _context.Context, localVarOptionals *AuthorizationsListOpts) ([]Authorization, *APIResponse, error) {
-
-  fmt.Println("AuthorizationsApi")
-  fmt.Println("AuthorizationsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

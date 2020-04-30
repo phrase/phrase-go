@@ -33,10 +33,6 @@ Create a new tag.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCreateParameters TagCreateParameters, localVarOptionals *TagCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("TagsApi")
-  fmt.Println("TagCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -131,10 +127,6 @@ Delete an existing tag.
  * @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name string, localVarOptionals *TagDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("TagsApi")
-  fmt.Println("TagDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -233,10 +225,6 @@ Get details and progress information on a single tag for a given project.
 @return TagWithStats
 */
 func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name string, localVarOptionals *TagShowOpts) (TagWithStats, *APIResponse, error) {
-
-  fmt.Println("TagsApi")
-  fmt.Println("TagShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -358,10 +346,6 @@ List all tags for the given project.
 @return []Tag
 */
 func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, localVarOptionals *TagsListOpts) ([]Tag, *APIResponse, error) {
-
-  fmt.Println("TagsApi")
-  fmt.Println("TagsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

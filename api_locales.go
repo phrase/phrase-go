@@ -33,10 +33,6 @@ Create a new locale.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string, localeCreateParameters LocaleCreateParameters, localVarOptionals *LocaleCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("LocalesApi")
-  fmt.Println("LocaleCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -131,10 +127,6 @@ Delete an existing locale.
  * @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("LocalesApi")
-  fmt.Println("LocaleDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -258,10 +250,6 @@ Download a locale in a specific file format.
  * @param "FallbackLocaleId" (optional.String) -  If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to <code>true</code>.
 */
 func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDownloadOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("LocalesApi")
-  fmt.Println("LocaleDownload")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -399,10 +387,6 @@ Get details on a single locale for a given project.
 @return LocaleDetails
 */
 func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleShowOpts) (LocaleDetails, *APIResponse, error) {
-
-  fmt.Println("LocalesApi")
-  fmt.Println("LocaleShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -520,10 +504,6 @@ Update an existing locale.
 @return LocaleDetails
 */
 func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string, id string, localeUpdateParameters LocaleUpdateParameters, localVarOptionals *LocaleUpdateOpts) (LocaleDetails, *APIResponse, error) {
-
-  fmt.Println("LocalesApi")
-  fmt.Println("LocaleUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -644,10 +624,6 @@ List all locales for the given project.
 @return []Locale
 */
 func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, localVarOptionals *LocalesListOpts) ([]Locale, *APIResponse, error) {
-
-  fmt.Println("LocalesApi")
-  fmt.Println("LocalesList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

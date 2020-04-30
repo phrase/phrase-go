@@ -34,10 +34,6 @@ Export translations from Phrase to Bitbucket according to the .phraseapp.yml fil
 @return BitbucketSyncExportResponse
 */
 func (a *BitbucketSyncApiService) BitbucketSyncExport(ctx _context.Context, id string, bitbucketSyncExportParameters BitbucketSyncExportParameters, localVarOptionals *BitbucketSyncExportOpts) (BitbucketSyncExportResponse, *APIResponse, error) {
-
-  fmt.Println("BitbucketSyncApi")
-  fmt.Println("BitbucketSyncExport")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -150,10 +146,6 @@ Import translations from Bitbucket to Phrase according to the .phraseapp.yml fil
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id string, bitbucketSyncImportParameters BitbucketSyncImportParameters, localVarOptionals *BitbucketSyncImportOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("BitbucketSyncApi")
-  fmt.Println("BitbucketSyncImport")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -247,10 +239,6 @@ List all Bitbucket repositories for which synchronisation with Phrase is activat
 @return []BitbucketSync
 */
 func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, localVarOptionals *BitbucketSyncsListOpts) ([]BitbucketSync, *APIResponse, error) {
-
-  fmt.Println("BitbucketSyncApi")
-  fmt.Println("BitbucketSyncsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

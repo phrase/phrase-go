@@ -31,10 +31,6 @@ Get a handy list of all localization file formats supported in Phrase.
 @return []Format
 */
 func (a *FormatsApiService) FormatsList(ctx _context.Context, localVarOptionals *FormatsListOpts) ([]Format, *APIResponse, error) {
-
-  fmt.Println("FormatsApi")
-  fmt.Println("FormatsList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

@@ -33,10 +33,6 @@ Compare branch with main branch.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, localVarOptionals *BranchCompareOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("BranchesApi")
-  fmt.Println("BranchCompare")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -129,10 +125,6 @@ Create a new branch.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string, branchCreateParameters BranchCreateParameters, localVarOptionals *BranchCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("BranchesApi")
-  fmt.Println("BranchCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -225,10 +217,6 @@ Delete an existing branch.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string, name string, localVarOptionals *BranchDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("BranchesApi")
-  fmt.Println("BranchDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -322,10 +310,6 @@ Merge an existing branch.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string, name string, branchMergeParameters BranchMergeParameters, localVarOptionals *BranchMergeOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("BranchesApi")
-  fmt.Println("BranchMerge")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -421,10 +405,6 @@ Get details on a single branch for a given project.
 @return Branch
 */
 func (a *BranchesApiService) BranchShow(ctx _context.Context, projectId string, name string, localVarOptionals *BranchShowOpts) (Branch, *APIResponse, error) {
-
-  fmt.Println("BranchesApi")
-  fmt.Println("BranchShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -539,10 +519,6 @@ Update an existing branch.
 @return Branch
 */
 func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string, name string, branchUpdateParameters BranchUpdateParameters, localVarOptionals *BranchUpdateOpts) (Branch, *APIResponse, error) {
-
-  fmt.Println("BranchesApi")
-  fmt.Println("BranchUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -661,10 +637,6 @@ List all branches the of the current project.
 @return []Branch
 */
 func (a *BranchesApiService) BranchesList(ctx _context.Context, projectId string, localVarOptionals *BranchesListOpts) ([]Branch, *APIResponse, error) {
-
-  fmt.Println("BranchesApi")
-  fmt.Println("BranchesList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

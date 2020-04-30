@@ -33,10 +33,6 @@ Create a new key.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *KeysApiService) KeyCreate(ctx _context.Context, projectId string, keyCreateParameters KeyCreateParameters, localVarOptionals *KeyCreateOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("KeysApi")
-  fmt.Println("KeyCreate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -131,10 +127,6 @@ Delete an existing key.
  * @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id string, localVarOptionals *KeyDeleteOpts) ([]byte, *APIResponse, error) {
-
-  fmt.Println("KeysApi")
-  fmt.Println("KeyDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -233,10 +225,6 @@ Get details on a single key for a given project.
 @return TranslationKeyDetails
 */
 func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id string, localVarOptionals *KeyShowOpts) (TranslationKeyDetails, *APIResponse, error) {
-
-  fmt.Println("KeysApi")
-  fmt.Println("KeyShow")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -354,10 +342,6 @@ Update an existing key.
 @return TranslationKeyDetails
 */
 func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id string, keyUpdateParameters KeyUpdateParameters, localVarOptionals *KeyUpdateOpts) (TranslationKeyDetails, *APIResponse, error) {
-
-  fmt.Println("KeysApi")
-  fmt.Println("KeyUpdate")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -478,10 +462,6 @@ Delete all keys matching query. Same constraints as list. Please limit the numbe
 @return AffectedResources
 */
 func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, localVarOptionals *KeysDeleteOpts) (AffectedResources, *APIResponse, error) {
-
-  fmt.Println("KeysApi")
-  fmt.Println("KeysDelete")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -615,10 +595,6 @@ List all keys for the given project. Alternatively you can POST requests to /sea
 @return []TranslationKey
 */
 func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, localVarOptionals *KeysListOpts) ([]TranslationKey, *APIResponse, error) {
-
-  fmt.Println("KeysApi")
-  fmt.Println("KeysList")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -755,10 +731,6 @@ Search keys for the given project matching query.
 @return []TranslationKey
 */
 func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keysSearchParameters KeysSearchParameters, localVarOptionals *KeysSearchOpts) ([]TranslationKey, *APIResponse, error) {
-
-  fmt.Println("KeysApi")
-  fmt.Println("KeysSearch")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -878,10 +850,6 @@ Tags all keys matching query. Same constraints as list.
 @return AffectedResources
 */
 func (a *KeysApiService) KeysTag(ctx _context.Context, projectId string, keysTagParameters KeysTagParameters, localVarOptionals *KeysTagOpts) (AffectedResources, *APIResponse, error) {
-
-  fmt.Println("KeysApi")
-  fmt.Println("KeysTag")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -995,10 +963,6 @@ Removes specified tags from keys matching query.
 @return AffectedResources
 */
 func (a *KeysApiService) KeysUntag(ctx _context.Context, projectId string, keysUntagParameters KeysUntagParameters, localVarOptionals *KeysUntagOpts) (AffectedResources, *APIResponse, error) {
-
-  fmt.Println("KeysApi")
-  fmt.Println("KeysUntag")
-
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
