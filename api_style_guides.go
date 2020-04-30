@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Create a new style guide.
  * @param optional nil or *StyleguideCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId string, styleguideCreateParameters StyleguideCreateParameters, localVarOptionals *StyleguideCreateOpts) (*APIResponse, error) {
+func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId string, styleguideCreateParameters StyleguideCreateParameters, localVarOptionals *StyleguideCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("StyleGuidesApi")
+  fmt.Println("StyleguideCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // StyleguideDeleteOpts Optional parameters for the method 'StyleguideDelete'
@@ -123,7 +128,11 @@ Delete an existing style guide.
  * @param optional nil or *StyleguideDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *StyleGuidesApiService) StyleguideDelete(ctx _context.Context, projectId string, id string, localVarOptionals *StyleguideDeleteOpts) (*APIResponse, error) {
+func (a *StyleGuidesApiService) StyleguideDelete(ctx _context.Context, projectId string, id string, localVarOptionals *StyleguideDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("StyleGuidesApi")
+  fmt.Println("StyleguideDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -176,18 +185,18 @@ func (a *StyleGuidesApiService) StyleguideDelete(ctx _context.Context, projectId
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -195,10 +204,10 @@ func (a *StyleGuidesApiService) StyleguideDelete(ctx _context.Context, projectId
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // StyleguideShowOpts Optional parameters for the method 'StyleguideShow'
@@ -217,6 +226,10 @@ Get details on a single style guide.
 @return StyleguideDetails
 */
 func (a *StyleGuidesApiService) StyleguideShow(ctx _context.Context, projectId string, id string, localVarOptionals *StyleguideShowOpts) (StyleguideDetails, *APIResponse, error) {
+
+  fmt.Println("StyleGuidesApi")
+  fmt.Println("StyleguideShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -331,6 +344,10 @@ Update an existing style guide.
 @return StyleguideDetails
 */
 func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId string, id string, styleguideUpdateParameters StyleguideUpdateParameters, localVarOptionals *StyleguideUpdateOpts) (StyleguideDetails, *APIResponse, error) {
+
+  fmt.Println("StyleGuidesApi")
+  fmt.Println("StyleguideUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -449,6 +466,10 @@ List all styleguides for the given project.
 @return []Styleguide
 */
 func (a *StyleGuidesApiService) StyleguidesList(ctx _context.Context, projectId string, localVarOptionals *StyleguidesListOpts) ([]Styleguide, *APIResponse, error) {
+
+  fmt.Println("StyleGuidesApi")
+  fmt.Println("StyleguidesList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

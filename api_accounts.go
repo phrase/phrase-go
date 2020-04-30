@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -32,6 +33,10 @@ Get details on a single account.
 @return AccountDetails
 */
 func (a *AccountsApiService) AccountShow(ctx _context.Context, id string, localVarOptionals *AccountShowOpts) (AccountDetails, *APIResponse, error) {
+
+  fmt.Println("AccountsApi")
+  fmt.Println("AccountShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -145,6 +150,10 @@ List all accounts the current user has access to.
 @return []Account
 */
 func (a *AccountsApiService) AccountsList(ctx _context.Context, localVarOptionals *AccountsListOpts) ([]Account, *APIResponse, error) {
+
+  fmt.Println("AccountsApi")
+  fmt.Println("AccountsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

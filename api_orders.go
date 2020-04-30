@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -34,6 +35,10 @@ Confirm an existing order and send it to the provider for translation. Same cons
 @return TranslationOrder
 */
 func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, id string, orderConfirmParameters OrderConfirmParameters, localVarOptionals *OrderConfirmOpts) (TranslationOrder, *APIResponse, error) {
+
+  fmt.Println("OrdersApi")
+  fmt.Println("OrderConfirm")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -147,7 +152,11 @@ Create a new order. Access token scope must include &lt;code&gt;orders.create&lt
  * @param optional nil or *OrderCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, orderCreateParameters OrderCreateParameters, localVarOptionals *OrderCreateOpts) (*APIResponse, error) {
+func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, orderCreateParameters OrderCreateParameters, localVarOptionals *OrderCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("OrdersApi")
+  fmt.Println("OrderCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -200,18 +209,18 @@ func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, o
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -219,10 +228,10 @@ func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, o
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // OrderDeleteOpts Optional parameters for the method 'OrderDelete'
@@ -241,7 +250,11 @@ Cancel an existing order. Must not yet be confirmed.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, id string, localVarOptionals *OrderDeleteOpts) (*APIResponse, error) {
+func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, id string, localVarOptionals *OrderDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("OrdersApi")
+  fmt.Println("OrderDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -297,18 +310,18 @@ func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, i
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -316,10 +329,10 @@ func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, i
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // OrderShowOpts Optional parameters for the method 'OrderShow'
@@ -340,6 +353,10 @@ Get details on a single order.
 @return TranslationOrder
 */
 func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id string, localVarOptionals *OrderShowOpts) (TranslationOrder, *APIResponse, error) {
+
+  fmt.Println("OrdersApi")
+  fmt.Println("OrderShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -461,6 +478,10 @@ List all orders for the given project.
 @return []TranslationOrder
 */
 func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, localVarOptionals *OrdersListOpts) ([]TranslationOrder, *APIResponse, error) {
+
+  fmt.Println("OrdersApi")
+  fmt.Println("OrdersList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -35,6 +36,10 @@ Mark a job locale as completed.
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId string, jobId string, id string, jobLocaleCompleteParameters JobLocaleCompleteParameters, localVarOptionals *JobLocaleCompleteOpts) (JobLocale, *APIResponse, error) {
+
+  fmt.Println("JobLocalesApi")
+  fmt.Println("JobLocaleComplete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -153,7 +158,11 @@ Delete an existing job locale.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobLocaleDeleteOpts) (*APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobLocaleDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("JobLocalesApi")
+  fmt.Println("JobLocaleDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -211,18 +220,18 @@ func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId s
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -230,10 +239,10 @@ func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId s
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // JobLocaleReopenOpts Optional parameters for the method 'JobLocaleReopen'
@@ -254,6 +263,10 @@ Mark a job locale as uncompleted.
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId string, jobId string, id string, jobLocaleReopenParameters JobLocaleReopenParameters, localVarOptionals *JobLocaleReopenOpts) (JobLocale, *APIResponse, error) {
+
+  fmt.Println("JobLocalesApi")
+  fmt.Println("JobLocaleReopen")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -374,6 +387,10 @@ Get a single job locale for a given job.
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobLocaleShowOpts) (JobLocale, *APIResponse, error) {
+
+  fmt.Println("JobLocalesApi")
+  fmt.Println("JobLocaleShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -494,6 +511,10 @@ Update an existing job locale.
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId string, jobId string, id string, jobLocaleUpdateParameters JobLocaleUpdateParameters, localVarOptionals *JobLocaleUpdateOpts) (JobLocale, *APIResponse, error) {
+
+  fmt.Println("JobLocalesApi")
+  fmt.Println("JobLocaleUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -610,7 +631,11 @@ Create a new job locale.
  * @param optional nil or *JobLocalesCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId string, jobId string, jobLocalesCreateParameters JobLocalesCreateParameters, localVarOptionals *JobLocalesCreateOpts) (*APIResponse, error) {
+func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId string, jobId string, jobLocalesCreateParameters JobLocalesCreateParameters, localVarOptionals *JobLocalesCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("JobLocalesApi")
+  fmt.Println("JobLocalesCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -665,18 +690,18 @@ func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -684,10 +709,10 @@ func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // JobLocalesListOpts Optional parameters for the method 'JobLocalesList'
@@ -712,6 +737,10 @@ List all job locales for a given job.
 @return []JobLocale
 */
 func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId string, jobId string, localVarOptionals *JobLocalesListOpts) ([]JobLocale, *APIResponse, error) {
+
+  fmt.Println("JobLocalesApi")
+  fmt.Println("JobLocalesList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

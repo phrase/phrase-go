@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -32,7 +33,11 @@ Create a new release.
  * @param optional nil or *ReleaseCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId string, distributionId string, releaseCreateParameters ReleaseCreateParameters, localVarOptionals *ReleaseCreateOpts) (*APIResponse, error) {
+func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId string, distributionId string, releaseCreateParameters ReleaseCreateParameters, localVarOptionals *ReleaseCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("ReleasesApi")
+  fmt.Println("ReleaseCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -87,18 +92,18 @@ func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId strin
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -106,10 +111,10 @@ func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId strin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // ReleaseDeleteOpts Optional parameters for the method 'ReleaseDelete'
@@ -127,7 +132,11 @@ Delete an existing release.
  * @param optional nil or *ReleaseDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ReleasesApiService) ReleaseDelete(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleaseDeleteOpts) (*APIResponse, error) {
+func (a *ReleasesApiService) ReleaseDelete(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleaseDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("ReleasesApi")
+  fmt.Println("ReleaseDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -182,18 +191,18 @@ func (a *ReleasesApiService) ReleaseDelete(ctx _context.Context, accountId strin
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -201,10 +210,10 @@ func (a *ReleasesApiService) ReleaseDelete(ctx _context.Context, accountId strin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // ReleasePublishOpts Optional parameters for the method 'ReleasePublish'
@@ -224,6 +233,10 @@ Publish a release for production.
 @return Release
 */
 func (a *ReleasesApiService) ReleasePublish(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleasePublishOpts) (Release, *APIResponse, error) {
+
+  fmt.Println("ReleasesApi")
+  fmt.Println("ReleasePublish")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -340,6 +353,10 @@ Get details on a single release.
 @return Release
 */
 func (a *ReleasesApiService) ReleaseShow(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleaseShowOpts) (Release, *APIResponse, error) {
+
+  fmt.Println("ReleasesApi")
+  fmt.Println("ReleaseShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -457,6 +474,10 @@ Update an existing release.
 @return Release
 */
 func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId string, distributionId string, id string, releaseUpdateParameters ReleaseUpdateParameters, localVarOptionals *ReleaseUpdateOpts) (Release, *APIResponse, error) {
+
+  fmt.Println("ReleasesApi")
+  fmt.Println("ReleaseUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -578,6 +599,10 @@ List all releases for the given distribution.
 @return []ReleasePreview
 */
 func (a *ReleasesApiService) ReleasesList(ctx _context.Context, accountId string, distributionId string, localVarOptionals *ReleasesListOpts) ([]ReleasePreview, *APIResponse, error) {
+
+  fmt.Println("ReleasesApi")
+  fmt.Println("ReleasesList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

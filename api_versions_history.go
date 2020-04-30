@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -36,6 +37,10 @@ Get details on a single version.
 @return TranslationVersionWithUser
 */
 func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, localVarOptionals *VersionShowOpts) (TranslationVersionWithUser, *APIResponse, error) {
+
+  fmt.Println("VersionsHistoryApi")
+  fmt.Println("VersionShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -160,6 +165,10 @@ List all versions for the given translation.
 @return []TranslationVersion
 */
 func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId string, translationId string, localVarOptionals *VersionsListOpts) ([]TranslationVersion, *APIResponse, error) {
+
+  fmt.Println("VersionsHistoryApi")
+  fmt.Println("VersionsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

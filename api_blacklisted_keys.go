@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Create a new rule for blacklisting keys.
  * @param optional nil or *BlacklistedKeyCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, projectId string, blacklistedKeyCreateParameters BlacklistedKeyCreateParameters, localVarOptionals *BlacklistedKeyCreateOpts) (*APIResponse, error) {
+func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, projectId string, blacklistedKeyCreateParameters BlacklistedKeyCreateParameters, localVarOptionals *BlacklistedKeyCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("BlacklistedKeysApi")
+  fmt.Println("BlacklistedKeyCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, p
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, p
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // BlacklistedKeyDeleteOpts Optional parameters for the method 'BlacklistedKeyDelete'
@@ -123,7 +128,11 @@ Delete an existing rule for blacklisting keys.
  * @param optional nil or *BlacklistedKeyDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BlacklistedKeysApiService) BlacklistedKeyDelete(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyDeleteOpts) (*APIResponse, error) {
+func (a *BlacklistedKeysApiService) BlacklistedKeyDelete(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("BlacklistedKeysApi")
+  fmt.Println("BlacklistedKeyDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -176,18 +185,18 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyDelete(ctx _context.Context, p
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -195,10 +204,10 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyDelete(ctx _context.Context, p
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // BlacklistedKeyShowOpts Optional parameters for the method 'BlacklistedKeyShow'
@@ -217,6 +226,10 @@ Get details on a single rule for blacklisting keys for a given project.
 @return BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyShow(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyShowOpts) (BlacklistedKey, *APIResponse, error) {
+
+  fmt.Println("BlacklistedKeysApi")
+  fmt.Println("BlacklistedKeyShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -331,6 +344,10 @@ Update an existing rule for blacklisting keys.
 @return BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyUpdate(ctx _context.Context, projectId string, id string, blacklistedKeyUpdateParameters BlacklistedKeyUpdateParameters, localVarOptionals *BlacklistedKeyUpdateOpts) (BlacklistedKey, *APIResponse, error) {
+
+  fmt.Println("BlacklistedKeysApi")
+  fmt.Println("BlacklistedKeyUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -449,6 +466,10 @@ List all rules for blacklisting keys for the given project.
 @return []BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeysList(ctx _context.Context, projectId string, localVarOptionals *BlacklistedKeysListOpts) ([]BlacklistedKey, *APIResponse, error) {
+
+  fmt.Println("BlacklistedKeysApi")
+  fmt.Println("BlacklistedKeysList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

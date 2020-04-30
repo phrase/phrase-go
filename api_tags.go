@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Create a new tag.
  * @param optional nil or *TagCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCreateParameters TagCreateParameters, localVarOptionals *TagCreateOpts) (*APIResponse, error) {
+func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCreateParameters TagCreateParameters, localVarOptionals *TagCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("TagsApi")
+  fmt.Println("TagCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCr
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCr
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // TagDeleteOpts Optional parameters for the method 'TagDelete'
@@ -125,7 +130,11 @@ Delete an existing tag.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name string, localVarOptionals *TagDeleteOpts) (*APIResponse, error) {
+func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name string, localVarOptionals *TagDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("TagsApi")
+  fmt.Println("TagDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -181,18 +190,18 @@ func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -200,10 +209,10 @@ func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // TagShowOpts Optional parameters for the method 'TagShow'
@@ -224,6 +233,10 @@ Get details and progress information on a single tag for a given project.
 @return TagWithStats
 */
 func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name string, localVarOptionals *TagShowOpts) (TagWithStats, *APIResponse, error) {
+
+  fmt.Println("TagsApi")
+  fmt.Println("TagShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -345,6 +358,10 @@ List all tags for the given project.
 @return []Tag
 */
 func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, localVarOptionals *TagsListOpts) ([]Tag, *APIResponse, error) {
+
+  fmt.Println("TagsApi")
+  fmt.Println("TagsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Create a new webhook.
  * @param optional nil or *WebhookCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId string, webhookCreateParameters WebhookCreateParameters, localVarOptionals *WebhookCreateOpts) (*APIResponse, error) {
+func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId string, webhookCreateParameters WebhookCreateParameters, localVarOptionals *WebhookCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("WebhooksApi")
+  fmt.Println("WebhookCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId strin
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId strin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // WebhookDeleteOpts Optional parameters for the method 'WebhookDelete'
@@ -123,7 +128,11 @@ Delete an existing webhook.
  * @param optional nil or *WebhookDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *WebhooksApiService) WebhookDelete(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookDeleteOpts) (*APIResponse, error) {
+func (a *WebhooksApiService) WebhookDelete(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("WebhooksApi")
+  fmt.Println("WebhookDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -176,18 +185,18 @@ func (a *WebhooksApiService) WebhookDelete(ctx _context.Context, projectId strin
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -195,10 +204,10 @@ func (a *WebhooksApiService) WebhookDelete(ctx _context.Context, projectId strin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // WebhookShowOpts Optional parameters for the method 'WebhookShow'
@@ -217,6 +226,10 @@ Get details on a single webhook.
 @return Webhook
 */
 func (a *WebhooksApiService) WebhookShow(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookShowOpts) (Webhook, *APIResponse, error) {
+
+  fmt.Println("WebhooksApi")
+  fmt.Println("WebhookShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -328,7 +341,11 @@ Perform a test request for a webhook.
  * @param optional nil or *WebhookTestOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *WebhooksApiService) WebhookTest(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookTestOpts) (*APIResponse, error) {
+func (a *WebhooksApiService) WebhookTest(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookTestOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("WebhooksApi")
+  fmt.Println("WebhookTest")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -381,18 +398,18 @@ func (a *WebhooksApiService) WebhookTest(ctx _context.Context, projectId string,
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -400,10 +417,10 @@ func (a *WebhooksApiService) WebhookTest(ctx _context.Context, projectId string,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // WebhookUpdateOpts Optional parameters for the method 'WebhookUpdate'
@@ -423,6 +440,10 @@ Update an existing webhook.
 @return Webhook
 */
 func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId string, id string, webhookUpdateParameters WebhookUpdateParameters, localVarOptionals *WebhookUpdateOpts) (Webhook, *APIResponse, error) {
+
+  fmt.Println("WebhooksApi")
+  fmt.Println("WebhookUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -541,6 +562,10 @@ List all webhooks for the given project.
 @return []Webhook
 */
 func (a *WebhooksApiService) WebhooksList(ctx _context.Context, projectId string, localVarOptionals *WebhooksListOpts) ([]Webhook, *APIResponse, error) {
+
+  fmt.Println("WebhooksApi")
+  fmt.Println("WebhooksList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

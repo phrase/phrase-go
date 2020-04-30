@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Create a new screenshot.
  * @param optional nil or *ScreenshotCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, screenshotCreateParameters ScreenshotCreateParameters, localVarOptionals *ScreenshotCreateOpts) (*APIResponse, error) {
+func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, screenshotCreateParameters ScreenshotCreateParameters, localVarOptionals *ScreenshotCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("ScreenshotsApi")
+  fmt.Println("ScreenshotCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // ScreenshotDeleteOpts Optional parameters for the method 'ScreenshotDelete'
@@ -123,7 +128,11 @@ Delete an existing screenshot.
  * @param optional nil or *ScreenshotDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotDeleteOpts) (*APIResponse, error) {
+func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("ScreenshotsApi")
+  fmt.Println("ScreenshotDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -176,18 +185,18 @@ func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -195,10 +204,10 @@ func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // ScreenshotShowOpts Optional parameters for the method 'ScreenshotShow'
@@ -217,6 +226,10 @@ Get details on a single screenshot for a given project.
 @return Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotShow(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotShowOpts) (Screenshot, *APIResponse, error) {
+
+  fmt.Println("ScreenshotsApi")
+  fmt.Println("ScreenshotShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -331,6 +344,10 @@ Update an existing screenshot.
 @return Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId string, id string, screenshotUpdateParameters ScreenshotUpdateParameters, localVarOptionals *ScreenshotUpdateOpts) (Screenshot, *APIResponse, error) {
+
+  fmt.Println("ScreenshotsApi")
+  fmt.Println("ScreenshotUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -449,6 +466,10 @@ List all screenshots for the given project.
 @return []Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotsList(ctx _context.Context, projectId string, localVarOptionals *ScreenshotsListOpts) ([]Screenshot, *APIResponse, error) {
+
+  fmt.Println("ScreenshotsApi")
+  fmt.Println("ScreenshotsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

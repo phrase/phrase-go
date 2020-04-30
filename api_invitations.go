@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Invite a person to an account. Developers and translators need &lt;code&gt;proje
  * @param optional nil or *InvitationCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId string, invitationCreateParameters InvitationCreateParameters, localVarOptionals *InvitationCreateOpts) (*APIResponse, error) {
+func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId string, invitationCreateParameters InvitationCreateParameters, localVarOptionals *InvitationCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("InvitationsApi")
+  fmt.Println("InvitationCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // InvitationDeleteOpts Optional parameters for the method 'InvitationDelete'
@@ -123,7 +128,11 @@ Delete an existing invitation (must not be accepted yet). Access token scope mus
  * @param optional nil or *InvitationDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *InvitationsApiService) InvitationDelete(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationDeleteOpts) (*APIResponse, error) {
+func (a *InvitationsApiService) InvitationDelete(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("InvitationsApi")
+  fmt.Println("InvitationDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -176,18 +185,18 @@ func (a *InvitationsApiService) InvitationDelete(ctx _context.Context, accountId
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -195,10 +204,10 @@ func (a *InvitationsApiService) InvitationDelete(ctx _context.Context, accountId
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // InvitationResendOpts Optional parameters for the method 'InvitationResend'
@@ -217,6 +226,10 @@ Resend the invitation email (must not be accepted yet). Access token scope must 
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationResend(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationResendOpts) (Invitation, *APIResponse, error) {
+
+  fmt.Println("InvitationsApi")
+  fmt.Println("InvitationResend")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -330,6 +343,10 @@ Get details on a single invitation. Access token scope must include &lt;code&gt;
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationShow(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationShowOpts) (Invitation, *APIResponse, error) {
+
+  fmt.Println("InvitationsApi")
+  fmt.Println("InvitationShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -444,6 +461,10 @@ Update an existing invitation (must not be accepted yet). The &lt;code&gt;email&
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId string, id string, invitationUpdateParameters InvitationUpdateParameters, localVarOptionals *InvitationUpdateOpts) (Invitation, *APIResponse, error) {
+
+  fmt.Println("InvitationsApi")
+  fmt.Println("InvitationUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -562,6 +583,10 @@ List invitations for an account. It will also list the accessible resources like
 @return []Invitation
 */
 func (a *InvitationsApiService) InvitationsList(ctx _context.Context, accountId string, localVarOptionals *InvitationsListOpts) ([]Invitation, *APIResponse, error) {
+
+  fmt.Println("InvitationsApi")
+  fmt.Println("InvitationsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

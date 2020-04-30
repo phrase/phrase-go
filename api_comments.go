@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -32,7 +33,11 @@ Create a new comment for a key.
  * @param optional nil or *CommentCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId string, keyId string, commentCreateParameters CommentCreateParameters, localVarOptionals *CommentCreateOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId string, keyId string, commentCreateParameters CommentCreateParameters, localVarOptionals *CommentCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("CommentsApi")
+  fmt.Println("CommentCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -87,18 +92,18 @@ func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId strin
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -106,10 +111,10 @@ func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId strin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // CommentDeleteOpts Optional parameters for the method 'CommentDelete'
@@ -129,7 +134,11 @@ Delete an existing comment.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentDeleteOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("CommentsApi")
+  fmt.Println("CommentDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -187,18 +196,18 @@ func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId strin
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -206,10 +215,10 @@ func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId strin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // CommentMarkCheckOpts Optional parameters for the method 'CommentMarkCheck'
@@ -229,7 +238,11 @@ Check if comment was marked as read. Returns 204 if read, 404 if unread.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkCheckOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkCheckOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("CommentsApi")
+  fmt.Println("CommentMarkCheck")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -287,18 +300,18 @@ func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId st
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -306,10 +319,10 @@ func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId st
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // CommentMarkReadOpts Optional parameters for the method 'CommentMarkRead'
@@ -328,7 +341,11 @@ Mark a comment as read.
  * @param optional nil or *CommentMarkReadOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId string, keyId string, id string, commentMarkReadParameters CommentMarkReadParameters, localVarOptionals *CommentMarkReadOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId string, keyId string, id string, commentMarkReadParameters CommentMarkReadParameters, localVarOptionals *CommentMarkReadOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("CommentsApi")
+  fmt.Println("CommentMarkRead")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -385,18 +402,18 @@ func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId str
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -404,10 +421,10 @@ func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId str
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // CommentMarkUnreadOpts Optional parameters for the method 'CommentMarkUnread'
@@ -427,7 +444,11 @@ Mark a comment as unread.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkUnreadOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkUnreadOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("CommentsApi")
+  fmt.Println("CommentMarkUnread")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -485,18 +506,18 @@ func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId s
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -504,10 +525,10 @@ func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId s
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // CommentShowOpts Optional parameters for the method 'CommentShow'
@@ -529,6 +550,10 @@ Get details on a single comment.
 @return Comment
 */
 func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentShowOpts) (Comment, *APIResponse, error) {
+
+  fmt.Println("CommentsApi")
+  fmt.Println("CommentShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -649,6 +674,10 @@ Update an existing comment.
 @return Comment
 */
 func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId string, keyId string, id string, commentUpdateParameters CommentUpdateParameters, localVarOptionals *CommentUpdateOpts) (Comment, *APIResponse, error) {
+
+  fmt.Println("CommentsApi")
+  fmt.Println("CommentUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -772,6 +801,10 @@ List all comments for a key.
 @return []Comment
 */
 func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, localVarOptionals *CommentsListOpts) ([]Comment, *APIResponse, error) {
+
+  fmt.Println("CommentsApi")
+  fmt.Println("CommentsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

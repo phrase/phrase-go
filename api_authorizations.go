@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -30,7 +31,11 @@ Create a new authorization.
  * @param optional nil or *AuthorizationCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, authorizationCreateParameters AuthorizationCreateParameters, localVarOptionals *AuthorizationCreateOpts) (*APIResponse, error) {
+func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, authorizationCreateParameters AuthorizationCreateParameters, localVarOptionals *AuthorizationCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("AuthorizationsApi")
+  fmt.Println("AuthorizationCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -81,18 +86,18 @@ func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, aut
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -100,10 +105,10 @@ func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, aut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // AuthorizationDeleteOpts Optional parameters for the method 'AuthorizationDelete'
@@ -119,7 +124,11 @@ Delete an existing authorization. API calls using that token will stop working.
  * @param optional nil or *AuthorizationDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *AuthorizationsApiService) AuthorizationDelete(ctx _context.Context, id string, localVarOptionals *AuthorizationDeleteOpts) (*APIResponse, error) {
+func (a *AuthorizationsApiService) AuthorizationDelete(ctx _context.Context, id string, localVarOptionals *AuthorizationDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("AuthorizationsApi")
+  fmt.Println("AuthorizationDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -170,18 +179,18 @@ func (a *AuthorizationsApiService) AuthorizationDelete(ctx _context.Context, id 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -189,10 +198,10 @@ func (a *AuthorizationsApiService) AuthorizationDelete(ctx _context.Context, id 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // AuthorizationShowOpts Optional parameters for the method 'AuthorizationShow'
@@ -210,6 +219,10 @@ Get details on a single authorization.
 @return Authorization
 */
 func (a *AuthorizationsApiService) AuthorizationShow(ctx _context.Context, id string, localVarOptionals *AuthorizationShowOpts) (Authorization, *APIResponse, error) {
+
+  fmt.Println("AuthorizationsApi")
+  fmt.Println("AuthorizationShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -321,6 +334,10 @@ Update an existing authorization.
 @return Authorization
 */
 func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id string, authorizationUpdateParameters AuthorizationUpdateParameters, localVarOptionals *AuthorizationUpdateOpts) (Authorization, *APIResponse, error) {
+
+  fmt.Println("AuthorizationsApi")
+  fmt.Println("AuthorizationUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -436,6 +453,10 @@ List all your authorizations.
 @return []Authorization
 */
 func (a *AuthorizationsApiService) AuthorizationsList(ctx _context.Context, localVarOptionals *AuthorizationsListOpts) ([]Authorization, *APIResponse, error) {
+
+  fmt.Println("AuthorizationsApi")
+  fmt.Println("AuthorizationsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

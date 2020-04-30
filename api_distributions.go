@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Create a new distribution.
  * @param optional nil or *DistributionCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accountId string, distributionCreateParameters DistributionCreateParameters, localVarOptionals *DistributionCreateOpts) (*APIResponse, error) {
+func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accountId string, distributionCreateParameters DistributionCreateParameters, localVarOptionals *DistributionCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("DistributionsApi")
+  fmt.Println("DistributionCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accou
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accou
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // DistributionDeleteOpts Optional parameters for the method 'DistributionDelete'
@@ -123,7 +128,11 @@ Delete an existing distribution.
  * @param optional nil or *DistributionDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *DistributionsApiService) DistributionDelete(ctx _context.Context, accountId string, id string, localVarOptionals *DistributionDeleteOpts) (*APIResponse, error) {
+func (a *DistributionsApiService) DistributionDelete(ctx _context.Context, accountId string, id string, localVarOptionals *DistributionDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("DistributionsApi")
+  fmt.Println("DistributionDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -176,18 +185,18 @@ func (a *DistributionsApiService) DistributionDelete(ctx _context.Context, accou
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -195,10 +204,10 @@ func (a *DistributionsApiService) DistributionDelete(ctx _context.Context, accou
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // DistributionShowOpts Optional parameters for the method 'DistributionShow'
@@ -217,6 +226,10 @@ Get details on a single distribution.
 @return Distribution
 */
 func (a *DistributionsApiService) DistributionShow(ctx _context.Context, accountId string, id string, localVarOptionals *DistributionShowOpts) (Distribution, *APIResponse, error) {
+
+  fmt.Println("DistributionsApi")
+  fmt.Println("DistributionShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -331,6 +344,10 @@ Update an existing distribution.
 @return Distribution
 */
 func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accountId string, id string, distributionUpdateParameters DistributionUpdateParameters, localVarOptionals *DistributionUpdateOpts) (Distribution, *APIResponse, error) {
+
+  fmt.Println("DistributionsApi")
+  fmt.Println("DistributionUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -449,6 +466,10 @@ List all distributions for the given account.
 @return []DistributionPreview
 */
 func (a *DistributionsApiService) DistributionsList(ctx _context.Context, accountId string, localVarOptionals *DistributionsListOpts) ([]DistributionPreview, *APIResponse, error) {
+
+  fmt.Println("DistributionsApi")
+  fmt.Println("DistributionsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

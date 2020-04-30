@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Create a translation.
  * @param optional nil or *TranslationCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *TranslationsApiService) TranslationCreate(ctx _context.Context, projectId string, translationCreateParameters TranslationCreateParameters, localVarOptionals *TranslationCreateOpts) (*APIResponse, error) {
+func (a *TranslationsApiService) TranslationCreate(ctx _context.Context, projectId string, translationCreateParameters TranslationCreateParameters, localVarOptionals *TranslationCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *TranslationsApiService) TranslationCreate(ctx _context.Context, project
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *TranslationsApiService) TranslationCreate(ctx _context.Context, project
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // TranslationExcludeOpts Optional parameters for the method 'TranslationExclude'
@@ -126,6 +131,10 @@ Set exclude from export flag on an existing translation.
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationExclude(ctx _context.Context, projectId string, id string, translationExcludeParameters TranslationExcludeParameters, localVarOptionals *TranslationExcludeOpts) (TranslationDetails, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationExclude")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -242,6 +251,10 @@ Remove exclude from export flag from an existing translation.
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationInclude(ctx _context.Context, projectId string, id string, translationIncludeParameters TranslationIncludeParameters, localVarOptionals *TranslationIncludeOpts) (TranslationDetails, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationInclude")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -358,6 +371,10 @@ Mark an existing translation as reviewed.
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationReview(ctx _context.Context, projectId string, id string, translationReviewParameters TranslationReviewParameters, localVarOptionals *TranslationReviewOpts) (TranslationDetails, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationReview")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -475,6 +492,10 @@ Get details on a single translation.
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId string, id string, localVarOptionals *TranslationShowOpts) (TranslationDetails, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -592,6 +613,10 @@ Mark an existing translation as unverified.
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationUnverify(ctx _context.Context, projectId string, id string, translationUnverifyParameters TranslationUnverifyParameters, localVarOptionals *TranslationUnverifyOpts) (TranslationDetails, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationUnverify")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -708,6 +733,10 @@ Update an existing translation.
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationUpdate(ctx _context.Context, projectId string, id string, translationUpdateParameters TranslationUpdateParameters, localVarOptionals *TranslationUpdateOpts) (TranslationDetails, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -824,6 +853,10 @@ Verify an existing translation.
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationVerify(ctx _context.Context, projectId string, id string, translationVerifyParameters TranslationVerifyParameters, localVarOptionals *TranslationVerifyOpts) (TranslationDetails, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationVerify")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -951,6 +984,10 @@ List translations for a specific key.
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, projectId string, keyId string, localVarOptionals *TranslationsByKeyOpts) ([]Translation, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationsByKey")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1094,6 +1131,10 @@ List translations for a specific locale. If you want to download all translation
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, projectId string, localeId string, localVarOptionals *TranslationsByLocaleOpts) ([]Translation, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationsByLocale")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1225,6 +1266,10 @@ Exclude translations matching query from locale export.
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, projectId string, translationsExcludeParameters TranslationsExcludeParameters, localVarOptionals *TranslationsExcludeOpts) (AffectedCount, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationsExclude")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1338,6 +1383,10 @@ Include translations matching query in locale export.
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsInclude(ctx _context.Context, projectId string, translationsIncludeParameters TranslationsIncludeParameters, localVarOptionals *TranslationsIncludeOpts) (AffectedCount, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationsInclude")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1462,6 +1511,10 @@ List translations for the given project. If you want to download all translation
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectId string, localVarOptionals *TranslationsListOpts) ([]Translation, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1591,6 +1644,10 @@ Review translations matching query.
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsReview(ctx _context.Context, projectId string, translationsReviewParameters TranslationsReviewParameters, localVarOptionals *TranslationsReviewOpts) (AffectedCount, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationsReview")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1708,6 +1765,10 @@ Search translations for the given project. Provides the same search interface as
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projectId string, translationsSearchParameters TranslationsSearchParameters, localVarOptionals *TranslationsSearchOpts) ([]Translation, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationsSearch")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -1827,6 +1888,10 @@ Mark translations matching query as unverified.
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, projectId string, translationsUnverifyParameters TranslationsUnverifyParameters, localVarOptionals *TranslationsUnverifyOpts) (AffectedCount, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationsUnverify")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1940,6 +2005,10 @@ Verify translations matching query.
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsVerify(ctx _context.Context, projectId string, translationsVerifyParameters TranslationsVerifyParameters, localVarOptionals *TranslationsVerifyOpts) (AffectedCount, *APIResponse, error) {
+
+  fmt.Println("TranslationsApi")
+  fmt.Println("TranslationsVerify")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}

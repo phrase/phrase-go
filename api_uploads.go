@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Upload a new language file. Creates necessary resources in your project.
  * @param optional nil or *UploadCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, uploadCreateParameters UploadCreateParameters, localVarOptionals *UploadCreateOpts) (*APIResponse, error) {
+func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, uploadCreateParameters UploadCreateParameters, localVarOptionals *UploadCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("UploadsApi")
+  fmt.Println("UploadCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // UploadShowOpts Optional parameters for the method 'UploadShow'
@@ -127,6 +132,10 @@ View details and summary for a single upload.
 @return Upload
 */
 func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, id string, localVarOptionals *UploadShowOpts) (Upload, *APIResponse, error) {
+
+  fmt.Println("UploadsApi")
+  fmt.Println("UploadShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -248,6 +257,10 @@ List all uploads for the given project.
 @return []Upload
 */
 func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, localVarOptionals *UploadsListOpts) ([]Upload, *APIResponse, error) {
+
+  fmt.Println("UploadsApi")
+  fmt.Println("UploadsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

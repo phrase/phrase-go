@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Create a new locale.
  * @param optional nil or *LocaleCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string, localeCreateParameters LocaleCreateParameters, localVarOptionals *LocaleCreateOpts) (*APIResponse, error) {
+func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string, localeCreateParameters LocaleCreateParameters, localVarOptionals *LocaleCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("LocalesApi")
+  fmt.Println("LocaleCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string,
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // LocaleDeleteOpts Optional parameters for the method 'LocaleDelete'
@@ -125,7 +130,11 @@ Delete an existing locale.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDeleteOpts) (*APIResponse, error) {
+func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("LocalesApi")
+  fmt.Println("LocaleDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -181,18 +190,18 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -200,10 +209,10 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // LocaleDownloadOpts Optional parameters for the method 'LocaleDownload'
@@ -248,7 +257,11 @@ Download a locale in a specific file format.
  * @param "UseLastReviewedVersion" (optional.Bool) -  If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project.
  * @param "FallbackLocaleId" (optional.String) -  If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to <code>true</code>.
 */
-func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDownloadOpts) (*APIResponse, error) {
+func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDownloadOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("LocalesApi")
+  fmt.Println("LocaleDownload")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -343,18 +356,18 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -362,10 +375,10 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // LocaleShowOpts Optional parameters for the method 'LocaleShow'
@@ -386,6 +399,10 @@ Get details on a single locale for a given project.
 @return LocaleDetails
 */
 func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleShowOpts) (LocaleDetails, *APIResponse, error) {
+
+  fmt.Println("LocalesApi")
+  fmt.Println("LocaleShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -503,6 +520,10 @@ Update an existing locale.
 @return LocaleDetails
 */
 func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string, id string, localeUpdateParameters LocaleUpdateParameters, localVarOptionals *LocaleUpdateOpts) (LocaleDetails, *APIResponse, error) {
+
+  fmt.Println("LocalesApi")
+  fmt.Println("LocaleUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -623,6 +644,10 @@ List all locales for the given project.
 @return []Locale
 */
 func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, localVarOptionals *LocalesListOpts) ([]Locale, *APIResponse, error) {
+
+  fmt.Println("LocalesApi")
+  fmt.Println("LocalesList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

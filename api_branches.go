@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Compare branch with main branch.
  * @param optional nil or *BranchCompareOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, localVarOptionals *BranchCompareOpts) (*APIResponse, error) {
+func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, localVarOptionals *BranchCompareOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("BranchesApi")
+  fmt.Println("BranchCompare")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId strin
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId strin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // BranchCreateOpts Optional parameters for the method 'BranchCreate'
@@ -123,7 +128,11 @@ Create a new branch.
  * @param optional nil or *BranchCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string, branchCreateParameters BranchCreateParameters, localVarOptionals *BranchCreateOpts) (*APIResponse, error) {
+func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string, branchCreateParameters BranchCreateParameters, localVarOptionals *BranchCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("BranchesApi")
+  fmt.Println("BranchCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -176,18 +185,18 @@ func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -195,10 +204,10 @@ func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // BranchDeleteOpts Optional parameters for the method 'BranchDelete'
@@ -215,7 +224,11 @@ Delete an existing branch.
  * @param optional nil or *BranchDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string, name string, localVarOptionals *BranchDeleteOpts) (*APIResponse, error) {
+func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string, name string, localVarOptionals *BranchDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("BranchesApi")
+  fmt.Println("BranchDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -268,18 +281,18 @@ func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -287,10 +300,10 @@ func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // BranchMergeOpts Optional parameters for the method 'BranchMerge'
@@ -308,7 +321,11 @@ Merge an existing branch.
  * @param optional nil or *BranchMergeOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string, name string, branchMergeParameters BranchMergeParameters, localVarOptionals *BranchMergeOpts) (*APIResponse, error) {
+func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string, name string, branchMergeParameters BranchMergeParameters, localVarOptionals *BranchMergeOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("BranchesApi")
+  fmt.Println("BranchMerge")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -363,18 +380,18 @@ func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string,
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -382,10 +399,10 @@ func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // BranchShowOpts Optional parameters for the method 'BranchShow'
@@ -404,6 +421,10 @@ Get details on a single branch for a given project.
 @return Branch
 */
 func (a *BranchesApiService) BranchShow(ctx _context.Context, projectId string, name string, localVarOptionals *BranchShowOpts) (Branch, *APIResponse, error) {
+
+  fmt.Println("BranchesApi")
+  fmt.Println("BranchShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -518,6 +539,10 @@ Update an existing branch.
 @return Branch
 */
 func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string, name string, branchUpdateParameters BranchUpdateParameters, localVarOptionals *BranchUpdateOpts) (Branch, *APIResponse, error) {
+
+  fmt.Println("BranchesApi")
+  fmt.Println("BranchUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -636,6 +661,10 @@ List all branches the of the current project.
 @return []Branch
 */
 func (a *BranchesApiService) BranchesList(ctx _context.Context, projectId string, localVarOptionals *BranchesListOpts) ([]Branch, *APIResponse, error) {
+
+  fmt.Println("BranchesApi")
+  fmt.Println("BranchesList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

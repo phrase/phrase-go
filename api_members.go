@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Remove a user from the account. The user will be removed from the account but no
  * @param optional nil or *MemberDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *MembersApiService) MemberDelete(ctx _context.Context, accountId string, id string, localVarOptionals *MemberDeleteOpts) (*APIResponse, error) {
+func (a *MembersApiService) MemberDelete(ctx _context.Context, accountId string, id string, localVarOptionals *MemberDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("MembersApi")
+  fmt.Println("MemberDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *MembersApiService) MemberDelete(ctx _context.Context, accountId string,
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *MembersApiService) MemberDelete(ctx _context.Context, accountId string,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // MemberShowOpts Optional parameters for the method 'MemberShow'
@@ -125,6 +130,10 @@ Get details on a single user in the account. Access token scope must include &lt
 @return Member
 */
 func (a *MembersApiService) MemberShow(ctx _context.Context, accountId string, id string, localVarOptionals *MemberShowOpts) (Member, *APIResponse, error) {
+
+  fmt.Println("MembersApi")
+  fmt.Println("MemberShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -239,6 +248,10 @@ Update user permissions in the account. Developers and translators need &lt;code
 @return Member
 */
 func (a *MembersApiService) MemberUpdate(ctx _context.Context, accountId string, id string, memberUpdateParameters MemberUpdateParameters, localVarOptionals *MemberUpdateOpts) (Member, *APIResponse, error) {
+
+  fmt.Println("MembersApi")
+  fmt.Println("MemberUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -357,6 +370,10 @@ Get all users active in the account. It also lists resources like projects and l
 @return []Member
 */
 func (a *MembersApiService) MembersList(ctx _context.Context, accountId string, localVarOptionals *MembersListOpts) ([]Member, *APIResponse, error) {
+
+  fmt.Println("MembersApi")
+  fmt.Println("MembersList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

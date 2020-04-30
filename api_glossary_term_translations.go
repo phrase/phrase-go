@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -33,7 +34,11 @@ Create a new glossary term translation.
  * @param optional nil or *GlossaryTermTranslationCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreateParameters GlossaryTermTranslationCreateParameters, localVarOptionals *GlossaryTermTranslationCreateOpts) (*APIResponse, error) {
+func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreateParameters GlossaryTermTranslationCreateParameters, localVarOptionals *GlossaryTermTranslationCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("GlossaryTermTranslationsApi")
+  fmt.Println("GlossaryTermTranslationCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -90,18 +95,18 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -109,10 +114,10 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // GlossaryTermTranslationDeleteOpts Optional parameters for the method 'GlossaryTermTranslationDelete'
@@ -131,7 +136,11 @@ Delete an existing glossary term translation.
  * @param optional nil or *GlossaryTermTranslationDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _context.Context, accountId string, glossaryId string, termId string, id string, localVarOptionals *GlossaryTermTranslationDeleteOpts) (*APIResponse, error) {
+func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _context.Context, accountId string, glossaryId string, termId string, id string, localVarOptionals *GlossaryTermTranslationDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("GlossaryTermTranslationsApi")
+  fmt.Println("GlossaryTermTranslationDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -188,18 +197,18 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -207,10 +216,10 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // GlossaryTermTranslationUpdateOpts Optional parameters for the method 'GlossaryTermTranslationUpdate'
@@ -232,6 +241,10 @@ Update an existing glossary term translation.
 @return GlossaryTermTranslation
 */
 func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationUpdate(ctx _context.Context, accountId string, glossaryId string, termId string, id string, glossaryTermTranslationUpdateParameters GlossaryTermTranslationUpdateParameters, localVarOptionals *GlossaryTermTranslationUpdateOpts) (GlossaryTermTranslation, *APIResponse, error) {
+
+  fmt.Println("GlossaryTermTranslationsApi")
+  fmt.Println("GlossaryTermTranslationUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}

@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -31,7 +32,11 @@ Create a new Space.
  * @param optional nil or *SpaceCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, spaceCreateParameters SpaceCreateParameters, localVarOptionals *SpaceCreateOpts) (*APIResponse, error) {
+func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, spaceCreateParameters SpaceCreateParameters, localVarOptionals *SpaceCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("SpacesApi")
+  fmt.Println("SpaceCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -84,18 +89,18 @@ func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, s
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -103,10 +108,10 @@ func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, s
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // SpaceDeleteOpts Optional parameters for the method 'SpaceDelete'
@@ -123,7 +128,11 @@ Delete the specified Space.
  * @param optional nil or *SpaceDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *SpacesApiService) SpaceDelete(ctx _context.Context, accountId string, id string, localVarOptionals *SpaceDeleteOpts) (*APIResponse, error) {
+func (a *SpacesApiService) SpaceDelete(ctx _context.Context, accountId string, id string, localVarOptionals *SpaceDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("SpacesApi")
+  fmt.Println("SpaceDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -176,18 +185,18 @@ func (a *SpacesApiService) SpaceDelete(ctx _context.Context, accountId string, i
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -195,10 +204,10 @@ func (a *SpacesApiService) SpaceDelete(ctx _context.Context, accountId string, i
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // SpaceShowOpts Optional parameters for the method 'SpaceShow'
@@ -217,6 +226,10 @@ Show the specified Space.
 @return Space
 */
 func (a *SpacesApiService) SpaceShow(ctx _context.Context, accountId string, id string, localVarOptionals *SpaceShowOpts) (Space, *APIResponse, error) {
+
+  fmt.Println("SpacesApi")
+  fmt.Println("SpaceShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -331,6 +344,10 @@ Update the specified Space.
 @return Space
 */
 func (a *SpacesApiService) SpaceUpdate(ctx _context.Context, accountId string, id string, spaceUpdateParameters SpaceUpdateParameters, localVarOptionals *SpaceUpdateOpts) (Space, *APIResponse, error) {
+
+  fmt.Println("SpacesApi")
+  fmt.Println("SpaceUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -449,6 +466,10 @@ List all Spaces for the given account.
 @return []Space
 */
 func (a *SpacesApiService) SpacesList(ctx _context.Context, accountId string, localVarOptionals *SpacesListOpts) ([]Space, *APIResponse, error) {
+
+  fmt.Println("SpacesApi")
+  fmt.Println("SpacesList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -565,7 +586,11 @@ Adds an existing project to the space.
  * @param optional nil or *SpacesProjectsCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId string, spaceId string, spacesProjectsCreateParameters SpacesProjectsCreateParameters, localVarOptionals *SpacesProjectsCreateOpts) (*APIResponse, error) {
+func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId string, spaceId string, spacesProjectsCreateParameters SpacesProjectsCreateParameters, localVarOptionals *SpacesProjectsCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("SpacesApi")
+  fmt.Println("SpacesProjectsCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -620,18 +645,18 @@ func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -639,10 +664,10 @@ func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // SpacesProjectsDeleteOpts Optional parameters for the method 'SpacesProjectsDelete'
@@ -660,7 +685,11 @@ Removes a specified project from the specified space.
  * @param optional nil or *SpacesProjectsDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *SpacesApiService) SpacesProjectsDelete(ctx _context.Context, accountId string, spaceId string, id string, localVarOptionals *SpacesProjectsDeleteOpts) (*APIResponse, error) {
+func (a *SpacesApiService) SpacesProjectsDelete(ctx _context.Context, accountId string, spaceId string, id string, localVarOptionals *SpacesProjectsDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("SpacesApi")
+  fmt.Println("SpacesProjectsDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -715,18 +744,18 @@ func (a *SpacesApiService) SpacesProjectsDelete(ctx _context.Context, accountId 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -734,10 +763,10 @@ func (a *SpacesApiService) SpacesProjectsDelete(ctx _context.Context, accountId 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // SpacesProjectsListOpts Optional parameters for the method 'SpacesProjectsList'
@@ -760,6 +789,10 @@ List all projects for the specified Space.
 @return []Project
 */
 func (a *SpacesApiService) SpacesProjectsList(ctx _context.Context, accountId string, spaceId string, localVarOptionals *SpacesProjectsListOpts) ([]Project, *APIResponse, error) {
+
+  fmt.Println("SpacesApi")
+  fmt.Println("SpacesProjectsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

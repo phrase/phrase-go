@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -32,7 +33,11 @@ Create a new screenshot marker.
  * @param optional nil or *ScreenshotMarkerCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Context, projectId string, screenshotId string, screenshotMarkerCreateParameters ScreenshotMarkerCreateParameters, localVarOptionals *ScreenshotMarkerCreateOpts) (*APIResponse, error) {
+func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Context, projectId string, screenshotId string, screenshotMarkerCreateParameters ScreenshotMarkerCreateParameters, localVarOptionals *ScreenshotMarkerCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("ScreenshotMarkersApi")
+  fmt.Println("ScreenshotMarkerCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -87,18 +92,18 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Contex
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -106,10 +111,10 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Contex
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // ScreenshotMarkerDeleteOpts Optional parameters for the method 'ScreenshotMarkerDelete'
@@ -126,7 +131,11 @@ Delete an existing screenshot marker.
  * @param optional nil or *ScreenshotMarkerDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Context, projectId string, screenshotId string, localVarOptionals *ScreenshotMarkerDeleteOpts) (*APIResponse, error) {
+func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Context, projectId string, screenshotId string, localVarOptionals *ScreenshotMarkerDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("ScreenshotMarkersApi")
+  fmt.Println("ScreenshotMarkerDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -179,18 +188,18 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Contex
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -198,10 +207,10 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Contex
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // ScreenshotMarkerShowOpts Optional parameters for the method 'ScreenshotMarkerShow'
@@ -221,6 +230,10 @@ Get details on a single screenshot marker for a given project.
 @return ScreenshotMarker
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkerShow(ctx _context.Context, projectId string, screenshotId string, id string, localVarOptionals *ScreenshotMarkerShowOpts) (ScreenshotMarker, *APIResponse, error) {
+
+  fmt.Println("ScreenshotMarkersApi")
+  fmt.Println("ScreenshotMarkerShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -337,6 +350,10 @@ Update an existing screenshot marker.
 @return ScreenshotMarker
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkerUpdate(ctx _context.Context, projectId string, screenshotId string, screenshotMarkerUpdateParameters ScreenshotMarkerUpdateParameters, localVarOptionals *ScreenshotMarkerUpdateOpts) (ScreenshotMarker, *APIResponse, error) {
+
+  fmt.Println("ScreenshotMarkersApi")
+  fmt.Println("ScreenshotMarkerUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -456,6 +473,10 @@ List all screenshot markers for the given project.
 @return []ScreenshotMarker
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkersList(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotMarkersListOpts) ([]ScreenshotMarker, *APIResponse, error) {
+
+  fmt.Println("ScreenshotMarkersApi")
+  fmt.Println("ScreenshotMarkersList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

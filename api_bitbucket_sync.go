@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -33,6 +34,10 @@ Export translations from Phrase to Bitbucket according to the .phraseapp.yml fil
 @return BitbucketSyncExportResponse
 */
 func (a *BitbucketSyncApiService) BitbucketSyncExport(ctx _context.Context, id string, bitbucketSyncExportParameters BitbucketSyncExportParameters, localVarOptionals *BitbucketSyncExportOpts) (BitbucketSyncExportResponse, *APIResponse, error) {
+
+  fmt.Println("BitbucketSyncApi")
+  fmt.Println("BitbucketSyncExport")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -144,7 +149,11 @@ Import translations from Bitbucket to Phrase according to the .phraseapp.yml fil
  * @param optional nil or *BitbucketSyncImportOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id string, bitbucketSyncImportParameters BitbucketSyncImportParameters, localVarOptionals *BitbucketSyncImportOpts) (*APIResponse, error) {
+func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id string, bitbucketSyncImportParameters BitbucketSyncImportParameters, localVarOptionals *BitbucketSyncImportOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("BitbucketSyncApi")
+  fmt.Println("BitbucketSyncImport")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -197,18 +206,18 @@ func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id s
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -216,10 +225,10 @@ func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id s
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // BitbucketSyncsListOpts Optional parameters for the method 'BitbucketSyncsList'
@@ -238,6 +247,10 @@ List all Bitbucket repositories for which synchronisation with Phrase is activat
 @return []BitbucketSync
 */
 func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, localVarOptionals *BitbucketSyncsListOpts) ([]BitbucketSync, *APIResponse, error) {
+
+  fmt.Println("BitbucketSyncApi")
+  fmt.Println("BitbucketSyncsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

@@ -1,6 +1,7 @@
 package phrase
 
 import (
+  "fmt"
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -30,7 +31,11 @@ Create a new project.
  * @param optional nil or *ProjectCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreateParameters ProjectCreateParameters, localVarOptionals *ProjectCreateOpts) (*APIResponse, error) {
+func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreateParameters ProjectCreateParameters, localVarOptionals *ProjectCreateOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("ProjectsApi")
+  fmt.Println("ProjectCreate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -81,18 +86,18 @@ func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreatePa
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -100,10 +105,10 @@ func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreatePa
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // ProjectDeleteOpts Optional parameters for the method 'ProjectDelete'
@@ -119,7 +124,11 @@ Delete an existing project.
  * @param optional nil or *ProjectDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *ProjectsApiService) ProjectDelete(ctx _context.Context, id string, localVarOptionals *ProjectDeleteOpts) (*APIResponse, error) {
+func (a *ProjectsApiService) ProjectDelete(ctx _context.Context, id string, localVarOptionals *ProjectDeleteOpts) ([]byte, *APIResponse, error) {
+
+  fmt.Println("ProjectsApi")
+  fmt.Println("ProjectDelete")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -170,18 +179,18 @@ func (a *ProjectsApiService) ProjectDelete(ctx _context.Context, id string, loca
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return localVarHTTPResponse, err
+		return nil, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -189,10 +198,10 @@ func (a *ProjectsApiService) ProjectDelete(ctx _context.Context, id string, loca
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarBody, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	return localVarBody, localVarHTTPResponse, nil
 }
 
 // ProjectShowOpts Optional parameters for the method 'ProjectShow'
@@ -210,6 +219,10 @@ Get details on a single project.
 @return ProjectDetails
 */
 func (a *ProjectsApiService) ProjectShow(ctx _context.Context, id string, localVarOptionals *ProjectShowOpts) (ProjectDetails, *APIResponse, error) {
+
+  fmt.Println("ProjectsApi")
+  fmt.Println("ProjectShow")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -321,6 +334,10 @@ Update an existing project.
 @return ProjectDetails
 */
 func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, projectUpdateParameters ProjectUpdateParameters, localVarOptionals *ProjectUpdateOpts) (ProjectDetails, *APIResponse, error) {
+
+  fmt.Println("ProjectsApi")
+  fmt.Println("ProjectUpdate")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -436,6 +453,10 @@ List all projects the current user has access to.
 @return []Project
 */
 func (a *ProjectsApiService) ProjectsList(ctx _context.Context, localVarOptionals *ProjectsListOpts) ([]Project, *APIResponse, error) {
+
+  fmt.Println("ProjectsApi")
+  fmt.Println("ProjectsList")
+
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
