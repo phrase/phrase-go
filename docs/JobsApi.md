@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ## JobDelete
 
-> JobDelete(ctx, projectId, id, jobDeleteParameters, optional)
+> JobDelete(ctx, projectId, id, optional)
 
 Delete a job
 
@@ -129,7 +129,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobDeleteParameters** | [**JobDeleteParameters**](JobDeleteParameters.md)|  | 
  **optional** | ***JobDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -141,8 +140,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -154,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -213,7 +212,7 @@ Name | Type | Description  | Notes
 
 ## JobKeysDelete
 
-> JobKeysDelete(ctx, projectId, id, jobKeysDeleteParameters, optional)
+> JobKeysDelete(ctx, projectId, id, optional)
 
 Remove keys from job
 
@@ -227,7 +226,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobKeysDeleteParameters** | [**JobKeysDeleteParameters**](JobKeysDeleteParameters.md)|  | 
  **optional** | ***JobKeysDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -239,8 +237,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **translationKeyIds** | [**optional.Interface of []string**](string.md)| ids of keys that should added to the job | 
 
 ### Return type
 
@@ -252,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -311,7 +310,7 @@ Name | Type | Description  | Notes
 
 ## JobShow
 
-> JobDetails JobShow(ctx, projectId, id, jobShowParameters, optional)
+> JobDetails JobShow(ctx, projectId, id, optional)
 
 Get a single job
 
@@ -325,7 +324,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**jobShowParameters** | [**JobShowParameters**](JobShowParameters.md)|  | 
  **optional** | ***JobShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -337,8 +335,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -350,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -458,7 +456,7 @@ Name | Type | Description  | Notes
 
 ## JobsList
 
-> []Job JobsList(ctx, projectId, jobsListParameters, optional)
+> []Job JobsList(ctx, projectId, optional)
 
 List jobs
 
@@ -471,7 +469,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**jobsListParameters** | [**JobsListParameters**](JobsListParameters.md)|  | 
  **optional** | ***JobsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -482,10 +479,13 @@ Optional parameters are passed through a pointer to a JobsListOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **ownedBy** | **optional.String**| filter by user owning job | 
+ **assignedTo** | **optional.String**| filter by user assigned to job | 
+ **state** | **optional.String**| filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | 
 
 ### Return type
 
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

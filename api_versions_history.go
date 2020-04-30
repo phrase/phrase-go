@@ -20,6 +20,7 @@ type VersionsHistoryApiService service
 // VersionShowOpts Optional parameters for the method 'VersionShow'
 type VersionShowOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -29,12 +30,12 @@ Get details on a single version.
  * @param projectId Project ID
  * @param translationId Translation ID
  * @param id ID
- * @param versionShowParameters
  * @param optional nil or *VersionShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return TranslationVersionWithUser
 */
-func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, versionShowParameters VersionShowParameters, localVarOptionals *VersionShowOpts) (TranslationVersionWithUser, *APIResponse, error) {
+func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, localVarOptionals *VersionShowOpts) (TranslationVersionWithUser, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -56,8 +57,11 @@ func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId 
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -76,8 +80,6 @@ func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId 
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &versionShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -141,6 +143,7 @@ type VersionsListOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
 }
 
 /*
@@ -149,14 +152,14 @@ List all versions for the given translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param translationId Translation ID
- * @param versionsListParameters
  * @param optional nil or *VersionsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return []TranslationVersion
 */
-func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId string, translationId string, versionsListParameters VersionsListParameters, localVarOptionals *VersionsListOpts) ([]TranslationVersion, *APIResponse, error) {
+func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId string, translationId string, localVarOptionals *VersionsListOpts) ([]TranslationVersion, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -182,8 +185,11 @@ func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -202,8 +208,6 @@ func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &versionsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

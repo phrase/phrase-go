@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## BitbucketSyncsList
 
-> []BitbucketSync BitbucketSyncsList(ctx, bitbucketSyncsListParameters, optional)
+> []BitbucketSync BitbucketSyncsList(ctx, optional)
 
 List Bitbucket syncs
 
@@ -118,7 +118,6 @@ List all Bitbucket repositories for which synchronisation with Phrase is activat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**bitbucketSyncsListParameters** | [**BitbucketSyncsListParameters**](BitbucketSyncsListParameters.md)|  | 
  **optional** | ***BitbucketSyncsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -128,8 +127,8 @@ Optional parameters are passed through a pointer to a BitbucketSyncsListOpts str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **accountId** | **optional.String**| Account ID to specify the actual account the project should be created in. Required if the requesting user is a member of multiple accounts. | 
 
 ### Return type
 
@@ -141,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

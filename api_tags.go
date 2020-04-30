@@ -112,6 +112,7 @@ func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCr
 // TagDeleteOpts Optional parameters for the method 'TagDelete'
 type TagDeleteOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -120,11 +121,11 @@ Delete an existing tag.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param tagDeleteParameters
  * @param optional nil or *TagDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name string, tagDeleteParameters TagDeleteParameters, localVarOptionals *TagDeleteOpts) (*APIResponse, error) {
+func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name string, localVarOptionals *TagDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -143,8 +144,11 @@ func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name 
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -163,8 +167,6 @@ func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name 
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &tagDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -207,6 +209,7 @@ func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name 
 // TagShowOpts Optional parameters for the method 'TagShow'
 type TagShowOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -215,12 +218,12 @@ Get details and progress information on a single tag for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param tagShowParameters
  * @param optional nil or *TagShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return TagWithStats
 */
-func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name string, tagShowParameters TagShowParameters, localVarOptionals *TagShowOpts) (TagWithStats, *APIResponse, error) {
+func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name string, localVarOptionals *TagShowOpts) (TagWithStats, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -240,8 +243,11 @@ func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name st
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -260,8 +266,6 @@ func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name st
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &tagShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -325,6 +329,7 @@ type TagsListOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
 }
 
 /*
@@ -332,14 +337,14 @@ TagsList List tags
 List all tags for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param tagsListParameters
  * @param optional nil or *TagsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return []Tag
 */
-func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, tagsListParameters TagsListParameters, localVarOptionals *TagsListOpts) ([]Tag, *APIResponse, error) {
+func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, localVarOptionals *TagsListOpts) ([]Tag, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -363,8 +368,11 @@ func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, tagsLi
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -383,8 +391,6 @@ func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, tagsLi
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &tagsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

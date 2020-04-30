@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ## LocaleDelete
 
-> LocaleDelete(ctx, projectId, id, localeDeleteParameters, optional)
+> LocaleDelete(ctx, projectId, id, optional)
 
 Delete a locale
 
@@ -76,7 +76,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**localeDeleteParameters** | [**LocaleDeleteParameters**](LocaleDeleteParameters.md)|  | 
  **optional** | ***LocaleDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -88,8 +87,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -101,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -111,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## LocaleDownload
 
-> LocaleDownload(ctx, projectId, id, localeDownloadParameters, optional)
+> LocaleDownload(ctx, projectId, id, optional)
 
 Download a locale
 
@@ -125,7 +124,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**localeDownloadParameters** | [**LocaleDownloadParameters**](LocaleDownloadParameters.md)|  | 
  **optional** | ***LocaleDownloadOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -137,8 +135,21 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **fileFormat** | **optional.String**| File format name. See the format guide for all supported file formats. | 
+ **tags** | **optional.String**| Limit results to keys tagged with a list of comma separated tag names. | 
+ **tag** | **optional.String**| Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead | 
+ **includeEmptyTranslations** | **optional.Bool**| Indicates whether keys without translations should be included in the output as well. | 
+ **includeTranslatedKeys** | **optional.Bool**| Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. | 
+ **keepNotranslateTags** | **optional.Bool**| Indicates whether [NOTRANSLATE] tags should be kept. | 
+ **convertEmoji** | **optional.Bool**| This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. | 
+ **formatOptions** | [**optional.Interface of map[string]interface{}**](.md)| Additional formatting and render options. See the &lt;a href&#x3D;\&quot;https://help.phrase.com/help/supported-platforms-and-formats\&quot;&gt;format guide&lt;/a&gt; for a list of options available for each format. Specify format options like this: &lt;code&gt;...&amp;format_options[foo]&#x3D;bar&lt;/code&gt; | 
+ **encoding** | **optional.String**| Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. | 
+ **skipUnverifiedTranslations** | **optional.Bool**| Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &lt;code&gt;include_unverified_translations&lt;/code&gt;. | 
+ **includeUnverifiedTranslations** | **optional.Bool**| if set to false unverified translations are excluded | 
+ **useLastReviewedVersion** | **optional.Bool**| If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project. | 
+ **fallbackLocaleId** | **optional.String**| If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. | 
 
 ### Return type
 
@@ -150,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -160,7 +171,7 @@ Name | Type | Description  | Notes
 
 ## LocaleShow
 
-> LocaleDetails LocaleShow(ctx, projectId, id, localeShowParameters, optional)
+> LocaleDetails LocaleShow(ctx, projectId, id, optional)
 
 Get a single locale
 
@@ -174,7 +185,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**localeShowParameters** | [**LocaleShowParameters**](LocaleShowParameters.md)|  | 
  **optional** | ***LocaleShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -186,8 +196,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -199,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -258,7 +268,7 @@ Name | Type | Description  | Notes
 
 ## LocalesList
 
-> []Locale LocalesList(ctx, projectId, localesListParameters, optional)
+> []Locale LocalesList(ctx, projectId, optional)
 
 List locales
 
@@ -271,7 +281,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**localesListParameters** | [**LocalesListParameters**](LocalesListParameters.md)|  | 
  **optional** | ***LocalesListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -282,10 +291,10 @@ Optional parameters are passed through a pointer to a LocalesListOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -297,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

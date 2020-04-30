@@ -225,18 +225,19 @@ func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id s
 // BitbucketSyncsListOpts Optional parameters for the method 'BitbucketSyncsList'
 type BitbucketSyncsListOpts struct {
     XPhraseAppOTP optional.String
+    AccountId optional.String
 }
 
 /*
 BitbucketSyncsList List Bitbucket syncs
 List all Bitbucket repositories for which synchronisation with Phrase is activated.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param bitbucketSyncsListParameters
  * @param optional nil or *BitbucketSyncsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "AccountId" (optional.String) -  Account ID to specify the actual account the project should be created in. Required if the requesting user is a member of multiple accounts.
 @return []BitbucketSync
 */
-func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, bitbucketSyncsListParameters BitbucketSyncsListParameters, localVarOptionals *BitbucketSyncsListOpts) ([]BitbucketSync, *APIResponse, error) {
+func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, localVarOptionals *BitbucketSyncsListOpts) ([]BitbucketSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -252,8 +253,11 @@ func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, bitbu
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.AccountId.IsSet() {
+		localVarQueryParams.Add("account_id", parameterToString(localVarOptionals.AccountId.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -272,8 +276,6 @@ func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, bitbu
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &bitbucketSyncsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

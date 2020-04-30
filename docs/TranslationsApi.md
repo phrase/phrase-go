@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ## TranslationShow
 
-> TranslationDetails TranslationShow(ctx, projectId, id, translationShowParameters, optional)
+> TranslationDetails TranslationShow(ctx, projectId, id, optional)
 
 Get a single translation
 
@@ -234,7 +234,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**translationShowParameters** | [**TranslationShowParameters**](TranslationShowParameters.md)|  | 
  **optional** | ***TranslationShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -246,8 +245,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -259,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -416,7 +415,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsByKey
 
-> []Translation TranslationsByKey(ctx, projectId, keyId, translationsByKeyParameters, optional)
+> []Translation TranslationsByKey(ctx, projectId, keyId, optional)
 
 List translations by key
 
@@ -430,7 +429,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
-**translationsByKeyParameters** | [**TranslationsByKeyParameters**](TranslationsByKeyParameters.md)|  | 
  **optional** | ***TranslationsByKeyOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -442,10 +440,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
+ **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+ **q** | **optional.String**| q_description_placeholder | 
 
 ### Return type
 
@@ -457,7 +458,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -467,7 +468,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsByLocale
 
-> []Translation TranslationsByLocale(ctx, projectId, localeId, translationsByLocaleParameters, optional)
+> []Translation TranslationsByLocale(ctx, projectId, localeId, optional)
 
 List translations by locale
 
@@ -481,7 +482,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **localeId** | **string**| Locale ID | 
-**translationsByLocaleParameters** | [**TranslationsByLocaleParameters**](TranslationsByLocaleParameters.md)|  | 
  **optional** | ***TranslationsByLocaleOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -493,10 +493,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
+ **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+ **q** | **optional.String**| q_description_placeholder | 
 
 ### Return type
 
@@ -508,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -612,7 +615,7 @@ Name | Type | Description  | Notes
 
 ## TranslationsList
 
-> []Translation TranslationsList(ctx, projectId, translationsListParameters, optional)
+> []Translation TranslationsList(ctx, projectId, optional)
 
 List all translations
 
@@ -625,7 +628,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**translationsListParameters** | [**TranslationsListParameters**](TranslationsListParameters.md)|  | 
  **optional** | ***TranslationsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -636,10 +638,13 @@ Optional parameters are passed through a pointer to a TranslationsListOpts struc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
+ **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+ **q** | **optional.String**| q_description_placeholder | 
 
 ### Return type
 
@@ -651,7 +656,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

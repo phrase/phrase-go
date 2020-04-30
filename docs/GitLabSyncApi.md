@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## GitlabSyncDelete
 
-> GitlabSyncDelete(ctx, id, gitlabSyncDeleteParameters, optional)
+> GitlabSyncDelete(ctx, id, optional)
 
 Delete single Sync Setting
 
@@ -29,7 +29,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**gitlabSyncDeleteParameters** | [**GitlabSyncDeleteParameters**](GitlabSyncDeleteParameters.md)|  | 
  **optional** | ***GitlabSyncDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -40,8 +39,8 @@ Optional parameters are passed through a pointer to a GitlabSyncDeleteOpts struc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **accountId** | **optional.String**| Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. | 
 
 ### Return type
 
@@ -53,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -110,7 +109,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncHistory
 
-> []GitlabSyncHistory GitlabSyncHistory(ctx, gitlabSyncId, gitlabSyncHistoryParameters, optional)
+> []GitlabSyncHistory GitlabSyncHistory(ctx, gitlabSyncId, optional)
 
 History of single Sync Setting
 
@@ -123,7 +122,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **gitlabSyncId** | **string**| Gitlab Sync ID | 
-**gitlabSyncHistoryParameters** | [**GitlabSyncHistoryParameters**](GitlabSyncHistoryParameters.md)|  | 
  **optional** | ***GitlabSyncHistoryOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -134,10 +132,10 @@ Optional parameters are passed through a pointer to a GitlabSyncHistoryOpts stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **accountId** | **optional.String**| Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. | 
 
 ### Return type
 
@@ -149,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -206,7 +204,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncList
 
-> []GitlabSync GitlabSyncList(ctx, gitlabSyncListParameters, optional)
+> []GitlabSync GitlabSyncList(ctx, optional)
 
 List GitLab syncs
 
@@ -218,7 +216,6 @@ List all GitLab Sync Settings for which synchronisation with Phrase and GitLab i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**gitlabSyncListParameters** | [**GitlabSyncListParameters**](GitlabSyncListParameters.md)|  | 
  **optional** | ***GitlabSyncListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -228,8 +225,8 @@ Optional parameters are passed through a pointer to a GitlabSyncListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **accountId** | **optional.String**| Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. | 
 
 ### Return type
 
@@ -241,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -251,7 +248,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncShow
 
-> GitlabSync GitlabSyncShow(ctx, id, gitlabSyncShowParameters, optional)
+> GitlabSync GitlabSyncShow(ctx, id, optional)
 
 Get single Sync Setting
 
@@ -264,7 +261,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**gitlabSyncShowParameters** | [**GitlabSyncShowParameters**](GitlabSyncShowParameters.md)|  | 
  **optional** | ***GitlabSyncShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -275,8 +271,8 @@ Optional parameters are passed through a pointer to a GitlabSyncShowOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **accountId** | **optional.String**| Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. | 
 
 ### Return type
 
@@ -288,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -298,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## GitlabSyncUpdate
 
-> GitlabSync GitlabSyncUpdate(ctx, id, gitlabSyncUpdateParameters, optional)
+> GitlabSync GitlabSyncUpdate(ctx, id, optional)
 
 Update single Sync Setting
 
@@ -311,7 +307,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string**| ID | 
-**gitlabSyncUpdateParameters** | [**GitlabSyncUpdateParameters**](GitlabSyncUpdateParameters.md)|  | 
  **optional** | ***GitlabSyncUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -322,8 +317,11 @@ Optional parameters are passed through a pointer to a GitlabSyncUpdateOpts struc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **accountId** | **optional.String**| Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. | 
+ **phraseProjectCode** | **optional.String**| Code of the related Phrase Project. | 
+ **gitlabProjectId** | **optional.Int32**| ID of the related GitLab Project. | 
+ **gitlabBranchName** | **optional.String**| Name of the GitLab Branch. | 
 
 ### Return type
 
@@ -335,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

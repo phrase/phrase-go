@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## VersionShow
 
-> TranslationVersionWithUser VersionShow(ctx, projectId, translationId, id, versionShowParameters, optional)
+> TranslationVersionWithUser VersionShow(ctx, projectId, translationId, id, optional)
 
 Get a single version
 
@@ -26,7 +26,6 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **translationId** | **string**| Translation ID | 
 **id** | **string**| ID | 
-**versionShowParameters** | [**VersionShowParameters**](VersionShowParameters.md)|  | 
  **optional** | ***VersionShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -39,8 +38,8 @@ Name | Type | Description  | Notes
 
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -52,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -62,7 +61,7 @@ Name | Type | Description  | Notes
 
 ## VersionsList
 
-> []TranslationVersion VersionsList(ctx, projectId, translationId, versionsListParameters, optional)
+> []TranslationVersion VersionsList(ctx, projectId, translationId, optional)
 
 List all versions
 
@@ -76,7 +75,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **translationId** | **string**| Translation ID | 
-**versionsListParameters** | [**VersionsListParameters**](VersionsListParameters.md)|  | 
  **optional** | ***VersionsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -88,10 +86,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -103,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

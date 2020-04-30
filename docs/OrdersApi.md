@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## OrderDelete
 
-> OrderDelete(ctx, projectId, id, orderDeleteParameters, optional)
+> OrderDelete(ctx, projectId, id, optional)
 
 Cancel an order
 
@@ -124,7 +124,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**orderDeleteParameters** | [**OrderDeleteParameters**](OrderDeleteParameters.md)|  | 
  **optional** | ***OrderDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -136,8 +135,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -149,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -159,7 +158,7 @@ Name | Type | Description  | Notes
 
 ## OrderShow
 
-> TranslationOrder OrderShow(ctx, projectId, id, orderShowParameters, optional)
+> TranslationOrder OrderShow(ctx, projectId, id, optional)
 
 Get a single order
 
@@ -173,7 +172,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**orderShowParameters** | [**OrderShowParameters**](OrderShowParameters.md)|  | 
  **optional** | ***OrderShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -185,8 +183,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -198,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -208,7 +206,7 @@ Name | Type | Description  | Notes
 
 ## OrdersList
 
-> []TranslationOrder OrdersList(ctx, projectId, ordersListParameters, optional)
+> []TranslationOrder OrdersList(ctx, projectId, optional)
 
 List orders
 
@@ -221,7 +219,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**ordersListParameters** | [**OrdersListParameters**](OrdersListParameters.md)|  | 
  **optional** | ***OrdersListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -232,10 +229,10 @@ Optional parameters are passed through a pointer to a OrdersListOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -247,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

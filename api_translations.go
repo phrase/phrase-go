@@ -460,6 +460,7 @@ func (a *TranslationsApiService) TranslationReview(ctx _context.Context, project
 // TranslationShowOpts Optional parameters for the method 'TranslationShow'
 type TranslationShowOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -468,12 +469,12 @@ Get details on a single translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param translationShowParameters
  * @param optional nil or *TranslationShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return TranslationDetails
 */
-func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId string, id string, translationShowParameters TranslationShowParameters, localVarOptionals *TranslationShowOpts) (TranslationDetails, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId string, id string, localVarOptionals *TranslationShowOpts) (TranslationDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -493,8 +494,11 @@ func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -513,8 +517,6 @@ func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &translationShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -926,6 +928,10 @@ type TranslationsByKeyOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
+    Sort optional.String
+    Order optional.String
+    Q optional.String
 }
 
 /*
@@ -934,14 +940,17 @@ List translations for a specific key.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param keyId Translation Key ID
- * @param translationsByKeyParameters
  * @param optional nil or *TranslationsByKeyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
+ * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
+ * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
+ * @param "Q" (optional.String) -  q_description_placeholder
 @return []Translation
 */
-func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, projectId string, keyId string, translationsByKeyParameters TranslationsByKeyParameters, localVarOptionals *TranslationsByKeyOpts) ([]Translation, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, projectId string, keyId string, localVarOptionals *TranslationsByKeyOpts) ([]Translation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -967,8 +976,20 @@ func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, project
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
+		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Order.IsSet() {
+		localVarQueryParams.Add("order", parameterToString(localVarOptionals.Order.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Q.IsSet() {
+		localVarQueryParams.Add("q", parameterToString(localVarOptionals.Q.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -987,8 +1008,6 @@ func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, project
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &translationsByKeyParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1052,6 +1071,10 @@ type TranslationsByLocaleOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
+    Sort optional.String
+    Order optional.String
+    Q optional.String
 }
 
 /*
@@ -1060,14 +1083,17 @@ List translations for a specific locale. If you want to download all translation
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param localeId Locale ID
- * @param translationsByLocaleParameters
  * @param optional nil or *TranslationsByLocaleOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
+ * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
+ * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
+ * @param "Q" (optional.String) -  q_description_placeholder
 @return []Translation
 */
-func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, projectId string, localeId string, translationsByLocaleParameters TranslationsByLocaleParameters, localVarOptionals *TranslationsByLocaleOpts) ([]Translation, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, projectId string, localeId string, localVarOptionals *TranslationsByLocaleOpts) ([]Translation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1093,8 +1119,20 @@ func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, proj
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
+		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Order.IsSet() {
+		localVarQueryParams.Add("order", parameterToString(localVarOptionals.Order.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Q.IsSet() {
+		localVarQueryParams.Add("q", parameterToString(localVarOptionals.Q.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1113,8 +1151,6 @@ func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, proj
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &translationsByLocaleParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1404,6 +1440,10 @@ type TranslationsListOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
+    Sort optional.String
+    Order optional.String
+    Q optional.String
 }
 
 /*
@@ -1411,14 +1451,17 @@ TranslationsList List all translations
 List translations for the given project. If you want to download all translations for one locale we recommend to use the &lt;code&gt;locales#download&lt;/code&gt; endpoint.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param translationsListParameters
  * @param optional nil or *TranslationsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
+ * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
+ * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
+ * @param "Q" (optional.String) -  q_description_placeholder
 @return []Translation
 */
-func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectId string, translationsListParameters TranslationsListParameters, localVarOptionals *TranslationsListOpts) ([]Translation, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectId string, localVarOptionals *TranslationsListOpts) ([]Translation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -1442,8 +1485,20 @@ func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectI
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
+		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Order.IsSet() {
+		localVarQueryParams.Add("order", parameterToString(localVarOptionals.Order.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Q.IsSet() {
+		localVarQueryParams.Add("q", parameterToString(localVarOptionals.Q.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -1462,8 +1517,6 @@ func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectI
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &translationsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

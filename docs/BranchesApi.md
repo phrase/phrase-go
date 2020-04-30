@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## BranchCompare
 
-> BranchCompare(ctx, projectId, name, branchCompareParameters, optional)
+> BranchCompare(ctx, projectId, name, optional)
 
 Compare branches
 
@@ -30,7 +30,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**branchCompareParameters** | [**BranchCompareParameters**](BranchCompareParameters.md)|  | 
  **optional** | ***BranchCompareOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -40,7 +39,6 @@ Optional parameters are passed through a pointer to a BranchCompareOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
@@ -55,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

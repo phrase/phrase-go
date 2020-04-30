@@ -28,11 +28,10 @@ Compare branch with main branch.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param branchCompareParameters
  * @param optional nil or *BranchCompareOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, branchCompareParameters BranchCompareParameters, localVarOptionals *BranchCompareOpts) (*APIResponse, error) {
+func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, localVarOptionals *BranchCompareOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -52,7 +51,7 @@ func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId strin
 	localVarFormParams := _neturl.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -71,8 +70,6 @@ func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId strin
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &branchCompareParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

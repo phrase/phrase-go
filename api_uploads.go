@@ -112,6 +112,7 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 // UploadShowOpts Optional parameters for the method 'UploadShow'
 type UploadShowOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -120,12 +121,12 @@ View details and summary for a single upload.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param uploadShowParameters
  * @param optional nil or *UploadShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return Upload
 */
-func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, id string, uploadShowParameters UploadShowParameters, localVarOptionals *UploadShowOpts) (Upload, *APIResponse, error) {
+func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, id string, localVarOptionals *UploadShowOpts) (Upload, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -145,8 +146,11 @@ func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, i
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -165,8 +169,6 @@ func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, i
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &uploadShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -230,6 +232,7 @@ type UploadsListOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
 }
 
 /*
@@ -237,14 +240,14 @@ UploadsList List uploads
 List all uploads for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param uploadsListParameters
  * @param optional nil or *UploadsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return []Upload
 */
-func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, uploadsListParameters UploadsListParameters, localVarOptionals *UploadsListOpts) ([]Upload, *APIResponse, error) {
+func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, localVarOptionals *UploadsListOpts) ([]Upload, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -268,8 +271,11 @@ func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, 
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -288,8 +294,6 @@ func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, 
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &uploadsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

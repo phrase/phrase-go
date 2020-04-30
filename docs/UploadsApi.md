@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ## UploadShow
 
-> Upload UploadShow(ctx, projectId, id, uploadShowParameters, optional)
+> Upload UploadShow(ctx, projectId, id, optional)
 
 View upload details
 
@@ -73,7 +73,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**uploadShowParameters** | [**UploadShowParameters**](UploadShowParameters.md)|  | 
  **optional** | ***UploadShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -85,8 +84,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -98,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -108,7 +107,7 @@ Name | Type | Description  | Notes
 
 ## UploadsList
 
-> []Upload UploadsList(ctx, projectId, uploadsListParameters, optional)
+> []Upload UploadsList(ctx, projectId, optional)
 
 List uploads
 
@@ -121,7 +120,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**uploadsListParameters** | [**UploadsListParameters**](UploadsListParameters.md)|  | 
  **optional** | ***UploadsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -132,10 +130,10 @@ Optional parameters are passed through a pointer to a UploadsListOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -147,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

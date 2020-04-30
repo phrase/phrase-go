@@ -112,6 +112,7 @@ func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string,
 // LocaleDeleteOpts Optional parameters for the method 'LocaleDelete'
 type LocaleDeleteOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -120,11 +121,11 @@ Delete an existing locale.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param localeDeleteParameters
  * @param optional nil or *LocaleDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string, id string, localeDeleteParameters LocaleDeleteParameters, localVarOptionals *LocaleDeleteOpts) (*APIResponse, error) {
+func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -143,8 +144,11 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -163,8 +167,6 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &localeDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -207,6 +209,20 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 // LocaleDownloadOpts Optional parameters for the method 'LocaleDownload'
 type LocaleDownloadOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
+    FileFormat optional.String
+    Tags optional.String
+    Tag optional.String
+    IncludeEmptyTranslations optional.Bool
+    IncludeTranslatedKeys optional.Bool
+    KeepNotranslateTags optional.Bool
+    ConvertEmoji optional.Bool
+    FormatOptions optional.Interface
+    Encoding optional.String
+    SkipUnverifiedTranslations optional.Bool
+    IncludeUnverifiedTranslations optional.Bool
+    UseLastReviewedVersion optional.Bool
+    FallbackLocaleId optional.String
 }
 
 /*
@@ -215,11 +231,24 @@ Download a locale in a specific file format.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param localeDownloadParameters
  * @param optional nil or *LocaleDownloadOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
+ * @param "FileFormat" (optional.String) -  File format name. See the format guide for all supported file formats.
+ * @param "Tags" (optional.String) -  Limit results to keys tagged with a list of comma separated tag names.
+ * @param "Tag" (optional.String) -  Limit download to tagged keys. This parameter is deprecated. Please use the \"tags\" parameter instead
+ * @param "IncludeEmptyTranslations" (optional.Bool) -  Indicates whether keys without translations should be included in the output as well.
+ * @param "IncludeTranslatedKeys" (optional.Bool) -  Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys.
+ * @param "KeepNotranslateTags" (optional.Bool) -  Indicates whether [NOTRANSLATE] tags should be kept.
+ * @param "ConvertEmoji" (optional.Bool) -  This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively.
+ * @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional formatting and render options. See the <a href=\"https://help.phrase.com/help/supported-platforms-and-formats\">format guide</a> for a list of options available for each format. Specify format options like this: <code>...&format_options[foo]=bar</code>
+ * @param "Encoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \"UTF-8\", \"UTF-16\" and \"ISO-8859-1\".
+ * @param "SkipUnverifiedTranslations" (optional.Bool) -  Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with <code>include_unverified_translations</code>.
+ * @param "IncludeUnverifiedTranslations" (optional.Bool) -  if set to false unverified translations are excluded
+ * @param "UseLastReviewedVersion" (optional.Bool) -  If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project.
+ * @param "FallbackLocaleId" (optional.String) -  If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to <code>true</code>.
 */
-func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId string, id string, localeDownloadParameters LocaleDownloadParameters, localVarOptionals *LocaleDownloadOpts) (*APIResponse, error) {
+func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDownloadOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -238,8 +267,50 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.FileFormat.IsSet() {
+		localVarQueryParams.Add("file_format", parameterToString(localVarOptionals.FileFormat.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Tags.IsSet() {
+		localVarQueryParams.Add("tags", parameterToString(localVarOptionals.Tags.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Tag.IsSet() {
+		localVarQueryParams.Add("tag", parameterToString(localVarOptionals.Tag.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.IncludeEmptyTranslations.IsSet() {
+		localVarQueryParams.Add("include_empty_translations", parameterToString(localVarOptionals.IncludeEmptyTranslations.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.IncludeTranslatedKeys.IsSet() {
+		localVarQueryParams.Add("include_translated_keys", parameterToString(localVarOptionals.IncludeTranslatedKeys.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.KeepNotranslateTags.IsSet() {
+		localVarQueryParams.Add("keep_notranslate_tags", parameterToString(localVarOptionals.KeepNotranslateTags.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.ConvertEmoji.IsSet() {
+		localVarQueryParams.Add("convert_emoji", parameterToString(localVarOptionals.ConvertEmoji.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.FormatOptions.IsSet() {
+		localVarQueryParams.Add("format_options", parameterToString(localVarOptionals.FormatOptions.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Encoding.IsSet() {
+		localVarQueryParams.Add("encoding", parameterToString(localVarOptionals.Encoding.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SkipUnverifiedTranslations.IsSet() {
+		localVarQueryParams.Add("skip_unverified_translations", parameterToString(localVarOptionals.SkipUnverifiedTranslations.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.IncludeUnverifiedTranslations.IsSet() {
+		localVarQueryParams.Add("include_unverified_translations", parameterToString(localVarOptionals.IncludeUnverifiedTranslations.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.UseLastReviewedVersion.IsSet() {
+		localVarQueryParams.Add("use_last_reviewed_version", parameterToString(localVarOptionals.UseLastReviewedVersion.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.FallbackLocaleId.IsSet() {
+		localVarQueryParams.Add("fallback_locale_id", parameterToString(localVarOptionals.FallbackLocaleId.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -258,8 +329,6 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &localeDownloadParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -302,6 +371,7 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 // LocaleShowOpts Optional parameters for the method 'LocaleShow'
 type LocaleShowOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -310,12 +380,12 @@ Get details on a single locale for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param localeShowParameters
  * @param optional nil or *LocaleShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return LocaleDetails
 */
-func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, id string, localeShowParameters LocaleShowParameters, localVarOptionals *LocaleShowOpts) (LocaleDetails, *APIResponse, error) {
+func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleShowOpts) (LocaleDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -335,8 +405,11 @@ func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, i
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -355,8 +428,6 @@ func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, i
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &localeShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -536,6 +607,7 @@ type LocalesListOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
 }
 
 /*
@@ -543,14 +615,14 @@ LocalesList List locales
 List all locales for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param localesListParameters
  * @param optional nil or *LocalesListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return []Locale
 */
-func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, localesListParameters LocalesListParameters, localVarOptionals *LocalesListOpts) ([]Locale, *APIResponse, error) {
+func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, localVarOptionals *LocalesListOpts) ([]Locale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -574,8 +646,11 @@ func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, 
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -594,8 +669,6 @@ func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, 
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &localesListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

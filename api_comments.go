@@ -115,6 +115,7 @@ func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId strin
 // CommentDeleteOpts Optional parameters for the method 'CommentDelete'
 type CommentDeleteOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -124,11 +125,11 @@ Delete an existing comment.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentDeleteParameters
  * @param optional nil or *CommentDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId string, keyId string, id string, commentDeleteParameters CommentDeleteParameters, localVarOptionals *CommentDeleteOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -149,8 +150,11 @@ func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId strin
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -169,8 +173,6 @@ func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId strin
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &commentDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -213,6 +215,7 @@ func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId strin
 // CommentMarkCheckOpts Optional parameters for the method 'CommentMarkCheck'
 type CommentMarkCheckOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -222,11 +225,11 @@ Check if comment was marked as read. Returns 204 if read, 404 if unread.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentMarkCheckParameters
  * @param optional nil or *CommentMarkCheckOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId string, keyId string, id string, commentMarkCheckParameters CommentMarkCheckParameters, localVarOptionals *CommentMarkCheckOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkCheckOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -247,8 +250,11 @@ func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId st
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -267,8 +273,6 @@ func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId st
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &commentMarkCheckParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -409,6 +413,7 @@ func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId str
 // CommentMarkUnreadOpts Optional parameters for the method 'CommentMarkUnread'
 type CommentMarkUnreadOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -418,11 +423,11 @@ Mark a comment as unread.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentMarkUnreadParameters
  * @param optional nil or *CommentMarkUnreadOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId string, keyId string, id string, commentMarkUnreadParameters CommentMarkUnreadParameters, localVarOptionals *CommentMarkUnreadOpts) (*APIResponse, error) {
+func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkUnreadOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -443,8 +448,11 @@ func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId s
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -463,8 +471,6 @@ func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId s
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &commentMarkUnreadParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -507,6 +513,7 @@ func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId s
 // CommentShowOpts Optional parameters for the method 'CommentShow'
 type CommentShowOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -516,12 +523,12 @@ Get details on a single comment.
  * @param projectId Project ID
  * @param keyId Translation Key ID
  * @param id ID
- * @param commentShowParameters
  * @param optional nil or *CommentShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return Comment
 */
-func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string, keyId string, id string, commentShowParameters CommentShowParameters, localVarOptionals *CommentShowOpts) (Comment, *APIResponse, error) {
+func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentShowOpts) (Comment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -543,8 +550,11 @@ func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string,
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -563,8 +573,6 @@ func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string,
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &commentShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -747,6 +755,7 @@ type CommentsListOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
 }
 
 /*
@@ -755,14 +764,14 @@ List all comments for a key.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param keyId Translation Key ID
- * @param commentsListParameters
  * @param optional nil or *CommentsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return []Comment
 */
-func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, commentsListParameters CommentsListParameters, localVarOptionals *CommentsListOpts) ([]Comment, *APIResponse, error) {
+func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, localVarOptionals *CommentsListOpts) ([]Comment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -788,8 +797,11 @@ func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -808,8 +820,6 @@ func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &commentsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ## KeyDelete
 
-> KeyDelete(ctx, projectId, id, keyDeleteParameters, optional)
+> KeyDelete(ctx, projectId, id, optional)
 
 Delete a key
 
@@ -79,7 +79,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**keyDeleteParameters** | [**KeyDeleteParameters**](KeyDeleteParameters.md)|  | 
  **optional** | ***KeyDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -91,8 +90,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -104,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -114,7 +113,7 @@ Name | Type | Description  | Notes
 
 ## KeyShow
 
-> TranslationKeyDetails KeyShow(ctx, projectId, id, keyShowParameters, optional)
+> TranslationKeyDetails KeyShow(ctx, projectId, id, optional)
 
 Get a single key
 
@@ -128,7 +127,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**keyShowParameters** | [**KeyShowParameters**](KeyShowParameters.md)|  | 
  **optional** | ***KeyShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -140,8 +138,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -153,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -212,7 +210,7 @@ Name | Type | Description  | Notes
 
 ## KeysDelete
 
-> AffectedResources KeysDelete(ctx, projectId, keysDeleteParameters, optional)
+> AffectedResources KeysDelete(ctx, projectId, optional)
 
 Delete collection of keys
 
@@ -225,7 +223,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**keysDeleteParameters** | [**KeysDeleteParameters**](KeysDeleteParameters.md)|  | 
  **optional** | ***KeysDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -236,8 +233,10 @@ Optional parameters are passed through a pointer to a KeysDeleteOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **q** | **optional.String**| q_description_placeholder | 
+ **localeId** | **optional.String**| Locale used to determine the translation state of a key when filtering for untranslated or translated keys. | 
 
 ### Return type
 
@@ -249,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -259,7 +258,7 @@ Name | Type | Description  | Notes
 
 ## KeysList
 
-> []TranslationKey KeysList(ctx, projectId, keysListParameters, optional)
+> []TranslationKey KeysList(ctx, projectId, optional)
 
 List keys
 
@@ -272,7 +271,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**keysListParameters** | [**KeysListParameters**](KeysListParameters.md)|  | 
  **optional** | ***KeysListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -283,10 +281,14 @@ Optional parameters are passed through a pointer to a KeysListOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **sort** | **optional.String**| Sort by field. Can be one of: name, created_at, updated_at. | 
+ **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+ **q** | **optional.String**| q_description_placeholder | 
+ **localeId** | **optional.String**| Locale used to determine the translation state of a key when filtering for untranslated or translated keys. | 
 
 ### Return type
 
@@ -298,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

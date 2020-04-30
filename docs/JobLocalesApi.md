@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ## JobLocaleDelete
 
-> JobLocaleDelete(ctx, projectId, jobId, id, jobLocaleDeleteParameters, optional)
+> JobLocaleDelete(ctx, projectId, jobId, id, optional)
 
 Delete a job locale
 
@@ -82,7 +82,6 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
 **id** | **string**| ID | 
-**jobLocaleDeleteParameters** | [**JobLocaleDeleteParameters**](JobLocaleDeleteParameters.md)|  | 
  **optional** | ***JobLocaleDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -95,8 +94,8 @@ Name | Type | Description  | Notes
 
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -108,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -169,7 +168,7 @@ Name | Type | Description  | Notes
 
 ## JobLocaleShow
 
-> JobLocale JobLocaleShow(ctx, projectId, jobId, id, jobLocaleShowParameters, optional)
+> JobLocale JobLocaleShow(ctx, projectId, jobId, id, optional)
 
 Get a single job locale
 
@@ -184,7 +183,6 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
 **id** | **string**| ID | 
-**jobLocaleShowParameters** | [**JobLocaleShowParameters**](JobLocaleShowParameters.md)|  | 
  **optional** | ***JobLocaleShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -197,8 +195,8 @@ Name | Type | Description  | Notes
 
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -210,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -320,7 +318,7 @@ Name | Type | Description  | Notes
 
 ## JobLocalesList
 
-> []JobLocale JobLocalesList(ctx, projectId, jobId, jobLocalesListParameters, optional)
+> []JobLocale JobLocalesList(ctx, projectId, jobId, optional)
 
 List job locales
 
@@ -334,7 +332,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **jobId** | **string**| Job ID | 
-**jobLocalesListParameters** | [**JobLocalesListParameters**](JobLocalesListParameters.md)|  | 
  **optional** | ***JobLocalesListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -346,10 +343,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -361,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

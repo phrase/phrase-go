@@ -20,6 +20,7 @@ type GitLabSyncApiService service
 // GitlabSyncDeleteOpts Optional parameters for the method 'GitlabSyncDelete'
 type GitlabSyncDeleteOpts struct {
     XPhraseAppOTP optional.String
+    AccountId optional.String
 }
 
 /*
@@ -27,11 +28,11 @@ GitlabSyncDelete Delete single Sync Setting
 Deletes a single GitLab Sync Setting.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param gitlabSyncDeleteParameters
  * @param optional nil or *GitlabSyncDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
 */
-func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string, gitlabSyncDeleteParameters GitlabSyncDeleteParameters, localVarOptionals *GitlabSyncDeleteOpts) (*APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string, localVarOptionals *GitlabSyncDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -48,8 +49,11 @@ func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string,
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.AccountId.IsSet() {
+		localVarQueryParams.Add("account_id", parameterToString(localVarOptionals.AccountId.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -68,8 +72,6 @@ func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string,
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &gitlabSyncDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -227,6 +229,7 @@ type GitlabSyncHistoryOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    AccountId optional.String
 }
 
 /*
@@ -234,14 +237,14 @@ GitlabSyncHistory History of single Sync Setting
 List history for a single Sync Setting.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param gitlabSyncId Gitlab Sync ID
- * @param gitlabSyncHistoryParameters
  * @param optional nil or *GitlabSyncHistoryOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
 @return []GitlabSyncHistory
 */
-func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyncId string, gitlabSyncHistoryParameters GitlabSyncHistoryParameters, localVarOptionals *GitlabSyncHistoryOpts) ([]GitlabSyncHistory, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyncId string, localVarOptionals *GitlabSyncHistoryOpts) ([]GitlabSyncHistory, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -265,8 +268,11 @@ func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyn
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.AccountId.IsSet() {
+		localVarQueryParams.Add("account_id", parameterToString(localVarOptionals.AccountId.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -285,8 +291,6 @@ func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyn
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &gitlabSyncHistoryParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -461,18 +465,19 @@ func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSync
 // GitlabSyncListOpts Optional parameters for the method 'GitlabSyncList'
 type GitlabSyncListOpts struct {
     XPhraseAppOTP optional.String
+    AccountId optional.String
 }
 
 /*
 GitlabSyncList List GitLab syncs
 List all GitLab Sync Settings for which synchronisation with Phrase and GitLab is activated.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param gitlabSyncListParameters
  * @param optional nil or *GitlabSyncListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
 @return []GitlabSync
 */
-func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncListParameters GitlabSyncListParameters, localVarOptionals *GitlabSyncListOpts) ([]GitlabSync, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, localVarOptionals *GitlabSyncListOpts) ([]GitlabSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -488,8 +493,11 @@ func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncLi
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.AccountId.IsSet() {
+		localVarQueryParams.Add("account_id", parameterToString(localVarOptionals.AccountId.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -508,8 +516,6 @@ func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncLi
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &gitlabSyncListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -571,6 +577,7 @@ func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, gitlabSyncLi
 // GitlabSyncShowOpts Optional parameters for the method 'GitlabSyncShow'
 type GitlabSyncShowOpts struct {
     XPhraseAppOTP optional.String
+    AccountId optional.String
 }
 
 /*
@@ -578,12 +585,12 @@ GitlabSyncShow Get single Sync Setting
 Shows a single GitLab Sync Setting.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param gitlabSyncShowParameters
  * @param optional nil or *GitlabSyncShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
 @return GitlabSync
 */
-func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, gitlabSyncShowParameters GitlabSyncShowParameters, localVarOptionals *GitlabSyncShowOpts) (GitlabSync, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, localVarOptionals *GitlabSyncShowOpts) (GitlabSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -601,8 +608,11 @@ func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, g
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.AccountId.IsSet() {
+		localVarQueryParams.Add("account_id", parameterToString(localVarOptionals.AccountId.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -621,8 +631,6 @@ func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, g
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &gitlabSyncShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -684,6 +692,10 @@ func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, g
 // GitlabSyncUpdateOpts Optional parameters for the method 'GitlabSyncUpdate'
 type GitlabSyncUpdateOpts struct {
     XPhraseAppOTP optional.String
+    AccountId optional.String
+    PhraseProjectCode optional.String
+    GitlabProjectId optional.Int32
+    GitlabBranchName optional.String
 }
 
 /*
@@ -691,12 +703,15 @@ GitlabSyncUpdate Update single Sync Setting
 Updates a single GitLab Sync Setting.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
- * @param gitlabSyncUpdateParameters
  * @param optional nil or *GitlabSyncUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
+ * @param "PhraseProjectCode" (optional.String) -  Code of the related Phrase Project.
+ * @param "GitlabProjectId" (optional.Int32) -  ID of the related GitLab Project.
+ * @param "GitlabBranchName" (optional.String) -  Name of the GitLab Branch.
 @return GitlabSync
 */
-func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string, gitlabSyncUpdateParameters GitlabSyncUpdateParameters, localVarOptionals *GitlabSyncUpdateOpts) (GitlabSync, *APIResponse, error) {
+func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string, localVarOptionals *GitlabSyncUpdateOpts) (GitlabSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPut
 		localVarPostBody     interface{}
@@ -714,8 +729,20 @@ func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string,
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.AccountId.IsSet() {
+		localVarQueryParams.Add("account_id", parameterToString(localVarOptionals.AccountId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.PhraseProjectCode.IsSet() {
+		localVarQueryParams.Add("phrase_project_code", parameterToString(localVarOptionals.PhraseProjectCode.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.GitlabProjectId.IsSet() {
+		localVarQueryParams.Add("gitlab_project_id", parameterToString(localVarOptionals.GitlabProjectId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.GitlabBranchName.IsSet() {
+		localVarQueryParams.Add("gitlab_branch_name", parameterToString(localVarOptionals.GitlabBranchName.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -734,8 +761,6 @@ func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string,
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &gitlabSyncUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

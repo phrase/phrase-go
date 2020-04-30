@@ -228,6 +228,7 @@ func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, o
 // OrderDeleteOpts Optional parameters for the method 'OrderDelete'
 type OrderDeleteOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -236,11 +237,11 @@ Cancel an existing order. Must not yet be confirmed.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param orderDeleteParameters
  * @param optional nil or *OrderDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, id string, orderDeleteParameters OrderDeleteParameters, localVarOptionals *OrderDeleteOpts) (*APIResponse, error) {
+func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, id string, localVarOptionals *OrderDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -259,8 +260,11 @@ func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, i
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -279,8 +283,6 @@ func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, i
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &orderDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -323,6 +325,7 @@ func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, i
 // OrderShowOpts Optional parameters for the method 'OrderShow'
 type OrderShowOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -331,12 +334,12 @@ Get details on a single order.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param orderShowParameters
  * @param optional nil or *OrderShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return TranslationOrder
 */
-func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id string, orderShowParameters OrderShowParameters, localVarOptionals *OrderShowOpts) (TranslationOrder, *APIResponse, error) {
+func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id string, localVarOptionals *OrderShowOpts) (TranslationOrder, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -356,8 +359,11 @@ func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id 
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -376,8 +382,6 @@ func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id 
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &orderShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -441,6 +445,7 @@ type OrdersListOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
 }
 
 /*
@@ -448,14 +453,14 @@ OrdersList List orders
 List all orders for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param ordersListParameters
  * @param optional nil or *OrdersListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return []TranslationOrder
 */
-func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, ordersListParameters OrdersListParameters, localVarOptionals *OrdersListOpts) ([]TranslationOrder, *APIResponse, error) {
+func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, localVarOptionals *OrdersListOpts) ([]TranslationOrder, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -479,8 +484,11 @@ func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, or
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -499,8 +507,6 @@ func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, or
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &ordersListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

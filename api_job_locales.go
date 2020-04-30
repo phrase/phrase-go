@@ -139,6 +139,7 @@ func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId
 // JobLocaleDeleteOpts Optional parameters for the method 'JobLocaleDelete'
 type JobLocaleDeleteOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -148,11 +149,11 @@ Delete an existing job locale.
  * @param projectId Project ID
  * @param jobId Job ID
  * @param id ID
- * @param jobLocaleDeleteParameters
  * @param optional nil or *JobLocaleDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId string, jobId string, id string, jobLocaleDeleteParameters JobLocaleDeleteParameters, localVarOptionals *JobLocaleDeleteOpts) (*APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobLocaleDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -173,8 +174,11 @@ func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId s
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -193,8 +197,6 @@ func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId s
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &jobLocaleDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -356,6 +358,7 @@ func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId s
 // JobLocaleShowOpts Optional parameters for the method 'JobLocaleShow'
 type JobLocaleShowOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -365,12 +368,12 @@ Get a single job locale for a given job.
  * @param projectId Project ID
  * @param jobId Job ID
  * @param id ID
- * @param jobLocaleShowParameters
  * @param optional nil or *JobLocaleShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return JobLocale
 */
-func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId string, jobId string, id string, jobLocaleShowParameters JobLocaleShowParameters, localVarOptionals *JobLocaleShowOpts) (JobLocale, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobLocaleShowOpts) (JobLocale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -392,8 +395,11 @@ func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId str
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -412,8 +418,6 @@ func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId str
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &jobLocaleShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -691,6 +695,7 @@ type JobLocalesListOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
 }
 
 /*
@@ -699,14 +704,14 @@ List all job locales for a given job.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param jobId Job ID
- * @param jobLocalesListParameters
  * @param optional nil or *JobLocalesListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return []JobLocale
 */
-func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId string, jobId string, jobLocalesListParameters JobLocalesListParameters, localVarOptionals *JobLocalesListOpts) ([]JobLocale, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId string, jobId string, localVarOptionals *JobLocalesListOpts) ([]JobLocale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -732,8 +737,11 @@ func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId st
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -752,8 +760,6 @@ func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId st
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &jobLocalesListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

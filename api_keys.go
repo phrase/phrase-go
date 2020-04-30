@@ -112,6 +112,7 @@ func (a *KeysApiService) KeyCreate(ctx _context.Context, projectId string, keyCr
 // KeyDeleteOpts Optional parameters for the method 'KeyDelete'
 type KeyDeleteOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -120,11 +121,11 @@ Delete an existing key.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param keyDeleteParameters
  * @param optional nil or *KeyDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
-func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id string, keyDeleteParameters KeyDeleteParameters, localVarOptionals *KeyDeleteOpts) (*APIResponse, error) {
+func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id string, localVarOptionals *KeyDeleteOpts) (*APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -143,8 +144,11 @@ func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id st
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -163,8 +167,6 @@ func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id st
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &keyDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -207,6 +209,7 @@ func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id st
 // KeyShowOpts Optional parameters for the method 'KeyShow'
 type KeyShowOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
 }
 
 /*
@@ -215,12 +218,12 @@ Get details on a single key for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
- * @param keyShowParameters
  * @param optional nil or *KeyShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return TranslationKeyDetails
 */
-func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id string, keyShowParameters KeyShowParameters, localVarOptionals *KeyShowOpts) (TranslationKeyDetails, *APIResponse, error) {
+func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id string, localVarOptionals *KeyShowOpts) (TranslationKeyDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -240,8 +243,11 @@ func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id stri
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -260,8 +266,6 @@ func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id stri
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &keyShowParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -439,6 +443,9 @@ func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id st
 // KeysDeleteOpts Optional parameters for the method 'KeysDelete'
 type KeysDeleteOpts struct {
     XPhraseAppOTP optional.String
+    Branch optional.String
+    Q optional.String
+    LocaleId optional.String
 }
 
 /*
@@ -446,12 +453,14 @@ KeysDelete Delete collection of keys
 Delete all keys matching query. Same constraints as list. Please limit the number of affected keys to about 1,000 as you might experience timeouts otherwise.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param keysDeleteParameters
  * @param optional nil or *KeysDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
+ * @param "Q" (optional.String) -  q_description_placeholder
+ * @param "LocaleId" (optional.String) -  Locale used to determine the translation state of a key when filtering for untranslated or translated keys.
 @return AffectedResources
 */
-func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, keysDeleteParameters KeysDeleteParameters, localVarOptionals *KeysDeleteOpts) (AffectedResources, *APIResponse, error) {
+func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, localVarOptionals *KeysDeleteOpts) (AffectedResources, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -469,8 +478,17 @@ func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, keys
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Q.IsSet() {
+		localVarQueryParams.Add("q", parameterToString(localVarOptionals.Q.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.LocaleId.IsSet() {
+		localVarQueryParams.Add("locale_id", parameterToString(localVarOptionals.LocaleId.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -489,8 +507,6 @@ func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, keys
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &keysDeleteParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -554,6 +570,11 @@ type KeysListOpts struct {
     XPhraseAppOTP optional.String
     Page optional.Int32
     PerPage optional.Int32
+    Branch optional.String
+    Sort optional.String
+    Order optional.String
+    Q optional.String
+    LocaleId optional.String
 }
 
 /*
@@ -561,14 +582,18 @@ KeysList List keys
 List all keys for the given project. Alternatively you can POST requests to /search.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param keysListParameters
  * @param optional nil or *KeysListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
+ * @param "Sort" (optional.String) -  Sort by field. Can be one of: name, created_at, updated_at.
+ * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
+ * @param "Q" (optional.String) -  q_description_placeholder
+ * @param "LocaleId" (optional.String) -  Locale used to determine the translation state of a key when filtering for untranslated or translated keys.
 @return []TranslationKey
 */
-func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, keysListParameters KeysListParameters, localVarOptionals *KeysListOpts) ([]TranslationKey, *APIResponse, error) {
+func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, localVarOptionals *KeysListOpts) ([]TranslationKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -592,8 +617,23 @@ func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, keysLi
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
+		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Order.IsSet() {
+		localVarQueryParams.Add("order", parameterToString(localVarOptionals.Order.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Q.IsSet() {
+		localVarQueryParams.Add("q", parameterToString(localVarOptionals.Q.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.LocaleId.IsSet() {
+		localVarQueryParams.Add("locale_id", parameterToString(localVarOptionals.LocaleId.Value(), ""))
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -612,8 +652,6 @@ func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, keysLi
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &keysListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

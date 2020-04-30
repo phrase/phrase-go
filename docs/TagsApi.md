@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ## TagDelete
 
-> TagDelete(ctx, projectId, name, tagDeleteParameters, optional)
+> TagDelete(ctx, projectId, name, optional)
 
 Delete a tag
 
@@ -74,7 +74,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**tagDeleteParameters** | [**TagDeleteParameters**](TagDeleteParameters.md)|  | 
  **optional** | ***TagDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -86,8 +85,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -99,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -109,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## TagShow
 
-> TagWithStats TagShow(ctx, projectId, name, tagShowParameters, optional)
+> TagWithStats TagShow(ctx, projectId, name, optional)
 
 Get a single tag
 
@@ -123,7 +122,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**tagShowParameters** | [**TagShowParameters**](TagShowParameters.md)|  | 
  **optional** | ***TagShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -135,8 +133,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -148,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -158,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## TagsList
 
-> []Tag TagsList(ctx, projectId, tagsListParameters, optional)
+> []Tag TagsList(ctx, projectId, optional)
 
 List tags
 
@@ -171,7 +169,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**tagsListParameters** | [**TagsListParameters**](TagsListParameters.md)|  | 
  **optional** | ***TagsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -182,10 +179,10 @@ Optional parameters are passed through a pointer to a TagsListOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -197,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

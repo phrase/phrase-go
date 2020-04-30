@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ## CommentDelete
 
-> CommentDelete(ctx, projectId, keyId, id, commentDeleteParameters, optional)
+> CommentDelete(ctx, projectId, keyId, id, optional)
 
 Delete a comment
 
@@ -81,7 +81,6 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentDeleteParameters** | [**CommentDeleteParameters**](CommentDeleteParameters.md)|  | 
  **optional** | ***CommentDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -94,8 +93,8 @@ Name | Type | Description  | Notes
 
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -107,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -117,7 +116,7 @@ Name | Type | Description  | Notes
 
 ## CommentMarkCheck
 
-> CommentMarkCheck(ctx, projectId, keyId, id, commentMarkCheckParameters, optional)
+> CommentMarkCheck(ctx, projectId, keyId, id, optional)
 
 Check if comment is read
 
@@ -132,7 +131,6 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentMarkCheckParameters** | [**CommentMarkCheckParameters**](CommentMarkCheckParameters.md)|  | 
  **optional** | ***CommentMarkCheckOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -145,8 +143,8 @@ Name | Type | Description  | Notes
 
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -158,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -219,7 +217,7 @@ Name | Type | Description  | Notes
 
 ## CommentMarkUnread
 
-> CommentMarkUnread(ctx, projectId, keyId, id, commentMarkUnreadParameters, optional)
+> CommentMarkUnread(ctx, projectId, keyId, id, optional)
 
 Mark a comment as unread
 
@@ -234,7 +232,6 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentMarkUnreadParameters** | [**CommentMarkUnreadParameters**](CommentMarkUnreadParameters.md)|  | 
  **optional** | ***CommentMarkUnreadOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -247,8 +244,8 @@ Name | Type | Description  | Notes
 
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -260,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -270,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## CommentShow
 
-> Comment CommentShow(ctx, projectId, keyId, id, commentShowParameters, optional)
+> Comment CommentShow(ctx, projectId, keyId, id, optional)
 
 Get a single comment
 
@@ -285,7 +282,6 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **id** | **string**| ID | 
-**commentShowParameters** | [**CommentShowParameters**](CommentShowParameters.md)|  | 
  **optional** | ***CommentShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -298,8 +294,8 @@ Name | Type | Description  | Notes
 
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -311,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -372,7 +368,7 @@ Name | Type | Description  | Notes
 
 ## CommentsList
 
-> []Comment CommentsList(ctx, projectId, keyId, commentsListParameters, optional)
+> []Comment CommentsList(ctx, projectId, keyId, optional)
 
 List comments
 
@@ -386,7 +382,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
-**commentsListParameters** | [**CommentsListParameters**](CommentsListParameters.md)|  | 
  **optional** | ***CommentsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -398,10 +393,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -413,7 +408,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
