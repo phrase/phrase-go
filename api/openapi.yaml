@@ -2659,7 +2659,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: Limit download to tagged keys. This parameter is deprecated.
+      - deprecated: true
+        description: Limit download to tagged keys. This parameter is deprecated.
           Please use the "tags" parameter instead
         example: feature
         explode: true
@@ -2695,7 +2696,8 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: This option is obsolete. Projects that were created on or after
+      - deprecated: true
+        description: This option is obsolete. Projects that were created on or after
           Nov 29th 2019 or that did not contain emoji by then will not require this
           flag any longer since emoji are now supported natively.
         explode: true
@@ -2724,7 +2726,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: Indicates whether the locale file should skip all unverified
+      - deprecated: true
+        description: Indicates whether the locale file should skip all unverified
           translations. This parameter is deprecated and should be replaced with <code>include_unverified_translations</code>.
         explode: true
         in: query
@@ -7636,6 +7639,7 @@ paths:
                     file content. Empty descriptions overwrite existing descriptions.
                   type: boolean
                 convert_emoji:
+                  deprecated: true
                   description: This option is obsolete. Providing the option will
                     cause a bad request error.
                   type: boolean
@@ -13525,11 +13529,13 @@ paths:
                   example: 140
                   type: integer
                 screenshot:
+                  deprecated: true
                   description: Screenshot/image for the key. This parameter is deprecated.
                     Please use the Screenshots endpoint instead.
                   format: binary
                   type: string
                 remove_screenshot:
+                  deprecated: true
                   description: Indicates whether the screenshot will be deleted. This
                     parameter is deprecated. Please use the Screenshots endpoint instead.
                   type: boolean
@@ -14007,11 +14013,13 @@ paths:
                   example: 140
                   type: integer
                 screenshot:
+                  deprecated: true
                   description: Screenshot/image for the key. This parameter is deprecated.
                     Please use the Screenshots endpoint instead.
                   format: binary
                   type: string
                 remove_screenshot:
+                  deprecated: true
                   description: Indicates whether the screenshot will be deleted. This
                     parameter is deprecated. Please use the Screenshots endpoint instead.
                   type: boolean
@@ -20333,6 +20341,7 @@ components:
             Empty descriptions overwrite existing descriptions.
           type: boolean
         convert_emoji:
+          deprecated: true
           description: This option is obsolete. Providing the option will cause a
             bad request error.
           type: boolean
@@ -20716,11 +20725,13 @@ components:
           example: 140
           type: integer
         screenshot:
+          deprecated: true
           description: Screenshot/image for the key. This parameter is deprecated.
             Please use the Screenshots endpoint instead.
           format: binary
           type: string
         remove_screenshot:
+          deprecated: true
           description: Indicates whether the screenshot will be deleted. This parameter
             is deprecated. Please use the Screenshots endpoint instead.
           type: boolean
@@ -20806,11 +20817,13 @@ components:
           example: 140
           type: integer
         screenshot:
+          deprecated: true
           description: Screenshot/image for the key. This parameter is deprecated.
             Please use the Screenshots endpoint instead.
           format: binary
           type: string
         remove_screenshot:
+          deprecated: true
           description: Indicates whether the screenshot will be deleted. This parameter
             is deprecated. Please use the Screenshots endpoint instead.
           type: boolean
