@@ -1141,6 +1141,8 @@ paths:
                   example: abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235
                   type: string
                 permissions:
+                  additionalProperties:
+                    type: string
                   description: Additional permissions depending on invitation role.
                     Available permissions are <code>create_upload</code> and <code>review_translations</code>
                   example:
@@ -1415,6 +1417,8 @@ paths:
                   example: abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235
                   type: string
                 permissions:
+                  additionalProperties:
+                    type: string
                   description: Additional permissions depending on invitation role.
                   example:
                     create_upload: true
@@ -2715,6 +2719,8 @@ paths:
         name: format_options
         required: false
         schema:
+          additionalProperties:
+            type: string
           type: object
         style: form
       - description: Enforces a specific encoding on the file contents. Valid options
@@ -2956,6 +2962,8 @@ paths:
                     type: string
                   type: array
                 format_options:
+                  additionalProperties:
+                    type: string
                   description: Additional formatting and render options. Only <code>enclose_in_cdata</code>
                     is available for platform <code>android</code>.
                   example: '{xml:{enclose_in_cdata:''1''}}'
@@ -3243,6 +3251,8 @@ paths:
                     type: string
                   type: array
                 format_options:
+                  additionalProperties:
+                    type: string
                   description: Additional formatting and render options. Only <code>enclose_in_cdata</code>
                     is available for platform <code>android</code>.
                   example: '{xml:{enclose_in_cdata:''1''}}'
@@ -7656,12 +7666,16 @@ paths:
                     Valid options are "UTF-8", "UTF-16" and "ISO-8859-1".
                   type: string
                 locale_mapping:
+                  additionalProperties:
+                    type: string
                   description: Optional, format specific mapping between locale names
                     and the columns the translations to those locales are contained
                     in.
                   example: '{"en": "2"}'
                   type: object
                 format_options:
+                  additionalProperties:
+                    type: string
                   description: Additional options available for specific formats.
                     See our format guide for complete list.
                   example: '{"foo": "bar"}'
@@ -11366,6 +11380,8 @@ paths:
                   example: abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235
                   type: string
                 permissions:
+                  additionalProperties:
+                    type: string
                   description: Additional permissions depending on member role. Available
                     permissions are <code>create_upload</code> and <code>review_translations</code>
                   example:
@@ -19764,6 +19780,8 @@ components:
           example: abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235
           type: string
         permissions:
+          additionalProperties:
+            type: string
           description: Additional permissions depending on invitation role. Available
             permissions are <code>create_upload</code> and <code>review_translations</code>
           example:
@@ -19787,6 +19805,8 @@ components:
           example: abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235
           type: string
         permissions:
+          additionalProperties:
+            type: string
           description: Additional permissions depending on invitation role.
           example:
             create_upload: true
@@ -19942,6 +19962,8 @@ components:
             type: string
           type: array
         format_options:
+          additionalProperties:
+            type: string
           description: Additional formatting and render options. Only <code>enclose_in_cdata</code>
             is available for platform <code>android</code>.
           example: '{xml:{enclose_in_cdata:''1''}}'
@@ -19981,6 +20003,8 @@ components:
             type: string
           type: array
         format_options:
+          additionalProperties:
+            type: string
           description: Additional formatting and render options. Only <code>enclose_in_cdata</code>
             is available for platform <code>android</code>.
           example: '{xml:{enclose_in_cdata:''1''}}'
@@ -20356,11 +20380,15 @@ components:
             are "UTF-8", "UTF-16" and "ISO-8859-1".
           type: string
         locale_mapping:
+          additionalProperties:
+            type: string
           description: Optional, format specific mapping between locale names and
             the columns the translations to those locales are contained in.
           example: '{"en": "2"}'
           type: object
         format_options:
+          additionalProperties:
+            type: string
           description: Additional options available for specific formats. See our
             format guide for complete list.
           example: '{"foo": "bar"}'
@@ -20579,6 +20607,8 @@ components:
           example: abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235
           type: string
         permissions:
+          additionalProperties:
+            type: string
           description: Additional permissions depending on member role. Available
             permissions are <code>create_upload</code> and <code>review_translations</code>
           example:

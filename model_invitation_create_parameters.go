@@ -10,5 +10,5 @@ type InvitationCreateParameters struct {
 	// List of locale ids the invited user has access to.
 	LocaleIds string `json:"locale_ids,omitempty"`
 	// Additional permissions depending on invitation role. Available permissions are <code>create_upload</code> and <code>review_translations</code>
-	Permissions map[string]interface{} `json:"permissions,omitempty"`
+	Permissions map[string]string `json:"permissions,omitempty"`
 }

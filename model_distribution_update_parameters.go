@@ -8,7 +8,7 @@ type DistributionUpdateParameters struct {
 	// List of platforms the distribution should support.
 	Platforms []string `json:"platforms,omitempty"`
 	// Additional formatting and render options. Only <code>enclose_in_cdata</code> is available for platform <code>android</code>.
-	FormatOptions map[string]interface{} `json:"format_options,omitempty"`
+	FormatOptions map[string]string `json:"format_options,omitempty"`
 	// Indicates whether to fallback to non regional locale when locale can not be found
 	FallbackToNonRegionalLocale bool `json:"fallback_to_non_regional_locale,omitempty"`
 	// Indicates whether to fallback to projects default locale when locale can not be found

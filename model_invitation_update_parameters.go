@@ -8,5 +8,5 @@ type InvitationUpdateParameters struct {
 	// List of locale ids the invited user has access to
 	LocaleIds string `json:"locale_ids,omitempty"`
 	// Additional permissions depending on invitation role.
-	Permissions map[string]interface{} `json:"permissions,omitempty"`
+	Permissions map[string]string `json:"permissions,omitempty"`
 }
