@@ -19,7 +19,7 @@ type GlossaryTermsApiService service
 
 // GlossaryTermCreateOpts Optional parameters for the method 'GlossaryTermCreate'
 type GlossaryTermCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -114,7 +114,7 @@ func (a *GlossaryTermsApiService) GlossaryTermCreate(ctx _context.Context, accou
 
 // GlossaryTermDeleteOpts Optional parameters for the method 'GlossaryTermDelete'
 type GlossaryTermDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -209,7 +209,7 @@ func (a *GlossaryTermsApiService) GlossaryTermDelete(ctx _context.Context, accou
 
 // GlossaryTermShowOpts Optional parameters for the method 'GlossaryTermShow'
 type GlossaryTermShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -325,7 +325,7 @@ func (a *GlossaryTermsApiService) GlossaryTermShow(ctx _context.Context, account
 
 // GlossaryTermUpdateOpts Optional parameters for the method 'GlossaryTermUpdate'
 type GlossaryTermUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -444,9 +444,9 @@ func (a *GlossaryTermsApiService) GlossaryTermUpdate(ctx _context.Context, accou
 
 // GlossaryTermsListOpts Optional parameters for the method 'GlossaryTermsList'
 type GlossaryTermsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

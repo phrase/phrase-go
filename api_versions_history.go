@@ -19,8 +19,8 @@ type VersionsHistoryApiService service
 
 // VersionShowOpts Optional parameters for the method 'VersionShow'
 type VersionShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -140,10 +140,10 @@ func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId 
 
 // VersionsListOpts Optional parameters for the method 'VersionsList'
 type VersionsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*

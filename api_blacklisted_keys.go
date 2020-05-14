@@ -19,7 +19,7 @@ type BlacklistedKeysApiService service
 
 // BlacklistedKeyCreateOpts Optional parameters for the method 'BlacklistedKeyCreate'
 type BlacklistedKeyCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, p
 
 // BlacklistedKeyDeleteOpts Optional parameters for the method 'BlacklistedKeyDelete'
 type BlacklistedKeyDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -203,7 +203,7 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyDelete(ctx _context.Context, p
 
 // BlacklistedKeyShowOpts Optional parameters for the method 'BlacklistedKeyShow'
 type BlacklistedKeyShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -316,7 +316,7 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyShow(ctx _context.Context, pro
 
 // BlacklistedKeyUpdateOpts Optional parameters for the method 'BlacklistedKeyUpdate'
 type BlacklistedKeyUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -432,9 +432,9 @@ func (a *BlacklistedKeysApiService) BlacklistedKeyUpdate(ctx _context.Context, p
 
 // BlacklistedKeysListOpts Optional parameters for the method 'BlacklistedKeysList'
 type BlacklistedKeysListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

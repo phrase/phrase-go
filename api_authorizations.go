@@ -19,7 +19,7 @@ type AuthorizationsApiService service
 
 // AuthorizationCreateOpts Optional parameters for the method 'AuthorizationCreate'
 type AuthorizationCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -108,7 +108,7 @@ func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, aut
 
 // AuthorizationDeleteOpts Optional parameters for the method 'AuthorizationDelete'
 type AuthorizationDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -197,7 +197,7 @@ func (a *AuthorizationsApiService) AuthorizationDelete(ctx _context.Context, id 
 
 // AuthorizationShowOpts Optional parameters for the method 'AuthorizationShow'
 type AuthorizationShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -307,7 +307,7 @@ func (a *AuthorizationsApiService) AuthorizationShow(ctx _context.Context, id st
 
 // AuthorizationUpdateOpts Optional parameters for the method 'AuthorizationUpdate'
 type AuthorizationUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -420,9 +420,9 @@ func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id 
 
 // AuthorizationsListOpts Optional parameters for the method 'AuthorizationsList'
 type AuthorizationsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

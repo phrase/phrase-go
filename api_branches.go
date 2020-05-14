@@ -19,7 +19,7 @@ type BranchesApiService service
 
 // BranchCompareOpts Optional parameters for the method 'BranchCompare'
 type BranchCompareOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId strin
 
 // BranchCreateOpts Optional parameters for the method 'BranchCreate'
 type BranchCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -203,7 +203,7 @@ func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string
 
 // BranchDeleteOpts Optional parameters for the method 'BranchDelete'
 type BranchDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -295,7 +295,7 @@ func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string
 
 // BranchMergeOpts Optional parameters for the method 'BranchMerge'
 type BranchMergeOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -390,7 +390,7 @@ func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string,
 
 // BranchShowOpts Optional parameters for the method 'BranchShow'
 type BranchShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -503,7 +503,7 @@ func (a *BranchesApiService) BranchShow(ctx _context.Context, projectId string, 
 
 // BranchUpdateOpts Optional parameters for the method 'BranchUpdate'
 type BranchUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -619,9 +619,9 @@ func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string
 
 // BranchesListOpts Optional parameters for the method 'BranchesList'
 type BranchesListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

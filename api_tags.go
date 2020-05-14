@@ -19,7 +19,7 @@ type TagsApiService service
 
 // TagCreateOpts Optional parameters for the method 'TagCreate'
 type TagCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,8 +111,8 @@ func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCr
 
 // TagDeleteOpts Optional parameters for the method 'TagDelete'
 type TagDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -208,8 +208,8 @@ func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name 
 
 // TagShowOpts Optional parameters for the method 'TagShow'
 type TagShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -326,10 +326,10 @@ func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name st
 
 // TagsListOpts Optional parameters for the method 'TagsList'
 type TagsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*

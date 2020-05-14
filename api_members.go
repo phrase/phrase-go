@@ -19,7 +19,7 @@ type MembersApiService service
 
 // MemberDeleteOpts Optional parameters for the method 'MemberDelete'
 type MemberDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *MembersApiService) MemberDelete(ctx _context.Context, accountId string,
 
 // MemberShowOpts Optional parameters for the method 'MemberShow'
 type MemberShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -224,7 +224,7 @@ func (a *MembersApiService) MemberShow(ctx _context.Context, accountId string, i
 
 // MemberUpdateOpts Optional parameters for the method 'MemberUpdate'
 type MemberUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -340,9 +340,9 @@ func (a *MembersApiService) MemberUpdate(ctx _context.Context, accountId string,
 
 // MembersListOpts Optional parameters for the method 'MembersList'
 type MembersListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

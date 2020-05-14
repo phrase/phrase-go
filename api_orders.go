@@ -19,7 +19,7 @@ type OrdersApiService service
 
 // OrderConfirmOpts Optional parameters for the method 'OrderConfirm'
 type OrderConfirmOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -135,7 +135,7 @@ func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, 
 
 // OrderCreateOpts Optional parameters for the method 'OrderCreate'
 type OrderCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -227,8 +227,8 @@ func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, o
 
 // OrderDeleteOpts Optional parameters for the method 'OrderDelete'
 type OrderDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -324,8 +324,8 @@ func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, i
 
 // OrderShowOpts Optional parameters for the method 'OrderShow'
 type OrderShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -442,10 +442,10 @@ func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id 
 
 // OrdersListOpts Optional parameters for the method 'OrdersList'
 type OrdersListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*

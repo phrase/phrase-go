@@ -18,7 +18,7 @@ type UsersApiService service
 
 // ShowUserOpts Optional parameters for the method 'ShowUser'
 type ShowUserOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*

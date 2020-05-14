@@ -19,8 +19,8 @@ type GitLabSyncApiService service
 
 // GitlabSyncDeleteOpts Optional parameters for the method 'GitlabSyncDelete'
 type GitlabSyncDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    AccountId optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	AccountId optional.String `json:"account_id,omitempty"`
 }
 
 /*
@@ -113,7 +113,7 @@ func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string,
 
 // GitlabSyncExportOpts Optional parameters for the method 'GitlabSyncExport'
 type GitlabSyncExportOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -226,10 +226,10 @@ func (a *GitLabSyncApiService) GitlabSyncExport(ctx _context.Context, gitlabSync
 
 // GitlabSyncHistoryOpts Optional parameters for the method 'GitlabSyncHistory'
 type GitlabSyncHistoryOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    AccountId optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	AccountId optional.String `json:"account_id,omitempty"`
 }
 
 /*
@@ -351,7 +351,7 @@ func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyn
 
 // GitlabSyncImportOpts Optional parameters for the method 'GitlabSyncImport'
 type GitlabSyncImportOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -464,8 +464,8 @@ func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSync
 
 // GitlabSyncListOpts Optional parameters for the method 'GitlabSyncList'
 type GitlabSyncListOpts struct {
-    XPhraseAppOTP optional.String
-    AccountId optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	AccountId optional.String `json:"account_id,omitempty"`
 }
 
 /*
@@ -576,8 +576,8 @@ func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, localVarOpti
 
 // GitlabSyncShowOpts Optional parameters for the method 'GitlabSyncShow'
 type GitlabSyncShowOpts struct {
-    XPhraseAppOTP optional.String
-    AccountId optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	AccountId optional.String `json:"account_id,omitempty"`
 }
 
 /*
@@ -691,11 +691,11 @@ func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, l
 
 // GitlabSyncUpdateOpts Optional parameters for the method 'GitlabSyncUpdate'
 type GitlabSyncUpdateOpts struct {
-    XPhraseAppOTP optional.String
-    AccountId optional.String
-    PhraseProjectCode optional.String
-    GitlabProjectId optional.Int32
-    GitlabBranchName optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	AccountId optional.String `json:"account_id,omitempty"`
+	PhraseProjectCode optional.String `json:"phrase_project_code,omitempty"`
+	GitlabProjectId optional.Int32 `json:"gitlab_project_id,omitempty"`
+	GitlabBranchName optional.String `json:"gitlab_branch_name,omitempty"`
 }
 
 /*

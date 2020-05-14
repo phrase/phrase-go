@@ -19,7 +19,7 @@ type CommentsApiService service
 
 // CommentCreateOpts Optional parameters for the method 'CommentCreate'
 type CommentCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -114,8 +114,8 @@ func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId strin
 
 // CommentDeleteOpts Optional parameters for the method 'CommentDelete'
 type CommentDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -214,8 +214,8 @@ func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId strin
 
 // CommentMarkCheckOpts Optional parameters for the method 'CommentMarkCheck'
 type CommentMarkCheckOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -314,7 +314,7 @@ func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId st
 
 // CommentMarkReadOpts Optional parameters for the method 'CommentMarkRead'
 type CommentMarkReadOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -412,8 +412,8 @@ func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId str
 
 // CommentMarkUnreadOpts Optional parameters for the method 'CommentMarkUnread'
 type CommentMarkUnreadOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -512,8 +512,8 @@ func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId s
 
 // CommentShowOpts Optional parameters for the method 'CommentShow'
 type CommentShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -633,7 +633,7 @@ func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string,
 
 // CommentUpdateOpts Optional parameters for the method 'CommentUpdate'
 type CommentUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -752,10 +752,10 @@ func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId strin
 
 // CommentsListOpts Optional parameters for the method 'CommentsList'
 type CommentsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*

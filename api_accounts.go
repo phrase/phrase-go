@@ -19,7 +19,7 @@ type AccountsApiService service
 
 // AccountShowOpts Optional parameters for the method 'AccountShow'
 type AccountShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -129,9 +129,9 @@ func (a *AccountsApiService) AccountShow(ctx _context.Context, id string, localV
 
 // AccountsListOpts Optional parameters for the method 'AccountsList'
 type AccountsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

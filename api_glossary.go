@@ -19,9 +19,9 @@ type GlossaryApiService service
 
 // GlossariesListOpts Optional parameters for the method 'GlossariesList'
 type GlossariesListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*
@@ -139,7 +139,7 @@ func (a *GlossaryApiService) GlossariesList(ctx _context.Context, accountId stri
 
 // GlossaryCreateOpts Optional parameters for the method 'GlossaryCreate'
 type GlossaryCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -231,7 +231,7 @@ func (a *GlossaryApiService) GlossaryCreate(ctx _context.Context, accountId stri
 
 // GlossaryDeleteOpts Optional parameters for the method 'GlossaryDelete'
 type GlossaryDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -323,7 +323,7 @@ func (a *GlossaryApiService) GlossaryDelete(ctx _context.Context, accountId stri
 
 // GlossaryShowOpts Optional parameters for the method 'GlossaryShow'
 type GlossaryShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -436,7 +436,7 @@ func (a *GlossaryApiService) GlossaryShow(ctx _context.Context, accountId string
 
 // GlossaryUpdateOpts Optional parameters for the method 'GlossaryUpdate'
 type GlossaryUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*

@@ -19,7 +19,7 @@ type ScreenshotsApiService service
 
 // ScreenshotCreateOpts Optional parameters for the method 'ScreenshotCreate'
 type ScreenshotCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId
 
 // ScreenshotDeleteOpts Optional parameters for the method 'ScreenshotDelete'
 type ScreenshotDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -203,7 +203,7 @@ func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId
 
 // ScreenshotShowOpts Optional parameters for the method 'ScreenshotShow'
 type ScreenshotShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -316,7 +316,7 @@ func (a *ScreenshotsApiService) ScreenshotShow(ctx _context.Context, projectId s
 
 // ScreenshotUpdateOpts Optional parameters for the method 'ScreenshotUpdate'
 type ScreenshotUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -432,9 +432,9 @@ func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId
 
 // ScreenshotsListOpts Optional parameters for the method 'ScreenshotsList'
 type ScreenshotsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

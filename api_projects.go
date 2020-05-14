@@ -19,7 +19,7 @@ type ProjectsApiService service
 
 // ProjectCreateOpts Optional parameters for the method 'ProjectCreate'
 type ProjectCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -108,7 +108,7 @@ func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreatePa
 
 // ProjectDeleteOpts Optional parameters for the method 'ProjectDelete'
 type ProjectDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -197,7 +197,7 @@ func (a *ProjectsApiService) ProjectDelete(ctx _context.Context, id string, loca
 
 // ProjectShowOpts Optional parameters for the method 'ProjectShow'
 type ProjectShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -307,7 +307,7 @@ func (a *ProjectsApiService) ProjectShow(ctx _context.Context, id string, localV
 
 // ProjectUpdateOpts Optional parameters for the method 'ProjectUpdate'
 type ProjectUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -420,9 +420,9 @@ func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, proj
 
 // ProjectsListOpts Optional parameters for the method 'ProjectsList'
 type ProjectsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

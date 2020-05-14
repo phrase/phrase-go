@@ -19,7 +19,7 @@ type ReleasesApiService service
 
 // ReleaseCreateOpts Optional parameters for the method 'ReleaseCreate'
 type ReleaseCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -114,7 +114,7 @@ func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId strin
 
 // ReleaseDeleteOpts Optional parameters for the method 'ReleaseDelete'
 type ReleaseDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -209,7 +209,7 @@ func (a *ReleasesApiService) ReleaseDelete(ctx _context.Context, accountId strin
 
 // ReleasePublishOpts Optional parameters for the method 'ReleasePublish'
 type ReleasePublishOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -325,7 +325,7 @@ func (a *ReleasesApiService) ReleasePublish(ctx _context.Context, accountId stri
 
 // ReleaseShowOpts Optional parameters for the method 'ReleaseShow'
 type ReleaseShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -441,7 +441,7 @@ func (a *ReleasesApiService) ReleaseShow(ctx _context.Context, accountId string,
 
 // ReleaseUpdateOpts Optional parameters for the method 'ReleaseUpdate'
 type ReleaseUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -560,9 +560,9 @@ func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId strin
 
 // ReleasesListOpts Optional parameters for the method 'ReleasesList'
 type ReleasesListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

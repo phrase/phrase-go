@@ -19,7 +19,7 @@ type TranslationsApiService service
 
 // TranslationCreateOpts Optional parameters for the method 'TranslationCreate'
 type TranslationCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *TranslationsApiService) TranslationCreate(ctx _context.Context, project
 
 // TranslationExcludeOpts Optional parameters for the method 'TranslationExclude'
 type TranslationExcludeOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -227,7 +227,7 @@ func (a *TranslationsApiService) TranslationExclude(ctx _context.Context, projec
 
 // TranslationIncludeOpts Optional parameters for the method 'TranslationInclude'
 type TranslationIncludeOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -343,7 +343,7 @@ func (a *TranslationsApiService) TranslationInclude(ctx _context.Context, projec
 
 // TranslationReviewOpts Optional parameters for the method 'TranslationReview'
 type TranslationReviewOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -459,8 +459,8 @@ func (a *TranslationsApiService) TranslationReview(ctx _context.Context, project
 
 // TranslationShowOpts Optional parameters for the method 'TranslationShow'
 type TranslationShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -577,7 +577,7 @@ func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId
 
 // TranslationUnverifyOpts Optional parameters for the method 'TranslationUnverify'
 type TranslationUnverifyOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -693,7 +693,7 @@ func (a *TranslationsApiService) TranslationUnverify(ctx _context.Context, proje
 
 // TranslationUpdateOpts Optional parameters for the method 'TranslationUpdate'
 type TranslationUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -809,7 +809,7 @@ func (a *TranslationsApiService) TranslationUpdate(ctx _context.Context, project
 
 // TranslationVerifyOpts Optional parameters for the method 'TranslationVerify'
 type TranslationVerifyOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -925,13 +925,13 @@ func (a *TranslationsApiService) TranslationVerify(ctx _context.Context, project
 
 // TranslationsByKeyOpts Optional parameters for the method 'TranslationsByKey'
 type TranslationsByKeyOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
-    Sort optional.String
-    Order optional.String
-    Q optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
+	Sort optional.String `json:"sort,omitempty"`
+	Order optional.String `json:"order,omitempty"`
+	Q optional.String `json:"q,omitempty"`
 }
 
 /*
@@ -1068,13 +1068,13 @@ func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, project
 
 // TranslationsByLocaleOpts Optional parameters for the method 'TranslationsByLocale'
 type TranslationsByLocaleOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
-    Sort optional.String
-    Order optional.String
-    Q optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
+	Sort optional.String `json:"sort,omitempty"`
+	Order optional.String `json:"order,omitempty"`
+	Q optional.String `json:"q,omitempty"`
 }
 
 /*
@@ -1211,7 +1211,7 @@ func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, proj
 
 // TranslationsExcludeOpts Optional parameters for the method 'TranslationsExclude'
 type TranslationsExcludeOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -1324,7 +1324,7 @@ func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, proje
 
 // TranslationsIncludeOpts Optional parameters for the method 'TranslationsInclude'
 type TranslationsIncludeOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -1437,13 +1437,13 @@ func (a *TranslationsApiService) TranslationsInclude(ctx _context.Context, proje
 
 // TranslationsListOpts Optional parameters for the method 'TranslationsList'
 type TranslationsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
-    Sort optional.String
-    Order optional.String
-    Q optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
+	Sort optional.String `json:"sort,omitempty"`
+	Order optional.String `json:"order,omitempty"`
+	Q optional.String `json:"q,omitempty"`
 }
 
 /*
@@ -1577,7 +1577,7 @@ func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectI
 
 // TranslationsReviewOpts Optional parameters for the method 'TranslationsReview'
 type TranslationsReviewOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -1690,9 +1690,9 @@ func (a *TranslationsApiService) TranslationsReview(ctx _context.Context, projec
 
 // TranslationsSearchOpts Optional parameters for the method 'TranslationsSearch'
 type TranslationsSearchOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*
@@ -1813,7 +1813,7 @@ func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projec
 
 // TranslationsUnverifyOpts Optional parameters for the method 'TranslationsUnverify'
 type TranslationsUnverifyOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -1926,7 +1926,7 @@ func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, proj
 
 // TranslationsVerifyOpts Optional parameters for the method 'TranslationsVerify'
 type TranslationsVerifyOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*

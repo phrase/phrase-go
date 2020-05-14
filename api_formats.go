@@ -18,7 +18,7 @@ type FormatsApiService service
 
 // FormatsListOpts Optional parameters for the method 'FormatsList'
 type FormatsListOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*

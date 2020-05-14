@@ -19,7 +19,7 @@ type DistributionsApiService service
 
 // DistributionCreateOpts Optional parameters for the method 'DistributionCreate'
 type DistributionCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accou
 
 // DistributionDeleteOpts Optional parameters for the method 'DistributionDelete'
 type DistributionDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -203,7 +203,7 @@ func (a *DistributionsApiService) DistributionDelete(ctx _context.Context, accou
 
 // DistributionShowOpts Optional parameters for the method 'DistributionShow'
 type DistributionShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -316,7 +316,7 @@ func (a *DistributionsApiService) DistributionShow(ctx _context.Context, account
 
 // DistributionUpdateOpts Optional parameters for the method 'DistributionUpdate'
 type DistributionUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -432,9 +432,9 @@ func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accou
 
 // DistributionsListOpts Optional parameters for the method 'DistributionsList'
 type DistributionsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

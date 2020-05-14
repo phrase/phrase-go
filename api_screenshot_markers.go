@@ -19,7 +19,7 @@ type ScreenshotMarkersApiService service
 
 // ScreenshotMarkerCreateOpts Optional parameters for the method 'ScreenshotMarkerCreate'
 type ScreenshotMarkerCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -114,7 +114,7 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Contex
 
 // ScreenshotMarkerDeleteOpts Optional parameters for the method 'ScreenshotMarkerDelete'
 type ScreenshotMarkerDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -206,7 +206,7 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Contex
 
 // ScreenshotMarkerShowOpts Optional parameters for the method 'ScreenshotMarkerShow'
 type ScreenshotMarkerShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -322,7 +322,7 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerShow(ctx _context.Context,
 
 // ScreenshotMarkerUpdateOpts Optional parameters for the method 'ScreenshotMarkerUpdate'
 type ScreenshotMarkerUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -438,9 +438,9 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerUpdate(ctx _context.Contex
 
 // ScreenshotMarkersListOpts Optional parameters for the method 'ScreenshotMarkersList'
 type ScreenshotMarkersListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

@@ -19,7 +19,7 @@ type StyleGuidesApiService service
 
 // StyleguideCreateOpts Optional parameters for the method 'StyleguideCreate'
 type StyleguideCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId
 
 // StyleguideDeleteOpts Optional parameters for the method 'StyleguideDelete'
 type StyleguideDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -203,7 +203,7 @@ func (a *StyleGuidesApiService) StyleguideDelete(ctx _context.Context, projectId
 
 // StyleguideShowOpts Optional parameters for the method 'StyleguideShow'
 type StyleguideShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -316,7 +316,7 @@ func (a *StyleGuidesApiService) StyleguideShow(ctx _context.Context, projectId s
 
 // StyleguideUpdateOpts Optional parameters for the method 'StyleguideUpdate'
 type StyleguideUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -432,9 +432,9 @@ func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId
 
 // StyleguidesListOpts Optional parameters for the method 'StyleguidesList'
 type StyleguidesListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

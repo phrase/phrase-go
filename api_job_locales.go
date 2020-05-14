@@ -19,7 +19,7 @@ type JobLocalesApiService service
 
 // JobLocaleCompleteOpts Optional parameters for the method 'JobLocaleComplete'
 type JobLocaleCompleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -138,8 +138,8 @@ func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId
 
 // JobLocaleDeleteOpts Optional parameters for the method 'JobLocaleDelete'
 type JobLocaleDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -238,7 +238,7 @@ func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId s
 
 // JobLocaleReopenOpts Optional parameters for the method 'JobLocaleReopen'
 type JobLocaleReopenOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -357,8 +357,8 @@ func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId s
 
 // JobLocaleShowOpts Optional parameters for the method 'JobLocaleShow'
 type JobLocaleShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -478,7 +478,7 @@ func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId str
 
 // JobLocaleUpdateOpts Optional parameters for the method 'JobLocaleUpdate'
 type JobLocaleUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -597,7 +597,7 @@ func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId s
 
 // JobLocalesCreateOpts Optional parameters for the method 'JobLocalesCreate'
 type JobLocalesCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -692,10 +692,10 @@ func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId 
 
 // JobLocalesListOpts Optional parameters for the method 'JobLocalesList'
 type JobLocalesListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*

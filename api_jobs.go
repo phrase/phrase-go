@@ -20,7 +20,7 @@ type JobsApiService service
 
 // JobCompleteOpts Optional parameters for the method 'JobComplete'
 type JobCompleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -136,7 +136,7 @@ func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id 
 
 // JobCreateOpts Optional parameters for the method 'JobCreate'
 type JobCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -228,8 +228,8 @@ func (a *JobsApiService) JobCreate(ctx _context.Context, projectId string, jobCr
 
 // JobDeleteOpts Optional parameters for the method 'JobDelete'
 type JobDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -325,7 +325,7 @@ func (a *JobsApiService) JobDelete(ctx _context.Context, projectId string, id st
 
 // JobKeysCreateOpts Optional parameters for the method 'JobKeysCreate'
 type JobKeysCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -441,9 +441,9 @@ func (a *JobsApiService) JobKeysCreate(ctx _context.Context, projectId string, i
 
 // JobKeysDeleteOpts Optional parameters for the method 'JobKeysDelete'
 type JobKeysDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
-    TranslationKeyIds optional.Interface
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
+	TranslationKeyIds optional.Interface `json:"translation_key_ids,omitempty"`
 }
 
 /*
@@ -551,7 +551,7 @@ func (a *JobsApiService) JobKeysDelete(ctx _context.Context, projectId string, i
 
 // JobReopenOpts Optional parameters for the method 'JobReopen'
 type JobReopenOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -667,8 +667,8 @@ func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id st
 
 // JobShowOpts Optional parameters for the method 'JobShow'
 type JobShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -785,7 +785,7 @@ func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id stri
 
 // JobStartOpts Optional parameters for the method 'JobStart'
 type JobStartOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -901,7 +901,7 @@ func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id str
 
 // JobUpdateOpts Optional parameters for the method 'JobUpdate'
 type JobUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -1017,13 +1017,13 @@ func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id st
 
 // JobsListOpts Optional parameters for the method 'JobsList'
 type JobsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
-    OwnedBy optional.String
-    AssignedTo optional.String
-    State optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
+	OwnedBy optional.String `json:"owned_by,omitempty"`
+	AssignedTo optional.String `json:"assigned_to,omitempty"`
+	State optional.String `json:"state,omitempty"`
 }
 
 /*

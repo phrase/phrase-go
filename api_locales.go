@@ -19,7 +19,7 @@ type LocalesApiService service
 
 // LocaleCreateOpts Optional parameters for the method 'LocaleCreate'
 type LocaleCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,8 +111,8 @@ func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string,
 
 // LocaleDeleteOpts Optional parameters for the method 'LocaleDelete'
 type LocaleDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -208,21 +208,21 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 
 // LocaleDownloadOpts Optional parameters for the method 'LocaleDownload'
 type LocaleDownloadOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
-    FileFormat optional.String
-    Tags optional.String
-    Tag optional.String
-    IncludeEmptyTranslations optional.Bool
-    IncludeTranslatedKeys optional.Bool
-    KeepNotranslateTags optional.Bool
-    ConvertEmoji optional.Bool
-    FormatOptions optional.Interface
-    Encoding optional.String
-    SkipUnverifiedTranslations optional.Bool
-    IncludeUnverifiedTranslations optional.Bool
-    UseLastReviewedVersion optional.Bool
-    FallbackLocaleId optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
+	FileFormat optional.String `json:"file_format,omitempty"`
+	Tags optional.String `json:"tags,omitempty"`
+	Tag optional.String `json:"tag,omitempty"`
+	IncludeEmptyTranslations optional.Bool `json:"include_empty_translations,omitempty"`
+	IncludeTranslatedKeys optional.Bool `json:"include_translated_keys,omitempty"`
+	KeepNotranslateTags optional.Bool `json:"keep_notranslate_tags,omitempty"`
+	ConvertEmoji optional.Bool `json:"convert_emoji,omitempty"`
+	FormatOptions optional.Interface `json:"format_options,omitempty"`
+	Encoding optional.String `json:"encoding,omitempty"`
+	SkipUnverifiedTranslations optional.Bool `json:"skip_unverified_translations,omitempty"`
+	IncludeUnverifiedTranslations optional.Bool `json:"include_unverified_translations,omitempty"`
+	UseLastReviewedVersion optional.Bool `json:"use_last_reviewed_version,omitempty"`
+	FallbackLocaleId optional.String `json:"fallback_locale_id,omitempty"`
 }
 
 /*
@@ -370,8 +370,8 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 
 // LocaleShowOpts Optional parameters for the method 'LocaleShow'
 type LocaleShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -488,7 +488,7 @@ func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, i
 
 // LocaleUpdateOpts Optional parameters for the method 'LocaleUpdate'
 type LocaleUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -604,10 +604,10 @@ func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string,
 
 // LocalesListOpts Optional parameters for the method 'LocalesList'
 type LocalesListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*

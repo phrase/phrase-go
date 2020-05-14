@@ -19,7 +19,7 @@ type SpacesApiService service
 
 // SpaceCreateOpts Optional parameters for the method 'SpaceCreate'
 type SpaceCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, s
 
 // SpaceDeleteOpts Optional parameters for the method 'SpaceDelete'
 type SpaceDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -203,7 +203,7 @@ func (a *SpacesApiService) SpaceDelete(ctx _context.Context, accountId string, i
 
 // SpaceShowOpts Optional parameters for the method 'SpaceShow'
 type SpaceShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -316,7 +316,7 @@ func (a *SpacesApiService) SpaceShow(ctx _context.Context, accountId string, id 
 
 // SpaceUpdateOpts Optional parameters for the method 'SpaceUpdate'
 type SpaceUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -432,9 +432,9 @@ func (a *SpacesApiService) SpaceUpdate(ctx _context.Context, accountId string, i
 
 // SpacesListOpts Optional parameters for the method 'SpacesList'
 type SpacesListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*
@@ -552,7 +552,7 @@ func (a *SpacesApiService) SpacesList(ctx _context.Context, accountId string, lo
 
 // SpacesProjectsCreateOpts Optional parameters for the method 'SpacesProjectsCreate'
 type SpacesProjectsCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -647,7 +647,7 @@ func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId 
 
 // SpacesProjectsDeleteOpts Optional parameters for the method 'SpacesProjectsDelete'
 type SpacesProjectsDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -742,9 +742,9 @@ func (a *SpacesApiService) SpacesProjectsDelete(ctx _context.Context, accountId 
 
 // SpacesProjectsListOpts Optional parameters for the method 'SpacesProjectsList'
 type SpacesProjectsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

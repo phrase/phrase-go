@@ -19,7 +19,7 @@ type UploadsApiService service
 
 // UploadCreateOpts Optional parameters for the method 'UploadCreate'
 type UploadCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,8 +111,8 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 
 // UploadShowOpts Optional parameters for the method 'UploadShow'
 type UploadShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -229,10 +229,10 @@ func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, i
 
 // UploadsListOpts Optional parameters for the method 'UploadsList'
 type UploadsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*

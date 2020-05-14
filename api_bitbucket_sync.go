@@ -19,7 +19,7 @@ type BitbucketSyncApiService service
 
 // BitbucketSyncExportOpts Optional parameters for the method 'BitbucketSyncExport'
 type BitbucketSyncExportOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -132,7 +132,7 @@ func (a *BitbucketSyncApiService) BitbucketSyncExport(ctx _context.Context, id s
 
 // BitbucketSyncImportOpts Optional parameters for the method 'BitbucketSyncImport'
 type BitbucketSyncImportOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -224,8 +224,8 @@ func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id s
 
 // BitbucketSyncsListOpts Optional parameters for the method 'BitbucketSyncsList'
 type BitbucketSyncsListOpts struct {
-    XPhraseAppOTP optional.String
-    AccountId optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	AccountId optional.String `json:"account_id,omitempty"`
 }
 
 /*

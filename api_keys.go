@@ -19,7 +19,7 @@ type KeysApiService service
 
 // KeyCreateOpts Optional parameters for the method 'KeyCreate'
 type KeyCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,8 +111,8 @@ func (a *KeysApiService) KeyCreate(ctx _context.Context, projectId string, keyCr
 
 // KeyDeleteOpts Optional parameters for the method 'KeyDelete'
 type KeyDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -208,8 +208,8 @@ func (a *KeysApiService) KeyDelete(ctx _context.Context, projectId string, id st
 
 // KeyShowOpts Optional parameters for the method 'KeyShow'
 type KeyShowOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -326,7 +326,7 @@ func (a *KeysApiService) KeyShow(ctx _context.Context, projectId string, id stri
 
 // KeyUpdateOpts Optional parameters for the method 'KeyUpdate'
 type KeyUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -442,10 +442,10 @@ func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id st
 
 // KeysDeleteOpts Optional parameters for the method 'KeysDelete'
 type KeysDeleteOpts struct {
-    XPhraseAppOTP optional.String
-    Branch optional.String
-    Q optional.String
-    LocaleId optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
+	Q optional.String `json:"q,omitempty"`
+	LocaleId optional.String `json:"locale_id,omitempty"`
 }
 
 /*
@@ -567,14 +567,14 @@ func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, loca
 
 // KeysListOpts Optional parameters for the method 'KeysList'
 type KeysListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
-    Branch optional.String
-    Sort optional.String
-    Order optional.String
-    Q optional.String
-    LocaleId optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Branch optional.String `json:"branch,omitempty"`
+	Sort optional.String `json:"sort,omitempty"`
+	Order optional.String `json:"order,omitempty"`
+	Q optional.String `json:"q,omitempty"`
+	LocaleId optional.String `json:"locale_id,omitempty"`
 }
 
 /*
@@ -712,9 +712,9 @@ func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, localV
 
 // KeysSearchOpts Optional parameters for the method 'KeysSearch'
 type KeysSearchOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*
@@ -835,7 +835,7 @@ func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keys
 
 // KeysTagOpts Optional parameters for the method 'KeysTag'
 type KeysTagOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -948,7 +948,7 @@ func (a *KeysApiService) KeysTag(ctx _context.Context, projectId string, keysTag
 
 // KeysUntagOpts Optional parameters for the method 'KeysUntag'
 type KeysUntagOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*

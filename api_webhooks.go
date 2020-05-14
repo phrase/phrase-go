@@ -19,7 +19,7 @@ type WebhooksApiService service
 
 // WebhookCreateOpts Optional parameters for the method 'WebhookCreate'
 type WebhookCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId strin
 
 // WebhookDeleteOpts Optional parameters for the method 'WebhookDelete'
 type WebhookDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -203,7 +203,7 @@ func (a *WebhooksApiService) WebhookDelete(ctx _context.Context, projectId strin
 
 // WebhookShowOpts Optional parameters for the method 'WebhookShow'
 type WebhookShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -316,7 +316,7 @@ func (a *WebhooksApiService) WebhookShow(ctx _context.Context, projectId string,
 
 // WebhookTestOpts Optional parameters for the method 'WebhookTest'
 type WebhookTestOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -408,7 +408,7 @@ func (a *WebhooksApiService) WebhookTest(ctx _context.Context, projectId string,
 
 // WebhookUpdateOpts Optional parameters for the method 'WebhookUpdate'
 type WebhookUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -524,9 +524,9 @@ func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId strin
 
 // WebhooksListOpts Optional parameters for the method 'WebhooksList'
 type WebhooksListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

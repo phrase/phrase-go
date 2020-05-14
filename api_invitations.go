@@ -19,7 +19,7 @@ type InvitationsApiService service
 
 // InvitationCreateOpts Optional parameters for the method 'InvitationCreate'
 type InvitationCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -111,7 +111,7 @@ func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId
 
 // InvitationDeleteOpts Optional parameters for the method 'InvitationDelete'
 type InvitationDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -203,7 +203,7 @@ func (a *InvitationsApiService) InvitationDelete(ctx _context.Context, accountId
 
 // InvitationResendOpts Optional parameters for the method 'InvitationResend'
 type InvitationResendOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -316,7 +316,7 @@ func (a *InvitationsApiService) InvitationResend(ctx _context.Context, accountId
 
 // InvitationShowOpts Optional parameters for the method 'InvitationShow'
 type InvitationShowOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -429,7 +429,7 @@ func (a *InvitationsApiService) InvitationShow(ctx _context.Context, accountId s
 
 // InvitationUpdateOpts Optional parameters for the method 'InvitationUpdate'
 type InvitationUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -545,9 +545,9 @@ func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId
 
 // InvitationsListOpts Optional parameters for the method 'InvitationsList'
 type InvitationsListOpts struct {
-    XPhraseAppOTP optional.String
-    Page optional.Int32
-    PerPage optional.Int32
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page optional.Int32 `json:"page,omitempty"`
+	PerPage optional.Int32 `json:"per_page,omitempty"`
 }
 
 /*

@@ -19,7 +19,7 @@ type GlossaryTermTranslationsApiService service
 
 // GlossaryTermTranslationCreateOpts Optional parameters for the method 'GlossaryTermTranslationCreate'
 type GlossaryTermTranslationCreateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -117,7 +117,7 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _
 
 // GlossaryTermTranslationDeleteOpts Optional parameters for the method 'GlossaryTermTranslationDelete'
 type GlossaryTermTranslationDeleteOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -215,7 +215,7 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _
 
 // GlossaryTermTranslationUpdateOpts Optional parameters for the method 'GlossaryTermTranslationUpdate'
 type GlossaryTermTranslationUpdateOpts struct {
-    XPhraseAppOTP optional.String
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
