@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## UploadCreate
 
-> UploadCreate(ctx, projectId, uploadCreateParameters, optional)
+> UploadCreate(ctx, projectId, optional)
 
 Upload a new file
 
@@ -25,7 +25,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**uploadCreateParameters** | [**UploadCreateParameters**](UploadCreateParameters.md)|  | 
  **optional** | ***UploadCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -36,8 +35,20 @@ Optional parameters are passed through a pointer to a UploadCreateOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **file** | **optional.Interface of *os.File****optional.*os.File**| File to be imported | 
+ **fileFormat** | **optional.String**| File format. Auto-detected when possible and not specified. | 
+ **localeId** | **optional.String**| Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. | 
+ **tags** | **optional.String**| List of tags separated by comma to be associated with the new keys contained in the upload. | 
+ **updateTranslations** | **optional.Bool**| Indicates whether existing translations should be updated with the file content. | 
+ **updateDescriptions** | **optional.Bool**| Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. | 
+ **convertEmoji** | **optional.Bool**| This option is obsolete. Providing the option will cause a bad request error. | 
+ **skipUploadTags** | **optional.Bool**| Indicates whether the upload should not create upload tags. | 
+ **skipUnverification** | **optional.Bool**| Indicates whether the upload should unverify updated translations. | 
+ **fileEncoding** | **optional.String**| Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. | 
+ **autotranslate** | **optional.Bool**| If set, translations for the uploaded language will be fetched automatically. | 
+ **markReviewed** | **optional.Bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. | 
 
 ### Return type
 
@@ -49,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: multipart/form-data
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
