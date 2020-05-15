@@ -25,4 +25,4 @@ release:
     name: phrase-go
   draft: true
   prerelease: auto
-  name_template: "{{tolower .ProjectName}}-v{{.Version}}"
+  name_template: "v{{.Version}}"
