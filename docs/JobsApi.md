@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ## JobCreate
 
-> JobCreate(ctx, projectId, jobCreateParameters, optional)
+> JobDetails JobCreate(ctx, projectId, jobCreateParameters, optional)
 
 Create a job
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**JobDetails**](job_details.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## GlossaryTermTranslationCreate
 
-> GlossaryTermTranslationCreate(ctx, accountId, glossaryId, termId, glossaryTermTranslationCreateParameters, optional)
+> GlossaryTermTranslation GlossaryTermTranslationCreate(ctx, accountId, glossaryId, termId, glossaryTermTranslationCreateParameters, optional)
 
 Create a glossary term translation
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**GlossaryTermTranslation**](glossary_term_translation.md)
 
 ### Authorization
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

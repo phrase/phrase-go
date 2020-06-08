@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ## GlossaryCreate
 
-> GlossaryCreate(ctx, accountId, glossaryCreateParameters, optional)
+> Glossary GlossaryCreate(ctx, accountId, glossaryCreateParameters, optional)
 
 Create a glossary
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**Glossary**](glossary.md)
 
 ### Authorization
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ScreenshotCreate
 
-> ScreenshotCreate(ctx, projectId, screenshotCreateParameters, optional)
+> Screenshot ScreenshotCreate(ctx, projectId, screenshotCreateParameters, optional)
 
 Create a screenshot
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**Screenshot**](screenshot.md)
 
 ### Authorization
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

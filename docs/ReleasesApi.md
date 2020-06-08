@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ReleaseCreate
 
-> ReleaseCreate(ctx, accountId, distributionId, releaseCreateParameters, optional)
+> Release ReleaseCreate(ctx, accountId, distributionId, releaseCreateParameters, optional)
 
 Create a release
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**Release**](release.md)
 
 ### Authorization
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

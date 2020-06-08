@@ -647,7 +647,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/styleguide_details'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -1192,7 +1196,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invitation'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -2037,7 +2045,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/screenshot_marker'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -2270,7 +2282,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/locale_details'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -3026,7 +3042,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distribution'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -3534,7 +3554,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/release'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -4165,7 +4189,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job_details'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -5158,7 +5186,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/glossary'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -5608,7 +5640,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authorization_with_token'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -6332,7 +6368,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/comment'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -7126,7 +7166,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/webhook'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -7732,7 +7776,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/upload'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -8815,7 +8863,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/glossary_term_translation'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -9217,7 +9269,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/project_details'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -9704,7 +9760,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job_locale'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -10414,7 +10474,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/branch'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -11627,7 +11691,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/screenshot'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -12104,7 +12172,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/glossary_term'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -12596,7 +12668,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tag_with_stats'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -12959,7 +13035,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blacklisted_key'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -13618,7 +13698,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/translation_key_details'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -14588,7 +14672,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/translation_order'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -15056,7 +15144,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/space'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -15506,7 +15598,7 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -15847,7 +15939,11 @@ paths:
         required: true
       responses:
         "201":
-          description: The resource has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/translation_details'
+          description: Created
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'

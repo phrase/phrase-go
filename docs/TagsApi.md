@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## TagCreate
 
-> TagCreate(ctx, projectId, tagCreateParameters, optional)
+> TagWithStats TagCreate(ctx, projectId, tagCreateParameters, optional)
 
 Create a tag
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**TagWithStats**](tag_with_stats.md)
 
 ### Authorization
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

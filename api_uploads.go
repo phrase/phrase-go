@@ -56,14 +56,16 @@ Upload a new language file. Creates necessary resources in your project.
  * @param "FileEncoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \\\"UTF-8\\\", \\\"UTF-16\\\" and \\\"ISO-8859-1\\\".
  * @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
  * @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.
+@return Upload
 */
-func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, localVarOptionals *UploadCreateOpts) ([]byte, *APIResponse, error) {
+func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, localVarOptionals *UploadCreateOpts) (Upload, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
+		localVarReturnValue  Upload
 	)
 
 	// create path and map variables
@@ -84,7 +86,7 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -103,7 +105,7 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 		localVarFileOk := false
 		localVarFile, localVarFileOk = localVarOptionals.File.Value().(*os.File)
 		if !localVarFileOk {
-				return nil, nil, reportError("file should be *os.File")
+				return localVarReturnValue, nil, reportError("file should be *os.File")
 		}
 	}
 	if localVarFile != nil {
@@ -159,18 +161,18 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -178,10 +180,19 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarBody, localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarBody, localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 // UploadShowOpts Optional parameters for the method 'UploadShow'

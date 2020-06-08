@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## BlacklistedKeyCreate
 
-> BlacklistedKeyCreate(ctx, projectId, blacklistedKeyCreateParameters, optional)
+> BlacklistedKey BlacklistedKeyCreate(ctx, projectId, blacklistedKeyCreateParameters, optional)
 
 Create a blacklisted key
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**BlacklistedKey**](blacklisted_key.md)
 
 ### Authorization
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

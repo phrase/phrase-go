@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ProjectCreate
 
-> ProjectCreate(ctx, projectCreateParameters, optional)
+> ProjectDetails ProjectCreate(ctx, projectCreateParameters, optional)
 
 Create a project
 
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**ProjectDetails**](project_details.md)
 
 ### Authorization
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

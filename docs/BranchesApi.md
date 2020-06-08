@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ## BranchCreate
 
-> BranchCreate(ctx, projectId, branchCreateParameters, optional)
+> Branch BranchCreate(ctx, projectId, branchCreateParameters, optional)
 
 Create a branch
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**Branch**](branch.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

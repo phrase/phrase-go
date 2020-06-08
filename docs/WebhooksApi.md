@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## WebhookCreate
 
-> WebhookCreate(ctx, projectId, webhookCreateParameters, optional)
+> Webhook WebhookCreate(ctx, projectId, webhookCreateParameters, optional)
 
 Create a webhook
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**Webhook**](webhook.md)
 
 ### Authorization
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

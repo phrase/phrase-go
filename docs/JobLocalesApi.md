@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ## JobLocalesCreate
 
-> JobLocalesCreate(ctx, projectId, jobId, jobLocalesCreateParameters, optional)
+> JobLocale JobLocalesCreate(ctx, projectId, jobId, jobLocalesCreateParameters, optional)
 
 Create a job locale
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**JobLocale**](job_locale.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

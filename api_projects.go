@@ -29,14 +29,16 @@ Create a new project.
  * @param projectCreateParameters
  * @param optional nil or *ProjectCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+@return ProjectDetails
 */
-func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreateParameters ProjectCreateParameters, localVarOptionals *ProjectCreateOpts) ([]byte, *APIResponse, error) {
+func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreateParameters ProjectCreateParameters, localVarOptionals *ProjectCreateOpts) (ProjectDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
+		localVarReturnValue  ProjectDetails
 	)
 
 	// create path and map variables
@@ -55,7 +57,7 @@ func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreatePa
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -81,18 +83,18 @@ func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreatePa
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -100,10 +102,19 @@ func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreatePa
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarBody, localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarBody, localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 // ProjectDeleteOpts Optional parameters for the method 'ProjectDelete'

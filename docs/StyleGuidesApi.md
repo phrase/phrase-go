@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## StyleguideCreate
 
-> StyleguideCreate(ctx, projectId, styleguideCreateParameters, optional)
+> StyleguideDetails StyleguideCreate(ctx, projectId, styleguideCreateParameters, optional)
 
 Create a style guide
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**StyleguideDetails**](styleguide_details.md)
 
 ### Authorization
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ## OrderCreate
 
-> OrderCreate(ctx, projectId, orderCreateParameters, optional)
+> TranslationOrder OrderCreate(ctx, projectId, orderCreateParameters, optional)
 
 Create a new order
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**TranslationOrder**](translation_order.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

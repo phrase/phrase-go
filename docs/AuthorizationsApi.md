@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## AuthorizationCreate
 
-> AuthorizationCreate(ctx, authorizationCreateParameters, optional)
+> AuthorizationWithToken AuthorizationCreate(ctx, authorizationCreateParameters, optional)
 
 Create an authorization
 
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**AuthorizationWithToken**](authorization_with_token.md)
 
 ### Authorization
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

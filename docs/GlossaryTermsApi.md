@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## GlossaryTermCreate
 
-> GlossaryTermCreate(ctx, accountId, glossaryId, glossaryTermCreateParameters, optional)
+> GlossaryTerm GlossaryTermCreate(ctx, accountId, glossaryId, glossaryTermCreateParameters, optional)
 
 Create a glossary term
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**GlossaryTerm**](glossary_term.md)
 
 ### Authorization
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

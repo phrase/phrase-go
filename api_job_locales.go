@@ -569,14 +569,16 @@ Create a new job locale.
  * @param jobLocalesCreateParameters
  * @param optional nil or *JobLocalesCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+@return JobLocale
 */
-func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId string, jobId string, jobLocalesCreateParameters JobLocalesCreateParameters, localVarOptionals *JobLocalesCreateOpts) ([]byte, *APIResponse, error) {
+func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId string, jobId string, jobLocalesCreateParameters JobLocalesCreateParameters, localVarOptionals *JobLocalesCreateOpts) (JobLocale, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
+		localVarReturnValue  JobLocale
 	)
 
 	// create path and map variables
@@ -599,7 +601,7 @@ func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId 
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -625,18 +627,18 @@ func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -644,10 +646,19 @@ func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarBody, localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarBody, localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 // JobLocalesListOpts Optional parameters for the method 'JobLocalesList'

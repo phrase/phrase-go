@@ -71,7 +71,7 @@ type Configuration struct {
 }
 
 // NewConfiguration returns a new Configuration object
-func NewConfiguration() *Configuration {
+func NewConfiguration(config *Config) *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://api.phrase.com/v2",
 		DefaultHeader: make(map[string]string),
@@ -84,6 +84,15 @@ func NewConfiguration() *Configuration {
 			},
 		},
 	}
+
+	if config.Credentials.Host != "" {
+		cfg.BasePath = config.Credentials.Host
+	}
+
+	if config.Debug {
+		cfg.Debug = config.Debug
+	}
+
 	return cfg
 }
 

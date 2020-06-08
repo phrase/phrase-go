@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## KeyCreate
 
-> KeyCreate(ctx, projectId, keyCreateParameters, optional)
+> TranslationKeyDetails KeyCreate(ctx, projectId, keyCreateParameters, optional)
 
 Create a key
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**TranslationKeyDetails**](translation_key_details.md)
 
 ### Authorization
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
