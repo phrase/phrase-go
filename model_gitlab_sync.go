@@ -8,7 +8,7 @@ type GitlabSync struct {
 	ProjectId string `json:"project_id,omitempty"`
 	GitlabProjectId int32 `json:"gitlab_project_id,omitempty"`
 	GitlabBranchName string `json:"gitlab_branch_name,omitempty"`
-	AutoImport bool `json:"auto_import,omitempty"`
+	AutoImport *bool `json:"auto_import,omitempty"`
 	AutoImportSecret string `json:"auto_import_secret,omitempty"`
 	AutoImportUrl string `json:"auto_import_url,omitempty"`
 	SelfHostedApiUrl string `json:"self_hosted_api_url,omitempty"`

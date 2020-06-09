@@ -16,9 +16,9 @@ type TranslationOrder struct {
 	TargetLocales []LocalePreview `json:"target_locales,omitempty"`
 	Tag string `json:"tag,omitempty"`
 	Styleguide StyleguidePreview `json:"styleguide,omitempty"`
-	UnverifyTranslationsUponDelivery bool `json:"unverify_translations_upon_delivery,omitempty"`
-	Quality bool `json:"quality,omitempty"`
-	Priority bool `json:"priority,omitempty"`
+	UnverifyTranslationsUponDelivery *bool `json:"unverify_translations_upon_delivery,omitempty"`
+	Quality *bool `json:"quality,omitempty"`
+	Priority *bool `json:"priority,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 }

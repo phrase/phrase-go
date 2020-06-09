@@ -18,15 +18,15 @@ type OrderCreateParameters struct {
 	// Style guide for translators to be sent with the order.
 	StyleguideId string `json:"styleguide_id,omitempty"`
 	// Unverify translations upon delivery.
-	UnverifyTranslationsUponDelivery bool `json:"unverify_translations_upon_delivery,omitempty"`
+	UnverifyTranslationsUponDelivery *bool `json:"unverify_translations_upon_delivery,omitempty"`
 	// Order translations for keys with untranslated content in the selected target locales.
-	IncludeUntranslatedKeys bool `json:"include_untranslated_keys,omitempty"`
+	IncludeUntranslatedKeys *bool `json:"include_untranslated_keys,omitempty"`
 	// Order translations for keys with unverified content in the selected target locales.
-	IncludeUnverifiedTranslations bool `json:"include_unverified_translations,omitempty"`
+	IncludeUnverifiedTranslations *bool `json:"include_unverified_translations,omitempty"`
 	// Category to use (required for orders processed by TextMaster).
 	Category string `json:"category,omitempty"`
 	// Extra proofreading option to ensure consistency in vocabulary and style. Only available for orders processed by TextMaster.
-	Quality bool `json:"quality,omitempty"`
+	Quality *bool `json:"quality,omitempty"`
 	// Indicates whether the priority option should be ordered which decreases turnaround time by 30%. Available only for orders processed by TextMaster.
-	Priority bool `json:"priority,omitempty"`
+	Priority *bool `json:"priority,omitempty"`
 }

@@ -6,8 +6,8 @@ import (
 type Translation struct {
 	Id string `json:"id,omitempty"`
 	Content string `json:"content,omitempty"`
-	Unverified bool `json:"unverified,omitempty"`
-	Excluded bool `json:"excluded,omitempty"`
+	Unverified *bool `json:"unverified,omitempty"`
+	Excluded *bool `json:"excluded,omitempty"`
 	PluralSuffix string `json:"plural_suffix,omitempty"`
 	Key KeyPreview `json:"key,omitempty"`
 	Locale LocalePreview `json:"locale,omitempty"`

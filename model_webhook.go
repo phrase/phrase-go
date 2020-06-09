@@ -8,7 +8,7 @@ type Webhook struct {
 	CallbackUrl string `json:"callback_url,omitempty"`
 	Description string `json:"description,omitempty"`
 	Events []string `json:"events,omitempty"`
-	Active bool `json:"active,omitempty"`
+	Active *bool `json:"active,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 }

@@ -1,14 +1,14 @@
-# \GlossaryApi
+# \GlossariesApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GlossariesList**](GlossaryApi.md#GlossariesList) | **Get** /accounts/{account_id}/glossaries | List glossaries
-[**GlossaryCreate**](GlossaryApi.md#GlossaryCreate) | **Post** /accounts/{account_id}/glossaries | Create a glossary
-[**GlossaryDelete**](GlossaryApi.md#GlossaryDelete) | **Delete** /accounts/{account_id}/glossaries/{id} | Delete a glossary
-[**GlossaryShow**](GlossaryApi.md#GlossaryShow) | **Get** /accounts/{account_id}/glossaries/{id} | Get a single glossary
-[**GlossaryUpdate**](GlossaryApi.md#GlossaryUpdate) | **Patch** /accounts/{account_id}/glossaries/{id} | Update a glossary
+[**GlossariesList**](GlossariesApi.md#GlossariesList) | **Get** /accounts/{account_id}/glossaries | List glossaries
+[**GlossaryCreate**](GlossariesApi.md#GlossaryCreate) | **Post** /accounts/{account_id}/glossaries | Create a glossary
+[**GlossaryDelete**](GlossariesApi.md#GlossaryDelete) | **Delete** /accounts/{account_id}/glossaries/{id} | Delete a glossary
+[**GlossaryShow**](GlossariesApi.md#GlossaryShow) | **Get** /accounts/{account_id}/glossaries/{id} | Get a single glossary
+[**GlossaryUpdate**](GlossariesApi.md#GlossaryUpdate) | **Patch** /accounts/{account_id}/glossaries/{id} | Update a glossary
 
 
 

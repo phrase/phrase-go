@@ -5130,7 +5130,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: List glossaries
       tags:
-      - Glossary
+      - Glossaries
       x-code-samples:
       - lang: Curl
         source: |-
@@ -5227,7 +5227,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Create a glossary
       tags:
-      - Glossary
+      - Glossaries
       x-code-samples:
       - lang: Curl
         source: |-
@@ -5310,7 +5310,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Delete a glossary
       tags:
-      - Glossary
+      - Glossaries
       x-code-samples:
       - lang: Curl
         source: |-
@@ -5390,7 +5390,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Get a single glossary
       tags:
-      - Glossary
+      - Glossaries
       x-code-samples:
       - lang: Curl
         source: |-
@@ -5495,7 +5495,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Update a glossary
       tags:
-      - Glossary
+      - Glossaries
       x-code-samples:
       - lang: Curl
         source: |-
@@ -21561,7 +21561,7 @@ x-tagGroups:
   - Branches
 - name: Quality
   tags:
-  - Glossary
+  - Glossaries
   - Glossary Terms
   - Glossary Term Translations
 - name: Integrations

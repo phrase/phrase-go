@@ -56,7 +56,7 @@ type APIClient struct {
 
 	GitLabSyncApi *GitLabSyncApiService
 
-	GlossaryApi *GlossaryApiService
+	GlossariesApi *GlossariesApiService
 
 	GlossaryTermTranslationsApi *GlossaryTermTranslationsApiService
 
@@ -126,7 +126,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DistributionsApi = (*DistributionsApiService)(&c.common)
 	c.FormatsApi = (*FormatsApiService)(&c.common)
 	c.GitLabSyncApi = (*GitLabSyncApiService)(&c.common)
-	c.GlossaryApi = (*GlossaryApiService)(&c.common)
+	c.GlossariesApi = (*GlossariesApiService)(&c.common)
 	c.GlossaryTermTranslationsApi = (*GlossaryTermTranslationsApiService)(&c.common)
 	c.GlossaryTermsApi = (*GlossaryTermsApiService)(&c.common)
 	c.InvitationsApi = (*InvitationsApiService)(&c.common)

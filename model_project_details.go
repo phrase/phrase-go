@@ -12,5 +12,5 @@ type ProjectDetails struct {
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 	Slug string `json:"slug,omitempty"`
-	SharesTranslationMemory bool `json:"shares_translation_memory,omitempty"`
+	SharesTranslationMemory *bool `json:"shares_translation_memory,omitempty"`
 }

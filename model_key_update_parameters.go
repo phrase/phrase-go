@@ -11,7 +11,7 @@ type KeyUpdateParameters struct {
 	// Key description (usually includes contextual information for translators)
 	Description string `json:"description,omitempty"`
 	// Indicates whether key supports pluralization
-	Plural bool `json:"plural,omitempty"`
+	Plural *bool `json:"plural,omitempty"`
 	// Plural name for the key (used in some file formats, e.g. Gettext)
 	NamePlural string `json:"name_plural,omitempty"`
 	// Type of the key. Can be one of the following: string, number, boolean, array, markdown.
@@ -23,11 +23,11 @@ type KeyUpdateParameters struct {
 	// Screenshot/image for the key. This parameter is deprecated. Please use the Screenshots endpoint instead.
 	Screenshot *os.File `json:"screenshot,omitempty"`
 	// Indicates whether the screenshot will be deleted. This parameter is deprecated. Please use the Screenshots endpoint instead.
-	RemoveScreenshot bool `json:"remove_screenshot,omitempty"`
+	RemoveScreenshot *bool `json:"remove_screenshot,omitempty"`
 	// Indicates whether the key should be exported as \"unformatted\". Supported by Android XML and other formats.
-	Unformatted bool `json:"unformatted,omitempty"`
+	Unformatted *bool `json:"unformatted,omitempty"`
 	// Indicates whether the key should be exported with \"xml:space=preserve\". Supported by several XML-based formats.
-	XmlSpacePreserve bool `json:"xml_space_preserve,omitempty"`
+	XmlSpacePreserve *bool `json:"xml_space_preserve,omitempty"`
 	// Original file attribute. Used in some formats, e.g. XLIFF.
 	OriginalFile string `json:"original_file,omitempty"`
 	// NSStringLocalizedFormatKey attribute. Used in .stringsdict format.

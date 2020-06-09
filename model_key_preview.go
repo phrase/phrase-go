@@ -3,5 +3,5 @@ package phrase
 type KeyPreview struct {
 	Id string `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
-	Plural bool `json:"plural,omitempty"`
+	Plural *bool `json:"plural,omitempty"`
 }

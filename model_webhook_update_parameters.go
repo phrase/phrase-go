@@ -8,5 +8,5 @@ type WebhookUpdateParameters struct {
 	// List of event names to trigger the webhook (separated by comma)
 	Events string `json:"events,omitempty"`
 	// Whether webhook is active or inactive
-	Active bool `json:"active,omitempty"`
+	Active *bool `json:"active,omitempty"`
 }
