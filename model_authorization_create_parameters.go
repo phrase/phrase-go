@@ -1,7 +1,9 @@
 package phrase
+
 import (
 	"time"
 )
+
 // AuthorizationCreateParameters struct for AuthorizationCreateParameters
 type AuthorizationCreateParameters struct {
 	// A note to help you remember what the access is used for.

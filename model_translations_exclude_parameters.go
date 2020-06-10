@@ -1,4 +1,5 @@
 package phrase
+
 // TranslationsExcludeParameters struct for TranslationsExcludeParameters
 type TranslationsExcludeParameters struct {
 	// specify the branch to use

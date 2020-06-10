@@ -1,4 +1,5 @@
 package phrase
+
 // TranslationsReviewParameters struct for TranslationsReviewParameters
 type TranslationsReviewParameters struct {
 	// specify the branch to use

@@ -1,7 +1,9 @@
 package phrase
+
 import (
 	"time"
 )
+
 // JobCreateParameters struct for JobCreateParameters
 type JobCreateParameters struct {
 	// specify the branch to use

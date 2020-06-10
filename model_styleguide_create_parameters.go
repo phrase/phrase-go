@@ -1,4 +1,5 @@
 package phrase
+
 // StyleguideCreateParameters struct for StyleguideCreateParameters
 type StyleguideCreateParameters struct {
 	// Style guide title

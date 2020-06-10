@@ -1,4 +1,5 @@
 package phrase
+
 // ReleaseUpdateParameters struct for ReleaseUpdateParameters
 type ReleaseUpdateParameters struct {
 	// Description of the release

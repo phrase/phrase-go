@@ -1,7 +1,9 @@
 package phrase
+
 import (
 	"os"
 )
+
 // KeyUpdateParameters struct for KeyUpdateParameters
 type KeyUpdateParameters struct {
 	// specify the branch to use

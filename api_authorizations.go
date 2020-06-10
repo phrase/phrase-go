@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -141,7 +142,7 @@ func (a *AuthorizationsApiService) AuthorizationDelete(ctx _context.Context, id 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/authorizations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -232,7 +233,7 @@ func (a *AuthorizationsApiService) AuthorizationShow(ctx _context.Context, id st
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/authorizations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -333,7 +334,7 @@ func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/authorizations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -412,8 +413,8 @@ func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id 
 // AuthorizationsListOpts Optional parameters for the method 'AuthorizationsList'
 type AuthorizationsListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page optional.Int32 `json:"page,omitempty"`
-	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
 }
 
 /*

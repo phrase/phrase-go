@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -44,7 +45,7 @@ func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/spaces"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -145,9 +146,9 @@ func (a *SpacesApiService) SpaceDelete(ctx _context.Context, accountId string, i
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/spaces/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -239,9 +240,9 @@ func (a *SpacesApiService) SpaceShow(ctx _context.Context, accountId string, id 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/spaces/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -343,9 +344,9 @@ func (a *SpacesApiService) SpaceUpdate(ctx _context.Context, accountId string, i
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/spaces/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -424,8 +425,8 @@ func (a *SpacesApiService) SpaceUpdate(ctx _context.Context, accountId string, i
 // SpacesListOpts Optional parameters for the method 'SpacesList'
 type SpacesListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page optional.Int32 `json:"page,omitempty"`
-	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
 }
 
 /*
@@ -451,7 +452,7 @@ func (a *SpacesApiService) SpacesList(ctx _context.Context, accountId string, lo
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/spaces"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -557,9 +558,9 @@ func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/spaces/{space_id}/projects"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"space_id"+"}", _neturl.QueryEscape(parameterToString(spaceId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"space_id"+"}", _neturl.QueryEscape(parameterToString(spaceId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -652,11 +653,11 @@ func (a *SpacesApiService) SpacesProjectsDelete(ctx _context.Context, accountId 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/spaces/{space_id}/projects/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"space_id"+"}", _neturl.QueryEscape(parameterToString(spaceId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"space_id"+"}", _neturl.QueryEscape(parameterToString(spaceId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -724,8 +725,8 @@ func (a *SpacesApiService) SpacesProjectsDelete(ctx _context.Context, accountId 
 // SpacesProjectsListOpts Optional parameters for the method 'SpacesProjectsList'
 type SpacesProjectsListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page optional.Int32 `json:"page,omitempty"`
-	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
 }
 
 /*
@@ -752,9 +753,9 @@ func (a *SpacesApiService) SpacesProjectsList(ctx _context.Context, accountId st
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/spaces/{space_id}/projects"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"space_id"+"}", _neturl.QueryEscape(parameterToString(spaceId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"space_id"+"}", _neturl.QueryEscape(parameterToString(spaceId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

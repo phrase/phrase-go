@@ -1,4 +1,5 @@
 package phrase
+
 // StyleguideUpdateParameters struct for StyleguideUpdateParameters
 type StyleguideUpdateParameters struct {
 	// Style guide title

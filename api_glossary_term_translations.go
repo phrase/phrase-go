@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -46,11 +47,11 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"term_id"+"}", _neturl.QueryEscape(parameterToString(termId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"term_id"+"}", _neturl.QueryEscape(parameterToString(termId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -153,13 +154,13 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"term_id"+"}", _neturl.QueryEscape(parameterToString(termId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"term_id"+"}", _neturl.QueryEscape(parameterToString(termId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -254,13 +255,13 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationUpdate(ctx _
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"term_id"+"}", _neturl.QueryEscape(parameterToString(termId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"term_id"+"}", _neturl.QueryEscape(parameterToString(termId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

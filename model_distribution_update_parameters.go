@@ -1,4 +1,5 @@
 package phrase
+
 // DistributionUpdateParameters struct for DistributionUpdateParameters
 type DistributionUpdateParameters struct {
 	// Name of the distribution

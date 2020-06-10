@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -45,9 +46,9 @@ func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId strin
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/distributions/{distribution_id}/releases"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -149,11 +150,11 @@ func (a *ReleasesApiService) ReleaseDelete(ctx _context.Context, accountId strin
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/distributions/{distribution_id}/releases/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -246,11 +247,11 @@ func (a *ReleasesApiService) ReleasePublish(ctx _context.Context, accountId stri
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/distributions/{distribution_id}/releases/{id}/publish"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -352,11 +353,11 @@ func (a *ReleasesApiService) ReleaseShow(ctx _context.Context, accountId string,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/distributions/{distribution_id}/releases/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -459,11 +460,11 @@ func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId strin
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/distributions/{distribution_id}/releases/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -542,8 +543,8 @@ func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId strin
 // ReleasesListOpts Optional parameters for the method 'ReleasesList'
 type ReleasesListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page optional.Int32 `json:"page,omitempty"`
-	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
 }
 
 /*
@@ -570,9 +571,9 @@ func (a *ReleasesApiService) ReleasesList(ctx _context.Context, accountId string
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/distributions/{distribution_id}/releases"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"distribution_id"+"}", _neturl.QueryEscape(parameterToString(distributionId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

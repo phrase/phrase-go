@@ -1,4 +1,5 @@
 package phrase
+
 // WebhookCreateParameters struct for WebhookCreateParameters
 type WebhookCreateParameters struct {
 	// Callback URL to send requests to

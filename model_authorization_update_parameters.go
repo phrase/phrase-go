@@ -1,7 +1,9 @@
 package phrase
+
 import (
 	"time"
 )
+
 // AuthorizationUpdateParameters struct for AuthorizationUpdateParameters
 type AuthorizationUpdateParameters struct {
 	// A note to help you remember what the access is used for.

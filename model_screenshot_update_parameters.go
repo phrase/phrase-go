@@ -1,7 +1,9 @@
 package phrase
+
 import (
 	"os"
 )
+
 // ScreenshotUpdateParameters struct for ScreenshotUpdateParameters
 type ScreenshotUpdateParameters struct {
 	// Name of the screenshot

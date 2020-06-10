@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -46,11 +47,11 @@ func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locales/{id}/complete"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -129,7 +130,7 @@ func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId
 // JobLocaleDeleteOpts Optional parameters for the method 'JobLocaleDelete'
 type JobLocaleDeleteOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Branch optional.String `json:"branch,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -154,11 +155,11 @@ func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locales/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -255,11 +256,11 @@ func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locales/{id}/reopen"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -338,7 +339,7 @@ func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId s
 // JobLocaleShowOpts Optional parameters for the method 'JobLocaleShow'
 type JobLocaleShowOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Branch optional.String `json:"branch,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -365,11 +366,11 @@ func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId str
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locale/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -475,11 +476,11 @@ func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locales/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -583,9 +584,9 @@ func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locales"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -664,9 +665,9 @@ func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId 
 // JobLocalesListOpts Optional parameters for the method 'JobLocalesList'
 type JobLocalesListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page optional.Int32 `json:"page,omitempty"`
-	PerPage optional.Int32 `json:"per_page,omitempty"`
-	Branch optional.String `json:"branch,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -694,9 +695,9 @@ func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId st
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locales"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

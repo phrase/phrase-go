@@ -1,4 +1,5 @@
 package phrase
+
 // LocaleCreateParameters struct for LocaleCreateParameters
 type LocaleCreateParameters struct {
 	// specify the branch to use

@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -20,7 +21,7 @@ type VersionsHistoryApiService service
 // VersionShowOpts Optional parameters for the method 'VersionShow'
 type VersionShowOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Branch optional.String `json:"branch,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -47,11 +48,11 @@ func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/translations/{translation_id}/versions/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"translation_id"+"}", _neturl.QueryEscape(parameterToString(translationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"translation_id"+"}", _neturl.QueryEscape(parameterToString(translationId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -131,9 +132,9 @@ func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId 
 // VersionsListOpts Optional parameters for the method 'VersionsList'
 type VersionsListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page optional.Int32 `json:"page,omitempty"`
-	PerPage optional.Int32 `json:"per_page,omitempty"`
-	Branch optional.String `json:"branch,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -161,9 +162,9 @@ func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/translations/{translation_id}/versions"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"translation_id"+"}", _neturl.QueryEscape(parameterToString(translationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"translation_id"+"}", _neturl.QueryEscape(parameterToString(translationId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

@@ -1,4 +1,5 @@
 package phrase
+
 // TranslationsSearchParameters struct for TranslationsSearchParameters
 type TranslationsSearchParameters struct {
 	// specify the branch to use

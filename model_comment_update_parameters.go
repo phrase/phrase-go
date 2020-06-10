@@ -1,4 +1,5 @@
 package phrase
+
 // CommentUpdateParameters struct for CommentUpdateParameters
 type CommentUpdateParameters struct {
 	// specify the branch to use

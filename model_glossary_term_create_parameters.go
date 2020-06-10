@@ -1,4 +1,5 @@
 package phrase
+
 // GlossaryTermCreateParameters struct for GlossaryTermCreateParameters
 type GlossaryTermCreateParameters struct {
 	// Glossary term

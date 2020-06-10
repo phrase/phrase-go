@@ -1,4 +1,5 @@
 package phrase
+
 // TranslationCreateParameters struct for TranslationCreateParameters
 type TranslationCreateParameters struct {
 	// specify the branch to use

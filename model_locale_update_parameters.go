@@ -1,4 +1,5 @@
 package phrase
+
 // LocaleUpdateParameters struct for LocaleUpdateParameters
 type LocaleUpdateParameters struct {
 	// specify the branch to use

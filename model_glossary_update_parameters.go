@@ -1,4 +1,5 @@
 package phrase
+
 // GlossaryUpdateParameters struct for GlossaryUpdateParameters
 type GlossaryUpdateParameters struct {
 	// Name of the glossary

@@ -1,7 +1,9 @@
 package phrase
+
 import (
 	"os"
 )
+
 // ProjectUpdateParameters struct for ProjectUpdateParameters
 type ProjectUpdateParameters struct {
 	// Name of the project

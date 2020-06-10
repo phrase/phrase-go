@@ -1,4 +1,5 @@
 package phrase
+
 // SpaceCreateParameters struct for SpaceCreateParameters
 type SpaceCreateParameters struct {
 	// Name of the space

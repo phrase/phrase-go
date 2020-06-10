@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -45,9 +46,9 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/screenshots/{screenshot_id}/markers"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"screenshot_id"+"}", _neturl.QueryEscape(parameterToString(screenshotId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"screenshot_id"+"}", _neturl.QueryEscape(parameterToString(screenshotId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -148,9 +149,9 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/screenshots/{screenshot_id}/markers"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"screenshot_id"+"}", _neturl.QueryEscape(parameterToString(screenshotId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"screenshot_id"+"}", _neturl.QueryEscape(parameterToString(screenshotId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -243,11 +244,11 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerShow(ctx _context.Context,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/screenshots/{screenshot_id}/markers/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"screenshot_id"+"}", _neturl.QueryEscape(parameterToString(screenshotId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"screenshot_id"+"}", _neturl.QueryEscape(parameterToString(screenshotId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -349,9 +350,9 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerUpdate(ctx _context.Contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/screenshots/{screenshot_id}/markers"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"screenshot_id"+"}", _neturl.QueryEscape(parameterToString(screenshotId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"screenshot_id"+"}", _neturl.QueryEscape(parameterToString(screenshotId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -430,8 +431,8 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerUpdate(ctx _context.Contex
 // ScreenshotMarkersListOpts Optional parameters for the method 'ScreenshotMarkersList'
 type ScreenshotMarkersListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page optional.Int32 `json:"page,omitempty"`
-	PerPage optional.Int32 `json:"per_page,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
 }
 
 /*
@@ -458,9 +459,9 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkersList(ctx _context.Context
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/screenshots/{id}/markers"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

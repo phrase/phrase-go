@@ -1,7 +1,9 @@
 package phrase
+
 import (
 	"os"
 )
+
 // ProjectCreateParameters struct for ProjectCreateParameters
 type ProjectCreateParameters struct {
 	// Name of the project

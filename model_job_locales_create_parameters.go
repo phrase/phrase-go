@@ -1,4 +1,5 @@
 package phrase
+
 // JobLocalesCreateParameters struct for JobLocalesCreateParameters
 type JobLocalesCreateParameters struct {
 	// specify the branch to use

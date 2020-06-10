@@ -1,4 +1,5 @@
 package phrase
+
 // TranslationUpdateParameters struct for TranslationUpdateParameters
 type TranslationUpdateParameters struct {
 	// specify the branch to use

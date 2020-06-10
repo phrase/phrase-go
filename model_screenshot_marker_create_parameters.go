@@ -1,4 +1,5 @@
 package phrase
+
 // ScreenshotMarkerCreateParameters struct for ScreenshotMarkerCreateParameters
 type ScreenshotMarkerCreateParameters struct {
 	// Specify the Key ID which should be highlighted on the specified screenshot. The Key must belong to the project.

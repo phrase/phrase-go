@@ -1,4 +1,5 @@
 package phrase
+
 // InvitationUpdateParameters struct for InvitationUpdateParameters
 type InvitationUpdateParameters struct {
 	// Invitiation role, can be any of Manager, Developer, Translator

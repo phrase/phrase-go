@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -44,7 +45,7 @@ func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/locales"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -123,7 +124,7 @@ func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string,
 // LocaleDeleteOpts Optional parameters for the method 'LocaleDelete'
 type LocaleDeleteOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Branch optional.String `json:"branch,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -147,9 +148,9 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/locales/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -219,21 +220,21 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 
 // LocaleDownloadOpts Optional parameters for the method 'LocaleDownload'
 type LocaleDownloadOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Branch optional.String `json:"branch,omitempty"`
-	FileFormat optional.String `json:"file_format,omitempty"`
-	Tags optional.String `json:"tags,omitempty"`
-	Tag optional.String `json:"tag,omitempty"`
-	IncludeEmptyTranslations optional.Bool `json:"include_empty_translations,omitempty"`
-	IncludeTranslatedKeys optional.Bool `json:"include_translated_keys,omitempty"`
-	KeepNotranslateTags optional.Bool `json:"keep_notranslate_tags,omitempty"`
-	ConvertEmoji optional.Bool `json:"convert_emoji,omitempty"`
-	FormatOptions optional.Interface `json:"format_options,omitempty"`
-	Encoding optional.String `json:"encoding,omitempty"`
-	SkipUnverifiedTranslations optional.Bool `json:"skip_unverified_translations,omitempty"`
-	IncludeUnverifiedTranslations optional.Bool `json:"include_unverified_translations,omitempty"`
-	UseLastReviewedVersion optional.Bool `json:"use_last_reviewed_version,omitempty"`
-	FallbackLocaleId optional.String `json:"fallback_locale_id,omitempty"`
+	XPhraseAppOTP                 optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	Branch                        optional.String    `json:"branch,omitempty"`
+	FileFormat                    optional.String    `json:"file_format,omitempty"`
+	Tags                          optional.String    `json:"tags,omitempty"`
+	Tag                           optional.String    `json:"tag,omitempty"`
+	IncludeEmptyTranslations      optional.Bool      `json:"include_empty_translations,omitempty"`
+	IncludeTranslatedKeys         optional.Bool      `json:"include_translated_keys,omitempty"`
+	KeepNotranslateTags           optional.Bool      `json:"keep_notranslate_tags,omitempty"`
+	ConvertEmoji                  optional.Bool      `json:"convert_emoji,omitempty"`
+	FormatOptions                 optional.Interface `json:"format_options,omitempty"`
+	Encoding                      optional.String    `json:"encoding,omitempty"`
+	SkipUnverifiedTranslations    optional.Bool      `json:"skip_unverified_translations,omitempty"`
+	IncludeUnverifiedTranslations optional.Bool      `json:"include_unverified_translations,omitempty"`
+	UseLastReviewedVersion        optional.Bool      `json:"use_last_reviewed_version,omitempty"`
+	FallbackLocaleId              optional.String    `json:"fallback_locale_id,omitempty"`
 }
 
 /*
@@ -270,9 +271,9 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/locales/{id}/download"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -382,7 +383,7 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 // LocaleShowOpts Optional parameters for the method 'LocaleShow'
 type LocaleShowOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Branch optional.String `json:"branch,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -408,9 +409,9 @@ func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, i
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/locales/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -515,9 +516,9 @@ func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/locales/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -596,9 +597,9 @@ func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string,
 // LocalesListOpts Optional parameters for the method 'LocalesList'
 type LocalesListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page optional.Int32 `json:"page,omitempty"`
-	PerPage optional.Int32 `json:"per_page,omitempty"`
-	Branch optional.String `json:"branch,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -625,7 +626,7 @@ func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/locales"
-	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

@@ -1,4 +1,5 @@
 package phrase
+
 // InvitationCreateParameters struct for InvitationCreateParameters
 type InvitationCreateParameters struct {
 	// The email of the invited user. The <code>email</code> can not be updated once created. Create a new invitation for each unique email.

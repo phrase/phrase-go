@@ -1,4 +1,5 @@
 package phrase
+
 // SpaceUpdateParameters struct for SpaceUpdateParameters
 type SpaceUpdateParameters struct {
 	// New name of the space

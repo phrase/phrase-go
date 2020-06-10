@@ -1,7 +1,9 @@
 package phrase
+
 import (
 	"time"
 )
+
 // JobUpdateParameters struct for JobUpdateParameters
 type JobUpdateParameters struct {
 	// specify the branch to use

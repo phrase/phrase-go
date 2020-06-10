@@ -1,4 +1,5 @@
 package phrase
+
 // GlossaryTermTranslationCreateParameters struct for GlossaryTermTranslationCreateParameters
 type GlossaryTermTranslationCreateParameters struct {
 	// Identifies the language for this translation

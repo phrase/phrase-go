@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -20,7 +21,7 @@ type GitLabSyncApiService service
 // GitlabSyncDeleteOpts Optional parameters for the method 'GitlabSyncDelete'
 type GitlabSyncDeleteOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	AccountId optional.String `json:"account_id,omitempty"`
+	AccountId     optional.String `json:"account_id,omitempty"`
 }
 
 /*
@@ -43,7 +44,7 @@ func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/gitlab_syncs/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -138,7 +139,7 @@ func (a *GitLabSyncApiService) GitlabSyncExport(ctx _context.Context, gitlabSync
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/gitlab_syncs/{gitlab_sync_id}/export"
-	localVarPath = strings.Replace(localVarPath, "{"+"gitlab_sync_id"+"}", _neturl.QueryEscape(parameterToString(gitlabSyncId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"gitlab_sync_id"+"}", _neturl.QueryEscape(parameterToString(gitlabSyncId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -217,9 +218,9 @@ func (a *GitLabSyncApiService) GitlabSyncExport(ctx _context.Context, gitlabSync
 // GitlabSyncHistoryOpts Optional parameters for the method 'GitlabSyncHistory'
 type GitlabSyncHistoryOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page optional.Int32 `json:"page,omitempty"`
-	PerPage optional.Int32 `json:"per_page,omitempty"`
-	AccountId optional.String `json:"account_id,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	AccountId     optional.String `json:"account_id,omitempty"`
 }
 
 /*
@@ -246,7 +247,7 @@ func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyn
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/gitlab_syncs/{gitlab_sync_id}/history"
-	localVarPath = strings.Replace(localVarPath, "{"+"gitlab_sync_id"+"}", _neturl.QueryEscape(parameterToString(gitlabSyncId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"gitlab_sync_id"+"}", _neturl.QueryEscape(parameterToString(gitlabSyncId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -356,7 +357,7 @@ func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSync
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/gitlab_syncs/{gitlab_sync_id}/import"
-	localVarPath = strings.Replace(localVarPath, "{"+"gitlab_sync_id"+"}", _neturl.QueryEscape(parameterToString(gitlabSyncId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"gitlab_sync_id"+"}", _neturl.QueryEscape(parameterToString(gitlabSyncId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -435,7 +436,7 @@ func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSync
 // GitlabSyncListOpts Optional parameters for the method 'GitlabSyncList'
 type GitlabSyncListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	AccountId optional.String `json:"account_id,omitempty"`
+	AccountId     optional.String `json:"account_id,omitempty"`
 }
 
 /*
@@ -537,7 +538,7 @@ func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, localVarOpti
 // GitlabSyncShowOpts Optional parameters for the method 'GitlabSyncShow'
 type GitlabSyncShowOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	AccountId optional.String `json:"account_id,omitempty"`
+	AccountId     optional.String `json:"account_id,omitempty"`
 }
 
 /*
@@ -562,7 +563,7 @@ func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, l
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/gitlab_syncs/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -641,11 +642,11 @@ func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, l
 
 // GitlabSyncUpdateOpts Optional parameters for the method 'GitlabSyncUpdate'
 type GitlabSyncUpdateOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	AccountId optional.String `json:"account_id,omitempty"`
+	XPhraseAppOTP     optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	AccountId         optional.String `json:"account_id,omitempty"`
 	PhraseProjectCode optional.String `json:"phrase_project_code,omitempty"`
-	GitlabProjectId optional.Int32 `json:"gitlab_project_id,omitempty"`
-	GitlabBranchName optional.String `json:"gitlab_branch_name,omitempty"`
+	GitlabProjectId   optional.Int32  `json:"gitlab_project_id,omitempty"`
+	GitlabBranchName  optional.String `json:"gitlab_branch_name,omitempty"`
 }
 
 /*
@@ -673,7 +674,7 @@ func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/gitlab_syncs/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

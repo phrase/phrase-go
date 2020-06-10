@@ -6,6 +6,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+
 	"github.com/antihax/optional"
 )
 
@@ -44,7 +45,7 @@ func (a *BitbucketSyncApiService) BitbucketSyncExport(ctx _context.Context, id s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/bitbucket_syncs/{id}/export"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -145,7 +146,7 @@ func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/bitbucket_syncs/{id}/import"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -215,7 +216,7 @@ func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id s
 // BitbucketSyncsListOpts Optional parameters for the method 'BitbucketSyncsList'
 type BitbucketSyncsListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	AccountId optional.String `json:"account_id,omitempty"`
+	AccountId     optional.String `json:"account_id,omitempty"`
 }
 
 /*

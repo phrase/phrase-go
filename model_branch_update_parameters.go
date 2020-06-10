@@ -1,4 +1,5 @@
 package phrase
+
 // BranchUpdateParameters struct for BranchUpdateParameters
 type BranchUpdateParameters struct {
 	// Name of the branch

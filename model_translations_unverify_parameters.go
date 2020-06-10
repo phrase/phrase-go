@@ -1,4 +1,5 @@
 package phrase
+
 // TranslationsUnverifyParameters struct for TranslationsUnverifyParameters
 type TranslationsUnverifyParameters struct {
 	// specify the branch to use

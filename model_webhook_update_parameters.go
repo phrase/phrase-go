@@ -1,4 +1,5 @@
 package phrase
+
 // WebhookUpdateParameters struct for WebhookUpdateParameters
 type WebhookUpdateParameters struct {
 	// Callback URL to send requests to

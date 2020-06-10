@@ -1,7 +1,9 @@
 package phrase
+
 import (
 	"os"
 )
+
 // KeyCreateParameters struct for KeyCreateParameters
 type KeyCreateParameters struct {
 	// specify the branch to use

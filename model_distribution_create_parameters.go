@@ -1,4 +1,5 @@
 package phrase
+
 // DistributionCreateParameters struct for DistributionCreateParameters
 type DistributionCreateParameters struct {
 	// Name of the distribution

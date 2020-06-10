@@ -1,4 +1,5 @@
 package phrase
+
 // JobKeysCreateParameters struct for JobKeysCreateParameters
 type JobKeysCreateParameters struct {
 	// specify the branch to use
