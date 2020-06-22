@@ -2697,8 +2697,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: File format name. See the format guide for all supported file
-          formats.
+      - description: File format name. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats)
+          for all supported file formats.
         example: yml
         explode: true
         in: query
@@ -7710,6 +7710,8 @@ paths:
                   type: string
                 file_format:
                   description: File format. Auto-detected when possible and not specified.
+                    See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats)
+                    for all supported file formats.
                   example: json
                   type: string
                 locale_id:
@@ -20476,6 +20478,8 @@ components:
           type: string
         file_format:
           description: File format. Auto-detected when possible and not specified.
+            See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats)
+            for all supported file formats.
           example: json
           type: string
         locale_id:

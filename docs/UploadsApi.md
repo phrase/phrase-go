@@ -38,7 +38,7 @@ Name | Type | Description  | Notes
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **branch** | **optional.String**| specify the branch to use | 
  **file** | **optional.Interface of *os.File****optional.*os.File**| File to be imported | 
- **fileFormat** | **optional.String**| File format. Auto-detected when possible and not specified. | 
+ **fileFormat** | **optional.String**| File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats. | 
  **localeId** | **optional.String**| Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. | 
  **tags** | **optional.String**| List of tags separated by comma to be associated with the new keys contained in the upload. | 
  **updateTranslations** | **optional.Bool**| Indicates whether existing translations should be updated with the file content. | 

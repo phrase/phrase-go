@@ -10,7 +10,7 @@ type UploadCreateParameters struct {
 	Branch string `json:"branch,omitempty"`
 	// File to be imported
 	File *os.File `json:"file,omitempty"`
-	// File format. Auto-detected when possible and not specified.
+	// File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats.
 	FileFormat string `json:"file_format,omitempty"`
 	// Locale of the file's content. Can be the name or public id of the locale. Preferred is the public id.
 	LocaleId string `json:"locale_id,omitempty"`

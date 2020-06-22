@@ -50,7 +50,7 @@ Upload a new language file. Creates necessary resources in your project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
  * @param "File" (optional.Interface of *os.File) -  File to be imported
- * @param "FileFormat" (optional.String) -  File format. Auto-detected when possible and not specified.
+ * @param "FileFormat" (optional.String) -  File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats.
  * @param "LocaleId" (optional.String) -  Locale of the file's content. Can be the name or public id of the locale. Preferred is the public id.
  * @param "Tags" (optional.String) -  List of tags separated by comma to be associated with the new keys contained in the upload.
  * @param "UpdateTranslations" (optional.Bool) -  Indicates whether existing translations should be updated with the file content.
