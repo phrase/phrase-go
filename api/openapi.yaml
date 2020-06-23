@@ -6020,6 +6020,11 @@ paths:
         source: |-
           curl "https://api.phrase.com/bitbucket_syncs?account_id=abcd1234" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase bitbucket_syncs list \
+          --account_id abcd1234 \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp bitbucket_syncs list \
@@ -6113,10 +6118,14 @@ paths:
             -X POST \
             -d '{"account_id":"abcd1234"}' \
             -H 'Content-Type: application/json'
-      - lang: CLI v1
+      - lang: CLI v2
         source: |-
-          phraseapp bitbucket_sync export \
-          --account-id abcd1234
+          phrase bitbucket_sync export \
+          --data '{"account_id": "abcd1234"}' \
+          --id <id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: phraseapp bitbucket_sync export --account-id abcd1234 <id>
   /bitbucket_syncs/{id}/import:
     post:
       description: Import translations from Bitbucket to Phrase according to the .phraseapp.yml
@@ -6202,10 +6211,14 @@ paths:
             -X POST \
             -d '{"account_id":"abcd1234"}' \
             -H 'Content-Type: application/json'
-      - lang: CLI v1
+      - lang: CLI v2
         source: |-
-          phraseapp bitbucket_sync import \
-          --account-id abcd1234
+          phrase bitbucket_sync import \
+          --data '{"account_id": "abcd1234"}' \
+          --id <id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: phraseapp bitbucket_sync import --account-id abcd1234 <id>
   /projects/{project_id}/keys/{key_id}/comments:
     get:
       description: List all comments for a key.
@@ -6317,6 +6330,12 @@ paths:
         source: |-
           curl "https://api.phrase.com/projects/{project_id}/keys/{key_id}/comments?branch=my-feature-branch" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase comments list \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp comments list \
@@ -6418,6 +6437,13 @@ paths:
             -X POST \
             -d '{"branch":"my-feature-branch","message":"Some message..."}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase comments create \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --data '{"branch":"my-feature-branch","message":"Some message..."}' \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp comment create \
@@ -6517,6 +6543,13 @@ paths:
             -X DELETE \
             -d '{"branch":"my-feature-branch"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase comments delete \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --id <id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp comment delete \
@@ -6615,6 +6648,13 @@ paths:
         source: |-
           curl "https://api.phrase.com/projects/{project_id}/keys/{key_id}/comments/{id}?branch=my-feature-branch" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase comments show \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --id <id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp comment show \
@@ -6724,6 +6764,14 @@ paths:
             -X PATCH \
             -d '{"branch":"my-feature-branch","message":"Some message..."}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase comments update \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --id <id> \
+          --data '{"branch":"my-feature-branch","message":"Some message..."}' \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp comment update \
@@ -6823,6 +6871,13 @@ paths:
             -X DELETE \
             -d '{"branch":"my-feature-branch"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase comments mark_unread \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --id <id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp comment mark unread \
@@ -6918,6 +6973,13 @@ paths:
         source: |-
           curl "https://api.phrase.com/projects/{project_id}/keys/{key_id}/comments/{id}/read?branch=my-feature-branch" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase comments mark_check \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --id <id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp comment mark check \
@@ -7019,6 +7081,14 @@ paths:
             -X PATCH \
             -d '{"branch":"my-feature-branch"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase comments mark_read \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --id <id> \
+          --data '{"branch":"my-feature-branch"}' \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp comment mark read \
@@ -10437,6 +10507,11 @@ paths:
         source: |-
           curl "https://api.phrase.com/projects/{project_id}/branches" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase branches list \
+          --project_id <project_id> \
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp branches list
     post:
@@ -10524,6 +10599,12 @@ paths:
             -X POST \
             -d '{"name":"my-branch"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase branches create \
+          --data '{"name":"my-branch"}' \
+          --project_id <project_id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp branch create \
@@ -10603,6 +10684,12 @@ paths:
           curl "https://api.phrase.com/projects/{project_id}/branches/{name}" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase branches delete \
+          --name my-branch \
+          --project_id <project_id> \
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp branch delete
     get:
@@ -10682,6 +10769,12 @@ paths:
         source: |-
           curl "https://api.phrase.com/projects/{project_id}/branches/{name}" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase branches show \
+          --name branch-name \
+          --project_id <project_id> \
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp branch show
     patch:
@@ -10777,6 +10870,13 @@ paths:
             -X PATCH \
             -d '{"name":"my-branch"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase branches update \
+          --name branch-name \
+          --data '{"name":"my-branch"}' \
+          --project_id <project_id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp branch update \
@@ -10871,6 +10971,12 @@ paths:
             -X PATCH \
             -d '{"strategy":"use_master"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase branches merge \
+          --data '{"strategy":"use_master"}' \
+          --project_id <project_id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp branch merge \
@@ -10949,6 +11055,12 @@ paths:
         source: |-
           curl "https://api.phrase.com/projects/{project_id}/branches/{name}/compare?name=my-branch" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase branches compare \
+          --name my-branch
+          --project_id <project_id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp branch compare \
@@ -11039,6 +11151,8 @@ paths:
         source: |-
           curl "https://api.phrase.com/accounts" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: phrase accounts list --access_token <token>
       - lang: CLI v1
         source: phraseapp accounts list
   /accounts/{id}:
@@ -11111,6 +11225,11 @@ paths:
         source: |-
           curl "https://api.phrase.com/accounts/{id}" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase accounts show \
+          --id <account_id> \
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp account show
   /user:
@@ -12998,6 +13117,11 @@ paths:
         source: |-
           curl "https://api.phrase.com/projects/{project_id}/blacklisted_keys" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase blacklisted_keys list \
+          --project_id <project_id> \
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp blacklisted_keys list
     post:
@@ -13085,6 +13209,12 @@ paths:
             -X POST \
             -d '{"name":"date.formats.*"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase blacklisted_keys create \
+          --data '{"name":"date.formats.*"}' \
+          --project_id <project_id> \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp blacklisted_key create \
@@ -13164,6 +13294,12 @@ paths:
           curl "https://api.phrase.com/projects/{project_id}/blacklisted_keys/{id}" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase blacklisted_keys delete \
+          --project_id <project_id> \
+          --id <id> \
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp blacklisted_key delete
     get:
@@ -13244,6 +13380,12 @@ paths:
         source: |-
           curl "https://api.phrase.com/projects/{project_id}/blacklisted_keys/{id}" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase blacklisted_keys show \
+          --project_id <project_id> \
+          --id <id> \
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp blacklisted_key show
     patch:
@@ -13339,6 +13481,13 @@ paths:
             -X PATCH \
             -d '{"name":"date.formats.*"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase blacklisted_keys show \
+          --project_id <project_id> \
+          --id <id> \
+          --data '{"name":"date.formats.*"}' \
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp blacklisted_key update \
