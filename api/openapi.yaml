@@ -5170,6 +5170,11 @@ paths:
         source: |-
           curl "https://api.phrase.com/accounts/{account_id}/glossaries" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase glossaries list \
+          --account_id <account_id>
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp glossaries list
     post:
@@ -5270,6 +5275,12 @@ paths:
             -X POST \
             -d '{"name":"My glossary","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"]}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase glossaries create \
+          --data '{"name":"My glossary","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"]}' \
+          --account_id <account_id>
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp glossary create \
@@ -5351,6 +5362,12 @@ paths:
           curl "https://api.phrase.com/accounts/{account_id}/glossaries/{id}" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase glossaries delete \
+          --account_id <account_id>
+          --id <id>
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp glossary delete
     get:
@@ -5430,6 +5447,12 @@ paths:
         source: |-
           curl "https://api.phrase.com/accounts/{account_id}/glossaries/{id}" \
             -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase glossaries show \
+          --account_id <account_id>
+          --id <id>
+          --access_token <token>
       - lang: CLI v1
         source: phraseapp glossary show
     patch:
@@ -5538,6 +5561,13 @@ paths:
             -X PATCH \
             -d '{"name":"My glossary","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"]}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase glossaries create \
+          --data '{"name":"My glossary","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"]}' \
+          --account_id <account_id>
+          --id <id>
+          --access_token <token>
       - lang: CLI v1
         source: |-
           phraseapp glossary update \
