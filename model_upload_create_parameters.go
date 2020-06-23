@@ -10,7 +10,7 @@ type UploadCreateParameters struct {
 	Branch string `json:"branch,omitempty"`
 	// File to be imported
 	File *os.File `json:"file,omitempty"`
-	// File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats.
+	// File format. Auto-detected when possible and not specified.
 	FileFormat string `json:"file_format,omitempty"`
 	// Locale of the file's content. Can be the name or public id of the locale. Preferred is the public id.
 	LocaleId string `json:"locale_id,omitempty"`
@@ -29,9 +29,9 @@ type UploadCreateParameters struct {
 	// Enforces a specific encoding on the file contents. Valid options are \"UTF-8\", \"UTF-16\" and \"ISO-8859-1\".
 	FileEncoding string `json:"file_encoding,omitempty"`
 	// Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
-	LocaleMapping map[string]interface{} `json:"locale_mapping,omitempty"`
+	LocaleMapping map[string]string `json:"locale_mapping,omitempty"`
 	// Additional options available for specific formats. See our format guide for complete list.
-	FormatOptions map[string]interface{} `json:"format_options,omitempty"`
+	FormatOptions map[string]string `json:"format_options,omitempty"`
 	// If set, translations for the uploaded language will be fetched automatically.
 	Autotranslate *bool `json:"autotranslate,omitempty"`
 	// Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.

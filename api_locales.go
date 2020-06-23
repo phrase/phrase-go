@@ -246,7 +246,7 @@ Download a locale in a specific file format.
  * @param optional nil or *LocaleDownloadOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
- * @param "FileFormat" (optional.String) -  File format name. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats.
+ * @param "FileFormat" (optional.String) -  File format name. See the format guide for all supported file formats.
  * @param "Tags" (optional.String) -  Limit results to keys tagged with a list of comma separated tag names.
  * @param "Tag" (optional.String) -  Limit download to tagged keys. This parameter is deprecated. Please use the \"tags\" parameter instead
  * @param "IncludeEmptyTranslations" (optional.Bool) -  Indicates whether keys without translations should be included in the output as well.
