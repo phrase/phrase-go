@@ -8293,7 +8293,13 @@ paths:
         source: |-
           phrase uploads create \
           --project_id <project_id> \
-          --data '{"branch":"my-feature-branch", "file":"/path/to/my/file.json", "file_format":"json", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "tags":"awesome-feature,needs-proofreading", "locale_mapping":""{"en": "2"}"", "format_options":""{"foo": "bar"}""}' \
+          --branch my-feature-branch \
+          --file /path/to/my/file.json \
+          --file_format json \
+          --locale_id abcd1234cdef1234abcd1234cdef1234 \
+          --tags awesome-feature,needs-proofreading \
+          --locale_mapping '{"en": "2"}' \
+          --format_options '{"foo": "bar"}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
