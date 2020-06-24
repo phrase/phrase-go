@@ -5914,8 +5914,10 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/authorizations" \
+          curl "https://api.phrase.com/v2/authorizations" \
             -u USERNAME
+      - lang: CLI v2
+        source: phrase authorizations list
       - lang: CLI v1
         source: phraseapp authorizations list
     post:
@@ -6005,11 +6007,15 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/authorizations" \
+          curl "https://api.phrase.com/v2/authorizations" \
             -u USERNAME \
             -X POST \
             -d '{"note":"My Deploy Script","scopes":["read","write"],"expires_at":"2015-03-30T09:52:53Z"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase authorizations create \
+          --data '{"note":""My Deploy Script"", "scopes":""read,write"", "expires_at":""2015-03-30T09:52:53Z""}'
       - lang: CLI v1
         source: |-
           phraseapp authorization create \
@@ -6081,11 +6087,15 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/authorizations/{id}" \
+          curl "https://api.phrase.com/v2/authorizations/:id" \
             -u USERNAME \
             -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase authorizations delete \
+          --id <id>
       - lang: CLI v1
-        source: phraseapp authorization delete
+        source: phraseapp authorization delete <id>
     get:
       description: Get details on a single authorization.
       operationId: authorization/show
@@ -6153,10 +6163,14 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/authorizations/{id}" \
+          curl "https://api.phrase.com/v2/authorizations/:id" \
             -u USERNAME
+      - lang: CLI v2
+        source: |-
+          phrase authorizations show \
+          --id <id>
       - lang: CLI v1
-        source: phraseapp authorization show
+        source: phraseapp authorization show <id>
     patch:
       description: Update an existing authorization.
       operationId: authorization/update
@@ -6252,14 +6266,19 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/authorizations/{id}" \
+          curl "https://api.phrase.com/v2/authorizations/:id" \
             -u USERNAME \
             -X PATCH \
             -d '{"note":"My Deploy Script","scopes":["read","write"],"expires_at":"2015-03-30T09:52:53Z"}' \
             -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase authorizations update \
+          --id <id> \
+          --data '{"note":""My Deploy Script"", "scopes":""read,write"", "expires_at":""2015-03-30T09:52:53Z""}'
       - lang: CLI v1
         source: |-
-          phraseapp authorization update \
+          phraseapp authorization update <id> \
           --note "My Deploy Script" \
           --scopes "read,write" \
           --expires-at "2015-03-30T09:52:53Z"
