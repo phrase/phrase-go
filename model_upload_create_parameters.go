@@ -29,9 +29,9 @@ type UploadCreateParameters struct {
 	// Enforces a specific encoding on the file contents. Valid options are \"UTF-8\", \"UTF-16\" and \"ISO-8859-1\".
 	FileEncoding string `json:"file_encoding,omitempty"`
 	// Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
-	LocaleMapping map[string]string `json:"locale_mapping,omitempty"`
+	LocaleMapping map[string]interface{} `json:"locale_mapping,omitempty"`
 	// Additional options available for specific formats. See our format guide for complete list.
-	FormatOptions map[string]string `json:"format_options,omitempty"`
+	FormatOptions map[string]interface{} `json:"format_options,omitempty"`
 	// If set, translations for the uploaded language will be fetched automatically.
 	Autotranslate *bool `json:"autotranslate,omitempty"`
 	// Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.

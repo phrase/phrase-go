@@ -47,6 +47,8 @@ Name | Type | Description  | Notes
  **skipUploadTags** | **optional.Bool**| Indicates whether the upload should not create upload tags. | 
  **skipUnverification** | **optional.Bool**| Indicates whether the upload should unverify updated translations. | 
  **fileEncoding** | **optional.String**| Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. | 
+ **localeMapping** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. | 
+ **formatOptions** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Additional options available for specific formats. See our format guide for complete list. | 
  **autotranslate** | **optional.Bool**| If set, translations for the uploaded language will be fetched automatically. | 
  **markReviewed** | **optional.Bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. | 
 

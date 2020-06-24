@@ -8208,19 +8208,17 @@ paths:
                     Valid options are "UTF-8", "UTF-16" and "ISO-8859-1".
                   type: string
                 locale_mapping:
-                  additionalProperties:
-                    type: string
                   description: Optional, format specific mapping between locale names
                     and the columns the translations to those locales are contained
                     in.
                   example: '{"en": "2"}'
+                  properties: {}
                   type: object
                 format_options:
-                  additionalProperties:
-                    type: string
                   description: Additional options available for specific formats.
                     See our format guide for complete list.
                   example: '{"foo": "bar"}'
+                  properties: {}
                   type: object
                 autotranslate:
                   description: If set, translations for the uploaded language will
@@ -21616,18 +21614,16 @@ components:
             are "UTF-8", "UTF-16" and "ISO-8859-1".
           type: string
         locale_mapping:
-          additionalProperties:
-            type: string
           description: Optional, format specific mapping between locale names and
             the columns the translations to those locales are contained in.
           example: '{"en": "2"}'
+          properties: {}
           type: object
         format_options:
-          additionalProperties:
-            type: string
           description: Additional options available for specific formats. See our
             format guide for complete list.
           example: '{"foo": "bar"}'
+          properties: {}
           type: object
         autotranslate:
           description: If set, translations for the uploaded language will be fetched

@@ -1,6 +1,8 @@
 package phrase
 
 import (
+	"fmt"
+
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -33,6 +35,8 @@ type UploadCreateOpts struct {
 	SkipUploadTags     optional.Bool      `json:"skip_upload_tags,omitempty"`
 	SkipUnverification optional.Bool      `json:"skip_unverification,omitempty"`
 	FileEncoding       optional.String    `json:"file_encoding,omitempty"`
+	LocaleMapping      optional.Interface `json:"locale_mapping,omitempty"`
+	FormatOptions      optional.Interface `json:"format_options,omitempty"`
 	Autotranslate      optional.Bool      `json:"autotranslate,omitempty"`
 	MarkReviewed       optional.Bool      `json:"mark_reviewed,omitempty"`
 }
@@ -55,6 +59,8 @@ Upload a new language file. Creates necessary resources in your project.
  * @param "SkipUploadTags" (optional.Bool) -  Indicates whether the upload should not create upload tags.
  * @param "SkipUnverification" (optional.Bool) -  Indicates whether the upload should unverify updated translations.
  * @param "FileEncoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \\\"UTF-8\\\", \\\"UTF-16\\\" and \\\"ISO-8859-1\\\".
+ * @param "LocaleMapping" (optional.Interface of map[string]interface{}) -  Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
+ * @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional options available for specific formats. See our format guide for complete list.
  * @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
  * @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.
 @return Upload
@@ -141,6 +147,16 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 	if localVarOptionals != nil && localVarOptionals.FileEncoding.IsSet() {
 		localVarFormParams.Add("file_encoding", parameterToString(localVarOptionals.FileEncoding.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.LocaleMapping.IsSet() {
+		for key, value := range localVarOptionals.LocaleMapping.Value().(map[string]interface{}) {
+			localVarFormParams.Add(fmt.Sprintf("locale_mapping[%s]", key), parameterToString(value, ""))
+		}
+	}
+	if localVarOptionals != nil && localVarOptionals.FormatOptions.IsSet() {
+		for key, value := range localVarOptionals.FormatOptions.Value().(map[string]interface{}) {
+			localVarFormParams.Add(fmt.Sprintf("format_options[%s]", key), parameterToString(value, ""))
+		}
 	}
 	if localVarOptionals != nil && localVarOptionals.Autotranslate.IsSet() {
 		localVarFormParams.Add("autotranslate", parameterToString(localVarOptionals.Autotranslate.Value(), ""))
