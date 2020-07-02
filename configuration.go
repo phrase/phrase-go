@@ -3,6 +3,7 @@ package phrase
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -68,12 +69,24 @@ type Configuration struct {
 	HTTPClient    *http.Client
 }
 
+func ClientVersion() string {
+	return "1.0.6"
+}
+
+func GetUserAgent() string {
+	agent := "Phrase go (" + ClientVersion() + ")"
+	if ua := os.Getenv("PHRASEAPP_USER_AGENT"); ua != "" {
+		agent = ua + "; " + agent
+	}
+	return agent
+}
+
 // NewConfiguration returns a new Configuration object
 func NewConfiguration(config *Config) *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://api.phrase.com/v2",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "OpenAPI-Generator/1.0.0/go",
+		UserAgent:     GetUserAgent(),
 		Debug:         false,
 		Servers: []ServerConfiguration{
 			{
