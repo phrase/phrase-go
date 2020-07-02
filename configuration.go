@@ -73,9 +73,12 @@ func ClientVersion() string {
 	return "1.0.6"
 }
 
-func GetUserAgent() string {
+func GetUserAgent(additionalUserAgent string) string {
 	agent := "Phrase go (" + ClientVersion() + ")"
-	if ua := os.Getenv("PHRASEAPP_USER_AGENT"); ua != "" {
+	if additionalUserAgent != "" {
+		agent = additionalUserAgent + "; " + agent
+	}
+	if ua := os.Getenv("PHRASE_USER_AGENT"); ua != "" {
 		agent = ua + "; " + agent
 	}
 	return agent
@@ -86,7 +89,7 @@ func NewConfiguration(config *Config) *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://api.phrase.com/v2",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     GetUserAgent(),
+		UserAgent:     GetUserAgent(config.UserAgent),
 		Debug:         false,
 		Servers: []ServerConfiguration{
 			{
