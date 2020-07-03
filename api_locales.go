@@ -1,6 +1,8 @@
 package phrase
 
 import (
+	"fmt"
+
 	_context "context"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
@@ -253,7 +255,7 @@ Download a locale in a specific file format.
  * @param "IncludeTranslatedKeys" (optional.Bool) -  Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys.
  * @param "KeepNotranslateTags" (optional.Bool) -  Indicates whether [NOTRANSLATE] tags should be kept.
  * @param "ConvertEmoji" (optional.Bool) -  This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively.
- * @param "FormatOptions" (optional.Interface of map[string]string) -  Additional formatting and render options. See the <a href=\"https://help.phrase.com/help/supported-platforms-and-formats\">format guide</a> for a list of options available for each format. Specify format options like this: <code>...&format_options[foo]=bar</code>
+ * @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional formatting and render options. See the <a href=\"https://help.phrase.com/help/supported-platforms-and-formats\">format guide</a> for a list of options available for each format. Specify format options like this: <code>...&format_options[foo]=bar</code>
  * @param "Encoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \"UTF-8\", \"UTF-16\" and \"ISO-8859-1\".
  * @param "SkipUnverifiedTranslations" (optional.Bool) -  Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with <code>include_unverified_translations</code>.
  * @param "IncludeUnverifiedTranslations" (optional.Bool) -  if set to false unverified translations are excluded
@@ -304,7 +306,9 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 		localVarQueryParams.Add("convert_emoji", parameterToString(localVarOptionals.ConvertEmoji.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.FormatOptions.IsSet() {
-		localVarQueryParams.Add("format_options", parameterToString(localVarOptionals.FormatOptions.Value(), ""))
+		for key, value := range localVarOptionals.FormatOptions.Value().(map[string]interface{}) {
+			localVarQueryParams.Add(fmt.Sprintf("format_options[%s]", key), parameterToString(value, ""))
+		}
 	}
 	if localVarOptionals != nil && localVarOptionals.Encoding.IsSet() {
 		localVarQueryParams.Add("encoding", parameterToString(localVarOptionals.Encoding.Value(), ""))
