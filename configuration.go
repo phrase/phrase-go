@@ -70,26 +70,27 @@ type Configuration struct {
 }
 
 func ClientVersion() string {
-	return "1.0.6"
+	return "1.0.7"
 }
 
-func GetUserAgent(additionalUserAgent string) string {
+func getUserAgent() string {
 	agent := "Phrase go (" + ClientVersion() + ")"
-	if additionalUserAgent != "" {
-		agent = additionalUserAgent + "; " + agent
-	}
 	if ua := os.Getenv("PHRASE_USER_AGENT"); ua != "" {
 		agent = ua + "; " + agent
 	}
 	return agent
 }
 
+func (c *Configuration) SetUserAgent(additionalUserAgent string) {
+	c.UserAgent = getUserAgent() + additionalUserAgent
+}
+
 // NewConfiguration returns a new Configuration object
-func NewConfiguration(config *Config) *Configuration {
+func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://api.phrase.com/v2",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     GetUserAgent(config.UserAgent),
+		UserAgent:     getUserAgent(),
 		Debug:         false,
 		Servers: []ServerConfiguration{
 			{
@@ -97,14 +98,6 @@ func NewConfiguration(config *Config) *Configuration {
 				Description: "No description provided",
 			},
 		},
-	}
-
-	if config.Credentials.Host != "" {
-		cfg.BasePath = config.Credentials.Host
-	}
-
-	if config.Debug {
-		cfg.Debug = config.Debug
 	}
 
 	return cfg
