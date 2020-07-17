@@ -200,7 +200,7 @@ info:
     \ the translation</li>\n<li><code>unverified:{true|false}</code> for verification\
     \ status</li>\n<li><code>reviewed:{true|false}</code> for reviewed status</li>\n\
     <li><code>excluded:{true|false}</code> for exclusion status</li>\n<li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code>\
-    \ for date range queries</li>\n</ul>\nFind more examples <a href=\"#examples\"\
+    \ for date range queries</li>\n</ul>\nFind more examples <a href=\"#overview--usage-examples\"\
     >here</a>.</td>\n</tr>\n</tbody>\n</table>\n\n</div>\n\n</div>\n\n<div class=\"\
     resource__code\">\n\n#### Example Request\n\n<div class=\"code-section\" data-target=\"\
     technology-switch.example\" data-technology=\"curl\">\n\n``` language-bash\ncurl\
@@ -234,7 +234,7 @@ info:
     \ the translation</li>\n<li><code>unverified:{true|false}</code> for verification\
     \ status</li>\n<li><code>reviewed:{true|false}</code> for reviewed status</li>\n\
     <li><code>excluded:{true|false}</code> for exclusion status</li>\n<li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code>\
-    \ for date range queries</li>\n</ul>\nFind more examples <a href=\"#examples\"\
+    \ for date range queries</li>\n</ul>\nFind more examples <a href=\"#overview--usage-examples\"\
     >here</a>.</td>\n</tr>\n</tbody>\n</table>\n\n</div>\n\n</div>\n\n<div class=\"\
     resource__code\">\n\n#### Example Request\n\n<div class=\"code-section\" data-target=\"\
     technology-switch.example\" data-technology=\"curl\">\n\n``` language-bash\ncurl\
@@ -263,16 +263,17 @@ info:
     \ verification status</li>\n<li><code>reviewed:{true|false}</code> for reviewed\
     \ status</li>\n<li><code>excluded:{true|false}</code> for exclusion status</li>\n\
     <li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code> for date range queries</li>\n\
-    </ul>\nFind more examples <a href=\"#examples\">here</a>.</td>\n</tr>\n<tr class=\"\
-    even\">\n<td><code>sort</code><br />\n<span class=\"small\">optional</span></td>\n\
-    <td><code>string</code></td>\n<td>Sort criteria. Can be one of: key_name, created_at,\
-    \ updated_at.<br />\nDefault: key_name</td>\n</tr>\n<tr class=\"odd\">\n<td><code>order</code><br\
-    \ />\n<span class=\"small\">optional</span></td>\n<td><code>string</code></td>\n\
-    <td>Order direction. Can be one of: asc, desc.<br />\nDefault: asc</td>\n</tr>\n\
-    </tbody>\n</table>\n\n</div>\n\n</div>\n\n<div class=\"resource__code\">\n\n####\
-    \ Example Request\n\n<div class=\"code-section\" data-target=\"technology-switch.example\"\
-    \ data-technology=\"curl\">\n\n``` language-bash\ncurl \"https://api.phrase.com/v2/projects/:project_id/translations/verify\"\
-    \ \\\n  -u USERNAME_OR_ACCESS_TOKEN \\\n  -X PATCH \\\n  -d '{\"q\":\"my dog unverified:true\"\
+    </ul>\nFind more examples <a href=\"#overview--usage-examples\">here</a>.</td>\n\
+    </tr>\n<tr class=\"even\">\n<td><code>sort</code><br />\n<span class=\"small\"\
+    >optional</span></td>\n<td><code>string</code></td>\n<td>Sort criteria. Can be\
+    \ one of: key_name, created_at, updated_at.<br />\nDefault: key_name</td>\n</tr>\n\
+    <tr class=\"odd\">\n<td><code>order</code><br />\n<span class=\"small\">optional</span></td>\n\
+    <td><code>string</code></td>\n<td>Order direction. Can be one of: asc, desc.<br\
+    \ />\nDefault: asc</td>\n</tr>\n</tbody>\n</table>\n\n</div>\n\n</div>\n\n<div\
+    \ class=\"resource__code\">\n\n#### Example Request\n\n<div class=\"code-section\"\
+    \ data-target=\"technology-switch.example\" data-technology=\"curl\">\n\n``` language-bash\n\
+    curl \"https://api.phrase.com/v2/projects/:project_id/translations/verify\" \\\
+    \n  -u USERNAME_OR_ACCESS_TOKEN \\\n  -X PATCH \\\n  -d '{\"q\":\"my dog unverified:true\"\
     ,\"sort\":\"updated_at\",\"order\":\"desc\"}' \\\n  -H 'Content-Type: application/json'\n\
     ```\n\n</div>\n\n<div class=\"code-section hidden\" data-target=\"technology-switch.example\"\
     \ data-technology=\"cli v2\">\n\n``` language-bash\nphrase translations verify\
@@ -305,11 +306,12 @@ info:
     \ for translation status (also requires <code>locale_id</code> to be specified)</li>\n\
     <li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code> for date range queries</li>\n\
     <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within\
-    \ upload</li>\n</ul>\nFind more examples <a href=\"#examples\">here</a>.</td>\n\
-    </tr>\n<tr class=\"even\">\n<td><code>locale_id</code></td>\n<td></td>\n<td></td>\n\
-    </tr>\n</tbody>\n</table>\n\n</div>\n\n</div>\n\n<div class=\"resource__code\"\
-    >\n\n#### Example Request\n\n<div class=\"code-section\" data-target=\"technology-switch.example\"\
-    \ data-technology=\"curl\">\n\n``` language-bash\ncurl \"https://api.phrase.com/v2/projects/:project_id/keys?sort=updated_at&order=desc&q=updated_at:%3E=2013-02-21T00:00:00Z&locale_id=abcd1234abcd1234abcd1234abcd1234\"\
+    \ upload</li>\n</ul>\nFind more examples <a href=\"#overview--usage-examples\"\
+    >here</a>.</td>\n</tr>\n<tr class=\"even\">\n<td><code>locale_id</code></td>\n\
+    <td></td>\n<td></td>\n</tr>\n</tbody>\n</table>\n\n</div>\n\n</div>\n\n<div class=\"\
+    resource__code\">\n\n#### Example Request\n\n<div class=\"code-section\" data-target=\"\
+    technology-switch.example\" data-technology=\"curl\">\n\n``` language-bash\ncurl\
+    \ \"https://api.phrase.com/v2/projects/:project_id/keys?sort=updated_at&order=desc&q=updated_at:%3E=2013-02-21T00:00:00Z&locale_id=abcd1234abcd1234abcd1234abcd1234\"\
     \ \\\n  -u USERNAME_OR_ACCESS_TOKEN\n```\n\n</div>\n\n<div class=\"code-section\
     \ hidden\" data-target=\"technology-switch.example\" data-technology=\"cli v2\"\
     >\n\n``` language-bash\nphrase keys list \\\n--project_id <project_id> \\\n--sort\
@@ -337,14 +339,14 @@ info:
     \ status (also requires <code>locale_id</code> to be specified)</li>\n<li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code>\
     \ for date range queries</li>\n<li><code>unmentioned_in_upload:upload_id</code>\
     \ to filter keys unmentioned within upload</li>\n</ul>\nFind more examples <a\
-    \ href=\"#examples\">here</a>.</td>\n</tr>\n</tbody>\n</table>\n\n</div>\n\n</div>\n\
-    \n<div class=\"resource__code\">\n\n#### Example Request\n\n<div class=\"code-section\"\
-    \ data-target=\"technology-switch.example\" data-technology=\"curl\">\n\n``` language-bash\n\
-    curl \"https://api.phrase.com/v2/projects/:project_id/keys?q=tags:admin\" \\\n\
-    \  -u USERNAME_OR_ACCESS_TOKEN\n```\n\n</div>\n\n<div class=\"code-section hidden\"\
-    \ data-target=\"technology-switch.example\" data-technology=\"cli v2\">\n\n```\
-    \ language-bash\nphrase keys list \\\n--project_id <project_id> \\\n--query \"\
-    tags:admin\" \\\n--access_token <token>\n```\n\n</div>\n\n<div class=\"code-section\
+    \ href=\"#overview--usage-examples\">here</a>.</td>\n</tr>\n</tbody>\n</table>\n\
+    \n</div>\n\n</div>\n\n<div class=\"resource__code\">\n\n#### Example Request\n\
+    \n<div class=\"code-section\" data-target=\"technology-switch.example\" data-technology=\"\
+    curl\">\n\n``` language-bash\ncurl \"https://api.phrase.com/v2/projects/:project_id/keys?q=tags:admin\"\
+    \ \\\n  -u USERNAME_OR_ACCESS_TOKEN\n```\n\n</div>\n\n<div class=\"code-section\
+    \ hidden\" data-target=\"technology-switch.example\" data-technology=\"cli v2\"\
+    >\n\n``` language-bash\nphrase keys list \\\n--project_id <project_id> \\\n--query\
+    \ \"tags:admin\" \\\n--access_token <token>\n```\n\n</div>\n\n<div class=\"code-section\
     \ hidden\" data-target=\"technology-switch.example\" data-technology=\"cli v1\"\
     >\n\n``` language-bash\nphraseapp keys list <project_id> \\\n--query \"tags:admin\"\
     \n```\n\n</div>\n\n</div>\n\n</div>\n\n<div id=\"examples_tag\" class=\"resource__section\"\
@@ -366,8 +368,8 @@ info:
     \ for translation status (also requires <code>locale_id</code> to be specified)</li>\n\
     <li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code> for date range queries</li>\n\
     <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within\
-    \ upload</li>\n</ul>\nFind more examples <a href=\"#examples\">here</a>.</td>\n\
-    </tr>\n<tr class=\"even\">\n<td><code>tags</code></td>\n<td><code>string</code></td>\n\
+    \ upload</li>\n</ul>\nFind more examples <a href=\"#overview--usage-examples\"\
+    >here</a>.</td>\n</tr>\n<tr class=\"even\">\n<td><code>tags</code></td>\n<td><code>string</code></td>\n\
     <td>Tag or comma-separated list of tags to add to the matching collection of keys</td>\n\
     </tr>\n<tr class=\"odd\">\n<td><code>locale_id</code><br />\n<span class=\"small\"\
     >optional</span></td>\n<td><code>id</code></td>\n<td>Locale used to determine\
@@ -405,8 +407,8 @@ info:
     \ for translation status (also requires <code>locale_id</code> to be specified)</li>\n\
     <li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code> for date range queries</li>\n\
     <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within\
-    \ upload</li>\n</ul>\nFind more examples <a href=\"#examples\">here</a>.</td>\n\
-    </tr>\n<tr class=\"even\">\n<td><code>tags</code></td>\n<td><code>string</code></td>\n\
+    \ upload</li>\n</ul>\nFind more examples <a href=\"#overview--usage-examples\"\
+    >here</a>.</td>\n</tr>\n<tr class=\"even\">\n<td><code>tags</code></td>\n<td><code>string</code></td>\n\
     <td>Tag or comma-separated list of tags to remove from the matching collection\
     \ of keys</td>\n</tr>\n<tr class=\"odd\">\n<td><code>locale_id</code><br />\n\
     <span class=\"small\">optional</span></td>\n<td><code>id</code></td>\n<td>Locale\
@@ -443,13 +445,13 @@ info:
     \ for translation status (also requires <code>locale_id</code> to be specified)</li>\n\
     <li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code> for date range queries</li>\n\
     <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within\
-    \ upload</li>\n</ul>\nFind more examples <a href=\"#examples\">here</a>.</td>\n\
-    </tr>\n</tbody>\n</table>\n\n</div>\n\n#### Matches\n\n<span class=\"result-match\"\
-    >**My dog** is lazy  \n</span> <span class=\"result-match\">**my dog** is lazy\
-    \  \n</span> <span class=\"result-match\">angry **dog** in **my** house</span>\n\
-    \n</div>\n\n<div class=\"resource__code\">\n\n#### Example Request\n\n<div class=\"\
-    code-section\" data-target=\"technology-switch.example\" data-technology=\"curl\"\
-    >\n\n``` language-bash\ncurl \"https://api.phrase.com/v2/projects/:project_id/keys?q=my%20dog\"\
+    \ upload</li>\n</ul>\nFind more examples <a href=\"#overview--usage-examples\"\
+    >here</a>.</td>\n</tr>\n</tbody>\n</table>\n\n</div>\n\n#### Matches\n\n<span\
+    \ class=\"result-match\">**My dog** is lazy  \n</span> <span class=\"result-match\"\
+    >**my dog** is lazy  \n</span> <span class=\"result-match\">angry **dog** in **my**\
+    \ house</span>\n\n</div>\n\n<div class=\"resource__code\">\n\n#### Example Request\n\
+    \n<div class=\"code-section\" data-target=\"technology-switch.example\" data-technology=\"\
+    curl\">\n\n``` language-bash\ncurl \"https://api.phrase.com/v2/projects/:project_id/keys?q=my%20dog\"\
     \ \\\n  -u USERNAME_OR_ACCESS_TOKEN\n```\n\n</div>\n\n<div class=\"code-section\
     \ hidden\" data-target=\"technology-switch.example\" data-technology=\"cli v2\"\
     >\n\n``` language-bash\nphrase keys list \\\n--project_id <project_id> \\\n--query\
@@ -475,11 +477,12 @@ info:
     \ status (also requires <code>locale_id</code> to be specified)</li>\n<li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code>\
     \ for date range queries</li>\n<li><code>unmentioned_in_upload:upload_id</code>\
     \ to filter keys unmentioned within upload</li>\n</ul>\nFind more examples <a\
-    \ href=\"#examples\">here</a>.</td>\n</tr>\n</tbody>\n</table>\n\n</div>\n\n####\
-    \ Matches\n\n~~My dog is lazy~~  \n<span class=\"result-match\">**my dog is lazy**\
-    \  \n</span> ~~angry dog in my house~~\n\n</div>\n\n<div class=\"resource__code\"\
-    >\n\n#### Example Request\n\n<div class=\"code-section\" data-target=\"technology-switch.example\"\
-    \ data-technology=\"curl\">\n\n``` language-bash\ncurl \"https://api.phrase.com/v2/projects/:project_id/keys?q=name:my%5C%20dog%5C%20is%5C%20lazy\"\
+    \ href=\"#overview--usage-examples\">here</a>.</td>\n</tr>\n</tbody>\n</table>\n\
+    \n</div>\n\n#### Matches\n\n~~My dog is lazy~~  \n<span class=\"result-match\"\
+    >**my dog is lazy**  \n</span> ~~angry dog in my house~~\n\n</div>\n\n<div class=\"\
+    resource__code\">\n\n#### Example Request\n\n<div class=\"code-section\" data-target=\"\
+    technology-switch.example\" data-technology=\"curl\">\n\n``` language-bash\ncurl\
+    \ \"https://api.phrase.com/v2/projects/:project_id/keys?q=name:my%5C%20dog%5C%20is%5C%20lazy\"\
     \ \\\n  -u USERNAME_OR_ACCESS_TOKEN\n```\n\n</div>\n\n<div class=\"code-section\
     \ hidden\" data-target=\"technology-switch.example\" data-technology=\"cli v2\"\
     >\n\n``` language-bash\nphrase keys list \\\n--project_id <project_id> \\\n--query\
@@ -504,12 +507,12 @@ info:
     \ status (also requires <code>locale_id</code> to be specified)</li>\n<li><code>updated_at:{&gt;=|&lt;=}2013-02-21T00:00:00Z</code>\
     \ for date range queries</li>\n<li><code>unmentioned_in_upload:upload_id</code>\
     \ to filter keys unmentioned within upload</li>\n</ul>\nFind more examples <a\
-    \ href=\"#examples\">here</a>.</td>\n</tr>\n</tbody>\n</table>\n\n</div>\n\n####\
-    \ Matches\n\n<span class=\"result-match\">My **dog is** lazy  \n</span> <span\
-    \ class=\"result-match\">my **dog is** lazy  \n</span> ~~angry dog in my house~~\n\
-    \n</div>\n\n<div class=\"resource__code\">\n\n#### Example Request\n\n<div class=\"\
-    code-section\" data-target=\"technology-switch.example\" data-technology=\"curl\"\
-    >\n\n``` language-bash\ncurl \"https://api.phrase.com/v2/projects/:project_id/keys?q=*dog%20is*\"\
+    \ href=\"#overview--usage-examples\">here</a>.</td>\n</tr>\n</tbody>\n</table>\n\
+    \n</div>\n\n#### Matches\n\n<span class=\"result-match\">My **dog is** lazy  \n\
+    </span> <span class=\"result-match\">my **dog is** lazy  \n</span> ~~angry dog\
+    \ in my house~~\n\n</div>\n\n<div class=\"resource__code\">\n\n#### Example Request\n\
+    \n<div class=\"code-section\" data-target=\"technology-switch.example\" data-technology=\"\
+    curl\">\n\n``` language-bash\ncurl \"https://api.phrase.com/v2/projects/:project_id/keys?q=*dog%20is*\"\
     \ \\\n  -u USERNAME_OR_ACCESS_TOKEN\n```\n\n</div>\n\n<div class=\"code-section\
     \ hidden\" data-target=\"technology-switch.example\" data-technology=\"cli v2\"\
     >\n\n``` language-bash\nphrase keys list \\\n--project_id <project_id> \\\n--query\
@@ -14400,7 +14403,18 @@ paths:
         schema:
           type: string
         style: form
-      - description: q_description_placeholder
+      - description: |
+          Specify a query to do broad search for keys by name (including wildcards).<br><br>
+          The following qualifiers are also supported in the search term:<br>
+          <ul>
+            <li><code>ids:key_id,...</code> for queries on a comma-separated list of ids</li>
+            <li><code>name:key_name</code> for text queries on exact key names - whitespaces need to be prefixed with a backspace (\"\\\")</li>
+            <li><code>tags:tag_name</code> to filter for keys with certain tags</li>
+            <li><code>translated:{true|false}</code> for translation status (also requires <code>locale_id</code> to be specified)</li>
+            <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+            <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within upload</li>
+          </ul>
+          Find more examples <a href="#overview--usage-examples">here</a>.
         example: mykey* translated:true
         explode: true
         in: query
@@ -14553,7 +14567,18 @@ paths:
         schema:
           type: string
         style: form
-      - description: q_description_placeholder
+      - description: |
+          Specify a query to do broad search for keys by name (including wildcards).<br><br>
+          The following qualifiers are also supported in the search term:<br>
+          <ul>
+            <li><code>ids:key_id,...</code> for queries on a comma-separated list of ids</li>
+            <li><code>name:key_name</code> for text queries on exact key names - whitespaces need to be prefixed with a backspace (\"\\\")</li>
+            <li><code>tags:tag_name</code> to filter for keys with certain tags</li>
+            <li><code>translated:{true|false}</code> for translation status (also requires <code>locale_id</code> to be specified)</li>
+            <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+            <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within upload</li>
+          </ul>
+          Find more examples <a href="#overview--usage-examples">here</a>.
         example: mykey* translated:true
         explode: true
         in: query
@@ -14874,7 +14899,18 @@ paths:
                   example: desc
                   type: string
                 q:
-                  description: q_description_placeholder
+                  description: |
+                    Specify a query to do broad search for keys by name (including wildcards).<br><br>
+                    The following qualifiers are also supported in the search term:<br>
+                    <ul>
+                      <li><code>ids:key_id,...</code> for queries on a comma-separated list of ids</li>
+                      <li><code>name:key_name</code> for text queries on exact key names - whitespaces need to be prefixed with a backspace (\"\\\")</li>
+                      <li><code>tags:tag_name</code> to filter for keys with certain tags</li>
+                      <li><code>translated:{true|false}</code> for translation status (also requires <code>locale_id</code> to be specified)</li>
+                      <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+                      <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within upload</li>
+                    </ul>
+                    Find more examples <a href="#overview--usage-examples">here</a>.
                   example: mykey* translated:true
                   type: string
                 locale_id:
@@ -15361,7 +15397,18 @@ paths:
                   example: my-feature-branch
                   type: string
                 q:
-                  description: q_description_placeholder
+                  description: |
+                    Specify a query to do broad search for keys by name (including wildcards).<br><br>
+                    The following qualifiers are also supported in the search term:<br>
+                    <ul>
+                      <li><code>ids:key_id,...</code> for queries on a comma-separated list of ids</li>
+                      <li><code>name:key_name</code> for text queries on exact key names - whitespaces need to be prefixed with a backspace (\"\\\")</li>
+                      <li><code>tags:tag_name</code> to filter for keys with certain tags</li>
+                      <li><code>translated:{true|false}</code> for translation status (also requires <code>locale_id</code> to be specified)</li>
+                      <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+                      <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within upload</li>
+                    </ul>
+                    Find more examples <a href="#overview--usage-examples">here</a>.
                   example: mykey* translated:true
                   type: string
                 locale_id:
@@ -15474,7 +15521,18 @@ paths:
                   example: my-feature-branch
                   type: string
                 q:
-                  description: q_description_placeholder
+                  description: |
+                    Specify a query to do broad search for keys by name (including wildcards).<br><br>
+                    The following qualifiers are also supported in the search term:<br>
+                    <ul>
+                      <li><code>ids:key_id,...</code> for queries on a comma-separated list of ids</li>
+                      <li><code>name:key_name</code> for text queries on exact key names - whitespaces need to be prefixed with a backspace (\"\\\")</li>
+                      <li><code>tags:tag_name</code> to filter for keys with certain tags</li>
+                      <li><code>translated:{true|false}</code> for translation status (also requires <code>locale_id</code> to be specified)</li>
+                      <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+                      <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within upload</li>
+                    </ul>
+                    Find more examples <a href="#overview--usage-examples">here</a>.
                   example: mykey* translated:true
                   type: string
                 locale_id:
@@ -16974,7 +17032,17 @@ paths:
         schema:
           type: string
         style: form
-      - description: q_description_placeholder
+      - description: |
+          Specify a query to find translations by content (including wildcards).<br><br>
+          The following qualifiers are supported in the query:<br>
+          <ul>
+            <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+            <li><code>tags:XYZ</code> for tags on the translation</li>
+            <li><code>unverified:{true|false}</code> for verification status</li>
+            <li><code>excluded:{true|false}</code> for exclusion status</li>
+            <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+          </ul>
+          Find more examples <a href="#overview--usage-examples">here</a>.
         example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
         explode: true
         in: query
@@ -17260,7 +17328,17 @@ paths:
         schema:
           type: string
         style: form
-      - description: q_description_placeholder
+      - description: |
+          Specify a query to find translations by content (including wildcards).<br><br>
+          The following qualifiers are supported in the query:<br>
+          <ul>
+            <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+            <li><code>unverified:{true|false}</code> for verification status</li>
+            <li><code>tags:XYZ</code> for tags on the translation</li>
+            <li><code>excluded:{true|false}</code> for exclusion status</li>
+            <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+          </ul>
+          Find more examples <a href="#overview--usage-examples">here</a>.
         example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
         explode: true
         in: query
@@ -17415,7 +17493,17 @@ paths:
         schema:
           type: string
         style: form
-      - description: q_description_placeholder
+      - description: |
+          Specify a query to find translations by content (including wildcards).<br><br>
+          The following qualifiers are supported in the query:<br>
+          <ul>
+            <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+            <li><code>unverified:{true|false}</code> for verification status</li>
+            <li><code>tags:XYZ</code> for tags on the translation</li>
+            <li><code>excluded:{true|false}</code> for exclusion status</li>
+            <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+          </ul>
+          Find more examples <a href="#overview--usage-examples">here</a>.
         example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
         explode: true
         in: query
@@ -17558,7 +17646,17 @@ paths:
                   example: desc
                   type: string
                 q:
-                  description: q_description_placeholder
+                  description: |
+                    Specify a query to find translations by content (including wildcards).<br><br>
+                    The following qualifiers are supported in the query:<br>
+                    <ul>
+                      <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+                      <li><code>tags:XYZ</code> for tags on the translation</li>
+                      <li><code>unverified:{true|false}</code> for verification status</li>
+                      <li><code>excluded:{true|false}</code> for exclusion status</li>
+                      <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+                    </ul>
+                    Find more examples <a href="#overview--usage-examples">here</a>.
                   example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
                   type: string
               title: translations/search/parameters
@@ -18416,7 +18514,17 @@ paths:
                   example: my-feature-branch
                   type: string
                 q:
-                  description: q_description_placeholder
+                  description: |
+                    Specify a query to find translations by content (including wildcards).<br><br>
+                    The following qualifiers are supported in the query:<br>
+                    <ul>
+                      <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+                      <li><code>tags:XYZ</code> for tags on the translation</li>
+                      <li><code>unverified:{true|false}</code> for verification status</li>
+                      <li><code>excluded:{true|false}</code> for exclusion status</li>
+                      <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+                    </ul>
+                    Find more examples <a href="#overview--usage-examples">here</a>.
                   example: PhraseApp*%20unverified:true%20tags:feature,center
                   type: string
                 sort:
@@ -18528,7 +18636,17 @@ paths:
                   example: my-feature-branch
                   type: string
                 q:
-                  description: q_description_placeholder
+                  description: |
+                    Specify a query to find translations by content (including wildcards).<br><br>
+                    The following qualifiers are supported in the query:<br>
+                    <ul>
+                      <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+                      <li><code>tags:XYZ</code> for tags on the translation</li>
+                      <li><code>unverified:{true|false}</code> for verification status</li>
+                      <li><code>excluded:{true|false}</code> for exclusion status</li>
+                      <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+                    </ul>
+                    Find more examples <a href="#overview--usage-examples">here</a>.
                   example: PhraseApp*%20verified:true%20tags:feature,center
                   type: string
                 sort:
@@ -18640,7 +18758,17 @@ paths:
                   example: my-feature-branch
                   type: string
                 q:
-                  description: q_description_placeholder
+                  description: |
+                    Specify a query to find translations by content (including wildcards).<br><br>
+                    The following qualifiers are supported in the query:<br>
+                    <ul>
+                      <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+                      <li><code>tags:XYZ</code> for tags on the translation</li>
+                      <li><code>unverified:{true|false}</code> for verification status</li>
+                      <li><code>excluded:{true|false}</code> for exclusion status</li>
+                      <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+                    </ul>
+                    Find more examples <a href="#overview--usage-examples">here</a>.
                   example: PhraseApp*%reviewed:false%20tags:feature,center
                   type: string
               title: translations/review/parameters
@@ -18741,7 +18869,17 @@ paths:
                   example: my-feature-branch
                   type: string
                 q:
-                  description: q_description_placeholder
+                  description: |
+                    Specify a query to find translations by content (including wildcards).<br><br>
+                    The following qualifiers are supported in the query:<br>
+                    <ul>
+                      <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+                      <li><code>tags:XYZ</code> for tags on the translation</li>
+                      <li><code>unverified:{true|false}</code> for verification status</li>
+                      <li><code>excluded:{true|false}</code> for exclusion status</li>
+                      <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+                    </ul>
+                    Find more examples <a href="#overview--usage-examples">here</a>.
                   example: PhraseApp*%20verified:true%20tags:feature,center
                   type: string
                 sort:
@@ -18853,7 +18991,17 @@ paths:
                   example: my-feature-branch
                   type: string
                 q:
-                  description: q_description_placeholder
+                  description: |
+                    Specify a query to find translations by content (including wildcards).<br><br>
+                    The following qualifiers are supported in the query:<br>
+                    <ul>
+                      <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+                      <li><code>tags:XYZ</code> for tags on the translation</li>
+                      <li><code>unverified:{true|false}</code> for verification status</li>
+                      <li><code>excluded:{true|false}</code> for exclusion status</li>
+                      <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+                    </ul>
+                    Find more examples <a href="#overview--usage-examples">here</a>.
                   example: PhraseApp*%20verified:true%20tags:feature,center
                   type: string
                 sort:
@@ -22224,7 +22372,18 @@ components:
           example: desc
           type: string
         q:
-          description: q_description_placeholder
+          description: |
+            Specify a query to do broad search for keys by name (including wildcards).<br><br>
+            The following qualifiers are also supported in the search term:<br>
+            <ul>
+              <li><code>ids:key_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>name:key_name</code> for text queries on exact key names - whitespaces need to be prefixed with a backspace (\"\\\")</li>
+              <li><code>tags:tag_name</code> to filter for keys with certain tags</li>
+              <li><code>translated:{true|false}</code> for translation status (also requires <code>locale_id</code> to be specified)</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+              <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within upload</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
           example: mykey* translated:true
           type: string
         locale_id:
@@ -22308,7 +22467,18 @@ components:
           example: my-feature-branch
           type: string
         q:
-          description: q_description_placeholder
+          description: |
+            Specify a query to do broad search for keys by name (including wildcards).<br><br>
+            The following qualifiers are also supported in the search term:<br>
+            <ul>
+              <li><code>ids:key_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>name:key_name</code> for text queries on exact key names - whitespaces need to be prefixed with a backspace (\"\\\")</li>
+              <li><code>tags:tag_name</code> to filter for keys with certain tags</li>
+              <li><code>translated:{true|false}</code> for translation status (also requires <code>locale_id</code> to be specified)</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+              <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within upload</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
           example: mykey* translated:true
           type: string
         locale_id:
@@ -22330,7 +22500,18 @@ components:
           example: my-feature-branch
           type: string
         q:
-          description: q_description_placeholder
+          description: |
+            Specify a query to do broad search for keys by name (including wildcards).<br><br>
+            The following qualifiers are also supported in the search term:<br>
+            <ul>
+              <li><code>ids:key_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>name:key_name</code> for text queries on exact key names - whitespaces need to be prefixed with a backspace (\"\\\")</li>
+              <li><code>tags:tag_name</code> to filter for keys with certain tags</li>
+              <li><code>translated:{true|false}</code> for translation status (also requires <code>locale_id</code> to be specified)</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+              <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within upload</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
           example: mykey* translated:true
           type: string
         locale_id:
@@ -22500,7 +22681,17 @@ components:
           example: desc
           type: string
         q:
-          description: q_description_placeholder
+          description: |
+            Specify a query to find translations by content (including wildcards).<br><br>
+            The following qualifiers are supported in the query:<br>
+            <ul>
+              <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>tags:XYZ</code> for tags on the translation</li>
+              <li><code>unverified:{true|false}</code> for verification status</li>
+              <li><code>excluded:{true|false}</code> for exclusion status</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
           example: PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center
           type: string
       title: translations/search/parameters
@@ -22581,7 +22772,17 @@ components:
           example: my-feature-branch
           type: string
         q:
-          description: q_description_placeholder
+          description: |
+            Specify a query to find translations by content (including wildcards).<br><br>
+            The following qualifiers are supported in the query:<br>
+            <ul>
+              <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>tags:XYZ</code> for tags on the translation</li>
+              <li><code>unverified:{true|false}</code> for verification status</li>
+              <li><code>excluded:{true|false}</code> for exclusion status</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
           example: PhraseApp*%20unverified:true%20tags:feature,center
           type: string
         sort:
@@ -22601,7 +22802,17 @@ components:
           example: my-feature-branch
           type: string
         q:
-          description: q_description_placeholder
+          description: |
+            Specify a query to find translations by content (including wildcards).<br><br>
+            The following qualifiers are supported in the query:<br>
+            <ul>
+              <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>tags:XYZ</code> for tags on the translation</li>
+              <li><code>unverified:{true|false}</code> for verification status</li>
+              <li><code>excluded:{true|false}</code> for exclusion status</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
           example: PhraseApp*%20verified:true%20tags:feature,center
           type: string
         sort:
@@ -22621,7 +22832,17 @@ components:
           example: my-feature-branch
           type: string
         q:
-          description: q_description_placeholder
+          description: |
+            Specify a query to find translations by content (including wildcards).<br><br>
+            The following qualifiers are supported in the query:<br>
+            <ul>
+              <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>tags:XYZ</code> for tags on the translation</li>
+              <li><code>unverified:{true|false}</code> for verification status</li>
+              <li><code>excluded:{true|false}</code> for exclusion status</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
           example: PhraseApp*%reviewed:false%20tags:feature,center
           type: string
       title: translations/review/parameters
@@ -22633,7 +22854,17 @@ components:
           example: my-feature-branch
           type: string
         q:
-          description: q_description_placeholder
+          description: |
+            Specify a query to find translations by content (including wildcards).<br><br>
+            The following qualifiers are supported in the query:<br>
+            <ul>
+              <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>tags:XYZ</code> for tags on the translation</li>
+              <li><code>unverified:{true|false}</code> for verification status</li>
+              <li><code>excluded:{true|false}</code> for exclusion status</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
           example: PhraseApp*%20verified:true%20tags:feature,center
           type: string
         sort:
@@ -22653,7 +22884,17 @@ components:
           example: my-feature-branch
           type: string
         q:
-          description: q_description_placeholder
+          description: |
+            Specify a query to find translations by content (including wildcards).<br><br>
+            The following qualifiers are supported in the query:<br>
+            <ul>
+              <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>tags:XYZ</code> for tags on the translation</li>
+              <li><code>unverified:{true|false}</code> for verification status</li>
+              <li><code>excluded:{true|false}</code> for exclusion status</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
           example: PhraseApp*%20verified:true%20tags:feature,center
           type: string
         sort:

@@ -889,7 +889,7 @@ List translations for a specific key.
  * @param "Branch" (optional.String) -  specify the branch to use
  * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
  * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
- * @param "Q" (optional.String) -  q_description_placeholder
+ * @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, projectId string, keyId string, localVarOptionals *TranslationsByKeyOpts) ([]Translation, *APIResponse, error) {
@@ -1022,7 +1022,7 @@ List translations for a specific locale. If you want to download all translation
  * @param "Branch" (optional.String) -  specify the branch to use
  * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
  * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
- * @param "Q" (optional.String) -  q_description_placeholder
+ * @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, projectId string, localeId string, localVarOptionals *TranslationsByLocaleOpts) ([]Translation, *APIResponse, error) {
@@ -1360,7 +1360,7 @@ List translations for the given project. If you want to download all translation
  * @param "Branch" (optional.String) -  specify the branch to use
  * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
  * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
- * @param "Q" (optional.String) -  q_description_placeholder
+ * @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectId string, localVarOptionals *TranslationsListOpts) ([]Translation, *APIResponse, error) {
