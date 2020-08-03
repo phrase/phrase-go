@@ -188,6 +188,17 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**TagDelete**](docs/TagsApi.md#tagdelete) | **Delete** /projects/{project_id}/tags/{name} | Delete a tag
 *TagsApi* | [**TagShow**](docs/TagsApi.md#tagshow) | **Get** /projects/{project_id}/tags/{name} | Get a single tag
 *TagsApi* | [**TagsList**](docs/TagsApi.md#tagslist) | **Get** /projects/{project_id}/tags | List tags
+*TeamsApi* | [**TeamCreate**](docs/TeamsApi.md#teamcreate) | **Post** /accounts/{account_id}/teams | Create a Team
+*TeamsApi* | [**TeamDelete**](docs/TeamsApi.md#teamdelete) | **Delete** /accounts/{account_id}/teams/{team_id} | Delete Team
+*TeamsApi* | [**TeamShow**](docs/TeamsApi.md#teamshow) | **Get** /accounts/{account_id}/teams/{team_id} | Get Team
+*TeamsApi* | [**TeamUpdate**](docs/TeamsApi.md#teamupdate) | **Patch** /accounts/{account_id}/teams/{team_id} | Update Team
+*TeamsApi* | [**TeamsList**](docs/TeamsApi.md#teamslist) | **Get** /accounts/{account_id}/teams | List Teams
+*TeamsApi* | [**TeamsProjectsCreate**](docs/TeamsApi.md#teamsprojectscreate) | **Post** /accounts/{account_id}/teams/{team_id}/projects | Add Project
+*TeamsApi* | [**TeamsProjectsDelete**](docs/TeamsApi.md#teamsprojectsdelete) | **Delete** /accounts/{account_id}/teams/{team_id}/projects/{id} | Remove Project
+*TeamsApi* | [**TeamsSpacesCreate**](docs/TeamsApi.md#teamsspacescreate) | **Post** /accounts/{account_id}/teams/{team_id}/spaces | Add Space
+*TeamsApi* | [**TeamsSpacesDelete**](docs/TeamsApi.md#teamsspacesdelete) | **Delete** /accounts/{account_id}/teams/{team_id}/spaces/{id} | Remove Space
+*TeamsApi* | [**TeamsUsersCreate**](docs/TeamsApi.md#teamsuserscreate) | **Post** /accounts/{account_id}/teams/{team_id}/users | Add User
+*TeamsApi* | [**TeamsUsersDelete**](docs/TeamsApi.md#teamsusersdelete) | **Delete** /accounts/{account_id}/teams/{team_id}/users/{id} | Remove User
 *TranslationsApi* | [**TranslationCreate**](docs/TranslationsApi.md#translationcreate) | **Post** /projects/{project_id}/translations | Create a translation
 *TranslationsApi* | [**TranslationExclude**](docs/TranslationsApi.md#translationexclude) | **Patch** /projects/{project_id}/translations/{id}/exclude | Exclude a translation from export
 *TranslationsApi* | [**TranslationInclude**](docs/TranslationsApi.md#translationinclude) | **Patch** /projects/{project_id}/translations/{id}/include | Revoke exclusion of a translation in export
@@ -334,6 +345,13 @@ Class | Method | HTTP request | Description
  - [TagWithStats1](docs/TagWithStats1.md)
  - [TagWithStats1Statistics](docs/TagWithStats1Statistics.md)
  - [TagWithStats1Statistics1](docs/TagWithStats1Statistics1.md)
+ - [Team](docs/Team.md)
+ - [TeamCreateParameters](docs/TeamCreateParameters.md)
+ - [TeamDetail](docs/TeamDetail.md)
+ - [TeamUpdateParameters](docs/TeamUpdateParameters.md)
+ - [TeamsProjectsCreateParameters](docs/TeamsProjectsCreateParameters.md)
+ - [TeamsSpacesCreateParameters](docs/TeamsSpacesCreateParameters.md)
+ - [TeamsUsersCreateParameters](docs/TeamsUsersCreateParameters.md)
  - [Translation](docs/Translation.md)
  - [TranslationCreateParameters](docs/TranslationCreateParameters.md)
  - [TranslationDetails](docs/TranslationDetails.md)

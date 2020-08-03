@@ -634,6 +634,8 @@ tags:
 - name: Versions / History
 - description: Everything about Space
   name: Spaces
+- description: Everything about Teams
+  name: Teams
 - name: Jobs
 - name: Job Locales
 - name: Comments
@@ -17194,6 +17196,1043 @@ paths:
           --access_token <token>
       - lang: CLI v1
         source: phraseapp spaces projects delete <account_id> <space_id> <id>
+  /accounts/{account_id}/teams:
+    get:
+      description: List all Teams for the given account.
+      operationId: teams/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: allows you to specify a page size up to 100 items, 10 by default
+        example: 10
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/team'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List Teams
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase teams list \
+          --account_id <account_id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
+    post:
+      description: Create a new Team.
+      operationId: team/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/team_create_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  description: Name of the team
+                  example: German Translators
+                  type: string
+              title: team/create/parameters
+              type: object
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/team_detail'
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create a Team
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"name":"German Translators"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase teams create \
+          --account_id <account_id> \
+          --data '{"name":""German Translators""}' \
+          --access_token <token>
+      - lang: CLI v1
+        source: The Teams feature is not supported by our CLI v1
+  /accounts/{account_id}/teams/{team_id}:
+    delete:
+      description: Delete the specified Team.
+      operationId: team/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Delete Team
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase teams delete \
+          --account_id <account_id> \
+          --id <id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
+    get:
+      description: Show the specified Team.
+      operationId: team/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/team_detail'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get Team
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase teams show \
+          --account_id <account_id> \
+          --id <id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
+    patch:
+      description: Update the specified Team.
+      operationId: team/update
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/team_update_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  description: New name of the team
+                  example: German Translators
+                  type: string
+              title: team/update/parameters
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/team_detail'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Update Team
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"name":"German Translators"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase teams update \
+          --account_id <account_id> \
+          --id <id> \
+          --data '{"name":""German Translators""}' \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
+  /accounts/{account_id}/teams/{team_id}/projects:
+    post:
+      description: Adds an existing project to the team.
+      operationId: teams/projects/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Team ID
+        explode: false
+        in: path
+        name: team_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/teams_projects_create_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  description: Project ID to add to the Team
+                  example: a4b3c2d1
+                  type: string
+              title: teams/projects/create/parameters
+              type: object
+        required: true
+      responses:
+        "201":
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Add Project
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams/:team_id/projects" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"id":"a4b3c2d1"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase teams projects_create \
+          --account_id <account_id> \
+          --team_id <team_id> \
+          --data '{"id":"a4b3c2d1"}' \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
+  /accounts/{account_id}/teams/{team_id}/projects/{id}:
+    delete:
+      description: Removes a specified project from the specified team.
+      operationId: teams/projects/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Team ID
+        explode: false
+        in: path
+        name: team_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Remove Project
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams/:team_id/projects/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase teams projects_delete \
+          --account_id <account_id> \
+          --team_id <team_id> \
+          --id <id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
+  /accounts/{account_id}/teams/{team_id}/spaces:
+    post:
+      description: Adds an existing space to the team.
+      operationId: teams/spaces/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Team ID
+        explode: false
+        in: path
+        name: team_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/teams_spaces_create_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  description: Space ID to add to the Team
+                  example: a4b3c2d1
+                  type: string
+              title: teams/spaces/create/parameters
+              type: object
+        required: true
+      responses:
+        "201":
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Add Space
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams/:team_id/spaces" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"id":"a4b3c2d1"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase teams spaces_create \
+          --account_id <account_id> \
+          --team_id <team_id> \
+          --data '{"id":"a4b3c2d1"}' \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
+  /accounts/{account_id}/teams/{team_id}/spaces/{id}:
+    delete:
+      description: Removes a specified space from the specified team.
+      operationId: teams/spaces/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Team ID
+        explode: false
+        in: path
+        name: team_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Remove Space
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams/:team_id/spaces/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase teams spaces_delete \
+          --account_id <account_id> \
+          --team_id <team_id> \
+          --id <id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
+  /accounts/{account_id}/teams/{team_id}/users:
+    post:
+      description: Adds an existing user to the team.
+      operationId: teams/users/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Team ID
+        explode: false
+        in: path
+        name: team_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/teams_users_create_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  description: User ID to add to the Team
+                  example: a4b3c2d1
+                  type: string
+              title: teams/users/create/parameters
+              type: object
+        required: true
+      responses:
+        "201":
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Add User
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams/:team_id/users" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"id":"a4b3c2d1"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase teams users_create \
+          --account_id <account_id> \
+          --team_id <team_id> \
+          --data '{"id":"a4b3c2d1"}' \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
+  /accounts/{account_id}/teams/{team_id}/users/{id}:
+    delete:
+      description: Removes a specified user from the specified team.
+      operationId: teams/users/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Team ID
+        explode: false
+        in: path
+        name: team_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Remove User
+      tags:
+      - Teams
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/teams/:team_id/users/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase teams users_delete \
+          --account_id <account_id> \
+          --team_id <team_id> \
+          --id <id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: The teams feature is not supported by our CLI v1
   /projects/{project_id}/translations:
     get:
       description: List translations for the given project. If you want to download
@@ -19377,6 +20416,15 @@ components:
       schema:
         type: string
       style: simple
+    team_id:
+      description: Team ID
+      explode: false
+      in: path
+      name: team_id
+      required: true
+      schema:
+        type: string
+      style: simple
     project_id:
       description: Project ID
       explode: false
@@ -19796,6 +20844,12 @@ components:
           schema:
             $ref: '#/components/schemas/styleguide_update_parameters'
       required: true
+    teams_spaces_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/teams_spaces_create_parameters'
+      required: true
     release_update_parameters:
       content:
         application/json:
@@ -19940,17 +20994,41 @@ components:
           schema:
             $ref: '#/components/schemas/translations_include_parameters'
       required: true
+    team_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/team_update_parameters'
+      required: true
     key_create_parameters:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/key_create_parameters'
       required: true
+    teams_projects_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/teams_projects_create_parameters'
+      required: true
+    team_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/team_create_parameters'
+      required: true
     spaces_projects_create_parameters:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/spaces_projects_create_parameters'
+      required: true
+    teams_users_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/teams_users_create_parameters'
       required: true
   responses:
     "200":
@@ -21069,6 +22147,103 @@ components:
             $ref: '#/components/schemas/project'
           type: array
       title: space
+      type: object
+    team:
+      example:
+        id: 2e7574e8f2372906a03110c2a7cfe671
+        name: My first Team
+        created_at: 2020-02-25T12:17:25Z
+        updated_at: 2020-03-13T14:46:57Z
+        projects:
+        - id: abcd11231fadef1234adacd1234cdef1234
+          name: My IOS Project
+          main_format: yml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        spaces:
+        - id: 626ea67628690c73ac86ac81eec2d185
+          name: IOS
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+          projects_count: 3
+        users:
+        - id: 3465jhkjhk3465hjjkhl346hklk3456kl
+          username: Max
+          name: Max Mustermann
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        projects:
+          items:
+            $ref: '#/components/schemas/project'
+          type: array
+        spaces:
+          items:
+            $ref: '#/components/schemas/space'
+          type: array
+        users:
+          items:
+            $ref: '#/components/schemas/user_preview'
+          type: array
+      title: team
+      type: object
+    team_detail:
+      example:
+        id: 2e7574e8f2372906a03110c2a7cfe671
+        name: My first Team
+        created_at: 2020-02-25T12:17:25Z
+        updated_at: 2020-03-13T14:46:57Z
+        projects:
+        - id: abcd11231fadef1234adacd1234cdef1234
+          name: My IOS Project
+          main_format: yml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        spaces:
+        - id: 626ea67628690c73ac86ac81eec2d185
+          name: IOS
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+          projects_count: 3
+        users:
+        - id: 3465jhkjhk3465hjjkhl346hklk3456kl
+          username: Max
+          name: Max Mustermann
+          position: Developer
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        projects:
+          items:
+            $ref: '#/components/schemas/project'
+          type: array
+        spaces:
+          items:
+            $ref: '#/components/schemas/space'
+          type: array
+        users:
+          items:
+            $ref: '#/components/schemas/user'
+          type: array
+      title: team
       type: object
     job:
       example:
@@ -22859,6 +24034,46 @@ components:
           example: a4b3c2d1
           type: string
       title: spaces/projects/create/parameters
+      type: object
+    team_create_parameters:
+      properties:
+        name:
+          description: Name of the team
+          example: German Translators
+          type: string
+      title: team/create/parameters
+      type: object
+    team_update_parameters:
+      properties:
+        name:
+          description: New name of the team
+          example: German Translators
+          type: string
+      title: team/update/parameters
+      type: object
+    teams_projects_create_parameters:
+      properties:
+        id:
+          description: Project ID to add to the Team
+          example: a4b3c2d1
+          type: string
+      title: teams/projects/create/parameters
+      type: object
+    teams_spaces_create_parameters:
+      properties:
+        id:
+          description: Space ID to add to the Team
+          example: a4b3c2d1
+          type: string
+      title: teams/spaces/create/parameters
+      type: object
+    teams_users_create_parameters:
+      properties:
+        id:
+          description: User ID to add to the Team
+          example: a4b3c2d1
+          type: string
+      title: teams/users/create/parameters
       type: object
     translation_create_parameters:
       properties:
