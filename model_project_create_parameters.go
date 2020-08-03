@@ -18,4 +18,6 @@ type ProjectCreateParameters struct {
 	RemoveProjectImage *bool `json:"remove_project_image,omitempty"`
 	// Account ID to specify the actual account the project should be created in. Required if the requesting user is a member of multiple accounts.
 	AccountId string `json:"account_id,omitempty"`
+	// When a source project ID is given, a clone of that project will be created, including all locales, keys and translations as well as the main project settings if they are not defined otherwise through the params.
+	SourceProjectId string `json:"source_project_id,omitempty"`
 }
