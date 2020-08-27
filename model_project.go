@@ -8,6 +8,7 @@ import (
 type Project struct {
 	Id              string    `json:"id,omitempty"`
 	Name            string    `json:"name,omitempty"`
+	Slug            string    `json:"slug,omitempty"`
 	MainFormat      string    `json:"main_format,omitempty"`
 	ProjectImageUrl string    `json:"project_image_url,omitempty"`
 	Account         Account   `json:"account,omitempty"`

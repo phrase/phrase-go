@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
+**Slug** | **string** |  | [optional] 
 **MainFormat** | **string** |  | [optional] 
 **ProjectImageUrl** | **string** |  | [optional] 
 **Account** | [**Account**](account.md) |  | [optional] 
