@@ -427,6 +427,7 @@ type BlacklistedKeysListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -438,6 +439,7 @@ List all rules for blacklisting keys for the given project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return []BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeysList(ctx _context.Context, projectId string, localVarOptionals *BlacklistedKeysListOpts) ([]BlacklistedKey, *APIResponse, error) {
@@ -463,6 +465,9 @@ func (a *BlacklistedKeysApiService) BlacklistedKeysList(ctx _context.Context, pr
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -14184,6 +14184,15 @@ paths:
         schema:
           type: integer
         style: form
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
