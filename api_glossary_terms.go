@@ -450,7 +450,7 @@ List all glossary terms the current user has access to.
  * @param optional nil or *GlossaryTermsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []GlossaryTerm
 */
 func (a *GlossaryTermsApiService) GlossaryTermsList(ctx _context.Context, accountId string, glossaryId string, localVarOptionals *GlossaryTermsListOpts) ([]GlossaryTerm, *APIResponse, error) {

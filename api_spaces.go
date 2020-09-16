@@ -437,7 +437,7 @@ List all Spaces for the given account.
  * @param optional nil or *SpacesListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []Space
 */
 func (a *SpacesApiService) SpacesList(ctx _context.Context, accountId string, localVarOptionals *SpacesListOpts) ([]Space, *APIResponse, error) {
@@ -738,7 +738,7 @@ List all projects for the specified Space.
  * @param optional nil or *SpacesProjectsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []Project
 */
 func (a *SpacesApiService) SpacesProjectsList(ctx _context.Context, accountId string, spaceId string, localVarOptionals *SpacesProjectsListOpts) ([]Project, *APIResponse, error) {

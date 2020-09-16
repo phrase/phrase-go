@@ -885,7 +885,7 @@ List translations for a specific key.
  * @param optional nil or *TranslationsByKeyOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
  * @param "Branch" (optional.String) -  specify the branch to use
  * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
  * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
@@ -1018,7 +1018,7 @@ List translations for a specific locale. If you want to download all translation
  * @param optional nil or *TranslationsByLocaleOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
  * @param "Branch" (optional.String) -  specify the branch to use
  * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
  * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
@@ -1356,7 +1356,7 @@ List translations for the given project. If you want to download all translation
  * @param optional nil or *TranslationsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
  * @param "Branch" (optional.String) -  specify the branch to use
  * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
  * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
@@ -1586,7 +1586,7 @@ Search translations for the given project. Provides the same search interface as
  * @param optional nil or *TranslationsSearchOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projectId string, translationsSearchParameters TranslationsSearchParameters, localVarOptionals *TranslationsSearchOpts) ([]Translation, *APIResponse, error) {

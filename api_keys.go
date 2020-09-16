@@ -567,7 +567,7 @@ List all keys for the given project. Alternatively you can POST requests to /sea
  * @param optional nil or *KeysListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
  * @param "Branch" (optional.String) -  specify the branch to use
  * @param "Sort" (optional.String) -  Sort by field. Can be one of: name, created_at, updated_at.
  * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
@@ -698,7 +698,7 @@ Search keys for the given project matching query.
  * @param optional nil or *KeysSearchOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []TranslationKey
 */
 func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keysSearchParameters KeysSearchParameters, localVarOptionals *KeysSearchOpts) ([]TranslationKey, *APIResponse, error) {

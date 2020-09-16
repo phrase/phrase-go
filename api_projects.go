@@ -424,7 +424,7 @@ List all projects the current user has access to.
  * @param optional nil or *ProjectsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []Project
 */
 func (a *ProjectsApiService) ProjectsList(ctx _context.Context, localVarOptionals *ProjectsListOpts) ([]Project, *APIResponse, error) {

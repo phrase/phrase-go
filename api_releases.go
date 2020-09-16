@@ -556,7 +556,7 @@ List all releases for the given distribution.
  * @param optional nil or *ReleasesListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []ReleasePreview
 */
 func (a *ReleasesApiService) ReleasesList(ctx _context.Context, accountId string, distributionId string, localVarOptionals *ReleasesListOpts) ([]ReleasePreview, *APIResponse, error) {

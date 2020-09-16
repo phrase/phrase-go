@@ -540,7 +540,7 @@ List invitations for an account. It will also list the accessible resources like
  * @param optional nil or *InvitationsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []Invitation
 */
 func (a *InvitationsApiService) InvitationsList(ctx _context.Context, accountId string, localVarOptionals *InvitationsListOpts) ([]Invitation, *APIResponse, error) {

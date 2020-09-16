@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
 
 ### Return type
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 10 by default | 
+ **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
 
 ### Return type
 

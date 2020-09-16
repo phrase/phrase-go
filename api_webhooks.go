@@ -529,7 +529,7 @@ List all webhooks for the given project.
  * @param optional nil or *WebhooksListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []Webhook
 */
 func (a *WebhooksApiService) WebhooksList(ctx _context.Context, projectId string, localVarOptionals *WebhooksListOpts) ([]Webhook, *APIResponse, error) {

@@ -231,7 +231,7 @@ List history for a single Sync Setting.
  * @param optional nil or *GitlabSyncHistoryOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
  * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
 @return []GitlabSyncHistory
 */

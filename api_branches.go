@@ -624,7 +624,7 @@ List all branches the of the current project.
  * @param optional nil or *BranchesListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []Branch
 */
 func (a *BranchesApiService) BranchesList(ctx _context.Context, projectId string, localVarOptionals *BranchesListOpts) ([]Branch, *APIResponse, error) {

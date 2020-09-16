@@ -334,7 +334,7 @@ Get all users active in the account. It also lists resources like projects and l
  * @param optional nil or *MembersListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 10 by default
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []Member
 */
 func (a *MembersApiService) MembersList(ctx _context.Context, accountId string, localVarOptionals *MembersListOpts) ([]Member, *APIResponse, error) {
