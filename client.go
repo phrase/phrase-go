@@ -52,6 +52,8 @@ type APIClient struct {
 
 	DistributionsApi *DistributionsApiService
 
+	DocumentsApi *DocumentsApiService
+
 	FormatsApi *FormatsApiService
 
 	GitLabSyncApi *GitLabSyncApiService
@@ -126,6 +128,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BranchesApi = (*BranchesApiService)(&c.common)
 	c.CommentsApi = (*CommentsApiService)(&c.common)
 	c.DistributionsApi = (*DistributionsApiService)(&c.common)
+	c.DocumentsApi = (*DocumentsApiService)(&c.common)
 	c.FormatsApi = (*FormatsApiService)(&c.common)
 	c.GitLabSyncApi = (*GitLabSyncApiService)(&c.common)
 	c.GlossariesApi = (*GlossariesApiService)(&c.common)

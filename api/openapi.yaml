@@ -629,6 +629,7 @@ tags:
       </table>
     </div>
   name: Uploads
+- name: Documents
 - name: Tags
 - name: Blacklisted Keys
 - name: Versions / History
@@ -885,6 +886,99 @@ paths:
           --access_token <token>
       - lang: CLI v1
         source: phraseapp formats list
+  /projects/{project_id}/documents:
+    get:
+      description: List all documents the current user has access to.
+      operationId: documents/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: allows you to specify a page size up to 100 items, 25 by default
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/document'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List documents
+      tags:
+      - Documents
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/documents?project_id=asdf" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase documents list \
+          --project_id <project_id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: UNAVAILABLE
   /projects/{project_id}/styleguides:
     get:
       description: List all styleguides for the given project.
@@ -22638,6 +22732,19 @@ components:
           $ref: '#/components/schemas/translation_key'
       title: screenshot_marker
       type: object
+    document:
+      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"email.html","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
     styleguide_create_parameters:
       properties:
         title:
