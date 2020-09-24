@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *DistributionsApi* | [**DistributionsList**](docs/DistributionsApi.md#distributionslist) | **Get** /accounts/{account_id}/distributions | List distributions
 *DocumentsApi* | [**DocumentsList**](docs/DocumentsApi.md#documentslist) | **Get** /projects/{project_id}/documents | List documents
 *FormatsApi* | [**FormatsList**](docs/FormatsApi.md#formatslist) | **Get** /formats | List formats
+*GitHubSyncApi* | [**GithubSyncExport**](docs/GitHubSyncApi.md#githubsyncexport) | **Post** /github_syncs/export | Export from Phrase to GitHub
 *GitLabSyncApi* | [**GitlabSyncDelete**](docs/GitLabSyncApi.md#gitlabsyncdelete) | **Delete** /gitlab_syncs/{id} | Delete single Sync Setting
 *GitLabSyncApi* | [**GitlabSyncExport**](docs/GitLabSyncApi.md#gitlabsyncexport) | **Post** /gitlab_syncs/{gitlab_sync_id}/export | Export from Phrase to GitLab
 *GitLabSyncApi* | [**GitlabSyncHistory**](docs/GitLabSyncApi.md#gitlabsynchistory) | **Get** /gitlab_syncs/{gitlab_sync_id}/history | History of single Sync Setting
@@ -264,6 +265,7 @@ Class | Method | HTTP request | Description
  - [DistributionUpdateParameters](docs/DistributionUpdateParameters.md)
  - [Document](docs/Document.md)
  - [Format](docs/Format.md)
+ - [GithubSyncExportParameters](docs/GithubSyncExportParameters.md)
  - [GitlabSync](docs/GitlabSync.md)
  - [GitlabSyncExport](docs/GitlabSyncExport.md)
  - [GitlabSyncExportParameters](docs/GitlabSyncExportParameters.md)
@@ -278,6 +280,8 @@ Class | Method | HTTP request | Description
  - [GlossaryTermTranslationUpdateParameters](docs/GlossaryTermTranslationUpdateParameters.md)
  - [GlossaryTermUpdateParameters](docs/GlossaryTermUpdateParameters.md)
  - [GlossaryUpdateParameters](docs/GlossaryUpdateParameters.md)
+ - [InlineResponse422](docs/InlineResponse422.md)
+ - [InlineResponse422Errors](docs/InlineResponse422Errors.md)
  - [Invitation](docs/Invitation.md)
  - [InvitationCreateParameters](docs/InvitationCreateParameters.md)
  - [InvitationUpdateParameters](docs/InvitationUpdateParameters.md)
