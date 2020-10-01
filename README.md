@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
 *DistributionsApi* | [**DistributionShow**](docs/DistributionsApi.md#distributionshow) | **Get** /accounts/{account_id}/distributions/{id} | Get a single distribution
 *DistributionsApi* | [**DistributionUpdate**](docs/DistributionsApi.md#distributionupdate) | **Patch** /accounts/{account_id}/distributions/{id} | Update a distribution
 *DistributionsApi* | [**DistributionsList**](docs/DistributionsApi.md#distributionslist) | **Get** /accounts/{account_id}/distributions | List distributions
+*DocumentsApi* | [**DocumentDelete**](docs/DocumentsApi.md#documentdelete) | **Delete** /projects/{project_id}/documents/{id} | Delete document
 *DocumentsApi* | [**DocumentsList**](docs/DocumentsApi.md#documentslist) | **Get** /projects/{project_id}/documents | List documents
 *FormatsApi* | [**FormatsList**](docs/FormatsApi.md#formatslist) | **Get** /formats | List formats
 *GitHubSyncApi* | [**GithubSyncExport**](docs/GitHubSyncApi.md#githubsyncexport) | **Post** /github_syncs/export | Export from Phrase to GitHub
