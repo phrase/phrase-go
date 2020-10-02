@@ -9111,6 +9111,98 @@ paths:
         source: UNAVAILABLE
       - lang: CLI v1
         source: UNAVAILABLE
+  /github_syncs/import:
+    post:
+      description: Import files to Phrase from your connected GitHub repository.
+      operationId: github_sync/import
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/github_sync_import_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                project_id:
+                  description: Project ID to specify the actual project the GitHub
+                    import should be triggered in.
+                  example: abcd1234
+                  type: string
+              title: github_sync/import/parameters
+              type: object
+        required: true
+      responses:
+        "200":
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_422'
+          description: Unprocessable entity
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Import to Phrase from GitHub
+      tags:
+      - GitHub Sync
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/github_syncs/import" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"project_id":"abcd1234"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: UNAVAILABLE
+      - lang: CLI v1
+        source: UNAVAILABLE
   /gitlab_syncs:
     get:
       description: List all GitLab Sync Settings for which synchronisation with Phrase
@@ -20930,6 +21022,12 @@ components:
           schema:
             $ref: '#/components/schemas/key_update_parameters'
       required: true
+    github_sync_import_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/github_sync_import_parameters'
+      required: true
     tag_create_parameters:
       content:
         application/json:
@@ -23710,6 +23808,15 @@ components:
           items:
             $ref: '#/components/schemas/inline_response_422_errors'
           type: array
+    github_sync_import_parameters:
+      properties:
+        project_id:
+          description: Project ID to specify the actual project the GitHub import
+            should be triggered in.
+          example: abcd1234
+          type: string
+      title: github_sync/import/parameters
+      type: object
     gitlab_sync_import_parameters:
       properties:
         account_id:
