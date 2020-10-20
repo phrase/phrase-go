@@ -5006,6 +5006,10 @@ paths:
                   description: Date the job should be finished
                   format: date-time
                   type: string
+                ticket_url:
+                  description: URL to a ticket for this job (e.g. Jira, Trello)
+                  example: https://example.atlassian.net/browse/FOO
+                  type: string
                 tags:
                   description: tags of keys that should be included within the job
                   example:
@@ -5073,13 +5077,13 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/jobs" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
-            -d '{"branch":"my-feature-branch","name":"de","briefing":"de-DE","due_date":"2017-08-15","tags":["myUploadTag"],"translation_key_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
+            -d '{"branch":"my-feature-branch","name":"de","briefing":"de-DE","due_date":"2017-08-15","ticket_url":"https://example.atlassian.net/browse/FOO","tags":["myUploadTag"],"translation_key_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase jobs create \
           --project_id <project_id> \
-          --data '{"branch":"my-feature-branch", "name":"de", "briefing":"de-DE", "due_date":"2017-08-15", "tags":""myUploadTag"", "translation_key_ids":""abcd1234cdef1234abcd1234cdef1234""}' \
+          --data '{"branch":"my-feature-branch", "name":"de", "briefing":"de-DE", "due_date":"2017-08-15", "ticket_url":"https://example.atlassian.net/browse/FOO", "tags":""myUploadTag"", "translation_key_ids":""abcd1234cdef1234abcd1234cdef1234""}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -5334,6 +5338,10 @@ paths:
                   description: Date the job should be finished
                   format: date-time
                   type: string
+                ticket_url:
+                  description: URL to a ticket for this job (e.g. Jira, Trello)
+                  example: https://example.atlassian.net/browse/FOO
+                  type: string
               title: job/update/parameters
               type: object
         required: true
@@ -5387,14 +5395,14 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/jobs/:id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"branch":"my-feature-branch","name":"de","briefing":"de-DE","due_date":"2017-08-15"}' \
+            -d '{"branch":"my-feature-branch","name":"de","briefing":"de-DE","due_date":"2017-08-15","ticket_url":"https://example.atlassian.net/browse/FOO"}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase jobs update \
           --project_id <project_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "name":"de", "briefing":"de-DE", "due_date":"2017-08-15"}' \
+          --data '{"branch":"my-feature-branch", "name":"de", "briefing":"de-DE", "due_date":"2017-08-15", "ticket_url":"https://example.atlassian.net/browse/FOO"}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -22638,6 +22646,7 @@ components:
         briefing: Some instructions for the translators
         due_date: 2017-02-28T09:52:53Z
         state: completed
+        ticket_url: https://example.atlassian.net/browse/FOO
         created_at: 2017-01-28T09:52:53Z
         updated_at: 2017-01-28T09:52:53Z
       properties:
@@ -22651,6 +22660,8 @@ components:
           format: date-time
           type: string
         state:
+          type: string
+        ticket_url:
           type: string
         created_at:
           format: date-time
@@ -23462,6 +23473,10 @@ components:
           description: Date the job should be finished
           format: date-time
           type: string
+        ticket_url:
+          description: URL to a ticket for this job (e.g. Jira, Trello)
+          example: https://example.atlassian.net/browse/FOO
+          type: string
         tags:
           description: tags of keys that should be included within the job
           example:
@@ -23495,6 +23510,10 @@ components:
         due_date:
           description: Date the job should be finished
           format: date-time
+          type: string
+        ticket_url:
+          description: URL to a ticket for this job (e.g. Jira, Trello)
+          example: https://example.atlassian.net/browse/FOO
           type: string
       title: job/update/parameters
       type: object

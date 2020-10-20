@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Briefing** | **string** |  | [optional] 
 **DueDate** | [**time.Time**](time.Time.md) |  | [optional] 
 **State** | **string** |  | [optional] 
+**TicketUrl** | **string** |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

@@ -14,4 +14,6 @@ type JobUpdateParameters struct {
 	Briefing string `json:"briefing,omitempty"`
 	// Date the job should be finished
 	DueDate time.Time `json:"due_date,omitempty"`
+	// URL to a ticket for this job (e.g. Jira, Trello)
+	TicketUrl string `json:"ticket_url,omitempty"`
 }
