@@ -22649,6 +22649,12 @@ components:
         ticket_url: https://example.atlassian.net/browse/FOO
         created_at: 2017-01-28T09:52:53Z
         updated_at: 2017-01-28T09:52:53Z
+        project:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
       properties:
         id:
           type: string
@@ -22669,6 +22675,8 @@ components:
         updated_at:
           format: date-time
           type: string
+        project:
+          $ref: '#/components/schemas/project_short'
       title: job
       type: object
     job_details:

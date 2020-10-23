@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **TicketUrl** | **string** |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
+**Project** | [**ProjectShort**](project_short.md) |  | [optional] 
 **Owner** | [**UserPreview**](user_preview.md) |  | [optional] 
 **JobTagName** | **string** |  | [optional] 
 **Locales** | [**[]LocalePreview**](locale_preview.md) |  | [optional] 
