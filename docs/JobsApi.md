@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**JobShow**](JobsApi.md#JobShow) | **Get** /projects/{project_id}/jobs/{id} | Get a single job
 [**JobStart**](JobsApi.md#JobStart) | **Post** /projects/{project_id}/jobs/{id}/start | Start a job
 [**JobUpdate**](JobsApi.md#JobUpdate) | **Patch** /projects/{project_id}/jobs/{id} | Update a job
+[**JobsByAccount**](JobsApi.md#JobsByAccount) | **Get** /accounts/{account_id}/jobs | List account jobs
 [**JobsList**](JobsApi.md#JobsList) | **Get** /projects/{project_id}/jobs | List jobs
 
 
@@ -447,6 +448,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## JobsByAccount
+
+> []Job JobsByAccount(ctx, accountId, optional)
+
+List account jobs
+
+List all jobs for the given account.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **string**| Account ID | 
+ **optional** | ***JobsByAccountOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a JobsByAccountOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **page** | **optional.Int32**| Page number | 
+ **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
+ **ownedBy** | **optional.String**| filter by user owning job | 
+ **assignedTo** | **optional.String**| filter by user assigned to job | 
+ **state** | **optional.String**| filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | 
+
+### Return type
+
+[**[]Job**](job.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -5094,6 +5094,136 @@ paths:
           --due-date 2017-08-15 \
           --tags "myUploadTag" \
           --translation-key-ids "abcd1234cdef1234abcd1234cdef1234"
+  /accounts/{account_id}/jobs:
+    get:
+      description: List all jobs for the given account.
+      operationId: jobs/by_account
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: allows you to specify a page size up to 100 items, 25 by default
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: filter by user owning job
+        example: abcd1234cdef1234abcd1234cdef1234
+        explode: true
+        in: query
+        name: owned_by
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: filter by user assigned to job
+        example: abcd1234cdef1234abcd1234cdef1234
+        explode: true
+        in: query
+        name: assigned_to
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>,
+          <code>completed</code>
+        example: completed
+        explode: true
+        in: query
+        name: state
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/job'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List account jobs
+      tags:
+      - Jobs
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/jobs?owned_by=abcd1234cdef1234abcd1234cdef1234&assigned_to=abcd1234cdef1234abcd1234cdef1234&state=completed" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase jobs by_account \
+          --account_id <account_id> \
+          --owned_by abcd1234cdef1234abcd1234cdef1234 \
+          --assigned_to abcd1234cdef1234abcd1234cdef1234 \
+          --state completed \
+          --access_token <token>
   /projects/{project_id}/jobs/{id}:
     delete:
       description: Delete an existing job.
