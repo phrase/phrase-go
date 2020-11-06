@@ -427,6 +427,7 @@ type ScreenshotsListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	KeyId         optional.String `json:"key_id,omitempty"`
 }
 
 /*
@@ -438,6 +439,7 @@ List all screenshots for the given project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+ * @param "KeyId" (optional.String) -  filter by key
 @return []Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotsList(ctx _context.Context, projectId string, localVarOptionals *ScreenshotsListOpts) ([]Screenshot, *APIResponse, error) {
@@ -463,6 +465,9 @@ func (a *ScreenshotsApiService) ScreenshotsList(ctx _context.Context, projectId 
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.KeyId.IsSet() {
+		localVarQueryParams.Add("key_id", parameterToString(localVarOptionals.KeyId.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

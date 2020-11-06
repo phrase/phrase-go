@@ -13251,6 +13251,15 @@ paths:
         schema:
           type: integer
         style: form
+      - description: filter by key
+        example: abcd1234cdef1234abcd1234cdef1234
+        explode: true
+        in: query
+        name: key_id
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
