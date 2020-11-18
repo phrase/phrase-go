@@ -4,6 +4,8 @@ package phrase
 type WebhookCreateParameters struct {
 	// Callback URL to send requests to
 	CallbackUrl string `json:"callback_url,omitempty"`
+	// Webhook secret used to calculate signature. If empty, the default project secret will be used.
+	Secret string `json:"secret,omitempty"`
 	// Webhook description
 	Description string `json:"description,omitempty"`
 	// List of event names to trigger the webhook (separated by comma)
