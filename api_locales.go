@@ -228,6 +228,7 @@ type LocaleDownloadOpts struct {
 	Tags                          optional.String    `json:"tags,omitempty"`
 	Tag                           optional.String    `json:"tag,omitempty"`
 	IncludeEmptyTranslations      optional.Bool      `json:"include_empty_translations,omitempty"`
+	ExcludeEmptyZeroForms         optional.Bool      `json:"exclude_empty_zero_forms,omitempty"`
 	IncludeTranslatedKeys         optional.Bool      `json:"include_translated_keys,omitempty"`
 	KeepNotranslateTags           optional.Bool      `json:"keep_notranslate_tags,omitempty"`
 	ConvertEmoji                  optional.Bool      `json:"convert_emoji,omitempty"`
@@ -252,6 +253,7 @@ Download a locale in a specific file format.
  * @param "Tags" (optional.String) -  Limit results to keys tagged with a list of comma separated tag names.
  * @param "Tag" (optional.String) -  Limit download to tagged keys. This parameter is deprecated. Please use the \"tags\" parameter instead
  * @param "IncludeEmptyTranslations" (optional.Bool) -  Indicates whether keys without translations should be included in the output as well.
+ * @param "ExcludeEmptyZeroForms" (optional.Bool) -  Indicates whether zero forms should be included when empty in pluralized keys.
  * @param "IncludeTranslatedKeys" (optional.Bool) -  Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys.
  * @param "KeepNotranslateTags" (optional.Bool) -  Indicates whether [NOTRANSLATE] tags should be kept.
  * @param "ConvertEmoji" (optional.Bool) -  This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively.
@@ -295,6 +297,9 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	}
 	if localVarOptionals != nil && localVarOptionals.IncludeEmptyTranslations.IsSet() {
 		localVarQueryParams.Add("include_empty_translations", parameterToString(localVarOptionals.IncludeEmptyTranslations.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.ExcludeEmptyZeroForms.IsSet() {
+		localVarQueryParams.Add("exclude_empty_zero_forms", parameterToString(localVarOptionals.ExcludeEmptyZeroForms.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.IncludeTranslatedKeys.IsSet() {
 		localVarQueryParams.Add("include_translated_keys", parameterToString(localVarOptionals.IncludeTranslatedKeys.Value(), ""))

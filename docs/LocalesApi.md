@@ -141,6 +141,7 @@ Name | Type | Description  | Notes
  **tags** | **optional.String**| Limit results to keys tagged with a list of comma separated tag names. | 
  **tag** | **optional.String**| Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead | 
  **includeEmptyTranslations** | **optional.Bool**| Indicates whether keys without translations should be included in the output as well. | 
+ **excludeEmptyZeroForms** | **optional.Bool**| Indicates whether zero forms should be included when empty in pluralized keys. | 
  **includeTranslatedKeys** | **optional.Bool**| Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. | 
  **keepNotranslateTags** | **optional.Bool**| Indicates whether [NOTRANSLATE] tags should be kept. | 
  **convertEmoji** | **optional.Bool**| This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. | 

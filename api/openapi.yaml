@@ -3483,6 +3483,15 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: Indicates whether zero forms should be included when empty in
+          pluralized keys.
+        explode: true
+        in: query
+        name: exclude_empty_zero_forms
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: Include translated keys in the locale file. Use in combination
           with include_empty_translations to obtain only untranslated keys.
         explode: true
