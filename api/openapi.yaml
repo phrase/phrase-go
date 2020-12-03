@@ -22834,14 +22834,16 @@ components:
           type: string
         ticket_url:
           type: string
+        project:
+          $ref: '#/components/schemas/project_short'
+        branch:
+          $ref: '#/components/schemas/branch_name'
         created_at:
           format: date-time
           type: string
         updated_at:
           format: date-time
           type: string
-        project:
-          $ref: '#/components/schemas/project_short'
       title: job
       type: object
     job_details:
@@ -25145,6 +25147,11 @@ components:
       properties:
         user:
           $ref: '#/components/schemas/user_preview'
+    branch_name:
+      example: '{"name":"new-branch"}'
+      properties:
+        name:
+          type: string
     job_details_1:
       example: '{"owner":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
         Doe"},"job_tag_name":"Job_123","locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}],"keys":[{"id":"dbcd1234cdef1234abcd1234cdef1234","name":"greeting.hello"}]}'
