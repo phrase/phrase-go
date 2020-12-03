@@ -12,4 +12,6 @@ type WebhookUpdateParameters struct {
 	Events string `json:"events,omitempty"`
 	// Whether webhook is active or inactive
 	Active *bool `json:"active,omitempty"`
+	// If enabled, webhook will also be triggered for events from branches of the project specified.
+	IncludeBranches *bool `json:"include_branches,omitempty"`
 }

@@ -8345,6 +8345,10 @@ paths:
                 active:
                   description: Whether webhook is active or inactive
                   type: boolean
+                include_branches:
+                  description: If enabled, webhook will also be triggered for events
+                    from branches of the project specified.
+                  type: boolean
               title: webhook/create/parameters
               type: object
         required: true
@@ -8634,6 +8638,10 @@ paths:
                   type: string
                 active:
                   description: Whether webhook is active or inactive
+                  type: boolean
+                include_branches:
+                  description: If enabled, webhook will also be triggered for events
+                    from branches of the project specified.
                   type: boolean
               title: webhook/update/parameters
               type: object
@@ -22632,6 +22640,7 @@ components:
         description: My webhook for chat notifications
         events: locales:create,translations:update
         active: true
+        include_branches: false
         created_at: 2015-01-28T09:52:53Z
         updated_at: 2015-01-28T09:52:53Z
       properties:
@@ -22646,6 +22655,8 @@ components:
             type: string
           type: array
         active:
+          type: boolean
+        include_branches:
           type: boolean
         created_at:
           format: date-time
@@ -23876,6 +23887,10 @@ components:
         active:
           description: Whether webhook is active or inactive
           type: boolean
+        include_branches:
+          description: If enabled, webhook will also be triggered for events from
+            branches of the project specified.
+          type: boolean
       title: webhook/create/parameters
       type: object
     webhook_update_parameters:
@@ -23899,6 +23914,10 @@ components:
           type: string
         active:
           description: Whether webhook is active or inactive
+          type: boolean
+        include_branches:
+          description: If enabled, webhook will also be triggered for events from
+            branches of the project specified.
           type: boolean
       title: webhook/update/parameters
       type: object

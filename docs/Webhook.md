@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Description** | **string** |  | [optional] 
 **Events** | **[]string** |  | [optional] 
 **Active** | **bool** |  | [optional] 
+**IncludeBranches** | **bool** |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 
