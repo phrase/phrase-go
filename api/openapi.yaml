@@ -22875,6 +22875,7 @@ components:
           id: abcd1234cdef1234abcd1234cdef1234
           name: English
           code: en-GB
+        completed: true
       properties:
         id:
           type: string
@@ -22886,6 +22887,8 @@ components:
           items:
             $ref: '#/components/schemas/user_preview'
           type: array
+        completed:
+          type: boolean
       title: job_locale
       type: object
     branch:
