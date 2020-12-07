@@ -13159,6 +13159,14 @@ paths:
                   description: List of locale ids the user has access to.
                   example: abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235
                   type: string
+                default_locale_codes:
+                  description: List of default locales for the user.
+                  example:
+                  - en
+                  - fi
+                  items:
+                    type: string
+                  type: array
                 permissions:
                   additionalProperties:
                     type: string
@@ -13221,14 +13229,14 @@ paths:
           curl "https://api.phrase.com/v2/accounts/:account_id/members/:id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"role":"Developer","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","permissions":{"create_upload":true,"review_translations":true}}' \
+            -d '{"role":"Developer","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","default_locale_codes":["de","en"],"permissions":{"create_upload":true,"review_translations":true}}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase members update \
           --account_id <account_id> \
           --id <id> \
-          --data '{"role":"Developer", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
+          --data '{"role":"Developer", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -21926,6 +21934,9 @@ components:
         email: foo@bar.com
         username: myname
         role: Manager
+        default_locale_codes:
+        - en
+        - fi
         projects:
         - id: abcd1234cdef1234abcd1234cdef1234
           name: My Android Project
@@ -21948,6 +21959,10 @@ components:
           type: string
         role:
           type: string
+        default_locale_codes:
+          items:
+            type: string
+          type: array
         projects:
           items:
             $ref: '#/components/schemas/project_locales'
@@ -24241,6 +24256,14 @@ components:
           description: List of locale ids the user has access to.
           example: abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235
           type: string
+        default_locale_codes:
+          description: List of default locales for the user.
+          example:
+          - en
+          - fi
+          items:
+            type: string
+          type: array
         permissions:
           additionalProperties:
             type: string
