@@ -12924,6 +12924,24 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "404":
           description: Not Found
           headers:
@@ -12999,6 +13017,24 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
         "400":
           description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -13086,6 +13122,24 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
         "400":
           description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -13183,6 +13237,14 @@ paths:
                   items:
                     type: string
                   type: array
+                space_ids:
+                  description: List of spaces the user is assigned to.
+                  example:
+                  - abcd1234abcd1234abcd1234
+                  - abcd1234abcd1234abcd1235
+                  items:
+                    type: string
+                  type: array
                 permissions:
                   additionalProperties:
                     type: string
@@ -13218,6 +13280,24 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "404":
           description: Not Found
           headers:
@@ -13245,14 +13325,14 @@ paths:
           curl "https://api.phrase.com/v2/accounts/:account_id/members/:id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"role":"Developer","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","default_locale_codes":["de","en"],"permissions":{"create_upload":true,"review_translations":true}}' \
+            -d '{"role":"Developer","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","default_locale_codes":["de","en"],"space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"permissions":{"create_upload":true,"review_translations":true}}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase members update \
           --account_id <account_id> \
           --id <id> \
-          --data '{"role":"Developer", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
+          --data '{"role":"Developer", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "default_locale_codes":["de","en"], "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -21661,6 +21741,24 @@ components:
           $ref: '#/components/headers/X-Rate-Limit-Remaining'
         X-Rate-Limit-Reset:
           $ref: '#/components/headers/X-Rate-Limit-Reset'
+    "401":
+      description: Unauthorized
+      headers:
+        X-Rate-Limit-Limit:
+          $ref: '#/components/headers/X-Rate-Limit-Limit'
+        X-Rate-Limit-Remaining:
+          $ref: '#/components/headers/X-Rate-Limit-Remaining'
+        X-Rate-Limit-Reset:
+          $ref: '#/components/headers/X-Rate-Limit-Reset'
+    "403":
+      description: Forbidden
+      headers:
+        X-Rate-Limit-Limit:
+          $ref: '#/components/headers/X-Rate-Limit-Limit'
+        X-Rate-Limit-Remaining:
+          $ref: '#/components/headers/X-Rate-Limit-Remaining'
+        X-Rate-Limit-Reset:
+          $ref: '#/components/headers/X-Rate-Limit-Reset'
     "404":
       description: Not Found
       headers:
@@ -21950,9 +22048,6 @@ components:
         email: foo@bar.com
         username: myname
         role: Manager
-        default_locale_codes:
-        - en
-        - fi
         projects:
         - id: abcd1234cdef1234abcd1234cdef1234
           name: My Android Project
@@ -21966,6 +22061,15 @@ components:
         permissions:
         - create_upload: true
           review_translations: true
+        default_locale_codes:
+        - en
+        - fi
+        spaces:
+        - id: 04d36d845576b9d494d05e0b70fe813b
+          name: Space2
+          created_at: 2020-12-07T12:56:21Z
+          updated_at: 2020-12-07T12:56:21Z
+          projects_count: 1
       properties:
         id:
           type: string
@@ -21975,13 +22079,19 @@ components:
           type: string
         role:
           type: string
+        projects:
+          items:
+            $ref: '#/components/schemas/project_locales'
+          type: array
+        permissions:
+          type: object
         default_locale_codes:
           items:
             type: string
           type: array
-        projects:
+        spaces:
           items:
-            $ref: '#/components/schemas/project_locales'
+            $ref: '#/components/schemas/member_spaces'
           type: array
       title: member
       type: object
@@ -24303,6 +24413,14 @@ components:
           items:
             type: string
           type: array
+        space_ids:
+          description: List of spaces the user is assigned to.
+          example:
+          - abcd1234abcd1234abcd1234
+          - abcd1234abcd1234abcd1235
+          items:
+            type: string
+          type: array
         permissions:
           additionalProperties:
             type: string
@@ -25083,6 +25201,18 @@ components:
       properties:
         slug:
           type: string
+    member_spaces:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_at:
+          format: date-time
+        updated_at:
+          format: date-time
+        projects_count:
+          type: integer
     project_locales_1:
       example: '{"locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}]}'
       properties:
