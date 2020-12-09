@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **State** | **string** |  | [optional] 
 **Projects** | [**[]ProjectShort**](project_short.md) |  | [optional] 
 **Locales** | [**[]LocalePreview**](locale_preview.md) |  | [optional] 
+**DefaultLocaleCodes** | **[]string** |  | [optional] 
 **Permissions** | [**map[string]interface{}**](.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 

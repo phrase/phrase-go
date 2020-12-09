@@ -8,6 +8,8 @@ type InvitationUpdateParameters struct {
 	ProjectIds string `json:"project_ids,omitempty"`
 	// List of locale ids the invited user has access to
 	LocaleIds string `json:"locale_ids,omitempty"`
+	// List of default locales for the user.
+	DefaultLocaleCodes []string `json:"default_locale_codes,omitempty"`
 	// Additional permissions depending on invitation role.
 	Permissions map[string]string `json:"permissions,omitempty"`
 }
