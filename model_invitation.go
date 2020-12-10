@@ -17,4 +17,5 @@ type Invitation struct {
 	CreatedAt          time.Time              `json:"created_at,omitempty"`
 	UpdatedAt          time.Time              `json:"updated_at,omitempty"`
 	AcceptedAt         time.Time              `json:"accepted_at,omitempty"`
+	Spaces             []MemberSpaces         `json:"spaces,omitempty"`
 }

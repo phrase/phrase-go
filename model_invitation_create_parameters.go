@@ -10,6 +10,8 @@ type InvitationCreateParameters struct {
 	ProjectIds string `json:"project_ids,omitempty"`
 	// List of locale ids the invited user has access to.
 	LocaleIds string `json:"locale_ids,omitempty"`
+	// List of spaces the user is assigned to.
+	SpaceIds []string `json:"space_ids,omitempty"`
 	// List of default locales for the user.
 	DefaultLocaleCodes []string `json:"default_locale_codes,omitempty"`
 	// Additional permissions depending on invitation role. Available permissions are <code>create_upload</code> and <code>review_translations</code>
