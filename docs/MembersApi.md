@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**MemberDelete**](MembersApi.md#MemberDelete) | **Delete** /accounts/{account_id}/members/{id} | Remove a user from the account
 [**MemberShow**](MembersApi.md#MemberShow) | **Get** /accounts/{account_id}/members/{id} | Get single member
 [**MemberUpdate**](MembersApi.md#MemberUpdate) | **Patch** /accounts/{account_id}/members/{id} | Update a member
+[**MemberUpdateSettings**](MembersApi.md#MemberUpdateSettings) | **Patch** /projects/{project_id}/members/{id} | Update a member&#39;s project settings
 [**MembersList**](MembersApi.md#MembersList) | **Get** /accounts/{account_id}/members | List members
 
 
@@ -139,6 +140,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Member**](member.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MemberUpdateSettings
+
+> MemberProjectDetail MemberUpdateSettings(ctx, projectId, id, memberUpdateSettingsParameters, optional)
+
+Update a member's project settings
+
+Update user settings in the project. Access token scope must include <code>team.manage</code>.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**id** | **string**| ID | 
+**memberUpdateSettingsParameters** | [**MemberUpdateSettingsParameters**](MemberUpdateSettingsParameters.md)|  | 
+ **optional** | ***MemberUpdateSettingsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a MemberUpdateSettingsOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**MemberProjectDetail**](member_project_detail.md)
 
 ### Authorization
 
