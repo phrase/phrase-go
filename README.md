@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
 *InvitationsApi* | [**InvitationResend**](docs/InvitationsApi.md#invitationresend) | **Post** /accounts/{account_id}/invitations/{id}/resend | Resend an invitation
 *InvitationsApi* | [**InvitationShow**](docs/InvitationsApi.md#invitationshow) | **Get** /accounts/{account_id}/invitations/{id} | Get a single invitation
 *InvitationsApi* | [**InvitationUpdate**](docs/InvitationsApi.md#invitationupdate) | **Patch** /accounts/{account_id}/invitations/{id} | Update an invitation
+*InvitationsApi* | [**InvitationUpdateSettings**](docs/InvitationsApi.md#invitationupdatesettings) | **Patch** /projects/{project_id}/invitations/{id} | Update a member&#39;s invitation access
 *InvitationsApi* | [**InvitationsList**](docs/InvitationsApi.md#invitationslist) | **Get** /accounts/{account_id}/invitations | List invitations
 *JobLocalesApi* | [**JobLocaleComplete**](docs/JobLocalesApi.md#joblocalecomplete) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete | Complete a job locale
 *JobLocalesApi* | [**JobLocaleDelete**](docs/JobLocalesApi.md#joblocaledelete) | **Delete** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
@@ -291,6 +292,7 @@ Class | Method | HTTP request | Description
  - [Invitation](docs/Invitation.md)
  - [InvitationCreateParameters](docs/InvitationCreateParameters.md)
  - [InvitationUpdateParameters](docs/InvitationUpdateParameters.md)
+ - [InvitationUpdateSettingsParameters](docs/InvitationUpdateSettingsParameters.md)
  - [Job](docs/Job.md)
  - [JobCompleteParameters](docs/JobCompleteParameters.md)
  - [JobCreateParameters](docs/JobCreateParameters.md)

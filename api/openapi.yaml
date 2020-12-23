@@ -2404,6 +2404,127 @@ paths:
           --access_token <token>
       - lang: CLI v1
         source: phraseapp invitation resend <account_id> <id>
+  /projects/{project_id}/invitations/{id}:
+    patch:
+      description: Update member's settings in the invitations. Access token scope
+        must include <code>team.manage</code>.
+      operationId: invitation/update_settings
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/invitation_update_settings_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                project_role:
+                  description: Member role, can be any of of Manager, Developer, Translator
+                  example: Developer
+                  type: string
+                locale_ids:
+                  description: List of locale ids the user has access to.
+                  example:
+                  - abcd1234abcd1234abcd1234
+                  - abcd1234abcd1234abcd1235
+                  items:
+                    type: string
+                  type: array
+              title: invitation/update_settings/parameters
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/invitation'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Update a member's invitation access
+      tags:
+      - Invitations
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/invitations/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"project_role":"Developer","locale_ids":["fff565db236400772368235db2c6117e","fff565db236400772368235db2c6117f"]}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase invitations update_settings \
+          --project_id <project_id> \
+          --id <id> \
+          --data '{"project_role":"Developer","locale_ids":["fff565db236400772368235db2c6117e","fff565db236400772368235db2c6117f"]}' \
+          --access_token <token>
   /projects/{project_id}/screenshots/{id}/markers:
     get:
       description: List all screenshot markers for the given project.
@@ -21586,6 +21707,12 @@ components:
           schema:
             $ref: '#/components/schemas/translation_verify_parameters'
       required: true
+    invitation_update_settings_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/invitation_update_settings_parameters'
+      required: true
     project_update_parameters:
       content:
         application/json:
@@ -22371,6 +22498,9 @@ components:
         permissions:
         - create_upload: true
           review_translations: true
+        locale_ids:
+        - abcd1234abcd1234abcd1234
+        - abcd1234abcd1234abcd1235
         created_at: 2015-01-28T09:52:53Z
         updated_at: 2015-01-28T09:52:53Z
         accepted_at: 2015-02-28T09:52:53Z
@@ -22380,6 +22510,9 @@ components:
           created_at: 2020-12-07T12:56:21Z
           updated_at: 2020-12-07T12:56:21Z
           projects_count: 1
+        project_roles:
+        - project_id: abcd1234cdef1234abcd1234cdef1234
+          role: Developer
       properties:
         id:
           type: string
@@ -22403,6 +22536,10 @@ components:
           type: array
         permissions:
           type: object
+        locale_ids:
+          items:
+            type: string
+          type: array
         created_at:
           format: date-time
           type: string
@@ -22415,6 +22552,10 @@ components:
         spaces:
           items:
             $ref: '#/components/schemas/member_spaces'
+          type: array
+        project_role:
+          items:
+            $ref: '#/components/schemas/member_project_detail_project_roles'
           type: array
       title: invitation
       type: object
@@ -23842,6 +23983,22 @@ components:
             create_upload: true
           type: object
       title: invitation/update/parameters
+      type: object
+    invitation_update_settings_parameters:
+      properties:
+        project_role:
+          description: Member role, can be any of of Manager, Developer, Translator
+          example: Developer
+          type: string
+        locale_ids:
+          description: List of locale ids the user has access to.
+          example:
+          - abcd1234abcd1234abcd1234
+          - abcd1234abcd1234abcd1235
+          items:
+            type: string
+          type: array
+      title: invitation/update_settings/parameters
       type: object
     screenshot_marker_create_parameters:
       properties:

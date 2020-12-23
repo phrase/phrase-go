@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**InvitationResend**](InvitationsApi.md#InvitationResend) | **Post** /accounts/{account_id}/invitations/{id}/resend | Resend an invitation
 [**InvitationShow**](InvitationsApi.md#InvitationShow) | **Get** /accounts/{account_id}/invitations/{id} | Get a single invitation
 [**InvitationUpdate**](InvitationsApi.md#InvitationUpdate) | **Patch** /accounts/{account_id}/invitations/{id} | Update an invitation
+[**InvitationUpdateSettings**](InvitationsApi.md#InvitationUpdateSettings) | **Patch** /projects/{project_id}/invitations/{id} | Update a member&#39;s invitation access
 [**InvitationsList**](InvitationsApi.md#InvitationsList) | **Get** /accounts/{account_id}/invitations | List invitations
 
 
@@ -223,6 +224,55 @@ Name | Type | Description  | Notes
 ### Optional Parameters
 
 Optional parameters are passed through a pointer to a InvitationUpdateOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**Invitation**](invitation.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## InvitationUpdateSettings
+
+> Invitation InvitationUpdateSettings(ctx, projectId, id, invitationUpdateSettingsParameters, optional)
+
+Update a member's invitation access
+
+Update member's settings in the invitations. Access token scope must include <code>team.manage</code>.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**id** | **string**| ID | 
+**invitationUpdateSettingsParameters** | [**InvitationUpdateSettingsParameters**](InvitationUpdateSettingsParameters.md)|  | 
+ **optional** | ***InvitationUpdateSettingsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a InvitationUpdateSettingsOpts struct
 
 
 Name | Type | Description  | Notes
