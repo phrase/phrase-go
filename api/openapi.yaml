@@ -11272,35 +11272,115 @@ paths:
           application/json:
             schema:
               properties:
+                account_id:
+                  description: Required if the requesting user is a member of multiple
+                    accounts. Account ID to specify the actual account the project
+                    should be created in.
+                  example: abcd1234
+                  type: string
                 name:
-                  description: Name of the project
+                  description: (Optional) Name of the project
                   example: My Android Project
                   type: string
                 main_format:
-                  description: Main file format specified by its API Extension name.
-                    Used for locale downloads if no format is specified. For API Extension
-                    names of available file formats see <a href="https://help.phrase.com/help/supported-platforms-and-formats">Format
+                  description: (Optional) Main file format specified by its API Extension
+                    name. Used for locale downloads if no format is specified. For
+                    API Extension names of available file formats see <a href="https://help.phrase.com/help/supported-platforms-and-formats">Format
                     Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
                   example: yml
                   type: string
                 shares_translation_memory:
-                  description: Indicates whether the project should share the account's
-                    translation memory
+                  description: (Optional) Indicates whether the project should share
+                    the account's translation memory
                   example: true
                   type: boolean
                 project_image:
-                  description: Image to identify the project
+                  description: (Optional) Image to identify the project
                   format: binary
                   type: string
                 remove_project_image:
-                  description: Indicates whether the project image should be deleted.
+                  description: (Optional) Indicates whether the project image should
+                    be deleted.
+                  example: false
                   type: boolean
-                account_id:
-                  description: Account ID to specify the actual account the project
-                    should be created in. Required if the requesting user is a member
-                    of multiple accounts.
-                  example: abcd1234
+                workflow:
+                  description: (Optional) Review Workflow. "simple" / "review". <a
+                    href="https://help.phrase.com/help/advanced-review-workflow">Read
+                    more</a>
+                  example: review
                   type: string
+                machine_translation_enabled:
+                  description: (Optional) Enable machine translation support in the
+                    project. Required for Autopilot and Smart Suggest
+                  example: true
+                  type: boolean
+                enable_branching:
+                  description: (Optional) Enable branching in the project
+                  example: true
+                  type: boolean
+                protect_master_branch:
+                  description: (Optional) Protect the master branch in project where
+                    branching is enabled
+                  example: true
+                  type: boolean
+                enable_all_data_type_translation_keys_for_translators:
+                  description: (Optional) Otherwise, translators are not allowed to
+                    edit translations other than strings
+                  example: true
+                  type: boolean
+                enable_icu_message_format:
+                  description: (Optional) We can validate and highlight your ICU messages.
+                    <a href="https://help.phrase.com/help/icu-message-format">Read
+                    more</a>
+                  example: true
+                  type: boolean
+                zero_plural_form_enabled:
+                  description: (Optional) Displays the input fields for the 'ZERO'
+                    plural form for every key as well although only some languages
+                    require the 'ZERO' explicitly.
+                  example: true
+                  type: boolean
+                autotranslate_enabled:
+                  description: (Optional) Autopilot, requires machine_translation_enabled.
+                    <a href="https://help.phrase.com/help/autopilot">Read more</a>
+                  example: true
+                  type: boolean
+                autotranslate_check_new_translation_keys:
+                  description: (Optional) Requires autotranslate_enabled to be true
+                  example: true
+                  type: boolean
+                autotranslate_check_new_uploads:
+                  description: (Optional) Requires autotranslate_enabled to be true
+                  example: true
+                  type: boolean
+                autotranslate_check_new_locales:
+                  description: (Optional) Requires autotranslate_enabled to be true
+                  example: true
+                  type: boolean
+                autotranslate_mark_as_unverified:
+                  description: (Optional) Requires autotranslate_enabled to be true
+                  example: true
+                  type: boolean
+                autotranslate_use_machine_translation:
+                  description: (Optional) Requires autotranslate_enabled to be true
+                  example: true
+                  type: boolean
+                autotranslate_use_translation_memory:
+                  description: (Optional) Requires autotranslate_enabled to be true
+                  example: true
+                  type: boolean
+                smart_suggest_enabled:
+                  description: (Optional) Smart Suggest, requires machine_translation_enabled
+                  example: true
+                  type: boolean
+                smart_suggest_use_glossary:
+                  description: (Optional) Requires smart_suggest_enabled to be true
+                  example: true
+                  type: boolean
+                smart_suggest_use_machine_translation:
+                  description: (Optional) Requires smart_suggest_enabled to be true
+                  example: true
+                  type: boolean
               title: project/update/parameters
               type: object
         required: true
@@ -24719,35 +24799,112 @@ components:
       type: object
     project_update_parameters:
       properties:
+        account_id:
+          description: Required if the requesting user is a member of multiple accounts.
+            Account ID to specify the actual account the project should be created
+            in.
+          example: abcd1234
+          type: string
         name:
-          description: Name of the project
+          description: (Optional) Name of the project
           example: My Android Project
           type: string
         main_format:
-          description: Main file format specified by its API Extension name. Used
-            for locale downloads if no format is specified. For API Extension names
-            of available file formats see <a href="https://help.phrase.com/help/supported-platforms-and-formats">Format
+          description: (Optional) Main file format specified by its API Extension
+            name. Used for locale downloads if no format is specified. For API Extension
+            names of available file formats see <a href="https://help.phrase.com/help/supported-platforms-and-formats">Format
             Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
           example: yml
           type: string
         shares_translation_memory:
-          description: Indicates whether the project should share the account's translation
-            memory
+          description: (Optional) Indicates whether the project should share the account's
+            translation memory
           example: true
           type: boolean
         project_image:
-          description: Image to identify the project
+          description: (Optional) Image to identify the project
           format: binary
           type: string
         remove_project_image:
-          description: Indicates whether the project image should be deleted.
+          description: (Optional) Indicates whether the project image should be deleted.
+          example: false
           type: boolean
-        account_id:
-          description: Account ID to specify the actual account the project should
-            be created in. Required if the requesting user is a member of multiple
-            accounts.
-          example: abcd1234
+        workflow:
+          description: (Optional) Review Workflow. "simple" / "review". <a href="https://help.phrase.com/help/advanced-review-workflow">Read
+            more</a>
+          example: review
           type: string
+        machine_translation_enabled:
+          description: (Optional) Enable machine translation support in the project.
+            Required for Autopilot and Smart Suggest
+          example: true
+          type: boolean
+        enable_branching:
+          description: (Optional) Enable branching in the project
+          example: true
+          type: boolean
+        protect_master_branch:
+          description: (Optional) Protect the master branch in project where branching
+            is enabled
+          example: true
+          type: boolean
+        enable_all_data_type_translation_keys_for_translators:
+          description: (Optional) Otherwise, translators are not allowed to edit translations
+            other than strings
+          example: true
+          type: boolean
+        enable_icu_message_format:
+          description: (Optional) We can validate and highlight your ICU messages.
+            <a href="https://help.phrase.com/help/icu-message-format">Read more</a>
+          example: true
+          type: boolean
+        zero_plural_form_enabled:
+          description: (Optional) Displays the input fields for the 'ZERO' plural
+            form for every key as well although only some languages require the 'ZERO'
+            explicitly.
+          example: true
+          type: boolean
+        autotranslate_enabled:
+          description: (Optional) Autopilot, requires machine_translation_enabled.
+            <a href="https://help.phrase.com/help/autopilot">Read more</a>
+          example: true
+          type: boolean
+        autotranslate_check_new_translation_keys:
+          description: (Optional) Requires autotranslate_enabled to be true
+          example: true
+          type: boolean
+        autotranslate_check_new_uploads:
+          description: (Optional) Requires autotranslate_enabled to be true
+          example: true
+          type: boolean
+        autotranslate_check_new_locales:
+          description: (Optional) Requires autotranslate_enabled to be true
+          example: true
+          type: boolean
+        autotranslate_mark_as_unverified:
+          description: (Optional) Requires autotranslate_enabled to be true
+          example: true
+          type: boolean
+        autotranslate_use_machine_translation:
+          description: (Optional) Requires autotranslate_enabled to be true
+          example: true
+          type: boolean
+        autotranslate_use_translation_memory:
+          description: (Optional) Requires autotranslate_enabled to be true
+          example: true
+          type: boolean
+        smart_suggest_enabled:
+          description: (Optional) Smart Suggest, requires machine_translation_enabled
+          example: true
+          type: boolean
+        smart_suggest_use_glossary:
+          description: (Optional) Requires smart_suggest_enabled to be true
+          example: true
+          type: boolean
+        smart_suggest_use_machine_translation:
+          description: (Optional) Requires smart_suggest_enabled to be true
+          example: true
+          type: boolean
       title: project/update/parameters
       type: object
     job_locales_create_parameters:
