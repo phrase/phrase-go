@@ -12347,7 +12347,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: List variables
       tags:
-      - Branches
+      - Variables
       x-code-samples:
       - lang: Curl
         source: |-

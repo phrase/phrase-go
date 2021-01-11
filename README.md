@@ -69,7 +69,6 @@ Class | Method | HTTP request | Description
 *BranchesApi* | [**BranchShow**](docs/BranchesApi.md#branchshow) | **Get** /projects/{project_id}/branches/{name} | Get a single branch
 *BranchesApi* | [**BranchUpdate**](docs/BranchesApi.md#branchupdate) | **Patch** /projects/{project_id}/branches/{name} | Update a branch
 *BranchesApi* | [**BranchesList**](docs/BranchesApi.md#brancheslist) | **Get** /projects/{project_id}/branches | List branches
-*BranchesApi* | [**VariablesList**](docs/BranchesApi.md#variableslist) | **Get** /projects/{project_id}/variables | List variables
 *CommentsApi* | [**CommentCreate**](docs/CommentsApi.md#commentcreate) | **Post** /projects/{project_id}/keys/{key_id}/comments | Create a comment
 *CommentsApi* | [**CommentDelete**](docs/CommentsApi.md#commentdelete) | **Delete** /projects/{project_id}/keys/{key_id}/comments/{id} | Delete a comment
 *CommentsApi* | [**CommentMarkCheck**](docs/CommentsApi.md#commentmarkcheck) | **Get** /projects/{project_id}/keys/{key_id}/comments/{id}/read | Check if comment is read
@@ -232,6 +231,7 @@ Class | Method | HTTP request | Description
 *VariablesApi* | [**VariableDelete**](docs/VariablesApi.md#variabledelete) | **Delete** /projects/{project_id}/variables/{name} | Delete a variable
 *VariablesApi* | [**VariableShow**](docs/VariablesApi.md#variableshow) | **Get** /projects/{project_id}/variables/{name} | Get a single variable
 *VariablesApi* | [**VariableUpdate**](docs/VariablesApi.md#variableupdate) | **Patch** /projects/{project_id}/variables/{name} | Update a variable
+*VariablesApi* | [**VariablesList**](docs/VariablesApi.md#variableslist) | **Get** /projects/{project_id}/variables | List variables
 *VersionsHistoryApi* | [**VersionShow**](docs/VersionsHistoryApi.md#versionshow) | **Get** /projects/{project_id}/translations/{translation_id}/versions/{id} | Get a single version
 *VersionsHistoryApi* | [**VersionsList**](docs/VersionsHistoryApi.md#versionslist) | **Get** /projects/{project_id}/translations/{translation_id}/versions | List all versions
 *WebhooksApi* | [**WebhookCreate**](docs/WebhooksApi.md#webhookcreate) | **Post** /projects/{project_id}/webhooks | Create a webhook

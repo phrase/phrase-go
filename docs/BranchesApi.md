@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**BranchShow**](BranchesApi.md#BranchShow) | **Get** /projects/{project_id}/branches/{name} | Get a single branch
 [**BranchUpdate**](BranchesApi.md#BranchUpdate) | **Patch** /projects/{project_id}/branches/{name} | Update a branch
 [**BranchesList**](BranchesApi.md#BranchesList) | **Get** /projects/{project_id}/branches | List branches
-[**VariablesList**](BranchesApi.md#VariablesList) | **Get** /projects/{project_id}/variables | List variables
 
 
 
@@ -333,53 +332,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]Branch**](branch.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [Token](../README.md#Token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## VariablesList
-
-> []map[string]interface{} VariablesList(ctx, projectId, optional)
-
-List variables
-
-List all variables for the current project.
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **string**| Project ID | 
- **optional** | ***VariablesListOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a VariablesListOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
-
-### Return type
-
-[**[]map[string]interface{}**](object.md)
 
 ### Authorization
 
