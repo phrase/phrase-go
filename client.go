@@ -102,6 +102,8 @@ type APIClient struct {
 
 	UsersApi *UsersApiService
 
+	VariablesApi *VariablesApiService
+
 	VersionsHistoryApi *VersionsHistoryApiService
 
 	WebhooksApi *WebhooksApiService
@@ -155,6 +157,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TranslationsApi = (*TranslationsApiService)(&c.common)
 	c.UploadsApi = (*UploadsApiService)(&c.common)
 	c.UsersApi = (*UsersApiService)(&c.common)
+	c.VariablesApi = (*VariablesApiService)(&c.common)
 	c.VersionsHistoryApi = (*VersionsHistoryApiService)(&c.common)
 	c.WebhooksApi = (*WebhooksApiService)(&c.common)
 
