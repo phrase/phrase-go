@@ -12306,7 +12306,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1variables/post/responses/201/content/application~1json/schema'
+                  $ref: '#/components/schemas/variable'
                 type: array
           description: OK
           headers:
@@ -12567,7 +12567,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1variables/post/responses/201/content/application~1json/schema'
+                $ref: '#/components/schemas/variable'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -12646,7 +12646,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/branch_update_parameters'
+        $ref: '#/components/requestBodies/variable_update_parameters'
         content:
           application/json:
             schema:
@@ -12659,7 +12659,7 @@ paths:
                   description: Value of the variable
                   example: Hello World
                   type: string
-              title: branch/update/parameters
+              title: variable/update/parameters
               type: object
         required: true
       responses:
@@ -12667,7 +12667,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1variables/post/responses/201/content/application~1json/schema'
+                $ref: '#/components/schemas/variable'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -13114,7 +13114,7 @@ paths:
           type: string
         style: simple
       requestBody:
-        $ref: '#/components/requestBodies/branch_update_parameters_1'
+        $ref: '#/components/requestBodies/branch_update_parameters'
         content:
           application/json:
             schema:
@@ -22213,6 +22213,12 @@ components:
           schema:
             $ref: '#/components/schemas/order_confirm_parameters'
       required: true
+    variable_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/variable_update_parameters'
+      required: true
     branch_update_parameters:
       content:
         application/json:
@@ -22488,12 +22494,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/glossary_term_translation_update_parameters'
-      required: true
-    branch_update_parameters_1:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/branch_update_parameters_1'
       required: true
     translations_verify_parameters:
       content:
@@ -24298,6 +24298,25 @@ components:
           $ref: '#/components/schemas/translation_key'
       title: screenshot_marker
       type: object
+    variable:
+      example:
+        name: MY_VARIABLE
+        value: Hello World
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: variable
+      type: object
     document:
       example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"email.html","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
       properties:
@@ -25447,20 +25466,7 @@ components:
           type: string
       title: variable/create/parameters
       type: object
-    variable:
-      example: '{"name":"MY_VARIABLE","value":"Hello World","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-    branch_update_parameters:
+    variable_update_parameters:
       properties:
         name:
           description: Name of the variable
@@ -25470,7 +25476,7 @@ components:
           description: Value of the variable
           example: Hello World
           type: string
-      title: branch/update/parameters
+      title: variable/update/parameters
       type: object
     branch_create_parameters:
       properties:
@@ -25480,7 +25486,7 @@ components:
           type: string
       title: branch/create/parameters
       type: object
-    branch_update_parameters_1:
+    branch_update_parameters:
       properties:
         name:
           description: Name of the branch

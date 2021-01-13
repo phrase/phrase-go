@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ## BranchUpdate
 
-> Branch BranchUpdate(ctx, projectId, name, branchUpdateParameters1, optional)
+> Branch BranchUpdate(ctx, projectId, name, branchUpdateParameters, optional)
 
 Update a branch
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**branchUpdateParameters1** | [**BranchUpdateParameters1**](BranchUpdateParameters1.md)|  | 
+**branchUpdateParameters** | [**BranchUpdateParameters**](BranchUpdateParameters.md)|  | 
  **optional** | ***BranchUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

@@ -226,16 +226,16 @@ Get details on a single variable for a given project.
  * @param name name
  * @param optional nil or *VariableShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Variable
 */
-func (a *VariablesApiService) VariableShow(ctx _context.Context, projectId string, name string, localVarOptionals *VariableShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *VariablesApiService) VariableShow(ctx _context.Context, projectId string, name string, localVarOptionals *VariableShowOpts) (Variable, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Variable
 	)
 
 	// create path and map variables
@@ -327,19 +327,19 @@ Update an existing variable.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param branchUpdateParameters
+ * @param variableUpdateParameters
  * @param optional nil or *VariableUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return map[string]interface{}
+@return Variable
 */
-func (a *VariablesApiService) VariableUpdate(ctx _context.Context, projectId string, name string, branchUpdateParameters BranchUpdateParameters, localVarOptionals *VariableUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *VariablesApiService) VariableUpdate(ctx _context.Context, projectId string, name string, variableUpdateParameters VariableUpdateParameters, localVarOptionals *VariableUpdateOpts) (Variable, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  Variable
 	)
 
 	// create path and map variables
@@ -373,7 +373,7 @@ func (a *VariablesApiService) VariableUpdate(ctx _context.Context, projectId str
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &branchUpdateParameters
+	localVarPostBody = &variableUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -438,16 +438,16 @@ List all variables for the current project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
-@return []map[string]interface{}
+@return []Variable
 */
-func (a *VariablesApiService) VariablesList(ctx _context.Context, projectId string, localVarOptionals *VariablesListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *VariablesApiService) VariablesList(ctx _context.Context, projectId string, localVarOptionals *VariablesListOpts) ([]Variable, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Variable
 	)
 
 	// create path and map variables

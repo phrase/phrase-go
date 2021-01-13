@@ -514,12 +514,12 @@ Update an existing branch.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param name name
- * @param branchUpdateParameters1
+ * @param branchUpdateParameters
  * @param optional nil or *BranchUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return Branch
 */
-func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string, name string, branchUpdateParameters1 BranchUpdateParameters1, localVarOptionals *BranchUpdateOpts) (Branch, *APIResponse, error) {
+func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string, name string, branchUpdateParameters BranchUpdateParameters, localVarOptionals *BranchUpdateOpts) (Branch, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -560,7 +560,7 @@ func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &branchUpdateParameters1
+	localVarPostBody = &branchUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

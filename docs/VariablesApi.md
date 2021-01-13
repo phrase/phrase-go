@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## VariableShow
 
-> map[string]interface{} VariableShow(ctx, projectId, name, optional)
+> Variable VariableShow(ctx, projectId, name, optional)
 
 Get a single variable
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Variable**](variable.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## VariableUpdate
 
-> map[string]interface{} VariableUpdate(ctx, projectId, name, branchUpdateParameters, optional)
+> Variable VariableUpdate(ctx, projectId, name, variableUpdateParameters, optional)
 
 Update a variable
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **name** | **string**| name | 
-**branchUpdateParameters** | [**BranchUpdateParameters**](BranchUpdateParameters.md)|  | 
+**variableUpdateParameters** | [**VariableUpdateParameters**](VariableUpdateParameters.md)|  | 
  **optional** | ***VariableUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**Variable**](variable.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ## VariablesList
 
-> []map[string]interface{} VariablesList(ctx, projectId, optional)
+> []Variable VariablesList(ctx, projectId, optional)
 
 List variables
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Variable**](variable.md)
 
 ### Authorization
 
