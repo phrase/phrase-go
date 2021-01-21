@@ -2574,6 +2574,15 @@ paths:
         schema:
           type: integer
         style: form
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -2625,12 +2634,13 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:id/markers" \
+          curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:id/markers?branch=my-feature-branch" \
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
           phrase screenshot_markers list \
           --project_id <project_id> \
+          --branch my-feature-branch \
           --id <id> \
           --access_token <token>
       - lang: CLI v1
@@ -2672,6 +2682,15 @@ paths:
         schema:
           type: string
         style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -2719,7 +2738,7 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:screenshot_id/markers/:id" \
+          curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:screenshot_id/markers/:id?branch=my-feature-branch" \
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
@@ -2727,6 +2746,7 @@ paths:
           --project_id <project_id> \
           --screenshot_id <screenshot_id> \
           --id <id> \
+          --branch my-feature-branch \
           --access_token <token>
       - lang: CLI v1
         source: phraseapp screenshot_marker show <project_id> <screenshot_id> <id>
@@ -2759,6 +2779,15 @@ paths:
         schema:
           type: string
         style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "204":
           description: The resource was deleted successfully.
@@ -2805,11 +2834,14 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:screenshot_id/markers" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X DELETE
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase screenshot_markers delete \
           --project_id <project_id> \
           --screenshot_id <screenshot_id> \
+          --branch my-feature-branch \
           --access_token <token>
       - lang: CLI v1
         source: phraseapp screenshot_marker delete <project_id> <screenshot_id>
@@ -2847,6 +2879,10 @@ paths:
           application/json:
             schema:
               properties:
+                branch:
+                  description: specify the branch to use
+                  example: my-feature-branch
+                  type: string
                 key_id:
                   description: Specify the Key ID which should be highlighted on the
                     specified screenshot. The Key must belong to the project.
@@ -2915,14 +2951,14 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:screenshot_id/markers" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"key_id":"abcd1234abcd1234abcd1234abcd1234","presentation":"{ \"x\": 100, \"y\": 100, \"w\": 100, \"h\": 100 }"}' \
+            -d '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234","presentation":"{ \"x\": 100, \"y\": 100, \"w\": 100, \"h\": 100 }"}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase screenshot_markers update \
           --project_id <project_id> \
           --screenshot_id <screenshot_id> \
-          --data '{"key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation":""{ "x": 100, "y": 100, "w": 100, "h": 100 }""}' \
+          --data '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation":""{ "x": 100, "y": 100, "w": 100, "h": 100 }""}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -2963,6 +2999,10 @@ paths:
           application/json:
             schema:
               properties:
+                branch:
+                  description: specify the branch to use
+                  example: my-feature-branch
+                  type: string
                 key_id:
                   description: Specify the Key ID which should be highlighted on the
                     specified screenshot. The Key must belong to the project.
@@ -3031,14 +3071,14 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:screenshot_id/markers" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
-            -d '{"key_id":"abcd1234abcd1234abcd1234abcd1234","presentation":"{ \"x\": 100, \"y\": 100, \"w\": 100, \"h\": 100 }"}' \
+            -d '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234","presentation":"{ \"x\": 100, \"y\": 100, \"w\": 100, \"h\": 100 }"}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase screenshot_markers create \
           --project_id <project_id> \
           --screenshot_id <screenshot_id> \
-          --data '{"key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation":""{ "x": 100, "y": 100, "w": 100, "h": 100 }""}' \
+          --data '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation":""{ "x": 100, "y": 100, "w": 100, "h": 100 }""}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -14233,6 +14273,15 @@ paths:
         schema:
           type: integer
         style: form
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
       - description: filter by key
         example: abcd1234cdef1234abcd1234cdef1234
         explode: true
@@ -14293,12 +14342,13 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/screenshots" \
+          curl "https://api.phrase.com/v2/projects/:project_id/screenshots?branch=my-feature-branch" \
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
           phrase screenshots list \
           --project_id <project_id> \
+          --branch my-feature-branch \
           --access_token <token>
       - lang: CLI v1
         source: phraseapp screenshots list <project_id>
@@ -14328,6 +14378,10 @@ paths:
           application/json:
             schema:
               properties:
+                branch:
+                  description: specify the branch to use
+                  example: my-feature-branch
+                  type: string
                 name:
                   description: Name of the screenshot
                   example: A screenshot name
@@ -14393,6 +14447,7 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/screenshots" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
+            -F branch=my-feature-branch \
             -F name=A%20screenshot%20name \
             -F description=A%20screenshot%20description \
             -F filename=@/path/to/my/screenshot.png
@@ -14400,7 +14455,7 @@ paths:
         source: |-
           phrase screenshots create \
           --project_id <project_id> \
-          --data '{"name":""A screenshot name"", "description":""A screenshot description"", "filename":"/path/to/my/screenshot.png"}' \
+          --data '{"branch":"my-feature-branch", "name":""A screenshot name"", "description":""A screenshot description"", "filename":"/path/to/my/screenshot.png"}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -14437,6 +14492,15 @@ paths:
         schema:
           type: string
         style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "204":
           description: The resource was deleted successfully.
@@ -14483,11 +14547,14 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X DELETE
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase screenshots delete \
           --project_id <project_id> \
           --id <id> \
+          --branch my-feature-branch \
           --access_token <token>
       - lang: CLI v1
         source: phraseapp screenshot delete <project_id> <id>
@@ -14519,6 +14586,15 @@ paths:
         schema:
           type: string
         style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -14566,13 +14642,14 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:id" \
+          curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:id?branch=my-feature-branch" \
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
           phrase screenshots show \
           --project_id <project_id> \
           --id <id> \
+          --branch my-feature-branch \
           --access_token <token>
       - lang: CLI v1
         source: phraseapp screenshot show <project_id> <id>
@@ -14610,6 +14687,10 @@ paths:
           application/json:
             schema:
               properties:
+                branch:
+                  description: specify the branch to use
+                  example: my-feature-branch
+                  type: string
                 name:
                   description: Name of the screenshot
                   example: A screenshot name
@@ -14675,6 +14756,7 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
+            -F branch=my-feature-branch \
             -F name=A%20screenshot%20name \
             -F description=A%20screenshot%20description \
             -F filename=@/path/to/my/screenshot.png
@@ -14683,7 +14765,7 @@ paths:
           phrase screenshots update \
           --project_id <project_id> \
           --id <id> \
-          --data '{"name":""A screenshot name"", "description":""A screenshot description"", "filename":"/path/to/my/screenshot.png"}' \
+          --data '{"branch":"my-feature-branch", "name":""A screenshot name"", "description":""A screenshot description"", "filename":"/path/to/my/screenshot.png"}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -24575,6 +24657,10 @@ components:
       type: object
     screenshot_marker_create_parameters:
       properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
         key_id:
           description: Specify the Key ID which should be highlighted on the specified
             screenshot. The Key must belong to the project.
@@ -24593,6 +24679,10 @@ components:
       type: object
     screenshot_marker_update_parameters:
       properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
         key_id:
           description: Specify the Key ID which should be highlighted on the specified
             screenshot. The Key must belong to the project.
@@ -25561,6 +25651,10 @@ components:
       type: object
     screenshot_create_parameters:
       properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
         name:
           description: Name of the screenshot
           example: A screenshot name
@@ -25577,6 +25671,10 @@ components:
       type: object
     screenshot_update_parameters:
       properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
         name:
           description: Name of the screenshot
           example: A screenshot name

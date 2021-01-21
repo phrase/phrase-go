@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Branch** | **string** | specify the branch to use | [optional] 
 **Name** | **string** | Name of the screenshot | [optional] 
 **Description** | **string** | Description of the screenshot | [optional] 
 **Filename** | [***os.File**](*os.File.md) | Screenshot file | [optional] 

@@ -127,6 +127,7 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Contex
 // ScreenshotMarkerDeleteOpts Optional parameters for the method 'ScreenshotMarkerDelete'
 type ScreenshotMarkerDeleteOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -137,6 +138,7 @@ Delete an existing screenshot marker.
  * @param screenshotId Screenshot ID
  * @param optional nil or *ScreenshotMarkerDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Context, projectId string, screenshotId string, localVarOptionals *ScreenshotMarkerDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -157,6 +159,9 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Contex
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -219,6 +224,7 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Contex
 // ScreenshotMarkerShowOpts Optional parameters for the method 'ScreenshotMarkerShow'
 type ScreenshotMarkerShowOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -230,6 +236,7 @@ Get details on a single screenshot marker for a given project.
  * @param id ID
  * @param optional nil or *ScreenshotMarkerShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return ScreenshotMarker
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkerShow(ctx _context.Context, projectId string, screenshotId string, id string, localVarOptionals *ScreenshotMarkerShowOpts) (ScreenshotMarker, *APIResponse, error) {
@@ -254,6 +261,9 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkerShow(ctx _context.Context,
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -433,6 +443,7 @@ type ScreenshotMarkersListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -445,6 +456,7 @@ List all screenshot markers for the given project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return []ScreenshotMarker
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkersList(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotMarkersListOpts) ([]ScreenshotMarker, *APIResponse, error) {
@@ -472,6 +484,9 @@ func (a *ScreenshotMarkersApiService) ScreenshotMarkersList(ctx _context.Context
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

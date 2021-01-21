@@ -124,6 +124,7 @@ func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId
 // ScreenshotDeleteOpts Optional parameters for the method 'ScreenshotDelete'
 type ScreenshotDeleteOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -134,6 +135,7 @@ Delete an existing screenshot.
  * @param id ID
  * @param optional nil or *ScreenshotDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -154,6 +156,9 @@ func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -216,6 +221,7 @@ func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId
 // ScreenshotShowOpts Optional parameters for the method 'ScreenshotShow'
 type ScreenshotShowOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -226,6 +232,7 @@ Get details on a single screenshot for a given project.
  * @param id ID
  * @param optional nil or *ScreenshotShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
 @return Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotShow(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotShowOpts) (Screenshot, *APIResponse, error) {
@@ -248,6 +255,9 @@ func (a *ScreenshotsApiService) ScreenshotShow(ctx _context.Context, projectId s
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -427,6 +437,7 @@ type ScreenshotsListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 	KeyId         optional.String `json:"key_id,omitempty"`
 }
 
@@ -439,6 +450,7 @@ List all screenshots for the given project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
  * @param "KeyId" (optional.String) -  filter by key
 @return []Screenshot
 */
@@ -465,6 +477,9 @@ func (a *ScreenshotsApiService) ScreenshotsList(ctx _context.Context, projectId 
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.KeyId.IsSet() {
 		localVarQueryParams.Add("key_id", parameterToString(localVarOptionals.KeyId.Value(), ""))
