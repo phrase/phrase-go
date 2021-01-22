@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ShowUser
 
-> User ShowUser(ctx, optional)
+> CurrentUser ShowUser(ctx, optional)
 
 Show current User
 
@@ -35,7 +35,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](user.md)
+[**CurrentUser**](current_user.md)
 
 ### Authorization
 

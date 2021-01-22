@@ -28,16 +28,16 @@ Show details for current User.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ShowUserOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return User
+@return CurrentUser
 */
-func (a *UsersApiService) ShowUser(ctx _context.Context, localVarOptionals *ShowUserOpts) (User, *APIResponse, error) {
+func (a *UsersApiService) ShowUser(ctx _context.Context, localVarOptionals *ShowUserOpts) (CurrentUser, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  User
+		localVarReturnValue  CurrentUser
 	)
 
 	// create path and map variables
