@@ -70,7 +70,7 @@ type Configuration struct {
 }
 
 func ClientVersion() string {
-	return "1.0.19"
+	return "1.0.20"
 }
 
 func getUserAgent() string {
