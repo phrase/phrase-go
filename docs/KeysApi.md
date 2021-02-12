@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**KeyDelete**](KeysApi.md#KeyDelete) | **Delete** /projects/{project_id}/keys/{id} | Delete a key
 [**KeyShow**](KeysApi.md#KeyShow) | **Get** /projects/{project_id}/keys/{id} | Get a single key
 [**KeyUpdate**](KeysApi.md#KeyUpdate) | **Patch** /projects/{project_id}/keys/{id} | Update a key
-[**KeysDelete**](KeysApi.md#KeysDelete) | **Delete** /projects/{project_id}/keys | Delete collection of keys
+[**KeysDeleteCollection**](KeysApi.md#KeysDeleteCollection) | **Delete** /projects/{project_id}/keys | Delete collection of keys
 [**KeysList**](KeysApi.md#KeysList) | **Get** /projects/{project_id}/keys | List keys
 [**KeysSearch**](KeysApi.md#KeysSearch) | **Post** /projects/{project_id}/keys/search | Search keys
 [**KeysTag**](KeysApi.md#KeysTag) | **Patch** /projects/{project_id}/keys/tag | Add tags to collection of keys
@@ -208,9 +208,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## KeysDelete
+## KeysDeleteCollection
 
-> AffectedResources KeysDelete(ctx, projectId, optional)
+> AffectedResources KeysDeleteCollection(ctx, projectId, optional)
 
 Delete collection of keys
 
@@ -223,11 +223,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
- **optional** | ***KeysDeleteOpts** | optional parameters | nil if no parameters
+ **optional** | ***KeysDeleteCollectionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a KeysDeleteOpts struct
+Optional parameters are passed through a pointer to a KeysDeleteCollectionOpts struct
 
 
 Name | Type | Description  | Notes

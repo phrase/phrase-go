@@ -16209,7 +16209,7 @@ paths:
       description: Delete all keys matching query. Same constraints as list. Please
         limit the number of affected keys to about 1,000 as you might experience timeouts
         otherwise.
-      operationId: keys/delete
+      operationId: keys/delete-collection
       parameters:
       - description: Two-Factor-Authentication token (optional)
         explode: false
@@ -16320,7 +16320,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase keys delete \
+          phrase keys delete-collection \
           --project_id <project_id> \
           --branch my-feature-branch \
           --query 'mykey* translated:true' \
@@ -21351,7 +21351,7 @@ paths:
   /projects/{project_id}/translations/verify:
     patch:
       description: Verify translations matching query.
-      operationId: translations/verify
+      operationId: translations/verify-collection
       parameters:
       - description: Two-Factor-Authentication token (optional)
         explode: false
@@ -21459,7 +21459,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase translations verify \
+          phrase translations verify-collection \
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%20unverified:true%20tags:feature,center'", "sort":"updated_at", "order":"desc"}' \
           --access_token <token>
@@ -21473,7 +21473,7 @@ paths:
   /projects/{project_id}/translations/unverify:
     patch:
       description: Mark translations matching query as unverified.
-      operationId: translations/unverify
+      operationId: translations/unverify-collection
       parameters:
       - description: Two-Factor-Authentication token (optional)
         explode: false
@@ -21581,7 +21581,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase translations unverify \
+          phrase translations unverify-collection \
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%20verified:true%20tags:feature,center'", "sort":"updated_at", "order":"desc"}' \
           --access_token <token>
@@ -21595,7 +21595,7 @@ paths:
   /projects/{project_id}/translations/review:
     patch:
       description: Review translations matching query.
-      operationId: translations/review
+      operationId: translations/review-collection
       parameters:
       - description: Two-Factor-Authentication token (optional)
         explode: false
@@ -21694,7 +21694,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase translations review \
+          phrase translations review-collection \
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%reviewed:false%20tags:feature,center'"}' \
           --access_token <token>
@@ -21706,7 +21706,7 @@ paths:
   /projects/{project_id}/translations/exclude:
     patch:
       description: Exclude translations matching query from locale export.
-      operationId: translations/exclude
+      operationId: translations/exclude-collection
       parameters:
       - description: Two-Factor-Authentication token (optional)
         explode: false
@@ -21814,7 +21814,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase translations exclude \
+          phrase translations exclude-collection \
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%20verified:true%20tags:feature,center'", "sort":"updated_at", "order":"desc"}' \
           --access_token <token>
@@ -21828,7 +21828,7 @@ paths:
   /projects/{project_id}/translations/include:
     patch:
       description: Include translations matching query in locale export.
-      operationId: translations/include
+      operationId: translations/include-collection
       parameters:
       - description: Two-Factor-Authentication token (optional)
         explode: false
@@ -21936,7 +21936,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase translations include \
+          phrase translations include-collection \
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%20verified:true%20tags:feature,center'", "sort":"updated_at", "order":"desc"}' \
           --access_token <token>

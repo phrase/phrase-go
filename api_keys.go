@@ -432,8 +432,8 @@ func (a *KeysApiService) KeyUpdate(ctx _context.Context, projectId string, id st
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// KeysDeleteOpts Optional parameters for the method 'KeysDelete'
-type KeysDeleteOpts struct {
+// KeysDeleteCollectionOpts Optional parameters for the method 'KeysDeleteCollection'
+type KeysDeleteCollectionOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Branch        optional.String `json:"branch,omitempty"`
 	Q             optional.String `json:"q,omitempty"`
@@ -441,18 +441,18 @@ type KeysDeleteOpts struct {
 }
 
 /*
-KeysDelete Delete collection of keys
+KeysDeleteCollection Delete collection of keys
 Delete all keys matching query. Same constraints as list. Please limit the number of affected keys to about 1,000 as you might experience timeouts otherwise.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param optional nil or *KeysDeleteOpts - Optional Parameters:
+ * @param optional nil or *KeysDeleteCollectionOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Branch" (optional.String) -  specify the branch to use
  * @param "Q" (optional.String) -  Specify a query to do broad search for keys by name (including wildcards).<br><br> The following qualifiers are also supported in the search term:<br> <ul>   <li><code>ids:key_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>name:key_name</code> for text queries on exact key names - whitespaces need to be prefixed with a backspace (\\\"\\\\\\\")</li>   <li><code>tags:tag_name</code> to filter for keys with certain tags</li>   <li><code>translated:{true|false}</code> for translation status (also requires <code>locale_id</code> to be specified)</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>   <li><code>unmentioned_in_upload:upload_id</code> to filter keys unmentioned within upload</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
  * @param "LocaleId" (optional.String) -  Locale used to determine the translation state of a key when filtering for untranslated or translated keys.
 @return AffectedResources
 */
-func (a *KeysApiService) KeysDelete(ctx _context.Context, projectId string, localVarOptionals *KeysDeleteOpts) (AffectedResources, *APIResponse, error) {
+func (a *KeysApiService) KeysDeleteCollection(ctx _context.Context, projectId string, localVarOptionals *KeysDeleteCollectionOpts) (AffectedResources, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}

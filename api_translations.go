@@ -1131,22 +1131,22 @@ func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, proj
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// TranslationsExcludeOpts Optional parameters for the method 'TranslationsExclude'
-type TranslationsExcludeOpts struct {
+// TranslationsExcludeCollectionOpts Optional parameters for the method 'TranslationsExcludeCollection'
+type TranslationsExcludeCollectionOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-TranslationsExclude Set exclude from export flag on translations selected by query
+TranslationsExcludeCollection Set exclude from export flag on translations selected by query
 Exclude translations matching query from locale export.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param translationsExcludeParameters
- * @param optional nil or *TranslationsExcludeOpts - Optional Parameters:
+ * @param optional nil or *TranslationsExcludeCollectionOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, projectId string, translationsExcludeParameters TranslationsExcludeParameters, localVarOptionals *TranslationsExcludeOpts) (AffectedCount, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsExcludeCollection(ctx _context.Context, projectId string, translationsExcludeParameters TranslationsExcludeParameters, localVarOptionals *TranslationsExcludeCollectionOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1234,22 +1234,22 @@ func (a *TranslationsApiService) TranslationsExclude(ctx _context.Context, proje
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// TranslationsIncludeOpts Optional parameters for the method 'TranslationsInclude'
-type TranslationsIncludeOpts struct {
+// TranslationsIncludeCollectionOpts Optional parameters for the method 'TranslationsIncludeCollection'
+type TranslationsIncludeCollectionOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-TranslationsInclude Remove exlude from import flag from translations selected by query
+TranslationsIncludeCollection Remove exlude from import flag from translations selected by query
 Include translations matching query in locale export.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param translationsIncludeParameters
- * @param optional nil or *TranslationsIncludeOpts - Optional Parameters:
+ * @param optional nil or *TranslationsIncludeCollectionOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsInclude(ctx _context.Context, projectId string, translationsIncludeParameters TranslationsIncludeParameters, localVarOptionals *TranslationsIncludeOpts) (AffectedCount, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsIncludeCollection(ctx _context.Context, projectId string, translationsIncludeParameters TranslationsIncludeParameters, localVarOptionals *TranslationsIncludeCollectionOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1467,22 +1467,22 @@ func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectI
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// TranslationsReviewOpts Optional parameters for the method 'TranslationsReview'
-type TranslationsReviewOpts struct {
+// TranslationsReviewCollectionOpts Optional parameters for the method 'TranslationsReviewCollection'
+type TranslationsReviewCollectionOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-TranslationsReview Review translations selected by query
+TranslationsReviewCollection Review translations selected by query
 Review translations matching query.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param translationsReviewParameters
- * @param optional nil or *TranslationsReviewOpts - Optional Parameters:
+ * @param optional nil or *TranslationsReviewCollectionOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsReview(ctx _context.Context, projectId string, translationsReviewParameters TranslationsReviewParameters, localVarOptionals *TranslationsReviewOpts) (AffectedCount, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsReviewCollection(ctx _context.Context, projectId string, translationsReviewParameters TranslationsReviewParameters, localVarOptionals *TranslationsReviewCollectionOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1683,22 +1683,22 @@ func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projec
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// TranslationsUnverifyOpts Optional parameters for the method 'TranslationsUnverify'
-type TranslationsUnverifyOpts struct {
+// TranslationsUnverifyCollectionOpts Optional parameters for the method 'TranslationsUnverifyCollection'
+type TranslationsUnverifyCollectionOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-TranslationsUnverify Mark translations selected by query as unverified
+TranslationsUnverifyCollection Mark translations selected by query as unverified
 Mark translations matching query as unverified.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param translationsUnverifyParameters
- * @param optional nil or *TranslationsUnverifyOpts - Optional Parameters:
+ * @param optional nil or *TranslationsUnverifyCollectionOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, projectId string, translationsUnverifyParameters TranslationsUnverifyParameters, localVarOptionals *TranslationsUnverifyOpts) (AffectedCount, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsUnverifyCollection(ctx _context.Context, projectId string, translationsUnverifyParameters TranslationsUnverifyParameters, localVarOptionals *TranslationsUnverifyCollectionOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -1786,22 +1786,22 @@ func (a *TranslationsApiService) TranslationsUnverify(ctx _context.Context, proj
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// TranslationsVerifyOpts Optional parameters for the method 'TranslationsVerify'
-type TranslationsVerifyOpts struct {
+// TranslationsVerifyCollectionOpts Optional parameters for the method 'TranslationsVerifyCollection'
+type TranslationsVerifyCollectionOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-TranslationsVerify Verify translations selected by query
+TranslationsVerifyCollection Verify translations selected by query
 Verify translations matching query.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param translationsVerifyParameters
- * @param optional nil or *TranslationsVerifyOpts - Optional Parameters:
+ * @param optional nil or *TranslationsVerifyCollectionOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return AffectedCount
 */
-func (a *TranslationsApiService) TranslationsVerify(ctx _context.Context, projectId string, translationsVerifyParameters TranslationsVerifyParameters, localVarOptionals *TranslationsVerifyOpts) (AffectedCount, *APIResponse, error) {
+func (a *TranslationsApiService) TranslationsVerifyCollection(ctx _context.Context, projectId string, translationsVerifyParameters TranslationsVerifyParameters, localVarOptionals *TranslationsVerifyCollectionOpts) (AffectedCount, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}

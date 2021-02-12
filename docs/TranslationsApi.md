@@ -14,13 +14,13 @@ Method | HTTP request | Description
 [**TranslationVerify**](TranslationsApi.md#TranslationVerify) | **Patch** /projects/{project_id}/translations/{id}/verify | Verify a translation
 [**TranslationsByKey**](TranslationsApi.md#TranslationsByKey) | **Get** /projects/{project_id}/keys/{key_id}/translations | List translations by key
 [**TranslationsByLocale**](TranslationsApi.md#TranslationsByLocale) | **Get** /projects/{project_id}/locales/{locale_id}/translations | List translations by locale
-[**TranslationsExclude**](TranslationsApi.md#TranslationsExclude) | **Patch** /projects/{project_id}/translations/exclude | Set exclude from export flag on translations selected by query
-[**TranslationsInclude**](TranslationsApi.md#TranslationsInclude) | **Patch** /projects/{project_id}/translations/include | Remove exlude from import flag from translations selected by query
+[**TranslationsExcludeCollection**](TranslationsApi.md#TranslationsExcludeCollection) | **Patch** /projects/{project_id}/translations/exclude | Set exclude from export flag on translations selected by query
+[**TranslationsIncludeCollection**](TranslationsApi.md#TranslationsIncludeCollection) | **Patch** /projects/{project_id}/translations/include | Remove exlude from import flag from translations selected by query
 [**TranslationsList**](TranslationsApi.md#TranslationsList) | **Get** /projects/{project_id}/translations | List all translations
-[**TranslationsReview**](TranslationsApi.md#TranslationsReview) | **Patch** /projects/{project_id}/translations/review | Review translations selected by query
+[**TranslationsReviewCollection**](TranslationsApi.md#TranslationsReviewCollection) | **Patch** /projects/{project_id}/translations/review | Review translations selected by query
 [**TranslationsSearch**](TranslationsApi.md#TranslationsSearch) | **Post** /projects/{project_id}/translations/search | Search translations
-[**TranslationsUnverify**](TranslationsApi.md#TranslationsUnverify) | **Patch** /projects/{project_id}/translations/unverify | Mark translations selected by query as unverified
-[**TranslationsVerify**](TranslationsApi.md#TranslationsVerify) | **Patch** /projects/{project_id}/translations/verify | Verify translations selected by query
+[**TranslationsUnverifyCollection**](TranslationsApi.md#TranslationsUnverifyCollection) | **Patch** /projects/{project_id}/translations/unverify | Mark translations selected by query as unverified
+[**TranslationsVerifyCollection**](TranslationsApi.md#TranslationsVerifyCollection) | **Patch** /projects/{project_id}/translations/verify | Verify translations selected by query
 
 
 
@@ -519,9 +519,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## TranslationsExclude
+## TranslationsExcludeCollection
 
-> AffectedCount TranslationsExclude(ctx, projectId, translationsExcludeParameters, optional)
+> AffectedCount TranslationsExcludeCollection(ctx, projectId, translationsExcludeParameters, optional)
 
 Set exclude from export flag on translations selected by query
 
@@ -535,11 +535,11 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **translationsExcludeParameters** | [**TranslationsExcludeParameters**](TranslationsExcludeParameters.md)|  | 
- **optional** | ***TranslationsExcludeOpts** | optional parameters | nil if no parameters
+ **optional** | ***TranslationsExcludeCollectionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a TranslationsExcludeOpts struct
+Optional parameters are passed through a pointer to a TranslationsExcludeCollectionOpts struct
 
 
 Name | Type | Description  | Notes
@@ -566,9 +566,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## TranslationsInclude
+## TranslationsIncludeCollection
 
-> AffectedCount TranslationsInclude(ctx, projectId, translationsIncludeParameters, optional)
+> AffectedCount TranslationsIncludeCollection(ctx, projectId, translationsIncludeParameters, optional)
 
 Remove exlude from import flag from translations selected by query
 
@@ -582,11 +582,11 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **translationsIncludeParameters** | [**TranslationsIncludeParameters**](TranslationsIncludeParameters.md)|  | 
- **optional** | ***TranslationsIncludeOpts** | optional parameters | nil if no parameters
+ **optional** | ***TranslationsIncludeCollectionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a TranslationsIncludeOpts struct
+Optional parameters are passed through a pointer to a TranslationsIncludeCollectionOpts struct
 
 
 Name | Type | Description  | Notes
@@ -664,9 +664,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## TranslationsReview
+## TranslationsReviewCollection
 
-> AffectedCount TranslationsReview(ctx, projectId, translationsReviewParameters, optional)
+> AffectedCount TranslationsReviewCollection(ctx, projectId, translationsReviewParameters, optional)
 
 Review translations selected by query
 
@@ -680,11 +680,11 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **translationsReviewParameters** | [**TranslationsReviewParameters**](TranslationsReviewParameters.md)|  | 
- **optional** | ***TranslationsReviewOpts** | optional parameters | nil if no parameters
+ **optional** | ***TranslationsReviewCollectionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a TranslationsReviewOpts struct
+Optional parameters are passed through a pointer to a TranslationsReviewCollectionOpts struct
 
 
 Name | Type | Description  | Notes
@@ -760,9 +760,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## TranslationsUnverify
+## TranslationsUnverifyCollection
 
-> AffectedCount TranslationsUnverify(ctx, projectId, translationsUnverifyParameters, optional)
+> AffectedCount TranslationsUnverifyCollection(ctx, projectId, translationsUnverifyParameters, optional)
 
 Mark translations selected by query as unverified
 
@@ -776,11 +776,11 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **translationsUnverifyParameters** | [**TranslationsUnverifyParameters**](TranslationsUnverifyParameters.md)|  | 
- **optional** | ***TranslationsUnverifyOpts** | optional parameters | nil if no parameters
+ **optional** | ***TranslationsUnverifyCollectionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a TranslationsUnverifyOpts struct
+Optional parameters are passed through a pointer to a TranslationsUnverifyCollectionOpts struct
 
 
 Name | Type | Description  | Notes
@@ -807,9 +807,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## TranslationsVerify
+## TranslationsVerifyCollection
 
-> AffectedCount TranslationsVerify(ctx, projectId, translationsVerifyParameters, optional)
+> AffectedCount TranslationsVerifyCollection(ctx, projectId, translationsVerifyParameters, optional)
 
 Verify translations selected by query
 
@@ -823,11 +823,11 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **translationsVerifyParameters** | [**TranslationsVerifyParameters**](TranslationsVerifyParameters.md)|  | 
- **optional** | ***TranslationsVerifyOpts** | optional parameters | nil if no parameters
+ **optional** | ***TranslationsVerifyCollectionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a TranslationsVerifyOpts struct
+Optional parameters are passed through a pointer to a TranslationsVerifyCollectionOpts struct
 
 
 Name | Type | Description  | Notes
