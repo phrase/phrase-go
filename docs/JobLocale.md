@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **Locale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
 **Users** | [**[]UserPreview**](user_preview.md) |  | [optional] 
 **Completed** | **bool** |  | [optional] 
+**TranslationCompletedAt** | [**time.Time**](time.Time.md) |  | [optional] 
+**ReviewCompletedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

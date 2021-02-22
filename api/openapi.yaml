@@ -24096,6 +24096,8 @@ components:
           name: English
           code: en-GB
         completed: true
+        translation_completed_at: 2017-01-28T09:52:53Z
+        review_completed_at: 2017-01-28T09:52:53Z
       properties:
         id:
           type: string
@@ -24109,6 +24111,12 @@ components:
           type: array
         completed:
           type: boolean
+        translation_completed_at:
+          format: date-time
+          type: string
+        review_completed_at:
+          format: date-time
+          type: string
       title: job_locale
       type: object
     branch:
