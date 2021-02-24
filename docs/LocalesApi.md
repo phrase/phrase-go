@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## LocaleDownload
 
-> LocaleDownload(ctx, projectId, id, optional)
+> *os.File LocaleDownload(ctx, projectId, id, optional)
 
 Download a locale
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: *
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

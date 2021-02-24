@@ -3853,6 +3853,11 @@ paths:
         style: form
       responses:
         "200":
+          content:
+            '*':
+              schema:
+                format: binary
+                type: string
           description: OK
           headers:
             X-Rate-Limit-Limit:
