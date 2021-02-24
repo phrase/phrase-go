@@ -1,4 +1,4 @@
-module github.com/phrase/phrase-go
+module github.com/phrase/phrase-go/v2
 
 go 1.14
 
