@@ -10957,6 +10957,15 @@ paths:
         schema:
           type: integer
         style: form
+      - description: Sort projects. Valid options are "name_asc", "name_desc", "updated_at_asc",
+          "updated_at_desc", "space_asc" and "space_desc".
+        explode: true
+        in: query
+        name: sort_by
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -23489,6 +23498,7 @@ components:
         main_format: xml
         project_image_url: http://assets.example.com/project.png
         account: account
+        space: space
         created_at: 2015-01-28T09:52:53Z
         updated_at: 2015-01-28T09:52:53Z
       properties:
@@ -23504,6 +23514,8 @@ components:
           type: string
         account:
           $ref: '#/components/schemas/account'
+        space:
+          $ref: '#/components/schemas/space_1'
         created_at:
           format: date-time
           type: string
@@ -23971,7 +23983,7 @@ components:
           type: array
         spaces:
           items:
-            $ref: '#/components/schemas/space'
+            $ref: '#/components/schemas/project/properties/space'
           type: array
         users:
           items:
@@ -24021,7 +24033,7 @@ components:
           type: array
         spaces:
           items:
-            $ref: '#/components/schemas/space'
+            $ref: '#/components/schemas/project/properties/space'
           type: array
         users:
           items:
@@ -26517,6 +26529,21 @@ components:
         tags_created:
           type: integer
         translation_keys_ignored:
+          type: integer
+    space_1:
+      example: '{"id":"2e7574e8f2372906a03110c2a7cfe671","name":"My first space","created_at":"2020-02-25T12:17:25Z","updated_at":"2020-03-13T14:46:57Z","projects_count":2}'
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        projects_count:
           type: integer
     project_details_1:
       example: '{"slug":"my-android-project","shares_translation_memory":true}'

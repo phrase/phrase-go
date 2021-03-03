@@ -12,6 +12,7 @@ type Project struct {
 	MainFormat      string    `json:"main_format,omitempty"`
 	ProjectImageUrl string    `json:"project_image_url,omitempty"`
 	Account         Account   `json:"account,omitempty"`
+	Space           Space1    `json:"space,omitempty"`
 	CreatedAt       time.Time `json:"created_at,omitempty"`
 	UpdatedAt       time.Time `json:"updated_at,omitempty"`
 }

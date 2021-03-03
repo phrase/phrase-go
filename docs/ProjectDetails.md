@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **MainFormat** | **string** |  | [optional] 
 **ProjectImageUrl** | **string** |  | [optional] 
 **Account** | [**Account**](account.md) |  | [optional] 
+**Space** | [**Space1**](space_1.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **SharesTranslationMemory** | **bool** |  | [optional] 
