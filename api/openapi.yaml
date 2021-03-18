@@ -10957,6 +10957,14 @@ paths:
         schema:
           type: integer
         style: form
+      - description: Filter by Account ID
+        explode: true
+        in: query
+        name: account_id
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Sort projects. Valid options are "name_asc", "name_desc", "updated_at_asc",
           "updated_at_desc", "space_asc" and "space_desc".
         explode: true
@@ -22016,6 +22024,15 @@ components:
       schema:
         type: string
       style: simple
+    query_account_id:
+      description: Filter by Account ID
+      explode: true
+      in: query
+      name: account_id
+      required: false
+      schema:
+        type: string
+      style: form
     space_id:
       description: Space ID
       explode: false
