@@ -620,6 +620,7 @@ type LocalesListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	SortBy        optional.String `json:"sort_by,omitempty"`
 	Branch        optional.String `json:"branch,omitempty"`
 }
 
@@ -632,6 +633,7 @@ List all locales for the given project.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+ * @param "SortBy" (optional.String) -  Sort locales. Valid options are \"name_asc\", \"name_desc\", \"default_asc\", \"default_desc\".
  * @param "Branch" (optional.String) -  specify the branch to use
 @return []Locale
 */
@@ -658,6 +660,9 @@ func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, 
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SortBy.IsSet() {
+		localVarQueryParams.Add("sort_by", parameterToString(localVarOptionals.SortBy.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))

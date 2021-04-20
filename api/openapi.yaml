@@ -3126,6 +3126,15 @@ paths:
         schema:
           type: integer
         style: form
+      - description: Sort locales. Valid options are "name_asc", "name_desc", "default_asc",
+          "default_desc".
+        explode: true
+        in: query
+        name: sort_by
+        required: false
+        schema:
+          type: string
+        style: form
       - description: specify the branch to use
         example: my-feature-branch
         explode: true
