@@ -11096,6 +11096,12 @@ paths:
                     through the params.
                   example: abcd1234
                   type: string
+                workflow:
+                  description: (Optional) Review Workflow. "simple" / "review". <a
+                    href="https://help.phrase.com/help/advanced-review-workflow">Read
+                    more</a>
+                  example: review
+                  type: string
                 machine_translation_enabled:
                   description: (Optional) Enable machine translation support in the
                     project. Required for Autopilot and Smart Suggest
@@ -25538,6 +25544,11 @@ components:
             as the main project settings if they are not defined otherwise through
             the params.
           example: abcd1234
+          type: string
+        workflow:
+          description: (Optional) Review Workflow. "simple" / "review". <a href="https://help.phrase.com/help/advanced-review-workflow">Read
+            more</a>
+          example: review
           type: string
         machine_translation_enabled:
           description: (Optional) Enable machine translation support in the project.

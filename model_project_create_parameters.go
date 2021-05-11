@@ -20,6 +20,8 @@ type ProjectCreateParameters struct {
 	AccountId string `json:"account_id,omitempty"`
 	// When a source project ID is given, a clone of that project will be created, including all locales, keys and translations as well as the main project settings if they are not defined otherwise through the params.
 	SourceProjectId string `json:"source_project_id,omitempty"`
+	// (Optional) Review Workflow. \"simple\" / \"review\". <a href=\"https://help.phrase.com/help/advanced-review-workflow\">Read more</a>
+	Workflow string `json:"workflow,omitempty"`
 	// (Optional) Enable machine translation support in the project. Required for Autopilot and Smart Suggest
 	MachineTranslationEnabled *bool `json:"machine_translation_enabled,omitempty"`
 	// (Optional) Enable branching in the project
