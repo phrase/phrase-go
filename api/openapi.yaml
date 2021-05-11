@@ -26666,8 +26666,10 @@ components:
           type: string
         created_at:
           format: date-time
+          type: string
         updated_at:
           format: date-time
+          type: string
         projects_count:
           type: integer
     member_project_detail_project_roles:
