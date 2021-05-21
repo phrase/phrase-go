@@ -364,6 +364,7 @@ Class | Method | HTTP request | Description
  - [StyleguideDetails1](docs/StyleguideDetails1.md)
  - [StyleguidePreview](docs/StyleguidePreview.md)
  - [StyleguideUpdateParameters](docs/StyleguideUpdateParameters.md)
+ - [Subscription](docs/Subscription.md)
  - [Tag](docs/Tag.md)
  - [TagCreateParameters](docs/TagCreateParameters.md)
  - [TagWithStats](docs/TagWithStats.md)
