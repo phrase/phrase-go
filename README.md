@@ -152,6 +152,8 @@ Class | Method | HTTP request | Description
 *MembersApi* | [**MemberUpdate**](docs/MembersApi.md#memberupdate) | **Patch** /accounts/{account_id}/members/{id} | Update a member
 *MembersApi* | [**MemberUpdateSettings**](docs/MembersApi.md#memberupdatesettings) | **Patch** /projects/{project_id}/members/{id} | Update a member&#39;s project settings
 *MembersApi* | [**MembersList**](docs/MembersApi.md#memberslist) | **Get** /accounts/{account_id}/members | List members
+*NotificationGroupsApi* | [**NotificationGroupsList**](docs/NotificationGroupsApi.md#notificationgroupslist) | **Get** /notification_groups | List notification groups
+*NotificationsApi* | [**NotificationsList**](docs/NotificationsApi.md#notificationslist) | **Get** /notifications | List notifications
 *OrdersApi* | [**OrderConfirm**](docs/OrdersApi.md#orderconfirm) | **Patch** /projects/{project_id}/orders/{id}/confirm | Confirm an order
 *OrdersApi* | [**OrderCreate**](docs/OrdersApi.md#ordercreate) | **Post** /projects/{project_id}/orders | Create a new order
 *OrdersApi* | [**OrderDelete**](docs/OrdersApi.md#orderdelete) | **Delete** /projects/{project_id}/orders/{id} | Cancel an order
@@ -333,6 +335,9 @@ Class | Method | HTTP request | Description
  - [MemberSpaces](docs/MemberSpaces.md)
  - [MemberUpdateParameters](docs/MemberUpdateParameters.md)
  - [MemberUpdateSettingsParameters](docs/MemberUpdateSettingsParameters.md)
+ - [Notification](docs/Notification.md)
+ - [NotificationGroup](docs/NotificationGroup.md)
+ - [NotificationGroupDetail](docs/NotificationGroupDetail.md)
  - [OrderConfirmParameters](docs/OrderConfirmParameters.md)
  - [OrderCreateParameters](docs/OrderCreateParameters.md)
  - [Project](docs/Project.md)

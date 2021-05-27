@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] 
 **Username** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
-**Email** | **string** |  | [optional] 
 **Position** | **string** |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
