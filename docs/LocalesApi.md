@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **branch** | **optional.String**| specify the branch to use | 
- **fileFormat** | **optional.String**| File format name. See the format guide for all supported file formats. | 
+ **fileFormat** | **optional.String**| File format name. See the &lt;a href&#x3D;\&quot;https://help.phrase.com/help/supported-platforms-and-formats\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. | 
  **tags** | **optional.String**| Limit results to keys tagged with a list of comma separated tag names. | 
  **tag** | **optional.String**| Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead | 
  **includeEmptyTranslations** | **optional.Bool**| Indicates whether keys without translations should be included in the output as well. | 
