@@ -153,7 +153,11 @@ Class | Method | HTTP request | Description
 *MembersApi* | [**MemberUpdateSettings**](docs/MembersApi.md#memberupdatesettings) | **Patch** /projects/{project_id}/members/{id} | Update a member&#39;s project settings
 *MembersApi* | [**MembersList**](docs/MembersApi.md#memberslist) | **Get** /accounts/{account_id}/members | List members
 *NotificationGroupsApi* | [**NotificationGroupsList**](docs/NotificationGroupsApi.md#notificationgroupslist) | **Get** /notification_groups | List notification groups
+*NotificationGroupsApi* | [**NotificationGroupsMarkAllAsRead**](docs/NotificationGroupsApi.md#notificationgroupsmarkallasread) | **Patch** /notification_groups/mark_all_as_read | Mark all notification groups as read
+*NotificationGroupsApi* | [**NotificationGroupsMarkAsRead**](docs/NotificationGroupsApi.md#notificationgroupsmarkasread) | **Patch** /notification_groups/{id}/mark_as_read | Mark a notification group as read
 *NotificationsApi* | [**NotificationsList**](docs/NotificationsApi.md#notificationslist) | **Get** /notifications | List notifications
+*NotificationsApi* | [**NotificationsMarkAllAsRead**](docs/NotificationsApi.md#notificationsmarkallasread) | **Post** /notifications/mark_all_as_read | Mark all notifications as read
+*NotificationsApi* | [**NotificationsShow**](docs/NotificationsApi.md#notificationsshow) | **Get** /notifications/{id} | Get a single notification
 *OrdersApi* | [**OrderConfirm**](docs/OrdersApi.md#orderconfirm) | **Patch** /projects/{project_id}/orders/{id}/confirm | Confirm an order
 *OrdersApi* | [**OrderCreate**](docs/OrdersApi.md#ordercreate) | **Post** /projects/{project_id}/orders | Create a new order
 *OrdersApi* | [**OrderDelete**](docs/OrdersApi.md#orderdelete) | **Delete** /projects/{project_id}/orders/{id} | Cancel an order

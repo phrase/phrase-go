@@ -22095,7 +22095,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/notification'
+                  $ref: '#/paths/~1notifications~1%7Bid%7D/get/responses/200/content/application~1json/schema'
                 type: array
           description: OK
           headers:
@@ -22148,6 +22148,166 @@ paths:
           --access_token <token>
       - lang: CLI v1
         source: phraseapp notifications list
+  /notifications/mark_all_as_read:
+    post:
+      description: Mark all notifications of the current user as read
+      operationId: notifications/mark_all_as_read
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/paths/~1notifications~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Mark all notifications as read
+      tags:
+      - Notifications
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/notifications/mark_all_as_read" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase notifications mark_all_as_read \
+          --access_token <token>
+      - lang: CLI v1
+        source: phraseapp notifications mark_all_as_read
+  /notifications/{id}:
+    get:
+      description: Get details on a single notification.
+      operationId: notifications/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notification'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single notification
+      tags:
+      - Notifications
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/notification/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase notifications show \
+          --id <id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: phraseapp notifications show <id>
   /notification_groups:
     get:
       description: List all notification groups from the current user
@@ -22187,7 +22347,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/notification_group_detail'
+                  $ref: '#/paths/~1notification_groups~1%7Bid%7D~1mark_as_read/patch/responses/200/content/application~1json/schema'
                 type: array
           description: OK
           headers:
@@ -22240,6 +22400,157 @@ paths:
           --access_token <token>
       - lang: CLI v1
         source: phraseapp notification_groups list
+  /notification_groups/mark_all_as_read:
+    patch:
+      description: Mark all notification groups of the current user as read
+      operationId: notification_groups/mark_all_as_read
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/paths/~1notification_groups~1%7Bid%7D~1mark_as_read/patch/responses/200/content/application~1json/schema'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Mark all notification groups as read
+      tags:
+      - Notification Groups
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/notification_groups/mark_all_as_read" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase notification_groups mark_all_as_read \
+          --access_token <token>
+      - lang: CLI v1
+        source: phraseapp notification_groups mark_all_as_read
+  /notification_groups/{id}/mark_as_read:
+    patch:
+      description: Mark a notifications group of the current user as read
+      operationId: notification_groups/mark_as_read
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/notification_group_detail'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Mark a notification group as read
+      tags:
+      - Notification Groups
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/notification_groups/:id/mark_as_read" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase notification_groups mark_as_read \
+          --id <id> \
+          --access_token <token>
+      - lang: CLI v1
+        source: phraseapp notification_groups mark_as_read <id>
 components:
   headers:
     Link:
@@ -26910,7 +27221,7 @@ components:
           format: date-time
           type: string
         latest_notification:
-          $ref: '#/paths/~1notifications/get/responses/200/content/application~1json/schema/items'
+          $ref: '#/paths/~1notifications~1%7Bid%7D/get/responses/200/content/application~1json/schema'
     authorization_with_token_1:
       example: '{"token":"abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234"}'
       properties:
