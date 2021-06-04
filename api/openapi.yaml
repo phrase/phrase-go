@@ -24511,6 +24511,10 @@ components:
         updated_at:
           format: date-time
           type: string
+        mentioned_users:
+          items:
+            $ref: '#/components/schemas/user_preview'
+          type: array
       title: comment
       type: object
     key_preview:
