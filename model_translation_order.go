@@ -7,6 +7,7 @@ import (
 // TranslationOrder struct for TranslationOrder
 type TranslationOrder struct {
 	Id                               string            `json:"id,omitempty"`
+	Name                             string            `json:"name,omitempty"`
 	Lsp                              string            `json:"lsp,omitempty"`
 	AmountInCents                    int32             `json:"amount_in_cents,omitempty"`
 	Currency                         string            `json:"currency,omitempty"`

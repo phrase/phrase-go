@@ -4,6 +4,8 @@ package phrase
 type OrderCreateParameters struct {
 	// specify the branch to use
 	Branch string `json:"branch,omitempty"`
+	// the name of the order, default name is: Translation order from 'current datetime'
+	Name string `json:"name,omitempty"`
 	// Name of the LSP that should process this order. Can be one of gengo, textmaster.
 	Lsp string `json:"lsp,omitempty"`
 	// Source locale for the order. Can be the name or public id of the source locale. Preferred is the public id.
