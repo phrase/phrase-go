@@ -28191,6 +28191,8 @@ components:
         updated_at:
           format: date-time
           type: string
+        notifications_count:
+          type: integer
         latest_notification:
           $ref: '#/paths/~1notifications~1%7Bid%7D/get/responses/200/content/application~1json/schema'
     authorization_with_token_1:
