@@ -4,6 +4,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AccountLocales**](LocalesApi.md#AccountLocales) | **Get** /accounts/{account_id}/locales | List locales used in account
 [**LocaleCreate**](LocalesApi.md#LocaleCreate) | **Post** /projects/{project_id}/locales | Create a locale
 [**LocaleDelete**](LocalesApi.md#LocaleDelete) | **Delete** /projects/{project_id}/locales/{id} | Delete a locale
 [**LocaleDownload**](LocalesApi.md#LocaleDownload) | **Get** /projects/{project_id}/locales/{id}/download | Download a locale
@@ -11,6 +12,51 @@ Method | HTTP request | Description
 [**LocaleUpdate**](LocalesApi.md#LocaleUpdate) | **Patch** /projects/{project_id}/locales/{id} | Update a locale
 [**LocalesList**](LocalesApi.md#LocalesList) | **Get** /projects/{project_id}/locales | List locales
 
+
+
+## AccountLocales
+
+> []LocalePreview1 AccountLocales(ctx, optional)
+
+List locales used in account
+
+List all locales unique by locale code used across all projects within an account.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***AccountLocalesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a AccountLocalesOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **page** | **optional.Int32**| Page number | 
+ **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
+
+### Return type
+
+[**[]LocalePreview1**](locale_preview_1.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## LocaleCreate
