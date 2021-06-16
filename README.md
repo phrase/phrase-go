@@ -137,6 +137,8 @@ Class | Method | HTTP request | Description
 *KeysApi* | [**KeyShow**](docs/KeysApi.md#keyshow) | **Get** /projects/{project_id}/keys/{id} | Get a single key
 *KeysApi* | [**KeyUpdate**](docs/KeysApi.md#keyupdate) | **Patch** /projects/{project_id}/keys/{id} | Update a key
 *KeysApi* | [**KeysDeleteCollection**](docs/KeysApi.md#keysdeletecollection) | **Delete** /projects/{project_id}/keys | Delete collection of keys
+*KeysApi* | [**KeysExclude**](docs/KeysApi.md#keysexclude) | **Patch** /projects/{project_id}/keys/exclude | Exclude a locale on a collection of keys
+*KeysApi* | [**KeysInclude**](docs/KeysApi.md#keysinclude) | **Patch** /projects/{project_id}/keys/include | Include a locale on a collection of keys
 *KeysApi* | [**KeysList**](docs/KeysApi.md#keyslist) | **Get** /projects/{project_id}/keys | List keys
 *KeysApi* | [**KeysSearch**](docs/KeysApi.md#keyssearch) | **Post** /projects/{project_id}/keys/search | Search keys
 *KeysApi* | [**KeysTag**](docs/KeysApi.md#keystag) | **Patch** /projects/{project_id}/keys/tag | Add tags to collection of keys
@@ -324,6 +326,8 @@ Class | Method | HTTP request | Description
  - [KeyCreateParameters](docs/KeyCreateParameters.md)
  - [KeyPreview](docs/KeyPreview.md)
  - [KeyUpdateParameters](docs/KeyUpdateParameters.md)
+ - [KeysExcludeParameters](docs/KeysExcludeParameters.md)
+ - [KeysIncludeParameters](docs/KeysIncludeParameters.md)
  - [KeysSearchParameters](docs/KeysSearchParameters.md)
  - [KeysTagParameters](docs/KeysTagParameters.md)
  - [KeysUntagParameters](docs/KeysUntagParameters.md)

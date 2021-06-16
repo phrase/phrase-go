@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**KeyShow**](KeysApi.md#KeyShow) | **Get** /projects/{project_id}/keys/{id} | Get a single key
 [**KeyUpdate**](KeysApi.md#KeyUpdate) | **Patch** /projects/{project_id}/keys/{id} | Update a key
 [**KeysDeleteCollection**](KeysApi.md#KeysDeleteCollection) | **Delete** /projects/{project_id}/keys | Delete collection of keys
+[**KeysExclude**](KeysApi.md#KeysExclude) | **Patch** /projects/{project_id}/keys/exclude | Exclude a locale on a collection of keys
+[**KeysInclude**](KeysApi.md#KeysInclude) | **Patch** /projects/{project_id}/keys/include | Include a locale on a collection of keys
 [**KeysList**](KeysApi.md#KeysList) | **Get** /projects/{project_id}/keys | List keys
 [**KeysSearch**](KeysApi.md#KeysSearch) | **Post** /projects/{project_id}/keys/search | Search keys
 [**KeysTag**](KeysApi.md#KeysTag) | **Patch** /projects/{project_id}/keys/tag | Add tags to collection of keys
@@ -249,6 +251,100 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## KeysExclude
+
+> AffectedResources KeysExclude(ctx, projectId, keysExcludeParameters, optional)
+
+Exclude a locale on a collection of keys
+
+Exclude a locale on keys matching query. Same constraints as list.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**keysExcludeParameters** | [**KeysExcludeParameters**](KeysExcludeParameters.md)|  | 
+ **optional** | ***KeysExcludeOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a KeysExcludeOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**AffectedResources**](affected_resources.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## KeysInclude
+
+> AffectedResources KeysInclude(ctx, projectId, keysIncludeParameters, optional)
+
+Include a locale on a collection of keys
+
+Include a locale on keys matching query. Same constraints as list.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**keysIncludeParameters** | [**KeysIncludeParameters**](KeysIncludeParameters.md)|  | 
+ **optional** | ***KeysIncludeOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a KeysIncludeOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**AffectedResources**](affected_resources.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
