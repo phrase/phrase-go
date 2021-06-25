@@ -187,6 +187,7 @@ Class | Method | HTTP request | Description
 *ScreenshotsApi* | [**ScreenshotShow**](docs/ScreenshotsApi.md#screenshotshow) | **Get** /projects/{project_id}/screenshots/{id} | Get a single screenshot
 *ScreenshotsApi* | [**ScreenshotUpdate**](docs/ScreenshotsApi.md#screenshotupdate) | **Patch** /projects/{project_id}/screenshots/{id} | Update a screenshot
 *ScreenshotsApi* | [**ScreenshotsList**](docs/ScreenshotsApi.md#screenshotslist) | **Get** /projects/{project_id}/screenshots | List screenshots
+*SearchApi* | [**SearchInAccount**](docs/SearchApi.md#searchinaccount) | **Post** /accounts/{account_id}/search | Search across projects
 *SpacesApi* | [**SpaceCreate**](docs/SpacesApi.md#spacecreate) | **Post** /accounts/{account_id}/spaces | Create a Space
 *SpacesApi* | [**SpaceDelete**](docs/SpacesApi.md#spacedelete) | **Delete** /accounts/{account_id}/spaces/{id} | Delete Space
 *SpacesApi* | [**SpaceShow**](docs/SpacesApi.md#spaceshow) | **Get** /accounts/{account_id}/spaces/{id} | Get Space
@@ -256,6 +257,7 @@ Class | Method | HTTP request | Description
  - [Account](docs/Account.md)
  - [AccountDetails](docs/AccountDetails.md)
  - [AccountDetails1](docs/AccountDetails1.md)
+ - [AccountSearchResult](docs/AccountSearchResult.md)
  - [AffectedCount](docs/AffectedCount.md)
  - [AffectedResources](docs/AffectedResources.md)
  - [Authorization](docs/Authorization.md)
@@ -368,6 +370,7 @@ Class | Method | HTTP request | Description
  - [ScreenshotMarkerCreateParameters](docs/ScreenshotMarkerCreateParameters.md)
  - [ScreenshotMarkerUpdateParameters](docs/ScreenshotMarkerUpdateParameters.md)
  - [ScreenshotUpdateParameters](docs/ScreenshotUpdateParameters.md)
+ - [SearchInAccountParameters](docs/SearchInAccountParameters.md)
  - [Space](docs/Space.md)
  - [Space1](docs/Space1.md)
  - [SpaceCreateParameters](docs/SpaceCreateParameters.md)

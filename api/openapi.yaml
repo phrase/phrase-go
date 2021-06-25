@@ -23835,6 +23835,119 @@ paths:
           --access_token <token>
       - lang: CLI v1
         source: phraseapp notification_groups mark_as_read <id>
+  /accounts/{account_id}/search:
+    post:
+      description: Search for keys and translations in all account projects
+      operationId: search/in_account
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/search_in_account_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                query:
+                  description: Search query
+                  example: keyword
+                  type: string
+                locale_code:
+                  description: Locale code
+                  example: de_DE
+                  type: string
+                page:
+                  description: Page
+                  example: 1
+                  type: integer
+                per_page:
+                  description: Number of results per page
+                  example: 25
+                  type: integer
+              title: search/in_account/parameters
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/account_search_result'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Search across projects
+      tags:
+      - Search
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/search" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -F query=keyword \
+            -F locale_code=localecode \
+            -F page=1 \
+            -F per_page=25 \
+      - lang: CLI v2
+        source: |-
+          phrase search in_account \
+          --account_id <account_id> \
+          --data '{"query":"keyword","locale_code": "de","page": 1,"per_page": 25}' \
+          --access_token <token>
+      - lang: CLI v1
+        source: |-
+          phraseapp search in_account <account_id> \
+          --query <keyword> \
+          --locale_code <locale code> \
+          --page <page> \
+          --per_page <per_page> \
 components:
   headers:
     Link:
@@ -24293,6 +24406,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/bitbucket_sync_import_parameters'
+      required: true
+    search_in_account_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/search_in_account_parameters'
       required: true
     comment_update_parameters:
       content:
@@ -28607,6 +28726,53 @@ components:
           type: integer
         latest_notification:
           $ref: '#/paths/~1notifications~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+    search_in_account_parameters:
+      properties:
+        query:
+          description: Search query
+          example: keyword
+          type: string
+        locale_code:
+          description: Locale code
+          example: de_DE
+          type: string
+        page:
+          description: Page
+          example: 1
+          type: integer
+        per_page:
+          description: Number of results per page
+          example: 25
+          type: integer
+      title: search/in_account/parameters
+      type: object
+    account_search_result:
+      example: '{"query":"keyword","excerpt":"excerpt text","key":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"key.name","plural":false,"data_type":"string","tags":["tag
+        1","tag 2"]},"locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"German","code":"de_DE"},"project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"project
+        name","slug":"project-slug","main_format":"","project_image_url":"","created_at":"2021-05-04T14:16:26Z","updated_at":"2021-06-14T14:26:09Z","account":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"account
+        name","slug":"account-slug","company":"company name","created_at":"2021-04-27T14:27:25Z","updated_at":"2021-06-14T14:35:15Z","company_logo_url":""},"space":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"space
+        name","slug":"space-slug","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","projects_count":1}},"translation":{"id":"abcd1234cdef1234abcd1234cdef1234","content":"some
+        content","unverified":true,"excluded":false,"plural_suffix":"","key":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"key.name","plural":false,"data_type":"string","tags":["tag
+        1","tag 2"]},"created_at":"2021-05-04T14:17:04Z","updated_at":"2021-05-04T14:17:04Z","placeholders":[],"state":"translated","locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"German","code":"de_DE"}},"other_translations":[{"id":"abcd1234cdef1234abcd1234cdef1234","content":"some
+        content","unverified":true,"excluded":false,"plural_suffix":"","key":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"key.name","plural":false,"data_type":"string","tags":["tag
+        1","tag 2"]},"created_at":"2021-05-04T14:17:04Z","updated_at":"2021-05-04T14:17:04Z","placeholders":[],"state\"":"translated","locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en_EN"}}]}'
+      properties:
+        query:
+          type: string
+        excerpt:
+          type: string
+        key:
+          $ref: '#/components/schemas/key_preview'
+        locale:
+          $ref: '#/components/schemas/locale_preview'
+        project:
+          $ref: '#/components/schemas/project'
+        translation:
+          $ref: '#/components/schemas/translation'
+        other_translations:
+          items:
+            $ref: '#/components/schemas/translation'
+          type: array
     authorization_with_token_1:
       example: '{"token":"abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234"}'
       properties:

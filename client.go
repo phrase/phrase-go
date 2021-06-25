@@ -93,6 +93,8 @@ type APIClient struct {
 
 	ScreenshotsApi *ScreenshotsApiService
 
+	SearchApi *SearchApiService
+
 	SpacesApi *SpacesApiService
 
 	StyleGuidesApi *StyleGuidesApiService
@@ -157,6 +159,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ReleasesApi = (*ReleasesApiService)(&c.common)
 	c.ScreenshotMarkersApi = (*ScreenshotMarkersApiService)(&c.common)
 	c.ScreenshotsApi = (*ScreenshotsApiService)(&c.common)
+	c.SearchApi = (*SearchApiService)(&c.common)
 	c.SpacesApi = (*SpacesApiService)(&c.common)
 	c.StyleGuidesApi = (*StyleGuidesApiService)(&c.common)
 	c.TagsApi = (*TagsApiService)(&c.common)
