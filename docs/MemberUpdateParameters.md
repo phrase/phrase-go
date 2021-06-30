@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Role** | **string** | Member role, can be any of of Manager, Developer, Translator | [optional] 
+**Strategy** | **string** | Update strategy, can be any of set, add, remove. If provided, it will set, add or remove given spaces, projects and locale ids from users access list. | [optional] 
+**Role** | **string** | Member role, can be any of of Admin, ProjectManager, Developer, Designer, Translator | [optional] 
 **ProjectIds** | **string** | List of project ids the user has access to.  | [optional] 
 **LocaleIds** | **string** | List of locale ids the user has access to. | [optional] 
 **DefaultLocaleCodes** | **[]string** | List of default locales for the user. | [optional] 

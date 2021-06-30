@@ -15150,8 +15150,15 @@ paths:
           application/json:
             schema:
               properties:
+                strategy:
+                  description: Update strategy, can be any of set, add, remove. If
+                    provided, it will set, add or remove given spaces, projects and
+                    locale ids from users access list.
+                  example: set
+                  type: string
                 role:
-                  description: Member role, can be any of of Manager, Developer, Translator
+                  description: Member role, can be any of of Admin, ProjectManager,
+                    Developer, Designer, Translator
                   example: Developer
                   type: string
                 project_ids:
@@ -15251,14 +15258,14 @@ paths:
           curl "https://api.phrase.com/v2/accounts/:account_id/members/:id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"role":"Developer","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","default_locale_codes":["de","en"],"space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"permissions":{"create_upload":true,"review_translations":true}}' \
+            -d '{"role":"Developer","strategy":"set","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","default_locale_codes":["de","en"],"space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"permissions":{"create_upload":true,"review_translations":true}}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase members update \
           --account_id <account_id> \
           --id <id> \
-          --data '{"role":"Developer", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "default_locale_codes":["de","en"], "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
+          --data '{"role":"Developer", "strategy":"set", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "default_locale_codes":["de","en"], "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -27762,8 +27769,15 @@ components:
       type: object
     member_update_parameters:
       properties:
+        strategy:
+          description: Update strategy, can be any of set, add, remove. If provided,
+            it will set, add or remove given spaces, projects and locale ids from
+            users access list.
+          example: set
+          type: string
         role:
-          description: Member role, can be any of of Manager, Developer, Translator
+          description: Member role, can be any of of Admin, ProjectManager, Developer,
+            Designer, Translator
           example: Developer
           type: string
         project_ids:

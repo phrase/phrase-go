@@ -2,7 +2,9 @@ package phrase
 
 // MemberUpdateParameters struct for MemberUpdateParameters
 type MemberUpdateParameters struct {
-	// Member role, can be any of of Manager, Developer, Translator
+	// Update strategy, can be any of set, add, remove. If provided, it will set, add or remove given spaces, projects and locale ids from users access list.
+	Strategy string `json:"strategy,omitempty"`
+	// Member role, can be any of of Admin, ProjectManager, Developer, Designer, Translator
 	Role string `json:"role,omitempty"`
 	// List of project ids the user has access to.
 	ProjectIds string `json:"project_ids,omitempty"`
