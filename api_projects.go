@@ -5,6 +5,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"reflect"
 	"strings"
 
 	"github.com/antihax/optional"
@@ -412,11 +413,12 @@ func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, proj
 
 // ProjectsListOpts Optional parameters for the method 'ProjectsList'
 type ProjectsListOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32  `json:"page,omitempty"`
-	PerPage       optional.Int32  `json:"per_page,omitempty"`
-	AccountId     optional.String `json:"account_id,omitempty"`
-	SortBy        optional.String `json:"sort_by,omitempty"`
+	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	Page          optional.Int32     `json:"page,omitempty"`
+	PerPage       optional.Int32     `json:"per_page,omitempty"`
+	AccountId     optional.String    `json:"account_id,omitempty"`
+	SortBy        optional.String    `json:"sort_by,omitempty"`
+	Filters       optional.Interface `json:"filters,omitempty"`
 }
 
 /*
@@ -429,6 +431,7 @@ List all projects the current user has access to.
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
  * @param "AccountId" (optional.String) -  Filter by Account ID
  * @param "SortBy" (optional.String) -  Sort projects. Valid options are \"name_asc\", \"name_desc\", \"updated_at_asc\", \"updated_at_desc\", \"space_asc\" and \"space_desc\".
+ * @param "Filters" (optional.Interface of []string) -  Filter projects. Valid options are [\"favorites\"].
 @return []Project
 */
 func (a *ProjectsApiService) ProjectsList(ctx _context.Context, localVarOptionals *ProjectsListOpts) ([]Project, *APIResponse, error) {
@@ -458,6 +461,17 @@ func (a *ProjectsApiService) ProjectsList(ctx _context.Context, localVarOptional
 	}
 	if localVarOptionals != nil && localVarOptionals.SortBy.IsSet() {
 		localVarQueryParams.Add("sort_by", parameterToString(localVarOptionals.SortBy.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Filters.IsSet() {
+		t := localVarOptionals.Filters.Value()
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				localVarQueryParams.Add("filters", parameterToString(s.Index(i), "multi"))
+			}
+		} else {
+			localVarQueryParams.Add("filters", parameterToString(t, "multi"))
+		}
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

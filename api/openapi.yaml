@@ -12030,6 +12030,17 @@ paths:
         schema:
           type: string
         style: form
+      - description: Filter projects. Valid options are ["favorites"].
+        example: favorites
+        explode: true
+        in: query
+        name: filters
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       responses:
         "200":
           content:
