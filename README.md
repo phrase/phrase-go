@@ -121,6 +121,16 @@ Class | Method | HTTP request | Description
 *JobLocalesApi* | [**JobLocaleUpdate**](docs/JobLocalesApi.md#joblocaleupdate) | **Patch** /projects/{project_id}/jobs/{job_id}/locales/{id} | Update a job locale
 *JobLocalesApi* | [**JobLocalesCreate**](docs/JobLocalesApi.md#joblocalescreate) | **Post** /projects/{project_id}/jobs/{job_id}/locales | Create a job locale
 *JobLocalesApi* | [**JobLocalesList**](docs/JobLocalesApi.md#joblocaleslist) | **Get** /projects/{project_id}/jobs/{job_id}/locales | List job locales
+*JobTemplateLocalesApi* | [**JobTemplateLocaleDelete**](docs/JobTemplateLocalesApi.md#jobtemplatelocaledelete) | **Delete** /projects/{project_id}/job_templates/{job_template_id}/locales/{job_template_locale_id} | Delete a job template locale
+*JobTemplateLocalesApi* | [**JobTemplateLocaleShow**](docs/JobTemplateLocalesApi.md#jobtemplatelocaleshow) | **Get** /projects/{project_id}/job_templates/{job_template_id}/locales/{job_template_locale_id} | Get a single job template locale
+*JobTemplateLocalesApi* | [**JobTemplateLocaleUpdate**](docs/JobTemplateLocalesApi.md#jobtemplatelocaleupdate) | **Patch** /projects/{project_id}/job_templates/{job_template_id}/locales/{job_template_locale_id} | Update a job template locale
+*JobTemplateLocalesApi* | [**JobTemplateLocalesCreate**](docs/JobTemplateLocalesApi.md#jobtemplatelocalescreate) | **Post** /projects/{project_id}/job_templates/{job_template_id}/locales | Create a job template locale
+*JobTemplateLocalesApi* | [**JobTemplateLocalesList**](docs/JobTemplateLocalesApi.md#jobtemplatelocaleslist) | **Get** /projects/{project_id}/job_templates/{job_template_id}/locales | List job template locales
+*JobTemplatesApi* | [**JobTemplateCreate**](docs/JobTemplatesApi.md#jobtemplatecreate) | **Post** /projects/{project_id}/job_templates | Create a job template
+*JobTemplatesApi* | [**JobTemplateDelete**](docs/JobTemplatesApi.md#jobtemplatedelete) | **Delete** /projects/{project_id}/job_templates/{id} | Delete a job template
+*JobTemplatesApi* | [**JobTemplateShow**](docs/JobTemplatesApi.md#jobtemplateshow) | **Get** /projects/{project_id}/job_templates/{id} | Get a single job template
+*JobTemplatesApi* | [**JobTemplateUpdate**](docs/JobTemplatesApi.md#jobtemplateupdate) | **Patch** /projects/{project_id}/job_templates/{id} | Update a job template
+*JobTemplatesApi* | [**JobTemplatesList**](docs/JobTemplatesApi.md#jobtemplateslist) | **Get** /projects/{project_id}/job_templates | List job templates
 *JobsApi* | [**JobComplete**](docs/JobsApi.md#jobcomplete) | **Post** /projects/{project_id}/jobs/{id}/complete | Complete a job
 *JobsApi* | [**JobCreate**](docs/JobsApi.md#jobcreate) | **Post** /projects/{project_id}/jobs | Create a job
 *JobsApi* | [**JobDelete**](docs/JobsApi.md#jobdelete) | **Delete** /projects/{project_id}/jobs/{id} | Delete a job
@@ -324,6 +334,14 @@ Class | Method | HTTP request | Description
  - [JobPreview](docs/JobPreview.md)
  - [JobReopenParameters](docs/JobReopenParameters.md)
  - [JobStartParameters](docs/JobStartParameters.md)
+ - [JobTemplate](docs/JobTemplate.md)
+ - [JobTemplateCreateParameters](docs/JobTemplateCreateParameters.md)
+ - [JobTemplateLocale](docs/JobTemplateLocale.md)
+ - [JobTemplateLocaleUpdateParameters](docs/JobTemplateLocaleUpdateParameters.md)
+ - [JobTemplateLocalesCreateParameters](docs/JobTemplateLocalesCreateParameters.md)
+ - [JobTemplatePreview](docs/JobTemplatePreview.md)
+ - [JobTemplateUpdateParameters](docs/JobTemplateUpdateParameters.md)
+ - [JobTemplateUserPreview](docs/JobTemplateUserPreview.md)
  - [JobUpdateParameters](docs/JobUpdateParameters.md)
  - [KeyCreateParameters](docs/KeyCreateParameters.md)
  - [KeyPreview](docs/KeyPreview.md)
