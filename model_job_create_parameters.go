@@ -10,6 +10,8 @@ type JobCreateParameters struct {
 	Branch string `json:"branch,omitempty"`
 	// Job name
 	Name string `json:"name,omitempty"`
+	// The API id of the source language
+	SourceLocaleId string `json:"source_locale_id,omitempty"`
 	// Briefing for the translators
 	Briefing string `json:"briefing,omitempty"`
 	// Date the job should be finished

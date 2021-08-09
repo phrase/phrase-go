@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Owner** | [**UserPreview**](user_preview.md) |  | [optional] 
 **JobTagName** | **string** |  | [optional] 
+**SourceLocale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
 **Locales** | [**[]LocalePreview**](locale_preview.md) |  | [optional] 
 **Keys** | [**[]KeyPreview**](key_preview.md) |  | [optional] 
 

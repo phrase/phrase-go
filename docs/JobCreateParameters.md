@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Branch** | **string** | specify the branch to use | [optional] 
 **Name** | **string** | Job name | [optional] 
+**SourceLocaleId** | **string** | The API id of the source language | [optional] 
 **Briefing** | **string** | Briefing for the translators | [optional] 
 **DueDate** | [**time.Time**](time.Time.md) | Date the job should be finished | [optional] 
 **TicketUrl** | **string** | URL to a ticket for this job (e.g. Jira, Trello) | [optional] 
