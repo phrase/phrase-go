@@ -32,13 +32,14 @@ type AccountLocalesOpts struct {
 AccountLocales List locales used in account
 List all locales unique by locale code used across all projects within an account.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param id ID
  * @param optional nil or *AccountLocalesOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []LocalePreview1
 */
-func (a *LocalesApiService) AccountLocales(ctx _context.Context, localVarOptionals *AccountLocalesOpts) ([]LocalePreview1, *APIResponse, error) {
+func (a *LocalesApiService) AccountLocales(ctx _context.Context, id string, localVarOptionals *AccountLocalesOpts) ([]LocalePreview1, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -50,6 +51,8 @@ func (a *LocalesApiService) AccountLocales(ctx _context.Context, localVarOptiona
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/locales"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}

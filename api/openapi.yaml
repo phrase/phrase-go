@@ -4056,6 +4056,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
       - allowEmptyValue: false
         description: Page number
         example: 1

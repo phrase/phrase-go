@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## AccountLocales
 
-> []LocalePreview1 AccountLocales(ctx, optional)
+> []LocalePreview1 AccountLocales(ctx, id, optional)
 
 List locales used in account
 
@@ -28,6 +28,7 @@ List all locales unique by locale code used across all projects within an accoun
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string**| ID | 
  **optional** | ***AccountLocalesOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -37,6 +38,7 @@ Optional parameters are passed through a pointer to a AccountLocalesOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
