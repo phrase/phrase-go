@@ -349,6 +349,7 @@ type LocaleDownloadOpts struct {
 	IncludeUnverifiedTranslations optional.Bool      `json:"include_unverified_translations,omitempty"`
 	UseLastReviewedVersion        optional.Bool      `json:"use_last_reviewed_version,omitempty"`
 	FallbackLocaleId              optional.String    `json:"fallback_locale_id,omitempty"`
+	SourceLocaleId                optional.String    `json:"source_locale_id,omitempty"`
 }
 
 /*
@@ -374,6 +375,7 @@ Download a locale in a specific file format.
  * @param "IncludeUnverifiedTranslations" (optional.Bool) -  if set to false unverified translations are excluded
  * @param "UseLastReviewedVersion" (optional.Bool) -  If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project.
  * @param "FallbackLocaleId" (optional.String) -  If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to <code>true</code>.
+ * @param "SourceLocaleId" (optional.String) -  Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a <code>tag</code> parameter indicating a specific job.
 @return *os.File
 */
 func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDownloadOpts) (*os.File, *APIResponse, error) {
@@ -442,6 +444,9 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	}
 	if localVarOptionals != nil && localVarOptionals.FallbackLocaleId.IsSet() {
 		localVarQueryParams.Add("fallback_locale_id", parameterToString(localVarOptionals.FallbackLocaleId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SourceLocaleId.IsSet() {
+		localVarQueryParams.Add("source_locale_id", parameterToString(localVarOptionals.SourceLocaleId.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
