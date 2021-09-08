@@ -23921,6 +23921,10 @@ paths:
                   description: specify the branch to use
                   example: my-feature-branch
                   type: string
+                locale_id:
+                  description: specify the locale of the translations to be verified
+                  example: fc2f11dd6a658fa9652f6f0a9ebee688
+                  type: string
                 q:
                   description: |
                     Specify a query to find translations by content (including wildcards).<br><br>
@@ -23934,15 +23938,6 @@ paths:
                     </ul>
                     Find more examples <a href="#overview--usage-examples">here</a>.
                   example: PhraseApp*%20unverified:true%20tags:feature,center
-                  type: string
-                sort:
-                  description: 'Sort criteria. Can be one of: key_name, created_at,
-                    updated_at.'
-                  example: updated_at
-                  type: string
-                order:
-                  description: 'Order direction. Can be one of: asc, desc.'
-                  example: desc
                   type: string
               title: translations/verify/parameters
               type: object
@@ -29861,6 +29856,10 @@ components:
           description: specify the branch to use
           example: my-feature-branch
           type: string
+        locale_id:
+          description: specify the locale of the translations to be verified
+          example: fc2f11dd6a658fa9652f6f0a9ebee688
+          type: string
         q:
           description: |
             Specify a query to find translations by content (including wildcards).<br><br>
@@ -29874,14 +29873,6 @@ components:
             </ul>
             Find more examples <a href="#overview--usage-examples">here</a>.
           example: PhraseApp*%20unverified:true%20tags:feature,center
-          type: string
-        sort:
-          description: 'Sort criteria. Can be one of: key_name, created_at, updated_at.'
-          example: updated_at
-          type: string
-        order:
-          description: 'Order direction. Can be one of: asc, desc.'
-          example: desc
           type: string
       title: translations/verify/parameters
       type: object
