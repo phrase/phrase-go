@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ProjectIds** | **string** | List of project ids the invited user has access to | [optional] 
 **LocaleIds** | **string** | List of locale ids the invited user has access to | [optional] 
 **SpaceIds** | **[]string** | List of spaces the user is assigned to. | [optional] 
+**TeamIds** | **[]string** | List of teams the user is assigned to. | [optional] 
 **DefaultLocaleCodes** | **[]string** | List of default locales for the user. | [optional] 
 **Permissions** | **map[string]string** | Additional permissions depending on invitation role. | [optional] 
 

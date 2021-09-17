@@ -2807,6 +2807,14 @@ paths:
                   items:
                     type: string
                   type: array
+                team_ids:
+                  description: List of teams the user is assigned to.
+                  example:
+                  - abcd1234abcd1234abcd1234
+                  - abcd1234abcd1234abcd1235
+                  items:
+                    type: string
+                  type: array
                 default_locale_codes:
                   description: List of default locales for the user.
                   example:
@@ -2901,13 +2909,13 @@ paths:
           curl "https://api.phrase.com/v2/accounts/:account_id/invitations" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
-            -d '{"email":"example@mail.com","role":"Developer","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"default_locale_codes":["de","en"],"permissions":{"create_upload":true,"review_translations":true}}' \
+            -d '{"email":"example@mail.com","role":"Developer","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"team_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"default_locale_codes":["de","en"],"permissions":{"create_upload":true,"review_translations":true}}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase invitations create \
           --account_id <account_id> \
-          --data '{"email":"example@mail.com", "role":"Developer", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
+          --data '{"email":"example@mail.com", "role":"Developer", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"team_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -3167,6 +3175,14 @@ paths:
                   items:
                     type: string
                   type: array
+                team_ids:
+                  description: List of teams the user is assigned to.
+                  example:
+                  - abcd1234abcd1234abcd1234
+                  - abcd1234abcd1234abcd1235
+                  items:
+                    type: string
+                  type: array
                 default_locale_codes:
                   description: List of default locales for the user.
                   example:
@@ -3246,14 +3262,14 @@ paths:
           curl "https://api.phrase.com/v2/accounts/:account_id/invitations/:id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"role":"Invitiation role","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"default_locale_codes":["de","en"],"permissions":{"create_upload":true}}' \
+            -d '{"role":"Invitiation role","project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235","space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"team_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"default_locale_codes":["de","en"],"permissions":{"create_upload":true}}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase invitations update \
           --account_id <account_id> \
           --id <id> \
-          --data '{"role":""Invitiation role"", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true}"}' \
+          --data '{"role":""Invitiation role"", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"team_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true}"}' \
           --access_token <token>
       - lang: CLI v1
         source: |-
@@ -27827,6 +27843,14 @@ components:
           items:
             type: string
           type: array
+        team_ids:
+          description: List of teams the user is assigned to.
+          example:
+          - abcd1234abcd1234abcd1234
+          - abcd1234abcd1234abcd1235
+          items:
+            type: string
+          type: array
         default_locale_codes:
           description: List of default locales for the user.
           example:
@@ -27880,6 +27904,14 @@ components:
           type: string
         space_ids:
           description: List of spaces the user is assigned to.
+          example:
+          - abcd1234abcd1234abcd1234
+          - abcd1234abcd1234abcd1235
+          items:
+            type: string
+          type: array
+        team_ids:
+          description: List of teams the user is assigned to.
           example:
           - abcd1234abcd1234abcd1234
           - abcd1234abcd1234abcd1235
