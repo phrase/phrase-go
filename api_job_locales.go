@@ -127,6 +127,115 @@ func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+// JobLocaleCompleteReviewOpts Optional parameters for the method 'JobLocaleCompleteReview'
+type JobLocaleCompleteReviewOpts struct {
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+}
+
+/*
+JobLocaleCompleteReview Review a job locale
+Mark job locale as reviewed.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId Project ID
+ * @param jobId Job ID
+ * @param id ID
+ * @param jobLocaleCompleteReviewParameters
+ * @param optional nil or *JobLocaleCompleteReviewOpts - Optional Parameters:
+ * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+@return JobLocale
+*/
+func (a *JobLocalesApiService) JobLocaleCompleteReview(ctx _context.Context, projectId string, jobId string, id string, jobLocaleCompleteReviewParameters JobLocaleCompleteReviewParameters, localVarOptionals *JobLocaleCompleteReviewOpts) (JobLocale, *APIResponse, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  JobLocale
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")), -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
+		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
+	}
+	// body params
+	localVarPostBody = &jobLocaleCompleteReviewParameters
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["Authorization"] = key
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 // JobLocaleDeleteOpts Optional parameters for the method 'JobLocaleDelete'
 type JobLocaleDeleteOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**JobLocaleComplete**](JobLocalesApi.md#JobLocaleComplete) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete | Complete a job locale
+[**JobLocaleCompleteReview**](JobLocalesApi.md#JobLocaleCompleteReview) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review | Review a job locale
 [**JobLocaleDelete**](JobLocalesApi.md#JobLocaleDelete) | **Delete** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
 [**JobLocaleReopen**](JobLocalesApi.md#JobLocaleReopen) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/reopen | Reopen a job locale
 [**JobLocaleShow**](JobLocalesApi.md#JobLocaleShow) | **Get** /projects/{project_id}/jobs/{job_id}/locale/{id} | Get a single job locale
@@ -37,6 +38,57 @@ Name | Type | Description  | Notes
 ### Optional Parameters
 
 Optional parameters are passed through a pointer to a JobLocaleCompleteOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**JobLocale**](job_locale.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## JobLocaleCompleteReview
+
+> JobLocale JobLocaleCompleteReview(ctx, projectId, jobId, id, jobLocaleCompleteReviewParameters, optional)
+
+Review a job locale
+
+Mark job locale as reviewed.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**jobId** | **string**| Job ID | 
+**id** | **string**| ID | 
+**jobLocaleCompleteReviewParameters** | [**JobLocaleCompleteReviewParameters**](JobLocaleCompleteReviewParameters.md)|  | 
+ **optional** | ***JobLocaleCompleteReviewOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a JobLocaleCompleteReviewOpts struct
 
 
 Name | Type | Description  | Notes

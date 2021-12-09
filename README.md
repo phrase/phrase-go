@@ -115,6 +115,7 @@ Class | Method | HTTP request | Description
 *InvitationsApi* | [**InvitationUpdateSettings**](docs/InvitationsApi.md#invitationupdatesettings) | **Patch** /projects/{project_id}/invitations/{id} | Update a member&#39;s invitation access
 *InvitationsApi* | [**InvitationsList**](docs/InvitationsApi.md#invitationslist) | **Get** /accounts/{account_id}/invitations | List invitations
 *JobLocalesApi* | [**JobLocaleComplete**](docs/JobLocalesApi.md#joblocalecomplete) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete | Complete a job locale
+*JobLocalesApi* | [**JobLocaleCompleteReview**](docs/JobLocalesApi.md#joblocalecompletereview) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review | Review a job locale
 *JobLocalesApi* | [**JobLocaleDelete**](docs/JobLocalesApi.md#joblocaledelete) | **Delete** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
 *JobLocalesApi* | [**JobLocaleReopen**](docs/JobLocalesApi.md#joblocalereopen) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/reopen | Reopen a job locale
 *JobLocalesApi* | [**JobLocaleShow**](docs/JobLocalesApi.md#joblocaleshow) | **Get** /projects/{project_id}/jobs/{job_id}/locale/{id} | Get a single job locale
@@ -328,6 +329,7 @@ Class | Method | HTTP request | Description
  - [JobKeysCreateParameters](docs/JobKeysCreateParameters.md)
  - [JobLocale](docs/JobLocale.md)
  - [JobLocaleCompleteParameters](docs/JobLocaleCompleteParameters.md)
+ - [JobLocaleCompleteReviewParameters](docs/JobLocaleCompleteReviewParameters.md)
  - [JobLocaleReopenParameters](docs/JobLocaleReopenParameters.md)
  - [JobLocaleUpdateParameters](docs/JobLocaleUpdateParameters.md)
  - [JobLocalesCreateParameters](docs/JobLocalesCreateParameters.md)

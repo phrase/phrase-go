@@ -13425,6 +13425,15 @@ paths:
                   type: string
                 user_ids:
                   description: Array of user ids to be assigned to the job locale
+                    as translators
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                reviewer_ids:
+                  description: Array of reviewer ids to be assigned to the job locale
+                    as reviewers
                   example:
                   - abcd1234cdef1234abcd1234cdef1234
                   items:
@@ -13768,6 +13777,14 @@ paths:
                   items:
                     type: string
                   type: array
+                reviewer_ids:
+                  description: Array of reviewer ids to be assigned to the job locale
+                    as reviewers
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
               title: job_locale/update/parameters
               type: object
         required: true
@@ -13951,6 +13968,116 @@ paths:
         source: |-
           phraseapp job_locale complete <project_id> <job_id> <id> \
           --branch my-feature-branch
+  /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review:
+    post:
+      description: Mark job locale as reviewed.
+      operationId: job_locale/complete_review
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job ID
+        explode: false
+        in: path
+        name: job_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/job_locale_complete_review_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                branch:
+                  description: specify the branch to use
+                  example: my-feature-branch
+                  type: string
+              title: job_locale/complete_review/parameters
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job_locale'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Review a job locale
+      tags:
+      - Job Locales
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/locales/:id/complete_review" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase job_locales complete \
+          --project_id <project_id> \
+          --job_id <job_id> \
+          --id <id> \
+          --data '{"branch":"my-feature-branch"}' \
+          --access_token <token>
   /projects/{project_id}/jobs/{job_id}/locales/{id}/reopen:
     post:
       description: Mark a job locale as uncompleted.
@@ -25676,6 +25803,12 @@ components:
           schema:
             $ref: '#/components/schemas/translation_unverify_parameters'
       required: true
+    job_locale_complete_review_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/job_locale_complete_review_parameters'
+      required: true
     job_template_update_parameters:
       content:
         application/json:
@@ -27059,6 +27192,8 @@ components:
           type: string
         name:
           type: string
+        role:
+          type: string
       title: user_preview
       type: object
     user:
@@ -27355,6 +27490,7 @@ components:
         - id: abcd1234cdef1234abcd1234cdef1234
           username: joe.doe
           name: Joe Doe
+          role: translator
         locale:
           id: abcd1234cdef1234abcd1234cdef1234
           name: English
@@ -29001,7 +29137,14 @@ components:
           example: abcd1234cdef1234abcd1234cdef1234
           type: string
         user_ids:
-          description: Array of user ids to be assigned to the job locale
+          description: Array of user ids to be assigned to the job locale as translators
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        reviewer_ids:
+          description: Array of reviewer ids to be assigned to the job locale as reviewers
           example:
           - abcd1234cdef1234abcd1234cdef1234
           items:
@@ -29026,6 +29169,13 @@ components:
           items:
             type: string
           type: array
+        reviewer_ids:
+          description: Array of reviewer ids to be assigned to the job locale as reviewers
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
       title: job_locale/update/parameters
       type: object
     job_locale_complete_parameters:
@@ -29035,6 +29185,14 @@ components:
           example: my-feature-branch
           type: string
       title: job_locale/complete/parameters
+      type: object
+    job_locale_complete_review_parameters:
+      properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
+      title: job_locale/complete_review/parameters
       type: object
     job_locale_reopen_parameters:
       properties:
