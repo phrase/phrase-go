@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 *GlossaryTermsApi* | [**GlossaryTermShow**](docs/GlossaryTermsApi.md#glossarytermshow) | **Get** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single glossary term
 *GlossaryTermsApi* | [**GlossaryTermUpdate**](docs/GlossaryTermsApi.md#glossarytermupdate) | **Patch** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a glossary term
 *GlossaryTermsApi* | [**GlossaryTermsList**](docs/GlossaryTermsApi.md#glossarytermslist) | **Get** /accounts/{account_id}/glossaries/{glossary_id}/terms | List glossary terms
+*ICUApi* | [**IcuSkeleton**](docs/ICUApi.md#icuskeleton) | **Post** /icu/skeleton | Build icu skeletons
 *InvitationsApi* | [**InvitationCreate**](docs/InvitationsApi.md#invitationcreate) | **Post** /accounts/{account_id}/invitations | Create a new invitation
 *InvitationsApi* | [**InvitationDelete**](docs/InvitationsApi.md#invitationdelete) | **Delete** /accounts/{account_id}/invitations/{id} | Delete an invitation
 *InvitationsApi* | [**InvitationResend**](docs/InvitationsApi.md#invitationresend) | **Post** /accounts/{account_id}/invitations/{id}/resend | Resend an invitation
@@ -315,6 +316,8 @@ Class | Method | HTTP request | Description
  - [GlossaryTermTranslationUpdateParameters](docs/GlossaryTermTranslationUpdateParameters.md)
  - [GlossaryTermUpdateParameters](docs/GlossaryTermUpdateParameters.md)
  - [GlossaryUpdateParameters](docs/GlossaryUpdateParameters.md)
+ - [Icu](docs/Icu.md)
+ - [IcuSkeletonParameters](docs/IcuSkeletonParameters.md)
  - [InlineResponse422](docs/InlineResponse422.md)
  - [InlineResponse422Errors](docs/InlineResponse422Errors.md)
  - [Invitation](docs/Invitation.md)
