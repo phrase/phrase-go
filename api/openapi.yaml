@@ -1414,71 +1414,51 @@ security:
 - Token: []
 - Basic: []
 tags:
-- name: Projects
-- name: Locales
-- name: Keys
-- name: Translations
+- name: Accounts
 - description: |
-    ### Formats
+    The endpoints provided by the Authorizations API are **only accessible via Basic authentication with email and password**.
 
-    We support all common localization file formats. For a detailed overview, see our [Format Guide](https://help.phrase.com/help/supported-platforms-and-formats).
+    When creating a new authorization, the new access token for this authorization will be returned in the immediate response but not later, due to security reasons. When accessing authorizations later, you will only see the last eight chars of the token in plain text (`token_last_eight`) and the SHA256 digest of the token for reference (`hashed_token`).
 
-    ### Processing
+    For instructions on how authorization in general works, see our [Auth Guide](#overview--authentication).
 
-    Uploads will be processed asynchronously and thus the data might not be imported yet although the upload is completed. Therefore we recommend to evaluate the returned <code>state</code> field for information on the import progress.
+    ### Scopes
 
-    #### Available States
+    When creating or updating an OAuth authorization, you can define a list of scopes to limit the access that can be performed by that authorization.
+
+    #### Available Scopes
 
     <div class="table-responsive">
       <table class="basic-table">
         <thead>
           <tr class="basic-table__row basic-table__row--header">
-            <th class="basic-table__cell basic-table__cell--header">State</th>
+            <th class="basic-table__cell basic-table__cell--header">Scope</th>
             <th class="basic-table__cell basic-table__cell--header">Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="basic-table__cell"><code>initialized</code></td>
-            <td class="basic-table__cell">Data received.</td>
+            <td class="basic-table__cell"><code>read</code></td>
+            <td class="basic-table__cell">Read projects, locales, keys, translations, orders</td>
           </tr>
           <tr>
-            <td class="basic-table__cell"><code>waiting_for_preview</code></td>
-            <td class="basic-table__cell">Upload is waiting for preview to be finished.</td>
+            <td class="basic-table__cell"><code>write</code></td>
+            <td class="basic-table__cell">Write projects, locales, keys, translations but not orders</td>
           </tr>
           <tr>
-            <td class="basic-table__cell"><code>waiting</code></td>
-            <td class="basic-table__cell">Upload is waiting for processing.</td>
+            <td class="basic-table__cell"><code>orders.create</code></td>
+            <td class="basic-table__cell">Create and confirm orders</td>
           </tr>
           <tr>
-            <td class="basic-table__cell"><code>processing</code></td>
-            <td class="basic-table__cell">Upload is being processed, data is currently imported.</td>
-          </tr>
-          <tr>
-            <td class="basic-table__cell"><code>success</code></td>
-            <td class="basic-table__cell">Upload is complete and all data is imported.</td>
-          </tr>
-          <tr>
-            <td class="basic-table__cell"><code>error</code></td>
-            <td class="basic-table__cell">Upload or import process failed.</td>
+            <td class="basic-table__cell"><code>team.manage</code></td>
+            <td class="basic-table__cell">Manage invitations and members</td>
           </tr>
         </tbody>
       </table>
     </div>
-  name: Uploads
-- name: Documents
-- name: Tags
+  name: Authorizations
+- name: Bitbucket Sync
 - name: Blacklisted Keys
-- name: Versions / History
-- description: Everything about Space
-  name: Spaces
-- description: Everything about Teams
-  name: Teams
-- name: Jobs
-- name: Job Locales
-- name: Job Templates
-- name: Job Template Locales
-- name: Comments
 - description: |
     ### Branch creation
 
@@ -1515,7 +1495,17 @@ tags:
       </table>
     </div>
   name: Branches
-- name: Quality
+- name: Comments
+- description: |
+    <div class="alert alert-info">
+      Note: Distributions API is still in beta and might be subject to change.
+      Distributions are part of Over The Air which is available in the <a href="https://phrase.com/pricing/" target="_blank">Lite, Pro and Exclusive plans</a>.
+    </div>
+  name: Distributions
+- name: Documents
+- name: Formats
+- name: GitHub Sync
+- name: GitLab Sync
 - description: |
     <div class="alert alert-info">
       Note: Glossary API is still in beta and might be subject to change.
@@ -1534,22 +1524,21 @@ tags:
       Glossaries are available in the <a href="https://phrase.com/pricing/" target="_blank">Pro Plan and higher</a>.
     </div>
   name: Glossary Term Translations
-- name: Bitbucket Sync
-- name: GitHub Sync
-- name: GitLab Sync
-- name: Webhooks
+- name: ICU
 - description: |
-    <div class="alert alert-info">
-      Note: Distributions API is still in beta and might be subject to change.
-      Distributions are part of Over The Air which is available in the <a href="https://phrase.com/pricing/" target="_blank">Lite, Pro and Exclusive plans</a>.
-    </div>
-  name: Distributions
+    With the invitation endpoint you can [manage and invite users](https://help.phrase.com/help/user-management) to Phrase via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
+  name: Invitations
+- name: Job Locales
+- name: Job Template Locales
+- name: Job Templates
+- name: Jobs
+- name: Keys
+- name: Locales
 - description: |
-    <div class="alert alert-info">
-      Note: Releases API is still in beta and might be subject to change.
-      Releases are part of Over The Air which is available in the <a href="https://phrase.com/pricing/" target="_blank">Lite, Pro and Exclusive plans</a>.
-    </div>
-  name: Releases
+    With the members endpoints you can do basic [team and user management](https://help.phrase.com/help/user-management) via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
+  name: Members
+- name: Notifications
+- name: Notification Groups
 - description: |
     ### List of categories [TextMaster]
 
@@ -1600,60 +1589,74 @@ tags:
       </table>
     </div>
   name: Orders
-- name: Style guides
+- name: Projects
+- name: Quality
 - description: |
-    The endpoints provided by the Authorizations API are **only accessible via Basic authentication with email and password**.
+    <div class="alert alert-info">
+      Note: Releases API is still in beta and might be subject to change.
+      Releases are part of Over The Air which is available in the <a href="https://phrase.com/pricing/" target="_blank">Lite, Pro and Exclusive plans</a>.
+    </div>
+  name: Releases
+- name: Search
+- name: Screenshot Markers
+- name: Screenshots
+- name: Spaces
+- name: Style guides
+- name: Tags
+- name: Teams
+- name: Translations
+- description: |
+    ### Formats
 
-    When creating a new authorization, the new access token for this authorization will be returned in the immediate response but not later, due to security reasons. When accessing authorizations later, you will only see the last eight chars of the token in plain text (`token_last_eight`) and the SHA256 digest of the token for reference (`hashed_token`).
+    We support all common localization file formats. For a detailed overview, see our [Format Guide](https://help.phrase.com/help/supported-platforms-and-formats).
 
-    For instructions on how authorization in general works, see our [Auth Guide](#overview--authentication).
+    ### Processing
 
-    ### Scopes
+    Uploads will be processed asynchronously and thus the data might not be imported yet although the upload is completed. Therefore we recommend to evaluate the returned <code>state</code> field for information on the import progress.
 
-    When creating or updating an OAuth authorization, you can define a list of scopes to limit the access that can be performed by that authorization.
-
-    #### Available Scopes
+    #### Available States
 
     <div class="table-responsive">
       <table class="basic-table">
         <thead>
           <tr class="basic-table__row basic-table__row--header">
-            <th class="basic-table__cell basic-table__cell--header">Scope</th>
+            <th class="basic-table__cell basic-table__cell--header">State</th>
             <th class="basic-table__cell basic-table__cell--header">Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="basic-table__cell"><code>read</code></td>
-            <td class="basic-table__cell">Read projects, locales, keys, translations, orders</td>
+            <td class="basic-table__cell"><code>initialized</code></td>
+            <td class="basic-table__cell">Data received.</td>
           </tr>
           <tr>
-            <td class="basic-table__cell"><code>write</code></td>
-            <td class="basic-table__cell">Write projects, locales, keys, translations but not orders</td>
+            <td class="basic-table__cell"><code>waiting_for_preview</code></td>
+            <td class="basic-table__cell">Upload is waiting for preview to be finished.</td>
           </tr>
           <tr>
-            <td class="basic-table__cell"><code>orders.create</code></td>
-            <td class="basic-table__cell">Create and confirm orders</td>
+            <td class="basic-table__cell"><code>waiting</code></td>
+            <td class="basic-table__cell">Upload is waiting for processing.</td>
           </tr>
           <tr>
-            <td class="basic-table__cell"><code>team.manage</code></td>
-            <td class="basic-table__cell">Manage invitations and members</td>
+            <td class="basic-table__cell"><code>processing</code></td>
+            <td class="basic-table__cell">Upload is being processed, data is currently imported.</td>
+          </tr>
+          <tr>
+            <td class="basic-table__cell"><code>success</code></td>
+            <td class="basic-table__cell">Upload is complete and all data is imported.</td>
+          </tr>
+          <tr>
+            <td class="basic-table__cell"><code>error</code></td>
+            <td class="basic-table__cell">Upload or import process failed.</td>
           </tr>
         </tbody>
       </table>
     </div>
-  name: Authorizations
+  name: Uploads
 - name: Users
-- name: Accounts
-- description: |
-    With the members endpoints you can do basic [team and user management](https://help.phrase.com/help/user-management) via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
-  name: Members
-- description: |
-    With the invitation endpoint you can [manage and invite users](https://help.phrase.com/help/user-management) to Phrase via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
-  name: Invitations
-- name: Screenshots
-- name: Screenshot Markers
-- name: Formats
+- name: Variables
+- name: Versions / History
+- name: Webhooks
 paths:
   /icu/skeleton:
     post:
