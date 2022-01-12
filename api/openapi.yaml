@@ -26080,6 +26080,8 @@ components:
           $ref: '#/components/schemas/account'
         space:
           $ref: '#/components/schemas/space_1'
+        point_of_contact:
+          $ref: '#/components/schemas/user_preview'
         created_at:
           format: date-time
           type: string
@@ -26375,7 +26377,7 @@ components:
           type: string
         name:
           type: string
-        role:
+        gravatar_uid:
           type: string
       title: user_preview
       type: object

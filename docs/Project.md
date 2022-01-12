@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ProjectImageUrl** | **string** |  | [optional] 
 **Account** | [**Account**](account.md) |  | [optional] 
 **Space** | [**Space1**](space_1.md) |  | [optional] 
+**PointOfContact** | [**UserPreview**](user_preview.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 
