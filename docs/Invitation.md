@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **AcceptedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **Spaces** | [**[]MemberSpaces**](member_spaces.md) |  | [optional] 
+**Teams** | [**[]Items**](items.md) |  | [optional] 
 **ProjectRole** | [**[]MemberProjectDetailProjectRoles**](member_project_detail_project_roles.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
