@@ -1412,7 +1412,6 @@ servers:
 - url: https://api.phrase.com/v2
 security:
 - Token: []
-- bearerAuth: []
 - Basic: []
 tags:
 - name: Accounts
@@ -29836,10 +29835,6 @@ components:
       in: header
       name: Authorization
       type: apiKey
-    bearerAuth:
-      bearerFormat: JWT
-      scheme: bearer
-      type: http
     Basic:
       scheme: basic
       type: http
