@@ -25923,7 +25923,7 @@ components:
       type: object
     project_locales:
       allOf:
-      - $ref: '#/components/schemas/project_short'
+      - $ref: '#/components/schemas/project_member_specific'
       - $ref: '#/components/schemas/project_locales_1'
     locale_preview:
       example:
@@ -29645,6 +29645,23 @@ components:
         project_id:
           type: string
         role:
+          type: string
+    project_member_specific:
+      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My Android Project","project_role":"Developer","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        project_role:
+          type: string
+        main_format:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
           type: string
     project_locales_1:
       example: '{"locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}]}'
