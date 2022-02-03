@@ -1690,6 +1690,10 @@ paths:
                     example: en
                     type: string
                   type: array
+                keep_content:
+                  description: Keep the content and add missing plural forms for each
+                    locale
+                  type: boolean
                 zero_form_enabled:
                   description: Indicates whether the zero form should be included
                     or excluded in the returned skeletons
@@ -27081,6 +27085,9 @@ components:
             example: en
             type: string
           type: array
+        keep_content:
+          description: Keep the content and add missing plural forms for each locale
+          type: boolean
         zero_form_enabled:
           description: Indicates whether the zero form should be included or excluded
             in the returned skeletons
