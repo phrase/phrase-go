@@ -18471,6 +18471,11 @@ paths:
                   description: Indicates whether the key should be exported as "unformatted".
                     Supported by Android XML and other formats.
                   type: boolean
+                default_translation_content:
+                  description: Creates a translation in the default locale with the
+                    specified content
+                  example: Default translation content
+                  type: string
                 xml_space_preserve:
                   description: Indicates whether the key should be exported with "xml:space=preserve".
                     Supported by several XML-based formats.
@@ -28808,6 +28813,11 @@ components:
           description: Indicates whether the key should be exported as "unformatted".
             Supported by Android XML and other formats.
           type: boolean
+        default_translation_content:
+          description: Creates a translation in the default locale with the specified
+            content
+          example: Default translation content
+          type: string
         xml_space_preserve:
           description: Indicates whether the key should be exported with "xml:space=preserve".
             Supported by several XML-based formats.

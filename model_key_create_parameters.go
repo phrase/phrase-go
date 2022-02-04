@@ -28,6 +28,8 @@ type KeyCreateParameters struct {
 	RemoveScreenshot *bool `json:"remove_screenshot,omitempty"`
 	// Indicates whether the key should be exported as \"unformatted\". Supported by Android XML and other formats.
 	Unformatted *bool `json:"unformatted,omitempty"`
+	// Creates a translation in the default locale with the specified content
+	DefaultTranslationContent string `json:"default_translation_content,omitempty"`
 	// Indicates whether the key should be exported with \"xml:space=preserve\". Supported by several XML-based formats.
 	XmlSpacePreserve *bool `json:"xml_space_preserve,omitempty"`
 	// Original file attribute. Used in some formats, e.g. XLIFF.
