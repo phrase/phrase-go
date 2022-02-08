@@ -9,9 +9,11 @@ Method | HTTP request | Description
 [**JobDelete**](JobsApi.md#JobDelete) | **Delete** /projects/{project_id}/jobs/{id} | Delete a job
 [**JobKeysCreate**](JobsApi.md#JobKeysCreate) | **Post** /projects/{project_id}/jobs/{id}/keys | Add keys to job
 [**JobKeysDelete**](JobsApi.md#JobKeysDelete) | **Delete** /projects/{project_id}/jobs/{id}/keys | Remove keys from job
+[**JobLock**](JobsApi.md#JobLock) | **Post** /projects/{project_id}/jobs/{id}/lock | Lock a job
 [**JobReopen**](JobsApi.md#JobReopen) | **Post** /projects/{project_id}/jobs/{id}/reopen | Reopen a job
 [**JobShow**](JobsApi.md#JobShow) | **Get** /projects/{project_id}/jobs/{id} | Get a single job
 [**JobStart**](JobsApi.md#JobStart) | **Post** /projects/{project_id}/jobs/{id}/start | Start a job
+[**JobUnlock**](JobsApi.md#JobUnlock) | **Post** /projects/{project_id}/jobs/{id}/unlock | Unlock a job
 [**JobUpdate**](JobsApi.md#JobUpdate) | **Patch** /projects/{project_id}/jobs/{id} | Update a job
 [**JobsByAccount**](JobsApi.md#JobsByAccount) | **Get** /accounts/{account_id}/jobs | List account jobs
 [**JobsList**](JobsApi.md#JobsList) | **Get** /projects/{project_id}/jobs | List jobs
@@ -260,6 +262,54 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## JobLock
+
+> JobLock(ctx, projectId, id, optional)
+
+Lock a job
+
+If you are the job owner, you may lock a job using this API request.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**id** | **string**| ID | 
+ **optional** | ***JobLockOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a JobLockOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## JobReopen
 
 > JobDetails JobReopen(ctx, projectId, id, jobReopenParameters, optional)
@@ -400,6 +450,54 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## JobUnlock
+
+> JobUnlock(ctx, projectId, id, optional)
+
+Unlock a job
+
+If you are the job owner, you may unlock a locked job using this API request.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**id** | **string**| ID | 
+ **optional** | ***JobUnlockOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a JobUnlockOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
