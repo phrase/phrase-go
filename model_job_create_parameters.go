@@ -22,4 +22,6 @@ type JobCreateParameters struct {
 	Tags []string `json:"tags,omitempty"`
 	// ids of keys that should be included within the job
 	TranslationKeyIds []string `json:"translation_key_ids,omitempty"`
+	// id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes.
+	JobTemplateId string `json:"job_template_id,omitempty"`
 }

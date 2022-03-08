@@ -6252,6 +6252,12 @@ paths:
                   items:
                     type: string
                   type: array
+                job_template_id:
+                  description: id of a job template you would like to model the created
+                    job after. Any manually added parameters will take preference
+                    over template attributes.
+                  example: abcd1234cdef1234abcd1234cdef1234
+                  type: string
               title: job/create/parameters
               type: object
         required: true
@@ -27895,6 +27901,12 @@ components:
           items:
             type: string
           type: array
+        job_template_id:
+          description: id of a job template you would like to model the created job
+            after. Any manually added parameters will take preference over template
+            attributes.
+          example: abcd1234cdef1234abcd1234cdef1234
+          type: string
       title: job/create/parameters
       type: object
     job_update_parameters:
