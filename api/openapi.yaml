@@ -25833,7 +25833,7 @@ components:
           type: array
         teams:
           items:
-            $ref: '#/components/schemas/team_1'
+            $ref: '#/components/schemas/team_short'
           type: array
         spaces:
           items:
@@ -25967,6 +25967,10 @@ components:
           items:
             $ref: '#/components/schemas/locale_preview'
           type: array
+        teams:
+          items:
+            $ref: '#/components/schemas/team_short'
+          type: array
         default_locale_codes:
           items:
             type: string
@@ -25988,11 +25992,7 @@ components:
           type: string
         spaces:
           items:
-            $ref: '#/components/schemas/member_spaces'
-          type: array
-        teams:
-          items:
-            $ref: '#/components/schemas/member/properties/teams/items'
+            $ref: '#/components/schemas/project/properties/space'
           type: array
         project_role:
           items:
@@ -26834,6 +26834,25 @@ components:
             $ref: '#/components/schemas/user'
           type: array
       title: team
+      type: object
+    team_short:
+      example:
+        id: 2e7574e8f2372906a03110c2a7cfe671
+        name: My first Team
+        created_at: 2020-02-25T12:17:25Z
+        updated_at: 2020-03-13T14:46:57Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: team_short
       type: object
     job:
       example:
@@ -29827,19 +29846,6 @@ components:
         subscription:
           $ref: '#/components/schemas/subscription'
         slug:
-          type: string
-    team_1:
-      example: '{"id":"2e7574e8f2372906a03110c2a7cfe671","name":"My first Team","created_at":"2020-02-25T12:17:25Z","updated_at":"2020-03-13T14:46:57Z"}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
           type: string
     member_spaces:
       properties:

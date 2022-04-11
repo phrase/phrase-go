@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Projects** | [**[]ProjectLocales**](project_locales.md) |  | [optional] 
 **Permissions** | [**map[string]interface{}**](.md) |  | [optional] 
 **DefaultLocaleCodes** | **[]string** |  | [optional] 
-**Teams** | [**[]Team1**](team_1.md) |  | [optional] 
+**Teams** | [**[]TeamShort**](team_short.md) |  | [optional] 
 **Spaces** | [**[]MemberSpaces**](member_spaces.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
