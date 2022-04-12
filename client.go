@@ -45,7 +45,7 @@ type APIClient struct {
 
 	BitbucketSyncApi *BitbucketSyncApiService
 
-	BlacklistedKeysApi *BlacklistedKeysApiService
+	BlockedKeysApi *BlockedKeysApiService
 
 	BranchesApi *BranchesApiService
 
@@ -60,12 +60,6 @@ type APIClient struct {
 	GitHubSyncApi *GitHubSyncApiService
 
 	GitLabSyncApi *GitLabSyncApiService
-
-	GlossariesApi *GlossariesApiService
-
-	GlossaryTermTranslationsApi *GlossaryTermTranslationsApiService
-
-	GlossaryTermsApi *GlossaryTermsApiService
 
 	ICUApi *ICUApiService
 
@@ -109,6 +103,14 @@ type APIClient struct {
 
 	TeamsApi *TeamsApiService
 
+	TermBaseApi *TermBaseApiService
+
+	TermBaseTranslationApi *TermBaseTranslationApiService
+
+	TermBaseTranslationsApi *TermBaseTranslationsApiService
+
+	TermsInTermBaseApi *TermsInTermBaseApiService
+
 	TranslationsApi *TranslationsApiService
 
 	UploadsApi *UploadsApiService
@@ -141,7 +143,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AccountsApi = (*AccountsApiService)(&c.common)
 	c.AuthorizationsApi = (*AuthorizationsApiService)(&c.common)
 	c.BitbucketSyncApi = (*BitbucketSyncApiService)(&c.common)
-	c.BlacklistedKeysApi = (*BlacklistedKeysApiService)(&c.common)
+	c.BlockedKeysApi = (*BlockedKeysApiService)(&c.common)
 	c.BranchesApi = (*BranchesApiService)(&c.common)
 	c.CommentsApi = (*CommentsApiService)(&c.common)
 	c.DistributionsApi = (*DistributionsApiService)(&c.common)
@@ -149,9 +151,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.FormatsApi = (*FormatsApiService)(&c.common)
 	c.GitHubSyncApi = (*GitHubSyncApiService)(&c.common)
 	c.GitLabSyncApi = (*GitLabSyncApiService)(&c.common)
-	c.GlossariesApi = (*GlossariesApiService)(&c.common)
-	c.GlossaryTermTranslationsApi = (*GlossaryTermTranslationsApiService)(&c.common)
-	c.GlossaryTermsApi = (*GlossaryTermsApiService)(&c.common)
 	c.ICUApi = (*ICUApiService)(&c.common)
 	c.InvitationsApi = (*InvitationsApiService)(&c.common)
 	c.JobLocalesApi = (*JobLocalesApiService)(&c.common)
@@ -173,6 +172,10 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.StyleGuidesApi = (*StyleGuidesApiService)(&c.common)
 	c.TagsApi = (*TagsApiService)(&c.common)
 	c.TeamsApi = (*TeamsApiService)(&c.common)
+	c.TermBaseApi = (*TermBaseApiService)(&c.common)
+	c.TermBaseTranslationApi = (*TermBaseTranslationApiService)(&c.common)
+	c.TermBaseTranslationsApi = (*TermBaseTranslationsApiService)(&c.common)
+	c.TermsInTermBaseApi = (*TermsInTermBaseApiService)(&c.common)
 	c.TranslationsApi = (*TranslationsApiService)(&c.common)
 	c.UploadsApi = (*UploadsApiService)(&c.common)
 	c.UsersApi = (*UsersApiService)(&c.common)

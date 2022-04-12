@@ -15,40 +15,37 @@ var (
 	_ _context.Context
 )
 
-// GlossaryTermsApiService GlossaryTermsApi service
-type GlossaryTermsApiService service
+// BlockedKeysApiService BlockedKeysApi service
+type BlockedKeysApiService service
 
-// GlossaryTermCreateOpts Optional parameters for the method 'GlossaryTermCreate'
-type GlossaryTermCreateOpts struct {
+// BlacklistedKeyCreateOpts Optional parameters for the method 'BlacklistedKeyCreate'
+type BlacklistedKeyCreateOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-GlossaryTermCreate Create a glossary term
-Create a new glossary term.
+BlacklistedKeyCreate Create a blacklisted key
+Create a new rule for blocking keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param glossaryTermCreateParameters
- * @param optional nil or *GlossaryTermCreateOpts - Optional Parameters:
+ * @param projectId Project ID
+ * @param blacklistedKeyCreateParameters
+ * @param optional nil or *BlacklistedKeyCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return GlossaryTerm
+@return BlacklistedKey
 */
-func (a *GlossaryTermsApiService) GlossaryTermCreate(ctx _context.Context, accountId string, glossaryId string, glossaryTermCreateParameters GlossaryTermCreateParameters, localVarOptionals *GlossaryTermCreateOpts) (GlossaryTerm, *APIResponse, error) {
+func (a *BlockedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, projectId string, blacklistedKeyCreateParameters BlacklistedKeyCreateParameters, localVarOptionals *BlacklistedKeyCreateOpts) (BlacklistedKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GlossaryTerm
+		localVarReturnValue  BlacklistedKey
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{glossary_id}/terms"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -75,7 +72,7 @@ func (a *GlossaryTermsApiService) GlossaryTermCreate(ctx _context.Context, accou
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &glossaryTermCreateParameters
+	localVarPostBody = &blacklistedKeyCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -124,22 +121,21 @@ func (a *GlossaryTermsApiService) GlossaryTermCreate(ctx _context.Context, accou
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// GlossaryTermDeleteOpts Optional parameters for the method 'GlossaryTermDelete'
-type GlossaryTermDeleteOpts struct {
+// BlacklistedKeyDeleteOpts Optional parameters for the method 'BlacklistedKeyDelete'
+type BlacklistedKeyDeleteOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-GlossaryTermDelete Delete a glossary term
-Delete an existing glossary term.
+BlacklistedKeyDelete Delete a blacklisted key
+Delete an existing rule for blocking keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
+ * @param projectId Project ID
  * @param id ID
- * @param optional nil or *GlossaryTermDeleteOpts - Optional Parameters:
+ * @param optional nil or *BlacklistedKeyDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *GlossaryTermsApiService) GlossaryTermDelete(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermDeleteOpts) ([]byte, *APIResponse, error) {
+func (a *BlockedKeysApiService) BlacklistedKeyDelete(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -149,10 +145,8 @@ func (a *GlossaryTermsApiService) GlossaryTermDelete(ctx _context.Context, accou
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{glossary_id}/terms/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
@@ -219,37 +213,34 @@ func (a *GlossaryTermsApiService) GlossaryTermDelete(ctx _context.Context, accou
 	return localVarBody, localVarHTTPResponse, nil
 }
 
-// GlossaryTermShowOpts Optional parameters for the method 'GlossaryTermShow'
-type GlossaryTermShowOpts struct {
+// BlacklistedKeyShowOpts Optional parameters for the method 'BlacklistedKeyShow'
+type BlacklistedKeyShowOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-GlossaryTermShow Get a single glossary term
-Get details on a single glossary term.
+BlacklistedKeyShow Get a single blacklisted key
+Get details on a single rule for blocking keys for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
+ * @param projectId Project ID
  * @param id ID
- * @param optional nil or *GlossaryTermShowOpts - Optional Parameters:
+ * @param optional nil or *BlacklistedKeyShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return GlossaryTerm
+@return BlacklistedKey
 */
-func (a *GlossaryTermsApiService) GlossaryTermShow(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermShowOpts) (GlossaryTerm, *APIResponse, error) {
+func (a *BlockedKeysApiService) BlacklistedKeyShow(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyShowOpts) (BlacklistedKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GlossaryTerm
+		localVarReturnValue  BlacklistedKey
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{glossary_id}/terms/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
@@ -325,38 +316,35 @@ func (a *GlossaryTermsApiService) GlossaryTermShow(ctx _context.Context, account
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// GlossaryTermUpdateOpts Optional parameters for the method 'GlossaryTermUpdate'
-type GlossaryTermUpdateOpts struct {
+// BlacklistedKeyUpdateOpts Optional parameters for the method 'BlacklistedKeyUpdate'
+type BlacklistedKeyUpdateOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-GlossaryTermUpdate Update a glossary term
-Update an existing glossary term.
+BlacklistedKeyUpdate Update a blacklisted key
+Update an existing rule for blocking keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
+ * @param projectId Project ID
  * @param id ID
- * @param glossaryTermUpdateParameters
- * @param optional nil or *GlossaryTermUpdateOpts - Optional Parameters:
+ * @param blacklistedKeyUpdateParameters
+ * @param optional nil or *BlacklistedKeyUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return GlossaryTerm
+@return BlacklistedKey
 */
-func (a *GlossaryTermsApiService) GlossaryTermUpdate(ctx _context.Context, accountId string, glossaryId string, id string, glossaryTermUpdateParameters GlossaryTermUpdateParameters, localVarOptionals *GlossaryTermUpdateOpts) (GlossaryTerm, *APIResponse, error) {
+func (a *BlockedKeysApiService) BlacklistedKeyUpdate(ctx _context.Context, projectId string, id string, blacklistedKeyUpdateParameters BlacklistedKeyUpdateParameters, localVarOptionals *BlacklistedKeyUpdateOpts) (BlacklistedKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GlossaryTerm
+		localVarReturnValue  BlacklistedKey
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{glossary_id}/terms/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
@@ -385,7 +373,7 @@ func (a *GlossaryTermsApiService) GlossaryTermUpdate(ctx _context.Context, accou
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &glossaryTermUpdateParameters
+	localVarPostBody = &blacklistedKeyUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -434,40 +422,39 @@ func (a *GlossaryTermsApiService) GlossaryTermUpdate(ctx _context.Context, accou
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// GlossaryTermsListOpts Optional parameters for the method 'GlossaryTermsList'
-type GlossaryTermsListOpts struct {
+// BlacklistedKeysListOpts Optional parameters for the method 'BlacklistedKeysList'
+type BlacklistedKeysListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
-GlossaryTermsList List glossary terms
-List all glossary terms the current user has access to.
+BlacklistedKeysList List blacklisted keys
+List all rules for blocking keys for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param optional nil or *GlossaryTermsListOpts - Optional Parameters:
+ * @param projectId Project ID
+ * @param optional nil or *BlacklistedKeysListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "Page" (optional.Int32) -  Page number
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
-@return []GlossaryTerm
+ * @param "Branch" (optional.String) -  specify the branch to use
+@return []BlacklistedKey
 */
-func (a *GlossaryTermsApiService) GlossaryTermsList(ctx _context.Context, accountId string, glossaryId string, localVarOptionals *GlossaryTermsListOpts) ([]GlossaryTerm, *APIResponse, error) {
+func (a *BlockedKeysApiService) BlacklistedKeysList(ctx _context.Context, projectId string, localVarOptionals *BlacklistedKeysListOpts) ([]BlacklistedKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []GlossaryTerm
+		localVarReturnValue  []BlacklistedKey
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{glossary_id}/terms"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -478,6 +465,9 @@ func (a *GlossaryTermsApiService) GlossaryTermsList(ctx _context.Context, accoun
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -1,71 +1,24 @@
-# \GlossariesApi
+# \BlockedKeysApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GlossariesList**](GlossariesApi.md#GlossariesList) | **Get** /accounts/{account_id}/glossaries | List glossaries
-[**GlossaryCreate**](GlossariesApi.md#GlossaryCreate) | **Post** /accounts/{account_id}/glossaries | Create a glossary
-[**GlossaryDelete**](GlossariesApi.md#GlossaryDelete) | **Delete** /accounts/{account_id}/glossaries/{id} | Delete a glossary
-[**GlossaryShow**](GlossariesApi.md#GlossaryShow) | **Get** /accounts/{account_id}/glossaries/{id} | Get a single glossary
-[**GlossaryUpdate**](GlossariesApi.md#GlossaryUpdate) | **Patch** /accounts/{account_id}/glossaries/{id} | Update a glossary
+[**BlacklistedKeyCreate**](BlockedKeysApi.md#BlacklistedKeyCreate) | **Post** /projects/{project_id}/blacklisted_keys | Create a blacklisted key
+[**BlacklistedKeyDelete**](BlockedKeysApi.md#BlacklistedKeyDelete) | **Delete** /projects/{project_id}/blacklisted_keys/{id} | Delete a blacklisted key
+[**BlacklistedKeyShow**](BlockedKeysApi.md#BlacklistedKeyShow) | **Get** /projects/{project_id}/blacklisted_keys/{id} | Get a single blacklisted key
+[**BlacklistedKeyUpdate**](BlockedKeysApi.md#BlacklistedKeyUpdate) | **Patch** /projects/{project_id}/blacklisted_keys/{id} | Update a blacklisted key
+[**BlacklistedKeysList**](BlockedKeysApi.md#BlacklistedKeysList) | **Get** /projects/{project_id}/blacklisted_keys | List blacklisted keys
 
 
 
-## GlossariesList
+## BlacklistedKeyCreate
 
-> []Glossary GlossariesList(ctx, accountId, optional)
+> BlacklistedKey BlacklistedKeyCreate(ctx, projectId, blacklistedKeyCreateParameters, optional)
 
-List glossaries
+Create a blacklisted key
 
-List all glossaries the current user has access to.
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
- **optional** | ***GlossariesListOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a GlossariesListOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
-
-### Return type
-
-[**[]Glossary**](glossary.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [Token](../README.md#Token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GlossaryCreate
-
-> Glossary GlossaryCreate(ctx, accountId, glossaryCreateParameters, optional)
-
-Create a glossary
-
-Create a new glossary.
+Create a new rule for blocking keys.
 
 ### Required Parameters
 
@@ -73,13 +26,13 @@ Create a new glossary.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
-**glossaryCreateParameters** | [**GlossaryCreateParameters**](GlossaryCreateParameters.md)|  | 
- **optional** | ***GlossaryCreateOpts** | optional parameters | nil if no parameters
+**projectId** | **string**| Project ID | 
+**blacklistedKeyCreateParameters** | [**BlacklistedKeyCreateParameters**](BlacklistedKeyCreateParameters.md)|  | 
+ **optional** | ***BlacklistedKeyCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a GlossaryCreateOpts struct
+Optional parameters are passed through a pointer to a BlacklistedKeyCreateOpts struct
 
 
 Name | Type | Description  | Notes
@@ -90,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Glossary**](glossary.md)
+[**BlacklistedKey**](blacklisted_key.md)
 
 ### Authorization
 
@@ -106,13 +59,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GlossaryDelete
+## BlacklistedKeyDelete
 
-> GlossaryDelete(ctx, accountId, id, optional)
+> BlacklistedKeyDelete(ctx, projectId, id, optional)
 
-Delete a glossary
+Delete a blacklisted key
 
-Delete an existing glossary.
+Delete an existing rule for blocking keys.
 
 ### Required Parameters
 
@@ -120,13 +73,13 @@ Delete an existing glossary.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
+**projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
- **optional** | ***GlossaryDeleteOpts** | optional parameters | nil if no parameters
+ **optional** | ***BlacklistedKeyDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a GlossaryDeleteOpts struct
+Optional parameters are passed through a pointer to a BlacklistedKeyDeleteOpts struct
 
 
 Name | Type | Description  | Notes
@@ -153,13 +106,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GlossaryShow
+## BlacklistedKeyShow
 
-> Glossary GlossaryShow(ctx, accountId, id, optional)
+> BlacklistedKey BlacklistedKeyShow(ctx, projectId, id, optional)
 
-Get a single glossary
+Get a single blacklisted key
 
-Get details on a single glossary.
+Get details on a single rule for blocking keys for a given project.
 
 ### Required Parameters
 
@@ -167,13 +120,13 @@ Get details on a single glossary.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
+**projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
- **optional** | ***GlossaryShowOpts** | optional parameters | nil if no parameters
+ **optional** | ***BlacklistedKeyShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a GlossaryShowOpts struct
+Optional parameters are passed through a pointer to a BlacklistedKeyShowOpts struct
 
 
 Name | Type | Description  | Notes
@@ -184,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Glossary**](glossary.md)
+[**BlacklistedKey**](blacklisted_key.md)
 
 ### Authorization
 
@@ -200,13 +153,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GlossaryUpdate
+## BlacklistedKeyUpdate
 
-> Glossary GlossaryUpdate(ctx, accountId, id, glossaryUpdateParameters, optional)
+> BlacklistedKey BlacklistedKeyUpdate(ctx, projectId, id, blacklistedKeyUpdateParameters, optional)
 
-Update a glossary
+Update a blacklisted key
 
-Update an existing glossary.
+Update an existing rule for blocking keys.
 
 ### Required Parameters
 
@@ -214,14 +167,14 @@ Update an existing glossary.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
+**projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
-**glossaryUpdateParameters** | [**GlossaryUpdateParameters**](GlossaryUpdateParameters.md)|  | 
- **optional** | ***GlossaryUpdateOpts** | optional parameters | nil if no parameters
+**blacklistedKeyUpdateParameters** | [**BlacklistedKeyUpdateParameters**](BlacklistedKeyUpdateParameters.md)|  | 
+ **optional** | ***BlacklistedKeyUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a GlossaryUpdateOpts struct
+Optional parameters are passed through a pointer to a BlacklistedKeyUpdateOpts struct
 
 
 Name | Type | Description  | Notes
@@ -233,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Glossary**](glossary.md)
+[**BlacklistedKey**](blacklisted_key.md)
 
 ### Authorization
 
@@ -242,6 +195,54 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BlacklistedKeysList
+
+> []BlacklistedKey BlacklistedKeysList(ctx, projectId, optional)
+
+List blacklisted keys
+
+List all rules for blocking keys for the given project.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+ **optional** | ***BlacklistedKeysListOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a BlacklistedKeysListOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **page** | **optional.Int32**| Page number | 
+ **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
+ **branch** | **optional.String**| specify the branch to use | 
+
+### Return type
+
+[**[]BlacklistedKey**](blacklisted_key.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

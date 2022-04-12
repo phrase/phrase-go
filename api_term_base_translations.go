@@ -15,8 +15,8 @@ var (
 	_ _context.Context
 )
 
-// GlossaryTermTranslationsApiService GlossaryTermTranslationsApi service
-type GlossaryTermTranslationsApiService service
+// TermBaseTranslationsApiService TermBaseTranslationsApi service
+type TermBaseTranslationsApiService service
 
 // GlossaryTermTranslationCreateOpts Optional parameters for the method 'GlossaryTermTranslationCreate'
 type GlossaryTermTranslationCreateOpts struct {
@@ -24,8 +24,8 @@ type GlossaryTermTranslationCreateOpts struct {
 }
 
 /*
-GlossaryTermTranslationCreate Create a glossary term translation
-Create a new glossary term translation.
+GlossaryTermTranslationCreate Create a translation for a term
+Create a new translation for a term in a term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -35,7 +35,7 @@ Create a new glossary term translation.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return GlossaryTermTranslation
 */
-func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreateParameters GlossaryTermTranslationCreateParameters, localVarOptionals *GlossaryTermTranslationCreateOpts) (GlossaryTermTranslation, *APIResponse, error) {
+func (a *TermBaseTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreateParameters GlossaryTermTranslationCreateParameters, localVarOptionals *GlossaryTermTranslationCreateOpts) (GlossaryTermTranslation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -127,112 +127,14 @@ func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// GlossaryTermTranslationDeleteOpts Optional parameters for the method 'GlossaryTermTranslationDelete'
-type GlossaryTermTranslationDeleteOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-}
-
-/*
-GlossaryTermTranslationDelete Delete a glossary term translation
-Delete an existing glossary term translation.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param termId Term ID
- * @param id ID
- * @param optional nil or *GlossaryTermTranslationDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-*/
-func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _context.Context, accountId string, glossaryId string, termId string, id string, localVarOptionals *GlossaryTermTranslationDeleteOpts) ([]byte, *APIResponse, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"glossary_id"+"}", _neturl.QueryEscape(parameterToString(glossaryId, "")), -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"term_id"+"}", _neturl.QueryEscape(parameterToString(termId, "")), -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
-		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
-	}
-	if ctx != nil {
-		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
-			}
-			localVarHeaderParams["Authorization"] = key
-		}
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHTTPResponse == nil {
-		return nil, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	if err != nil {
-		return nil, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarBody, localVarHTTPResponse, newErr
-	}
-
-	return localVarBody, localVarHTTPResponse, nil
-}
-
 // GlossaryTermTranslationUpdateOpts Optional parameters for the method 'GlossaryTermTranslationUpdate'
 type GlossaryTermTranslationUpdateOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-GlossaryTermTranslationUpdate Update a glossary term translation
-Update an existing glossary term translation.
+GlossaryTermTranslationUpdate Update a translation for a term
+Update an existing translation for a term in a term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -243,7 +145,7 @@ Update an existing glossary term translation.
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return GlossaryTermTranslation
 */
-func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationUpdate(ctx _context.Context, accountId string, glossaryId string, termId string, id string, glossaryTermTranslationUpdateParameters GlossaryTermTranslationUpdateParameters, localVarOptionals *GlossaryTermTranslationUpdateOpts) (GlossaryTermTranslation, *APIResponse, error) {
+func (a *TermBaseTranslationsApiService) GlossaryTermTranslationUpdate(ctx _context.Context, accountId string, glossaryId string, termId string, id string, glossaryTermTranslationUpdateParameters GlossaryTermTranslationUpdateParameters, localVarOptionals *GlossaryTermTranslationUpdateOpts) (GlossaryTermTranslation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}

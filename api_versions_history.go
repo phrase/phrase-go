@@ -139,7 +139,7 @@ type VersionsListOpts struct {
 
 /*
 VersionsList List all versions
-List all versions for the given translation.
+List all changes done to a given translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param translationId Translation ID
