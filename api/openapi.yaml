@@ -1495,15 +1495,13 @@ tags:
       </table>
     </div>
   name: Branches
+- name: Changes / Versions
 - name: Comments
 - name: Distributions
 - name: Documents
 - name: Formats
 - name: GitHub Sync
 - name: GitLab Sync
-- name: Term bases
-- name: Terms in term base
-- name: Term base translations
 - name: ICU
 - description: |
     With the invitation endpoint you can [manage and invite users](https://help.phrase.com/help/user-management) to Phrase via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
@@ -1584,6 +1582,9 @@ tags:
 - name: Style guides
 - name: Tags
 - name: Teams
+- name: Term bases
+- name: Terms in term base
+- name: Term base translations
 - name: Translations
 - description: |
     ### Formats
@@ -1635,7 +1636,6 @@ tags:
   name: Uploads
 - name: Users
 - name: Variables
-- name: Versions / History
 - name: Webhooks
 paths:
   /icu/skeleton:
@@ -8054,7 +8054,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: List term bases
       tags:
-      - Term base
+      - Term bases
       x-code-samples:
       - lang: Curl
         source: |-
@@ -8154,7 +8154,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Create a term base
       tags:
-      - Term base
+      - Term bases
       x-code-samples:
       - lang: Curl
         source: |-
@@ -8237,7 +8237,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Delete a term base
       tags:
-      - Term base
+      - Term bases
       x-code-samples:
       - lang: Curl
         source: |-
@@ -8321,7 +8321,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Get a single term base
       tags:
-      - Term base
+      - Term bases
       x-code-samples:
       - lang: Curl
         source: |-
@@ -8430,7 +8430,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Update a term base
       tags:
-      - Term base
+      - Term bases
       x-code-samples:
       - lang: Curl
         source: |-
@@ -11898,7 +11898,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: List all versions
       tags:
-      - Versions / History
+      - Changes / Versions
       x-code-samples:
       - lang: Curl
         source: |-
@@ -12000,7 +12000,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Get a single version
       tags:
-      - Versions / History
+      - Changes / Versions
       x-code-samples:
       - lang: Curl
         source: |-
@@ -12214,7 +12214,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Delete a translation for a term
       tags:
-      - Term base translation
+      - Term base translations
       x-code-samples:
       - lang: Curl
         source: |-
@@ -17920,7 +17920,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: List blacklisted keys
+      summary: List blocked keys
       tags:
       - Blocked Keys
       x-code-samples:
@@ -18007,7 +18007,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Create a blacklisted key
+      summary: Create a blocked key
       tags:
       - Blocked Keys
       x-code-samples:
@@ -18090,7 +18090,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Delete a blacklisted key
+      summary: Delete a blocked key
       tags:
       - Blocked Keys
       x-code-samples:
@@ -18174,7 +18174,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Get a single blacklisted key
+      summary: Get a single blocked key
       tags:
       - Blocked Keys
       x-code-samples:
@@ -18270,7 +18270,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Update a blacklisted key
+      summary: Update a blocked key
       tags:
       - Blocked Keys
       x-code-samples:
@@ -30054,7 +30054,7 @@ x-tagGroups:
   - Uploads
   - Tags
   - Blocked Keys
-  - Versions / History
+  - Changes / Versions
 - name: Workflows
   tags:
   - Spaces

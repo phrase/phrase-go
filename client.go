@@ -49,6 +49,8 @@ type APIClient struct {
 
 	BranchesApi *BranchesApiService
 
+	ChangesVersionsApi *ChangesVersionsApiService
+
 	CommentsApi *CommentsApiService
 
 	DistributionsApi *DistributionsApiService
@@ -103,11 +105,9 @@ type APIClient struct {
 
 	TeamsApi *TeamsApiService
 
-	TermBaseApi *TermBaseApiService
-
-	TermBaseTranslationApi *TermBaseTranslationApiService
-
 	TermBaseTranslationsApi *TermBaseTranslationsApiService
+
+	TermBasesApi *TermBasesApiService
 
 	TermsInTermBaseApi *TermsInTermBaseApiService
 
@@ -118,8 +118,6 @@ type APIClient struct {
 	UsersApi *UsersApiService
 
 	VariablesApi *VariablesApiService
-
-	VersionsHistoryApi *VersionsHistoryApiService
 
 	WebhooksApi *WebhooksApiService
 }
@@ -145,6 +143,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BitbucketSyncApi = (*BitbucketSyncApiService)(&c.common)
 	c.BlockedKeysApi = (*BlockedKeysApiService)(&c.common)
 	c.BranchesApi = (*BranchesApiService)(&c.common)
+	c.ChangesVersionsApi = (*ChangesVersionsApiService)(&c.common)
 	c.CommentsApi = (*CommentsApiService)(&c.common)
 	c.DistributionsApi = (*DistributionsApiService)(&c.common)
 	c.DocumentsApi = (*DocumentsApiService)(&c.common)
@@ -172,15 +171,13 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.StyleGuidesApi = (*StyleGuidesApiService)(&c.common)
 	c.TagsApi = (*TagsApiService)(&c.common)
 	c.TeamsApi = (*TeamsApiService)(&c.common)
-	c.TermBaseApi = (*TermBaseApiService)(&c.common)
-	c.TermBaseTranslationApi = (*TermBaseTranslationApiService)(&c.common)
 	c.TermBaseTranslationsApi = (*TermBaseTranslationsApiService)(&c.common)
+	c.TermBasesApi = (*TermBasesApiService)(&c.common)
 	c.TermsInTermBaseApi = (*TermsInTermBaseApiService)(&c.common)
 	c.TranslationsApi = (*TranslationsApiService)(&c.common)
 	c.UploadsApi = (*UploadsApiService)(&c.common)
 	c.UsersApi = (*UsersApiService)(&c.common)
 	c.VariablesApi = (*VariablesApiService)(&c.common)
-	c.VersionsHistoryApi = (*VersionsHistoryApiService)(&c.common)
 	c.WebhooksApi = (*WebhooksApiService)(&c.common)
 
 	return c

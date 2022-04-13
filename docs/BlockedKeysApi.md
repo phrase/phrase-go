@@ -4,11 +4,11 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BlacklistedKeyCreate**](BlockedKeysApi.md#BlacklistedKeyCreate) | **Post** /projects/{project_id}/blacklisted_keys | Create a blacklisted key
-[**BlacklistedKeyDelete**](BlockedKeysApi.md#BlacklistedKeyDelete) | **Delete** /projects/{project_id}/blacklisted_keys/{id} | Delete a blacklisted key
-[**BlacklistedKeyShow**](BlockedKeysApi.md#BlacklistedKeyShow) | **Get** /projects/{project_id}/blacklisted_keys/{id} | Get a single blacklisted key
-[**BlacklistedKeyUpdate**](BlockedKeysApi.md#BlacklistedKeyUpdate) | **Patch** /projects/{project_id}/blacklisted_keys/{id} | Update a blacklisted key
-[**BlacklistedKeysList**](BlockedKeysApi.md#BlacklistedKeysList) | **Get** /projects/{project_id}/blacklisted_keys | List blacklisted keys
+[**BlacklistedKeyCreate**](BlockedKeysApi.md#BlacklistedKeyCreate) | **Post** /projects/{project_id}/blacklisted_keys | Create a blocked key
+[**BlacklistedKeyDelete**](BlockedKeysApi.md#BlacklistedKeyDelete) | **Delete** /projects/{project_id}/blacklisted_keys/{id} | Delete a blocked key
+[**BlacklistedKeyShow**](BlockedKeysApi.md#BlacklistedKeyShow) | **Get** /projects/{project_id}/blacklisted_keys/{id} | Get a single blocked key
+[**BlacklistedKeyUpdate**](BlockedKeysApi.md#BlacklistedKeyUpdate) | **Patch** /projects/{project_id}/blacklisted_keys/{id} | Update a blocked key
+[**BlacklistedKeysList**](BlockedKeysApi.md#BlacklistedKeysList) | **Get** /projects/{project_id}/blacklisted_keys | List blocked keys
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > BlacklistedKey BlacklistedKeyCreate(ctx, projectId, blacklistedKeyCreateParameters, optional)
 
-Create a blacklisted key
+Create a blocked key
 
 Create a new rule for blocking keys.
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 > BlacklistedKeyDelete(ctx, projectId, id, optional)
 
-Delete a blacklisted key
+Delete a blocked key
 
 Delete an existing rule for blocking keys.
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 > BlacklistedKey BlacklistedKeyShow(ctx, projectId, id, optional)
 
-Get a single blacklisted key
+Get a single blocked key
 
 Get details on a single rule for blocking keys for a given project.
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 > BlacklistedKey BlacklistedKeyUpdate(ctx, projectId, id, blacklistedKeyUpdateParameters, optional)
 
-Update a blacklisted key
+Update a blocked key
 
 Update an existing rule for blocking keys.
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 > []BlacklistedKey BlacklistedKeysList(ctx, projectId, optional)
 
-List blacklisted keys
+List blocked keys
 
 List all rules for blocking keys for the given project.
 

@@ -1,14 +1,14 @@
-# \TermBaseApi
+# \TermBasesApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GlossariesList**](TermBaseApi.md#GlossariesList) | **Get** /accounts/{account_id}/glossaries | List term bases
-[**GlossaryCreate**](TermBaseApi.md#GlossaryCreate) | **Post** /accounts/{account_id}/glossaries | Create a term base
-[**GlossaryDelete**](TermBaseApi.md#GlossaryDelete) | **Delete** /accounts/{account_id}/glossaries/{id} | Delete a term base
-[**GlossaryShow**](TermBaseApi.md#GlossaryShow) | **Get** /accounts/{account_id}/glossaries/{id} | Get a single term base
-[**GlossaryUpdate**](TermBaseApi.md#GlossaryUpdate) | **Patch** /accounts/{account_id}/glossaries/{id} | Update a term base
+[**GlossariesList**](TermBasesApi.md#GlossariesList) | **Get** /accounts/{account_id}/glossaries | List term bases
+[**GlossaryCreate**](TermBasesApi.md#GlossaryCreate) | **Post** /accounts/{account_id}/glossaries | Create a term base
+[**GlossaryDelete**](TermBasesApi.md#GlossaryDelete) | **Delete** /accounts/{account_id}/glossaries/{id} | Delete a term base
+[**GlossaryShow**](TermBasesApi.md#GlossaryShow) | **Get** /accounts/{account_id}/glossaries/{id} | Get a single term base
+[**GlossaryUpdate**](TermBasesApi.md#GlossaryUpdate) | **Patch** /accounts/{account_id}/glossaries/{id} | Update a term base
 
 
 

@@ -1,11 +1,11 @@
-# \VersionsHistoryApi
+# \ChangesVersionsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**VersionShow**](VersionsHistoryApi.md#VersionShow) | **Get** /projects/{project_id}/translations/{translation_id}/versions/{id} | Get a single version
-[**VersionsList**](VersionsHistoryApi.md#VersionsList) | **Get** /projects/{project_id}/translations/{translation_id}/versions | List all versions
+[**VersionShow**](ChangesVersionsApi.md#VersionShow) | **Get** /projects/{project_id}/translations/{translation_id}/versions/{id} | Get a single version
+[**VersionsList**](ChangesVersionsApi.md#VersionsList) | **Get** /projects/{project_id}/translations/{translation_id}/versions | List all versions
 
 
 
