@@ -45,11 +45,9 @@ type APIClient struct {
 
 	BitbucketSyncApi *BitbucketSyncApiService
 
-	BlockedKeysApi *BlockedKeysApiService
+	BlacklistedKeysApi *BlacklistedKeysApiService
 
 	BranchesApi *BranchesApiService
-
-	ChangesVersionsApi *ChangesVersionsApiService
 
 	CommentsApi *CommentsApiService
 
@@ -62,6 +60,12 @@ type APIClient struct {
 	GitHubSyncApi *GitHubSyncApiService
 
 	GitLabSyncApi *GitLabSyncApiService
+
+	GlossariesApi *GlossariesApiService
+
+	GlossaryTermTranslationsApi *GlossaryTermTranslationsApiService
+
+	GlossaryTermsApi *GlossaryTermsApiService
 
 	ICUApi *ICUApiService
 
@@ -105,12 +109,6 @@ type APIClient struct {
 
 	TeamsApi *TeamsApiService
 
-	TermBaseTranslationsApi *TermBaseTranslationsApiService
-
-	TermBasesApi *TermBasesApiService
-
-	TermsInTermBaseApi *TermsInTermBaseApiService
-
 	TranslationsApi *TranslationsApiService
 
 	UploadsApi *UploadsApiService
@@ -118,6 +116,8 @@ type APIClient struct {
 	UsersApi *UsersApiService
 
 	VariablesApi *VariablesApiService
+
+	VersionsHistoryApi *VersionsHistoryApiService
 
 	WebhooksApi *WebhooksApiService
 }
@@ -141,15 +141,17 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AccountsApi = (*AccountsApiService)(&c.common)
 	c.AuthorizationsApi = (*AuthorizationsApiService)(&c.common)
 	c.BitbucketSyncApi = (*BitbucketSyncApiService)(&c.common)
-	c.BlockedKeysApi = (*BlockedKeysApiService)(&c.common)
+	c.BlacklistedKeysApi = (*BlacklistedKeysApiService)(&c.common)
 	c.BranchesApi = (*BranchesApiService)(&c.common)
-	c.ChangesVersionsApi = (*ChangesVersionsApiService)(&c.common)
 	c.CommentsApi = (*CommentsApiService)(&c.common)
 	c.DistributionsApi = (*DistributionsApiService)(&c.common)
 	c.DocumentsApi = (*DocumentsApiService)(&c.common)
 	c.FormatsApi = (*FormatsApiService)(&c.common)
 	c.GitHubSyncApi = (*GitHubSyncApiService)(&c.common)
 	c.GitLabSyncApi = (*GitLabSyncApiService)(&c.common)
+	c.GlossariesApi = (*GlossariesApiService)(&c.common)
+	c.GlossaryTermTranslationsApi = (*GlossaryTermTranslationsApiService)(&c.common)
+	c.GlossaryTermsApi = (*GlossaryTermsApiService)(&c.common)
 	c.ICUApi = (*ICUApiService)(&c.common)
 	c.InvitationsApi = (*InvitationsApiService)(&c.common)
 	c.JobLocalesApi = (*JobLocalesApiService)(&c.common)
@@ -171,13 +173,11 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.StyleGuidesApi = (*StyleGuidesApiService)(&c.common)
 	c.TagsApi = (*TagsApiService)(&c.common)
 	c.TeamsApi = (*TeamsApiService)(&c.common)
-	c.TermBaseTranslationsApi = (*TermBaseTranslationsApiService)(&c.common)
-	c.TermBasesApi = (*TermBasesApiService)(&c.common)
-	c.TermsInTermBaseApi = (*TermsInTermBaseApiService)(&c.common)
 	c.TranslationsApi = (*TranslationsApiService)(&c.common)
 	c.UploadsApi = (*UploadsApiService)(&c.common)
 	c.UsersApi = (*UsersApiService)(&c.common)
 	c.VariablesApi = (*VariablesApiService)(&c.common)
+	c.VersionsHistoryApi = (*VersionsHistoryApiService)(&c.common)
 	c.WebhooksApi = (*WebhooksApiService)(&c.common)
 
 	return c

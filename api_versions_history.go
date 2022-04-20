@@ -15,8 +15,8 @@ var (
 	_ _context.Context
 )
 
-// ChangesVersionsApiService ChangesVersionsApi service
-type ChangesVersionsApiService service
+// VersionsHistoryApiService VersionsHistoryApi service
+type VersionsHistoryApiService service
 
 // VersionShowOpts Optional parameters for the method 'VersionShow'
 type VersionShowOpts struct {
@@ -36,7 +36,7 @@ Get details on a single version.
  * @param "Branch" (optional.String) -  specify the branch to use
 @return TranslationVersionWithUser
 */
-func (a *ChangesVersionsApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, localVarOptionals *VersionShowOpts) (TranslationVersionWithUser, *APIResponse, error) {
+func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, localVarOptionals *VersionShowOpts) (TranslationVersionWithUser, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -139,7 +139,7 @@ type VersionsListOpts struct {
 
 /*
 VersionsList List all versions
-List all changes done to a given translation.
+List all versions for the given translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param translationId Translation ID
@@ -150,7 +150,7 @@ List all changes done to a given translation.
  * @param "Branch" (optional.String) -  specify the branch to use
 @return []TranslationVersion
 */
-func (a *ChangesVersionsApiService) VersionsList(ctx _context.Context, projectId string, translationId string, localVarOptionals *VersionsListOpts) ([]TranslationVersion, *APIResponse, error) {
+func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId string, translationId string, localVarOptionals *VersionsListOpts) ([]TranslationVersion, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

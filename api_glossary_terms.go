@@ -15,8 +15,8 @@ var (
 	_ _context.Context
 )
 
-// TermsInTermBaseApiService TermsInTermBaseApi service
-type TermsInTermBaseApiService service
+// GlossaryTermsApiService GlossaryTermsApi service
+type GlossaryTermsApiService service
 
 // GlossaryTermCreateOpts Optional parameters for the method 'GlossaryTermCreate'
 type GlossaryTermCreateOpts struct {
@@ -24,8 +24,8 @@ type GlossaryTermCreateOpts struct {
 }
 
 /*
-GlossaryTermCreate Create a term
-Create a new term in a term base (previously: glossary).
+GlossaryTermCreate Create a glossary term
+Create a new glossary term.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -34,7 +34,7 @@ Create a new term in a term base (previously: glossary).
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return GlossaryTerm
 */
-func (a *TermsInTermBaseApiService) GlossaryTermCreate(ctx _context.Context, accountId string, glossaryId string, glossaryTermCreateParameters GlossaryTermCreateParameters, localVarOptionals *GlossaryTermCreateOpts) (GlossaryTerm, *APIResponse, error) {
+func (a *GlossaryTermsApiService) GlossaryTermCreate(ctx _context.Context, accountId string, glossaryId string, glossaryTermCreateParameters GlossaryTermCreateParameters, localVarOptionals *GlossaryTermCreateOpts) (GlossaryTerm, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -130,8 +130,8 @@ type GlossaryTermDeleteOpts struct {
 }
 
 /*
-GlossaryTermDelete Delete a term
-Delete an existing term in a term base (previously: glossary).
+GlossaryTermDelete Delete a glossary term
+Delete an existing glossary term.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -139,7 +139,7 @@ Delete an existing term in a term base (previously: glossary).
  * @param optional nil or *GlossaryTermDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *TermsInTermBaseApiService) GlossaryTermDelete(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermDeleteOpts) ([]byte, *APIResponse, error) {
+func (a *GlossaryTermsApiService) GlossaryTermDelete(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -225,8 +225,8 @@ type GlossaryTermShowOpts struct {
 }
 
 /*
-GlossaryTermShow Get a single term
-Get details for a single term in the term base (previously: glossary).
+GlossaryTermShow Get a single glossary term
+Get details on a single glossary term.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -235,7 +235,7 @@ Get details for a single term in the term base (previously: glossary).
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return GlossaryTerm
 */
-func (a *TermsInTermBaseApiService) GlossaryTermShow(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermShowOpts) (GlossaryTerm, *APIResponse, error) {
+func (a *GlossaryTermsApiService) GlossaryTermShow(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermShowOpts) (GlossaryTerm, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -331,8 +331,8 @@ type GlossaryTermUpdateOpts struct {
 }
 
 /*
-GlossaryTermUpdate Update a term
-Update an existing term in a term base (previously: glossary).
+GlossaryTermUpdate Update a glossary term
+Update an existing glossary term.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -342,7 +342,7 @@ Update an existing term in a term base (previously: glossary).
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return GlossaryTerm
 */
-func (a *TermsInTermBaseApiService) GlossaryTermUpdate(ctx _context.Context, accountId string, glossaryId string, id string, glossaryTermUpdateParameters GlossaryTermUpdateParameters, localVarOptionals *GlossaryTermUpdateOpts) (GlossaryTerm, *APIResponse, error) {
+func (a *GlossaryTermsApiService) GlossaryTermUpdate(ctx _context.Context, accountId string, glossaryId string, id string, glossaryTermUpdateParameters GlossaryTermUpdateParameters, localVarOptionals *GlossaryTermUpdateOpts) (GlossaryTerm, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -442,8 +442,8 @@ type GlossaryTermsListOpts struct {
 }
 
 /*
-GlossaryTermsList List terms
-List all terms in term bases (previously: glossary) that the current user has access to.
+GlossaryTermsList List glossary terms
+List all glossary terms the current user has access to.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -453,7 +453,7 @@ List all terms in term bases (previously: glossary) that the current user has ac
  * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
 @return []GlossaryTerm
 */
-func (a *TermsInTermBaseApiService) GlossaryTermsList(ctx _context.Context, accountId string, glossaryId string, localVarOptionals *GlossaryTermsListOpts) ([]GlossaryTerm, *APIResponse, error) {
+func (a *GlossaryTermsApiService) GlossaryTermsList(ctx _context.Context, accountId string, glossaryId string, localVarOptionals *GlossaryTermsListOpts) ([]GlossaryTerm, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}

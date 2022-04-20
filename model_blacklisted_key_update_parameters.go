@@ -2,6 +2,6 @@ package phrase
 
 // BlacklistedKeyUpdateParameters struct for BlacklistedKeyUpdateParameters
 type BlacklistedKeyUpdateParameters struct {
-	// Blocked key name
+	// Blacklisted key name
 	Name string `json:"name,omitempty"`
 }

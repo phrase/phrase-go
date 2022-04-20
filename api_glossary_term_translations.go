@@ -15,8 +15,8 @@ var (
 	_ _context.Context
 )
 
-// TermBaseTranslationsApiService TermBaseTranslationsApi service
-type TermBaseTranslationsApiService service
+// GlossaryTermTranslationsApiService GlossaryTermTranslationsApi service
+type GlossaryTermTranslationsApiService service
 
 // GlossaryTermTranslationCreateOpts Optional parameters for the method 'GlossaryTermTranslationCreate'
 type GlossaryTermTranslationCreateOpts struct {
@@ -24,8 +24,8 @@ type GlossaryTermTranslationCreateOpts struct {
 }
 
 /*
-GlossaryTermTranslationCreate Create a translation for a term
-Create a new translation for a term in a term base (previously: glossary).
+GlossaryTermTranslationCreate Create a glossary term translation
+Create a new glossary term translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -35,7 +35,7 @@ Create a new translation for a term in a term base (previously: glossary).
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return GlossaryTermTranslation
 */
-func (a *TermBaseTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreateParameters GlossaryTermTranslationCreateParameters, localVarOptionals *GlossaryTermTranslationCreateOpts) (GlossaryTermTranslation, *APIResponse, error) {
+func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreateParameters GlossaryTermTranslationCreateParameters, localVarOptionals *GlossaryTermTranslationCreateOpts) (GlossaryTermTranslation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -133,8 +133,8 @@ type GlossaryTermTranslationDeleteOpts struct {
 }
 
 /*
-GlossaryTermTranslationDelete Delete a translation for a term
-Delete an existing translation of a term in a term base (previously: glossary).
+GlossaryTermTranslationDelete Delete a glossary term translation
+Delete an existing glossary term translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -143,7 +143,7 @@ Delete an existing translation of a term in a term base (previously: glossary).
  * @param optional nil or *GlossaryTermTranslationDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *TermBaseTranslationsApiService) GlossaryTermTranslationDelete(ctx _context.Context, accountId string, glossaryId string, termId string, id string, localVarOptionals *GlossaryTermTranslationDeleteOpts) ([]byte, *APIResponse, error) {
+func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _context.Context, accountId string, glossaryId string, termId string, id string, localVarOptionals *GlossaryTermTranslationDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -231,8 +231,8 @@ type GlossaryTermTranslationUpdateOpts struct {
 }
 
 /*
-GlossaryTermTranslationUpdate Update a translation for a term
-Update an existing translation for a term in a term base (previously: glossary).
+GlossaryTermTranslationUpdate Update a glossary term translation
+Update an existing glossary term translation.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -243,7 +243,7 @@ Update an existing translation for a term in a term base (previously: glossary).
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 @return GlossaryTermTranslation
 */
-func (a *TermBaseTranslationsApiService) GlossaryTermTranslationUpdate(ctx _context.Context, accountId string, glossaryId string, termId string, id string, glossaryTermTranslationUpdateParameters GlossaryTermTranslationUpdateParameters, localVarOptionals *GlossaryTermTranslationUpdateOpts) (GlossaryTermTranslation, *APIResponse, error) {
+func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationUpdate(ctx _context.Context, accountId string, glossaryId string, termId string, id string, glossaryTermTranslationUpdateParameters GlossaryTermTranslationUpdateParameters, localVarOptionals *GlossaryTermTranslationUpdateOpts) (GlossaryTermTranslation, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}

@@ -15,147 +15,37 @@ var (
 	_ _context.Context
 )
 
-// TermBasesApiService TermBasesApi service
-type TermBasesApiService service
+// BlacklistedKeysApiService BlacklistedKeysApi service
+type BlacklistedKeysApiService service
 
-// GlossariesListOpts Optional parameters for the method 'GlossariesList'
-type GlossariesListOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32  `json:"page,omitempty"`
-	PerPage       optional.Int32  `json:"per_page,omitempty"`
-}
-
-/*
-GlossariesList List term bases
-List all term bases (previously: glossaries) the current user has access to.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param optional nil or *GlossariesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
-@return []Glossary
-*/
-func (a *TermBasesApiService) GlossariesList(ctx _context.Context, accountId string, localVarOptionals *GlossariesListOpts) ([]Glossary, *APIResponse, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  []Glossary
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if localVarOptionals != nil && localVarOptionals.Page.IsSet() {
-		localVarQueryParams.Add("page", parameterToString(localVarOptionals.Page.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
-		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
-		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
-	}
-	if ctx != nil {
-		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
-			}
-			localVarHeaderParams["Authorization"] = key
-		}
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-// GlossaryCreateOpts Optional parameters for the method 'GlossaryCreate'
-type GlossaryCreateOpts struct {
+// BlacklistedKeyCreateOpts Optional parameters for the method 'BlacklistedKeyCreate'
+type BlacklistedKeyCreateOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-GlossaryCreate Create a term base
-Create a new term base (previously: glossary).
+BlacklistedKeyCreate Create a blacklisted key
+Create a new rule for blacklisting keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryCreateParameters
- * @param optional nil or *GlossaryCreateOpts - Optional Parameters:
+ * @param projectId Project ID
+ * @param blacklistedKeyCreateParameters
+ * @param optional nil or *BlacklistedKeyCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return Glossary
+@return BlacklistedKey
 */
-func (a *TermBasesApiService) GlossaryCreate(ctx _context.Context, accountId string, glossaryCreateParameters GlossaryCreateParameters, localVarOptionals *GlossaryCreateOpts) (Glossary, *APIResponse, error) {
+func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, projectId string, blacklistedKeyCreateParameters BlacklistedKeyCreateParameters, localVarOptionals *BlacklistedKeyCreateOpts) (BlacklistedKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Glossary
+		localVarReturnValue  BlacklistedKey
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -182,7 +72,7 @@ func (a *TermBasesApiService) GlossaryCreate(ctx _context.Context, accountId str
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &glossaryCreateParameters
+	localVarPostBody = &blacklistedKeyCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -231,21 +121,21 @@ func (a *TermBasesApiService) GlossaryCreate(ctx _context.Context, accountId str
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// GlossaryDeleteOpts Optional parameters for the method 'GlossaryDelete'
-type GlossaryDeleteOpts struct {
+// BlacklistedKeyDeleteOpts Optional parameters for the method 'BlacklistedKeyDelete'
+type BlacklistedKeyDeleteOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-GlossaryDelete Delete a term base
-Delete an existing term base (previously: glossary).
+BlacklistedKeyDelete Delete a blacklisted key
+Delete an existing rule for blacklisting keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
+ * @param projectId Project ID
  * @param id ID
- * @param optional nil or *GlossaryDeleteOpts - Optional Parameters:
+ * @param optional nil or *BlacklistedKeyDeleteOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *TermBasesApiService) GlossaryDelete(ctx _context.Context, accountId string, id string, localVarOptionals *GlossaryDeleteOpts) ([]byte, *APIResponse, error) {
+func (a *BlacklistedKeysApiService) BlacklistedKeyDelete(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -255,8 +145,8 @@ func (a *TermBasesApiService) GlossaryDelete(ctx _context.Context, accountId str
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
@@ -323,34 +213,34 @@ func (a *TermBasesApiService) GlossaryDelete(ctx _context.Context, accountId str
 	return localVarBody, localVarHTTPResponse, nil
 }
 
-// GlossaryShowOpts Optional parameters for the method 'GlossaryShow'
-type GlossaryShowOpts struct {
+// BlacklistedKeyShowOpts Optional parameters for the method 'BlacklistedKeyShow'
+type BlacklistedKeyShowOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-GlossaryShow Get a single term base
-Get details on a single term base (previously: glossary).
+BlacklistedKeyShow Get a single blacklisted key
+Get details on a single rule for blacklisting keys for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
+ * @param projectId Project ID
  * @param id ID
- * @param optional nil or *GlossaryShowOpts - Optional Parameters:
+ * @param optional nil or *BlacklistedKeyShowOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return Glossary
+@return BlacklistedKey
 */
-func (a *TermBasesApiService) GlossaryShow(ctx _context.Context, accountId string, id string, localVarOptionals *GlossaryShowOpts) (Glossary, *APIResponse, error) {
+func (a *BlacklistedKeysApiService) BlacklistedKeyShow(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyShowOpts) (BlacklistedKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Glossary
+		localVarReturnValue  BlacklistedKey
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
@@ -426,35 +316,35 @@ func (a *TermBasesApiService) GlossaryShow(ctx _context.Context, accountId strin
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-// GlossaryUpdateOpts Optional parameters for the method 'GlossaryUpdate'
-type GlossaryUpdateOpts struct {
+// BlacklistedKeyUpdateOpts Optional parameters for the method 'BlacklistedKeyUpdate'
+type BlacklistedKeyUpdateOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-GlossaryUpdate Update a term base
-Update an existing term base (previously: glossary).
+BlacklistedKeyUpdate Update a blacklisted key
+Update an existing rule for blacklisting keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
+ * @param projectId Project ID
  * @param id ID
- * @param glossaryUpdateParameters
- * @param optional nil or *GlossaryUpdateOpts - Optional Parameters:
+ * @param blacklistedKeyUpdateParameters
+ * @param optional nil or *BlacklistedKeyUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-@return Glossary
+@return BlacklistedKey
 */
-func (a *TermBasesApiService) GlossaryUpdate(ctx _context.Context, accountId string, id string, glossaryUpdateParameters GlossaryUpdateParameters, localVarOptionals *GlossaryUpdateOpts) (Glossary, *APIResponse, error) {
+func (a *BlacklistedKeysApiService) BlacklistedKeyUpdate(ctx _context.Context, projectId string, id string, blacklistedKeyUpdateParameters BlacklistedKeyUpdateParameters, localVarOptionals *BlacklistedKeyUpdateOpts) (BlacklistedKey, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Glossary
+		localVarReturnValue  BlacklistedKey
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/glossaries/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
@@ -483,7 +373,122 @@ func (a *TermBasesApiService) GlossaryUpdate(ctx _context.Context, accountId str
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &glossaryUpdateParameters
+	localVarPostBody = &blacklistedKeyUpdateParameters
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["Authorization"] = key
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// BlacklistedKeysListOpts Optional parameters for the method 'BlacklistedKeysList'
+type BlacklistedKeysListOpts struct {
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
+}
+
+/*
+BlacklistedKeysList List blacklisted keys
+List all rules for blacklisting keys for the given project.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param projectId Project ID
+ * @param optional nil or *BlacklistedKeysListOpts - Optional Parameters:
+ * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Page" (optional.Int32) -  Page number
+ * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+ * @param "Branch" (optional.String) -  specify the branch to use
+@return []BlacklistedKey
+*/
+func (a *BlacklistedKeysApiService) BlacklistedKeysList(ctx _context.Context, projectId string, localVarOptionals *BlacklistedKeysListOpts) ([]BlacklistedKey, *APIResponse, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  []BlacklistedKey
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/blacklisted_keys"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if localVarOptionals != nil && localVarOptionals.Page.IsSet() {
+		localVarQueryParams.Add("page", parameterToString(localVarOptionals.Page.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
+		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
+		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
+	}
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

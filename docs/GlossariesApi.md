@@ -1,24 +1,24 @@
-# \TermsInTermBaseApi
+# \GlossariesApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GlossaryTermCreate**](TermsInTermBaseApi.md#GlossaryTermCreate) | **Post** /accounts/{account_id}/glossaries/{glossary_id}/terms | Create a term
-[**GlossaryTermDelete**](TermsInTermBaseApi.md#GlossaryTermDelete) | **Delete** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Delete a term
-[**GlossaryTermShow**](TermsInTermBaseApi.md#GlossaryTermShow) | **Get** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single term
-[**GlossaryTermUpdate**](TermsInTermBaseApi.md#GlossaryTermUpdate) | **Patch** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a term
-[**GlossaryTermsList**](TermsInTermBaseApi.md#GlossaryTermsList) | **Get** /accounts/{account_id}/glossaries/{glossary_id}/terms | List terms
+[**GlossariesList**](GlossariesApi.md#GlossariesList) | **Get** /accounts/{account_id}/glossaries | List glossaries
+[**GlossaryCreate**](GlossariesApi.md#GlossaryCreate) | **Post** /accounts/{account_id}/glossaries | Create a glossary
+[**GlossaryDelete**](GlossariesApi.md#GlossaryDelete) | **Delete** /accounts/{account_id}/glossaries/{id} | Delete a glossary
+[**GlossaryShow**](GlossariesApi.md#GlossaryShow) | **Get** /accounts/{account_id}/glossaries/{id} | Get a single glossary
+[**GlossaryUpdate**](GlossariesApi.md#GlossaryUpdate) | **Patch** /accounts/{account_id}/glossaries/{id} | Update a glossary
 
 
 
-## GlossaryTermCreate
+## GlossariesList
 
-> GlossaryTerm GlossaryTermCreate(ctx, accountId, glossaryId, glossaryTermCreateParameters, optional)
+> []Glossary GlossariesList(ctx, accountId, optional)
 
-Create a term
+List glossaries
 
-Create a new term in a term base (previously: glossary).
+List all glossaries the current user has access to.
 
 ### Required Parameters
 
@@ -27,25 +27,70 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**glossaryId** | **string**| Glossary ID | 
-**glossaryTermCreateParameters** | [**GlossaryTermCreateParameters**](GlossaryTermCreateParameters.md)|  | 
- **optional** | ***GlossaryTermCreateOpts** | optional parameters | nil if no parameters
+ **optional** | ***GlossariesListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a GlossaryTermCreateOpts struct
+Optional parameters are passed through a pointer to a GlossariesListOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **page** | **optional.Int32**| Page number | 
+ **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
+
+### Return type
+
+[**[]Glossary**](glossary.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GlossaryCreate
+
+> Glossary GlossaryCreate(ctx, accountId, glossaryCreateParameters, optional)
+
+Create a glossary
+
+Create a new glossary.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **string**| Account ID | 
+**glossaryCreateParameters** | [**GlossaryCreateParameters**](GlossaryCreateParameters.md)|  | 
+ **optional** | ***GlossaryCreateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a GlossaryCreateOpts struct
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
-[**GlossaryTerm**](glossary_term.md)
+[**Glossary**](glossary.md)
 
 ### Authorization
 
@@ -61,13 +106,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GlossaryTermDelete
+## GlossaryDelete
 
-> GlossaryTermDelete(ctx, accountId, glossaryId, id, optional)
+> GlossaryDelete(ctx, accountId, id, optional)
 
-Delete a term
+Delete a glossary
 
-Delete an existing term in a term base (previously: glossary).
+Delete an existing glossary.
 
 ### Required Parameters
 
@@ -76,18 +121,16 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**glossaryId** | **string**| Glossary ID | 
 **id** | **string**| ID | 
- **optional** | ***GlossaryTermDeleteOpts** | optional parameters | nil if no parameters
+ **optional** | ***GlossaryDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a GlossaryTermDeleteOpts struct
+Optional parameters are passed through a pointer to a GlossaryDeleteOpts struct
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
@@ -110,13 +153,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GlossaryTermShow
+## GlossaryShow
 
-> GlossaryTerm GlossaryTermShow(ctx, accountId, glossaryId, id, optional)
+> Glossary GlossaryShow(ctx, accountId, id, optional)
 
-Get a single term
+Get a single glossary
 
-Get details for a single term in the term base (previously: glossary).
+Get details on a single glossary.
 
 ### Required Parameters
 
@@ -125,25 +168,23 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**glossaryId** | **string**| Glossary ID | 
 **id** | **string**| ID | 
- **optional** | ***GlossaryTermShowOpts** | optional parameters | nil if no parameters
+ **optional** | ***GlossaryShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a GlossaryTermShowOpts struct
+Optional parameters are passed through a pointer to a GlossaryShowOpts struct
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
-[**GlossaryTerm**](glossary_term.md)
+[**Glossary**](glossary.md)
 
 ### Authorization
 
@@ -159,13 +200,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GlossaryTermUpdate
+## GlossaryUpdate
 
-> GlossaryTerm GlossaryTermUpdate(ctx, accountId, glossaryId, id, glossaryTermUpdateParameters, optional)
+> Glossary GlossaryUpdate(ctx, accountId, id, glossaryUpdateParameters, optional)
 
-Update a term
+Update a glossary
 
-Update an existing term in a term base (previously: glossary).
+Update an existing glossary.
 
 ### Required Parameters
 
@@ -174,14 +215,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**glossaryId** | **string**| Glossary ID | 
 **id** | **string**| ID | 
-**glossaryTermUpdateParameters** | [**GlossaryTermUpdateParameters**](GlossaryTermUpdateParameters.md)|  | 
- **optional** | ***GlossaryTermUpdateOpts** | optional parameters | nil if no parameters
+**glossaryUpdateParameters** | [**GlossaryUpdateParameters**](GlossaryUpdateParameters.md)|  | 
+ **optional** | ***GlossaryUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a GlossaryTermUpdateOpts struct
+Optional parameters are passed through a pointer to a GlossaryUpdateOpts struct
 
 
 Name | Type | Description  | Notes
@@ -189,12 +229,11 @@ Name | Type | Description  | Notes
 
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
-[**GlossaryTerm**](glossary_term.md)
+[**Glossary**](glossary.md)
 
 ### Authorization
 
@@ -203,55 +242,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GlossaryTermsList
-
-> []GlossaryTerm GlossaryTermsList(ctx, accountId, glossaryId, optional)
-
-List terms
-
-List all terms in term bases (previously: glossary) that the current user has access to.
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
-**glossaryId** | **string**| Glossary ID | 
- **optional** | ***GlossaryTermsListOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a GlossaryTermsListOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
-
-### Return type
-
-[**[]GlossaryTerm**](glossary_term.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [Token](../README.md#Token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -1,12 +1,12 @@
-# \TermBaseTranslationsApi
+# \GlossaryTermTranslationsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GlossaryTermTranslationCreate**](TermBaseTranslationsApi.md#GlossaryTermTranslationCreate) | **Post** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a translation for a term
-[**GlossaryTermTranslationDelete**](TermBaseTranslationsApi.md#GlossaryTermTranslationDelete) | **Delete** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a translation for a term
-[**GlossaryTermTranslationUpdate**](TermBaseTranslationsApi.md#GlossaryTermTranslationUpdate) | **Patch** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a translation for a term
+[**GlossaryTermTranslationCreate**](GlossaryTermTranslationsApi.md#GlossaryTermTranslationCreate) | **Post** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a glossary term translation
+[**GlossaryTermTranslationDelete**](GlossaryTermTranslationsApi.md#GlossaryTermTranslationDelete) | **Delete** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a glossary term translation
+[**GlossaryTermTranslationUpdate**](GlossaryTermTranslationsApi.md#GlossaryTermTranslationUpdate) | **Patch** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a glossary term translation
 
 
 
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 
 > GlossaryTermTranslation GlossaryTermTranslationCreate(ctx, accountId, glossaryId, termId, glossaryTermTranslationCreateParameters, optional)
 
-Create a translation for a term
+Create a glossary term translation
 
-Create a new translation for a term in a term base (previously: glossary).
+Create a new glossary term translation.
 
 ### Required Parameters
 
@@ -65,9 +65,9 @@ Name | Type | Description  | Notes
 
 > GlossaryTermTranslationDelete(ctx, accountId, glossaryId, termId, id, optional)
 
-Delete a translation for a term
+Delete a glossary term translation
 
-Delete an existing translation of a term in a term base (previously: glossary).
+Delete an existing glossary term translation.
 
 ### Required Parameters
 
@@ -116,9 +116,9 @@ Name | Type | Description  | Notes
 
 > GlossaryTermTranslation GlossaryTermTranslationUpdate(ctx, accountId, glossaryId, termId, id, glossaryTermTranslationUpdateParameters, optional)
 
-Update a translation for a term
+Update a glossary term translation
 
-Update an existing translation for a term in a term base (previously: glossary).
+Update an existing glossary term translation.
 
 ### Required Parameters
 
