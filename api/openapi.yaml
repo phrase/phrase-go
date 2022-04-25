@@ -2176,7 +2176,7 @@ paths:
                 glossary_terms:
                   description: List of terms and/or phrases that need to be translated
                     consistently.
-                  example: Appartement, cabin, loft
+                  example: Apartment, cabin, loft
                   type: string
                 grammar_consistency:
                   description: Formal or informal pronouns, consistent conjugation,
@@ -2250,13 +2250,13 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/styleguides" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
-            -d '{"title":"Web application style guide","audience":"customer-facing","target_audience":"teenager","grammatical_person":"first_person_singular","vocabulary_type":"technical","business":"We are a travel site that helps customers find the best hotels and flights.","company_branding":"ACME Inc. should never be translated.","formatting":"Never use capital letters","glossary_terms":"Appartement, cabin, loft","grammar_consistency":"","literal_translation":"Neutral","overall_tone":"Tone should be fun and light","samples":"http://www.myexample.com/my/document/path/to/samples.pdf"}' \
+            -d '{"title":"Web application style guide","audience":"customer-facing","target_audience":"teenager","grammatical_person":"first_person_singular","vocabulary_type":"technical","business":"We are a travel site that helps customers find the best hotels and flights.","company_branding":"ACME Inc. should never be translated.","formatting":"Never use capital letters","glossary_terms":"Apartment, cabin, loft","grammar_consistency":","literal_translation":"Neutral","overall_tone":"Tone should be fun and light","samples":"http://www.myexample.com/my/document/path/to/samples.pdf"}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase styleguides create \
           --project_id <project_id> \
-          --data '{"title":""Web application style guide"", "audience":"customer-facing", "target_audience":"teenager", "grammatical_person":"first_person_singular", "vocabulary_type":"technical", "business":""We are a travel site that helps customers find the best hotels and flights."", "company_branding":""ACME Inc. should never be translated."", "formatting":""Never use capital letters"", "glossary_terms":""Appartement, cabin, loft"", "grammar_consistency":"", "literal_translation":"Neutral", "overall_tone":""Tone should be fun and light"", "samples":""http://www.myexample.com/my/document/path/to/samples.pdf""}' \
+          --data '{"title": "Web application style guide", "audience":"customer-facing", "target_audience":"teenager", "grammatical_person":"first_person_singular", "vocabulary_type":"technical", "business": "We are a travel site that helps customers find the best hotels and flights.", "company_branding": "ACME Inc. should never be translated.", "formatting": "Never use capital letters", "glossary_terms": "Apartment, cabin, loft", "grammar_consistency":", "literal_translation":"Neutral", "overall_tone": "Tone should be fun and light", "samples": "http://www.myexample.com/my/document/path/to/samples.pdf"}' \
           --access_token <token>
   /projects/{project_id}/styleguides/{id}:
     delete:
@@ -2497,7 +2497,7 @@ paths:
                 glossary_terms:
                   description: List of terms and/or phrases that need to be translated
                     consistently.
-                  example: Appartement, cabin, loft
+                  example: Apartment, cabin, loft
                   type: string
                 grammar_consistency:
                   description: Formal or informal pronouns, consistent conjugation,
@@ -2571,14 +2571,14 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/styleguides/:id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"title":"Web application style guide","audience":"customer-facing","target_audience":"teenager","grammatical_person":"first_person_singular","vocabulary_type":"technical","business":"We are a travel site that helps customers find the best hotels and flights.","company_branding":"ACME Inc. should never be translated.","formatting":"Never use capital letters","glossary_terms":"Appartement, cabin, loft","grammar_consistency":"","literal_translation":"Neutral","overall_tone":"Tone should be fun and light","samples":"http://www.myexample.com/my/document/path/to/samples.pdf"}' \
+            -d '{"title":"Web application style guide","audience":"customer-facing","target_audience":"teenager","grammatical_person":"first_person_singular","vocabulary_type":"technical","business":"We are a travel site that helps customers find the best hotels and flights.","company_branding":"ACME Inc. should never be translated.","formatting":"Never use capital letters","glossary_terms":"Apartment, cabin, loft","grammar_consistency":","literal_translation":"Neutral","overall_tone":"Tone should be fun and light","samples":"http://www.myexample.com/my/document/path/to/samples.pdf"}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase styleguides update \
           --project_id <project_id> \
           --id <id> \
-          --data '{"title":""Web application style guide"", "audience":"customer-facing", "target_audience":"teenager", "grammatical_person":"first_person_singular", "vocabulary_type":"technical", "business":""We are a travel site that helps customers find the best hotels and flights."", "company_branding":""ACME Inc. should never be translated."", "formatting":""Never use capital letters"", "glossary_terms":""Appartement, cabin, loft"", "grammar_consistency":"", "literal_translation":"Neutral", "overall_tone":""Tone should be fun and light"", "samples":""http://www.myexample.com/my/document/path/to/samples.pdf""}' \
+          --data '{"title": "Web application style guide", "audience":"customer-facing", "target_audience":"teenager", "grammatical_person":"first_person_singular", "vocabulary_type":"technical", "business": "We are a travel site that helps customers find the best hotels and flights.", "company_branding": "ACME Inc. should never be translated.", "formatting": "Never use capital letters", "glossary_terms": "Apartment, cabin, loft", "grammar_consistency":", "literal_translation":"Neutral", "overall_tone": "Tone should be fun and light", "samples": "http://www.myexample.com/my/document/path/to/samples.pdf"}' \
           --access_token <token>
   /accounts/{account_id}/invitations:
     get:
@@ -3198,7 +3198,7 @@ paths:
           phrase invitations update \
           --account_id <account_id> \
           --id <id> \
-          --data '{"role":""Invitiation role"", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"team_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true}"}' \
+          --data '{"role": "Invitiation role", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"team_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true}"}' \
           --access_token <token>
   /accounts/{account_id}/invitations/{id}/resend:
     post:
@@ -3845,7 +3845,7 @@ paths:
           phrase screenshot_markers update \
           --project_id <project_id> \
           --screenshot_id <screenshot_id> \
-          --data '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation":""{ "x": 100, "y": 100, "w": 100, "h": 100 }""}' \
+          --data '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation": "{ "x": 100, "y": 100, "w": 100, "h": 100 }"}' \
           --access_token <token>
     post:
       description: Create a new screenshot marker.
@@ -3960,7 +3960,7 @@ paths:
           phrase screenshot_markers create \
           --project_id <project_id> \
           --screenshot_id <screenshot_id> \
-          --data '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation":""{ "x": 100, "y": 100, "w": 100, "h": 100 }""}' \
+          --data '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation": "{ "x": 100, "y": 100, "w": 100, "h": 100 }"}' \
           --access_token <token>
   /accounts/{account_id}/locales:
     get:
@@ -5113,7 +5113,7 @@ paths:
         source: |-
           phrase distributions create \
           --account_id <account_id> \
-          --data '{"name":""My Android Distribution"", "project_id":"abcd1234abcd1234abcd1234", "platforms":""android,ios"", "locale_ids":["fff565db236400772368235db2c6117e,abcd1234cdef1234abcd1234cdef1234"], "format_options":""{xml:{enclose_in_cdata:'1'}}"", "fallback_to_non_regional_locale":"true", "fallback_to_default_locale":"true", "use_last_reviewed_version":"true"}' \
+          --data '{"name": "My Android Distribution", "project_id":"abcd1234abcd1234abcd1234", "platforms": "android,ios", "locale_ids":["fff565db236400772368235db2c6117e,abcd1234cdef1234abcd1234cdef1234"], "format_options": "{xml:{enclose_in_cdata:'1'}}", "fallback_to_non_regional_locale":"true", "fallback_to_default_locale":"true", "use_last_reviewed_version":"true"}' \
           --access_token <token>
   /accounts/{account_id}/distributions/{id}:
     delete:
@@ -5420,7 +5420,7 @@ paths:
           phrase distributions update \
           --account_id <account_id> \
           --id <id> \
-          --data '{"name":""My Android Distribution"", "project_id":"abcd1234abcd1234abcd1234", "platforms":""android,ios"", "locale_ids":""fff565db236400772368235db2c6117e,abcd1234cdef1234abcd1234cdef1234"", "format_options":""{xml:{enclose_in_cdata:'1'}}"", "fallback_to_non_regional_locale":"true", "fallback_to_default_locale":"true", "use_last_reviewed_version":"true"}' \
+          --data '{"name": "My Android Distribution", "project_id":"abcd1234abcd1234abcd1234", "platforms": "android,ios", "locale_ids": "fff565db236400772368235db2c6117e,abcd1234cdef1234abcd1234cdef1234", "format_options": "{xml:{enclose_in_cdata:'1'}}", "fallback_to_non_regional_locale":"true", "fallback_to_default_locale":"true", "use_last_reviewed_version":"true"}' \
           --access_token <token>
   /accounts/{account_id}/distributions/{distribution_id}/releases:
     get:
@@ -5649,7 +5649,7 @@ paths:
           phrase releases create \
           --account_id <account_id> \
           --distribution_id <distribution_id> \
-          --data '{"description":""My first Release"", "platforms":""android,ios"", "branch":"my-feature-branch"}' \
+          --data '{"description": "My first Release", "platforms": "android,ios", "branch":"my-feature-branch"}' \
           --access_token <token>
   /accounts/{account_id}/distributions/{distribution_id}/releases/{id}:
     delete:
@@ -5952,7 +5952,7 @@ paths:
           --account_id <account_id> \
           --distribution_id <distribution_id> \
           --id <id> \
-          --data '{"description":""My first Release"", "platforms":""android,ios"", "branch":"my-feature-branch"}' \
+          --data '{"description": "My first Release", "platforms": "android,ios", "branch":"my-feature-branch"}' \
           --access_token <token>
   /accounts/{account_id}/distributions/{distribution_id}/releases/{id}/publish:
     post:
@@ -6317,7 +6317,7 @@ paths:
         source: |-
           phrase jobs create \
           --project_id <project_id> \
-          --data '{"branch":"my-feature-branch", "name":"de", "briefing":"de-DE", "due_date":"2017-08-15", "ticket_url":"https://example.atlassian.net/browse/FOO", "tags":""myUploadTag"", "translation_key_ids":""abcd1234cdef1234abcd1234cdef1234""}' \
+          --data '{"branch":"my-feature-branch", "name":"de", "briefing":"de-DE", "due_date":"2017-08-15", "ticket_url":"https://example.atlassian.net/browse/FOO", "tags": "myUploadTag", "translation_key_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
   /accounts/{account_id}/jobs:
     get:
@@ -7452,7 +7452,7 @@ paths:
           phrase jobs keys \
           --project_id <project_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "translation_key_ids":""abcd1234cdef1234abcd1234cdef1234""}' \
+          --data '{"branch":"my-feature-branch", "translation_key_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
   /projects/{project_id}/job_templates:
     get:
@@ -8186,7 +8186,7 @@ paths:
         source: |-
           phrase glossaries create \
           --account_id <account_id> \
-          --data '{"name":""My glossary"", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":""abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235""}' \
+          --data '{"name": "My glossary", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids": "abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235"}' \
           --access_token <token>
   /accounts/{account_id}/glossaries/{id}:
     delete:
@@ -8463,7 +8463,7 @@ paths:
           phrase glossaries update \
           --account_id <account_id> \
           --id <id> \
-          --data '{"name":""My glossary"", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":""abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235""}' \
+          --data '{"name": "My glossary", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids": "abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235"}' \
           --access_token <token>
   /authorizations:
     get:
@@ -8648,7 +8648,7 @@ paths:
       - lang: CLI v2
         source: |-
           phrase authorizations create \
-          --data '{"note":""My Deploy Script"", "scopes":""read,write"", "expires_at":""2015-03-30T09:52:53Z""}'
+          --data '{"note": "My Deploy Script", "scopes": "read,write", "expires_at": "2015-03-30T09:52:53Z"}'
   /authorizations/{id}:
     delete:
       description: Delete an existing authorization. API calls using that token will
@@ -8898,7 +8898,7 @@ paths:
         source: |-
           phrase authorizations update \
           --id <id> \
-          --data '{"note":""My Deploy Script"", "scopes":""read,write"", "expires_at":""2015-03-30T09:52:53Z""}'
+          --data '{"note": "My Deploy Script", "scopes": "read,write", "expires_at": "2015-03-30T09:52:53Z"}'
   /bitbucket_syncs:
     get:
       description: List all Bitbucket repositories for which synchronisation with
@@ -9387,7 +9387,7 @@ paths:
           phrase comments create \
           --project_id <project_id> \
           --key_id <key_id> \
-          --data '{"branch":"my-feature-branch", "message":""Some message...""}' \
+          --data '{"branch":"my-feature-branch", "message": "Some message..."}' \
           --access_token <token>
   /projects/{project_id}/keys/{key_id}/comments/{id}:
     delete:
@@ -9704,7 +9704,7 @@ paths:
           --project_id <project_id> \
           --key_id <key_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "message":""Some message...""}' \
+          --data '{"branch":"my-feature-branch", "message": "Some message..."}' \
           --access_token <token>
   /projects/{project_id}/keys/{key_id}/comments/{id}/read:
     delete:
@@ -10221,7 +10221,7 @@ paths:
         source: |-
           phrase webhooks create \
           --project_id <project_id> \
-          --data '{"callback_url":""http://example.com/hooks/phraseapp-notifications"", "description":""My webhook for chat notifications"", "events":""locales:create,translations:update""}' \
+          --data '{"callback_url": "http://example.com/hooks/phraseapp-notifications", "description": "My webhook for chat notifications", "events": "locales:create,translations:update"}' \
           --access_token <token>
   /projects/{project_id}/webhooks/{id}:
     delete:
@@ -10506,7 +10506,7 @@ paths:
           phrase webhooks update \
           --project_id <project_id> \
           --id <id> \
-          --data '{"callback_url":""http://example.com/hooks/phraseapp-notifications"", "description":""My webhook for chat notifications"", "events":""locales:create,translations:update""}' \
+          --data '{"callback_url": "http://example.com/hooks/phraseapp-notifications", "description": "My webhook for chat notifications", "events": "locales:create,translations:update"}' \
           --access_token <token>
   /projects/{project_id}/webhooks/{id}/test:
     post:
@@ -12145,7 +12145,7 @@ paths:
           --account_id <account_id> \
           --glossary_id <glossary_id> \
           --term_id <term_id> \
-          --data '{"locale_code":"en-US", "content":""My translated term""}' \
+          --data '{"locale_code":"en-US", "content": "My translated term"}' \
           --access_token <token>
   /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id}:
     delete:
@@ -12366,7 +12366,7 @@ paths:
           --glossary_id <glossary_id> \
           --term_id <term_id> \
           --id <id> \
-          --data '{"locale_code":"en-US", "content":""My translated term""}' \
+          --data '{"locale_code":"en-US", "content": "My translated term"}' \
           --access_token <token>
   /projects:
     get:
@@ -12679,7 +12679,7 @@ paths:
       - lang: CLI v2
         source: |-
           phrase projects create \
-          --data '{"name":""My Android Project"", "main_format":"yml", "shares_translation_memory":"true", "project_image":"/path/to/my/project-screenshot.png", "account_id":"abcd1234"}' \
+          --data '{"name": "My Android Project", "main_format":"yml", "shares_translation_memory":"true", "project_image":"/path/to/my/project-screenshot.png", "account_id":"abcd1234"}' \
           --access_token <token>
   /projects/{id}:
     delete:
@@ -13024,7 +13024,7 @@ paths:
         source: |-
           phrase projects update \
           --id <id> \
-          --data '{"name":""My Android Project"", "main_format":"yml", "shares_translation_memory":"true", "project_image":"/path/to/my/project-screenshot.png", "account_id":"abcd1234"}' \
+          --data '{"name": "My Android Project", "main_format":"yml", "shares_translation_memory":"true", "project_image":"/path/to/my/project-screenshot.png", "account_id":"abcd1234"}' \
           --access_token <token>
   /projects/{project_id}/jobs/{job_id}/locales:
     get:
@@ -13262,7 +13262,7 @@ paths:
           phrase job_locales create \
           --project_id <project_id> \
           --job_id <job_id> \
-          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids":""abcd1234cdef1234abcd1234cdef1234""}' \
+          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
   /projects/{project_id}/jobs/{job_id}/locale/{id}:
     get:
@@ -13595,7 +13595,7 @@ paths:
           --project_id <project_id> \
           --job_id <job_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids":""abcd1234cdef1234abcd1234cdef1234""}' \
+          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
   /projects/{project_id}/jobs/{job_id}/locales/{id}/complete:
     post:
@@ -14165,7 +14165,7 @@ paths:
           phrase job_template_locales create \
           --project_id <project_id> \
           --job_template_id <job_template_id> \
-          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids":""abcd1234cdef1234abcd1234cdef1234"", "reviewer_ids":""abcd1234cdef1234abcd1234cdef1234""}' \
+          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
   /projects/{project_id}/job_templates/{job_template_id}/locales/{job_template_locale_id}:
     delete:
@@ -14500,7 +14500,7 @@ paths:
           --project_id <project_id> \
           --job_template_id <job_template_id> \
           --job_template_locale_id <job_template_locale_id> \
-          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids":""abcd1234cdef1234abcd1234cdef1234"", "reviewer_ids":""abcd1234cdef1234abcd1234cdef1234""}' \
+          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
   /projects/{project_id}/variables:
     get:
@@ -16922,7 +16922,7 @@ paths:
           phrase screenshots update \
           --project_id <project_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "name":""A screenshot name"", "description":""A screenshot description"", "filename":"/path/to/my/screenshot.png"}' \
+          --data '{"branch":"my-feature-branch", "name": "A screenshot name", "description": "A screenshot description", "filename":"/path/to/my/screenshot.png"}' \
           --access_token <token>
   /accounts/{account_id}/glossaries/{glossary_id}/terms:
     get:
@@ -17143,7 +17143,7 @@ paths:
           phrase glossary_terms create \
           --account_id <account_id> \
           --glossary_id <glossary_id> \
-          --data '{"term":"MyCompany", "description":""Use this when refering to our company"", "translatable":"true", "case_sensitive":"true"}' \
+          --data '{"term":"MyCompany", "description": "Use this when refering to our company", "translatable":"true", "case_sensitive":"true"}' \
           --access_token <token>
   /accounts/{account_id}/glossaries/{glossary_id}/terms/{id}:
     delete:
@@ -17447,7 +17447,7 @@ paths:
           --account_id <account_id> \
           --glossary_id <glossary_id> \
           --id <id> \
-          --data '{"term":"MyCompany", "description":""Use this when refering to our company"", "translatable":"true", "case_sensitive":"true"}' \
+          --data '{"term":"MyCompany", "description": "Use this when refering to our company", "translatable":"true", "case_sensitive":"true"}' \
           --access_token <token>
   /projects/{project_id}/tags:
     get:
@@ -18750,7 +18750,7 @@ paths:
         source: |-
           phrase keys create \
           --project_id <project_id> \
-          --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description":""Some description worth knowing..."", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png"}' \
+          --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description": "Some description worth knowing...", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png"}' \
           --access_token <token>
   /projects/{project_id}/keys/search:
     post:
@@ -19247,7 +19247,7 @@ paths:
           phrase keys update \
           --project_id <project_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description":""Some description worth knowing..."", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png"}' \
+          --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description": "Some description worth knowing...", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png"}' \
           --access_token <token>
   /projects/{project_id}/keys/tag:
     patch:
@@ -19981,7 +19981,7 @@ paths:
         source: |-
           phrase orders create \
           --project_id <project_id> \
-          --data '{"branch":"my-feature-branch", "name":"Welcome message translations", "lsp":"textmaster", "source_locale_id":"abcd1234abcd1234abcd1234abcd1234", "target_locale_ids":""1234abcd1234abcd1234abcd1234abcd,abcd1234abcd1234abcd1234abcd1234"", "translation_type":"premium", "tag":"my-awesome-feature", "message":""Please make everything sound really nice :)"", "styleguide_id":"1234abcd1234abcd1234abcd1234abcd", "category":"C021"}' \
+          --data '{"branch":"my-feature-branch", "name":"Welcome message translations", "lsp":"textmaster", "source_locale_id":"abcd1234abcd1234abcd1234abcd1234", "target_locale_ids": "1234abcd1234abcd1234abcd1234abcd,abcd1234abcd1234abcd1234abcd1234", "translation_type":"premium", "tag":"my-awesome-feature", "message": "Please make everything sound really nice :)", "styleguide_id":"1234abcd1234abcd1234abcd1234abcd", "category":"C021"}' \
           --access_token <token>
   /projects/{project_id}/orders/{id}:
     delete:
@@ -20459,7 +20459,7 @@ paths:
         source: |-
           phrase spaces create \
           --account_id <account_id> \
-          --data '{"name":""My Android Projects""}' \
+          --data '{"name": "My Android Projects"}' \
           --access_token <token>
   /accounts/{account_id}/spaces/{id}:
     delete:
@@ -20723,7 +20723,7 @@ paths:
           phrase spaces update \
           --account_id <account_id> \
           --id <id> \
-          --data '{"name":""My Android Projects""}' \
+          --data '{"name": "My Android Projects"}' \
           --access_token <token>
   /accounts/{account_id}/spaces/{space_id}/projects:
     get:
@@ -21207,7 +21207,7 @@ paths:
         source: |-
           phrase teams create \
           --account_id <account_id> \
-          --data '{"name":""German Translators""}' \
+          --data '{"name": "German Translators"}' \
           --access_token <token>
   /accounts/{account_id}/teams/{team_id}:
     delete:
@@ -21471,7 +21471,7 @@ paths:
           phrase teams update \
           --account_id <account_id> \
           --id <id> \
-          --data '{"name":""German Translators""}' \
+          --data '{"name": "German Translators"}' \
           --access_token <token>
   /accounts/{account_id}/teams/{team_id}/projects:
     post:
@@ -22306,7 +22306,7 @@ paths:
         source: |-
           phrase translations create \
           --project_id <project_id> \
-          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "key_id":"abcd1234cdef1234abcd1234cdef1234", "content":""My translation""}' \
+          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "key_id":"abcd1234cdef1234abcd1234cdef1234", "content": "My translation"}' \
           --access_token <token>
   /projects/{project_id}/locales/{locale_id}/translations:
     get:
@@ -22981,7 +22981,7 @@ paths:
           phrase translations update \
           --project_id <project_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "content":""My translation""}' \
+          --data '{"branch":"my-feature-branch", "content": "My translation"}' \
           --access_token <token>
   /projects/{project_id}/translations/{id}/verify:
     patch:
@@ -27364,7 +27364,7 @@ components:
           type: string
         glossary_terms:
           description: List of terms and/or phrases that need to be translated consistently.
-          example: Appartement, cabin, loft
+          example: Apartment, cabin, loft
           type: string
         grammar_consistency:
           description: Formal or informal pronouns, consistent conjugation, grammatical
@@ -27426,7 +27426,7 @@ components:
           type: string
         glossary_terms:
           description: List of terms and/or phrases that need to be translated consistently.
-          example: Appartement, cabin, loft
+          example: Apartment, cabin, loft
           type: string
         grammar_consistency:
           description: Formal or informal pronouns, consistent conjugation, grammatical
@@ -29939,7 +29939,7 @@ components:
     styleguide_details_1:
       example: '{"public_url":"https://phrase.com/styleguide/my-project/26f065cf597be340","audience":"customer-facing","target_audience":"teenager","grammatical_person":"first_person_singular","vocabulary_type":"technical","business":"We
         are a travel site that helps customers find the best hotels and flights.","company_branding":"ACME
-        Inc. should never be translated.","formatting":"Never use capital letters","glossary_terms":"Appartement,
+        Inc. should never be translated.","formatting":"Never use capital letters","glossary_terms":"Apartment,
         cabin, loft","grammar_consistency":"","literal_translation":"Neutral","overall_tone":"Tone
         should be fun and light","samples":"http://www.myexample.com/my/document/path/to/samples.pdf"}'
       properties:
