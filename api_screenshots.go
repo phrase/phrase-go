@@ -5,6 +5,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"os"
 	"strings"
 
 	"github.com/antihax/optional"
@@ -20,7 +21,11 @@ type ScreenshotsApiService service
 
 // ScreenshotCreateOpts Optional parameters for the method 'ScreenshotCreate'
 type ScreenshotCreateOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	Branch        optional.String    `json:"branch,omitempty"`
+	Name          optional.String    `json:"name,omitempty"`
+	Description   optional.String    `json:"description,omitempty"`
+	Filename      optional.Interface `json:"filename,omitempty"`
 }
 
 /*
@@ -28,12 +33,15 @@ ScreenshotCreate Create a screenshot
 Create a new screenshot.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
- * @param screenshotCreateParameters
  * @param optional nil or *ScreenshotCreateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+ * @param "Branch" (optional.String) -  specify the branch to use
+ * @param "Name" (optional.String) -  Name of the screenshot
+ * @param "Description" (optional.String) -  Description of the screenshot
+ * @param "Filename" (optional.Interface of *os.File) -  Screenshot file
 @return Screenshot
 */
-func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, screenshotCreateParameters ScreenshotCreateParameters, localVarOptionals *ScreenshotCreateOpts) (Screenshot, *APIResponse, error) {
+func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, localVarOptionals *ScreenshotCreateOpts) (Screenshot, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -52,7 +60,7 @@ func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId
 	localVarFormParams := _neturl.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{"multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -71,8 +79,30 @@ func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &screenshotCreateParameters
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarFormParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Name.IsSet() {
+		localVarFormParams.Add("name", parameterToString(localVarOptionals.Name.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Description.IsSet() {
+		localVarFormParams.Add("description", parameterToString(localVarOptionals.Description.Value(), ""))
+	}
+	localVarFormFileName = "filename"
+	var localVarFile *os.File
+	if localVarOptionals != nil && localVarOptionals.Filename.IsSet() {
+		localVarFileOk := false
+		localVarFile, localVarFileOk = localVarOptionals.Filename.Value().(*os.File)
+		if !localVarFileOk {
+			return localVarReturnValue, nil, reportError("filename should be *os.File")
+		}
+	}
+	if localVarFile != nil {
+		fbs, _ := _ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
+	}
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

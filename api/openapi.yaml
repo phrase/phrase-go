@@ -16542,7 +16542,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/screenshot_create_parameters'
         content:
-          application/json:
+          multipart/form-data:
             schema:
               properties:
                 branch:
@@ -16622,7 +16622,7 @@ paths:
         source: |-
           phrase screenshots create \
           --project_id <project_id> \
-          --data '{"branch":"my-feature-branch", "name":""A screenshot name"", "description":""A screenshot description"", "filename":"/path/to/my/screenshot.png"}' \
+          --branch "my-feature-branch" --name "A screenshot name" --description "A screenshot description" --filename "/path/to/my/screenshot.png" \
           --access_token <token>
   /projects/{project_id}/screenshots/{id}:
     delete:
@@ -25219,7 +25219,7 @@ components:
       required: true
     screenshot_create_parameters:
       content:
-        application/json:
+        multipart/form-data:
           schema:
             $ref: '#/components/schemas/screenshot_create_parameters'
       required: true

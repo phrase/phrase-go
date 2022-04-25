@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ScreenshotCreate
 
-> Screenshot ScreenshotCreate(ctx, projectId, screenshotCreateParameters, optional)
+> Screenshot ScreenshotCreate(ctx, projectId, optional)
 
 Create a screenshot
 
@@ -27,7 +27,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**screenshotCreateParameters** | [**ScreenshotCreateParameters**](ScreenshotCreateParameters.md)|  | 
  **optional** | ***ScreenshotCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -38,8 +37,11 @@ Optional parameters are passed through a pointer to a ScreenshotCreateOpts struc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **branch** | **optional.String**| specify the branch to use | 
+ **name** | **optional.String**| Name of the screenshot | 
+ **description** | **optional.String**| Description of the screenshot | 
+ **filename** | **optional.Interface of *os.File****optional.*os.File**| Screenshot file | 
 
 ### Return type
 
@@ -51,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
