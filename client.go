@@ -71,6 +71,8 @@ type APIClient struct {
 
 	InvitationsApi *InvitationsApiService
 
+	JobCommentsApi *JobCommentsApiService
+
 	JobLocalesApi *JobLocalesApiService
 
 	JobTemplateLocalesApi *JobTemplateLocalesApiService
@@ -154,6 +156,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.GlossaryTermsApi = (*GlossaryTermsApiService)(&c.common)
 	c.ICUApi = (*ICUApiService)(&c.common)
 	c.InvitationsApi = (*InvitationsApiService)(&c.common)
+	c.JobCommentsApi = (*JobCommentsApiService)(&c.common)
 	c.JobLocalesApi = (*JobLocalesApiService)(&c.common)
 	c.JobTemplateLocalesApi = (*JobTemplateLocalesApiService)(&c.common)
 	c.JobTemplatesApi = (*JobTemplatesApiService)(&c.common)
