@@ -24,8 +24,8 @@ type BlacklistedKeyCreateOpts struct {
 }
 
 /*
-BlacklistedKeyCreate Create a blacklisted key
-Create a new rule for blacklisting keys.
+BlacklistedKeyCreate Create a blocked key
+Create a new rule for blocking keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param blacklistedKeyCreateParameters
@@ -127,8 +127,8 @@ type BlacklistedKeyDeleteOpts struct {
 }
 
 /*
-BlacklistedKeyDelete Delete a blacklisted key
-Delete an existing rule for blacklisting keys.
+BlacklistedKeyDelete Delete a blocked key
+Delete an existing rule for blocking keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
@@ -219,8 +219,8 @@ type BlacklistedKeyShowOpts struct {
 }
 
 /*
-BlacklistedKeyShow Get a single blacklisted key
-Get details on a single rule for blacklisting keys for a given project.
+BlacklistedKeyShow Get a single blocked key
+Get details on a single rule for blocking keys for a given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
@@ -322,8 +322,8 @@ type BlacklistedKeyUpdateOpts struct {
 }
 
 /*
-BlacklistedKeyUpdate Update a blacklisted key
-Update an existing rule for blacklisting keys.
+BlacklistedKeyUpdate Update a blocked key
+Update an existing rule for blocking keys.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param id ID
@@ -431,8 +431,8 @@ type BlacklistedKeysListOpts struct {
 }
 
 /*
-BlacklistedKeysList List blacklisted keys
-List all rules for blacklisting keys for the given project.
+BlacklistedKeysList List blocked keys
+List all rules for blocking keys for the given project.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param projectId Project ID
  * @param optional nil or *BlacklistedKeysListOpts - Optional Parameters:

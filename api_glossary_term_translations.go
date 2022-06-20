@@ -24,8 +24,8 @@ type GlossaryTermTranslationCreateOpts struct {
 }
 
 /*
-GlossaryTermTranslationCreate Create a glossary term translation
-Create a new glossary term translation.
+GlossaryTermTranslationCreate Create a translation for a term
+Create a new translation for a term in a term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -133,8 +133,8 @@ type GlossaryTermTranslationDeleteOpts struct {
 }
 
 /*
-GlossaryTermTranslationDelete Delete a glossary term translation
-Delete an existing glossary term translation.
+GlossaryTermTranslationDelete Delete a translation for a term
+Delete an existing translation of a term in a term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -231,8 +231,8 @@ type GlossaryTermTranslationUpdateOpts struct {
 }
 
 /*
-GlossaryTermTranslationUpdate Update a glossary term translation
-Update an existing glossary term translation.
+GlossaryTermTranslationUpdate Update a translation for a term
+Update an existing translation for a term in a term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID

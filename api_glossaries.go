@@ -26,8 +26,8 @@ type GlossariesListOpts struct {
 }
 
 /*
-GlossariesList List glossaries
-List all glossaries the current user has access to.
+GlossariesList List term bases
+List all term bases (previously: glossaries) the current user has access to.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param optional nil or *GlossariesListOpts - Optional Parameters:
@@ -134,8 +134,8 @@ type GlossaryCreateOpts struct {
 }
 
 /*
-GlossaryCreate Create a glossary
-Create a new glossary.
+GlossaryCreate Create a term base
+Create a new term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryCreateParameters
@@ -237,8 +237,8 @@ type GlossaryDeleteOpts struct {
 }
 
 /*
-GlossaryDelete Delete a glossary
-Delete an existing glossary.
+GlossaryDelete Delete a term base
+Delete an existing term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param id ID
@@ -329,8 +329,8 @@ type GlossaryShowOpts struct {
 }
 
 /*
-GlossaryShow Get a single glossary
-Get details on a single glossary.
+GlossaryShow Get a single term base
+Get details on a single term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param id ID
@@ -432,8 +432,8 @@ type GlossaryUpdateOpts struct {
 }
 
 /*
-GlossaryUpdate Update a glossary
-Update an existing glossary.
+GlossaryUpdate Update a term base
+Update an existing term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param id ID

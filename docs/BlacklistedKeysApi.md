@@ -4,11 +4,11 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BlacklistedKeyCreate**](BlacklistedKeysApi.md#BlacklistedKeyCreate) | **Post** /projects/{project_id}/blacklisted_keys | Create a blacklisted key
-[**BlacklistedKeyDelete**](BlacklistedKeysApi.md#BlacklistedKeyDelete) | **Delete** /projects/{project_id}/blacklisted_keys/{id} | Delete a blacklisted key
-[**BlacklistedKeyShow**](BlacklistedKeysApi.md#BlacklistedKeyShow) | **Get** /projects/{project_id}/blacklisted_keys/{id} | Get a single blacklisted key
-[**BlacklistedKeyUpdate**](BlacklistedKeysApi.md#BlacklistedKeyUpdate) | **Patch** /projects/{project_id}/blacklisted_keys/{id} | Update a blacklisted key
-[**BlacklistedKeysList**](BlacklistedKeysApi.md#BlacklistedKeysList) | **Get** /projects/{project_id}/blacklisted_keys | List blacklisted keys
+[**BlacklistedKeyCreate**](BlacklistedKeysApi.md#BlacklistedKeyCreate) | **Post** /projects/{project_id}/blacklisted_keys | Create a blocked key
+[**BlacklistedKeyDelete**](BlacklistedKeysApi.md#BlacklistedKeyDelete) | **Delete** /projects/{project_id}/blacklisted_keys/{id} | Delete a blocked key
+[**BlacklistedKeyShow**](BlacklistedKeysApi.md#BlacklistedKeyShow) | **Get** /projects/{project_id}/blacklisted_keys/{id} | Get a single blocked key
+[**BlacklistedKeyUpdate**](BlacklistedKeysApi.md#BlacklistedKeyUpdate) | **Patch** /projects/{project_id}/blacklisted_keys/{id} | Update a blocked key
+[**BlacklistedKeysList**](BlacklistedKeysApi.md#BlacklistedKeysList) | **Get** /projects/{project_id}/blacklisted_keys | List blocked keys
 
 
 
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 
 > BlacklistedKey BlacklistedKeyCreate(ctx, projectId, blacklistedKeyCreateParameters, optional)
 
-Create a blacklisted key
+Create a blocked key
 
-Create a new rule for blacklisting keys.
+Create a new rule for blocking keys.
 
 ### Required Parameters
 
@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
 
 > BlacklistedKeyDelete(ctx, projectId, id, optional)
 
-Delete a blacklisted key
+Delete a blocked key
 
-Delete an existing rule for blacklisting keys.
+Delete an existing rule for blocking keys.
 
 ### Required Parameters
 
@@ -110,9 +110,9 @@ Name | Type | Description  | Notes
 
 > BlacklistedKey BlacklistedKeyShow(ctx, projectId, id, optional)
 
-Get a single blacklisted key
+Get a single blocked key
 
-Get details on a single rule for blacklisting keys for a given project.
+Get details on a single rule for blocking keys for a given project.
 
 ### Required Parameters
 
@@ -157,9 +157,9 @@ Name | Type | Description  | Notes
 
 > BlacklistedKey BlacklistedKeyUpdate(ctx, projectId, id, blacklistedKeyUpdateParameters, optional)
 
-Update a blacklisted key
+Update a blocked key
 
-Update an existing rule for blacklisting keys.
+Update an existing rule for blocking keys.
 
 ### Required Parameters
 
@@ -206,9 +206,9 @@ Name | Type | Description  | Notes
 
 > []BlacklistedKey BlacklistedKeysList(ctx, projectId, optional)
 
-List blacklisted keys
+List blocked keys
 
-List all rules for blacklisting keys for the given project.
+List all rules for blocking keys for the given project.
 
 ### Required Parameters
 

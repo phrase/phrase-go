@@ -24,8 +24,8 @@ type GlossaryTermCreateOpts struct {
 }
 
 /*
-GlossaryTermCreate Create a glossary term
-Create a new glossary term.
+GlossaryTermCreate Create a term
+Create a new term in a term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -130,8 +130,8 @@ type GlossaryTermDeleteOpts struct {
 }
 
 /*
-GlossaryTermDelete Delete a glossary term
-Delete an existing glossary term.
+GlossaryTermDelete Delete a term
+Delete an existing term in a term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -225,8 +225,8 @@ type GlossaryTermShowOpts struct {
 }
 
 /*
-GlossaryTermShow Get a single glossary term
-Get details on a single glossary term.
+GlossaryTermShow Get a single term
+Get details for a single term in the term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -331,8 +331,8 @@ type GlossaryTermUpdateOpts struct {
 }
 
 /*
-GlossaryTermUpdate Update a glossary term
-Update an existing glossary term.
+GlossaryTermUpdate Update a term
+Update an existing term in a term base (previously: glossary).
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID
@@ -442,8 +442,8 @@ type GlossaryTermsListOpts struct {
 }
 
 /*
-GlossaryTermsList List glossary terms
-List all glossary terms the current user has access to.
+GlossaryTermsList List terms
+List all terms in term bases (previously: glossary) that the current user has access to.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId Account ID
  * @param glossaryId Glossary ID

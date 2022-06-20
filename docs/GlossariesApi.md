@@ -4,11 +4,11 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GlossariesList**](GlossariesApi.md#GlossariesList) | **Get** /accounts/{account_id}/glossaries | List glossaries
-[**GlossaryCreate**](GlossariesApi.md#GlossaryCreate) | **Post** /accounts/{account_id}/glossaries | Create a glossary
-[**GlossaryDelete**](GlossariesApi.md#GlossaryDelete) | **Delete** /accounts/{account_id}/glossaries/{id} | Delete a glossary
-[**GlossaryShow**](GlossariesApi.md#GlossaryShow) | **Get** /accounts/{account_id}/glossaries/{id} | Get a single glossary
-[**GlossaryUpdate**](GlossariesApi.md#GlossaryUpdate) | **Patch** /accounts/{account_id}/glossaries/{id} | Update a glossary
+[**GlossariesList**](GlossariesApi.md#GlossariesList) | **Get** /accounts/{account_id}/glossaries | List term bases
+[**GlossaryCreate**](GlossariesApi.md#GlossaryCreate) | **Post** /accounts/{account_id}/glossaries | Create a term base
+[**GlossaryDelete**](GlossariesApi.md#GlossaryDelete) | **Delete** /accounts/{account_id}/glossaries/{id} | Delete a term base
+[**GlossaryShow**](GlossariesApi.md#GlossaryShow) | **Get** /accounts/{account_id}/glossaries/{id} | Get a single term base
+[**GlossaryUpdate**](GlossariesApi.md#GlossaryUpdate) | **Patch** /accounts/{account_id}/glossaries/{id} | Update a term base
 
 
 
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 
 > []Glossary GlossariesList(ctx, accountId, optional)
 
-List glossaries
+List term bases
 
-List all glossaries the current user has access to.
+List all term bases (previously: glossaries) the current user has access to.
 
 ### Required Parameters
 
@@ -63,9 +63,9 @@ Name | Type | Description  | Notes
 
 > Glossary GlossaryCreate(ctx, accountId, glossaryCreateParameters, optional)
 
-Create a glossary
+Create a term base
 
-Create a new glossary.
+Create a new term base (previously: glossary).
 
 ### Required Parameters
 
@@ -110,9 +110,9 @@ Name | Type | Description  | Notes
 
 > GlossaryDelete(ctx, accountId, id, optional)
 
-Delete a glossary
+Delete a term base
 
-Delete an existing glossary.
+Delete an existing term base (previously: glossary).
 
 ### Required Parameters
 
@@ -157,9 +157,9 @@ Name | Type | Description  | Notes
 
 > Glossary GlossaryShow(ctx, accountId, id, optional)
 
-Get a single glossary
+Get a single term base
 
-Get details on a single glossary.
+Get details on a single term base (previously: glossary).
 
 ### Required Parameters
 
@@ -204,9 +204,9 @@ Name | Type | Description  | Notes
 
 > Glossary GlossaryUpdate(ctx, accountId, id, glossaryUpdateParameters, optional)
 
-Update a glossary
+Update a term base
 
-Update an existing glossary.
+Update an existing term base (previously: glossary).
 
 ### Required Parameters
 
