@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Rtl** | **bool** |  | [optional] 
 **PluralForms** | **[]string** |  | [optional] 
 **SourceLocale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
+**FallbackLocale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **Statistics** | [**LocaleStatistics**](locale_statistics.md) |  | [optional] 

@@ -16,6 +16,8 @@ type LocaleUpdateParameters struct {
 	Rtl *bool `json:"rtl,omitempty"`
 	// Source locale. Can be the name or public id of the locale. Preferred is the public id.
 	SourceLocaleId string `json:"source_locale_id,omitempty"`
+	// Fallback locale for empty translations. Can be a locale name or id.
+	FallbackLocaleId string `json:"fallback_locale_id,omitempty"`
 	// Indicates that new translations for this locale should be marked as unverified. Part of the <a href=\"https://help.phrase.com/help/verification-and-proofreading\" target=\"_blank\">Advanced Workflows</a> feature.
 	UnverifyNewTranslations *bool `json:"unverify_new_translations,omitempty"`
 	// Indicates that updated translations for this locale should be marked as unverified. Part of the <a href=\"https://help.phrase.com/help/verification-and-proofreading\" target=\"_blank\">Advanced Workflows</a> feature.

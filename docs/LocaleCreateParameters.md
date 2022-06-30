@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Main** | **bool** | Indicates whether locale is a main locale. Main locales are part of the &lt;a href&#x3D;\&quot;https://help.phrase.com/help/verification-and-proofreading\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Verification System&lt;/a&gt; feature. | [optional] 
 **Rtl** | **bool** | Indicates whether locale is a RTL (Right-to-Left) locale. | [optional] 
 **SourceLocaleId** | **string** | Source locale. Can be the name or public id of the locale. Preferred is the public id. | [optional] 
+**FallbackLocaleId** | **string** | Fallback locale for empty translations. Can be a locale name or id. | [optional] 
 **UnverifyNewTranslations** | **bool** | Indicates that new translations for this locale should be marked as unverified. Part of the &lt;a href&#x3D;\&quot;https://help.phrase.com/help/verification-and-proofreading\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Advanced Workflows&lt;/a&gt; feature. | [optional] 
 **UnverifyUpdatedTranslations** | **bool** | Indicates that updated translations for this locale should be marked as unverified. Part of the &lt;a href&#x3D;\&quot;https://help.phrase.com/help/verification-and-proofreading\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Advanced Workflows&lt;/a&gt; feature. | [optional] 
 **Autotranslate** | **bool** | If set, translations for this locale will be fetched automatically, right after creation. | [optional] 

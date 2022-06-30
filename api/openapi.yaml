@@ -4212,6 +4212,11 @@ paths:
                     locale. Preferred is the public id.
                   example: abcd1234abcd1234abcd1234abcd1234
                   type: string
+                fallback_locale_id:
+                  description: Fallback locale for empty translations. Can be a locale
+                    name or id.
+                  example: abcd1234abcd1234abcd1234abcd1234
+                  type: string
                 unverify_new_translations:
                   description: Indicates that new translations for this locale should
                     be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
@@ -4279,13 +4284,13 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/locales" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
-            -d '{"branch":"my-feature-branch","name":"de","code":"de-DE","source_locale_id":"abcd1234abcd1234abcd1234abcd1234"}' \
+            -d '{"branch":"my-feature-branch","name":"de","code":"de-DE","source_locale_id":"abcd1234abcd1234abcd1234abcd1234", "fallback_locale_id":"abcd1234abcd1234abcd1234abcd1234"}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase locales create \
           --project_id <project_id> \
-          --data '{"branch":"my-feature-branch", "name":"de", "code":"de-DE", "source_locale_id":"abcd1234abcd1234abcd1234abcd1234"}' \
+          --data '{"branch":"my-feature-branch", "name":"de", "code":"de-DE", "source_locale_id":"abcd1234abcd1234abcd1234abcd1234", "fallback_locale_id":"abcd1234abcd1234abcd1234abcd1234"}' \
           --access_token <token>
   /projects/{project_id}/locales/{id}:
     delete:
@@ -4535,6 +4540,11 @@ paths:
                 source_locale_id:
                   description: Source locale. Can be the name or public id of the
                     locale. Preferred is the public id.
+                  example: abcd1234abcd1234abcd1234abcd1234
+                  type: string
+                fallback_locale_id:
+                  description: Fallback locale for empty translations. Can be a locale
+                    name or id.
                   example: abcd1234abcd1234abcd1234abcd1234
                   type: string
                 unverify_new_translations:
@@ -5015,6 +5025,11 @@ paths:
                     is available for platform <code>android</code>.
                   example: '{xml:{enclose_in_cdata:''1''}}'
                   type: object
+                fallback_locales_enabled:
+                  description: Use fallback locale if there is no translation in the
+                    current locale.
+                  example: true
+                  type: boolean
                 fallback_to_non_regional_locale:
                   description: Indicates whether to fallback to non regional locale
                     when locale can not be found
@@ -5321,6 +5336,11 @@ paths:
                     is available for platform <code>android</code>.
                   example: '{xml:{enclose_in_cdata:''1''}}'
                   type: object
+                fallback_locales_enabled:
+                  description: Use fallback locale if there is no translation in the
+                    current locale.
+                  example: true
+                  type: boolean
                 fallback_to_non_regional_locale:
                   description: Indicates whether to fallback to non regional locale
                     when locale can not be found
@@ -26655,6 +26675,10 @@ components:
           id: abcd1234cdef1234abcd1234cdef1234
           name: en
           code: en-GB
+        fallback_locale:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: en
+          code: en-GB
         created_at: 2015-01-28T09:52:53Z
         updated_at: 2015-01-28T09:52:53Z
       properties:
@@ -26675,6 +26699,8 @@ components:
             type: string
           type: array
         source_locale:
+          $ref: '#/components/schemas/locale_preview'
+        fallback_locale:
           $ref: '#/components/schemas/locale_preview'
         created_at:
           format: date-time
@@ -28169,6 +28195,11 @@ components:
             Preferred is the public id.
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
+        fallback_locale_id:
+          description: Fallback locale for empty translations. Can be a locale name
+            or id.
+          example: abcd1234abcd1234abcd1234abcd1234
+          type: string
         unverify_new_translations:
           description: Indicates that new translations for this locale should be marked
             as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
@@ -28214,6 +28245,11 @@ components:
         source_locale_id:
           description: Source locale. Can be the name or public id of the locale.
             Preferred is the public id.
+          example: abcd1234abcd1234abcd1234abcd1234
+          type: string
+        fallback_locale_id:
+          description: Fallback locale for empty translations. Can be a locale name
+            or id.
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
         unverify_new_translations:
@@ -28265,6 +28301,11 @@ components:
             is available for platform <code>android</code>.
           example: '{xml:{enclose_in_cdata:''1''}}'
           type: object
+        fallback_locales_enabled:
+          description: Use fallback locale if there is no translation in the current
+            locale.
+          example: true
+          type: boolean
         fallback_to_non_regional_locale:
           description: Indicates whether to fallback to non regional locale when locale
             can not be found
@@ -28314,6 +28355,11 @@ components:
             is available for platform <code>android</code>.
           example: '{xml:{enclose_in_cdata:''1''}}'
           type: object
+        fallback_locales_enabled:
+          description: Use fallback locale if there is no translation in the current
+            locale.
+          example: true
+          type: boolean
         fallback_to_non_regional_locale:
           description: Indicates whether to fallback to non regional locale when locale
             can not be found
