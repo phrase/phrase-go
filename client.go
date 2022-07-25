@@ -121,6 +121,8 @@ type APIClient struct {
 
 	VersionsHistoryApi *VersionsHistoryApiService
 
+	WebhookDeliveriesApi *WebhookDeliveriesApiService
+
 	WebhooksApi *WebhooksApiService
 }
 
@@ -181,6 +183,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.UsersApi = (*UsersApiService)(&c.common)
 	c.VariablesApi = (*VariablesApiService)(&c.common)
 	c.VersionsHistoryApi = (*VersionsHistoryApiService)(&c.common)
+	c.WebhookDeliveriesApi = (*WebhookDeliveriesApiService)(&c.common)
 	c.WebhooksApi = (*WebhooksApiService)(&c.common)
 
 	return c

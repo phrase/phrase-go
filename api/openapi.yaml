@@ -1633,6 +1633,7 @@ tags:
 - name: Variables
 - name: Versions / History
 - name: Webhooks
+- name: Webhook Deliveries
 paths:
   /icu/skeleton:
     post:
@@ -25145,6 +25146,293 @@ paths:
           --job_id <job_id> \
           --data '{"message": "Some message..."}' \
           --access_token <token>
+  /projects/{project_id}/webhooks/{webhook_id}/deliveries:
+    get:
+      description: List all webhook deliveries for the given webhook_id.
+      operationId: webhook_deliveries/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Webhook ID
+        explode: false
+        in: path
+        name: webhook_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: List of Response Status Codes
+        explode: true
+        in: query
+        name: response_status_codes
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/webhook_delivery'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List webhook deliveries
+      tags:
+      - Webhook Deliveries
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/webhooks/:webhook_id/deliveries?response_status_codes=401%2C404" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase webhooks list \
+          --project_id <project_id> \
+          --webhook_id <webhook_id> \
+          --access_token <token>
+  /projects/{project_id}/webhooks/{webhook_id}/deliveries/{id}:
+    get:
+      description: Get all information about a single webhook delivery for the given
+        ID.
+      operationId: webhook_deliveries/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Webhook ID
+        explode: false
+        in: path
+        name: webhook_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/webhook_delivery'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single webhook delivery
+      tags:
+      - Webhook Deliveries
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/webhooks/:webhook_id/deliveries/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase webhook deliveries show \
+          --project_id <project_id> \
+          --webhook_id <webhook_id> \
+          --id <delivery_id> \
+          --access_token <token>
+  /projects/{project_id}/webhooks/{webhook_id}/deliveries/{id}/redeliver:
+    post:
+      description: Trigger an individual webhook delivery to be redelivered.
+      operationId: webhook_deliveries/redeliver
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Webhook ID
+        explode: false
+        in: path
+        name: webhook_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/webhook_delivery'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Redeliver a single webhook delivery
+      tags:
+      - Webhook Deliveries
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/webhooks/:webhook_id/deliveries/:id/redeliver" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase webhook deliveries show \
+          --project_id <project_id> \
+          --webhook_id <webhook_id> \
+          --id <delivery_id> \
+          --access_token <token>
 components:
   headers:
     Link:
@@ -25374,6 +25662,24 @@ components:
       required: false
       schema:
         type: integer
+      style: form
+    webhook_id:
+      description: Webhook ID
+      explode: false
+      in: path
+      name: webhook_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    response_status_codes:
+      description: List of Response Status Codes
+      explode: true
+      in: query
+      name: response_status_codes
+      required: false
+      schema:
+        type: string
       style: form
   requestBodies:
     member_update_settings_parameters:
@@ -27221,6 +27527,35 @@ components:
           format: date-time
           type: string
       title: webhook
+      type: object
+    webhook_delivery:
+      example:
+        duration_ms: 6
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        webhook_id: webhook_id
+        created_at: 2000-01-23T04:56:07.000+00:00
+        id: id
+        delivered_at: 2000-01-23T04:56:07.000+00:00
+        response_status_code: 0
+      properties:
+        id:
+          type: string
+        webhook_id:
+          type: string
+        response_status_code:
+          type: integer
+        delivered_at:
+          format: date-time
+          type: string
+        duration_ms:
+          type: integer
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: webhook delivery
       type: object
     space:
       example:
