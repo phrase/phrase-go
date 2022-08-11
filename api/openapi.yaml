@@ -27234,6 +27234,7 @@ components:
           type: string
         content:
           type: string
+          x-json-tag: json:"content"
         unverified:
           type: boolean
         excluded:

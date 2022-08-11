@@ -7,7 +7,7 @@ import (
 // TranslationDetails struct for TranslationDetails
 type TranslationDetails struct {
 	Id           string        `json:"id,omitempty"`
-	Content      string        `json:"content,omitempty"`
+	Content      string        `json:"content"`
 	Unverified   *bool         `json:"unverified,omitempty"`
 	Excluded     *bool         `json:"excluded,omitempty"`
 	PluralSuffix string        `json:"plural_suffix,omitempty"`
