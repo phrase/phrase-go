@@ -118,8 +118,8 @@ type GitlabSyncExportOpts struct {
 }
 
 /*
-GitlabSyncExport Export from Phrase to GitLab
-Export translations from Phrase to GitLab according to the .phraseapp.yml file within the GitLab repository.
+GitlabSyncExport Export from Phrase Strings to GitLab
+Export translations from Phrase Strings to GitLab according to the .phraseapp.yml file within the GitLab repository.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param gitlabSyncId Gitlab Sync ID
  * @param gitlabSyncExportParameters
@@ -337,7 +337,7 @@ type GitlabSyncImportOpts struct {
 
 /*
 GitlabSyncImport Import from GitLab to Phrase
-Import translations from GitLab to Phrase according to the .phraseapp.yml file within the GitLab repository.
+Import translations from GitLab to Phrase Strings according to the .phraseapp.yml file within the GitLab repository.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param gitlabSyncId Gitlab Sync ID
  * @param gitlabSyncImportParameters
@@ -441,7 +441,7 @@ type GitlabSyncListOpts struct {
 
 /*
 GitlabSyncList List GitLab syncs
-List all GitLab Sync Settings for which synchronisation with Phrase and GitLab is activated.
+List all GitLab Sync Settings for which synchronisation with Phrase Strings and GitLab is activated.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *GitlabSyncListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
@@ -657,7 +657,7 @@ Updates a single GitLab Sync Setting.
  * @param optional nil or *GitlabSyncUpdateOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
  * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
- * @param "PhraseProjectCode" (optional.String) -  Code of the related Phrase Project.
+ * @param "PhraseProjectCode" (optional.String) -  Code of the related Phrase Strings Project.
  * @param "GitlabProjectId" (optional.Int32) -  ID of the related GitLab Project.
  * @param "GitlabBranchName" (optional.String) -  Name of the GitLab Branch.
 @return GitlabSync

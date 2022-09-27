@@ -24,8 +24,8 @@ type BitbucketSyncExportOpts struct {
 }
 
 /*
-BitbucketSyncExport Export from Phrase to Bitbucket
-Export translations from Phrase to Bitbucket according to the .phraseapp.yml file within the Bitbucket Repository.
+BitbucketSyncExport Export from Phrase Strings to Bitbucket
+Export translations from Phrase Strings to Bitbucket according to the .phraseapp.yml file within the Bitbucket Repository.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
  * @param bitbucketSyncExportParameters
@@ -127,8 +127,8 @@ type BitbucketSyncImportOpts struct {
 }
 
 /*
-BitbucketSyncImport Import to Phrase from Bitbucket
-Import translations from Bitbucket to Phrase according to the .phraseapp.yml file within the Bitbucket repository.
+BitbucketSyncImport Import to Phrase Strings from Bitbucket
+Import translations from Bitbucket to Phrase Strings according to the .phraseapp.yml file within the Bitbucket repository.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID
  * @param bitbucketSyncImportParameters
@@ -221,7 +221,7 @@ type BitbucketSyncsListOpts struct {
 
 /*
 BitbucketSyncsList List Bitbucket syncs
-List all Bitbucket repositories for which synchronisation with Phrase is activated.
+List all Bitbucket repositories for which synchronisation with Phrase Strings is activated.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *BitbucketSyncsListOpts - Optional Parameters:
  * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)

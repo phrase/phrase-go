@@ -5,7 +5,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GitlabSyncDelete**](GitLabSyncApi.md#GitlabSyncDelete) | **Delete** /gitlab_syncs/{id} | Delete single Sync Setting
-[**GitlabSyncExport**](GitLabSyncApi.md#GitlabSyncExport) | **Post** /gitlab_syncs/{gitlab_sync_id}/export | Export from Phrase to GitLab
+[**GitlabSyncExport**](GitLabSyncApi.md#GitlabSyncExport) | **Post** /gitlab_syncs/{gitlab_sync_id}/export | Export from Phrase Strings to GitLab
 [**GitlabSyncHistory**](GitLabSyncApi.md#GitlabSyncHistory) | **Get** /gitlab_syncs/{gitlab_sync_id}/history | History of single Sync Setting
 [**GitlabSyncImport**](GitLabSyncApi.md#GitlabSyncImport) | **Post** /gitlab_syncs/{gitlab_sync_id}/import | Import from GitLab to Phrase
 [**GitlabSyncList**](GitLabSyncApi.md#GitlabSyncList) | **Get** /gitlab_syncs | List GitLab syncs
@@ -64,9 +64,9 @@ Name | Type | Description  | Notes
 
 > GitlabSyncExport GitlabSyncExport(ctx, gitlabSyncId, gitlabSyncExportParameters, optional)
 
-Export from Phrase to GitLab
+Export from Phrase Strings to GitLab
 
-Export translations from Phrase to GitLab according to the .phraseapp.yml file within the GitLab repository.
+Export translations from Phrase Strings to GitLab according to the .phraseapp.yml file within the GitLab repository.
 
 ### Required Parameters
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 Import from GitLab to Phrase
 
-Import translations from GitLab to Phrase according to the .phraseapp.yml file within the GitLab repository.
+Import translations from GitLab to Phrase Strings according to the .phraseapp.yml file within the GitLab repository.
 
 ### Required Parameters
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 List GitLab syncs
 
-List all GitLab Sync Settings for which synchronisation with Phrase and GitLab is activated.
+List all GitLab Sync Settings for which synchronisation with Phrase Strings and GitLab is activated.
 
 ### Required Parameters
 
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **accountId** | **optional.String**| Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. | 
- **phraseProjectCode** | **optional.String**| Code of the related Phrase Project. | 
+ **phraseProjectCode** | **optional.String**| Code of the related Phrase Strings Project. | 
  **gitlabProjectId** | **optional.Int32**| ID of the related GitLab Project. | 
  **gitlabBranchName** | **optional.String**| Name of the GitLab Branch. | 
 

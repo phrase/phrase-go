@@ -4,8 +4,8 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BitbucketSyncExport**](BitbucketSyncApi.md#BitbucketSyncExport) | **Post** /bitbucket_syncs/{id}/export | Export from Phrase to Bitbucket
-[**BitbucketSyncImport**](BitbucketSyncApi.md#BitbucketSyncImport) | **Post** /bitbucket_syncs/{id}/import | Import to Phrase from Bitbucket
+[**BitbucketSyncExport**](BitbucketSyncApi.md#BitbucketSyncExport) | **Post** /bitbucket_syncs/{id}/export | Export from Phrase Strings to Bitbucket
+[**BitbucketSyncImport**](BitbucketSyncApi.md#BitbucketSyncImport) | **Post** /bitbucket_syncs/{id}/import | Import to Phrase Strings from Bitbucket
 [**BitbucketSyncsList**](BitbucketSyncApi.md#BitbucketSyncsList) | **Get** /bitbucket_syncs | List Bitbucket syncs
 
 
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 
 > BitbucketSyncExportResponse BitbucketSyncExport(ctx, id, bitbucketSyncExportParameters, optional)
 
-Export from Phrase to Bitbucket
+Export from Phrase Strings to Bitbucket
 
-Export translations from Phrase to Bitbucket according to the .phraseapp.yml file within the Bitbucket Repository.
+Export translations from Phrase Strings to Bitbucket according to the .phraseapp.yml file within the Bitbucket Repository.
 
 ### Required Parameters
 
@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
 
 > BitbucketSyncImport(ctx, id, bitbucketSyncImportParameters, optional)
 
-Import to Phrase from Bitbucket
+Import to Phrase Strings from Bitbucket
 
-Import translations from Bitbucket to Phrase according to the .phraseapp.yml file within the Bitbucket repository.
+Import translations from Bitbucket to Phrase Strings according to the .phraseapp.yml file within the Bitbucket repository.
 
 ### Required Parameters
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 List Bitbucket syncs
 
-List all Bitbucket repositories for which synchronisation with Phrase is activated.
+List all Bitbucket repositories for which synchronisation with Phrase Strings is activated.
 
 ### Required Parameters
 

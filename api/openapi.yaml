@@ -5,7 +5,7 @@ info:
     name: Phrase Support
     url: https://developers.phrase.com/api/
   description: |
-    Phrase is a translation management platform for software projects. You can collaborate on language file translation with your team or order translations through our platform. The API allows you to import locale files, download locale files, tag keys or interact in other ways with the localization data stored in Phrase for your account.
+    Phrase Strings is a translation management platform for software projects. You can collaborate on language file translation with your team or order translations through our platform. The API allows you to import locale files, download locale files, tag keys or interact in other ways with the localization data stored in Phrase Strings for your account.
 
     ## API Endpoints
 
@@ -25,11 +25,11 @@ info:
 
     ## Usage
 
-    [curl](http://curl.haxx.se/) is used primarily to send requests to Phrase in the examples. On most you'll find a second variant using the [Phrase API v2 client](https://phrase.com/cli/) that might be more convenient to handle. For further information check its [documentation](https://help.phrase.com/help/phrase-in-your-terminal).
+    [curl](http://curl.haxx.se/) is used primarily to send requests to Phrase Strings in the examples. On most you'll find a second variant using the [Phrase Strings API v2 client](https://phrase.com/cli/) that might be more convenient to handle. For further information check its [documentation](https://support.phrase.com/hc/en-us/articles/5808300599068).
 
     ## Use of HTTP Verbs
 
-    Phrase API v2 tries to use the appropriate HTTP verb for accessing each endpoint according to REST specification where possible:
+    Phrase Strings API v2 tries to use the appropriate HTTP verb for accessing each endpoint according to REST specification where possible:
 
     <div class="table-responsive">
       <table class="basic-table">
@@ -346,7 +346,7 @@ info:
 
     ## JSONP
 
-    The Phrase API supports [JSONP](http://en.wikipedia.org/wiki/JSONP) for all GET requests in order to deal with cross-domain request issues. Just send a `?callback` parameter along with the request to specify the Javascript function name to be called with the response content:
+    The Phrase Strings API supports [JSONP](http://en.wikipedia.org/wiki/JSONP) for all GET requests in order to deal with cross-domain request issues. Just send a `?callback` parameter along with the request to specify the Javascript function name to be called with the response content:
 
     ```
     $ curl "https://api.phrase.com/v2/projects?callback=myFunction"
@@ -385,7 +385,7 @@ info:
 
     ## Usage examples
 
-    Learn how to work more efficiently with Phrase API v2 with these
+    Learn how to work more efficiently with Phrase Strings API v2 with these
     workflow-oriented examples.
 
     </div>
@@ -1410,12 +1410,12 @@ info:
     name: MIT
     url: https://choosealicense.com/licenses/mit/
   termsOfService: https://phrase.com/terms/
-  title: Phrase API Reference
+  title: Phrase Strings API Reference
   version: 2.0.0
   x-logo:
-    url: https://developers.phrase.com/images/phrase-logo.png
-    backgroundColor: '#0091eb'
-    altText: Phrase
+    url: https://developers.phrase.com/images/phrase-logo.svg
+    backgroundColor: '#03eab3'
+    altText: Phrase Strings
 servers:
 - url: https://api.phrase.com/v2
 security:
@@ -1514,7 +1514,7 @@ tags:
 - name: Glossary Term Translations
 - name: ICU
 - description: |
-    With the invitation endpoint you can [manage and invite users](https://help.phrase.com/help/user-management) to Phrase via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
+    With the invitation endpoint you can [manage and invite users](https://support.phrase.com/hc/en-us/articles/5709742418716) to Phrase Strings via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
   name: Invitations
 - name: Job Comments
 - name: Job Locales
@@ -1524,7 +1524,7 @@ tags:
 - name: Keys
 - name: Locales
 - description: |
-    With the members endpoints you can do basic [team and user management](https://help.phrase.com/help/user-management) via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
+    With the members endpoints you can do basic [team and user management](https://support.phrase.com/hc/en-us/articles/5709742418716) via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
   name: Members
 - name: Notifications
 - name: Notification Groups
@@ -1592,7 +1592,7 @@ tags:
 - description: |
     ### Formats
 
-    We support all common localization file formats. For a detailed overview, see our [Format Guide](https://help.phrase.com/help/supported-platforms-and-formats).
+    We support all common localization file formats. For a detailed overview, see our [Format Guide](https://support.phrase.com/hc/en-us/articles/5784070560412).
 
     ### Processing
 
@@ -4210,7 +4210,7 @@ paths:
                   type: boolean
                 main:
                   description: Indicates whether locale is a main locale. Main locales
-                    are part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+                    are part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
                     target="_blank">Verification System</a> feature.
                   type: boolean
                 rtl:
@@ -4228,12 +4228,12 @@ paths:
                   type: string
                 unverify_new_translations:
                   description: Indicates that new translations for this locale should
-                    be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+                    be marked as unverified. Part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
                     target="_blank">Advanced Workflows</a> feature.
                   type: boolean
                 unverify_updated_translations:
                   description: Indicates that updated translations for this locale
-                    should be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+                    should be marked as unverified. Part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
                     target="_blank">Advanced Workflows</a> feature.
                   type: boolean
                 autotranslate:
@@ -4540,7 +4540,7 @@ paths:
                   type: boolean
                 main:
                   description: Indicates whether locale is a main locale. Main locales
-                    are part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+                    are part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
                     target="_blank">Verification System</a> feature.
                   type: boolean
                 rtl:
@@ -4558,12 +4558,12 @@ paths:
                   type: string
                 unverify_new_translations:
                   description: Indicates that new translations for this locale should
-                    be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+                    be marked as unverified. Part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
                     target="_blank">Advanced Workflows</a> feature.
                   type: boolean
                 unverify_updated_translations:
                   description: Indicates that updated translations for this locale
-                    should be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+                    should be marked as unverified. Part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
                     target="_blank">Advanced Workflows</a> feature.
                   type: boolean
                 autotranslate:
@@ -4670,7 +4670,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: File format name. See the <a href="https://help.phrase.com/help/supported-platforms-and-formats">format
+      - description: File format name. See the <a href="https://support.phrase.com/hc/en-us/articles/5784070560412">format
           guide</a> for all supported file formats.
         example: yml
         explode: true
@@ -4747,7 +4747,7 @@ paths:
         schema:
           type: boolean
         style: form
-      - description: 'Additional formatting and render options. See the <a href="https://help.phrase.com/help/supported-platforms-and-formats">format
+      - description: 'Additional formatting and render options. See the <a href="https://support.phrase.com/hc/en-us/articles/5784070560412">format
           guide</a> for a list of options available for each format. Specify format
           options like this: <code>...&format_options[foo]=bar</code>'
         explode: true
@@ -8908,7 +8908,7 @@ paths:
   /bitbucket_syncs:
     get:
       description: List all Bitbucket repositories for which synchronisation with
-        Phrase is activated.
+        Phrase Strings is activated.
       operationId: bitbucket_syncs/list
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -8989,8 +8989,8 @@ paths:
           --access_token <token>
   /bitbucket_syncs/{id}/export:
     post:
-      description: Export translations from Phrase to Bitbucket according to the .phraseapp.yml
-        file within the Bitbucket Repository.
+      description: Export translations from Phrase Strings to Bitbucket according
+        to the .phraseapp.yml file within the Bitbucket Repository.
       operationId: bitbucket_sync/export
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -9065,7 +9065,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Export from Phrase to Bitbucket
+      summary: Export from Phrase Strings to Bitbucket
       tags:
       - Bitbucket Sync
       x-code-samples:
@@ -9084,8 +9084,8 @@ paths:
           --access_token <token>
   /bitbucket_syncs/{id}/import:
     post:
-      description: Import translations from Bitbucket to Phrase according to the .phraseapp.yml
-        file within the Bitbucket repository.
+      description: Import translations from Bitbucket to Phrase Strings according
+        to the .phraseapp.yml file within the Bitbucket repository.
       operationId: bitbucket_sync/import
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -9156,7 +9156,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Import to Phrase from Bitbucket
+      summary: Import to Phrase Strings from Bitbucket
       tags:
       - Bitbucket Sync
       x-code-samples:
@@ -10968,8 +10968,8 @@ paths:
           --access_token <token>
   /github_syncs/export:
     post:
-      description: Export translations from Phrase to GitHub according to the .phraseapp.yml
-        file within the GitHub repository.
+      description: Export translations from Phrase Strings to GitHub according to
+        the .phraseapp.yml file within the GitHub repository.
       operationId: github_sync/export
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -11044,7 +11044,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Export from Phrase to GitHub
+      summary: Export from Phrase Strings to GitHub
       tags:
       - GitHub Sync
       x-code-samples:
@@ -11059,7 +11059,7 @@ paths:
         source: UNAVAILABLE
   /github_syncs/import:
     post:
-      description: Import files to Phrase from your connected GitHub repository.
+      description: Import files to Phrase Strings from your connected GitHub repository.
       operationId: github_sync/import
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -11134,7 +11134,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Import to Phrase from GitHub
+      summary: Import to Phrase Strings from GitHub
       tags:
       - GitHub Sync
       x-code-samples:
@@ -11150,7 +11150,7 @@ paths:
   /gitlab_syncs:
     get:
       description: List all GitLab Sync Settings for which synchronisation with Phrase
-        and GitLab is activated.
+        Strings and GitLab is activated.
       operationId: gitlab_sync/list
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -11429,7 +11429,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: Code of the related Phrase Project.
+      - description: Code of the related Phrase Strings Project.
         example: 3456abcd
         explode: true
         in: query
@@ -11516,8 +11516,8 @@ paths:
           --access_token <token>
   /gitlab_syncs/{gitlab_sync_id}/import:
     post:
-      description: Import translations from GitLab to Phrase according to the .phraseapp.yml
-        file within the GitLab repository.
+      description: Import translations from GitLab to Phrase Strings according to
+        the .phraseapp.yml file within the GitLab repository.
       operationId: gitlab_sync/import
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -11615,8 +11615,8 @@ paths:
           --access_token <token>
   /gitlab_syncs/{gitlab_sync_id}/export:
     post:
-      description: Export translations from Phrase to GitLab according to the .phraseapp.yml
-        file within the GitLab repository.
+      description: Export translations from Phrase Strings to GitLab according to
+        the .phraseapp.yml file within the GitLab repository.
       operationId: gitlab_sync/export
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -11691,7 +11691,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Export from Phrase to GitLab
+      summary: Export from Phrase Strings to GitLab
       tags:
       - GitLab Sync
       x-code-samples:
@@ -12520,7 +12520,7 @@ paths:
                 main_format:
                   description: Main file format specified by its API Extension name.
                     Used for locale downloads if no format is specified. For API Extension
-                    names of available file formats see <a href="https://help.phrase.com/help/supported-platforms-and-formats">Format
+                    names of available file formats see <a href="https://support.phrase.com/hc/en-us/articles/5784070560412">Format
                     Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
                   example: yml
                   type: string
@@ -12551,7 +12551,7 @@ paths:
                   type: string
                 workflow:
                   description: (Optional) Review Workflow. "simple" / "review". <a
-                    href="https://help.phrase.com/help/advanced-review-workflow">Read
+                    href="https://support.phrase.com/hc/en-us/articles/5784094755484">Read
                     more</a>
                   example: review
                   type: string
@@ -12576,7 +12576,7 @@ paths:
                   type: boolean
                 enable_icu_message_format:
                   description: (Optional) We can validate and highlight your ICU messages.
-                    <a href="https://help.phrase.com/help/icu-message-format">Read
+                    <a href="https://support.phrase.com/hc/en-us/articles/5822319545116">Read
                     more</a>
                   example: true
                   type: boolean
@@ -12588,7 +12588,8 @@ paths:
                   type: boolean
                 autotranslate_enabled:
                   description: (Optional) Autopilot, requires machine_translation_enabled.
-                    <a href="https://help.phrase.com/help/autopilot">Read more</a>
+                    <a href="https://support.phrase.com/hc/en-us/articles/5822187934364">Read
+                    more</a>
                   example: true
                   type: boolean
                 autotranslate_check_new_translation_keys:
@@ -12873,7 +12874,7 @@ paths:
                 main_format:
                   description: (Optional) Main file format specified by its API Extension
                     name. Used for locale downloads if no format is specified. For
-                    API Extension names of available file formats see <a href="https://help.phrase.com/help/supported-platforms-and-formats">Format
+                    API Extension names of available file formats see <a href="https://support.phrase.com/hc/en-us/articles/5784070560412">Format
                     Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
                   example: yml
                   type: string
@@ -12893,7 +12894,7 @@ paths:
                   type: boolean
                 workflow:
                   description: (Optional) Review Workflow. "simple" / "review". <a
-                    href="https://help.phrase.com/help/advanced-review-workflow">Read
+                    href="https://support.phrase.com/hc/en-us/articles/5784094755484">Read
                     more</a>
                   example: review
                   type: string
@@ -12918,7 +12919,7 @@ paths:
                   type: boolean
                 enable_icu_message_format:
                   description: (Optional) We can validate and highlight your ICU messages.
-                    <a href="https://help.phrase.com/help/icu-message-format">Read
+                    <a href="https://support.phrase.com/hc/en-us/articles/5822319545116">Read
                     more</a>
                   example: true
                   type: boolean
@@ -12930,7 +12931,8 @@ paths:
                   type: boolean
                 autotranslate_enabled:
                   description: (Optional) Autopilot, requires machine_translation_enabled.
-                    <a href="https://help.phrase.com/help/autopilot">Read more</a>
+                    <a href="https://support.phrase.com/hc/en-us/articles/5822187934364">Read
+                    more</a>
                   example: true
                   type: boolean
                 autotranslate_check_new_translation_keys:
@@ -22240,7 +22242,7 @@ paths:
                   type: string
                 unverified:
                   description: Indicates whether translation is unverified. Part of
-                    the <a href="https://help.phrase.com/help/verification-and-proofreading"
+                    the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
                     target="_blank">Advanced Workflows</a> feature.
                   type: boolean
                 excluded:
@@ -22914,7 +22916,7 @@ paths:
                   type: string
                 unverified:
                   description: Indicates whether translation is unverified. Part of
-                    the <a href="https://help.phrase.com/help/verification-and-proofreading"
+                    the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
                     target="_blank">Advanced Workflows</a> feature.
                   type: boolean
                 excluded:
@@ -28528,7 +28530,7 @@ components:
           type: boolean
         main:
           description: Indicates whether locale is a main locale. Main locales are
-            part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+            part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
             target="_blank">Verification System</a> feature.
           type: boolean
         rtl:
@@ -28546,12 +28548,12 @@ components:
           type: string
         unverify_new_translations:
           description: Indicates that new translations for this locale should be marked
-            as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+            as unverified. Part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
             target="_blank">Advanced Workflows</a> feature.
           type: boolean
         unverify_updated_translations:
           description: Indicates that updated translations for this locale should
-            be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+            be marked as unverified. Part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
             target="_blank">Advanced Workflows</a> feature.
           type: boolean
         autotranslate:
@@ -28580,7 +28582,7 @@ components:
           type: boolean
         main:
           description: Indicates whether locale is a main locale. Main locales are
-            part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+            part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
             target="_blank">Verification System</a> feature.
           type: boolean
         rtl:
@@ -28598,12 +28600,12 @@ components:
           type: string
         unverify_new_translations:
           description: Indicates that new translations for this locale should be marked
-            as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+            as unverified. Part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
             target="_blank">Advanced Workflows</a> feature.
           type: boolean
         unverify_updated_translations:
           description: Indicates that updated translations for this locale should
-            be marked as unverified. Part of the <a href="https://help.phrase.com/help/verification-and-proofreading"
+            be marked as unverified. Part of the <a href="https://support.phrase.com/hc/en-us/articles/5784094755484"
             target="_blank">Advanced Workflows</a> feature.
           type: boolean
         autotranslate:
@@ -29269,7 +29271,7 @@ components:
         main_format:
           description: Main file format specified by its API Extension name. Used
             for locale downloads if no format is specified. For API Extension names
-            of available file formats see <a href="https://help.phrase.com/help/supported-platforms-and-formats">Format
+            of available file formats see <a href="https://support.phrase.com/hc/en-us/articles/5784070560412">Format
             Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
           example: yml
           type: string
@@ -29299,7 +29301,7 @@ components:
           example: abcd1234
           type: string
         workflow:
-          description: (Optional) Review Workflow. "simple" / "review". <a href="https://help.phrase.com/help/advanced-review-workflow">Read
+          description: (Optional) Review Workflow. "simple" / "review". <a href="https://support.phrase.com/hc/en-us/articles/5784094755484">Read
             more</a>
           example: review
           type: string
@@ -29324,7 +29326,8 @@ components:
           type: boolean
         enable_icu_message_format:
           description: (Optional) We can validate and highlight your ICU messages.
-            <a href="https://help.phrase.com/help/icu-message-format">Read more</a>
+            <a href="https://support.phrase.com/hc/en-us/articles/5822319545116">Read
+            more</a>
           example: true
           type: boolean
         zero_plural_form_enabled:
@@ -29335,7 +29338,8 @@ components:
           type: boolean
         autotranslate_enabled:
           description: (Optional) Autopilot, requires machine_translation_enabled.
-            <a href="https://help.phrase.com/help/autopilot">Read more</a>
+            <a href="https://support.phrase.com/hc/en-us/articles/5822187934364">Read
+            more</a>
           example: true
           type: boolean
         autotranslate_check_new_translation_keys:
@@ -29391,7 +29395,7 @@ components:
         main_format:
           description: (Optional) Main file format specified by its API Extension
             name. Used for locale downloads if no format is specified. For API Extension
-            names of available file formats see <a href="https://help.phrase.com/help/supported-platforms-and-formats">Format
+            names of available file formats see <a href="https://support.phrase.com/hc/en-us/articles/5784070560412">Format
             Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
           example: yml
           type: string
@@ -29409,7 +29413,7 @@ components:
           example: false
           type: boolean
         workflow:
-          description: (Optional) Review Workflow. "simple" / "review". <a href="https://help.phrase.com/help/advanced-review-workflow">Read
+          description: (Optional) Review Workflow. "simple" / "review". <a href="https://support.phrase.com/hc/en-us/articles/5784094755484">Read
             more</a>
           example: review
           type: string
@@ -29434,7 +29438,8 @@ components:
           type: boolean
         enable_icu_message_format:
           description: (Optional) We can validate and highlight your ICU messages.
-            <a href="https://help.phrase.com/help/icu-message-format">Read more</a>
+            <a href="https://support.phrase.com/hc/en-us/articles/5822319545116">Read
+            more</a>
           example: true
           type: boolean
         zero_plural_form_enabled:
@@ -29445,7 +29450,8 @@ components:
           type: boolean
         autotranslate_enabled:
           description: (Optional) Autopilot, requires machine_translation_enabled.
-            <a href="https://help.phrase.com/help/autopilot">Read more</a>
+            <a href="https://support.phrase.com/hc/en-us/articles/5822187934364">Read
+            more</a>
           example: true
           type: boolean
         autotranslate_check_new_translation_keys:
@@ -30347,7 +30353,7 @@ components:
           type: string
         unverified:
           description: Indicates whether translation is unverified. Part of the <a
-            href="https://help.phrase.com/help/verification-and-proofreading" target="_blank">Advanced
+            href="https://support.phrase.com/hc/en-us/articles/5784094755484" target="_blank">Advanced
             Workflows</a> feature.
           type: boolean
         excluded:
@@ -30406,7 +30412,7 @@ components:
           type: string
         unverified:
           description: Indicates whether translation is unverified. Part of the <a
-            href="https://help.phrase.com/help/verification-and-proofreading" target="_blank">Advanced
+            href="https://support.phrase.com/hc/en-us/articles/5784094755484" target="_blank">Advanced
             Workflows</a> feature.
           type: boolean
         excluded:

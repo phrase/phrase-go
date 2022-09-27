@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **branch** | **optional.String**| specify the branch to use | 
- **fileFormat** | **optional.String**| File format name. See the &lt;a href&#x3D;\&quot;https://help.phrase.com/help/supported-platforms-and-formats\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. | 
+ **fileFormat** | **optional.String**| File format name. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/articles/5784070560412\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. | 
  **tags** | **optional.String**| Limit results to keys tagged with a list of comma separated tag names. | 
  **tag** | **optional.String**| Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead | 
  **includeEmptyTranslations** | **optional.Bool**| Indicates whether keys without translations should be included in the output as well. | 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
  **includeTranslatedKeys** | **optional.Bool**| Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. | 
  **keepNotranslateTags** | **optional.Bool**| Indicates whether [NOTRANSLATE] tags should be kept. | 
  **convertEmoji** | **optional.Bool**| This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. | 
- **formatOptions** | [**optional.Interface of map[string]interface{}**](.md)| Additional formatting and render options. See the &lt;a href&#x3D;\&quot;https://help.phrase.com/help/supported-platforms-and-formats\&quot;&gt;format guide&lt;/a&gt; for a list of options available for each format. Specify format options like this: &lt;code&gt;...&amp;format_options[foo]&#x3D;bar&lt;/code&gt; | 
+ **formatOptions** | [**optional.Interface of map[string]interface{}**](.md)| Additional formatting and render options. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/articles/5784070560412\&quot;&gt;format guide&lt;/a&gt; for a list of options available for each format. Specify format options like this: &lt;code&gt;...&amp;format_options[foo]&#x3D;bar&lt;/code&gt; | 
  **encoding** | **optional.String**| Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. | 
  **skipUnverifiedTranslations** | **optional.Bool**| Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &lt;code&gt;include_unverified_translations&lt;/code&gt;. | 
  **includeUnverifiedTranslations** | **optional.Bool**| if set to false unverified translations are excluded | 
