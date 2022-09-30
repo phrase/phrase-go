@@ -145,7 +145,7 @@ func (a *TeamsApiService) TeamDelete(ctx _context.Context, accountId string, id 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/teams/{team_id}"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/teams/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
@@ -239,7 +239,7 @@ func (a *TeamsApiService) TeamShow(ctx _context.Context, accountId string, id st
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/teams/{team_id}"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/teams/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
@@ -343,7 +343,7 @@ func (a *TeamsApiService) TeamUpdate(ctx _context.Context, accountId string, id 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/teams/{team_id}"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/teams/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)

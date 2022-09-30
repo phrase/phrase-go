@@ -21216,7 +21216,7 @@ paths:
           --account_id <account_id> \
           --data '{"name": "German Translators"}' \
           --access_token <token>
-  /accounts/{account_id}/teams/{team_id}:
+  /accounts/{account_id}/teams/{id}:
     delete:
       description: Delete the specified Team.
       operationId: team/delete
