@@ -26,11 +26,11 @@ type MemberDeleteOpts struct {
 /*
 MemberDelete Remove a user from the account
 Remove a user from the account. The user will be removed from the account but not deleted from Phrase. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *MemberDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *MemberDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *MembersApiService) MemberDelete(ctx _context.Context, accountId string, id string, localVarOptionals *MemberDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -118,11 +118,12 @@ type MemberShowOpts struct {
 /*
 MemberShow Get single member
 Get details on a single user in the account. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *MemberShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *MemberShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Member
 */
 func (a *MembersApiService) MemberShow(ctx _context.Context, accountId string, id string, localVarOptionals *MemberShowOpts) (Member, *APIResponse, error) {
@@ -221,12 +222,13 @@ type MemberUpdateOpts struct {
 /*
 MemberUpdate Update a member
 Update user permissions in the account. Developers and translators need &lt;code&gt;project_ids&lt;/code&gt; and &lt;code&gt;locale_ids&lt;/code&gt; assigned to access them. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param memberUpdateParameters
- * @param optional nil or *MemberUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param memberUpdateParameters
+  - @param optional nil or *MemberUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Member
 */
 func (a *MembersApiService) MemberUpdate(ctx _context.Context, accountId string, id string, memberUpdateParameters MemberUpdateParameters, localVarOptionals *MemberUpdateOpts) (Member, *APIResponse, error) {
@@ -327,12 +329,13 @@ type MemberUpdateSettingsOpts struct {
 /*
 MemberUpdateSettings Update a member's project settings
 Update user settings in the project. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param memberUpdateSettingsParameters
- * @param optional nil or *MemberUpdateSettingsOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param memberUpdateSettingsParameters
+  - @param optional nil or *MemberUpdateSettingsOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return MemberProjectDetail
 */
 func (a *MembersApiService) MemberUpdateSettings(ctx _context.Context, projectId string, id string, memberUpdateSettingsParameters MemberUpdateSettingsParameters, localVarOptionals *MemberUpdateSettingsOpts) (MemberProjectDetail, *APIResponse, error) {
@@ -435,12 +438,13 @@ type MembersListOpts struct {
 /*
 MembersList List members
 Get all users active in the account. It also lists resources like projects and locales the member has access to. In case nothing is shown the default access from the role is used. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param optional nil or *MembersListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param optional nil or *MembersListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Member
 */
 func (a *MembersApiService) MembersList(ctx _context.Context, accountId string, localVarOptionals *MembersListOpts) ([]Member, *APIResponse, error) {

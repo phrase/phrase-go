@@ -26,11 +26,12 @@ type StyleguideCreateOpts struct {
 /*
 StyleguideCreate Create a style guide
 Create a new style guide.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param styleguideCreateParameters
- * @param optional nil or *StyleguideCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param styleguideCreateParameters
+  - @param optional nil or *StyleguideCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return StyleguideDetails
 */
 func (a *StyleGuidesApiService) StyleguideCreate(ctx _context.Context, projectId string, styleguideCreateParameters StyleguideCreateParameters, localVarOptionals *StyleguideCreateOpts) (StyleguideDetails, *APIResponse, error) {
@@ -129,11 +130,11 @@ type StyleguideDeleteOpts struct {
 /*
 StyleguideDelete Delete a style guide
 Delete an existing style guide.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *StyleguideDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *StyleguideDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *StyleGuidesApiService) StyleguideDelete(ctx _context.Context, projectId string, id string, localVarOptionals *StyleguideDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -221,11 +222,12 @@ type StyleguideShowOpts struct {
 /*
 StyleguideShow Get a single style guide
 Get details on a single style guide.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *StyleguideShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *StyleguideShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return StyleguideDetails
 */
 func (a *StyleGuidesApiService) StyleguideShow(ctx _context.Context, projectId string, id string, localVarOptionals *StyleguideShowOpts) (StyleguideDetails, *APIResponse, error) {
@@ -324,12 +326,13 @@ type StyleguideUpdateOpts struct {
 /*
 StyleguideUpdate Update a style guide
 Update an existing style guide.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param styleguideUpdateParameters
- * @param optional nil or *StyleguideUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param styleguideUpdateParameters
+  - @param optional nil or *StyleguideUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return StyleguideDetails
 */
 func (a *StyleGuidesApiService) StyleguideUpdate(ctx _context.Context, projectId string, id string, styleguideUpdateParameters StyleguideUpdateParameters, localVarOptionals *StyleguideUpdateOpts) (StyleguideDetails, *APIResponse, error) {
@@ -432,12 +435,13 @@ type StyleguidesListOpts struct {
 /*
 StyleguidesList List style guides
 List all styleguides for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *StyleguidesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *StyleguidesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Styleguide
 */
 func (a *StyleGuidesApiService) StyleguidesList(ctx _context.Context, projectId string, localVarOptionals *StyleguidesListOpts) ([]Styleguide, *APIResponse, error) {

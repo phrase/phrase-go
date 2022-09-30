@@ -27,13 +27,13 @@ type JobTemplateLocaleDeleteOpts struct {
 /*
 JobTemplateLocaleDelete Delete a job template locale
 Delete an existing job template locale.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobTemplateId Job Template ID
- * @param jobTemplateLocaleId Job Template Locale ID
- * @param optional nil or *JobTemplateLocaleDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobTemplateId Job Template ID
+  - @param jobTemplateLocaleId Job Template Locale ID
+  - @param optional nil or *JobTemplateLocaleDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *JobTemplateLocalesApiService) JobTemplateLocaleDelete(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocaleId string, localVarOptionals *JobTemplateLocaleDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -127,13 +127,14 @@ type JobTemplateLocaleShowOpts struct {
 /*
 JobTemplateLocaleShow Get a single job template locale
 Get a single job template locale for a given job template.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobTemplateId Job Template ID
- * @param jobTemplateLocaleId Job Template Locale ID
- * @param optional nil or *JobTemplateLocaleShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobTemplateId Job Template ID
+  - @param jobTemplateLocaleId Job Template Locale ID
+  - @param optional nil or *JobTemplateLocaleShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return map[string]interface{}
 */
 func (a *JobTemplateLocalesApiService) JobTemplateLocaleShow(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocaleId string, localVarOptionals *JobTemplateLocaleShowOpts) (map[string]interface{}, *APIResponse, error) {
@@ -237,13 +238,14 @@ type JobTemplateLocaleUpdateOpts struct {
 /*
 JobTemplateLocaleUpdate Update a job template locale
 Update an existing job template locale.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobTemplateId Job Template ID
- * @param jobTemplateLocaleId Job Template Locale ID
- * @param jobTemplateLocaleUpdateParameters
- * @param optional nil or *JobTemplateLocaleUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobTemplateId Job Template ID
+  - @param jobTemplateLocaleId Job Template Locale ID
+  - @param jobTemplateLocaleUpdateParameters
+  - @param optional nil or *JobTemplateLocaleUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return map[string]interface{}
 */
 func (a *JobTemplateLocalesApiService) JobTemplateLocaleUpdate(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocaleId string, jobTemplateLocaleUpdateParameters JobTemplateLocaleUpdateParameters, localVarOptionals *JobTemplateLocaleUpdateOpts) (map[string]interface{}, *APIResponse, error) {
@@ -346,12 +348,13 @@ type JobTemplateLocalesCreateOpts struct {
 /*
 JobTemplateLocalesCreate Create a job template locale
 Create a new job template locale.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobTemplateId Job Template ID
- * @param jobTemplateLocalesCreateParameters
- * @param optional nil or *JobTemplateLocalesCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobTemplateId Job Template ID
+  - @param jobTemplateLocalesCreateParameters
+  - @param optional nil or *JobTemplateLocalesCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobTemplateLocale
 */
 func (a *JobTemplateLocalesApiService) JobTemplateLocalesCreate(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocalesCreateParameters JobTemplateLocalesCreateParameters, localVarOptionals *JobTemplateLocalesCreateOpts) (JobTemplateLocale, *APIResponse, error) {
@@ -455,14 +458,15 @@ type JobTemplateLocalesListOpts struct {
 /*
 JobTemplateLocalesList List job template locales
 List all job template locales for a given job template.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobTemplateId Job Template ID
- * @param optional nil or *JobTemplateLocalesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobTemplateId Job Template ID
+  - @param optional nil or *JobTemplateLocalesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []map[string]interface{}
 */
 func (a *JobTemplateLocalesApiService) JobTemplateLocalesList(ctx _context.Context, projectId string, jobTemplateId string, localVarOptionals *JobTemplateLocalesListOpts) ([]map[string]interface{}, *APIResponse, error) {

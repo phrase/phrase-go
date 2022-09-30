@@ -26,12 +26,13 @@ type GlossaryTermCreateOpts struct {
 /*
 GlossaryTermCreate Create a term
 Create a new term in a term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param glossaryTermCreateParameters
- * @param optional nil or *GlossaryTermCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param glossaryId Glossary ID
+  - @param glossaryTermCreateParameters
+  - @param optional nil or *GlossaryTermCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return GlossaryTerm
 */
 func (a *GlossaryTermsApiService) GlossaryTermCreate(ctx _context.Context, accountId string, glossaryId string, glossaryTermCreateParameters GlossaryTermCreateParameters, localVarOptionals *GlossaryTermCreateOpts) (GlossaryTerm, *APIResponse, error) {
@@ -132,12 +133,12 @@ type GlossaryTermDeleteOpts struct {
 /*
 GlossaryTermDelete Delete a term
 Delete an existing term in a term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param id ID
- * @param optional nil or *GlossaryTermDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param glossaryId Glossary ID
+  - @param id ID
+  - @param optional nil or *GlossaryTermDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GlossaryTermsApiService) GlossaryTermDelete(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -227,12 +228,13 @@ type GlossaryTermShowOpts struct {
 /*
 GlossaryTermShow Get a single term
 Get details for a single term in the term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param id ID
- * @param optional nil or *GlossaryTermShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param glossaryId Glossary ID
+  - @param id ID
+  - @param optional nil or *GlossaryTermShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return GlossaryTerm
 */
 func (a *GlossaryTermsApiService) GlossaryTermShow(ctx _context.Context, accountId string, glossaryId string, id string, localVarOptionals *GlossaryTermShowOpts) (GlossaryTerm, *APIResponse, error) {
@@ -333,13 +335,14 @@ type GlossaryTermUpdateOpts struct {
 /*
 GlossaryTermUpdate Update a term
 Update an existing term in a term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param id ID
- * @param glossaryTermUpdateParameters
- * @param optional nil or *GlossaryTermUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param glossaryId Glossary ID
+  - @param id ID
+  - @param glossaryTermUpdateParameters
+  - @param optional nil or *GlossaryTermUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return GlossaryTerm
 */
 func (a *GlossaryTermsApiService) GlossaryTermUpdate(ctx _context.Context, accountId string, glossaryId string, id string, glossaryTermUpdateParameters GlossaryTermUpdateParameters, localVarOptionals *GlossaryTermUpdateOpts) (GlossaryTerm, *APIResponse, error) {
@@ -444,13 +447,14 @@ type GlossaryTermsListOpts struct {
 /*
 GlossaryTermsList List terms
 List all terms in term bases (previously: glossary) that the current user has access to.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param optional nil or *GlossaryTermsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param glossaryId Glossary ID
+  - @param optional nil or *GlossaryTermsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []GlossaryTerm
 */
 func (a *GlossaryTermsApiService) GlossaryTermsList(ctx _context.Context, accountId string, glossaryId string, localVarOptionals *GlossaryTermsListOpts) ([]GlossaryTerm, *APIResponse, error) {

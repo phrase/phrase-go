@@ -26,11 +26,12 @@ type TagCreateOpts struct {
 /*
 TagCreate Create a tag
 Create a new tag.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param tagCreateParameters
- * @param optional nil or *TagCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param tagCreateParameters
+  - @param optional nil or *TagCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TagWithStats
 */
 func (a *TagsApiService) TagCreate(ctx _context.Context, projectId string, tagCreateParameters TagCreateParameters, localVarOptionals *TagCreateOpts) (TagWithStats, *APIResponse, error) {
@@ -130,12 +131,12 @@ type TagDeleteOpts struct {
 /*
 TagDelete Delete a tag
 Delete an existing tag.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param name name
- * @param optional nil or *TagDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param name name
+  - @param optional nil or *TagDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name string, localVarOptionals *TagDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -227,12 +228,13 @@ type TagShowOpts struct {
 /*
 TagShow Get a single tag
 Get details and progress information on a single tag for a given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param name name
- * @param optional nil or *TagShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param name name
+  - @param optional nil or *TagShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return TagWithStats
 */
 func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name string, localVarOptionals *TagShowOpts) (TagWithStats, *APIResponse, error) {
@@ -337,13 +339,14 @@ type TagsListOpts struct {
 /*
 TagsList List tags
 List all tags for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *TagsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *TagsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []Tag
 */
 func (a *TagsApiService) TagsList(ctx _context.Context, projectId string, localVarOptionals *TagsListOpts) ([]Tag, *APIResponse, error) {

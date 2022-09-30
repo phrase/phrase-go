@@ -26,10 +26,11 @@ type AccountShowOpts struct {
 /*
 AccountShow Get a single account
 Get details on a single account.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *AccountShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *AccountShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return AccountDetails
 */
 func (a *AccountsApiService) AccountShow(ctx _context.Context, id string, localVarOptionals *AccountShowOpts) (AccountDetails, *APIResponse, error) {
@@ -128,11 +129,12 @@ type AccountsListOpts struct {
 /*
 AccountsList List accounts
 List all accounts the current user has access to.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *AccountsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param optional nil or *AccountsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Account
 */
 func (a *AccountsApiService) AccountsList(ctx _context.Context, localVarOptionals *AccountsListOpts) ([]Account, *APIResponse, error) {

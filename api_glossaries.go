@@ -28,12 +28,13 @@ type GlossariesListOpts struct {
 /*
 GlossariesList List term bases
 List all term bases (previously: glossaries) the current user has access to.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param optional nil or *GlossariesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param optional nil or *GlossariesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Glossary
 */
 func (a *GlossariesApiService) GlossariesList(ctx _context.Context, accountId string, localVarOptionals *GlossariesListOpts) ([]Glossary, *APIResponse, error) {
@@ -136,11 +137,12 @@ type GlossaryCreateOpts struct {
 /*
 GlossaryCreate Create a term base
 Create a new term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryCreateParameters
- * @param optional nil or *GlossaryCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param glossaryCreateParameters
+  - @param optional nil or *GlossaryCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Glossary
 */
 func (a *GlossariesApiService) GlossaryCreate(ctx _context.Context, accountId string, glossaryCreateParameters GlossaryCreateParameters, localVarOptionals *GlossaryCreateOpts) (Glossary, *APIResponse, error) {
@@ -239,11 +241,11 @@ type GlossaryDeleteOpts struct {
 /*
 GlossaryDelete Delete a term base
 Delete an existing term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *GlossaryDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *GlossaryDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GlossariesApiService) GlossaryDelete(ctx _context.Context, accountId string, id string, localVarOptionals *GlossaryDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -331,11 +333,12 @@ type GlossaryShowOpts struct {
 /*
 GlossaryShow Get a single term base
 Get details on a single term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *GlossaryShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *GlossaryShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Glossary
 */
 func (a *GlossariesApiService) GlossaryShow(ctx _context.Context, accountId string, id string, localVarOptionals *GlossaryShowOpts) (Glossary, *APIResponse, error) {
@@ -434,12 +437,13 @@ type GlossaryUpdateOpts struct {
 /*
 GlossaryUpdate Update a term base
 Update an existing term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param glossaryUpdateParameters
- * @param optional nil or *GlossaryUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param glossaryUpdateParameters
+  - @param optional nil or *GlossaryUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Glossary
 */
 func (a *GlossariesApiService) GlossaryUpdate(ctx _context.Context, accountId string, id string, glossaryUpdateParameters GlossaryUpdateParameters, localVarOptionals *GlossaryUpdateOpts) (Glossary, *APIResponse, error) {

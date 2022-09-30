@@ -44,25 +44,26 @@ type UploadCreateOpts struct {
 /*
 UploadCreate Upload a new file
 Upload a new language file. Creates necessary resources in your project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *UploadCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
- * @param "File" (optional.Interface of *os.File) -  File to be imported
- * @param "FileFormat" (optional.String) -  File format. Auto-detected when possible and not specified.
- * @param "LocaleId" (optional.String) -  Locale of the file's content. Can be the name or public id of the locale. Preferred is the public id.
- * @param "Tags" (optional.String) -  List of tags separated by comma to be associated with the new keys contained in the upload.
- * @param "UpdateTranslations" (optional.Bool) -  Indicates whether existing translations should be updated with the file content.
- * @param "UpdateDescriptions" (optional.Bool) -  Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
- * @param "ConvertEmoji" (optional.Bool) -  This option is obsolete. Providing the option will cause a bad request error.
- * @param "SkipUploadTags" (optional.Bool) -  Indicates whether the upload should not create upload tags.
- * @param "SkipUnverification" (optional.Bool) -  Indicates whether the upload should unverify updated translations.
- * @param "FileEncoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \\\"UTF-8\\\", \\\"UTF-16\\\" and \\\"ISO-8859-1\\\".
- * @param "LocaleMapping" (optional.Interface of map[string]interface{}) -  Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
- * @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional options available for specific formats. See our format guide for complete list.
- * @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
- * @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *UploadCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "File" (optional.Interface of *os.File) -  File to be imported
+  - @param "FileFormat" (optional.String) -  File format. Auto-detected when possible and not specified.
+  - @param "LocaleId" (optional.String) -  Locale of the file's content. Can be the name or public id of the locale. Preferred is the public id.
+  - @param "Tags" (optional.String) -  List of tags separated by comma to be associated with the new keys contained in the upload.
+  - @param "UpdateTranslations" (optional.Bool) -  Indicates whether existing translations should be updated with the file content.
+  - @param "UpdateDescriptions" (optional.Bool) -  Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
+  - @param "ConvertEmoji" (optional.Bool) -  This option is obsolete. Providing the option will cause a bad request error.
+  - @param "SkipUploadTags" (optional.Bool) -  Indicates whether the upload should not create upload tags.
+  - @param "SkipUnverification" (optional.Bool) -  Indicates whether the upload should unverify updated translations.
+  - @param "FileEncoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \\\"UTF-8\\\", \\\"UTF-16\\\" and \\\"ISO-8859-1\\\".
+  - @param "LocaleMapping" (optional.Interface of map[string]interface{}) -  Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
+  - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional options available for specific formats. See our format guide for complete list.
+  - @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
+  - @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.
+
 @return Upload
 */
 func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, localVarOptionals *UploadCreateOpts) (Upload, *APIResponse, error) {
@@ -221,12 +222,13 @@ type UploadShowOpts struct {
 /*
 UploadShow View upload details
 View details and summary for a single upload.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *UploadShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *UploadShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return Upload
 */
 func (a *UploadsApiService) UploadShow(ctx _context.Context, projectId string, id string, localVarOptionals *UploadShowOpts) (Upload, *APIResponse, error) {
@@ -331,13 +333,14 @@ type UploadsListOpts struct {
 /*
 UploadsList List uploads
 List all uploads for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *UploadsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *UploadsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []Upload
 */
 func (a *UploadsApiService) UploadsList(ctx _context.Context, projectId string, localVarOptionals *UploadsListOpts) ([]Upload, *APIResponse, error) {

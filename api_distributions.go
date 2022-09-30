@@ -26,11 +26,12 @@ type DistributionCreateOpts struct {
 /*
 DistributionCreate Create a distribution
 Create a new distribution.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param distributionCreateParameters
- * @param optional nil or *DistributionCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param distributionCreateParameters
+  - @param optional nil or *DistributionCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Distribution
 */
 func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accountId string, distributionCreateParameters DistributionCreateParameters, localVarOptionals *DistributionCreateOpts) (Distribution, *APIResponse, error) {
@@ -129,11 +130,11 @@ type DistributionDeleteOpts struct {
 /*
 DistributionDelete Delete a distribution
 Delete an existing distribution.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *DistributionDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *DistributionDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *DistributionsApiService) DistributionDelete(ctx _context.Context, accountId string, id string, localVarOptionals *DistributionDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -221,11 +222,12 @@ type DistributionShowOpts struct {
 /*
 DistributionShow Get a single distribution
 Get details on a single distribution.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *DistributionShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *DistributionShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Distribution
 */
 func (a *DistributionsApiService) DistributionShow(ctx _context.Context, accountId string, id string, localVarOptionals *DistributionShowOpts) (Distribution, *APIResponse, error) {
@@ -324,12 +326,13 @@ type DistributionUpdateOpts struct {
 /*
 DistributionUpdate Update a distribution
 Update an existing distribution.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param distributionUpdateParameters
- * @param optional nil or *DistributionUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param distributionUpdateParameters
+  - @param optional nil or *DistributionUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Distribution
 */
 func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accountId string, id string, distributionUpdateParameters DistributionUpdateParameters, localVarOptionals *DistributionUpdateOpts) (Distribution, *APIResponse, error) {
@@ -432,12 +435,13 @@ type DistributionsListOpts struct {
 /*
 DistributionsList List distributions
 List all distributions for the given account.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param optional nil or *DistributionsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param optional nil or *DistributionsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []DistributionPreview
 */
 func (a *DistributionsApiService) DistributionsList(ctx _context.Context, accountId string, localVarOptionals *DistributionsListOpts) ([]DistributionPreview, *APIResponse, error) {

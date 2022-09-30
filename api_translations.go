@@ -26,11 +26,12 @@ type TranslationCreateOpts struct {
 /*
 TranslationCreate Create a translation
 Create a translation.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param translationCreateParameters
- * @param optional nil or *TranslationCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param translationCreateParameters
+  - @param optional nil or *TranslationCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationCreate(ctx _context.Context, projectId string, translationCreateParameters TranslationCreateParameters, localVarOptionals *TranslationCreateOpts) (TranslationDetails, *APIResponse, error) {
@@ -129,12 +130,13 @@ type TranslationExcludeOpts struct {
 /*
 TranslationExclude Exclude a translation from export
 Set exclude from export flag on an existing translation.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param translationExcludeParameters
- * @param optional nil or *TranslationExcludeOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param translationExcludeParameters
+  - @param optional nil or *TranslationExcludeOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationExclude(ctx _context.Context, projectId string, id string, translationExcludeParameters TranslationExcludeParameters, localVarOptionals *TranslationExcludeOpts) (TranslationDetails, *APIResponse, error) {
@@ -235,12 +237,13 @@ type TranslationIncludeOpts struct {
 /*
 TranslationInclude Revoke exclusion of a translation in export
 Remove exclude from export flag from an existing translation.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param translationIncludeParameters
- * @param optional nil or *TranslationIncludeOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param translationIncludeParameters
+  - @param optional nil or *TranslationIncludeOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationInclude(ctx _context.Context, projectId string, id string, translationIncludeParameters TranslationIncludeParameters, localVarOptionals *TranslationIncludeOpts) (TranslationDetails, *APIResponse, error) {
@@ -341,12 +344,13 @@ type TranslationReviewOpts struct {
 /*
 TranslationReview Review a translation
 Mark an existing translation as reviewed.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param translationReviewParameters
- * @param optional nil or *TranslationReviewOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param translationReviewParameters
+  - @param optional nil or *TranslationReviewOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationReview(ctx _context.Context, projectId string, id string, translationReviewParameters TranslationReviewParameters, localVarOptionals *TranslationReviewOpts) (TranslationDetails, *APIResponse, error) {
@@ -448,12 +452,13 @@ type TranslationShowOpts struct {
 /*
 TranslationShow Get a single translation
 Get details on a single translation.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *TranslationShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *TranslationShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationShow(ctx _context.Context, projectId string, id string, localVarOptionals *TranslationShowOpts) (TranslationDetails, *APIResponse, error) {
@@ -555,12 +560,13 @@ type TranslationUnverifyOpts struct {
 /*
 TranslationUnverify Mark a translation as unverified
 Mark an existing translation as unverified.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param translationUnverifyParameters
- * @param optional nil or *TranslationUnverifyOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param translationUnverifyParameters
+  - @param optional nil or *TranslationUnverifyOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationUnverify(ctx _context.Context, projectId string, id string, translationUnverifyParameters TranslationUnverifyParameters, localVarOptionals *TranslationUnverifyOpts) (TranslationDetails, *APIResponse, error) {
@@ -661,12 +667,13 @@ type TranslationUpdateOpts struct {
 /*
 TranslationUpdate Update a translation
 Update an existing translation.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param translationUpdateParameters
- * @param optional nil or *TranslationUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param translationUpdateParameters
+  - @param optional nil or *TranslationUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationUpdate(ctx _context.Context, projectId string, id string, translationUpdateParameters TranslationUpdateParameters, localVarOptionals *TranslationUpdateOpts) (TranslationDetails, *APIResponse, error) {
@@ -767,12 +774,13 @@ type TranslationVerifyOpts struct {
 /*
 TranslationVerify Verify a translation
 Verify an existing translation.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param translationVerifyParameters
- * @param optional nil or *TranslationVerifyOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param translationVerifyParameters
+  - @param optional nil or *TranslationVerifyOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TranslationDetails
 */
 func (a *TranslationsApiService) TranslationVerify(ctx _context.Context, projectId string, id string, translationVerifyParameters TranslationVerifyParameters, localVarOptionals *TranslationVerifyOpts) (TranslationDetails, *APIResponse, error) {
@@ -879,17 +887,18 @@ type TranslationsByKeyOpts struct {
 /*
 TranslationsByKey List translations by key
 List translations for a specific key.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param optional nil or *TranslationsByKeyOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
- * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
- * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
- * @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param optional nil or *TranslationsByKeyOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
+  - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
+  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
+
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsByKey(ctx _context.Context, projectId string, keyId string, localVarOptionals *TranslationsByKeyOpts) ([]Translation, *APIResponse, error) {
@@ -1012,17 +1021,18 @@ type TranslationsByLocaleOpts struct {
 /*
 TranslationsByLocale List translations by locale
 List translations for a specific locale. If you want to download all translations for one locale we recommend to use the &lt;code&gt;locales#download&lt;/code&gt; endpoint.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param localeId Locale ID
- * @param optional nil or *TranslationsByLocaleOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
- * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
- * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
- * @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param localeId Locale ID
+  - @param optional nil or *TranslationsByLocaleOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
+  - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
+  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
+
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsByLocale(ctx _context.Context, projectId string, localeId string, localVarOptionals *TranslationsByLocaleOpts) ([]Translation, *APIResponse, error) {
@@ -1139,11 +1149,12 @@ type TranslationsExcludeCollectionOpts struct {
 /*
 TranslationsExcludeCollection Set exclude from export flag on translations selected by query
 Exclude translations matching query from locale export.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param translationsExcludeParameters
- * @param optional nil or *TranslationsExcludeCollectionOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param translationsExcludeParameters
+  - @param optional nil or *TranslationsExcludeCollectionOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsExcludeCollection(ctx _context.Context, projectId string, translationsExcludeParameters TranslationsExcludeParameters, localVarOptionals *TranslationsExcludeCollectionOpts) (AffectedCount, *APIResponse, error) {
@@ -1242,11 +1253,12 @@ type TranslationsIncludeCollectionOpts struct {
 /*
 TranslationsIncludeCollection Remove exlude from import flag from translations selected by query
 Include translations matching query in locale export.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param translationsIncludeParameters
- * @param optional nil or *TranslationsIncludeCollectionOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param translationsIncludeParameters
+  - @param optional nil or *TranslationsIncludeCollectionOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsIncludeCollection(ctx _context.Context, projectId string, translationsIncludeParameters TranslationsIncludeParameters, localVarOptionals *TranslationsIncludeCollectionOpts) (AffectedCount, *APIResponse, error) {
@@ -1351,16 +1363,17 @@ type TranslationsListOpts struct {
 /*
 TranslationsList List all translations
 List translations for the given project. If you want to download all translations for one locale we recommend to use the &lt;code&gt;locales#download&lt;/code&gt; endpoint.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *TranslationsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
- * @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
- * @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
- * @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *TranslationsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
+  - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
+  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
+
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectId string, localVarOptionals *TranslationsListOpts) ([]Translation, *APIResponse, error) {
@@ -1475,11 +1488,12 @@ type TranslationsReviewCollectionOpts struct {
 /*
 TranslationsReviewCollection Review translations selected by query
 Review translations matching query.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param translationsReviewParameters
- * @param optional nil or *TranslationsReviewCollectionOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param translationsReviewParameters
+  - @param optional nil or *TranslationsReviewCollectionOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsReviewCollection(ctx _context.Context, projectId string, translationsReviewParameters TranslationsReviewParameters, localVarOptionals *TranslationsReviewCollectionOpts) (AffectedCount, *APIResponse, error) {
@@ -1580,13 +1594,14 @@ type TranslationsSearchOpts struct {
 /*
 TranslationsSearch Search translations
 Search translations for the given project. Provides the same search interface as &lt;code&gt;translations#index&lt;/code&gt; but allows POST requests to avoid limitations imposed by GET requests. If you want to download all translations for one locale we recommend to use the &lt;code&gt;locales#download&lt;/code&gt; endpoint.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param translationsSearchParameters
- * @param optional nil or *TranslationsSearchOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param translationsSearchParameters
+  - @param optional nil or *TranslationsSearchOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Translation
 */
 func (a *TranslationsApiService) TranslationsSearch(ctx _context.Context, projectId string, translationsSearchParameters TranslationsSearchParameters, localVarOptionals *TranslationsSearchOpts) ([]Translation, *APIResponse, error) {
@@ -1691,11 +1706,12 @@ type TranslationsUnverifyCollectionOpts struct {
 /*
 TranslationsUnverifyCollection Mark translations selected by query as unverified
 Mark translations matching query as unverified.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param translationsUnverifyParameters
- * @param optional nil or *TranslationsUnverifyCollectionOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param translationsUnverifyParameters
+  - @param optional nil or *TranslationsUnverifyCollectionOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsUnverifyCollection(ctx _context.Context, projectId string, translationsUnverifyParameters TranslationsUnverifyParameters, localVarOptionals *TranslationsUnverifyCollectionOpts) (AffectedCount, *APIResponse, error) {
@@ -1794,11 +1810,12 @@ type TranslationsVerifyCollectionOpts struct {
 /*
 TranslationsVerifyCollection Verify translations selected by query
 Verify translations matching query.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param translationsVerifyParameters
- * @param optional nil or *TranslationsVerifyCollectionOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param translationsVerifyParameters
+  - @param optional nil or *TranslationsVerifyCollectionOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return AffectedCount
 */
 func (a *TranslationsApiService) TranslationsVerifyCollection(ctx _context.Context, projectId string, translationsVerifyParameters TranslationsVerifyParameters, localVarOptionals *TranslationsVerifyCollectionOpts) (AffectedCount, *APIResponse, error) {

@@ -26,12 +26,13 @@ type JobCommentCreateOpts struct {
 /*
 JobCommentCreate Create a job comment
 Create a new comment for a job.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param jobCommentCreateParameters
- * @param optional nil or *JobCommentCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param jobCommentCreateParameters
+  - @param optional nil or *JobCommentCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobComment
 */
 func (a *JobCommentsApiService) JobCommentCreate(ctx _context.Context, projectId string, jobId string, jobCommentCreateParameters JobCommentCreateParameters, localVarOptionals *JobCommentCreateOpts) (JobComment, *APIResponse, error) {
@@ -133,13 +134,13 @@ type JobCommentDeleteOpts struct {
 /*
 JobCommentDelete Delete a job comment
 Delete an existing job comment.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param id ID
- * @param optional nil or *JobCommentDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param id ID
+  - @param optional nil or *JobCommentDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *JobCommentsApiService) JobCommentDelete(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobCommentDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -233,13 +234,14 @@ type JobCommentShowOpts struct {
 /*
 JobCommentShow Get a single job comment
 Get details on a single job comment.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param id ID
- * @param optional nil or *JobCommentShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param id ID
+  - @param optional nil or *JobCommentShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return map[string]interface{}
 */
 func (a *JobCommentsApiService) JobCommentShow(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobCommentShowOpts) (map[string]interface{}, *APIResponse, error) {
@@ -343,13 +345,14 @@ type JobCommentUpdateOpts struct {
 /*
 JobCommentUpdate Update a job comment
 Update an existing job comment.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param id ID
- * @param jobCommentUpdateParameters
- * @param optional nil or *JobCommentUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param id ID
+  - @param jobCommentUpdateParameters
+  - @param optional nil or *JobCommentUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return map[string]interface{}
 */
 func (a *JobCommentsApiService) JobCommentUpdate(ctx _context.Context, projectId string, keyId string, id string, jobCommentUpdateParameters JobCommentUpdateParameters, localVarOptionals *JobCommentUpdateOpts) (map[string]interface{}, *APIResponse, error) {
@@ -453,12 +456,13 @@ type JobCommentsListOpts struct {
 /*
 JobCommentsList List job comments
 List all comments for a job.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param optional nil or *JobCommentsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param optional nil or *JobCommentsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []map[string]interface{}
 */
 func (a *JobCommentsApiService) JobCommentsList(ctx _context.Context, projectId string, jobId string, localVarOptionals *JobCommentsListOpts) ([]map[string]interface{}, *APIResponse, error) {

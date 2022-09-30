@@ -25,9 +25,10 @@ type FormatsListOpts struct {
 /*
 FormatsList List formats
 Get a handy list of all localization file formats supported in Phrase.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *FormatsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param optional nil or *FormatsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return []Format
 */
 func (a *FormatsApiService) FormatsList(ctx _context.Context, localVarOptionals *FormatsListOpts) ([]Format, *APIResponse, error) {

@@ -26,11 +26,12 @@ type InvitationCreateOpts struct {
 /*
 InvitationCreate Create a new invitation
 Invite a person to an account. Developers and translators need &lt;code&gt;project_ids&lt;/code&gt; and &lt;code&gt;locale_ids&lt;/code&gt; assigned to access them. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param invitationCreateParameters
- * @param optional nil or *InvitationCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param invitationCreateParameters
+  - @param optional nil or *InvitationCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId string, invitationCreateParameters InvitationCreateParameters, localVarOptionals *InvitationCreateOpts) (Invitation, *APIResponse, error) {
@@ -139,11 +140,11 @@ type InvitationDeleteOpts struct {
 /*
 InvitationDelete Delete an invitation
 Delete an existing invitation (must not be accepted yet). Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *InvitationDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *InvitationDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *InvitationsApiService) InvitationDelete(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -231,11 +232,12 @@ type InvitationResendOpts struct {
 /*
 InvitationResend Resend an invitation
 Resend the invitation email (must not be accepted yet). Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *InvitationResendOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *InvitationResendOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationResend(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationResendOpts) (Invitation, *APIResponse, error) {
@@ -334,11 +336,12 @@ type InvitationShowOpts struct {
 /*
 InvitationShow Get a single invitation
 Get details on a single invitation. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *InvitationShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *InvitationShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationShow(ctx _context.Context, accountId string, id string, localVarOptionals *InvitationShowOpts) (Invitation, *APIResponse, error) {
@@ -437,12 +440,13 @@ type InvitationUpdateOpts struct {
 /*
 InvitationUpdate Update an invitation
 Update an existing invitation (must not be accepted yet). The &lt;code&gt;email&lt;/code&gt; cannot be updated. Developers and translators need &lt;code&gt;project_ids&lt;/code&gt; and &lt;code&gt;locale_ids&lt;/code&gt; assigned to access them. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param invitationUpdateParameters
- * @param optional nil or *InvitationUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param invitationUpdateParameters
+  - @param optional nil or *InvitationUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationUpdate(ctx _context.Context, accountId string, id string, invitationUpdateParameters InvitationUpdateParameters, localVarOptionals *InvitationUpdateOpts) (Invitation, *APIResponse, error) {
@@ -543,12 +547,13 @@ type InvitationUpdateSettingsOpts struct {
 /*
 InvitationUpdateSettings Update a member's invitation access
 Update member&#39;s settings in the invitations. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param invitationUpdateSettingsParameters
- * @param optional nil or *InvitationUpdateSettingsOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param invitationUpdateSettingsParameters
+  - @param optional nil or *InvitationUpdateSettingsOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Invitation
 */
 func (a *InvitationsApiService) InvitationUpdateSettings(ctx _context.Context, projectId string, id string, invitationUpdateSettingsParameters InvitationUpdateSettingsParameters, localVarOptionals *InvitationUpdateSettingsOpts) (Invitation, *APIResponse, error) {
@@ -651,12 +656,13 @@ type InvitationsListOpts struct {
 /*
 InvitationsList List invitations
 List invitations for an account. It will also list the accessible resources like projects and locales the invited user has access to. In case nothing is shown the default access from the role is used. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param optional nil or *InvitationsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param optional nil or *InvitationsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Invitation
 */
 func (a *InvitationsApiService) InvitationsList(ctx _context.Context, accountId string, localVarOptionals *InvitationsListOpts) ([]Invitation, *APIResponse, error) {

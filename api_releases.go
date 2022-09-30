@@ -26,12 +26,13 @@ type ReleaseCreateOpts struct {
 /*
 ReleaseCreate Create a release
 Create a new release.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param distributionId Distribution ID
- * @param releaseCreateParameters
- * @param optional nil or *ReleaseCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param distributionId Distribution ID
+  - @param releaseCreateParameters
+  - @param optional nil or *ReleaseCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Release
 */
 func (a *ReleasesApiService) ReleaseCreate(ctx _context.Context, accountId string, distributionId string, releaseCreateParameters ReleaseCreateParameters, localVarOptionals *ReleaseCreateOpts) (Release, *APIResponse, error) {
@@ -132,12 +133,12 @@ type ReleaseDeleteOpts struct {
 /*
 ReleaseDelete Delete a release
 Delete an existing release.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param distributionId Distribution ID
- * @param id ID
- * @param optional nil or *ReleaseDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param distributionId Distribution ID
+  - @param id ID
+  - @param optional nil or *ReleaseDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *ReleasesApiService) ReleaseDelete(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleaseDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -227,12 +228,13 @@ type ReleasePublishOpts struct {
 /*
 ReleasePublish Publish a release
 Publish a release for production.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param distributionId Distribution ID
- * @param id ID
- * @param optional nil or *ReleasePublishOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param distributionId Distribution ID
+  - @param id ID
+  - @param optional nil or *ReleasePublishOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Release
 */
 func (a *ReleasesApiService) ReleasePublish(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleasePublishOpts) (Release, *APIResponse, error) {
@@ -333,12 +335,13 @@ type ReleaseShowOpts struct {
 /*
 ReleaseShow Get a single release
 Get details on a single release.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param distributionId Distribution ID
- * @param id ID
- * @param optional nil or *ReleaseShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param distributionId Distribution ID
+  - @param id ID
+  - @param optional nil or *ReleaseShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Release
 */
 func (a *ReleasesApiService) ReleaseShow(ctx _context.Context, accountId string, distributionId string, id string, localVarOptionals *ReleaseShowOpts) (Release, *APIResponse, error) {
@@ -439,13 +442,14 @@ type ReleaseUpdateOpts struct {
 /*
 ReleaseUpdate Update a release
 Update an existing release.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param distributionId Distribution ID
- * @param id ID
- * @param releaseUpdateParameters
- * @param optional nil or *ReleaseUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param distributionId Distribution ID
+  - @param id ID
+  - @param releaseUpdateParameters
+  - @param optional nil or *ReleaseUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Release
 */
 func (a *ReleasesApiService) ReleaseUpdate(ctx _context.Context, accountId string, distributionId string, id string, releaseUpdateParameters ReleaseUpdateParameters, localVarOptionals *ReleaseUpdateOpts) (Release, *APIResponse, error) {
@@ -550,13 +554,14 @@ type ReleasesListOpts struct {
 /*
 ReleasesList List releases
 List all releases for the given distribution.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param distributionId Distribution ID
- * @param optional nil or *ReleasesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param distributionId Distribution ID
+  - @param optional nil or *ReleasesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []ReleasePreview
 */
 func (a *ReleasesApiService) ReleasesList(ctx _context.Context, accountId string, distributionId string, localVarOptionals *ReleasesListOpts) ([]ReleasePreview, *APIResponse, error) {

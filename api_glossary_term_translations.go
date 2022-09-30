@@ -26,13 +26,14 @@ type GlossaryTermTranslationCreateOpts struct {
 /*
 GlossaryTermTranslationCreate Create a translation for a term
 Create a new translation for a term in a term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param termId Term ID
- * @param glossaryTermTranslationCreateParameters
- * @param optional nil or *GlossaryTermTranslationCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param glossaryId Glossary ID
+  - @param termId Term ID
+  - @param glossaryTermTranslationCreateParameters
+  - @param optional nil or *GlossaryTermTranslationCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return GlossaryTermTranslation
 */
 func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationCreate(ctx _context.Context, accountId string, glossaryId string, termId string, glossaryTermTranslationCreateParameters GlossaryTermTranslationCreateParameters, localVarOptionals *GlossaryTermTranslationCreateOpts) (GlossaryTermTranslation, *APIResponse, error) {
@@ -135,13 +136,13 @@ type GlossaryTermTranslationDeleteOpts struct {
 /*
 GlossaryTermTranslationDelete Delete a translation for a term
 Delete an existing translation of a term in a term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param termId Term ID
- * @param id ID
- * @param optional nil or *GlossaryTermTranslationDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param glossaryId Glossary ID
+  - @param termId Term ID
+  - @param id ID
+  - @param optional nil or *GlossaryTermTranslationDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationDelete(ctx _context.Context, accountId string, glossaryId string, termId string, id string, localVarOptionals *GlossaryTermTranslationDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -233,14 +234,15 @@ type GlossaryTermTranslationUpdateOpts struct {
 /*
 GlossaryTermTranslationUpdate Update a translation for a term
 Update an existing translation for a term in a term base (previously: glossary).
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param glossaryId Glossary ID
- * @param termId Term ID
- * @param id ID
- * @param glossaryTermTranslationUpdateParameters
- * @param optional nil or *GlossaryTermTranslationUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param glossaryId Glossary ID
+  - @param termId Term ID
+  - @param id ID
+  - @param glossaryTermTranslationUpdateParameters
+  - @param optional nil or *GlossaryTermTranslationUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return GlossaryTermTranslation
 */
 func (a *GlossaryTermTranslationsApiService) GlossaryTermTranslationUpdate(ctx _context.Context, accountId string, glossaryId string, termId string, id string, glossaryTermTranslationUpdateParameters GlossaryTermTranslationUpdateParameters, localVarOptionals *GlossaryTermTranslationUpdateOpts) (GlossaryTermTranslation, *APIResponse, error) {

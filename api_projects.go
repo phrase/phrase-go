@@ -27,10 +27,11 @@ type ProjectCreateOpts struct {
 /*
 ProjectCreate Create a project
 Create a new project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectCreateParameters
- * @param optional nil or *ProjectCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectCreateParameters
+  - @param optional nil or *ProjectCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return ProjectDetails
 */
 func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreateParameters ProjectCreateParameters, localVarOptionals *ProjectCreateOpts) (ProjectDetails, *APIResponse, error) {
@@ -127,10 +128,10 @@ type ProjectDeleteOpts struct {
 /*
 ProjectDelete Delete a project
 Delete an existing project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *ProjectDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *ProjectDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *ProjectsApiService) ProjectDelete(ctx _context.Context, id string, localVarOptionals *ProjectDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -216,10 +217,11 @@ type ProjectShowOpts struct {
 /*
 ProjectShow Get a single project
 Get details on a single project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *ProjectShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *ProjectShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return ProjectDetails
 */
 func (a *ProjectsApiService) ProjectShow(ctx _context.Context, id string, localVarOptionals *ProjectShowOpts) (ProjectDetails, *APIResponse, error) {
@@ -316,11 +318,12 @@ type ProjectUpdateOpts struct {
 /*
 ProjectUpdate Update a project
 Update an existing project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param projectUpdateParameters
- * @param optional nil or *ProjectUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param projectUpdateParameters
+  - @param optional nil or *ProjectUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return ProjectDetails
 */
 func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, projectUpdateParameters ProjectUpdateParameters, localVarOptionals *ProjectUpdateOpts) (ProjectDetails, *APIResponse, error) {
@@ -424,14 +427,15 @@ type ProjectsListOpts struct {
 /*
 ProjectsList List projects
 List all projects the current user has access to.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *ProjectsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "AccountId" (optional.String) -  Filter by Account ID
- * @param "SortBy" (optional.String) -  Sort projects. Valid options are \"name_asc\", \"name_desc\", \"updated_at_asc\", \"updated_at_desc\", \"space_asc\" and \"space_desc\".
- * @param "Filters" (optional.Interface of []string) -  Filter projects. Valid options are [\"favorites\"].
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param optional nil or *ProjectsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "AccountId" (optional.String) -  Filter by Account ID
+  - @param "SortBy" (optional.String) -  Sort projects. Valid options are \"name_asc\", \"name_desc\", \"updated_at_asc\", \"updated_at_desc\", \"space_asc\" and \"space_desc\".
+  - @param "Filters" (optional.Interface of []string) -  Filter projects. Valid options are [\"favorites\"].
+
 @return []Project
 */
 func (a *ProjectsApiService) ProjectsList(ctx _context.Context, localVarOptionals *ProjectsListOpts) ([]Project, *APIResponse, error) {

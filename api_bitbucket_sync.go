@@ -26,11 +26,12 @@ type BitbucketSyncExportOpts struct {
 /*
 BitbucketSyncExport Export from Phrase Strings to Bitbucket
 Export translations from Phrase Strings to Bitbucket according to the .phraseapp.yml file within the Bitbucket Repository.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param bitbucketSyncExportParameters
- * @param optional nil or *BitbucketSyncExportOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param bitbucketSyncExportParameters
+  - @param optional nil or *BitbucketSyncExportOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return BitbucketSyncExportResponse
 */
 func (a *BitbucketSyncApiService) BitbucketSyncExport(ctx _context.Context, id string, bitbucketSyncExportParameters BitbucketSyncExportParameters, localVarOptionals *BitbucketSyncExportOpts) (BitbucketSyncExportResponse, *APIResponse, error) {
@@ -129,11 +130,11 @@ type BitbucketSyncImportOpts struct {
 /*
 BitbucketSyncImport Import to Phrase Strings from Bitbucket
 Import translations from Bitbucket to Phrase Strings according to the .phraseapp.yml file within the Bitbucket repository.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param bitbucketSyncImportParameters
- * @param optional nil or *BitbucketSyncImportOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param bitbucketSyncImportParameters
+  - @param optional nil or *BitbucketSyncImportOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BitbucketSyncApiService) BitbucketSyncImport(ctx _context.Context, id string, bitbucketSyncImportParameters BitbucketSyncImportParameters, localVarOptionals *BitbucketSyncImportOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -222,10 +223,11 @@ type BitbucketSyncsListOpts struct {
 /*
 BitbucketSyncsList List Bitbucket syncs
 List all Bitbucket repositories for which synchronisation with Phrase Strings is activated.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *BitbucketSyncsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "AccountId" (optional.String) -  Account ID to specify the actual account the project should be created in. Required if the requesting user is a member of multiple accounts.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param optional nil or *BitbucketSyncsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "AccountId" (optional.String) -  Account ID to specify the actual account the project should be created in. Required if the requesting user is a member of multiple accounts.
+
 @return []BitbucketSync
 */
 func (a *BitbucketSyncApiService) BitbucketSyncsList(ctx _context.Context, localVarOptionals *BitbucketSyncsListOpts) ([]BitbucketSync, *APIResponse, error) {

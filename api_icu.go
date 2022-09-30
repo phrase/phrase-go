@@ -25,10 +25,11 @@ type IcuSkeletonOpts struct {
 /*
 IcuSkeleton Build icu skeletons
 Returns icu skeletons for multiple locale codes based on a source content.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param icuSkeletonParameters
- * @param optional nil or *IcuSkeletonOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param icuSkeletonParameters
+  - @param optional nil or *IcuSkeletonOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Icu
 */
 func (a *ICUApiService) IcuSkeleton(ctx _context.Context, icuSkeletonParameters IcuSkeletonParameters, localVarOptionals *IcuSkeletonOpts) (Icu, *APIResponse, error) {

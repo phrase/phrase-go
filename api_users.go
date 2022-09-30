@@ -25,9 +25,10 @@ type ShowUserOpts struct {
 /*
 ShowUser Show current User
 Show details for current User.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *ShowUserOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param optional nil or *ShowUserOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return CurrentUser
 */
 func (a *UsersApiService) ShowUser(ctx _context.Context, localVarOptionals *ShowUserOpts) (CurrentUser, *APIResponse, error) {

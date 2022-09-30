@@ -27,11 +27,11 @@ type GitlabSyncDeleteOpts struct {
 /*
 GitlabSyncDelete Delete single Sync Setting
 Deletes a single GitLab Sync Setting.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *GitlabSyncDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *GitlabSyncDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
 */
 func (a *GitLabSyncApiService) GitlabSyncDelete(ctx _context.Context, id string, localVarOptionals *GitlabSyncDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -120,11 +120,12 @@ type GitlabSyncExportOpts struct {
 /*
 GitlabSyncExport Export from Phrase Strings to GitLab
 Export translations from Phrase Strings to GitLab according to the .phraseapp.yml file within the GitLab repository.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param gitlabSyncId Gitlab Sync ID
- * @param gitlabSyncExportParameters
- * @param optional nil or *GitlabSyncExportOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param gitlabSyncId Gitlab Sync ID
+  - @param gitlabSyncExportParameters
+  - @param optional nil or *GitlabSyncExportOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return GitlabSyncExport
 */
 func (a *GitLabSyncApiService) GitlabSyncExport(ctx _context.Context, gitlabSyncId string, gitlabSyncExportParameters GitlabSyncExportParameters, localVarOptionals *GitlabSyncExportOpts) (GitlabSyncExport, *APIResponse, error) {
@@ -226,13 +227,14 @@ type GitlabSyncHistoryOpts struct {
 /*
 GitlabSyncHistory History of single Sync Setting
 List history for a single Sync Setting.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param gitlabSyncId Gitlab Sync ID
- * @param optional nil or *GitlabSyncHistoryOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param gitlabSyncId Gitlab Sync ID
+  - @param optional nil or *GitlabSyncHistoryOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
+
 @return []GitlabSyncHistory
 */
 func (a *GitLabSyncApiService) GitlabSyncHistory(ctx _context.Context, gitlabSyncId string, localVarOptionals *GitlabSyncHistoryOpts) ([]GitlabSyncHistory, *APIResponse, error) {
@@ -338,11 +340,12 @@ type GitlabSyncImportOpts struct {
 /*
 GitlabSyncImport Import from GitLab to Phrase
 Import translations from GitLab to Phrase Strings according to the .phraseapp.yml file within the GitLab repository.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param gitlabSyncId Gitlab Sync ID
- * @param gitlabSyncImportParameters
- * @param optional nil or *GitlabSyncImportOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param gitlabSyncId Gitlab Sync ID
+  - @param gitlabSyncImportParameters
+  - @param optional nil or *GitlabSyncImportOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return []Upload
 */
 func (a *GitLabSyncApiService) GitlabSyncImport(ctx _context.Context, gitlabSyncId string, gitlabSyncImportParameters GitlabSyncImportParameters, localVarOptionals *GitlabSyncImportOpts) ([]Upload, *APIResponse, error) {
@@ -442,10 +445,11 @@ type GitlabSyncListOpts struct {
 /*
 GitlabSyncList List GitLab syncs
 List all GitLab Sync Settings for which synchronisation with Phrase Strings and GitLab is activated.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *GitlabSyncListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param optional nil or *GitlabSyncListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
+
 @return []GitlabSync
 */
 func (a *GitLabSyncApiService) GitlabSyncList(ctx _context.Context, localVarOptionals *GitlabSyncListOpts) ([]GitlabSync, *APIResponse, error) {
@@ -544,11 +548,12 @@ type GitlabSyncShowOpts struct {
 /*
 GitlabSyncShow Get single Sync Setting
 Shows a single GitLab Sync Setting.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *GitlabSyncShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *GitlabSyncShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
+
 @return GitlabSync
 */
 func (a *GitLabSyncApiService) GitlabSyncShow(ctx _context.Context, id string, localVarOptionals *GitlabSyncShowOpts) (GitlabSync, *APIResponse, error) {
@@ -652,14 +657,15 @@ type GitlabSyncUpdateOpts struct {
 /*
 GitlabSyncUpdate Update single Sync Setting
 Updates a single GitLab Sync Setting.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *GitlabSyncUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
- * @param "PhraseProjectCode" (optional.String) -  Code of the related Phrase Strings Project.
- * @param "GitlabProjectId" (optional.Int32) -  ID of the related GitLab Project.
- * @param "GitlabBranchName" (optional.String) -  Name of the GitLab Branch.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *GitlabSyncUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "AccountId" (optional.String) -  Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
+  - @param "PhraseProjectCode" (optional.String) -  Code of the related Phrase Strings Project.
+  - @param "GitlabProjectId" (optional.Int32) -  ID of the related GitLab Project.
+  - @param "GitlabBranchName" (optional.String) -  Name of the GitLab Branch.
+
 @return GitlabSync
 */
 func (a *GitLabSyncApiService) GitlabSyncUpdate(ctx _context.Context, id string, localVarOptionals *GitlabSyncUpdateOpts) (GitlabSync, *APIResponse, error) {

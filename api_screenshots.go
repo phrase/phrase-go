@@ -31,14 +31,15 @@ type ScreenshotCreateOpts struct {
 /*
 ScreenshotCreate Create a screenshot
 Create a new screenshot.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *ScreenshotCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
- * @param "Name" (optional.String) -  Name of the screenshot
- * @param "Description" (optional.String) -  Description of the screenshot
- * @param "Filename" (optional.Interface of *os.File) -  Screenshot file
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *ScreenshotCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Name" (optional.String) -  Name of the screenshot
+  - @param "Description" (optional.String) -  Description of the screenshot
+  - @param "Filename" (optional.Interface of *os.File) -  Screenshot file
+
 @return Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, localVarOptionals *ScreenshotCreateOpts) (Screenshot, *APIResponse, error) {
@@ -160,12 +161,12 @@ type ScreenshotDeleteOpts struct {
 /*
 ScreenshotDelete Delete a screenshot
 Delete an existing screenshot.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *ScreenshotDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *ScreenshotDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *ScreenshotsApiService) ScreenshotDelete(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -257,12 +258,13 @@ type ScreenshotShowOpts struct {
 /*
 ScreenshotShow Get a single screenshot
 Get details on a single screenshot for a given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *ScreenshotShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *ScreenshotShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotShow(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotShowOpts) (Screenshot, *APIResponse, error) {
@@ -364,12 +366,13 @@ type ScreenshotUpdateOpts struct {
 /*
 ScreenshotUpdate Update a screenshot
 Update an existing screenshot.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param screenshotUpdateParameters
- * @param optional nil or *ScreenshotUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param screenshotUpdateParameters
+  - @param optional nil or *ScreenshotUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotUpdate(ctx _context.Context, projectId string, id string, screenshotUpdateParameters ScreenshotUpdateParameters, localVarOptionals *ScreenshotUpdateOpts) (Screenshot, *APIResponse, error) {
@@ -474,14 +477,15 @@ type ScreenshotsListOpts struct {
 /*
 ScreenshotsList List screenshots
 List all screenshots for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *ScreenshotsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
- * @param "KeyId" (optional.String) -  filter by key
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *ScreenshotsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "KeyId" (optional.String) -  filter by key
+
 @return []Screenshot
 */
 func (a *ScreenshotsApiService) ScreenshotsList(ctx _context.Context, projectId string, localVarOptionals *ScreenshotsListOpts) ([]Screenshot, *APIResponse, error) {

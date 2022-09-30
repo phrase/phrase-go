@@ -26,11 +26,12 @@ type BlacklistedKeyCreateOpts struct {
 /*
 BlacklistedKeyCreate Create a blocked key
 Create a new rule for blocking keys.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param blacklistedKeyCreateParameters
- * @param optional nil or *BlacklistedKeyCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param blacklistedKeyCreateParameters
+  - @param optional nil or *BlacklistedKeyCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyCreate(ctx _context.Context, projectId string, blacklistedKeyCreateParameters BlacklistedKeyCreateParameters, localVarOptionals *BlacklistedKeyCreateOpts) (BlacklistedKey, *APIResponse, error) {
@@ -129,11 +130,11 @@ type BlacklistedKeyDeleteOpts struct {
 /*
 BlacklistedKeyDelete Delete a blocked key
 Delete an existing rule for blocking keys.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *BlacklistedKeyDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *BlacklistedKeyDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyDelete(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -221,11 +222,12 @@ type BlacklistedKeyShowOpts struct {
 /*
 BlacklistedKeyShow Get a single blocked key
 Get details on a single rule for blocking keys for a given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *BlacklistedKeyShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *BlacklistedKeyShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyShow(ctx _context.Context, projectId string, id string, localVarOptionals *BlacklistedKeyShowOpts) (BlacklistedKey, *APIResponse, error) {
@@ -324,12 +326,13 @@ type BlacklistedKeyUpdateOpts struct {
 /*
 BlacklistedKeyUpdate Update a blocked key
 Update an existing rule for blocking keys.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param blacklistedKeyUpdateParameters
- * @param optional nil or *BlacklistedKeyUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param blacklistedKeyUpdateParameters
+  - @param optional nil or *BlacklistedKeyUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeyUpdate(ctx _context.Context, projectId string, id string, blacklistedKeyUpdateParameters BlacklistedKeyUpdateParameters, localVarOptionals *BlacklistedKeyUpdateOpts) (BlacklistedKey, *APIResponse, error) {
@@ -433,13 +436,14 @@ type BlacklistedKeysListOpts struct {
 /*
 BlacklistedKeysList List blocked keys
 List all rules for blocking keys for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *BlacklistedKeysListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *BlacklistedKeysListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []BlacklistedKey
 */
 func (a *BlacklistedKeysApiService) BlacklistedKeysList(ctx _context.Context, projectId string, localVarOptionals *BlacklistedKeysListOpts) ([]BlacklistedKey, *APIResponse, error) {

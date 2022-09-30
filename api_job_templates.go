@@ -26,11 +26,12 @@ type JobTemplateCreateOpts struct {
 /*
 JobTemplateCreate Create a job template
 Create a new job template.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobTemplateCreateParameters
- * @param optional nil or *JobTemplateCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobTemplateCreateParameters
+  - @param optional nil or *JobTemplateCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return map[string]interface{}
 */
 func (a *JobTemplatesApiService) JobTemplateCreate(ctx _context.Context, projectId string, jobTemplateCreateParameters JobTemplateCreateParameters, localVarOptionals *JobTemplateCreateOpts) (map[string]interface{}, *APIResponse, error) {
@@ -130,12 +131,12 @@ type JobTemplateDeleteOpts struct {
 /*
 JobTemplateDelete Delete a job template
 Delete an existing job template.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *JobTemplateDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *JobTemplateDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *JobTemplatesApiService) JobTemplateDelete(ctx _context.Context, projectId string, id string, localVarOptionals *JobTemplateDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -227,12 +228,13 @@ type JobTemplateShowOpts struct {
 /*
 JobTemplateShow Get a single job template
 Get details on a single job template for a given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *JobTemplateShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *JobTemplateShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return map[string]interface{}
 */
 func (a *JobTemplatesApiService) JobTemplateShow(ctx _context.Context, projectId string, id string, localVarOptionals *JobTemplateShowOpts) (map[string]interface{}, *APIResponse, error) {
@@ -334,12 +336,13 @@ type JobTemplateUpdateOpts struct {
 /*
 JobTemplateUpdate Update a job template
 Update an existing job template.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param jobTemplateUpdateParameters
- * @param optional nil or *JobTemplateUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param jobTemplateUpdateParameters
+  - @param optional nil or *JobTemplateUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return map[string]interface{}
 */
 func (a *JobTemplatesApiService) JobTemplateUpdate(ctx _context.Context, projectId string, id string, jobTemplateUpdateParameters JobTemplateUpdateParameters, localVarOptionals *JobTemplateUpdateOpts) (map[string]interface{}, *APIResponse, error) {
@@ -443,13 +446,14 @@ type JobTemplatesListOpts struct {
 /*
 JobTemplatesList List job templates
 List all job templates for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *JobTemplatesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *JobTemplatesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []JobTemplate
 */
 func (a *JobTemplatesApiService) JobTemplatesList(ctx _context.Context, projectId string, localVarOptionals *JobTemplatesListOpts) ([]JobTemplate, *APIResponse, error) {

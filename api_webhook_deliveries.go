@@ -27,12 +27,13 @@ type WebhookDeliveriesListOpts struct {
 /*
 WebhookDeliveriesList List webhook deliveries
 List all webhook deliveries for the given webhook_id.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param webhookId Webhook ID
- * @param optional nil or *WebhookDeliveriesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "ResponseStatusCodes" (optional.String) -  List of Response Status Codes
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param webhookId Webhook ID
+  - @param optional nil or *WebhookDeliveriesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "ResponseStatusCodes" (optional.String) -  List of Response Status Codes
+
 @return []WebhookDelivery
 */
 func (a *WebhookDeliveriesApiService) WebhookDeliveriesList(ctx _context.Context, projectId string, webhookId string, localVarOptionals *WebhookDeliveriesListOpts) ([]WebhookDelivery, *APIResponse, error) {
@@ -134,12 +135,13 @@ type WebhookDeliveriesRedeliverOpts struct {
 /*
 WebhookDeliveriesRedeliver Redeliver a single webhook delivery
 Trigger an individual webhook delivery to be redelivered.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param webhookId Webhook ID
- * @param id ID
- * @param optional nil or *WebhookDeliveriesRedeliverOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param webhookId Webhook ID
+  - @param id ID
+  - @param optional nil or *WebhookDeliveriesRedeliverOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return WebhookDelivery
 */
 func (a *WebhookDeliveriesApiService) WebhookDeliveriesRedeliver(ctx _context.Context, projectId string, webhookId string, id string, localVarOptionals *WebhookDeliveriesRedeliverOpts) (WebhookDelivery, *APIResponse, error) {
@@ -240,12 +242,13 @@ type WebhookDeliveriesShowOpts struct {
 /*
 WebhookDeliveriesShow Get a single webhook delivery
 Get all information about a single webhook delivery for the given ID.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param webhookId Webhook ID
- * @param id ID
- * @param optional nil or *WebhookDeliveriesShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param webhookId Webhook ID
+  - @param id ID
+  - @param optional nil or *WebhookDeliveriesShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return WebhookDelivery
 */
 func (a *WebhookDeliveriesApiService) WebhookDeliveriesShow(ctx _context.Context, projectId string, webhookId string, id string, localVarOptionals *WebhookDeliveriesShowOpts) (WebhookDelivery, *APIResponse, error) {

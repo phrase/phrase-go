@@ -26,10 +26,11 @@ type AuthorizationCreateOpts struct {
 /*
 AuthorizationCreate Create an authorization
 Create a new authorization.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param authorizationCreateParameters
- * @param optional nil or *AuthorizationCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param authorizationCreateParameters
+  - @param optional nil or *AuthorizationCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return AuthorizationWithToken
 */
 func (a *AuthorizationsApiService) AuthorizationCreate(ctx _context.Context, authorizationCreateParameters AuthorizationCreateParameters, localVarOptionals *AuthorizationCreateOpts) (AuthorizationWithToken, *APIResponse, error) {
@@ -126,10 +127,10 @@ type AuthorizationDeleteOpts struct {
 /*
 AuthorizationDelete Delete an authorization
 Delete an existing authorization. API calls using that token will stop working.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *AuthorizationDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *AuthorizationDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *AuthorizationsApiService) AuthorizationDelete(ctx _context.Context, id string, localVarOptionals *AuthorizationDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -215,10 +216,11 @@ type AuthorizationShowOpts struct {
 /*
 AuthorizationShow Get a single authorization
 Get details on a single authorization.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *AuthorizationShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *AuthorizationShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Authorization
 */
 func (a *AuthorizationsApiService) AuthorizationShow(ctx _context.Context, id string, localVarOptionals *AuthorizationShowOpts) (Authorization, *APIResponse, error) {
@@ -315,11 +317,12 @@ type AuthorizationUpdateOpts struct {
 /*
 AuthorizationUpdate Update an authorization
 Update an existing authorization.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param authorizationUpdateParameters
- * @param optional nil or *AuthorizationUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param authorizationUpdateParameters
+  - @param optional nil or *AuthorizationUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Authorization
 */
 func (a *AuthorizationsApiService) AuthorizationUpdate(ctx _context.Context, id string, authorizationUpdateParameters AuthorizationUpdateParameters, localVarOptionals *AuthorizationUpdateOpts) (Authorization, *APIResponse, error) {
@@ -420,11 +423,12 @@ type AuthorizationsListOpts struct {
 /*
 AuthorizationsList List authorizations
 List all your authorizations.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *AuthorizationsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param optional nil or *AuthorizationsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Authorization
 */
 func (a *AuthorizationsApiService) AuthorizationsList(ctx _context.Context, localVarOptionals *AuthorizationsListOpts) ([]Authorization, *APIResponse, error) {

@@ -26,12 +26,13 @@ type OrderConfirmOpts struct {
 /*
 OrderConfirm Confirm an order
 Confirm an existing order and send it to the provider for translation. Same constraints as for create.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param orderConfirmParameters
- * @param optional nil or *OrderConfirmOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param orderConfirmParameters
+  - @param optional nil or *OrderConfirmOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TranslationOrder
 */
 func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, id string, orderConfirmParameters OrderConfirmParameters, localVarOptionals *OrderConfirmOpts) (TranslationOrder, *APIResponse, error) {
@@ -132,11 +133,12 @@ type OrderCreateOpts struct {
 /*
 OrderCreate Create a new order
 Create a new order. Access token scope must include &lt;code&gt;orders.create&lt;/code&gt;.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param orderCreateParameters
- * @param optional nil or *OrderCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param orderCreateParameters
+  - @param optional nil or *OrderCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return TranslationOrder
 */
 func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, orderCreateParameters OrderCreateParameters, localVarOptionals *OrderCreateOpts) (TranslationOrder, *APIResponse, error) {
@@ -236,12 +238,12 @@ type OrderDeleteOpts struct {
 /*
 OrderDelete Cancel an order
 Cancel an existing order. Must not yet be confirmed.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *OrderDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *OrderDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, id string, localVarOptionals *OrderDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -333,12 +335,13 @@ type OrderShowOpts struct {
 /*
 OrderShow Get a single order
 Get details on a single order.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *OrderShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *OrderShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return TranslationOrder
 */
 func (a *OrdersApiService) OrderShow(ctx _context.Context, projectId string, id string, localVarOptionals *OrderShowOpts) (TranslationOrder, *APIResponse, error) {
@@ -443,13 +446,14 @@ type OrdersListOpts struct {
 /*
 OrdersList List orders
 List all orders for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *OrdersListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *OrdersListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []TranslationOrder
 */
 func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, localVarOptionals *OrdersListOpts) ([]TranslationOrder, *APIResponse, error) {

@@ -26,11 +26,11 @@ type BranchCompareOpts struct {
 /*
 BranchCompare Compare branches
 Compare branch with main branch.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param name name
- * @param optional nil or *BranchCompareOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param name name
+  - @param optional nil or *BranchCompareOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, localVarOptionals *BranchCompareOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -118,11 +118,12 @@ type BranchCreateOpts struct {
 /*
 BranchCreate Create a branch
 Create a new branch.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param branchCreateParameters
- * @param optional nil or *BranchCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param branchCreateParameters
+  - @param optional nil or *BranchCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Branch
 */
 func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string, branchCreateParameters BranchCreateParameters, localVarOptionals *BranchCreateOpts) (Branch, *APIResponse, error) {
@@ -221,11 +222,11 @@ type BranchDeleteOpts struct {
 /*
 BranchDelete Delete a branch
 Delete an existing branch.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param name name
- * @param optional nil or *BranchDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param name name
+  - @param optional nil or *BranchDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string, name string, localVarOptionals *BranchDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -313,12 +314,12 @@ type BranchMergeOpts struct {
 /*
 BranchMerge Merge a branch
 Merge an existing branch.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param name name
- * @param branchMergeParameters
- * @param optional nil or *BranchMergeOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param name name
+  - @param branchMergeParameters
+  - @param optional nil or *BranchMergeOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string, name string, branchMergeParameters BranchMergeParameters, localVarOptionals *BranchMergeOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -408,11 +409,12 @@ type BranchShowOpts struct {
 /*
 BranchShow Get a single branch
 Get details on a single branch for a given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param name name
- * @param optional nil or *BranchShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param name name
+  - @param optional nil or *BranchShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Branch
 */
 func (a *BranchesApiService) BranchShow(ctx _context.Context, projectId string, name string, localVarOptionals *BranchShowOpts) (Branch, *APIResponse, error) {
@@ -511,12 +513,13 @@ type BranchUpdateOpts struct {
 /*
 BranchUpdate Update a branch
 Update an existing branch.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param name name
- * @param branchUpdateParameters
- * @param optional nil or *BranchUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param name name
+  - @param branchUpdateParameters
+  - @param optional nil or *BranchUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Branch
 */
 func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string, name string, branchUpdateParameters BranchUpdateParameters, localVarOptionals *BranchUpdateOpts) (Branch, *APIResponse, error) {
@@ -619,12 +622,13 @@ type BranchesListOpts struct {
 /*
 BranchesList List branches
 List all branches the of the current project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *BranchesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *BranchesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Branch
 */
 func (a *BranchesApiService) BranchesList(ctx _context.Context, projectId string, localVarOptionals *BranchesListOpts) ([]Branch, *APIResponse, error) {

@@ -31,12 +31,13 @@ type AccountLocalesOpts struct {
 /*
 AccountLocales List locales used in account
 List all locales unique by locale code used across all projects within an account.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *AccountLocalesOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *AccountLocalesOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []LocalePreview1
 */
 func (a *LocalesApiService) AccountLocales(ctx _context.Context, id string, localVarOptionals *AccountLocalesOpts) ([]LocalePreview1, *APIResponse, error) {
@@ -139,11 +140,12 @@ type LocaleCreateOpts struct {
 /*
 LocaleCreate Create a locale
 Create a new locale.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param localeCreateParameters
- * @param optional nil or *LocaleCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param localeCreateParameters
+  - @param optional nil or *LocaleCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return LocaleDetails
 */
 func (a *LocalesApiService) LocaleCreate(ctx _context.Context, projectId string, localeCreateParameters LocaleCreateParameters, localVarOptionals *LocaleCreateOpts) (LocaleDetails, *APIResponse, error) {
@@ -243,12 +245,12 @@ type LocaleDeleteOpts struct {
 /*
 LocaleDelete Delete a locale
 Delete an existing locale.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *LocaleDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *LocaleDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -355,27 +357,28 @@ type LocaleDownloadOpts struct {
 /*
 LocaleDownload Download a locale
 Download a locale in a specific file format.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *LocaleDownloadOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
- * @param "FileFormat" (optional.String) -  File format name. See the <a href=\"https://support.phrase.com/hc/en-us/articles/5784070560412\">format guide</a> for all supported file formats.
- * @param "Tags" (optional.String) -  Limit results to keys tagged with a list of comma separated tag names.
- * @param "Tag" (optional.String) -  Limit download to tagged keys. This parameter is deprecated. Please use the \"tags\" parameter instead
- * @param "IncludeEmptyTranslations" (optional.Bool) -  Indicates whether keys without translations should be included in the output as well.
- * @param "ExcludeEmptyZeroForms" (optional.Bool) -  Indicates whether zero forms should be included when empty in pluralized keys.
- * @param "IncludeTranslatedKeys" (optional.Bool) -  Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys.
- * @param "KeepNotranslateTags" (optional.Bool) -  Indicates whether [NOTRANSLATE] tags should be kept.
- * @param "ConvertEmoji" (optional.Bool) -  This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively.
- * @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional formatting and render options. See the <a href=\"https://support.phrase.com/hc/en-us/articles/5784070560412\">format guide</a> for a list of options available for each format. Specify format options like this: <code>...&format_options[foo]=bar</code>
- * @param "Encoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \"UTF-8\", \"UTF-16\" and \"ISO-8859-1\".
- * @param "SkipUnverifiedTranslations" (optional.Bool) -  Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with <code>include_unverified_translations</code>.
- * @param "IncludeUnverifiedTranslations" (optional.Bool) -  if set to false unverified translations are excluded
- * @param "UseLastReviewedVersion" (optional.Bool) -  If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project.
- * @param "FallbackLocaleId" (optional.String) -  If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to <code>true</code>.
- * @param "SourceLocaleId" (optional.String) -  Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a <code>tag</code> parameter indicating a specific job.
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *LocaleDownloadOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "FileFormat" (optional.String) -  File format name. See the <a href=\"https://support.phrase.com/hc/en-us/articles/5784070560412\">format guide</a> for all supported file formats.
+  - @param "Tags" (optional.String) -  Limit results to keys tagged with a list of comma separated tag names.
+  - @param "Tag" (optional.String) -  Limit download to tagged keys. This parameter is deprecated. Please use the \"tags\" parameter instead
+  - @param "IncludeEmptyTranslations" (optional.Bool) -  Indicates whether keys without translations should be included in the output as well.
+  - @param "ExcludeEmptyZeroForms" (optional.Bool) -  Indicates whether zero forms should be included when empty in pluralized keys.
+  - @param "IncludeTranslatedKeys" (optional.Bool) -  Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys.
+  - @param "KeepNotranslateTags" (optional.Bool) -  Indicates whether [NOTRANSLATE] tags should be kept.
+  - @param "ConvertEmoji" (optional.Bool) -  This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively.
+  - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional formatting and render options. See the <a href=\"https://support.phrase.com/hc/en-us/articles/5784070560412\">format guide</a> for a list of options available for each format. Specify format options like this: <code>...&format_options[foo]=bar</code>
+  - @param "Encoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \"UTF-8\", \"UTF-16\" and \"ISO-8859-1\".
+  - @param "SkipUnverifiedTranslations" (optional.Bool) -  Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with <code>include_unverified_translations</code>.
+  - @param "IncludeUnverifiedTranslations" (optional.Bool) -  if set to false unverified translations are excluded
+  - @param "UseLastReviewedVersion" (optional.Bool) -  If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project.
+  - @param "FallbackLocaleId" (optional.String) -  If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to <code>true</code>.
+  - @param "SourceLocaleId" (optional.String) -  Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a <code>tag</code> parameter indicating a specific job.
+
 @return *os.File
 */
 func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleDownloadOpts) (*os.File, *APIResponse, error) {
@@ -525,12 +528,13 @@ type LocaleShowOpts struct {
 /*
 LocaleShow Get a single locale
 Get details on a single locale for a given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *LocaleShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *LocaleShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return LocaleDetails
 */
 func (a *LocalesApiService) LocaleShow(ctx _context.Context, projectId string, id string, localVarOptionals *LocaleShowOpts) (LocaleDetails, *APIResponse, error) {
@@ -632,12 +636,13 @@ type LocaleUpdateOpts struct {
 /*
 LocaleUpdate Update a locale
 Update an existing locale.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param localeUpdateParameters
- * @param optional nil or *LocaleUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param localeUpdateParameters
+  - @param optional nil or *LocaleUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return LocaleDetails
 */
 func (a *LocalesApiService) LocaleUpdate(ctx _context.Context, projectId string, id string, localeUpdateParameters LocaleUpdateParameters, localVarOptionals *LocaleUpdateOpts) (LocaleDetails, *APIResponse, error) {
@@ -742,14 +747,15 @@ type LocalesListOpts struct {
 /*
 LocalesList List locales
 List all locales for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *LocalesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "SortBy" (optional.String) -  Sort locales. Valid options are \"name_asc\", \"name_desc\", \"default_asc\", \"default_desc\".
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *LocalesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "SortBy" (optional.String) -  Sort locales. Valid options are \"name_asc\", \"name_desc\", \"default_asc\", \"default_desc\".
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []Locale
 */
 func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, localVarOptionals *LocalesListOpts) ([]Locale, *APIResponse, error) {

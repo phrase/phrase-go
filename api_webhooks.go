@@ -26,11 +26,12 @@ type WebhookCreateOpts struct {
 /*
 WebhookCreate Create a webhook
 Create a new webhook.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param webhookCreateParameters
- * @param optional nil or *WebhookCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param webhookCreateParameters
+  - @param optional nil or *WebhookCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Webhook
 */
 func (a *WebhooksApiService) WebhookCreate(ctx _context.Context, projectId string, webhookCreateParameters WebhookCreateParameters, localVarOptionals *WebhookCreateOpts) (Webhook, *APIResponse, error) {
@@ -129,11 +130,11 @@ type WebhookDeleteOpts struct {
 /*
 WebhookDelete Delete a webhook
 Delete an existing webhook.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *WebhookDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *WebhookDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *WebhooksApiService) WebhookDelete(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -221,11 +222,12 @@ type WebhookShowOpts struct {
 /*
 WebhookShow Get a single webhook
 Get details on a single webhook.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *WebhookShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *WebhookShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Webhook
 */
 func (a *WebhooksApiService) WebhookShow(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookShowOpts) (Webhook, *APIResponse, error) {
@@ -324,11 +326,11 @@ type WebhookTestOpts struct {
 /*
 WebhookTest Test a webhook
 Perform a test request for a webhook.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *WebhookTestOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *WebhookTestOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *WebhooksApiService) WebhookTest(ctx _context.Context, projectId string, id string, localVarOptionals *WebhookTestOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -416,12 +418,13 @@ type WebhookUpdateOpts struct {
 /*
 WebhookUpdate Update a webhook
 Update an existing webhook.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param webhookUpdateParameters
- * @param optional nil or *WebhookUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param webhookUpdateParameters
+  - @param optional nil or *WebhookUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Webhook
 */
 func (a *WebhooksApiService) WebhookUpdate(ctx _context.Context, projectId string, id string, webhookUpdateParameters WebhookUpdateParameters, localVarOptionals *WebhookUpdateOpts) (Webhook, *APIResponse, error) {
@@ -524,12 +527,13 @@ type WebhooksListOpts struct {
 /*
 WebhooksList List webhooks
 List all webhooks for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *WebhooksListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *WebhooksListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Webhook
 */
 func (a *WebhooksApiService) WebhooksList(ctx _context.Context, projectId string, localVarOptionals *WebhooksListOpts) ([]Webhook, *APIResponse, error) {

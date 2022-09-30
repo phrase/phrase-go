@@ -28,11 +28,12 @@ type NotificationsListOpts struct {
 /*
 NotificationsList List notifications
 List all notifications from the current user
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *NotificationsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param optional nil or *NotificationsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []map[string]interface{}
 */
 func (a *NotificationsApiService) NotificationsList(ctx _context.Context, localVarOptionals *NotificationsListOpts) ([]map[string]interface{}, *APIResponse, error) {
@@ -133,9 +134,10 @@ type NotificationsMarkAllAsReadOpts struct {
 /*
 NotificationsMarkAllAsRead Mark all notifications as read
 Mark all notifications of the current user as read
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *NotificationsMarkAllAsReadOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param optional nil or *NotificationsMarkAllAsReadOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return []map[string]interface{}
 */
 func (a *NotificationsApiService) NotificationsMarkAllAsRead(ctx _context.Context, localVarOptionals *NotificationsMarkAllAsReadOpts) ([]map[string]interface{}, *APIResponse, error) {
@@ -230,10 +232,11 @@ type NotificationsShowOpts struct {
 /*
 NotificationsShow Get a single notification
 Get details on a single notification.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id ID
- * @param optional nil or *NotificationsShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param id ID
+  - @param optional nil or *NotificationsShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Notification
 */
 func (a *NotificationsApiService) NotificationsShow(ctx _context.Context, id string, localVarOptionals *NotificationsShowOpts) (Notification, *APIResponse, error) {

@@ -27,13 +27,14 @@ type VersionShowOpts struct {
 /*
 VersionShow Get a single version
 Get details on a single version.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param translationId Translation ID
- * @param id ID
- * @param optional nil or *VersionShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param translationId Translation ID
+  - @param id ID
+  - @param optional nil or *VersionShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return TranslationVersionWithUser
 */
 func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId string, translationId string, id string, localVarOptionals *VersionShowOpts) (TranslationVersionWithUser, *APIResponse, error) {
@@ -140,14 +141,15 @@ type VersionsListOpts struct {
 /*
 VersionsList List all versions
 List all changes done to a given translation.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param translationId Translation ID
- * @param optional nil or *VersionsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param translationId Translation ID
+  - @param optional nil or *VersionsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []TranslationVersion
 */
 func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId string, translationId string, localVarOptionals *VersionsListOpts) ([]TranslationVersion, *APIResponse, error) {

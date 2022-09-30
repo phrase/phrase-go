@@ -26,12 +26,13 @@ type ScreenshotMarkerCreateOpts struct {
 /*
 ScreenshotMarkerCreate Create a screenshot marker
 Create a new screenshot marker.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param screenshotId Screenshot ID
- * @param screenshotMarkerCreateParameters
- * @param optional nil or *ScreenshotMarkerCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param screenshotId Screenshot ID
+  - @param screenshotMarkerCreateParameters
+  - @param optional nil or *ScreenshotMarkerCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return ScreenshotMarker
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkerCreate(ctx _context.Context, projectId string, screenshotId string, screenshotMarkerCreateParameters ScreenshotMarkerCreateParameters, localVarOptionals *ScreenshotMarkerCreateOpts) (ScreenshotMarker, *APIResponse, error) {
@@ -133,12 +134,12 @@ type ScreenshotMarkerDeleteOpts struct {
 /*
 ScreenshotMarkerDelete Delete a screenshot marker
 Delete an existing screenshot marker.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param screenshotId Screenshot ID
- * @param optional nil or *ScreenshotMarkerDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param screenshotId Screenshot ID
+  - @param optional nil or *ScreenshotMarkerDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkerDelete(ctx _context.Context, projectId string, screenshotId string, localVarOptionals *ScreenshotMarkerDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -230,13 +231,14 @@ type ScreenshotMarkerShowOpts struct {
 /*
 ScreenshotMarkerShow Get a single screenshot marker
 Get details on a single screenshot marker for a given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param screenshotId Screenshot ID
- * @param id ID
- * @param optional nil or *ScreenshotMarkerShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param screenshotId Screenshot ID
+  - @param id ID
+  - @param optional nil or *ScreenshotMarkerShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return ScreenshotMarker
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkerShow(ctx _context.Context, projectId string, screenshotId string, id string, localVarOptionals *ScreenshotMarkerShowOpts) (ScreenshotMarker, *APIResponse, error) {
@@ -340,12 +342,13 @@ type ScreenshotMarkerUpdateOpts struct {
 /*
 ScreenshotMarkerUpdate Update a screenshot marker
 Update an existing screenshot marker.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param screenshotId Screenshot ID
- * @param screenshotMarkerUpdateParameters
- * @param optional nil or *ScreenshotMarkerUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param screenshotId Screenshot ID
+  - @param screenshotMarkerUpdateParameters
+  - @param optional nil or *ScreenshotMarkerUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return ScreenshotMarker
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkerUpdate(ctx _context.Context, projectId string, screenshotId string, screenshotMarkerUpdateParameters ScreenshotMarkerUpdateParameters, localVarOptionals *ScreenshotMarkerUpdateOpts) (ScreenshotMarker, *APIResponse, error) {
@@ -449,14 +452,15 @@ type ScreenshotMarkersListOpts struct {
 /*
 ScreenshotMarkersList List screenshot markers
 List all screenshot markers for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *ScreenshotMarkersListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *ScreenshotMarkersListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []ScreenshotMarker
 */
 func (a *ScreenshotMarkersApiService) ScreenshotMarkersList(ctx _context.Context, projectId string, id string, localVarOptionals *ScreenshotMarkersListOpts) ([]ScreenshotMarker, *APIResponse, error) {

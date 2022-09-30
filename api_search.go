@@ -26,11 +26,12 @@ type SearchInAccountOpts struct {
 /*
 SearchInAccount Search across projects
 Search for keys and translations in all account projects
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param searchInAccountParameters
- * @param optional nil or *SearchInAccountOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param searchInAccountParameters
+  - @param optional nil or *SearchInAccountOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return AccountSearchResult
 */
 func (a *SearchApiService) SearchInAccount(ctx _context.Context, accountId string, searchInAccountParameters SearchInAccountParameters, localVarOptionals *SearchInAccountOpts) (AccountSearchResult, *APIResponse, error) {

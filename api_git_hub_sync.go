@@ -25,10 +25,10 @@ type GithubSyncExportOpts struct {
 /*
 GithubSyncExport Export from Phrase Strings to GitHub
 Export translations from Phrase Strings to GitHub according to the .phraseapp.yml file within the GitHub repository.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param githubSyncExportParameters
- * @param optional nil or *GithubSyncExportOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param githubSyncExportParameters
+  - @param optional nil or *GithubSyncExportOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GitHubSyncApiService) GithubSyncExport(ctx _context.Context, githubSyncExportParameters GithubSyncExportParameters, localVarOptionals *GithubSyncExportOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -124,10 +124,10 @@ type GithubSyncImportOpts struct {
 /*
 GithubSyncImport Import to Phrase Strings from GitHub
 Import files to Phrase Strings from your connected GitHub repository.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param githubSyncImportParameters
- * @param optional nil or *GithubSyncImportOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param githubSyncImportParameters
+  - @param optional nil or *GithubSyncImportOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *GitHubSyncApiService) GithubSyncImport(ctx _context.Context, githubSyncImportParameters GithubSyncImportParameters, localVarOptionals *GithubSyncImportOpts) ([]byte, *APIResponse, error) {
 	var (

@@ -26,13 +26,14 @@ type JobLocaleCompleteOpts struct {
 /*
 JobLocaleComplete Complete a job locale
 Mark a job locale as completed.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param id ID
- * @param jobLocaleCompleteParameters
- * @param optional nil or *JobLocaleCompleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param id ID
+  - @param jobLocaleCompleteParameters
+  - @param optional nil or *JobLocaleCompleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocaleComplete(ctx _context.Context, projectId string, jobId string, id string, jobLocaleCompleteParameters JobLocaleCompleteParameters, localVarOptionals *JobLocaleCompleteOpts) (JobLocale, *APIResponse, error) {
@@ -135,13 +136,14 @@ type JobLocaleCompleteReviewOpts struct {
 /*
 JobLocaleCompleteReview Review a job locale
 Mark job locale as reviewed.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param id ID
- * @param jobLocaleCompleteReviewParameters
- * @param optional nil or *JobLocaleCompleteReviewOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param id ID
+  - @param jobLocaleCompleteReviewParameters
+  - @param optional nil or *JobLocaleCompleteReviewOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocaleCompleteReview(ctx _context.Context, projectId string, jobId string, id string, jobLocaleCompleteReviewParameters JobLocaleCompleteReviewParameters, localVarOptionals *JobLocaleCompleteReviewOpts) (JobLocale, *APIResponse, error) {
@@ -245,13 +247,13 @@ type JobLocaleDeleteOpts struct {
 /*
 JobLocaleDelete Delete a job locale
 Delete an existing job locale.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param id ID
- * @param optional nil or *JobLocaleDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param id ID
+  - @param optional nil or *JobLocaleDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobLocaleDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -344,13 +346,14 @@ type JobLocaleReopenOpts struct {
 /*
 JobLocaleReopen Reopen a job locale
 Mark a job locale as uncompleted.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param id ID
- * @param jobLocaleReopenParameters
- * @param optional nil or *JobLocaleReopenOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param id ID
+  - @param jobLocaleReopenParameters
+  - @param optional nil or *JobLocaleReopenOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocaleReopen(ctx _context.Context, projectId string, jobId string, id string, jobLocaleReopenParameters JobLocaleReopenParameters, localVarOptionals *JobLocaleReopenOpts) (JobLocale, *APIResponse, error) {
@@ -454,13 +457,14 @@ type JobLocaleShowOpts struct {
 /*
 JobLocaleShow Get a single job locale
 Get a single job locale for a given job.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param id ID
- * @param optional nil or *JobLocaleShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param id ID
+  - @param optional nil or *JobLocaleShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobLocaleShowOpts) (JobLocale, *APIResponse, error) {
@@ -564,13 +568,14 @@ type JobLocaleUpdateOpts struct {
 /*
 JobLocaleUpdate Update a job locale
 Update an existing job locale.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param id ID
- * @param jobLocaleUpdateParameters
- * @param optional nil or *JobLocaleUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param id ID
+  - @param jobLocaleUpdateParameters
+  - @param optional nil or *JobLocaleUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocaleUpdate(ctx _context.Context, projectId string, jobId string, id string, jobLocaleUpdateParameters JobLocaleUpdateParameters, localVarOptionals *JobLocaleUpdateOpts) (JobLocale, *APIResponse, error) {
@@ -673,12 +678,13 @@ type JobLocalesCreateOpts struct {
 /*
 JobLocalesCreate Create a job locale
 Create a new job locale.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param jobLocalesCreateParameters
- * @param optional nil or *JobLocalesCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param jobLocalesCreateParameters
+  - @param optional nil or *JobLocalesCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobLocale
 */
 func (a *JobLocalesApiService) JobLocalesCreate(ctx _context.Context, projectId string, jobId string, jobLocalesCreateParameters JobLocalesCreateParameters, localVarOptionals *JobLocalesCreateOpts) (JobLocale, *APIResponse, error) {
@@ -782,14 +788,15 @@ type JobLocalesListOpts struct {
 /*
 JobLocalesList List job locales
 List all job locales for a given job.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobId Job ID
- * @param optional nil or *JobLocalesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobId Job ID
+  - @param optional nil or *JobLocalesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []JobLocale
 */
 func (a *JobLocalesApiService) JobLocalesList(ctx _context.Context, projectId string, jobId string, localVarOptionals *JobLocalesListOpts) ([]JobLocale, *APIResponse, error) {

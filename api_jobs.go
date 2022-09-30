@@ -27,12 +27,13 @@ type JobCompleteOpts struct {
 /*
 JobComplete Complete a job
 Mark a job as completed.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param jobCompleteParameters
- * @param optional nil or *JobCompleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param jobCompleteParameters
+  - @param optional nil or *JobCompleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobDetails
 */
 func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id string, jobCompleteParameters JobCompleteParameters, localVarOptionals *JobCompleteOpts) (JobDetails, *APIResponse, error) {
@@ -133,11 +134,12 @@ type JobCreateOpts struct {
 /*
 JobCreate Create a job
 Create a new job.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param jobCreateParameters
- * @param optional nil or *JobCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param jobCreateParameters
+  - @param optional nil or *JobCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobDetails
 */
 func (a *JobsApiService) JobCreate(ctx _context.Context, projectId string, jobCreateParameters JobCreateParameters, localVarOptionals *JobCreateOpts) (JobDetails, *APIResponse, error) {
@@ -237,12 +239,12 @@ type JobDeleteOpts struct {
 /*
 JobDelete Delete a job
 Delete an existing job.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *JobDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *JobDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *JobsApiService) JobDelete(ctx _context.Context, projectId string, id string, localVarOptionals *JobDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -333,12 +335,13 @@ type JobKeysCreateOpts struct {
 /*
 JobKeysCreate Add keys to job
 Add multiple keys to a existing job.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param jobKeysCreateParameters
- * @param optional nil or *JobKeysCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param jobKeysCreateParameters
+  - @param optional nil or *JobKeysCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobDetails
 */
 func (a *JobsApiService) JobKeysCreate(ctx _context.Context, projectId string, id string, jobKeysCreateParameters JobKeysCreateParameters, localVarOptionals *JobKeysCreateOpts) (JobDetails, *APIResponse, error) {
@@ -441,13 +444,13 @@ type JobKeysDeleteOpts struct {
 /*
 JobKeysDelete Remove keys from job
 Remove multiple keys from existing job.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *JobKeysDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
- * @param "TranslationKeyIds" (optional.Interface of []string) -  ids of keys that should added to the job
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *JobKeysDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "TranslationKeyIds" (optional.Interface of []string) -  ids of keys that should added to the job
 */
 func (a *JobsApiService) JobKeysDelete(ctx _context.Context, projectId string, id string, localVarOptionals *JobKeysDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -550,12 +553,12 @@ type JobLockOpts struct {
 /*
 JobLock Lock a job
 If you are the job owner, you may lock a job using this API request.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *JobLockOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *JobLockOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *JobsApiService) JobLock(ctx _context.Context, projectId string, id string, localVarOptionals *JobLockOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -646,12 +649,13 @@ type JobReopenOpts struct {
 /*
 JobReopen Reopen a job
 Mark a job as uncompleted.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param jobReopenParameters
- * @param optional nil or *JobReopenOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param jobReopenParameters
+  - @param optional nil or *JobReopenOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobDetails
 */
 func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id string, jobReopenParameters JobReopenParameters, localVarOptionals *JobReopenOpts) (JobDetails, *APIResponse, error) {
@@ -753,12 +757,13 @@ type JobShowOpts struct {
 /*
 JobShow Get a single job
 Get details on a single job for a given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *JobShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *JobShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return JobDetails
 */
 func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id string, localVarOptionals *JobShowOpts) (JobDetails, *APIResponse, error) {
@@ -860,12 +865,13 @@ type JobStartOpts struct {
 /*
 JobStart Start a job
 Starts an existing job in state draft.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param jobStartParameters
- * @param optional nil or *JobStartOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param jobStartParameters
+  - @param optional nil or *JobStartOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobDetails
 */
 func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id string, jobStartParameters JobStartParameters, localVarOptionals *JobStartOpts) (JobDetails, *APIResponse, error) {
@@ -967,12 +973,12 @@ type JobUnlockOpts struct {
 /*
 JobUnlock Unlock a job
 If you are the job owner, you may unlock a locked job using this API request.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param optional nil or *JobUnlockOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param optional nil or *JobUnlockOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *JobsApiService) JobUnlock(ctx _context.Context, projectId string, id string, localVarOptionals *JobUnlockOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -1063,12 +1069,13 @@ type JobUpdateOpts struct {
 /*
 JobUpdate Update a job
 Update an existing job.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param id ID
- * @param jobUpdateParameters
- * @param optional nil or *JobUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param id ID
+  - @param jobUpdateParameters
+  - @param optional nil or *JobUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return JobDetails
 */
 func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id string, jobUpdateParameters JobUpdateParameters, localVarOptionals *JobUpdateOpts) (JobDetails, *APIResponse, error) {
@@ -1174,15 +1181,16 @@ type JobsByAccountOpts struct {
 /*
 JobsByAccount List account jobs
 List all jobs for the given account.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param optional nil or *JobsByAccountOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "OwnedBy" (optional.String) -  filter by user owning job
- * @param "AssignedTo" (optional.String) -  filter by user assigned to job
- * @param "State" (optional.String) -  filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param optional nil or *JobsByAccountOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "OwnedBy" (optional.String) -  filter by user owning job
+  - @param "AssignedTo" (optional.String) -  filter by user assigned to job
+  - @param "State" (optional.String) -  filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+
 @return []Job
 */
 func (a *JobsApiService) JobsByAccount(ctx _context.Context, accountId string, localVarOptionals *JobsByAccountOpts) ([]Job, *APIResponse, error) {
@@ -1300,16 +1308,17 @@ type JobsListOpts struct {
 /*
 JobsList List jobs
 List all jobs for the given project.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param optional nil or *JobsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
- * @param "OwnedBy" (optional.String) -  filter by user owning job
- * @param "AssignedTo" (optional.String) -  filter by user assigned to job
- * @param "State" (optional.String) -  filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param optional nil or *JobsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "OwnedBy" (optional.String) -  filter by user owning job
+  - @param "AssignedTo" (optional.String) -  filter by user assigned to job
+  - @param "State" (optional.String) -  filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+
 @return []Job
 */
 func (a *JobsApiService) JobsList(ctx _context.Context, projectId string, localVarOptionals *JobsListOpts) ([]Job, *APIResponse, error) {

@@ -26,11 +26,12 @@ type SpaceCreateOpts struct {
 /*
 SpaceCreate Create a Space
 Create a new Space.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param spaceCreateParameters
- * @param optional nil or *SpaceCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param spaceCreateParameters
+  - @param optional nil or *SpaceCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Space
 */
 func (a *SpacesApiService) SpaceCreate(ctx _context.Context, accountId string, spaceCreateParameters SpaceCreateParameters, localVarOptionals *SpaceCreateOpts) (Space, *APIResponse, error) {
@@ -129,11 +130,11 @@ type SpaceDeleteOpts struct {
 /*
 SpaceDelete Delete Space
 Delete the specified Space.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *SpaceDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *SpaceDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *SpacesApiService) SpaceDelete(ctx _context.Context, accountId string, id string, localVarOptionals *SpaceDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -221,11 +222,12 @@ type SpaceShowOpts struct {
 /*
 SpaceShow Get Space
 Show the specified Space.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param optional nil or *SpaceShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param optional nil or *SpaceShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Space
 */
 func (a *SpacesApiService) SpaceShow(ctx _context.Context, accountId string, id string, localVarOptionals *SpaceShowOpts) (Space, *APIResponse, error) {
@@ -324,12 +326,13 @@ type SpaceUpdateOpts struct {
 /*
 SpaceUpdate Update Space
 Update the specified Space.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param id ID
- * @param spaceUpdateParameters
- * @param optional nil or *SpaceUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param id ID
+  - @param spaceUpdateParameters
+  - @param optional nil or *SpaceUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Space
 */
 func (a *SpacesApiService) SpaceUpdate(ctx _context.Context, accountId string, id string, spaceUpdateParameters SpaceUpdateParameters, localVarOptionals *SpaceUpdateOpts) (Space, *APIResponse, error) {
@@ -432,12 +435,13 @@ type SpacesListOpts struct {
 /*
 SpacesList List Spaces
 List all Spaces for the given account.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param optional nil or *SpacesListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param optional nil or *SpacesListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Space
 */
 func (a *SpacesApiService) SpacesList(ctx _context.Context, accountId string, localVarOptionals *SpacesListOpts) ([]Space, *APIResponse, error) {
@@ -540,12 +544,12 @@ type SpacesProjectsCreateOpts struct {
 /*
 SpacesProjectsCreate Add Project
 Adds an existing project to the space.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param spaceId Space ID
- * @param spacesProjectsCreateParameters
- * @param optional nil or *SpacesProjectsCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param spaceId Space ID
+  - @param spacesProjectsCreateParameters
+  - @param optional nil or *SpacesProjectsCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *SpacesApiService) SpacesProjectsCreate(ctx _context.Context, accountId string, spaceId string, spacesProjectsCreateParameters SpacesProjectsCreateParameters, localVarOptionals *SpacesProjectsCreateOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -635,12 +639,12 @@ type SpacesProjectsDeleteOpts struct {
 /*
 SpacesProjectsDelete Remove Project
 Removes a specified project from the specified space.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param spaceId Space ID
- * @param id ID
- * @param optional nil or *SpacesProjectsDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param spaceId Space ID
+  - @param id ID
+  - @param optional nil or *SpacesProjectsDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *SpacesApiService) SpacesProjectsDelete(ctx _context.Context, accountId string, spaceId string, id string, localVarOptionals *SpacesProjectsDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -732,13 +736,14 @@ type SpacesProjectsListOpts struct {
 /*
 SpacesProjectsList List Projects
 List all projects for the specified Space.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param accountId Account ID
- * @param spaceId Space ID
- * @param optional nil or *SpacesProjectsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param accountId Account ID
+  - @param spaceId Space ID
+  - @param optional nil or *SpacesProjectsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+
 @return []Project
 */
 func (a *SpacesApiService) SpacesProjectsList(ctx _context.Context, accountId string, spaceId string, localVarOptionals *SpacesProjectsListOpts) ([]Project, *APIResponse, error) {

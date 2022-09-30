@@ -26,12 +26,13 @@ type CommentCreateOpts struct {
 /*
 CommentCreate Create a comment
 Create a new comment for a key.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param commentCreateParameters
- * @param optional nil or *CommentCreateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param commentCreateParameters
+  - @param optional nil or *CommentCreateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Comment
 */
 func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId string, keyId string, commentCreateParameters CommentCreateParameters, localVarOptionals *CommentCreateOpts) (Comment, *APIResponse, error) {
@@ -133,13 +134,13 @@ type CommentDeleteOpts struct {
 /*
 CommentDelete Delete a comment
 Delete an existing comment.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param id ID
- * @param optional nil or *CommentDeleteOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param id ID
+  - @param optional nil or *CommentDeleteOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *CommentsApiService) CommentDelete(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -233,13 +234,13 @@ type CommentMarkCheckOpts struct {
 /*
 CommentMarkCheck Check if comment is read
 Check if comment was marked as read. Returns 204 if read, 404 if unread.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param id ID
- * @param optional nil or *CommentMarkCheckOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param id ID
+  - @param optional nil or *CommentMarkCheckOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *CommentsApiService) CommentMarkCheck(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkCheckOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -332,13 +333,13 @@ type CommentMarkReadOpts struct {
 /*
 CommentMarkRead Mark a comment as read
 Mark a comment as read.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param id ID
- * @param commentMarkReadParameters
- * @param optional nil or *CommentMarkReadOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param id ID
+  - @param commentMarkReadParameters
+  - @param optional nil or *CommentMarkReadOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
 func (a *CommentsApiService) CommentMarkRead(ctx _context.Context, projectId string, keyId string, id string, commentMarkReadParameters CommentMarkReadParameters, localVarOptionals *CommentMarkReadOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -431,13 +432,13 @@ type CommentMarkUnreadOpts struct {
 /*
 CommentMarkUnread Mark a comment as unread
 Mark a comment as unread.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param id ID
- * @param optional nil or *CommentMarkUnreadOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param id ID
+  - @param optional nil or *CommentMarkUnreadOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
 */
 func (a *CommentsApiService) CommentMarkUnread(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentMarkUnreadOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -531,13 +532,14 @@ type CommentShowOpts struct {
 /*
 CommentShow Get a single comment
 Get details on a single comment.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param id ID
- * @param optional nil or *CommentShowOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param id ID
+  - @param optional nil or *CommentShowOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return Comment
 */
 func (a *CommentsApiService) CommentShow(ctx _context.Context, projectId string, keyId string, id string, localVarOptionals *CommentShowOpts) (Comment, *APIResponse, error) {
@@ -641,13 +643,14 @@ type CommentUpdateOpts struct {
 /*
 CommentUpdate Update a comment
 Update an existing comment.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param id ID
- * @param commentUpdateParameters
- * @param optional nil or *CommentUpdateOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param id ID
+  - @param commentUpdateParameters
+  - @param optional nil or *CommentUpdateOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
 @return Comment
 */
 func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId string, keyId string, id string, commentUpdateParameters CommentUpdateParameters, localVarOptionals *CommentUpdateOpts) (Comment, *APIResponse, error) {
@@ -753,14 +756,15 @@ type CommentsListOpts struct {
 /*
 CommentsList List comments
 List all comments for a key.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param projectId Project ID
- * @param keyId Translation Key ID
- * @param optional nil or *CommentsListOpts - Optional Parameters:
- * @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
- * @param "Page" (optional.Int32) -  Page number
- * @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
- * @param "Branch" (optional.String) -  specify the branch to use
+  - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param projectId Project ID
+  - @param keyId Translation Key ID
+  - @param optional nil or *CommentsListOpts - Optional Parameters:
+  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "Branch" (optional.String) -  specify the branch to use
+
 @return []Comment
 */
 func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, localVarOptionals *CommentsListOpts) ([]Comment, *APIResponse, error) {
