@@ -51,7 +51,7 @@ func (a *LocalesApiService) AccountLocales(ctx _context.Context, id string, loca
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/locales"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{id}/locales"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
