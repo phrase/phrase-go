@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
+ **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
  **branch** | **optional.String**| specify the branch to use | 
  **sort** | **optional.String**| Sort by field. Can be one of: name, created_at, updated_at. | 
  **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| allows you to specify a page size up to 100 items, 25 by default | 
+ **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
 
 ### Return type
 

@@ -1186,7 +1186,7 @@ List all jobs for the given account.
   - @param optional nil or *JobsByAccountOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
-  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "OwnedBy" (optional.String) -  filter by user owning job
   - @param "AssignedTo" (optional.String) -  filter by user assigned to job
   - @param "State" (optional.String) -  filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
@@ -1313,7 +1313,7 @@ List all jobs for the given project.
   - @param optional nil or *JobsListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
-  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Branch" (optional.String) -  specify the branch to use
   - @param "OwnedBy" (optional.String) -  filter by user owning job
   - @param "AssignedTo" (optional.String) -  filter by user assigned to job

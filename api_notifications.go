@@ -23,6 +23,7 @@ type NotificationsListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Unseen        optional.Bool   `json:"unseen,omitempty"`
 }
 
 /*
@@ -32,7 +33,8 @@ List all notifications from the current user
   - @param optional nil or *NotificationsListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
-  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
+  - @param "Unseen" (optional.Bool) -  Include only unseen notifications
 
 @return []map[string]interface{}
 */
@@ -57,6 +59,9 @@ func (a *NotificationsApiService) NotificationsList(ctx _context.Context, localV
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Unseen.IsSet() {
+		localVarQueryParams.Add("unseen", parameterToString(localVarOptionals.Unseen.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

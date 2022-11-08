@@ -36,7 +36,7 @@ List all locales unique by locale code used across all projects within an accoun
   - @param optional nil or *AccountLocalesOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
-  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
 @return []LocalePreview1
 */
@@ -752,7 +752,7 @@ List all locales for the given project.
   - @param optional nil or *LocalesListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
-  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "SortBy" (optional.String) -  Sort locales. Valid options are \"name_asc\", \"name_desc\", \"default_asc\", \"default_desc\".
   - @param "Branch" (optional.String) -  specify the branch to use
 

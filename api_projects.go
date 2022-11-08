@@ -431,7 +431,7 @@ List all projects the current user has access to.
   - @param optional nil or *ProjectsListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
-  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "AccountId" (optional.String) -  Filter by Account ID
   - @param "SortBy" (optional.String) -  Sort projects. Valid options are \"name_asc\", \"name_desc\", \"updated_at_asc\", \"updated_at_desc\", \"space_asc\" and \"space_desc\".
   - @param "Filters" (optional.Interface of []string) -  Filter projects. Valid options are [\"favorites\"].

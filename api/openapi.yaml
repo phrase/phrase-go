@@ -1838,7 +1838,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -2027,7 +2028,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -2600,7 +2602,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -3443,7 +3446,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -3980,7 +3984,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -4079,7 +4084,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -4909,7 +4915,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -5467,7 +5474,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -6085,7 +6093,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -6356,7 +6365,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -7491,7 +7501,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -8023,7 +8034,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -8495,7 +8507,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -9213,7 +9226,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -10050,7 +10064,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -10627,7 +10642,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -11740,7 +11756,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -11858,7 +11875,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -12401,7 +12419,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -13073,7 +13092,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -13974,7 +13994,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -14541,7 +14562,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -15003,7 +15025,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -15627,7 +15650,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -15868,7 +15892,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -16440,7 +16465,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -16972,7 +16998,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -17489,7 +17516,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -17880,7 +17908,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -18465,7 +18494,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -18791,7 +18821,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -19754,7 +19785,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -20310,7 +20342,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -20772,7 +20805,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -21058,7 +21092,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -22075,7 +22110,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -22357,7 +22393,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -22515,7 +22552,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -22668,7 +22706,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -24080,7 +24119,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -24088,6 +24128,15 @@ paths:
         required: false
         schema:
           type: integer
+        style: form
+      - description: Include only unseen notifications
+        example: true
+        explode: true
+        in: query
+        name: unseen
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -24326,7 +24375,8 @@ paths:
           type: integer
         style: form
       - allowEmptyValue: false
-        description: allows you to specify a page size up to 100 items, 25 by default
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
         example: 25
         explode: true
         in: query
@@ -25664,7 +25714,8 @@ components:
       style: form
     per_page:
       allowEmptyValue: false
-      description: allows you to specify a page size up to 100 items, 25 by default
+      description: Limit on the number of objects to be returned, between 1 and 100.
+        25 by default
       example: 25
       explode: true
       in: query

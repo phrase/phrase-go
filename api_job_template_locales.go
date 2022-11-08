@@ -464,7 +464,7 @@ List all job template locales for a given job template.
   - @param optional nil or *JobTemplateLocalesListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
-  - @param "PerPage" (optional.Int32) -  allows you to specify a page size up to 100 items, 25 by default
+  - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Branch" (optional.String) -  specify the branch to use
 
 @return []map[string]interface{}
