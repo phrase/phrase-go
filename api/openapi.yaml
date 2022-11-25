@@ -1745,6 +1745,7 @@ paths:
           phrase icu skeleton \
           --data '{"content":"{number, plural, one {One} other {%{n}}}","locale_codes":["en"],"zero_form_enabled": true}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /formats:
     get:
       description: Get a handy list of all localization file formats supported in
@@ -1814,6 +1815,7 @@ paths:
         source: |-
           phrase formats list \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/documents:
     get:
       description: List all documents the current user has access to.
@@ -1914,6 +1916,7 @@ paths:
           phrase documents list \
           --project_id <project_id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/documents/{id}:
     delete:
       description: Delete an existing document.
@@ -1996,6 +1999,7 @@ paths:
           --project_id <project_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/styleguides:
     get:
       description: List all styleguides for the given project.
@@ -2096,6 +2100,7 @@ paths:
           phrase styleguides list \
           --project_id <project_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new style guide.
       operationId: styleguide/create
@@ -2245,6 +2250,7 @@ paths:
           --project_id <project_id> \
           --data '{"title": "Web application style guide", "audience":"customer-facing", "target_audience":"teenager", "grammatical_person":"first_person_singular", "vocabulary_type":"technical", "business": "We are a travel site that helps customers find the best hotels and flights.", "company_branding": "ACME Inc. should never be translated.", "formatting": "Never use capital letters", "glossary_terms": "Apartment, cabin, loft", "grammar_consistency":", "literal_translation":"Neutral", "overall_tone": "Tone should be fun and light", "samples": "http://www.myexample.com/my/document/path/to/samples.pdf"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/styleguides/{id}:
     delete:
       description: Delete an existing style guide.
@@ -2326,6 +2332,7 @@ paths:
           --project_id <project_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single style guide.
       operationId: styleguide/show
@@ -2409,6 +2416,7 @@ paths:
           --project_id <project_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing style guide.
       operationId: styleguide/update
@@ -2567,6 +2575,7 @@ paths:
           --id <id> \
           --data '{"title": "Web application style guide", "audience":"customer-facing", "target_audience":"teenager", "grammatical_person":"first_person_singular", "vocabulary_type":"technical", "business": "We are a travel site that helps customers find the best hotels and flights.", "company_branding": "ACME Inc. should never be translated.", "formatting": "Never use capital letters", "glossary_terms": "Apartment, cabin, loft", "grammar_consistency":", "literal_translation":"Neutral", "overall_tone": "Tone should be fun and light", "samples": "http://www.myexample.com/my/document/path/to/samples.pdf"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/invitations:
     get:
       description: List invitations for an account. It will also list the accessible
@@ -2681,6 +2690,7 @@ paths:
           phrase invitations list \
           --account_id <account_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Invite a person to an account. Developers and translators need
         <code>project_ids</code> and <code>locale_ids</code> assigned to access them.
@@ -2846,6 +2856,7 @@ paths:
           --account_id <account_id> \
           --data '{"email":"example@mail.com", "role":"Developer", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"team_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/invitations/{id}:
     delete:
       description: Delete an existing invitation (must not be accepted yet). Access
@@ -2939,6 +2950,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single invitation. Access token scope must include
         <code>team.manage</code>.
@@ -3034,6 +3046,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing invitation (must not be accepted yet). The <code>email</code>
         cannot be updated. Developers and translators need <code>project_ids</code>
@@ -3188,6 +3201,7 @@ paths:
           --id <id> \
           --data '{"role": "Invitiation role", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"],"team_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "default_locale_codes":["de","en"], "permissions":"{"create_upload"=>true}"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/invitations/{id}/resend:
     post:
       description: Resend the invitation email (must not be accepted yet). Access
@@ -3285,6 +3299,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/invitations/{id}:
     patch:
       description: Update member's settings in the invitations. Access token scope
@@ -3406,6 +3421,7 @@ paths:
           --id <id> \
           --data '{"project_role":"Developer","locale_ids":["fff565db236400772368235db2c6117e","fff565db236400772368235db2c6117f"]}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/screenshots/{id}/markers:
     get:
       description: List all screenshot markers for the given project.
@@ -3525,6 +3541,7 @@ paths:
           --branch my-feature-branch \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/screenshots/{screenshot_id}/markers/{id}:
     get:
       description: Get details on a single screenshot marker for a given project.
@@ -3628,6 +3645,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/screenshots/{screenshot_id}/markers:
     delete:
       description: Delete an existing screenshot marker.
@@ -3721,6 +3739,7 @@ paths:
           --screenshot_id <screenshot_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing screenshot marker.
       operationId: screenshot_marker/update
@@ -3836,6 +3855,7 @@ paths:
           --screenshot_id <screenshot_id> \
           --data '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation": "{ "x": 100, "y": 100, "w": 100, "h": 100 }"}' \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new screenshot marker.
       operationId: screenshot_marker/create
@@ -3951,6 +3971,7 @@ paths:
           --screenshot_id <screenshot_id> \
           --data '{"branch":"my-feature-branch", "key_id":"abcd1234abcd1234abcd1234abcd1234", "presentation": "{ "x": 100, "y": 100, "w": 100, "h": 100 }"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{id}/locales:
     get:
       description: List all locales unique by locale code used across all projects
@@ -4052,6 +4073,7 @@ paths:
           phrase accounts locales \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/locales:
     get:
       description: List all locales for the given project.
@@ -4171,6 +4193,7 @@ paths:
           --project_id <project_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new locale.
       operationId: locale/create
@@ -4307,6 +4330,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "name":"de", "code":"de-DE", "source_locale_id":"abcd1234abcd1234abcd1234abcd1234", "fallback_locale_id":"abcd1234abcd1234abcd1234abcd1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/locales/{id}:
     delete:
       description: Delete an existing locale.
@@ -4400,6 +4424,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single locale for a given project.
       operationId: locale/show
@@ -4493,6 +4518,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing locale.
       operationId: locale/update
@@ -4638,6 +4664,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch", "name":"de", "code":"de-DE", "source_locale_id":"abcd1234abcd1234abcd1234abcd1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/locales/{id}/download:
     get:
       description: Download a locale in a specific file format.
@@ -4883,6 +4910,7 @@ paths:
           --tags feature1,feature2 \
           --tag feature \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/distributions:
     get:
       description: List all distributions for the given account.
@@ -4983,6 +5011,7 @@ paths:
           phrase distributions list \
           --account_id <account_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new distribution.
       operationId: distribution/create
@@ -5122,6 +5151,7 @@ paths:
           --account_id <account_id> \
           --data '{"name": "My Android Distribution", "project_id":"abcd1234abcd1234abcd1234", "platforms": "android,ios", "locale_ids":["fff565db236400772368235db2c6117e,abcd1234cdef1234abcd1234cdef1234"], "format_options": "{xml:{enclose_in_cdata:'1'}}", "fallback_to_non_regional_locale":true, "fallback_to_default_locale":true, "use_last_reviewed_version":true}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/distributions/{id}:
     delete:
       description: Delete an existing distribution.
@@ -5203,6 +5233,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single distribution.
       operationId: distribution/show
@@ -5286,6 +5317,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing distribution.
       operationId: distribution/update
@@ -5434,6 +5466,7 @@ paths:
           --id <id> \
           --data '{"name": "My Android Distribution", "project_id":"abcd1234abcd1234abcd1234", "platforms": "android,ios", "locale_ids": "fff565db236400772368235db2c6117e,abcd1234cdef1234abcd1234cdef1234", "format_options": "{xml:{enclose_in_cdata:'1'}}", "fallback_to_non_regional_locale":true, "fallback_to_default_locale":true, "use_last_reviewed_version":true}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/distributions/{distribution_id}/releases:
     get:
       description: List all releases for the given distribution.
@@ -5543,6 +5576,7 @@ paths:
           --account_id <account_id> \
           --distribution_id <distribution_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new release.
       operationId: release/create
@@ -5664,6 +5698,7 @@ paths:
           --distribution_id <distribution_id> \
           --data '{"description": "My first Release", "platforms": "android,ios", "branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/distributions/{distribution_id}/releases/{id}:
     delete:
       description: Delete an existing release.
@@ -5754,6 +5789,7 @@ paths:
           --distribution_id <distribution_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single release.
       operationId: release/show
@@ -5846,6 +5882,7 @@ paths:
           --distribution_id <distribution_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing release.
       operationId: release/update
@@ -5967,6 +6004,7 @@ paths:
           --id <id> \
           --data '{"description": "My first Release", "platforms": "android,ios", "branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/distributions/{distribution_id}/releases/{id}/publish:
     post:
       description: Publish a release for production.
@@ -6061,6 +6099,7 @@ paths:
           --distribution_id <distribution_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs:
     get:
       description: List all jobs for the given project.
@@ -6202,6 +6241,7 @@ paths:
           --assigned_to abcd1234cdef1234abcd1234cdef1234 \
           --state completed \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new job.
       operationId: job/create
@@ -6333,6 +6373,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "name":"de", "briefing":"de-DE", "due_date":"2017-08-15", "ticket_url":"https://example.atlassian.net/browse/FOO", "tags": "myUploadTag", "translation_key_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/jobs:
     get:
       description: List all jobs for the given account.
@@ -6464,6 +6505,7 @@ paths:
           --assigned_to abcd1234cdef1234abcd1234cdef1234 \
           --state completed \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{id}:
     delete:
       description: Delete an existing job.
@@ -6557,6 +6599,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single job for a given project.
       operationId: job/show
@@ -6650,6 +6693,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing job.
       operationId: job/update
@@ -6766,6 +6810,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch", "name":"de", "briefing":"de-DE", "due_date":"2017-08-15", "ticket_url":"https://example.atlassian.net/browse/FOO"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{id}/start:
     post:
       description: Starts an existing job in state draft.
@@ -6867,6 +6912,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{id}/complete:
     post:
       description: Mark a job as completed.
@@ -6968,6 +7014,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{id}/reopen:
     post:
       description: Mark a job as uncompleted.
@@ -7069,6 +7116,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{id}/lock:
     post:
       description: If you are the job owner, you may lock a job using this API request.
@@ -7162,6 +7210,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{id}/unlock:
     post:
       description: If you are the job owner, you may unlock a locked job using this
@@ -7256,6 +7305,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{id}/keys:
     delete:
       description: Remove multiple keys from existing job.
@@ -7362,6 +7412,7 @@ paths:
           --branch my-feature-branch \
           --translation_key_ids "abcd1234cdef1234abcd1234cdef1234" \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Add multiple keys to a existing job.
       operationId: job/keys/create
@@ -7469,6 +7520,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch", "translation_key_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/job_templates:
     get:
       description: List all job templates for the given project.
@@ -7579,6 +7631,7 @@ paths:
           --project_id <project_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new job template.
       operationId: job_template/create
@@ -7705,6 +7758,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "name":"template", "briefing":"text"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/job_templates/{id}:
     delete:
       description: Delete an existing job template.
@@ -7798,6 +7852,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single job template for a given project.
       operationId: job_template/show
@@ -7891,6 +7946,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing job template.
       operationId: job_template/update
@@ -8001,6 +8057,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch", "name":"template", "briefing":"text"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/glossaries:
     get:
       description: 'List all term bases (previously: glossaries) the current user
@@ -8102,6 +8159,7 @@ paths:
           phrase glossaries list \
           --account_id <account_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: 'Create a new term base (previously: glossary).'
       operationId: glossary/create
@@ -8206,6 +8264,7 @@ paths:
           --account_id <account_id> \
           --data '{"name":"My term base", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/glossaries/{id}:
     delete:
       description: 'Delete an existing term base (previously: glossary).'
@@ -8287,6 +8346,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: 'Get details on a single term base (previously: glossary).'
       operationId: glossary/show
@@ -8370,6 +8430,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: 'Update an existing term base (previously: glossary).'
       operationId: glossary/update
@@ -8483,6 +8544,7 @@ paths:
           --id <id> \
           --data '{"name": "My glossary", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "space_ids": "abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /authorizations:
     get:
       description: List all your authorizations.
@@ -8572,6 +8634,7 @@ paths:
             -u USERNAME
       - lang: CLI v2
         source: phrase authorizations list
+      x-cli-version: "2.5"
     post:
       description: Create a new authorization.
       operationId: authorization/create
@@ -8668,6 +8731,7 @@ paths:
         source: |-
           phrase authorizations create \
           --data '{"note": "My Deploy Script", "scopes": "read,write", "expires_at": "2015-03-30T09:52:53Z"}'
+      x-cli-version: "2.5"
   /authorizations/{id}:
     delete:
       description: Delete an existing authorization. API calls using that token will
@@ -8740,6 +8804,7 @@ paths:
         source: |-
           phrase authorizations delete \
           --id <id>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single authorization.
       operationId: authorization/show
@@ -8813,6 +8878,7 @@ paths:
         source: |-
           phrase authorizations show \
           --id <id>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing authorization.
       operationId: authorization/update
@@ -8918,6 +8984,7 @@ paths:
           phrase authorizations update \
           --id <id> \
           --data '{"note": "My Deploy Script", "scopes": "read,write", "expires_at": "2015-03-30T09:52:53Z"}'
+      x-cli-version: "2.5"
   /bitbucket_syncs:
     get:
       description: List all Bitbucket repositories for which synchronisation with
@@ -9000,6 +9067,7 @@ paths:
           phrase bitbucket_sync list \
           --account_id abcd1234 \
           --access_token <token>
+      x-cli-version: "2.5"
   /bitbucket_syncs/{id}/export:
     post:
       description: Export translations from Phrase Strings to Bitbucket according
@@ -9095,6 +9163,7 @@ paths:
           --id <id> \
           --data '{"account_id":"abcd1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /bitbucket_syncs/{id}/import:
     post:
       description: Import translations from Bitbucket to Phrase Strings according
@@ -9186,6 +9255,7 @@ paths:
           --id <id> \
           --data '{"account_id":"abcd1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/{key_id}/comments:
     get:
       description: List all comments for a key.
@@ -9305,6 +9375,7 @@ paths:
           --key_id <key_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new comment for a key.
       operationId: comment/create
@@ -9409,6 +9480,7 @@ paths:
           --key_id <key_id> \
           --data '{"branch":"my-feature-branch", "message": "Some message..."}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/{key_id}/comments/{id}:
     delete:
       description: Delete an existing comment.
@@ -9511,6 +9583,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single comment.
       operationId: comment/show
@@ -9613,6 +9686,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing comment.
       operationId: comment/update
@@ -9726,6 +9800,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch", "message": "Some message..."}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/{key_id}/comments/{id}/read:
     delete:
       description: Mark a comment as unread.
@@ -9828,6 +9903,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Check if comment was marked as read. Returns 204 if read, 404 if
         unread.
@@ -9927,6 +10003,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Mark a comment as read.
       operationId: comment/mark/read
@@ -10032,6 +10109,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/webhooks:
     get:
       description: List all webhooks for the given project.
@@ -10132,6 +10210,7 @@ paths:
           phrase webhooks list \
           --project_id <project_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new webhook.
       operationId: webhook/create
@@ -10244,6 +10323,7 @@ paths:
           --project_id <project_id> \
           --data '{"callback_url": "http://example.com/hooks/phraseapp-notifications", "description": "My webhook for chat notifications", "events": "locales:create,translations:update"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/webhooks/{id}:
     delete:
       description: Delete an existing webhook.
@@ -10325,6 +10405,7 @@ paths:
           --project_id <project_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single webhook.
       operationId: webhook/show
@@ -10408,6 +10489,7 @@ paths:
           --project_id <project_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing webhook.
       operationId: webhook/update
@@ -10529,6 +10611,7 @@ paths:
           --id <id> \
           --data '{"callback_url": "http://example.com/hooks/phraseapp-notifications", "description": "My webhook for chat notifications", "events": "locales:create,translations:update"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/webhooks/{id}/test:
     post:
       description: Perform a test request for a webhook.
@@ -10610,6 +10693,7 @@ paths:
           --project_id <project_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/uploads:
     get:
       description: List all uploads for the given project.
@@ -10720,6 +10804,7 @@ paths:
           --project_id <project_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Upload a new language file. Creates necessary resources in your
         project.
@@ -10888,6 +10973,7 @@ paths:
           --locale_mapping '{"en": "2"}' \
           --format_options '{"foo": "bar"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/uploads/{id}:
     get:
       description: View details and summary for a single upload.
@@ -10982,6 +11068,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /github_syncs/export:
     post:
       description: Export translations from Phrase Strings to GitHub according to
@@ -11073,6 +11160,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: UNAVAILABLE
+      x-cli-version: "2.5"
   /github_syncs/import:
     post:
       description: Import files to Phrase Strings from your connected GitHub repository.
@@ -11163,6 +11251,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: UNAVAILABLE
+      x-cli-version: "2.5"
   /gitlab_syncs:
     get:
       description: List all GitLab Sync Settings for which synchronisation with Phrase
@@ -11245,6 +11334,7 @@ paths:
           phrase gitlab_syncs list \
           --account_id abcd1234 \
           --access_token <token>
+      x-cli-version: "2.5"
   /gitlab_syncs/{id}:
     delete:
       description: Deletes a single GitLab Sync Setting.
@@ -11330,6 +11420,7 @@ paths:
           --id <id> \
           --account_id abcd1234 \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Shows a single GitLab Sync Setting.
       operationId: gitlab_sync/show
@@ -11415,6 +11506,7 @@ paths:
           --id <id> \
           --account_id abcd1234 \
           --access_token <token>
+      x-cli-version: "2.5"
     put:
       description: Updates a single GitLab Sync Setting.
       operationId: gitlab_sync/update
@@ -11530,6 +11622,7 @@ paths:
           --id <id> \
           --data '{"account_id":"abcd1234", "phrase_project_code":"3456abcd", "gitlab_project_id":"12345", "gitlab_branch_name":"feature-development"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /gitlab_syncs/{gitlab_sync_id}/import:
     post:
       description: Import translations from GitLab to Phrase Strings according to
@@ -11629,6 +11722,7 @@ paths:
           --gitlab_sync_id <gitlab_sync_id> \
           --data '{"account_id":"abcd1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /gitlab_syncs/{gitlab_sync_id}/export:
     post:
       description: Export translations from Phrase Strings to GitLab according to
@@ -11724,6 +11818,7 @@ paths:
           --gitlab_sync_id <gitlab_sync_id> \
           --data '{"account_id":"abcd1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /gitlab_syncs/{gitlab_sync_id}/history:
     get:
       description: List history for a single Sync Setting.
@@ -11835,6 +11930,7 @@ paths:
           --gitlab_sync_id <gitlab_sync_id> \
           --account_id abcd1234 \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/{translation_id}/versions:
     get:
       description: List all changes done to a given translation.
@@ -11954,6 +12050,7 @@ paths:
           --translation_id <translation_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/{translation_id}/versions/{id}:
     get:
       description: Get details on a single version.
@@ -12057,6 +12154,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations:
     post:
       description: 'Create a new translation for a term in a term base (previously:
@@ -12172,6 +12270,7 @@ paths:
           --term_id <term_id> \
           --data '{"locale_code":"en-US", "content": "My translated term"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id}:
     delete:
       description: 'Delete an existing translation of a term in a term base (previously:
@@ -12272,6 +12371,7 @@ paths:
           --term_id <term_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: 'Update an existing translation for a term in a term base (previously:
         glossary).'
@@ -12395,6 +12495,7 @@ paths:
           --id <id> \
           --data '{"locale_code":"en-US", "content": "My translated term"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects:
     get:
       description: List all projects the current user has access to.
@@ -12514,6 +12615,7 @@ paths:
         source: |-
           phrase projects list \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new project.
       operationId: project/create
@@ -12708,6 +12810,7 @@ paths:
           phrase projects create \
           --data '{"name": "My Android Project", "main_format":"yml", "shares_translation_memory":"true"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{id}:
     delete:
       description: Delete an existing project.
@@ -12780,6 +12883,7 @@ paths:
           phrase projects delete \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single project.
       operationId: project/show
@@ -12854,6 +12958,7 @@ paths:
           phrase projects show \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing project.
       operationId: project/update
@@ -13052,6 +13157,7 @@ paths:
           --id <id> \
           --data '{"name": "My Android Project", "main_format":"yml", "shares_translation_memory":true}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{job_id}/locales:
     get:
       description: List all job locales for a given job.
@@ -13171,6 +13277,7 @@ paths:
           --job_id <job_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new job locale.
       operationId: job_locales/create
@@ -13291,6 +13398,7 @@ paths:
           --job_id <job_id> \
           --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{job_id}/locale/{id}:
     get:
       description: Get a single job locale for a given job.
@@ -13394,6 +13502,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{job_id}/locales/{id}:
     delete:
       description: Delete an existing job locale.
@@ -13496,6 +13605,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing job locale.
       operationId: job_locale/update
@@ -13624,6 +13734,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{job_id}/locales/{id}/complete:
     post:
       description: Mark a job locale as completed.
@@ -13734,6 +13845,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review:
     post:
       description: Mark job locale as reviewed.
@@ -13844,6 +13956,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{job_id}/locales/{id}/reopen:
     post:
       description: Mark a job locale as uncompleted.
@@ -13954,6 +14067,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/job_templates/{job_template_id}/locales:
     get:
       description: List all job template locales for a given job template.
@@ -14073,6 +14187,7 @@ paths:
           --job_template_id <job_template_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new job template locale.
       operationId: job_template_locales/create
@@ -14195,6 +14310,7 @@ paths:
           --job_template_id <job_template_id> \
           --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/job_templates/{job_template_id}/locales/{job_template_locale_id}:
     delete:
       description: Delete an existing job template locale.
@@ -14297,6 +14413,7 @@ paths:
           --job_template_locale_id <job_template_locale_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get a single job template locale for a given job template.
       operationId: job_template_locale/show
@@ -14399,6 +14516,7 @@ paths:
           --job_template_locale_id <job_template_locale_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing job template locale.
       operationId: job_template_locale/update
@@ -14530,6 +14648,7 @@ paths:
           --job_template_locale_id <job_template_locale_id> \
           --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/variables:
     get:
       description: List all variables for the current project.
@@ -14630,6 +14749,7 @@ paths:
           phrase variables list \
           --project_id <project_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new variable.
       operationId: variable/create
@@ -14725,6 +14845,7 @@ paths:
           --project_id <project_id> \
           --data '{"name":"MY_VARIABLE", "value":"Hello World"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/variables/{name}:
     delete:
       description: Delete an existing variable.
@@ -14806,6 +14927,7 @@ paths:
           --project_id <project_id> \
           --name <name> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single variable for a given project.
       operationId: variable/show
@@ -14889,6 +15011,7 @@ paths:
           --project_id <project_id> \
           --name <name> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing variable.
       operationId: variable/update
@@ -14993,6 +15116,7 @@ paths:
           --name <name> \
           --data '{"name":"MY_VARIABLE","value":"Hello World"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/branches:
     get:
       description: List all branches the of the current project.
@@ -15093,6 +15217,7 @@ paths:
           phrase branches list \
           --project_id <project_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new branch.
       operationId: branch/create
@@ -15184,6 +15309,7 @@ paths:
           --project_id <project_id> \
           --data '{"name":"my-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/branches/{name}:
     delete:
       description: Delete an existing branch.
@@ -15265,6 +15391,7 @@ paths:
           --project_id <project_id> \
           --name <name> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single branch for a given project.
       operationId: branch/show
@@ -15348,6 +15475,7 @@ paths:
           --project_id <project_id> \
           --name <name> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing branch.
       operationId: branch/update
@@ -15448,6 +15576,7 @@ paths:
           --name <name> \
           --data '{"name":"my-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/branches/{name}/merge:
     patch:
       description: Merge an existing branch.
@@ -15545,6 +15674,7 @@ paths:
           --name <name> \
           --data '{"strategy":"use_main"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/branches/{name}/compare:
     get:
       description: Compare branch with main branch.
@@ -15626,6 +15756,7 @@ paths:
           --name <name> \
           --name my-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts:
     get:
       description: List all accounts the current user has access to.
@@ -15717,6 +15848,7 @@ paths:
         source: |-
           phrase accounts list \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{id}:
     get:
       description: Get details on a single account.
@@ -15792,6 +15924,7 @@ paths:
           phrase accounts show \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /user:
     get:
       description: Show details for current User.
@@ -15858,6 +15991,7 @@ paths:
         source: |-
           phrase shows user \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/members:
     get:
       description: Get all users active in the account. It also lists resources like
@@ -15971,6 +16105,7 @@ paths:
           phrase members list \
           --account_id <account_id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/members/{id}:
     delete:
       description: Remove a user from the account. The user will be removed from the
@@ -16064,6 +16199,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single user in the account. Access token scope
         must include <code>team.manage</code>.
@@ -16159,6 +16295,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update user permissions in the account. Developers and translators
         need <code>project_ids</code> and <code>locale_ids</code> assigned to access
@@ -16312,6 +16449,7 @@ paths:
           --id <id> \
           --data '{"role":"Developer", "strategy":"set", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "default_locale_codes":["de","en"], "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/members/{id}:
     patch:
       description: Update user settings in the project. Access token scope must include
@@ -16433,6 +16571,7 @@ paths:
           --id <id> \
           --data '{"project_role":"Developer","locale_ids":["fff565db236400772368235db2c6117e","fff565db236400772368235db2c6117f"]}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/screenshots:
     get:
       description: List all screenshots for the given project.
@@ -16552,6 +16691,7 @@ paths:
           --project_id <project_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new screenshot.
       operationId: screenshot/create
@@ -16657,6 +16797,7 @@ paths:
           --project_id <project_id> \
           --branch "my-feature-branch" --name "A screenshot name" --description "A screenshot description" --filename "/path/to/my/screenshot.png" \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/screenshots/{id}:
     delete:
       description: Delete an existing screenshot.
@@ -16750,6 +16891,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single screenshot for a given project.
       operationId: screenshot/show
@@ -16843,6 +16985,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing screenshot.
       operationId: screenshot/update
@@ -16957,6 +17100,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch", "name": "A screenshot name", "description": "A screenshot description", "filename":"/path/to/my/screenshot.png"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/glossaries/{glossary_id}/terms:
     get:
       description: 'List all terms in term bases (previously: glossary) that the current
@@ -17067,6 +17211,7 @@ paths:
           --account_id <account_id> \
           --glossary_id <glossary_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: 'Create a new term in a term base (previously: glossary).'
       operationId: glossary_term/create
@@ -17180,6 +17325,7 @@ paths:
           --glossary_id <glossary_id> \
           --data '{"term":"MyCompany", "description": "Use this when refering to our company", "translatable":true, "case_sensitive":true}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/glossaries/{glossary_id}/terms/{id}:
     delete:
       description: 'Delete an existing term in a term base (previously: glossary).'
@@ -17270,6 +17416,7 @@ paths:
           --glossary_id <glossary_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: 'Get details for a single term in the term base (previously: glossary).'
       operationId: glossary_term/show
@@ -17362,6 +17509,7 @@ paths:
           --glossary_id <glossary_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: 'Update an existing term in a term base (previously: glossary).'
       operationId: glossary_term/update
@@ -17484,6 +17632,7 @@ paths:
           --id <id> \
           --data '{"term":"MyCompany", "description": "Use this when refering to our company", "translatable":true, "case_sensitive":true}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/tags:
     get:
       description: List all tags for the given project.
@@ -17594,6 +17743,7 @@ paths:
           --project_id <project_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new tag.
       operationId: tag/create
@@ -17689,6 +17839,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "name":"my-feature"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/tags/{name}:
     delete:
       description: Delete an existing tag.
@@ -17782,6 +17933,7 @@ paths:
           --name <name> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details and progress information on a single tag for a given
         project.
@@ -17876,6 +18028,7 @@ paths:
           --name <name> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/blacklisted_keys:
     get:
       description: List all rules for blocking keys for the given project.
@@ -17985,6 +18138,7 @@ paths:
           phrase blacklisted_keys list \
           --project_id <project_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new rule for blocking keys.
       operationId: blacklisted_key/create
@@ -18076,6 +18230,7 @@ paths:
           --project_id <project_id> \
           --data '{"name":"'date.formats.*'"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/blacklisted_keys/{id}:
     delete:
       description: Delete an existing rule for blocking keys.
@@ -18157,6 +18312,7 @@ paths:
           --project_id <project_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single rule for blocking keys for a given project.
       operationId: blacklisted_key/show
@@ -18240,6 +18396,7 @@ paths:
           --project_id <project_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing rule for blocking keys.
       operationId: blacklisted_key/update
@@ -18340,6 +18497,7 @@ paths:
           --id <id> \
           --data '{"name":"'date.formats.*'"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys:
     delete:
       description: Delete all keys matching query. Same constraints as list. Please
@@ -18462,6 +18620,7 @@ paths:
           --query 'mykey* translated:true' \
           --locale_id abcd1234abcd1234abcd1234abcd1234 \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: List all keys for the given project. Alternatively you can POST
         requests to /search.
@@ -18624,6 +18783,7 @@ paths:
           --query 'mykey* translated:true' \
           --locale_id abcd1234abcd1234abcd1234abcd1234 \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new key.
       operationId: key/create
@@ -18789,6 +18949,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description": "Some description worth knowing...", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/search:
     post:
       description: Search keys for the given project matching query.
@@ -18932,6 +19093,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "sort":"updated_at", "order":"desc", "query":"'mykey* translated:true'", "locale_id":"abcd1234abcd1234abcd1234abcd1234"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/{id}:
     delete:
       description: Delete an existing key.
@@ -19025,6 +19187,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single key for a given project.
       operationId: key/show
@@ -19118,6 +19281,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing key.
       operationId: key/update
@@ -19287,6 +19451,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description": "Some description worth knowing...", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/tag:
     patch:
       description: Tags all keys matching query. Same constraints as list.
@@ -19404,6 +19569,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'mykey* translated:true'", "locale_id":"abcd1234abcd1234abcd1234abcd1234", "tags":"landing-page,release-1.2"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/untag:
     patch:
       description: Removes specified tags from keys matching query.
@@ -19521,6 +19687,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'mykey* translated:true'", "locale_id":"abcd1234abcd1234abcd1234abcd1234", "tags":"landing-page,release-1.2"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/exclude:
     patch:
       description: Exclude a locale on keys matching query. Same constraints as list.
@@ -19637,6 +19804,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'mykey* translated:true'", "target_locale_id":"abcd1234abcd1234abcd1234abcd1234", "tags":"landing-page,release-1.2"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/include:
     patch:
       description: Include a locale on keys matching query. Same constraints as list.
@@ -19753,6 +19921,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'mykey* translated:true'", "target_locale_id":"abcd1234abcd1234abcd1234abcd1234", "tags":"landing-page,release-1.2"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/orders:
     get:
       description: List all orders for the given project.
@@ -19863,6 +20032,7 @@ paths:
           --project_id <project_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new order. Access token scope must include <code>orders.create</code>.
       operationId: order/create
@@ -20022,6 +20192,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "name":"Welcome message translations", "lsp":"textmaster", "source_locale_id":"abcd1234abcd1234abcd1234abcd1234", "target_locale_ids": "1234abcd1234abcd1234abcd1234abcd,abcd1234abcd1234abcd1234abcd1234", "translation_type":"premium", "tag":"my-awesome-feature", "message": "Please make everything sound really nice :)", "styleguide_id":"1234abcd1234abcd1234abcd1234abcd", "category":"C021"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/orders/{id}:
     delete:
       description: Cancel an existing order. Must not yet be confirmed.
@@ -20115,6 +20286,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single order.
       operationId: order/show
@@ -20208,6 +20380,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/orders/{id}/confirm:
     patch:
       description: Confirm an existing order and send it to the provider for translation.
@@ -20310,6 +20483,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/spaces:
     get:
       description: List all Spaces for the given account.
@@ -20410,6 +20584,7 @@ paths:
           phrase spaces list \
           --account_id <account_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new Space.
       operationId: space/create
@@ -20501,6 +20676,7 @@ paths:
           --account_id <account_id> \
           --data '{"name": "My Android Projects"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/spaces/{id}:
     delete:
       description: Delete the specified Space.
@@ -20582,6 +20758,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Show the specified Space.
       operationId: space/show
@@ -20665,6 +20842,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update the specified Space.
       operationId: space/update
@@ -20765,6 +20943,7 @@ paths:
           --id <id> \
           --data '{"name": "My Android Projects"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/spaces/{space_id}/projects:
     get:
       description: List all projects for the specified Space.
@@ -20874,6 +21053,7 @@ paths:
           --account_id <account_id> \
           --space_id <space_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Adds an existing project to the space.
       operationId: spaces/projects/create
@@ -20970,6 +21150,7 @@ paths:
           --space_id <space_id> \
           --data '{"id":"a4b3c2d1"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/spaces/{space_id}/projects/{id}:
     delete:
       description: Removes a specified project from the specified space.
@@ -21060,6 +21241,7 @@ paths:
           --space_id <space_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/teams:
     get:
       description: List all Teams for the given account.
@@ -21160,6 +21342,7 @@ paths:
           phrase teams list \
           --account_id <account_id> \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new Team.
       operationId: team/create
@@ -21251,6 +21434,7 @@ paths:
           --account_id <account_id> \
           --data '{"name": "German Translators"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/teams/{id}:
     delete:
       description: Delete the specified Team.
@@ -21332,6 +21516,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Show the specified Team.
       operationId: team/show
@@ -21415,6 +21600,7 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update the specified Team.
       operationId: team/update
@@ -21515,6 +21701,7 @@ paths:
           --id <id> \
           --data '{"name": "German Translators"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/teams/{team_id}/projects:
     post:
       description: Adds an existing project to the team.
@@ -21612,6 +21799,7 @@ paths:
           --team_id <team_id> \
           --data '{"id":"a4b3c2d1"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/teams/{team_id}/projects/{id}:
     delete:
       description: Removes a specified project from the specified team.
@@ -21702,6 +21890,7 @@ paths:
           --team_id <team_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/teams/{team_id}/spaces:
     post:
       description: Adds an existing space to the team.
@@ -21799,6 +21988,7 @@ paths:
           --team_id <team_id> \
           --data '{"id":"a4b3c2d1"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/teams/{team_id}/spaces/{id}:
     delete:
       description: Removes a specified space from the specified team.
@@ -21889,6 +22079,7 @@ paths:
           --team_id <team_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/teams/{team_id}/users:
     post:
       description: Adds an existing user to the team.
@@ -21986,6 +22177,7 @@ paths:
           --team_id <team_id> \
           --data '{"id":"a4b3c2d1"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/teams/{team_id}/users/{id}:
     delete:
       description: Removes a specified user from the specified team.
@@ -22076,6 +22268,7 @@ paths:
           --team_id <team_id> \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations:
     get:
       description: List translations for the given project. If you want to download
@@ -22228,6 +22421,7 @@ paths:
           --order desc \
           --query 'PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center' \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a translation.
       operationId: translation/create
@@ -22351,6 +22545,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "key_id":"abcd1234cdef1234abcd1234cdef1234", "content": "My translation"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/locales/{locale_id}/translations:
     get:
       description: List translations for a specific locale. If you want to download
@@ -22512,6 +22707,7 @@ paths:
           --order desc \
           --query 'PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/keys/{key_id}/translations:
     get:
       description: List translations for a specific key.
@@ -22671,6 +22867,7 @@ paths:
           --order desc \
           --query 'PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/search:
     post:
       description: Search translations for the given project. Provides the same search
@@ -22812,6 +23009,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "sort":"updated_at", "order":"desc", "query":"'PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center'"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/{id}:
     get:
       description: Get details on a single translation.
@@ -22906,6 +23104,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing translation.
       operationId: translation/update
@@ -23029,6 +23228,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch", "content": "My translation"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/{id}/verify:
     patch:
       description: Verify an existing translation.
@@ -23130,6 +23330,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/{id}/unverify:
     patch:
       description: Mark an existing translation as unverified.
@@ -23231,6 +23432,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/{id}/review:
     patch:
       description: Mark an existing translation as reviewed.
@@ -23332,6 +23534,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/{id}/exclude:
     patch:
       description: Set exclude from export flag on an existing translation.
@@ -23433,6 +23636,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/{id}/include:
     patch:
       description: Remove exclude from export flag from an existing translation.
@@ -23534,6 +23738,7 @@ paths:
           --id <id> \
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/verify:
     patch:
       description: Verify translations matching query.
@@ -23644,6 +23849,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%20unverified:true%20tags:feature,center'"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/unverify:
     patch:
       description: Mark translations matching query as unverified.
@@ -23759,6 +23965,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%20verified:true%20tags:feature,center'", "sort":"updated_at", "order":"desc"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/review:
     patch:
       description: Review translations matching query.
@@ -23865,6 +24072,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%reviewed:false%20tags:feature,center'"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/exclude:
     patch:
       description: Exclude translations matching query from locale export.
@@ -23980,6 +24188,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%20verified:true%20tags:feature,center'", "sort":"updated_at", "order":"desc"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/translations/include:
     patch:
       description: Include translations matching query in locale export.
@@ -24095,6 +24304,7 @@ paths:
           --project_id <project_id> \
           --data '{"branch":"my-feature-branch", "query":"'PhraseApp*%20verified:true%20tags:feature,center'", "sort":"updated_at", "order":"desc"}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /notifications:
     get:
       description: List all notifications from the current user
@@ -24195,6 +24405,7 @@ paths:
         source: |-
           phrase notifications list \
           --access_token <token>
+      x-cli-version: "2.5"
   /notifications/mark_all_as_read:
     post:
       description: Mark all notifications of the current user as read
@@ -24265,6 +24476,7 @@ paths:
         source: |-
           phrase notifications mark_all_as_read \
           --access_token <token>
+      x-cli-version: "2.5"
   /notifications/{id}:
     get:
       description: Get details on a single notification.
@@ -24351,6 +24563,7 @@ paths:
           phrase notifications show \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /notification_groups:
     get:
       description: List all notification groups from the current user
@@ -24442,6 +24655,7 @@ paths:
         source: |-
           phrase notification_groups list \
           --access_token <token>
+      x-cli-version: "2.5"
   /notification_groups/mark_all_as_read:
     patch:
       description: Mark all notification groups of the current user as read
@@ -24512,6 +24726,7 @@ paths:
         source: |-
           phrase notification_groups mark_all_as_read \
           --access_token <token>
+      x-cli-version: "2.5"
   /notification_groups/{id}/mark_as_read:
     patch:
       description: Mark a notifications group of the current user as read
@@ -24589,6 +24804,7 @@ paths:
           phrase notification_groups mark_as_read \
           --id <id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /accounts/{account_id}/search:
     post:
       description: Search for keys and translations in all account projects
@@ -24695,6 +24911,7 @@ paths:
           --account_id <account_id> \
           --data '{"query":"keyword","locale_code": "de","page": 1,"per_page": 25}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{job_id}/comments/{id}:
     delete:
       description: Delete an existing job comment.
@@ -24797,6 +25014,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     get:
       description: Get details on a single job comment.
       operationId: job_comment/show
@@ -24899,6 +25117,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     patch:
       description: Update an existing job comment.
       operationId: job_comment/update
@@ -25008,6 +25227,7 @@ paths:
           --id <id> \
           --data '{"message": "Some message..."}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/jobs/{job_id}/comments:
     get:
       description: List all comments for a job.
@@ -25106,6 +25326,7 @@ paths:
           --job_id <key_id> \
           --branch my-feature-branch \
           --access_token <token>
+      x-cli-version: "2.5"
     post:
       description: Create a new comment for a job.
       operationId: job_comment/create
@@ -25206,6 +25427,7 @@ paths:
           --job_id <job_id> \
           --data '{"message": "Some message..."}' \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/webhooks/{webhook_id}/deliveries:
     get:
       description: List all webhook deliveries for the given webhook_id.
@@ -25302,6 +25524,7 @@ paths:
           --project_id <project_id> \
           --webhook_id <webhook_id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/webhooks/{webhook_id}/deliveries/{id}:
     get:
       description: Get all information about a single webhook delivery for the given
@@ -25398,6 +25621,7 @@ paths:
           --webhook_id <webhook_id> \
           --id <delivery_id> \
           --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/webhooks/{webhook_id}/deliveries/{id}/redeliver:
     post:
       description: Trigger an individual webhook delivery to be redelivered.
@@ -25493,6 +25717,7 @@ paths:
           --webhook_id <webhook_id> \
           --id <delivery_id> \
           --access_token <token>
+      x-cli-version: "2.5"
 components:
   headers:
     Link:
