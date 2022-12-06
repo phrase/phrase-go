@@ -318,7 +318,7 @@ info:
 
     ## Conditional GET requests / HTTP Caching
 
-    <div class="alert alert-info"><p><strong>Note:</strong> Conditional GET requests are currently only supported for <a href="#locales_download">locales#download</a> and <a href="#translations_index">translations#index</a></p></div>
+    <div class="alert alert-info"><p><i>Note: Conditional GET requests are currently only supported for <a href="#locales_download">locales#download</a> and <a href="#translations_index">translations#index</a></i></p></div>
 
     We will return an ETag or Last-Modified header with most GET requests. When you request a resource we recommend to store this value and submit them on subsequent requests as `If-Modified-Since` and `If-None-Match` headers. If the resource has not changed in the meantime, we will return the status `304 Not Modified` instead of rendering and returning the resource again. In most cases this is less time-consuming and makes your application/integration faster.
 
@@ -440,6 +440,7 @@ info:
     <span class="small">optional</span></td>
     <td><code>string</code></td>
     <td>Specify a query to find translations by content (including wildcards).<br />
+    <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i>
     <br />
     The following qualifiers are supported in the query:<br />
 
@@ -539,6 +540,7 @@ info:
     <span class="small">optional</span></td>
     <td><code>string</code></td>
     <td>Specify a query to find translations by content (including wildcards).<br />
+    <br><i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i>
     <br />
     The following qualifiers are supported in the query:<br />
 
@@ -622,6 +624,7 @@ info:
     <span class="small">optional</span></td>
     <td><code>string</code></td>
     <td>Specify a query to find translations by content (including wildcards).<br />
+    <br><i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i>
     <br />
     The following qualifiers are supported in the query:<br />
 
@@ -9070,8 +9073,10 @@ paths:
       x-cli-version: "2.5"
   /bitbucket_syncs/{id}/export:
     post:
-      description: Export translations from Phrase Strings to Bitbucket according
-        to the .phraseapp.yml file within the Bitbucket Repository.
+      description: 'Export translations from Phrase Strings to Bitbucket according
+        to the .phraseapp.yml file within the Bitbucket Repository. <br><br><i>Note:
+        Export is done asynchronously and may take several seconds depending on the
+        project size.</i>'
       operationId: bitbucket_sync/export
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -9166,8 +9171,10 @@ paths:
       x-cli-version: "2.5"
   /bitbucket_syncs/{id}/import:
     post:
-      description: Import translations from Bitbucket to Phrase Strings according
-        to the .phraseapp.yml file within the Bitbucket repository.
+      description: 'Import translations from Bitbucket to Phrase Strings according
+        to the .phraseapp.yml file within the Bitbucket repository. <br><br><i>Note:
+        Import is done asynchronously and may take several seconds depending on the
+        project size.</i>'
       operationId: bitbucket_sync/import
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -11053,7 +11060,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: View upload details
+      summary: Get a single upload
       tags:
       - Uploads
       x-code-samples:
@@ -11071,8 +11078,10 @@ paths:
       x-cli-version: "2.5"
   /github_syncs/export:
     post:
-      description: Export translations from Phrase Strings to GitHub according to
-        the .phraseapp.yml file within the GitHub repository.
+      description: 'Export translations from Phrase Strings to GitHub according to
+        the .phraseapp.yml file within the GitHub repository. <br><br><i>Note: Export
+        is done asynchronously and may take several seconds depending on the project
+        size.</i>'
       operationId: github_sync/export
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -11163,7 +11172,9 @@ paths:
       x-cli-version: "2.5"
   /github_syncs/import:
     post:
-      description: Import files to Phrase Strings from your connected GitHub repository.
+      description: 'Import files to Phrase Strings from your connected GitHub repository.
+        <br><br><i>Note: Import is done asynchronously and may take several seconds
+        depending on the project size.</i>'
       operationId: github_sync/import
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -11625,8 +11636,10 @@ paths:
       x-cli-version: "2.5"
   /gitlab_syncs/{gitlab_sync_id}/import:
     post:
-      description: Import translations from GitLab to Phrase Strings according to
-        the .phraseapp.yml file within the GitLab repository.
+      description: 'Import translations from GitLab to Phrase Strings according to
+        the .phraseapp.yml file within the GitLab repository. <br><br><i>Note: Import
+        is done asynchronously and may take several seconds depending on the project
+        size.</i>'
       operationId: gitlab_sync/import
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -11725,8 +11738,10 @@ paths:
       x-cli-version: "2.5"
   /gitlab_syncs/{gitlab_sync_id}/export:
     post:
-      description: Export translations from Phrase Strings to GitLab according to
-        the .phraseapp.yml file within the GitLab repository.
+      description: 'Export translations from Phrase Strings to GitLab according to
+        the .phraseapp.yml file within the GitLab repository. <br><br><i>Note: Export
+        is done asynchronously and may take several seconds depending on the project
+        size.</i>'
       operationId: gitlab_sync/export
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -15219,7 +15234,8 @@ paths:
           --access_token <token>
       x-cli-version: "2.5"
     post:
-      description: Create a new branch.
+      description: 'Create a new branch. <br><br><i>Note: Creating a new branch may
+        take several minutes depending on the project size.</i>'
       operationId: branch/create
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -15579,7 +15595,8 @@ paths:
       x-cli-version: "2.5"
   /projects/{project_id}/branches/{name}/merge:
     patch:
-      description: Merge an existing branch.
+      description: 'Merge an existing branch. <br><br><i>Note: Merging a branch may
+        take several minutes depending on diff size.</i>'
       operationId: branch/merge
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -15677,7 +15694,8 @@ paths:
       x-cli-version: "2.5"
   /projects/{project_id}/branches/{name}/compare:
     get:
-      description: Compare branch with main branch.
+      description: 'Compare branch with main branch. <br><br><i>Note: Comparing a
+        branch may take several minutes depending on the project size.</i>'
       operationId: branch/compare
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -22343,6 +22361,7 @@ paths:
         style: form
       - description: |
           Specify a query to find translations by content (including wildcards).<br><br>
+          <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
           The following qualifiers are supported in the query:<br>
           <ul>
             <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -22628,6 +22647,7 @@ paths:
         style: form
       - description: |
           Specify a query to find translations by content (including wildcards).<br><br>
+          <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
           The following qualifiers are supported in the query:<br>
           <ul>
             <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -22936,6 +22956,7 @@ paths:
                 q:
                   description: |
                     Specify a query to find translations by content (including wildcards).<br><br>
+                    <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
                     The following qualifiers are supported in the query:<br>
                     <ul>
                       <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -23721,7 +23742,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Revoke exclusion of a translation in export
+      summary: Include a translation
       tags:
       - Translations
       x-code-samples:
@@ -23778,6 +23799,7 @@ paths:
                 q:
                   description: |
                     Specify a query to find translations by content (including wildcards).<br><br>
+                    <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
                     The following qualifiers are supported in the query:<br>
                     <ul>
                       <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -23833,7 +23855,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Verify translations selected by query
+      summary: Verify translations by query
       tags:
       - Translations
       x-code-samples:
@@ -23885,6 +23907,7 @@ paths:
                 q:
                   description: |
                     Specify a query to find translations by content (including wildcards).<br><br>
+                    <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
                     The following qualifiers are supported in the query:<br>
                     <ul>
                       <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -23949,7 +23972,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Mark translations selected by query as unverified
+      summary: Unverify translations by query
       tags:
       - Translations
       x-code-samples:
@@ -24001,6 +24024,7 @@ paths:
                 q:
                   description: |
                     Specify a query to find translations by content (including wildcards).<br><br>
+                    <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
                     The following qualifiers are supported in the query:<br>
                     <ul>
                       <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -24108,6 +24132,7 @@ paths:
                 q:
                   description: |
                     Specify a query to find translations by content (including wildcards).<br><br>
+                    <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
                     The following qualifiers are supported in the query:<br>
                     <ul>
                       <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -24172,7 +24197,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Set exclude from export flag on translations selected by query
+      summary: Exclude translations by query
       tags:
       - Translations
       x-code-samples:
@@ -24224,6 +24249,7 @@ paths:
                 q:
                   description: |
                     Specify a query to find translations by content (including wildcards).<br><br>
+                    <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
                     The following qualifiers are supported in the query:<br>
                     <ul>
                       <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -24288,7 +24314,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Remove exlude from import flag from translations selected by query
+      summary: Include translations by query
       tags:
       - Translations
       x-code-samples:
@@ -24808,7 +24834,9 @@ paths:
       x-cli-version: "2.5"
   /accounts/{account_id}/search:
     post:
-      description: Search for keys and translations in all account projects
+      description: 'Search for keys and translations in all account projects <br><br><i>Note:
+        Search is limited to 10000 results and may not include recently updated data
+        depending on the project sizes.</i>'
       operationId: search/in_account
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -30661,6 +30689,7 @@ components:
         q:
           description: |
             Specify a query to find translations by content (including wildcards).<br><br>
+            <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
             The following qualifiers are supported in the query:<br>
             <ul>
               <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -30756,6 +30785,7 @@ components:
         q:
           description: |
             Specify a query to find translations by content (including wildcards).<br><br>
+            <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
             The following qualifiers are supported in the query:<br>
             <ul>
               <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -30778,6 +30808,7 @@ components:
         q:
           description: |
             Specify a query to find translations by content (including wildcards).<br><br>
+            <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
             The following qualifiers are supported in the query:<br>
             <ul>
               <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -30808,6 +30839,7 @@ components:
         q:
           description: |
             Specify a query to find translations by content (including wildcards).<br><br>
+            <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
             The following qualifiers are supported in the query:<br>
             <ul>
               <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -30830,6 +30862,7 @@ components:
         q:
           description: |
             Specify a query to find translations by content (including wildcards).<br><br>
+            <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
             The following qualifiers are supported in the query:<br>
             <ul>
               <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
@@ -30860,6 +30893,7 @@ components:
         q:
           description: |
             Specify a query to find translations by content (including wildcards).<br><br>
+            <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
             The following qualifiers are supported in the query:<br>
             <ul>
               <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>

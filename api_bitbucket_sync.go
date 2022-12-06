@@ -25,7 +25,7 @@ type BitbucketSyncExportOpts struct {
 
 /*
 BitbucketSyncExport Export from Phrase Strings to Bitbucket
-Export translations from Phrase Strings to Bitbucket according to the .phraseapp.yml file within the Bitbucket Repository.
+Export translations from Phrase Strings to Bitbucket according to the .phraseapp.yml file within the Bitbucket Repository. &lt;br&gt;&lt;br&gt;&lt;i&gt;Note: Export is done asynchronously and may take several seconds depending on the project size.&lt;/i&gt;
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID
   - @param bitbucketSyncExportParameters
@@ -129,7 +129,7 @@ type BitbucketSyncImportOpts struct {
 
 /*
 BitbucketSyncImport Import to Phrase Strings from Bitbucket
-Import translations from Bitbucket to Phrase Strings according to the .phraseapp.yml file within the Bitbucket repository.
+Import translations from Bitbucket to Phrase Strings according to the .phraseapp.yml file within the Bitbucket repository. &lt;br&gt;&lt;br&gt;&lt;i&gt;Note: Import is done asynchronously and may take several seconds depending on the project size.&lt;/i&gt;
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID
   - @param bitbucketSyncImportParameters

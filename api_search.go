@@ -25,7 +25,7 @@ type SearchInAccountOpts struct {
 
 /*
 SearchInAccount Search across projects
-Search for keys and translations in all account projects
+Search for keys and translations in all account projects &lt;br&gt;&lt;br&gt;&lt;i&gt;Note: Search is limited to 10000 results and may not include recently updated data depending on the project sizes.&lt;/i&gt;
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param searchInAccountParameters

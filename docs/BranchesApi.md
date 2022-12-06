@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Compare branches
 
-Compare branch with main branch.
+Compare branch with main branch. <br><br><i>Note: Comparing a branch may take several minutes depending on the project size.</i>
 
 ### Required Parameters
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 Create a branch
 
-Create a new branch.
+Create a new branch. <br><br><i>Note: Creating a new branch may take several minutes depending on the project size.</i>
 
 ### Required Parameters
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 Merge a branch
 
-Merge an existing branch.
+Merge an existing branch. <br><br><i>Note: Merging a branch may take several minutes depending on diff size.</i>
 
 ### Required Parameters
 

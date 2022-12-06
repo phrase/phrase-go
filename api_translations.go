@@ -235,7 +235,7 @@ type TranslationIncludeOpts struct {
 }
 
 /*
-TranslationInclude Revoke exclusion of a translation in export
+TranslationInclude Include a translation
 Remove exclude from export flag from an existing translation.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
@@ -1031,7 +1031,7 @@ List translations for a specific locale. If you want to download all translation
   - @param "Branch" (optional.String) -  specify the branch to use
   - @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
   - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
-  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
+  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
 
 @return []Translation
 */
@@ -1147,7 +1147,7 @@ type TranslationsExcludeCollectionOpts struct {
 }
 
 /*
-TranslationsExcludeCollection Set exclude from export flag on translations selected by query
+TranslationsExcludeCollection Exclude translations by query
 Exclude translations matching query from locale export.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
@@ -1251,7 +1251,7 @@ type TranslationsIncludeCollectionOpts struct {
 }
 
 /*
-TranslationsIncludeCollection Remove exlude from import flag from translations selected by query
+TranslationsIncludeCollection Include translations by query
 Include translations matching query in locale export.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
@@ -1372,7 +1372,7 @@ List translations for the given project. If you want to download all translation
   - @param "Branch" (optional.String) -  specify the branch to use
   - @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
   - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
-  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
+  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).<br><br> <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
 
 @return []Translation
 */
@@ -1704,7 +1704,7 @@ type TranslationsUnverifyCollectionOpts struct {
 }
 
 /*
-TranslationsUnverifyCollection Mark translations selected by query as unverified
+TranslationsUnverifyCollection Unverify translations by query
 Mark translations matching query as unverified.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
@@ -1808,7 +1808,7 @@ type TranslationsVerifyCollectionOpts struct {
 }
 
 /*
-TranslationsVerifyCollection Verify translations selected by query
+TranslationsVerifyCollection Verify translations by query
 Verify translations matching query.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID

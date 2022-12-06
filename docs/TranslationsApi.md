@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**TranslationCreate**](TranslationsApi.md#TranslationCreate) | **Post** /projects/{project_id}/translations | Create a translation
 [**TranslationExclude**](TranslationsApi.md#TranslationExclude) | **Patch** /projects/{project_id}/translations/{id}/exclude | Exclude a translation from export
-[**TranslationInclude**](TranslationsApi.md#TranslationInclude) | **Patch** /projects/{project_id}/translations/{id}/include | Revoke exclusion of a translation in export
+[**TranslationInclude**](TranslationsApi.md#TranslationInclude) | **Patch** /projects/{project_id}/translations/{id}/include | Include a translation
 [**TranslationReview**](TranslationsApi.md#TranslationReview) | **Patch** /projects/{project_id}/translations/{id}/review | Review a translation
 [**TranslationShow**](TranslationsApi.md#TranslationShow) | **Get** /projects/{project_id}/translations/{id} | Get a single translation
 [**TranslationUnverify**](TranslationsApi.md#TranslationUnverify) | **Patch** /projects/{project_id}/translations/{id}/unverify | Mark a translation as unverified
@@ -14,13 +14,13 @@ Method | HTTP request | Description
 [**TranslationVerify**](TranslationsApi.md#TranslationVerify) | **Patch** /projects/{project_id}/translations/{id}/verify | Verify a translation
 [**TranslationsByKey**](TranslationsApi.md#TranslationsByKey) | **Get** /projects/{project_id}/keys/{key_id}/translations | List translations by key
 [**TranslationsByLocale**](TranslationsApi.md#TranslationsByLocale) | **Get** /projects/{project_id}/locales/{locale_id}/translations | List translations by locale
-[**TranslationsExcludeCollection**](TranslationsApi.md#TranslationsExcludeCollection) | **Patch** /projects/{project_id}/translations/exclude | Set exclude from export flag on translations selected by query
-[**TranslationsIncludeCollection**](TranslationsApi.md#TranslationsIncludeCollection) | **Patch** /projects/{project_id}/translations/include | Remove exlude from import flag from translations selected by query
+[**TranslationsExcludeCollection**](TranslationsApi.md#TranslationsExcludeCollection) | **Patch** /projects/{project_id}/translations/exclude | Exclude translations by query
+[**TranslationsIncludeCollection**](TranslationsApi.md#TranslationsIncludeCollection) | **Patch** /projects/{project_id}/translations/include | Include translations by query
 [**TranslationsList**](TranslationsApi.md#TranslationsList) | **Get** /projects/{project_id}/translations | List all translations
 [**TranslationsReviewCollection**](TranslationsApi.md#TranslationsReviewCollection) | **Patch** /projects/{project_id}/translations/review | Review translations selected by query
 [**TranslationsSearch**](TranslationsApi.md#TranslationsSearch) | **Post** /projects/{project_id}/translations/search | Search translations
-[**TranslationsUnverifyCollection**](TranslationsApi.md#TranslationsUnverifyCollection) | **Patch** /projects/{project_id}/translations/unverify | Mark translations selected by query as unverified
-[**TranslationsVerifyCollection**](TranslationsApi.md#TranslationsVerifyCollection) | **Patch** /projects/{project_id}/translations/verify | Verify translations selected by query
+[**TranslationsUnverifyCollection**](TranslationsApi.md#TranslationsUnverifyCollection) | **Patch** /projects/{project_id}/translations/unverify | Unverify translations by query
+[**TranslationsVerifyCollection**](TranslationsApi.md#TranslationsVerifyCollection) | **Patch** /projects/{project_id}/translations/verify | Verify translations by query
 
 
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 > TranslationDetails TranslationInclude(ctx, projectId, id, translationIncludeParameters, optional)
 
-Revoke exclusion of a translation in export
+Include a translation
 
 Remove exclude from export flag from an existing translation.
 
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
  **branch** | **optional.String**| specify the branch to use | 
  **sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
  **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
- **q** | **optional.String**| Specify a query to find translations by content (including wildcards).&lt;br&gt;&lt;br&gt; The following qualifiers are supported in the query:&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;code&gt;id:translation_id,...&lt;/code&gt; for queries on a comma-separated list of ids&lt;/li&gt;   &lt;li&gt;&lt;code&gt;unverified:{true|false}&lt;/code&gt; for verification status&lt;/li&gt;   &lt;li&gt;&lt;code&gt;tags:XYZ&lt;/code&gt; for tags on the translation&lt;/li&gt;   &lt;li&gt;&lt;code&gt;excluded:{true|false}&lt;/code&gt; for exclusion status&lt;/li&gt;   &lt;li&gt;&lt;code&gt;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&lt;/code&gt; for date range queries&lt;/li&gt; &lt;/ul&gt; Find more examples &lt;a href&#x3D;\&quot;#overview--usage-examples\&quot;&gt;here&lt;/a&gt;.  | 
+ **q** | **optional.String**| Specify a query to find translations by content (including wildcards).&lt;br&gt;&lt;br&gt; &lt;i&gt;Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).&lt;/i&gt;&lt;br&gt; The following qualifiers are supported in the query:&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;code&gt;id:translation_id,...&lt;/code&gt; for queries on a comma-separated list of ids&lt;/li&gt;   &lt;li&gt;&lt;code&gt;unverified:{true|false}&lt;/code&gt; for verification status&lt;/li&gt;   &lt;li&gt;&lt;code&gt;tags:XYZ&lt;/code&gt; for tags on the translation&lt;/li&gt;   &lt;li&gt;&lt;code&gt;excluded:{true|false}&lt;/code&gt; for exclusion status&lt;/li&gt;   &lt;li&gt;&lt;code&gt;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&lt;/code&gt; for date range queries&lt;/li&gt; &lt;/ul&gt; Find more examples &lt;a href&#x3D;\&quot;#overview--usage-examples\&quot;&gt;here&lt;/a&gt;.  | 
 
 ### Return type
 
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 
 > AffectedCount TranslationsExcludeCollection(ctx, projectId, translationsExcludeParameters, optional)
 
-Set exclude from export flag on translations selected by query
+Exclude translations by query
 
 Exclude translations matching query from locale export.
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 > AffectedCount TranslationsIncludeCollection(ctx, projectId, translationsIncludeParameters, optional)
 
-Remove exlude from import flag from translations selected by query
+Include translations by query
 
 Include translations matching query in locale export.
 
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
  **branch** | **optional.String**| specify the branch to use | 
  **sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
  **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
- **q** | **optional.String**| Specify a query to find translations by content (including wildcards).&lt;br&gt;&lt;br&gt; The following qualifiers are supported in the query:&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;code&gt;id:translation_id,...&lt;/code&gt; for queries on a comma-separated list of ids&lt;/li&gt;   &lt;li&gt;&lt;code&gt;tags:XYZ&lt;/code&gt; for tags on the translation&lt;/li&gt;   &lt;li&gt;&lt;code&gt;unverified:{true|false}&lt;/code&gt; for verification status&lt;/li&gt;   &lt;li&gt;&lt;code&gt;excluded:{true|false}&lt;/code&gt; for exclusion status&lt;/li&gt;   &lt;li&gt;&lt;code&gt;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&lt;/code&gt; for date range queries&lt;/li&gt; &lt;/ul&gt; Find more examples &lt;a href&#x3D;\&quot;#overview--usage-examples\&quot;&gt;here&lt;/a&gt;.  | 
+ **q** | **optional.String**| Specify a query to find translations by content (including wildcards).&lt;br&gt;&lt;br&gt; &lt;i&gt;Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).&lt;/i&gt;&lt;br&gt; The following qualifiers are supported in the query:&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;code&gt;id:translation_id,...&lt;/code&gt; for queries on a comma-separated list of ids&lt;/li&gt;   &lt;li&gt;&lt;code&gt;tags:XYZ&lt;/code&gt; for tags on the translation&lt;/li&gt;   &lt;li&gt;&lt;code&gt;unverified:{true|false}&lt;/code&gt; for verification status&lt;/li&gt;   &lt;li&gt;&lt;code&gt;excluded:{true|false}&lt;/code&gt; for exclusion status&lt;/li&gt;   &lt;li&gt;&lt;code&gt;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&lt;/code&gt; for date range queries&lt;/li&gt; &lt;/ul&gt; Find more examples &lt;a href&#x3D;\&quot;#overview--usage-examples\&quot;&gt;here&lt;/a&gt;.  | 
 
 ### Return type
 
@@ -764,7 +764,7 @@ Name | Type | Description  | Notes
 
 > AffectedCount TranslationsUnverifyCollection(ctx, projectId, translationsUnverifyParameters, optional)
 
-Mark translations selected by query as unverified
+Unverify translations by query
 
 Mark translations matching query as unverified.
 
@@ -811,7 +811,7 @@ Name | Type | Description  | Notes
 
 > AffectedCount TranslationsVerifyCollection(ctx, projectId, translationsVerifyParameters, optional)
 
-Verify translations selected by query
+Verify translations by query
 
 Verify translations matching query.
 

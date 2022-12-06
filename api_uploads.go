@@ -220,7 +220,7 @@ type UploadShowOpts struct {
 }
 
 /*
-UploadShow View upload details
+UploadShow Get a single upload
 View details and summary for a single upload.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID

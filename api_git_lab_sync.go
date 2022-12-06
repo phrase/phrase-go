@@ -119,7 +119,7 @@ type GitlabSyncExportOpts struct {
 
 /*
 GitlabSyncExport Export from Phrase Strings to GitLab
-Export translations from Phrase Strings to GitLab according to the .phraseapp.yml file within the GitLab repository.
+Export translations from Phrase Strings to GitLab according to the .phraseapp.yml file within the GitLab repository. &lt;br&gt;&lt;br&gt;&lt;i&gt;Note: Export is done asynchronously and may take several seconds depending on the project size.&lt;/i&gt;
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param gitlabSyncId Gitlab Sync ID
   - @param gitlabSyncExportParameters
@@ -339,7 +339,7 @@ type GitlabSyncImportOpts struct {
 
 /*
 GitlabSyncImport Import from GitLab to Phrase
-Import translations from GitLab to Phrase Strings according to the .phraseapp.yml file within the GitLab repository.
+Import translations from GitLab to Phrase Strings according to the .phraseapp.yml file within the GitLab repository. &lt;br&gt;&lt;br&gt;&lt;i&gt;Note: Import is done asynchronously and may take several seconds depending on the project size.&lt;/i&gt;
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param gitlabSyncId Gitlab Sync ID
   - @param gitlabSyncImportParameters
