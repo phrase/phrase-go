@@ -363,7 +363,7 @@ Download a locale in a specific file format.
   - @param optional nil or *LocaleDownloadOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
-  - @param "FileFormat" (optional.String) -  File format name. See the <a href=\"https://support.phrase.com/hc/en-us/articles/5784070560412\">format guide</a> for all supported file formats.
+  - @param "FileFormat" (optional.String) -  File format name. See the <a href=\"https://support.phrase.com/hc/en-us/sections/6111343326364\">format guide</a> for all supported file formats.
   - @param "Tags" (optional.String) -  Limit results to keys tagged with a list of comma separated tag names.
   - @param "Tag" (optional.String) -  Limit download to tagged keys. This parameter is deprecated. Please use the \"tags\" parameter instead
   - @param "IncludeEmptyTranslations" (optional.Bool) -  Indicates whether keys without translations should be included in the output as well.
@@ -371,7 +371,7 @@ Download a locale in a specific file format.
   - @param "IncludeTranslatedKeys" (optional.Bool) -  Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys.
   - @param "KeepNotranslateTags" (optional.Bool) -  Indicates whether [NOTRANSLATE] tags should be kept.
   - @param "ConvertEmoji" (optional.Bool) -  This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively.
-  - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional formatting and render options. See the <a href=\"https://support.phrase.com/hc/en-us/articles/5784070560412\">format guide</a> for a list of options available for each format. Specify format options like this: <code>...&format_options[foo]=bar</code>
+  - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional formatting and render options. See the <a href=\"https://support.phrase.com/hc/en-us/sections/6111343326364\">format guide</a> for a list of options available for each format. Specify format options like this: <code>...&format_options[foo]=bar</code>
   - @param "Encoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \"UTF-8\", \"UTF-16\" and \"ISO-8859-1\".
   - @param "SkipUnverifiedTranslations" (optional.Bool) -  Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with <code>include_unverified_translations</code>.
   - @param "IncludeUnverifiedTranslations" (optional.Bool) -  if set to false unverified translations are excluded

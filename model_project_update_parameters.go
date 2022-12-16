@@ -10,7 +10,7 @@ type ProjectUpdateParameters struct {
 	AccountId string `json:"account_id,omitempty"`
 	// (Optional) Name of the project
 	Name string `json:"name,omitempty"`
-	// (Optional) Main file format specified by its API Extension name. Used for locale downloads if no format is specified. For API Extension names of available file formats see <a href=\"https://support.phrase.com/hc/en-us/articles/5784070560412\">Format Guide</a> or our <a href=\"#formats\">Formats API Endpoint</a>.
+	// (Optional) Main file format specified by its API Extension name. Used for locale downloads if no format is specified. For API Extension names of available file formats see <a href=\"https://support.phrase.com/hc/en-us/sections/6111343326364\">Format Guide</a> or our <a href=\"#formats\">Formats API Endpoint</a>.
 	MainFormat string `json:"main_format,omitempty"`
 	// (Optional) Indicates whether the project should share the account's translation memory
 	SharesTranslationMemory *bool `json:"shares_translation_memory,omitempty"`
