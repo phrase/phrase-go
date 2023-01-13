@@ -11,6 +11,7 @@ type ProjectDetails struct {
 	Slug                    string      `json:"slug,omitempty"`
 	MainFormat              string      `json:"main_format,omitempty"`
 	ProjectImageUrl         string      `json:"project_image_url,omitempty"`
+	Media                   string      `json:"media,omitempty"`
 	Account                 Account     `json:"account,omitempty"`
 	Space                   Space1      `json:"space,omitempty"`
 	PointOfContact          UserPreview `json:"point_of_contact,omitempty"`

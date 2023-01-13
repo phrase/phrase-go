@@ -12660,6 +12660,16 @@ paths:
                     Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
                   example: yml
                   type: string
+                media:
+                  description: '(Optional) Main technology stack used in the project.
+                    It affects for example the suggested placeholder style. Predefined
+                    values include: `Ruby`, `JavaScript`, `AngularJS`, `React`, `iOS`,
+                    `Android`, `Python`, `PHP`, `Java`, `Go`, `Windows Phone`, `Rails`,
+                    `Node.js`, `.NET`, `Django`, `Symfony`, `Yii Framework`, `Zend
+                    Framework`, `Apple App Store Description`, `Google Play Description`,
+                    but it can also take any other value.'
+                  example: Python
+                  type: string
                 shares_translation_memory:
                   description: Indicates whether the project should share the account's
                     translation memory
@@ -12676,6 +12686,11 @@ paths:
                   description: Account ID to specify the actual account the project
                     should be created in. Required if the requesting user is a member
                     of multiple accounts.
+                  example: abcd1234
+                  type: string
+                point_of_contact:
+                  description: (Optional) User ID of the point of contact for the
+                    project.
                   example: abcd1234
                   type: string
                 source_project_id:
@@ -13010,6 +13025,11 @@ paths:
                   description: (Optional) Name of the project
                   example: My Android Project
                   type: string
+                point_of_contact:
+                  description: (Optional) User ID of the point of contact for the
+                    project. Pass `null` to unset.
+                  example: abcd1234
+                  type: string
                 main_format:
                   description: (Optional) Main file format specified by its API Extension
                     name. Used for locale downloads if no format is specified. For
@@ -13017,6 +13037,8 @@ paths:
                     Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
                   example: yml
                   type: string
+                media:
+                  $ref: '#/paths/~1projects/post/requestBody/content/application~1json/schema/properties/media'
                 shares_translation_memory:
                   description: (Optional) Indicates whether the project should share
                     the account's translation memory
@@ -27449,6 +27471,8 @@ components:
           type: string
         project_image_url:
           type: string
+        media:
+          type: string
         account:
           $ref: '#/components/schemas/account'
         space:
@@ -29580,6 +29604,15 @@ components:
             Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
           example: yml
           type: string
+        media:
+          description: '(Optional) Main technology stack used in the project. It affects
+            for example the suggested placeholder style. Predefined values include:
+            `Ruby`, `JavaScript`, `AngularJS`, `React`, `iOS`, `Android`, `Python`,
+            `PHP`, `Java`, `Go`, `Windows Phone`, `Rails`, `Node.js`, `.NET`, `Django`,
+            `Symfony`, `Yii Framework`, `Zend Framework`, `Apple App Store Description`,
+            `Google Play Description`, but it can also take any other value.'
+          example: Python
+          type: string
         shares_translation_memory:
           description: Indicates whether the project should share the account's translation
             memory
@@ -29596,6 +29629,10 @@ components:
           description: Account ID to specify the actual account the project should
             be created in. Required if the requesting user is a member of multiple
             accounts.
+          example: abcd1234
+          type: string
+        point_of_contact:
+          description: (Optional) User ID of the point of contact for the project.
           example: abcd1234
           type: string
         source_project_id:
@@ -29697,6 +29734,11 @@ components:
           description: (Optional) Name of the project
           example: My Android Project
           type: string
+        point_of_contact:
+          description: (Optional) User ID of the point of contact for the project.
+            Pass `null` to unset.
+          example: abcd1234
+          type: string
         main_format:
           description: (Optional) Main file format specified by its API Extension
             name. Used for locale downloads if no format is specified. For API Extension
@@ -29704,6 +29746,8 @@ components:
             Guide</a> or our <a href="#formats">Formats API Endpoint</a>.
           example: yml
           type: string
+        media:
+          $ref: '#/paths/~1projects/post/requestBody/content/application~1json/schema/properties/media'
         shares_translation_memory:
           description: (Optional) Indicates whether the project should share the account's
             translation memory

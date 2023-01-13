@@ -10,6 +10,8 @@ type ProjectCreateParameters struct {
 	Name string `json:"name,omitempty"`
 	// Main file format specified by its API Extension name. Used for locale downloads if no format is specified. For API Extension names of available file formats see <a href=\"https://support.phrase.com/hc/en-us/sections/6111343326364\">Format Guide</a> or our <a href=\"#formats\">Formats API Endpoint</a>.
 	MainFormat string `json:"main_format,omitempty"`
+	// (Optional) Main technology stack used in the project. It affects for example the suggested placeholder style. Predefined values include: `Ruby`, `JavaScript`, `AngularJS`, `React`, `iOS`, `Android`, `Python`, `PHP`, `Java`, `Go`, `Windows Phone`, `Rails`, `Node.js`, `.NET`, `Django`, `Symfony`, `Yii Framework`, `Zend Framework`, `Apple App Store Description`, `Google Play Description`, but it can also take any other value.
+	Media string `json:"media,omitempty"`
 	// Indicates whether the project should share the account's translation memory
 	SharesTranslationMemory *bool `json:"shares_translation_memory,omitempty"`
 	// Image to identify the project
@@ -18,6 +20,8 @@ type ProjectCreateParameters struct {
 	RemoveProjectImage *bool `json:"remove_project_image,omitempty"`
 	// Account ID to specify the actual account the project should be created in. Required if the requesting user is a member of multiple accounts.
 	AccountId string `json:"account_id,omitempty"`
+	// (Optional) User ID of the point of contact for the project.
+	PointOfContact string `json:"point_of_contact,omitempty"`
 	// When a source project ID is given, a clone of that project will be created, including all locales, keys and translations as well as the main project settings if they are not defined otherwise through the params.
 	SourceProjectId string `json:"source_project_id,omitempty"`
 	// (Optional) Review Workflow. \"simple\" / \"review\". <a href=\"https://support.phrase.com/hc/en-us/articles/5784094755484\">Read more</a>
