@@ -12840,7 +12840,7 @@ paths:
           phrase projects create \
           --data '{"name": "My Android Project", "main_format":"yml", "shares_translation_memory":"true"}' \
           --access_token <token>
-      x-cli-version: "2.5"
+      x-cli-version: 2.6.3
   /projects/{id}:
     delete:
       description: Delete an existing project.
@@ -13194,7 +13194,7 @@ paths:
           --id <id> \
           --data '{"name": "My Android Project", "main_format":"yml", "shares_translation_memory":true}' \
           --access_token <token>
-      x-cli-version: "2.5"
+      x-cli-version: 2.6.3
   /projects/{project_id}/jobs/{job_id}/locales:
     get:
       description: List all job locales for a given job.
