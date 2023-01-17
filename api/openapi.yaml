@@ -4681,6 +4681,24 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Last modified condition, see <a href="#overview--conditional-get-requests--http-caching">Conditional
+          GET requests / HTTP Caching</a> (optional)
+        explode: false
+        in: header
+        name: If-Modified-Since
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: ETag condition, see <a href="#overview--conditional-get-requests--http-caching">Conditional
+          GET requests / HTTP Caching</a> (optional)
+        explode: false
+        in: header
+        name: If-None-Match
+        required: false
+        schema:
+          type: string
+        style: simple
       - description: Project ID
         explode: false
         in: path
@@ -22325,6 +22343,24 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Last modified condition, see <a href="#overview--conditional-get-requests--http-caching">Conditional
+          GET requests / HTTP Caching</a> (optional)
+        explode: false
+        in: header
+        name: If-Modified-Since
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: ETag condition, see <a href="#overview--conditional-get-requests--http-caching">Conditional
+          GET requests / HTTP Caching</a> (optional)
+        explode: false
+        in: header
+        name: If-None-Match
+        required: false
+        schema:
+          type: string
+        style: simple
       - description: Project ID
         explode: false
         in: path
@@ -25811,6 +25847,26 @@ components:
       explode: false
       in: header
       name: X-PhraseApp-OTP
+      required: false
+      schema:
+        type: string
+      style: simple
+    If-Modified-Since:
+      description: Last modified condition, see <a href="#overview--conditional-get-requests--http-caching">Conditional
+        GET requests / HTTP Caching</a> (optional)
+      explode: false
+      in: header
+      name: If-Modified-Since
+      required: false
+      schema:
+        type: string
+      style: simple
+    If-None-Match:
+      description: ETag condition, see <a href="#overview--conditional-get-requests--http-caching">Conditional
+        GET requests / HTTP Caching</a> (optional)
+      explode: false
+      in: header
+      name: If-None-Match
       required: false
       schema:
         type: string

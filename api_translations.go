@@ -1351,13 +1351,15 @@ func (a *TranslationsApiService) TranslationsIncludeCollection(ctx _context.Cont
 
 // TranslationsListOpts Optional parameters for the method 'TranslationsList'
 type TranslationsListOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32  `json:"page,omitempty"`
-	PerPage       optional.Int32  `json:"per_page,omitempty"`
-	Branch        optional.String `json:"branch,omitempty"`
-	Sort          optional.String `json:"sort,omitempty"`
-	Order         optional.String `json:"order,omitempty"`
-	Q             optional.String `json:"q,omitempty"`
+	XPhraseAppOTP   optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	IfModifiedSince optional.String `json:"If-Modified-Since,omitempty"`
+	IfNoneMatch     optional.String `json:"If-None-Match,omitempty"`
+	Page            optional.Int32  `json:"page,omitempty"`
+	PerPage         optional.Int32  `json:"per_page,omitempty"`
+	Branch          optional.String `json:"branch,omitempty"`
+	Sort            optional.String `json:"sort,omitempty"`
+	Order           optional.String `json:"order,omitempty"`
+	Q               optional.String `json:"q,omitempty"`
 }
 
 /*
@@ -1367,6 +1369,8 @@ List translations for the given project. If you want to download all translation
   - @param projectId Project ID
   - @param optional nil or *TranslationsListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "IfModifiedSince" (optional.String) -  Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
+  - @param "IfNoneMatch" (optional.String) -  ETag condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Branch" (optional.String) -  specify the branch to use
@@ -1431,6 +1435,12 @@ func (a *TranslationsApiService) TranslationsList(ctx _context.Context, projectI
 	}
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
+	}
+	if localVarOptionals != nil && localVarOptionals.IfModifiedSince.IsSet() {
+		localVarHeaderParams["If-Modified-Since"] = parameterToString(localVarOptionals.IfModifiedSince.Value(), "")
+	}
+	if localVarOptionals != nil && localVarOptionals.IfNoneMatch.IsSet() {
+		localVarHeaderParams["If-None-Match"] = parameterToString(localVarOptionals.IfNoneMatch.Value(), "")
 	}
 	if ctx != nil {
 		// API Key Authentication

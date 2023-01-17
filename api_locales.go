@@ -336,6 +336,8 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 // LocaleDownloadOpts Optional parameters for the method 'LocaleDownload'
 type LocaleDownloadOpts struct {
 	XPhraseAppOTP                 optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	IfModifiedSince               optional.String    `json:"If-Modified-Since,omitempty"`
+	IfNoneMatch                   optional.String    `json:"If-None-Match,omitempty"`
 	Branch                        optional.String    `json:"branch,omitempty"`
 	FileFormat                    optional.String    `json:"file_format,omitempty"`
 	Tags                          optional.String    `json:"tags,omitempty"`
@@ -362,6 +364,8 @@ Download a locale in a specific file format.
   - @param id ID
   - @param optional nil or *LocaleDownloadOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "IfModifiedSince" (optional.String) -  Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
+  - @param "IfNoneMatch" (optional.String) -  ETag condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
   - @param "FileFormat" (optional.String) -  File format name. See the <a href=\"https://support.phrase.com/hc/en-us/sections/6111343326364\">format guide</a> for all supported file formats.
   - @param "Tags" (optional.String) -  Limit results to keys tagged with a list of comma separated tag names.
@@ -470,6 +474,12 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	}
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
+	}
+	if localVarOptionals != nil && localVarOptionals.IfModifiedSince.IsSet() {
+		localVarHeaderParams["If-Modified-Since"] = parameterToString(localVarOptionals.IfModifiedSince.Value(), "")
+	}
+	if localVarOptionals != nil && localVarOptionals.IfNoneMatch.IsSet() {
+		localVarHeaderParams["If-None-Match"] = parameterToString(localVarOptionals.IfNoneMatch.Value(), "")
 	}
 	if ctx != nil {
 		// API Key Authentication
