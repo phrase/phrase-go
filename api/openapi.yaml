@@ -5717,7 +5717,7 @@ paths:
           phrase releases create \
           --account_id <account_id> \
           --distribution_id <distribution_id> \
-          --data '{"description": "My first Release", "platforms": "android,ios", "branch":"my-feature-branch"}' \
+          --data '{"description": "My first Release", "platforms": ["android", "ios"], "branch":"my-feature-branch"}' \
           --access_token <token>
       x-cli-version: "2.5"
   /accounts/{account_id}/distributions/{distribution_id}/releases/{id}:
