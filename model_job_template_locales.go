@@ -1,7 +1,7 @@
 package phrase
 
-// JobTemplateLocale struct for JobTemplateLocale
-type JobTemplateLocale struct {
+// JobTemplateLocales struct for JobTemplateLocales
+type JobTemplateLocales struct {
 	Id          string                   `json:"id,omitempty"`
 	JobTemplate JobTemplatePreview       `json:"job_template,omitempty"`
 	Locale      LocalePreview            `json:"locale,omitempty"`

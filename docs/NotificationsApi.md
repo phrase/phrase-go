@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## NotificationsList
 
-> []map[string]interface{} NotificationsList(ctx, optional)
+> []Notification NotificationsList(ctx, optional)
 
 List notifications
 
@@ -40,7 +40,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Notification**](notification.md)
 
 ### Authorization
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ## NotificationsMarkAllAsRead
 
-> []map[string]interface{} NotificationsMarkAllAsRead(ctx, optional)
+> []Notification NotificationsMarkAllAsRead(ctx, optional)
 
 Mark all notifications as read
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]Notification**](notification.md)
 
 ### Authorization
 

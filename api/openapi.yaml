@@ -7701,32 +7701,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: '#/paths/~1projects~1%7Bproject_id%7D~1job_templates/get/responses/200/content/application~1json/schema/items'
-                - example:
-                    owner:
-                      id: abcd1234cdef1234abcd1234cdef1234
-                      username: joe.doe
-                      name: Joe Doe
-                    creator:
-                      id: abcd1234cdef1234abcd1234cdef1234
-                      username: joe.doe
-                      name: Joe Doe
-                    locales:
-                    - id: abcd1234cdef1234abcd1234cdef1234
-                      name: English
-                      code: en-GB
-                  properties:
-                    owner:
-                      $ref: '#/components/schemas/user_preview'
-                    creator:
-                      $ref: '#/components/schemas/user_preview'
-                    locales:
-                      items:
-                        $ref: '#/components/schemas/locale_preview'
-                      type: array
-                  title: job_template_details
-                  type: object
+                $ref: '#/components/schemas/job_template_details'
           description: Created
           headers:
             X-Rate-Limit-Limit:
@@ -7876,7 +7851,7 @@ paths:
       x-cli-version: "2.5"
     get:
       description: Get details on a single job template for a given project.
-      operationId: job_template/show
+      operationId: job_templates/show
       parameters:
       - description: Two-Factor-Authentication token (optional)
         explode: false
@@ -7916,7 +7891,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1job_templates/post/responses/201/content/application~1json/schema'
+                $ref: '#/components/schemas/job_template_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -8024,7 +7999,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1job_templates/post/responses/201/content/application~1json/schema'
+                $ref: '#/components/schemas/job_template_details'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -13056,7 +13031,15 @@ paths:
                   example: yml
                   type: string
                 media:
-                  $ref: '#/paths/~1projects/post/requestBody/content/application~1json/schema/properties/media'
+                  description: '(Optional) Main technology stack used in the project.
+                    It affects for example the suggested placeholder style. Predefined
+                    values include: `Ruby`, `JavaScript`, `AngularJS`, `React`, `iOS`,
+                    `Android`, `Python`, `PHP`, `Java`, `Go`, `Windows Phone`, `Rails`,
+                    `Node.js`, `.NET`, `Django`, `Symfony`, `Yii Framework`, `Zend
+                    Framework`, `Apple App Store Description`, `Google Play Description`,
+                    but it can also take any other value.'
+                  example: Python
+                  type: string
                 shares_translation_memory:
                   description: (Optional) Indicates whether the project should share
                     the account's translation memory
@@ -14188,7 +14171,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1job_templates~1%7Bjob_template_id%7D~1locales/post/responses/201/content/application~1json/schema'
+                  $ref: '#/components/schemas/job_template_locales'
                 type: array
           description: OK
           headers:
@@ -14311,7 +14294,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/job_template_locale'
+                $ref: '#/components/schemas/job_template_locales'
           description: Created
           headers:
             X-Rate-Limit-Limit:
@@ -14519,7 +14502,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1job_templates~1%7Bjob_template_id%7D~1locales/post/responses/201/content/application~1json/schema'
+                $ref: '#/components/schemas/job_template_locales'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -14648,7 +14631,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1job_templates~1%7Bjob_template_id%7D~1locales/post/responses/201/content/application~1json/schema'
+                $ref: '#/components/schemas/job_template_locales'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -24439,7 +24422,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1notifications~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/notification'
                 type: array
           description: OK
           headers:
@@ -24510,7 +24493,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1notifications~1%7Bid%7D/get/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/notification'
                 type: array
           description: OK
           headers:
@@ -24689,7 +24672,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1notification_groups~1%7Bid%7D~1mark_as_read/patch/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/notification_group_detail'
                 type: array
           description: OK
           headers:
@@ -24760,7 +24743,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1notification_groups~1%7Bid%7D~1mark_as_read/patch/responses/200/content/application~1json/schema'
+                  $ref: '#/components/schemas/notification_group_detail'
                 type: array
           description: OK
           headers:
@@ -25152,7 +25135,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bjob_id%7D~1comments/post/responses/201/content/application~1json/schema'
+                $ref: '#/components/schemas/job_comment'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -25259,7 +25242,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bjob_id%7D~1comments/post/responses/201/content/application~1json/schema'
+                $ref: '#/components/schemas/job_comment'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -25359,7 +25342,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/paths/~1projects~1%7Bproject_id%7D~1jobs~1%7Bjob_id%7D~1comments/post/responses/201/content/application~1json/schema'
+                  $ref: '#/components/schemas/job_comment'
                 type: array
           description: OK
           headers:
@@ -28206,6 +28189,102 @@ components:
           type: string
       title: job_locale
       type: object
+    job_template:
+      example:
+        id: 626ea67628690c73ac86ac81eec2d185
+        name: template
+        briefing: text
+        created_at: 2017-01-28T09:52:53Z
+        updated_at: 2017-01-28T09:52:53Z
+        project:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        briefing:
+          type: string
+        project:
+          $ref: '#/components/schemas/project_short'
+        branch:
+          $ref: '#/components/schemas/job/properties/branch'
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: job_template
+      type: object
+    job_template_details:
+      allOf:
+      - $ref: '#/components/schemas/job_template'
+      - $ref: '#/components/schemas/job_template_details_1'
+    job_template_locales:
+      example:
+        id: 626ea67628690c73ac86ac81eec2d185
+        job_template:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: template
+        users:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          username: joe.doe
+          name: Joe Doe
+          role: translator
+        locale:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: English
+          code: en-GB
+      properties:
+        id:
+          type: string
+        job_template:
+          $ref: '#/components/schemas/job_template_preview'
+        locale:
+          $ref: '#/components/schemas/locale_preview'
+        users:
+          items:
+            $ref: '#/components/schemas/job_template_user_preview'
+          type: array
+      title: job_template_locale
+      type: object
+    job_comment:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        message: Some message...
+        job_id: abcd1234cdef1234abcd1234cdef1234
+        user:
+          id: abcd1234cdef1234abcd1234cdef1234
+          username: joe.doe
+          name: Joe Doe
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        message:
+          type: string
+        job_id:
+          type: string
+        user:
+          $ref: '#/components/schemas/user_preview'
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        mentioned_users:
+          items:
+            $ref: '#/components/schemas/user_preview'
+          type: array
+      title: job_comment
+      type: object
     branch:
       example:
         name: new-branch
@@ -28543,6 +28622,190 @@ components:
             see example.
           type: string
       title: skeleton
+      type: object
+    notification:
+      example:
+        id: abcd1234
+        event_name: keys:create
+        data: object notification data
+        resource: object of notification resource
+        locale:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: de
+          code: de-DE
+          default: true
+          main: false
+          rtl: false
+          plural_forms:
+          - zero
+          - one
+          - other
+          source_locale:
+            id: abcd1234cdef1234abcd1234cdef1234
+            name: en
+            code: en-GB
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        user:
+          id: abcd1234cdef1234abcd1234cdef1234
+          username: joe.doe
+          name: Joe Doe
+        project:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          project_image_url: http://assets.example.com/project.png
+          account:
+            id: abcd1234
+            name: Company Account
+            slug: company_account
+            company: My Awesome Company
+            created_at: 2015-01-28T09:52:53Z
+            updated_at: 2015-01-28T09:52:53Z
+            company_logo_url: http://assets.example.com/company_logo.png
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        account:
+          id: abcd1234
+          name: Company Account
+          slug: company_account
+          company: My Awesome Company
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+          company_logo_url: http://assets.example.com/company_logo.png
+        group:
+          id: abcd1234cdef1234abcd1234cdef1234
+          event_name: keys:create
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        event_name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        delivered_at:
+          format: date-time
+          type: string
+        seen_at:
+          format: date-time
+          type: string
+        data:
+          type: object
+        resource:
+          type: object
+        locale:
+          $ref: '#/components/schemas/locale'
+        user:
+          $ref: '#/components/schemas/user_preview'
+        project:
+          $ref: '#/components/schemas/project'
+        account:
+          $ref: '#/components/schemas/account'
+        group:
+          $ref: '#/components/schemas/notification_group'
+      title: notification
+      type: object
+    notification_group:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        event_name: keys:create
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        event_name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: notification_group
+      type: object
+    notification_group_detail:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        event_name: keys:create
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+        latest_notification:
+          id: abcd1234
+          event_name: keys:create
+          data: object notification data
+          resource: object of notification resource
+          locale:
+            id: abcd1234cdef1234abcd1234cdef1234
+            name: de
+            code: de-DE
+            default: true
+            main: false
+            rtl: false
+            plural_forms:
+            - zero
+            - one
+            - other
+            source_locale:
+              id: abcd1234cdef1234abcd1234cdef1234
+              name: en
+              code: en-GB
+            created_at: 2015-01-28T09:52:53Z
+            updated_at: 2015-01-28T09:52:53Z
+          user:
+            id: abcd1234cdef1234abcd1234cdef1234
+            username: joe.doe
+            name: Joe Doe
+          project:
+            id: abcd1234cdef1234abcd1234cdef1234
+            name: My Android Project
+            main_format: xml
+            project_image_url: http://assets.example.com/project.png
+            account:
+              id: abcd1234
+              name: Company Account
+              slug: company_account
+              company: My Awesome Company
+              created_at: 2015-01-28T09:52:53Z
+              updated_at: 2015-01-28T09:52:53Z
+              company_logo_url: http://assets.example.com/company_logo.png
+            created_at: 2015-01-28T09:52:53Z
+            updated_at: 2015-01-28T09:52:53Z
+          account:
+            id: abcd1234
+            name: Company Account
+            slug: company_account
+            company: My Awesome Company
+            created_at: 2015-01-28T09:52:53Z
+            updated_at: 2015-01-28T09:52:53Z
+            company_logo_url: http://assets.example.com/company_logo.png
+          group:
+            id: abcd1234cdef1234abcd1234cdef1234
+            event_name: keys:create
+            created_at: 2015-01-28T09:52:53Z
+            updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        event_name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        notifications_count:
+          type: integer
+        latest_notification:
+          $ref: '#/components/schemas/notification'
+      title: notification_group_detail
       type: object
     icu_skeleton_parameters:
       properties:
@@ -29267,26 +29530,6 @@ components:
           type: array
       title: job/keys/create/parameters
       type: object
-    job_template:
-      example: '{"id":"626ea67628690c73ac86ac81eec2d185","name":"template","briefing":"text","created_at":"2017-01-28T09:52:53Z","updated_at":"2017-01-28T09:52:53Z","project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My
-        Android Project","main_format":"xml","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}}'
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        briefing:
-          type: string
-        project:
-          $ref: '#/components/schemas/project_short'
-        branch:
-          $ref: '#/components/schemas/job/properties/branch'
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
     job_template_create_parameters:
       properties:
         branch:
@@ -29803,7 +30046,14 @@ components:
           example: yml
           type: string
         media:
-          $ref: '#/paths/~1projects/post/requestBody/content/application~1json/schema/properties/media'
+          description: '(Optional) Main technology stack used in the project. It affects
+            for example the suggested placeholder style. Predefined values include:
+            `Ruby`, `JavaScript`, `AngularJS`, `React`, `iOS`, `Android`, `Python`,
+            `PHP`, `Java`, `Go`, `Windows Phone`, `Rails`, `Node.js`, `.NET`, `Django`,
+            `Symfony`, `Yii Framework`, `Zend Framework`, `Apple App Store Description`,
+            `Google Play Description`, but it can also take any other value.'
+          example: Python
+          type: string
         shares_translation_memory:
           description: (Optional) Indicates whether the project should share the account's
             translation memory
@@ -30001,36 +30251,6 @@ components:
       - locale_id
       title: job_template_locales/create/parameters
       type: object
-    job_template_preview:
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-    job_template_user_preview:
-      properties:
-        id:
-          type: string
-        username:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
-    job_template_locale:
-      example: '{"id":"626ea67628690c73ac86ac81eec2d185","job_template":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"template"},"users":[{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe","role":"translator"}],"locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}}'
-      properties:
-        id:
-          type: string
-        job_template:
-          $ref: '#/components/schemas/job_template_preview'
-        locale:
-          $ref: '#/components/schemas/locale_preview'
-        users:
-          items:
-            $ref: '#/components/schemas/job_template_user_preview'
-          type: array
     job_template_locale_update_parameters:
       properties:
         branch:
@@ -31015,79 +31235,6 @@ components:
           type: string
       title: translations/include/parameters
       type: object
-    notification_group:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","event_name":"keys:create","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        event_name:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-    notification:
-      example: '{"id":"abcd1234","event_name":"keys:create","data":"object notification
-        data","resource":"object of notification resource","locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"de","code":"de-DE","default":true,"main":false,"rtl":false,"plural_forms":["zero","one","other"],"source_locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"en","code":"en-GB"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},"user":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe"},"project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My Android
-        Project","main_format":"xml","project_image_url":"http://assets.example.com/project.png","account":{"id":"abcd1234","name":"Company
-        Account","slug":"company_account","company":"My Awesome Company","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","company_logo_url":"http://assets.example.com/company_logo.png"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},"account":{"id":"abcd1234","name":"Company
-        Account","slug":"company_account","company":"My Awesome Company","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","company_logo_url":"http://assets.example.com/company_logo.png"},"group":{"id":"abcd1234cdef1234abcd1234cdef1234","event_name":"keys:create","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}}'
-      properties:
-        id:
-          type: string
-        event_name:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-        delivered_at:
-          format: date-time
-          type: string
-        seen_at:
-          format: date-time
-          type: string
-        data:
-          type: object
-        resource:
-          type: object
-        locale:
-          $ref: '#/components/schemas/locale'
-        user:
-          $ref: '#/components/schemas/user_preview'
-        project:
-          $ref: '#/components/schemas/project'
-        account:
-          $ref: '#/components/schemas/account'
-        group:
-          $ref: '#/components/schemas/notification_group'
-    notification_group_detail:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","event_name":"keys:create","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","latest_notification":{"id":"abcd1234","event_name":"keys:create","data":"object
-        notification data","resource":"object of notification resource","locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"de","code":"de-DE","default":true,"main":false,"rtl":false,"plural_forms":["zero","one","other"],"source_locale":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"en","code":"en-GB"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},"user":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe"},"project":{"id":"abcd1234cdef1234abcd1234cdef1234","name":"My Android
-        Project","main_format":"xml","project_image_url":"http://assets.example.com/project.png","account":{"id":"abcd1234","name":"Company
-        Account","slug":"company_account","company":"My Awesome Company","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","company_logo_url":"http://assets.example.com/company_logo.png"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"},"account":{"id":"abcd1234","name":"Company
-        Account","slug":"company_account","company":"My Awesome Company","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z","company_logo_url":"http://assets.example.com/company_logo.png"},"group":{"id":"abcd1234cdef1234abcd1234cdef1234","event_name":"keys:create","created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}}}'
-      properties:
-        id:
-          type: string
-        event_name:
-          type: string
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-        notifications_count:
-          type: integer
-        latest_notification:
-          $ref: '#/paths/~1notifications~1%7Bid%7D/get/responses/200/content/application~1json/schema'
     search_in_account_parameters:
       properties:
         query:
@@ -31151,28 +31298,6 @@ components:
           type: string
       title: job_comment/create/parameters
       type: object
-    job_comment:
-      example: '{"id":"abcd1234cdef1234abcd1234cdef1234","message":"Some message...","job_id":"abcd1234cdef1234abcd1234cdef1234","user":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe"},"created_at":"2015-01-28T09:52:53Z","updated_at":"2015-01-28T09:52:53Z"}'
-      properties:
-        id:
-          type: string
-        message:
-          type: string
-        job_id:
-          type: string
-        user:
-          $ref: '#/components/schemas/user_preview'
-        created_at:
-          format: date-time
-          type: string
-        updated_at:
-          format: date-time
-          type: string
-        mentioned_users:
-          items:
-            $ref: '#/components/schemas/user_preview'
-          type: array
     authorization_with_token_1:
       example: '{"token":"abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234"}'
       properties:
@@ -31396,6 +31521,35 @@ components:
           items:
             $ref: '#/components/schemas/key_preview'
           type: array
+    job_template_details_1:
+      example: '{"owner":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
+        Doe"},"creator":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
+        Doe"},"locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}]}'
+      properties:
+        owner:
+          $ref: '#/components/schemas/user_preview'
+        creator:
+          $ref: '#/components/schemas/user_preview'
+        locales:
+          items:
+            $ref: '#/components/schemas/locale_preview'
+          type: array
+    job_template_preview:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    job_template_user_preview:
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
   securitySchemes:
     Token:
       description: Enter your token in the format `token TOKEN`

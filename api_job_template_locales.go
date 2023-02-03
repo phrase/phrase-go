@@ -135,16 +135,16 @@ Get a single job template locale for a given job template.
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
 
-@return map[string]interface{}
+@return JobTemplateLocales
 */
-func (a *JobTemplateLocalesApiService) JobTemplateLocaleShow(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocaleId string, localVarOptionals *JobTemplateLocaleShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobTemplateLocalesApiService) JobTemplateLocaleShow(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocaleId string, localVarOptionals *JobTemplateLocaleShowOpts) (JobTemplateLocales, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobTemplateLocales
 	)
 
 	// create path and map variables
@@ -246,16 +246,16 @@ Update an existing job template locale.
   - @param optional nil or *JobTemplateLocaleUpdateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
-@return map[string]interface{}
+@return JobTemplateLocales
 */
-func (a *JobTemplateLocalesApiService) JobTemplateLocaleUpdate(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocaleId string, jobTemplateLocaleUpdateParameters JobTemplateLocaleUpdateParameters, localVarOptionals *JobTemplateLocaleUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobTemplateLocalesApiService) JobTemplateLocaleUpdate(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocaleId string, jobTemplateLocaleUpdateParameters JobTemplateLocaleUpdateParameters, localVarOptionals *JobTemplateLocaleUpdateOpts) (JobTemplateLocales, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobTemplateLocales
 	)
 
 	// create path and map variables
@@ -355,16 +355,16 @@ Create a new job template locale.
   - @param optional nil or *JobTemplateLocalesCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
-@return JobTemplateLocale
+@return JobTemplateLocales
 */
-func (a *JobTemplateLocalesApiService) JobTemplateLocalesCreate(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocalesCreateParameters JobTemplateLocalesCreateParameters, localVarOptionals *JobTemplateLocalesCreateOpts) (JobTemplateLocale, *APIResponse, error) {
+func (a *JobTemplateLocalesApiService) JobTemplateLocalesCreate(ctx _context.Context, projectId string, jobTemplateId string, jobTemplateLocalesCreateParameters JobTemplateLocalesCreateParameters, localVarOptionals *JobTemplateLocalesCreateOpts) (JobTemplateLocales, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  JobTemplateLocale
+		localVarReturnValue  JobTemplateLocales
 	)
 
 	// create path and map variables
@@ -467,16 +467,16 @@ List all job template locales for a given job template.
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Branch" (optional.String) -  specify the branch to use
 
-@return []map[string]interface{}
+@return []JobTemplateLocales
 */
-func (a *JobTemplateLocalesApiService) JobTemplateLocalesList(ctx _context.Context, projectId string, jobTemplateId string, localVarOptionals *JobTemplateLocalesListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *JobTemplateLocalesApiService) JobTemplateLocalesList(ctx _context.Context, projectId string, jobTemplateId string, localVarOptionals *JobTemplateLocalesListOpts) ([]JobTemplateLocales, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []JobTemplateLocales
 	)
 
 	// create path and map variables

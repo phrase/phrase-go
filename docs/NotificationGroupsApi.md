@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## NotificationGroupsList
 
-> []map[string]interface{} NotificationGroupsList(ctx, optional)
+> []NotificationGroupDetail NotificationGroupsList(ctx, optional)
 
 List notification groups
 
@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]NotificationGroupDetail**](notification_group_detail.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ## NotificationGroupsMarkAllAsRead
 
-> []map[string]interface{} NotificationGroupsMarkAllAsRead(ctx, optional)
+> []NotificationGroupDetail NotificationGroupsMarkAllAsRead(ctx, optional)
 
 Mark all notification groups as read
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]NotificationGroupDetail**](notification_group_detail.md)
 
 ### Authorization
 

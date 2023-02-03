@@ -34,16 +34,16 @@ List all notification groups from the current user
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
-@return []map[string]interface{}
+@return []NotificationGroupDetail
 */
-func (a *NotificationGroupsApiService) NotificationGroupsList(ctx _context.Context, localVarOptionals *NotificationGroupsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *NotificationGroupsApiService) NotificationGroupsList(ctx _context.Context, localVarOptionals *NotificationGroupsListOpts) ([]NotificationGroupDetail, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []NotificationGroupDetail
 	)
 
 	// create path and map variables
@@ -138,16 +138,16 @@ Mark all notification groups of the current user as read
   - @param optional nil or *NotificationGroupsMarkAllAsReadOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
-@return []map[string]interface{}
+@return []NotificationGroupDetail
 */
-func (a *NotificationGroupsApiService) NotificationGroupsMarkAllAsRead(ctx _context.Context, localVarOptionals *NotificationGroupsMarkAllAsReadOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *NotificationGroupsApiService) NotificationGroupsMarkAllAsRead(ctx _context.Context, localVarOptionals *NotificationGroupsMarkAllAsReadOpts) ([]NotificationGroupDetail, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []NotificationGroupDetail
 	)
 
 	// create path and map variables

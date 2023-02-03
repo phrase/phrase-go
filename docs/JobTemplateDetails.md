@@ -1,15 +1,19 @@
-# NotificationGroupDetail
+# JobTemplateDetails
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | [optional] 
-**EventName** | **string** |  | [optional] 
+**Name** | **string** |  | [optional] 
+**Briefing** | **string** |  | [optional] 
+**Project** | [**ProjectShort**](project_short.md) |  | [optional] 
+**Branch** | [**Branch**](branch.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
-**NotificationsCount** | **int32** |  | [optional] 
-**LatestNotification** | [**Notification**](notification.md) |  | [optional] 
+**Owner** | [**UserPreview**](user_preview.md) |  | [optional] 
+**Creator** | [**UserPreview**](user_preview.md) |  | [optional] 
+**Locales** | [**[]LocalePreview**](locale_preview.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

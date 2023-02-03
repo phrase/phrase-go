@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ## JobTemplateLocaleShow
 
-> map[string]interface{} JobTemplateLocaleShow(ctx, projectId, jobTemplateId, jobTemplateLocaleId, optional)
+> JobTemplateLocales JobTemplateLocaleShow(ctx, projectId, jobTemplateId, jobTemplateLocaleId, optional)
 
 Get a single job template locale
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobTemplateLocales**](job_template_locales.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ## JobTemplateLocaleUpdate
 
-> map[string]interface{} JobTemplateLocaleUpdate(ctx, projectId, jobTemplateId, jobTemplateLocaleId, jobTemplateLocaleUpdateParameters, optional)
+> JobTemplateLocales JobTemplateLocaleUpdate(ctx, projectId, jobTemplateId, jobTemplateLocaleId, jobTemplateLocaleUpdateParameters, optional)
 
 Update a job template locale
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobTemplateLocales**](job_template_locales.md)
 
 ### Authorization
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ## JobTemplateLocalesCreate
 
-> JobTemplateLocale JobTemplateLocalesCreate(ctx, projectId, jobTemplateId, jobTemplateLocalesCreateParameters, optional)
+> JobTemplateLocales JobTemplateLocalesCreate(ctx, projectId, jobTemplateId, jobTemplateLocalesCreateParameters, optional)
 
 Create a job template locale
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobTemplateLocale**](job_template_locale.md)
+[**JobTemplateLocales**](job_template_locales.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ## JobTemplateLocalesList
 
-> []map[string]interface{} JobTemplateLocalesList(ctx, projectId, jobTemplateId, optional)
+> []JobTemplateLocales JobTemplateLocalesList(ctx, projectId, jobTemplateId, optional)
 
 List job template locales
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]JobTemplateLocales**](job_template_locales.md)
 
 ### Authorization
 

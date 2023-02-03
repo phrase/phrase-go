@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ## JobCommentShow
 
-> map[string]interface{} JobCommentShow(ctx, projectId, jobId, id, optional)
+> JobComment JobCommentShow(ctx, projectId, jobId, id, optional)
 
 Get a single job comment
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobComment**](job_comment.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## JobCommentUpdate
 
-> map[string]interface{} JobCommentUpdate(ctx, projectId, keyId, id, jobCommentUpdateParameters, optional)
+> JobComment JobCommentUpdate(ctx, projectId, keyId, id, jobCommentUpdateParameters, optional)
 
 Update a job comment
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](object.md)
+[**JobComment**](job_comment.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ## JobCommentsList
 
-> []map[string]interface{} JobCommentsList(ctx, projectId, jobId, optional)
+> []JobComment JobCommentsList(ctx, projectId, jobId, optional)
 
 List job comments
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]map[string]interface{}**](object.md)
+[**[]JobComment**](job_comment.md)
 
 ### Authorization
 

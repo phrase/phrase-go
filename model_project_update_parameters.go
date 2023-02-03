@@ -13,8 +13,9 @@ type ProjectUpdateParameters struct {
 	// (Optional) User ID of the point of contact for the project. Pass `null` to unset.
 	PointOfContact string `json:"point_of_contact,omitempty"`
 	// (Optional) Main file format specified by its API Extension name. Used for locale downloads if no format is specified. For API Extension names of available file formats see <a href=\"https://support.phrase.com/hc/en-us/sections/6111343326364\">Format Guide</a> or our <a href=\"#formats\">Formats API Endpoint</a>.
-	MainFormat string                 `json:"main_format,omitempty"`
-	Media      map[string]interface{} `json:"media,omitempty"`
+	MainFormat string `json:"main_format,omitempty"`
+	// (Optional) Main technology stack used in the project. It affects for example the suggested placeholder style. Predefined values include: `Ruby`, `JavaScript`, `AngularJS`, `React`, `iOS`, `Android`, `Python`, `PHP`, `Java`, `Go`, `Windows Phone`, `Rails`, `Node.js`, `.NET`, `Django`, `Symfony`, `Yii Framework`, `Zend Framework`, `Apple App Store Description`, `Google Play Description`, but it can also take any other value.
+	Media string `json:"media,omitempty"`
 	// (Optional) Indicates whether the project should share the account's translation memory
 	SharesTranslationMemory *bool `json:"shares_translation_memory,omitempty"`
 	// (Optional) Image to identify the project

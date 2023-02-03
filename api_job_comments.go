@@ -242,16 +242,16 @@ Get details on a single job comment.
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
 
-@return map[string]interface{}
+@return JobComment
 */
-func (a *JobCommentsApiService) JobCommentShow(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobCommentShowOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobCommentsApiService) JobCommentShow(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobCommentShowOpts) (JobComment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobComment
 	)
 
 	// create path and map variables
@@ -353,16 +353,16 @@ Update an existing job comment.
   - @param optional nil or *JobCommentUpdateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
-@return map[string]interface{}
+@return JobComment
 */
-func (a *JobCommentsApiService) JobCommentUpdate(ctx _context.Context, projectId string, keyId string, id string, jobCommentUpdateParameters JobCommentUpdateParameters, localVarOptionals *JobCommentUpdateOpts) (map[string]interface{}, *APIResponse, error) {
+func (a *JobCommentsApiService) JobCommentUpdate(ctx _context.Context, projectId string, keyId string, id string, jobCommentUpdateParameters JobCommentUpdateParameters, localVarOptionals *JobCommentUpdateOpts) (JobComment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  JobComment
 	)
 
 	// create path and map variables
@@ -463,16 +463,16 @@ List all comments for a job.
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
 
-@return []map[string]interface{}
+@return []JobComment
 */
-func (a *JobCommentsApiService) JobCommentsList(ctx _context.Context, projectId string, jobId string, localVarOptionals *JobCommentsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *JobCommentsApiService) JobCommentsList(ctx _context.Context, projectId string, jobId string, localVarOptionals *JobCommentsListOpts) ([]JobComment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []JobComment
 	)
 
 	// create path and map variables

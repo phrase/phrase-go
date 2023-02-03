@@ -36,16 +36,16 @@ List all notifications from the current user
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Unseen" (optional.Bool) -  Include only unseen notifications
 
-@return []map[string]interface{}
+@return []Notification
 */
-func (a *NotificationsApiService) NotificationsList(ctx _context.Context, localVarOptionals *NotificationsListOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *NotificationsApiService) NotificationsList(ctx _context.Context, localVarOptionals *NotificationsListOpts) ([]Notification, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Notification
 	)
 
 	// create path and map variables
@@ -143,16 +143,16 @@ Mark all notifications of the current user as read
   - @param optional nil or *NotificationsMarkAllAsReadOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
-@return []map[string]interface{}
+@return []Notification
 */
-func (a *NotificationsApiService) NotificationsMarkAllAsRead(ctx _context.Context, localVarOptionals *NotificationsMarkAllAsReadOpts) ([]map[string]interface{}, *APIResponse, error) {
+func (a *NotificationsApiService) NotificationsMarkAllAsRead(ctx _context.Context, localVarOptionals *NotificationsMarkAllAsReadOpts) ([]Notification, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  []Notification
 	)
 
 	// create path and map variables
