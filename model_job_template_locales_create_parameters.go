@@ -10,4 +10,8 @@ type JobTemplateLocalesCreateParameters struct {
 	UserIds []string `json:"user_ids,omitempty"`
 	// Array of reviewer ids to be assigned to the job template locale
 	ReviewerIds []string `json:"reviewer_ids,omitempty"`
+	// Array of team ids to be assigned to the job locale as translators
+	TranslatorTeamIds []string `json:"translator_team_ids,omitempty"`
+	// Array of team ids to be assigned to the job locale as reviewers
+	ReviewerTeamIds []string `json:"reviewer_team_ids,omitempty"`
 }

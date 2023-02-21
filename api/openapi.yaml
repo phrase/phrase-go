@@ -13374,6 +13374,24 @@ paths:
                   items:
                     type: string
                   type: array
+                translator_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as translators
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                reviewer_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as reviewers
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+              required:
+              - locale_id
               title: job_locales/create/parameters
               type: object
         required: true
@@ -13427,16 +13445,16 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/locales" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
-            -d '{"branch":"my-feature-branch","locale_id":"abcd1234cdef1234abcd1234cdef1234","user_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
+            -d '{"branch":"my-feature-branch","locale_id":"abcd1234cdef1234abcd1234cdef1234","user_ids":["abcd1234cdef1234abcd1234cdef1234"], "translator_team_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase job_locales create \
           --project_id <project_id> \
           --job_id <job_id> \
-          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
+          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "translator_team_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
-      x-cli-version: "2.5"
+      x-cli-version: 2.6.8
   /projects/{project_id}/jobs/{job_id}/locale/{id}:
     get:
       description: Get a single job locale for a given job.
@@ -13540,7 +13558,7 @@ paths:
           --id <id> \
           --branch my-feature-branch \
           --access_token <token>
-      x-cli-version: "2.5"
+      x-cli-version: 2.6.8
   /projects/{project_id}/jobs/{job_id}/locales/{id}:
     delete:
       description: Delete an existing job locale.
@@ -13709,6 +13727,22 @@ paths:
                   items:
                     type: string
                   type: array
+                translator_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as translators
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                reviewer_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as reviewers
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
               title: job_locale/update/parameters
               type: object
         required: true
@@ -13762,7 +13796,7 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/locales/:id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"branch":"my-feature-branch","locale_id":"abcd1234cdef1234abcd1234cdef1234","user_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
+            -d '{"branch":"my-feature-branch","locale_id":"abcd1234cdef1234abcd1234cdef1234","user_ids":["abcd1234cdef1234abcd1234cdef1234"], "team_ids":["abcd1234cdef1234abcd1234cdef1234"], "translator_team_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
@@ -13770,9 +13804,9 @@ paths:
           --project_id <project_id> \
           --job_id <job_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
+          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "team_ids": "abcd1234cdef1234abcd1234cdef1234", "translator_team_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
-      x-cli-version: "2.5"
+      x-cli-version: 2.6.8
   /projects/{project_id}/jobs/{job_id}/locales/{id}/complete:
     post:
       description: Mark a job locale as completed.
@@ -14284,6 +14318,22 @@ paths:
                   items:
                     type: string
                   type: array
+                translator_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as translators
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                reviewer_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as reviewers
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
               required:
               - locale_id
               title: job_template_locales/create/parameters
@@ -14339,16 +14389,16 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/job_templates/:job_template_id/locales" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
-            -d '{"branch":"my-feature-branch","locale_id":"abcd1234cdef1234abcd1234cdef1234","user_ids":["abcd1234cdef1234abcd1234cdef1234"],"reviewer_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
+            -d '{"branch":"my-feature-branch","locale_id":"abcd1234cdef1234abcd1234cdef1234","user_ids":["abcd1234cdef1234abcd1234cdef1234"],"reviewer_ids":["abcd1234cdef1234abcd1234cdef1234"], "translator_team_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase job_template_locales create \
           --project_id <project_id> \
           --job_template_id <job_template_id> \
-          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
+          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234", "translator_team_ids":"abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
-      x-cli-version: "2.5"
+      x-cli-version: 2.6.8
   /projects/{project_id}/job_templates/{job_template_id}/locales/{job_template_locale_id}:
     delete:
       description: Delete an existing job template locale.
@@ -14554,7 +14604,7 @@ paths:
           --job_template_locale_id <job_template_locale_id> \
           --branch my-feature-branch \
           --access_token <token>
-      x-cli-version: "2.5"
+      x-cli-version: 2.6.8
     patch:
       description: Update an existing job template locale.
       operationId: job_template_locale/update
@@ -14621,8 +14671,22 @@ paths:
                   items:
                     type: string
                   type: array
-              required:
-              - locale_id
+                translator_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as translators
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                reviewer_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as reviewers
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
               title: job_template_locale/update/parameters
               type: object
         required: true
@@ -14676,7 +14740,7 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/job_templates/:job_template_id/locales/:job_template_locale_id" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"branch":"my-feature-branch","locale_id":"abcd1234cdef1234abcd1234cdef1234","user_ids":["abcd1234cdef1234abcd1234cdef1234"],"reviewer_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
+            -d '{"branch":"my-feature-branch","locale_id":"abcd1234cdef1234abcd1234cdef1234","user_ids":["abcd1234cdef1234abcd1234cdef1234"],"reviewer_ids":["abcd1234cdef1234abcd1234cdef1234"], "translator_team_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
@@ -14684,9 +14748,9 @@ paths:
           --project_id <project_id> \
           --job_template_id <job_template_id> \
           --job_template_locale_id <job_template_locale_id> \
-          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
+          --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234", "translator_team_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
-      x-cli-version: "2.5"
+      x-cli-version: 2.6.8
   /projects/{project_id}/variables:
     get:
       description: List all variables for the current project.
@@ -28161,6 +28225,10 @@ components:
           username: joe.doe
           name: Joe Doe
           role: translator
+        teams:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: Joe's team
+          role: translator
         locale:
           id: abcd1234cdef1234abcd1234cdef1234
           name: English
@@ -28177,7 +28245,11 @@ components:
           $ref: '#/components/schemas/locale_preview'
         users:
           items:
-            $ref: '#/components/schemas/user_preview'
+            $ref: '#/components/schemas/locale_user_preview'
+          type: array
+        teams:
+          items:
+            $ref: '#/components/schemas/locale_team_preview'
           type: array
         completed:
           type: boolean
@@ -28236,6 +28308,10 @@ components:
           username: joe.doe
           name: Joe Doe
           role: translator
+        teams:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: Joe's team
+          role: translator
         locale:
           id: abcd1234cdef1234abcd1234cdef1234
           name: English
@@ -28249,7 +28325,11 @@ components:
           $ref: '#/components/schemas/locale_preview'
         users:
           items:
-            $ref: '#/components/schemas/job_template_user_preview'
+            $ref: '#/components/schemas/job_locale/properties/users/items'
+          type: array
+        teams:
+          items:
+            $ref: '#/components/schemas/job_locale/properties/teams/items'
           type: array
       title: job_template_locale
       type: object
@@ -30171,6 +30251,22 @@ components:
           items:
             type: string
           type: array
+        translator_team_ids:
+          description: Array of team ids to be assigned to the job locale as translators
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        reviewer_team_ids:
+          description: Array of team ids to be assigned to the job locale as reviewers
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+      required:
+      - locale_id
       title: job_locales/create/parameters
       type: object
     job_locale_update_parameters:
@@ -30192,6 +30288,20 @@ components:
           type: array
         reviewer_ids:
           description: Array of reviewer ids to be assigned to the job locale as reviewers
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        translator_team_ids:
+          description: Array of team ids to be assigned to the job locale as translators
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        reviewer_team_ids:
+          description: Array of team ids to be assigned to the job locale as reviewers
           example:
           - abcd1234cdef1234abcd1234cdef1234
           items:
@@ -30247,6 +30357,20 @@ components:
           items:
             type: string
           type: array
+        translator_team_ids:
+          description: Array of team ids to be assigned to the job locale as translators
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        reviewer_team_ids:
+          description: Array of team ids to be assigned to the job locale as reviewers
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
       required:
       - locale_id
       title: job_template_locales/create/parameters
@@ -30275,8 +30399,20 @@ components:
           items:
             type: string
           type: array
-      required:
-      - locale_id
+        translator_team_ids:
+          description: Array of team ids to be assigned to the job locale as translators
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        reviewer_team_ids:
+          description: Array of team ids to be assigned to the job locale as reviewers
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
       title: job_template_locale/update/parameters
       type: object
     variable_create_parameters:
@@ -31521,6 +31657,24 @@ components:
           items:
             $ref: '#/components/schemas/key_preview'
           type: array
+    locale_user_preview:
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+    locale_team_preview:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
     job_template_details_1:
       example: '{"owner":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
         Doe"},"creator":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
@@ -31539,16 +31693,6 @@ components:
         id:
           type: string
         name:
-          type: string
-    job_template_user_preview:
-      properties:
-        id:
-          type: string
-        username:
-          type: string
-        name:
-          type: string
-        role:
           type: string
   securitySchemes:
     Token:
