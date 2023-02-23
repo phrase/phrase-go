@@ -27478,6 +27478,28 @@ components:
       allOf:
       - $ref: '#/components/schemas/locale'
       - $ref: '#/components/schemas/locale_details_1'
+    locale_user_preview:
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+      title: locale_user_preview
+      type: object
+    locale_team_preview:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+      title: locale_team_preview
+      type: object
     upload:
       example:
         id: abcd1234cdef1234abcd1234cdef1234
@@ -28325,11 +28347,11 @@ components:
           $ref: '#/components/schemas/locale_preview'
         users:
           items:
-            $ref: '#/components/schemas/job_locale/properties/users/items'
+            $ref: '#/components/schemas/locale_user_preview'
           type: array
         teams:
           items:
-            $ref: '#/components/schemas/job_locale/properties/teams/items'
+            $ref: '#/components/schemas/locale_team_preview'
           type: array
       title: job_template_locale
       type: object
@@ -31657,24 +31679,6 @@ components:
           items:
             $ref: '#/components/schemas/key_preview'
           type: array
-    locale_user_preview:
-      properties:
-        id:
-          type: string
-        username:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
-    locale_team_preview:
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
     job_template_details_1:
       example: '{"owner":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
         Doe"},"creator":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
