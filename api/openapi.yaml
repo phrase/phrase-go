@@ -1581,6 +1581,8 @@ tags:
       </table>
     </div>
   name: Orders
+- name: Organization Job Template Locales
+- name: Organization Job Templates
 - name: Projects
 - name: Quality
 - name: Releases
@@ -25852,6 +25854,1058 @@ paths:
           --id <delivery_id> \
           --access_token <token>
       x-cli-version: "2.5"
+  /accounts/{account_id}/job_templates:
+    get:
+      description: List all job templates for the given account.
+      operationId: organization_job_templates/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/organization_job_template'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List organization job templates
+      tags:
+      - Organization Job Templates
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_templates list \
+          --account_id <account_id> \
+          --access_token <token>
+      x-cli-version: 2.7.0
+    post:
+      description: Create a new organization job template.
+      operationId: organization_job_template/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/organization_job_template_create_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  description: Job template name
+                  example: template
+                  type: string
+                briefing:
+                  description: Briefing for the translators
+                  example: text
+                  type: string
+              required:
+              - name
+              title: organization_job_template/create/parameters
+              type: object
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/organization_job_template_details'
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create an organization job template
+      tags:
+      - Organization Job Templates
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"name":"template","briefing":"text"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_templates create \
+          --account_id <account_id> \
+          --data '{"name":"template", "briefing":"text"}' \
+          --access_token <token>
+      x-cli-version: 2.7.0
+  /accounts/{account_id}/job_templates/{id}:
+    delete:
+      description: Delete an existing organization job template.
+      operationId: organization_job_template/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Delete an organization job template
+      tags:
+      - Organization Job Templates
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_templates delete \
+          --account_id <account_id> \
+          --id <id> \
+          --access_token <token>
+      x-cli-version: 2.7.0
+    get:
+      description: Get details on a single organization job template for a given account.
+      operationId: organization_job_templates/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/organization_job_template_details'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single organization job template
+      tags:
+      - Organization Job Templates
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_templates show \
+          --account_id <account_id> \
+          --id <id> \
+          --access_token <token>
+      x-cli-version: 2.7.0
+    patch:
+      description: Update an existing organization job template.
+      operationId: organization_job_template/update
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/organization_job_template_update_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  description: Job template name
+                  example: template
+                  type: string
+                briefing:
+                  description: Briefing for the translators
+                  example: text
+                  type: string
+              required:
+              - name
+              title: organization_job_template/update/parameters
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/organization_job_template_details'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Update an organization job template
+      tags:
+      - Organization Job Templates
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_templates update \
+          --account_id <account_id> \
+          --id <id> \
+          --access_token <token>
+      x-cli-version: 2.7.0
+  /accounts/{account_id}/job_templates/{job_template_id}/locales:
+    get:
+      description: List all job template locales for a given organization job template.
+      operationId: organization_job_template_locales/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Template ID
+        explode: false
+        in: path
+        name: job_template_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/job_template_locales'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List organization job template locales
+      tags:
+      - Organization Job Template Locales
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates/:job_template_id/locales" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_template_locales list \
+          --account_id <account_id> \
+          --job_template_id <job_template_id> \
+          --access_token <token>
+      x-cli-version: 2.7.0
+    post:
+      description: Create a new organization job template locale.
+      operationId: organization_job_template_locales/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Template ID
+        explode: false
+        in: path
+        name: job_template_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/organization_job_template_locales_create_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                locale_name:
+                  description: locale name
+                  example: de-1
+                  type: string
+                locale_code:
+                  description: locale code
+                  example: de-DE
+                  type: string
+                user_ids:
+                  description: Array of user ids to be assigned to the job template
+                    locale
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                reviewer_ids:
+                  description: Array of reviewer ids to be assigned to the job template
+                    locale
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                translator_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as translators
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                reviewer_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as reviewers
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+              required:
+              - locale_code
+              - locale_name
+              title: organization_job_template_locales/create/parameters
+              type: object
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job_template_locales'
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create an organization job template locale
+      tags:
+      - Organization Job Template Locales
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates/:job_template_id/locales" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"locale_name":"de-1","locale_code:"de-DE",user_ids":["abcd1234cdef1234abcd1234cdef1234"],"reviewer_ids":["abcd1234cdef1234abcd1234cdef1234"],"translator_team_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_template_locales create \
+          --account_id <account_id> \
+          --job_template_id <job_template_id> \
+          --data '{"locale_name": "de-1", "locale_code: "de-DE", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234", "translator_team_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
+          --access_token <token>
+      x-cli-version: 2.7.0
+  /accounts/{account_id}/job_templates/{job_template_id}/locales/{job_template_locale_id}:
+    delete:
+      description: Delete an existing organization job template locale.
+      operationId: organization_job_template_locale/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Template ID
+        explode: false
+        in: path
+        name: job_template_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Template Locale ID
+        explode: false
+        in: path
+        name: job_template_locale_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Delete an organization job template locale
+      tags:
+      - Organization Job Template Locales
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates/:job_template_id/locales/:job_template_locale_id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_template_locales delete \
+          --account_id <account_id> \
+          --job_template_id <job_template_id> \
+          --job_template_locale_id <job_template_locale_id> \
+          --access_token <token>
+      x-cli-version: 2.7.0
+    get:
+      description: Get a single job template locale for a given organization job template.
+      operationId: organization_job_template_locale/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Template ID
+        explode: false
+        in: path
+        name: job_template_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Template Locale ID
+        explode: false
+        in: path
+        name: job_template_locale_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job_template_locales'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single organization job template locale
+      tags:
+      - Organization Job Template Locales
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates/:job_template_id/locales/:job_template_locale_id" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_template_locales show \
+          --account_id <account_id> \
+          --job_template_id <job_template_id> \
+          --job_template_locale_id <job_template_locale_id> \
+          --access_token <token>
+      x-cli-version: 2.7.0
+    patch:
+      description: Update an existing organization job template locale.
+      operationId: organization_job_template_locale/update
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Template ID
+        explode: false
+        in: path
+        name: job_template_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Template Locale ID
+        explode: false
+        in: path
+        name: job_template_locale_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        $ref: '#/components/requestBodies/organization_job_template_locale_update_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                locale_name:
+                  description: locale name
+                  example: de-1
+                  type: string
+                locale_code:
+                  description: locale code
+                  example: de-DE
+                  type: string
+                user_ids:
+                  description: Array of user ids to be assigned to the job template
+                    locale
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                reviewer_ids:
+                  description: Array of reviewer ids to be assigned to the job template
+                    locale
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                translator_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as translators
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+                reviewer_team_ids:
+                  description: Array of team ids to be assigned to the job locale
+                    as reviewers
+                  example:
+                  - abcd1234cdef1234abcd1234cdef1234
+                  items:
+                    type: string
+                  type: array
+              title: organization_job_template_locale/update/parameters
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job_template_locales'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Update an organization job template locale
+      tags:
+      - Organization Job Template Locales
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/job_templates/:job_template_id/locales/:job_template_locale_id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"locale_name":"de-1","locale_code:"de-DE","user_ids":["abcd1234cdef1234abcd1234cdef1234"],"reviewer_ids":["abcd1234cdef1234abcd1234cdef1234"],"translator_team_ids":["abcd1234cdef1234abcd1234cdef1234"]}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase organization_job_template_locales update \
+          --account_id <account_id> \
+          --job_template_id <job_template_id> \
+          --job_template_locale_id <job_template_locale_id> \
+          --data '{"locale_name": "de-1", "locale_code: "de-DE", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234","translator_team_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
+          --access_token <token>
+      x-cli-version: 2.7.0
 components:
   headers:
     Link:
@@ -26128,12 +27182,6 @@ components:
           schema:
             $ref: '#/components/schemas/member_update_settings_parameters'
       required: true
-    project_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/project_create_parameters'
-      required: true
     translations_review_parameters:
       content:
         application/json:
@@ -26158,12 +27206,6 @@ components:
           schema:
             $ref: '#/components/schemas/github_sync_export_parameters'
       required: true
-    bitbucket_sync_export_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/bitbucket_sync_export_parameters'
-      required: true
     translation_review_parameters:
       content:
         application/json:
@@ -26175,30 +27217,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/locale_create_parameters'
-      required: true
-    keys_tag_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/keys_tag_parameters'
-      required: true
-    blacklisted_key_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/blacklisted_key_update_parameters'
-      required: true
-    authorization_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/authorization_create_parameters'
-      required: true
-    space_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/space_create_parameters'
       required: true
     key_update_parameters:
       content:
@@ -26212,29 +27230,17 @@ components:
           schema:
             $ref: '#/components/schemas/github_sync_import_parameters'
       required: true
-    tag_create_parameters:
+    organization_job_template_locales_create_parameters:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/tag_create_parameters'
+            $ref: '#/components/schemas/organization_job_template_locales_create_parameters'
       required: true
     job_locale_complete_parameters:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/job_locale_complete_parameters'
-      required: true
-    blacklisted_key_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/blacklisted_key_create_parameters'
-      required: true
-    job_locale_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/job_locale_update_parameters'
       required: true
     glossary_term_translation_create_parameters:
       content:
@@ -26260,12 +27266,6 @@ components:
           schema:
             $ref: '#/components/schemas/styleguide_create_parameters'
       required: true
-    order_confirm_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/order_confirm_parameters'
-      required: true
     variable_update_parameters:
       content:
         application/json:
@@ -26278,47 +27278,17 @@ components:
           schema:
             $ref: '#/components/schemas/branch_update_parameters'
       required: true
-    comment_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/comment_create_parameters'
-      required: true
-    job_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/job_update_parameters'
-      required: true
     glossary_term_create_parameters:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/glossary_term_create_parameters'
       required: true
-    space_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/space_update_parameters'
-      required: true
     translation_verify_parameters:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/translation_verify_parameters'
-      required: true
-    invitation_update_settings_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/invitation_update_settings_parameters'
-      required: true
-    project_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/project_update_parameters'
       required: true
     keys_exclude_parameters:
       content:
@@ -26338,18 +27308,6 @@ components:
           schema:
             $ref: '#/components/schemas/locale_update_parameters'
       required: true
-    translation_include_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/translation_include_parameters'
-      required: true
-    translation_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/translation_create_parameters'
-      required: true
     invitation_create_parameters:
       content:
         application/json:
@@ -26368,59 +27326,11 @@ components:
           schema:
             $ref: '#/components/schemas/invitation_update_parameters'
       required: true
-    bitbucket_sync_import_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/bitbucket_sync_import_parameters'
-      required: true
-    search_in_account_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/search_in_account_parameters'
-      required: true
-    comment_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/comment_update_parameters'
-      required: true
-    job_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/job_create_parameters'
-      required: true
-    comment_mark_read_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/comment_mark_read_parameters'
-      required: true
     variable_create_parameters:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/variable_create_parameters'
-      required: true
-    screenshot_marker_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/screenshot_marker_update_parameters'
-      required: true
-    member_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/member_update_parameters'
-      required: true
-    order_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/order_create_parameters'
       required: true
     glossary_term_update_parameters:
       content:
@@ -26464,18 +27374,6 @@ components:
           schema:
             $ref: '#/components/schemas/keys_include_parameters'
       required: true
-    gitlab_sync_export_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/gitlab_sync_export_parameters'
-      required: true
-    screenshot_create_parameters:
-      content:
-        multipart/form-data:
-          schema:
-            $ref: '#/components/schemas/screenshot_create_parameters'
-      required: true
     styleguide_update_parameters:
       content:
         application/json:
@@ -26494,6 +27392,12 @@ components:
           schema:
             $ref: '#/components/schemas/job_template_create_parameters'
       required: true
+    organization_job_template_locale_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/organization_job_template_locale_update_parameters'
+      required: true
     release_update_parameters:
       content:
         application/json:
@@ -26506,47 +27410,17 @@ components:
           schema:
             $ref: '#/components/schemas/glossary_update_parameters'
       required: true
-    job_comment_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/job_comment_update_parameters'
-      required: true
-    job_comment_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/job_comment_create_parameters'
-      required: true
     glossary_create_parameters:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/glossary_create_parameters'
       required: true
-    translations_search_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/translations_search_parameters'
-      required: true
     upload_create_parameters:
       content:
         multipart/form-data:
           schema:
             $ref: '#/components/schemas/upload_create_parameters'
-      required: true
-    keys_untag_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/keys_untag_parameters'
-      required: true
-    screenshot_marker_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/screenshot_marker_create_parameters'
       required: true
     job_template_locale_update_parameters:
       content:
@@ -26560,29 +27434,11 @@ components:
           schema:
             $ref: '#/components/schemas/branch_create_parameters'
       required: true
-    authorization_update_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/authorization_update_parameters'
-      required: true
     webhook_create_parameters:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/webhook_create_parameters'
-      required: true
-    job_locales_create_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/job_locales_create_parameters'
-      required: true
-    branch_merge_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/branch_merge_parameters'
       required: true
     translations_exclude_parameters:
       content:
@@ -26596,12 +27452,6 @@ components:
           schema:
             $ref: '#/components/schemas/translation_exclude_parameters'
       required: true
-    gitlab_sync_import_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/gitlab_sync_import_parameters'
-      required: true
     glossary_term_translation_update_parameters:
       content:
         application/json:
@@ -26614,12 +27464,6 @@ components:
           schema:
             $ref: '#/components/schemas/translations_verify_parameters'
       required: true
-    job_start_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/job_start_parameters'
-      required: true
     release_create_parameters:
       content:
         application/json:
@@ -26631,12 +27475,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/distribution_create_parameters'
-      required: true
-    job_locale_reopen_parameters:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/job_locale_reopen_parameters'
       required: true
     translations_unverify_parameters:
       content:
@@ -26679,6 +27517,246 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/team_create_parameters'
+      required: true
+    project_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/project_create_parameters'
+      required: true
+    organization_job_template_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/organization_job_template_update_parameters'
+      required: true
+    bitbucket_sync_export_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/bitbucket_sync_export_parameters'
+      required: true
+    keys_tag_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/keys_tag_parameters'
+      required: true
+    blacklisted_key_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/blacklisted_key_update_parameters'
+      required: true
+    authorization_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/authorization_create_parameters'
+      required: true
+    space_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/space_create_parameters'
+      required: true
+    tag_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/tag_create_parameters'
+      required: true
+    blacklisted_key_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/blacklisted_key_create_parameters'
+      required: true
+    job_locale_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/job_locale_update_parameters'
+      required: true
+    order_confirm_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/order_confirm_parameters'
+      required: true
+    comment_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/comment_create_parameters'
+      required: true
+    job_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/job_update_parameters'
+      required: true
+    space_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/space_update_parameters'
+      required: true
+    organization_job_template_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/organization_job_template_create_parameters'
+      required: true
+    invitation_update_settings_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/invitation_update_settings_parameters'
+      required: true
+    project_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/project_update_parameters'
+      required: true
+    translation_include_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/translation_include_parameters'
+      required: true
+    translation_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/translation_create_parameters'
+      required: true
+    bitbucket_sync_import_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/bitbucket_sync_import_parameters'
+      required: true
+    search_in_account_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/search_in_account_parameters'
+      required: true
+    comment_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/comment_update_parameters'
+      required: true
+    job_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/job_create_parameters'
+      required: true
+    comment_mark_read_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/comment_mark_read_parameters'
+      required: true
+    screenshot_marker_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/screenshot_marker_update_parameters'
+      required: true
+    member_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/member_update_parameters'
+      required: true
+    order_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/order_create_parameters'
+      required: true
+    gitlab_sync_export_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gitlab_sync_export_parameters'
+      required: true
+    screenshot_create_parameters:
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '#/components/schemas/screenshot_create_parameters'
+      required: true
+    job_comment_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/job_comment_update_parameters'
+      required: true
+    job_comment_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/job_comment_create_parameters'
+      required: true
+    translations_search_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/translations_search_parameters'
+      required: true
+    keys_untag_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/keys_untag_parameters'
+      required: true
+    screenshot_marker_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/screenshot_marker_create_parameters'
+      required: true
+    authorization_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/authorization_update_parameters'
+      required: true
+    job_locales_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/job_locales_create_parameters'
+      required: true
+    branch_merge_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/branch_merge_parameters'
+      required: true
+    gitlab_sync_import_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/gitlab_sync_import_parameters'
+      required: true
+    job_start_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/job_start_parameters'
+      required: true
+    job_locale_reopen_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/job_locale_reopen_parameters'
       required: true
     icu_skeleton_parameters:
       content:
@@ -28909,6 +29987,32 @@ components:
           $ref: '#/components/schemas/notification'
       title: notification_group_detail
       type: object
+    organization_job_template:
+      example:
+        id: 626ea67628690c73ac86ac81eec2d185
+        name: template
+        briefing: text
+        created_at: 2017-01-28T09:52:53Z
+        updated_at: 2017-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        briefing:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: organization_job_template
+      type: object
+    organization_job_template_details:
+      allOf:
+      - $ref: '#/components/schemas/organization_job_template'
+      - $ref: '#/components/schemas/job_template_details_1'
     icu_skeleton_parameters:
       properties:
         content:
@@ -31456,6 +32560,117 @@ components:
           type: string
       title: job_comment/create/parameters
       type: object
+    organization_job_template_create_parameters:
+      properties:
+        name:
+          description: Job template name
+          example: template
+          type: string
+        briefing:
+          description: Briefing for the translators
+          example: text
+          type: string
+      required:
+      - name
+      title: organization_job_template/create/parameters
+      type: object
+    organization_job_template_update_parameters:
+      properties:
+        name:
+          description: Job template name
+          example: template
+          type: string
+        briefing:
+          description: Briefing for the translators
+          example: text
+          type: string
+      required:
+      - name
+      title: organization_job_template/update/parameters
+      type: object
+    organization_job_template_locales_create_parameters:
+      properties:
+        locale_name:
+          description: locale name
+          example: de-1
+          type: string
+        locale_code:
+          description: locale code
+          example: de-DE
+          type: string
+        user_ids:
+          description: Array of user ids to be assigned to the job template locale
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        reviewer_ids:
+          description: Array of reviewer ids to be assigned to the job template locale
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        translator_team_ids:
+          description: Array of team ids to be assigned to the job locale as translators
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        reviewer_team_ids:
+          description: Array of team ids to be assigned to the job locale as reviewers
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+      required:
+      - locale_code
+      - locale_name
+      title: organization_job_template_locales/create/parameters
+      type: object
+    organization_job_template_locale_update_parameters:
+      properties:
+        locale_name:
+          description: locale name
+          example: de-1
+          type: string
+        locale_code:
+          description: locale code
+          example: de-DE
+          type: string
+        user_ids:
+          description: Array of user ids to be assigned to the job template locale
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        reviewer_ids:
+          description: Array of reviewer ids to be assigned to the job template locale
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        translator_team_ids:
+          description: Array of team ids to be assigned to the job locale as translators
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        reviewer_team_ids:
+          description: Array of team ids to be assigned to the job locale as reviewers
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+      title: organization_job_template_locale/update/parameters
+      type: object
     authorization_with_token_1:
       example: '{"token":"abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234"}'
       properties:
@@ -31726,6 +32941,8 @@ x-tagGroups:
   - Job Locales
   - Job Templates
   - Job Template Locales
+  - Organization Job Templates
+  - Organization Job Template Locales
   - Comments
   - Branches
 - name: Quality

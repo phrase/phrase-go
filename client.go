@@ -93,6 +93,10 @@ type APIClient struct {
 
 	OrdersApi *OrdersApiService
 
+	OrganizationJobTemplateLocalesApi *OrganizationJobTemplateLocalesApiService
+
+	OrganizationJobTemplatesApi *OrganizationJobTemplatesApiService
+
 	ProjectsApi *ProjectsApiService
 
 	ReleasesApi *ReleasesApiService
@@ -169,6 +173,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.NotificationGroupsApi = (*NotificationGroupsApiService)(&c.common)
 	c.NotificationsApi = (*NotificationsApiService)(&c.common)
 	c.OrdersApi = (*OrdersApiService)(&c.common)
+	c.OrganizationJobTemplateLocalesApi = (*OrganizationJobTemplateLocalesApiService)(&c.common)
+	c.OrganizationJobTemplatesApi = (*OrganizationJobTemplatesApiService)(&c.common)
 	c.ProjectsApi = (*ProjectsApiService)(&c.common)
 	c.ReleasesApi = (*ReleasesApiService)(&c.common)
 	c.ScreenshotMarkersApi = (*ScreenshotMarkersApiService)(&c.common)
