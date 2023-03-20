@@ -14,6 +14,7 @@ type Release struct {
 	Platforms     []string        `json:"platforms,omitempty"`
 	Environments  []string        `json:"environments,omitempty"`
 	Locales       []LocalePreview `json:"locales,omitempty"`
+	Tags          []string        `json:"tags,omitempty"`
 	Project       ProjectShort    `json:"project,omitempty"`
 	CreatedAt     time.Time       `json:"created_at,omitempty"`
 	UpdatedAt     time.Time       `json:"updated_at,omitempty"`
