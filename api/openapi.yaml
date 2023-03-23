@@ -1688,6 +1688,13 @@ paths:
                   description: Indicates whether the zero form should be included
                     or excluded in the returned skeletons
                   type: boolean
+                cldr_version:
+                  description: |-
+                    Strings supports two CLDR variants, when it comes to pluralization rules. \
+                    You can choose which one you want to use when constructing the skeletons. Possible values \
+                    are `legacy` and `cldr_41`. Default value is `legacy`.
+                  example: cldr_41
+                  type: string
               title: icu/skeleton/parameters
               type: object
         required: true
@@ -1750,7 +1757,7 @@ paths:
           phrase icu skeleton \
           --data '{"content":"{number, plural, one {One} other {%{n}}}","locale_codes":["en"],"zero_form_enabled": true}' \
           --access_token <token>
-      x-cli-version: "2.5"
+      x-cli-version: "2.9"
   /formats:
     get:
       description: Get a handy list of all localization file formats supported in
@@ -30054,6 +30061,13 @@ components:
           description: Indicates whether the zero form should be included or excluded
             in the returned skeletons
           type: boolean
+        cldr_version:
+          description: |-
+            Strings supports two CLDR variants, when it comes to pluralization rules. \
+            You can choose which one you want to use when constructing the skeletons. Possible values \
+            are `legacy` and `cldr_41`. Default value is `legacy`.
+          example: cldr_41
+          type: string
       title: icu/skeleton/parameters
       type: object
     document:
