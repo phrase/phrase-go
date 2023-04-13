@@ -478,7 +478,7 @@ func (a *JobLocalesApiService) JobLocaleShow(ctx _context.Context, projectId str
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locale/{id}"
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/jobs/{job_id}/locales/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"job_id"+"}", _neturl.QueryEscape(parameterToString(jobId, "")), -1)

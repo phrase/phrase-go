@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**JobLocaleCompleteReview**](JobLocalesApi.md#JobLocaleCompleteReview) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review | Review a job locale
 [**JobLocaleDelete**](JobLocalesApi.md#JobLocaleDelete) | **Delete** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
 [**JobLocaleReopen**](JobLocalesApi.md#JobLocaleReopen) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/reopen | Reopen a job locale
-[**JobLocaleShow**](JobLocalesApi.md#JobLocaleShow) | **Get** /projects/{project_id}/jobs/{job_id}/locale/{id} | Get a single job locale
+[**JobLocaleShow**](JobLocalesApi.md#JobLocaleShow) | **Get** /projects/{project_id}/jobs/{job_id}/locales/{id} | Get a single job locale
 [**JobLocaleUpdate**](JobLocalesApi.md#JobLocaleUpdate) | **Patch** /projects/{project_id}/jobs/{job_id}/locales/{id} | Update a job locale
 [**JobLocalesCreate**](JobLocalesApi.md#JobLocalesCreate) | **Post** /projects/{project_id}/jobs/{job_id}/locales | Create a job locale
 [**JobLocalesList**](JobLocalesApi.md#JobLocalesList) | **Get** /projects/{project_id}/jobs/{job_id}/locales | List job locales

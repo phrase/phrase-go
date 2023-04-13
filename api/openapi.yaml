@@ -13473,110 +13473,6 @@ paths:
           --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "translator_team_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
       x-cli-version: 2.6.8
-  /projects/{project_id}/jobs/{job_id}/locale/{id}:
-    get:
-      description: Get a single job locale for a given job.
-      operationId: job_locale/show
-      parameters:
-      - description: Two-Factor-Authentication token (optional)
-        explode: false
-        in: header
-        name: X-PhraseApp-OTP
-        required: false
-        schema:
-          type: string
-        style: simple
-      - description: Project ID
-        explode: false
-        in: path
-        name: project_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Job ID
-        explode: false
-        in: path
-        name: job_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: ID
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: specify the branch to use
-        example: my-feature-branch
-        explode: true
-        in: query
-        name: branch
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/job_locale'
-          description: OK
-          headers:
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X-Rate-Limit-Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X-Rate-Limit-Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X-Rate-Limit-Reset'
-        "400":
-          description: Bad request
-          headers:
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X-Rate-Limit-Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X-Rate-Limit-Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X-Rate-Limit-Reset'
-        "404":
-          description: Not Found
-          headers:
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X-Rate-Limit-Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X-Rate-Limit-Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X-Rate-Limit-Reset'
-        "429":
-          description: Rate Limiting
-          headers:
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X-Rate-Limit-Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X-Rate-Limit-Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Get a single job locale
-      tags:
-      - Job Locales
-      x-code-samples:
-      - lang: Curl
-        source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/locale/:id?branch=my-feature-branch" \
-            -u USERNAME_OR_ACCESS_TOKEN
-      - lang: CLI v2
-        source: |-
-          phrase job_locales show \
-          --project_id <project_id> \
-          --job_id <job_id> \
-          --id <id> \
-          --branch my-feature-branch \
-          --access_token <token>
-      x-cli-version: 2.6.8
   /projects/{project_id}/jobs/{job_id}/locales/{id}:
     delete:
       description: Delete an existing job locale.
@@ -13680,6 +13576,109 @@ paths:
           --branch my-feature-branch \
           --access_token <token>
       x-cli-version: "2.5"
+    get:
+      description: Get a single job locale for a given job.
+      operationId: job_locale/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job ID
+        explode: false
+        in: path
+        name: job_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job_locale'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single job locale
+      tags:
+      - Job Locales
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/locales/:id?branch=my-feature-branch" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase job_locales show \
+          --project_id <project_id> \
+          --job_id <job_id> \
+          --id <id> \
+          --branch my-feature-branch \
+          --access_token <token>
+      x-cli-version: 2.9.0
     patch:
       description: Update an existing job locale.
       operationId: job_locale/update
