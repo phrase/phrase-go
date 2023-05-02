@@ -70,7 +70,7 @@ type Configuration struct {
 }
 
 func ClientVersion() string {
-	return "2.10.0"
+	return "2.10.1"
 }
 
 func getUserAgent() string {
@@ -81,8 +81,8 @@ func getUserAgent() string {
 	return agent
 }
 
-func (c *Configuration) SetUserAgent(additionalUserAgent string) {
-	c.UserAgent = getUserAgent() + additionalUserAgent
+func (c *Configuration) SetUserAgent(customUserAgent string) {
+	c.UserAgent = fmt.Sprintf("%s (using %s)", customUserAgent, getUserAgent())
 }
 
 // NewConfiguration returns a new Configuration object
