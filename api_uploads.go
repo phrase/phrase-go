@@ -62,7 +62,7 @@ Upload a new language file. Creates necessary resources in your project.
   - @param "LocaleMapping" (optional.Interface of map[string]interface{}) -  Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
   - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional options available for specific formats. See our format guide for complete list.
   - @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
-  - @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.
+  - @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
 
 @return Upload
 */

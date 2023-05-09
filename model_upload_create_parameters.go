@@ -34,6 +34,6 @@ type UploadCreateParameters struct {
 	FormatOptions map[string]interface{} `json:"format_options,omitempty"`
 	// If set, translations for the uploaded language will be fetched automatically.
 	Autotranslate *bool `json:"autotranslate,omitempty"`
-	// Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.
+	// Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
 	MarkReviewed *bool `json:"mark_reviewed,omitempty"`
 }

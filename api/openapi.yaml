@@ -4849,8 +4849,7 @@ paths:
           type: boolean
         style: form
       - description: If set to true the last reviewed version of a translation is
-          used. This is only available if the review workflow (currently in beta)
-          is enabled for the project.
+          used. This is only available if the review workflow is enabled for the project.
         explode: true
         in: query
         name: use_last_reviewed_version
@@ -10917,7 +10916,7 @@ paths:
                 mark_reviewed:
                   description: Indicated whether the imported translations should
                     be marked as reviewed. This setting is available if the review
-                    workflow (currently beta) is enabled for the project.
+                    workflow is enabled for the project.
                   type: boolean
               title: upload/create/parameters
               type: object
@@ -31071,8 +31070,8 @@ components:
           type: boolean
         mark_reviewed:
           description: Indicated whether the imported translations should be marked
-            as reviewed. This setting is available if the review workflow (currently
-            beta) is enabled for the project.
+            as reviewed. This setting is available if the review workflow is enabled
+            for the project.
           type: boolean
       title: upload/create/parameters
       type: object
