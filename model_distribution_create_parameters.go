@@ -6,7 +6,7 @@ type DistributionCreateParameters struct {
 	Name string `json:"name,omitempty"`
 	// Project id the distribution should be assigned to.
 	ProjectId string `json:"project_id,omitempty"`
-	// List of platforms the distribution should support.
+	// List of platforms the distribution should support. Valid values are: * `android` * `ios` * `flutter` * `i18next`
 	Platforms []string `json:"platforms,omitempty"`
 	// List of locale ids that will be part of distribution releases
 	LocaleIds []string `json:"locale_ids,omitempty"`

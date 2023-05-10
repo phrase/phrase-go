@@ -5076,7 +5076,13 @@ paths:
                   example: abcd1234abcd1234abcd1234
                   type: string
                 platforms:
-                  description: List of platforms the distribution should support.
+                  description: |-
+                    List of platforms the distribution should support.
+                    Valid values are:
+                    * `android`
+                    * `ios`
+                    * `flutter`
+                    * `i18next`
                   example:
                   - android
                   - ios
@@ -30511,7 +30517,13 @@ components:
           example: abcd1234abcd1234abcd1234
           type: string
         platforms:
-          description: List of platforms the distribution should support.
+          description: |-
+            List of platforms the distribution should support.
+            Valid values are:
+            * `android`
+            * `ios`
+            * `flutter`
+            * `i18next`
           example:
           - android
           - ios
