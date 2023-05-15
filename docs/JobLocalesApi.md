@@ -6,12 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**JobLocaleComplete**](JobLocalesApi.md#JobLocaleComplete) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete | Complete a job locale
 [**JobLocaleCompleteReview**](JobLocalesApi.md#JobLocaleCompleteReview) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review | Review a job locale
-[**JobLocaleDelete**](JobLocalesApi.md#JobLocaleDelete) | **Delete** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
+[**JobLocaleDelete**](JobLocalesApi.md#JobLocaleDelete) | **Delete** /projects/{project_id}/jobs/{job_id}/locales/{id} | Remove a target locale from a job
 [**JobLocaleReopen**](JobLocalesApi.md#JobLocaleReopen) | **Post** /projects/{project_id}/jobs/{job_id}/locales/{id}/reopen | Reopen a job locale
-[**JobLocaleShow**](JobLocalesApi.md#JobLocaleShow) | **Get** /projects/{project_id}/jobs/{job_id}/locales/{id} | Get a single job locale
-[**JobLocaleUpdate**](JobLocalesApi.md#JobLocaleUpdate) | **Patch** /projects/{project_id}/jobs/{job_id}/locales/{id} | Update a job locale
-[**JobLocalesCreate**](JobLocalesApi.md#JobLocalesCreate) | **Post** /projects/{project_id}/jobs/{job_id}/locales | Create a job locale
-[**JobLocalesList**](JobLocalesApi.md#JobLocalesList) | **Get** /projects/{project_id}/jobs/{job_id}/locales | List job locales
+[**JobLocaleShow**](JobLocalesApi.md#JobLocaleShow) | **Get** /projects/{project_id}/jobs/{job_id}/locales/{id} | Show single job target locale
+[**JobLocaleUpdate**](JobLocalesApi.md#JobLocaleUpdate) | **Patch** /projects/{project_id}/jobs/{job_id}/locales/{id} | Update a job target locale
+[**JobLocalesCreate**](JobLocalesApi.md#JobLocalesCreate) | **Post** /projects/{project_id}/jobs/{job_id}/locales | Add a target locale to a job
+[**JobLocalesList**](JobLocalesApi.md#JobLocalesList) | **Get** /projects/{project_id}/jobs/{job_id}/locales | List job target locales
 
 
 
@@ -121,9 +121,9 @@ Name | Type | Description  | Notes
 
 > JobLocaleDelete(ctx, projectId, jobId, id, optional)
 
-Delete a job locale
+Remove a target locale from a job
 
-Delete an existing job locale.
+Removes a target locale from a job.
 
 ### Required Parameters
 
@@ -222,9 +222,9 @@ Name | Type | Description  | Notes
 
 > JobLocale JobLocaleShow(ctx, projectId, jobId, id, optional)
 
-Get a single job locale
+Show single job target locale
 
-Get a single job locale for a given job.
+Get a single target locale for a given job.
 
 ### Required Parameters
 
@@ -272,9 +272,9 @@ Name | Type | Description  | Notes
 
 > JobLocale JobLocaleUpdate(ctx, projectId, jobId, id, jobLocaleUpdateParameters, optional)
 
-Update a job locale
+Update a job target locale
 
-Update an existing job locale.
+Update an existing job target locale.
 
 ### Required Parameters
 
@@ -323,9 +323,9 @@ Name | Type | Description  | Notes
 
 > JobLocale JobLocalesCreate(ctx, projectId, jobId, jobLocalesCreateParameters, optional)
 
-Create a job locale
+Add a target locale to a job
 
-Create a new job locale.
+Adds a target locale to a job.
 
 ### Required Parameters
 
@@ -372,9 +372,9 @@ Name | Type | Description  | Notes
 
 > []JobLocale JobLocalesList(ctx, projectId, jobId, optional)
 
-List job locales
+List job target locales
 
-List all job locales for a given job.
+List all target locales for a given job.
 
 ### Required Parameters
 

@@ -13221,7 +13221,7 @@ paths:
       x-cli-version: 2.6.3
   /projects/{project_id}/jobs/{job_id}/locales:
     get:
-      description: List all job locales for a given job.
+      description: List all target locales for a given job.
       operationId: job_locales/list
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -13323,7 +13323,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: List job locales
+      summary: List job target locales
       tags:
       - Job Locales
       x-code-samples:
@@ -13340,7 +13340,7 @@ paths:
           --access_token <token>
       x-cli-version: "2.5"
     post:
-      description: Create a new job locale.
+      description: Adds a target locale to a job.
       operationId: job_locales/create
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -13378,7 +13378,7 @@ paths:
                   example: my-feature-branch
                   type: string
                 locale_id:
-                  description: locale id
+                  description: ID of a locale to be added
                   example: abcd1234cdef1234abcd1234cdef1234
                   type: string
                 user_ids:
@@ -13459,7 +13459,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Create a job locale
+      summary: Add a target locale to a job
       tags:
       - Job Locales
       x-code-samples:
@@ -13480,7 +13480,7 @@ paths:
       x-cli-version: 2.6.8
   /projects/{project_id}/jobs/{job_id}/locales/{id}:
     delete:
-      description: Delete an existing job locale.
+      description: Removes a target locale from a job.
       operationId: job_locale/delete
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -13561,7 +13561,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Delete a job locale
+      summary: Remove a target locale from a job
       tags:
       - Job Locales
       x-code-samples:
@@ -13582,7 +13582,7 @@ paths:
           --access_token <token>
       x-cli-version: "2.5"
     get:
-      description: Get a single job locale for a given job.
+      description: Get a single target locale for a given job.
       operationId: job_locale/show
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -13667,7 +13667,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Get a single job locale
+      summary: Show single job target locale
       tags:
       - Job Locales
       x-code-samples:
@@ -13685,7 +13685,7 @@ paths:
           --access_token <token>
       x-cli-version: 2.9.0
     patch:
-      description: Update an existing job locale.
+      description: Update an existing job target locale.
       operationId: job_locale/update
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -13731,7 +13731,7 @@ paths:
                   example: my-feature-branch
                   type: string
                 locale_id:
-                  description: locale id
+                  description: ID of a target locale to update
                   example: abcd1234cdef1234abcd1234cdef1234
                   type: string
                 user_ids:
@@ -13809,7 +13809,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Update a job locale
+      summary: Update a job target locale
       tags:
       - Job Locales
       x-code-samples:
@@ -31413,7 +31413,7 @@ components:
           example: my-feature-branch
           type: string
         locale_id:
-          description: locale id
+          description: ID of a locale to be added
           example: abcd1234cdef1234abcd1234cdef1234
           type: string
         user_ids:
@@ -31455,7 +31455,7 @@ components:
           example: my-feature-branch
           type: string
         locale_id:
-          description: locale id
+          description: ID of a target locale to update
           example: abcd1234cdef1234abcd1234cdef1234
           type: string
         user_ids:

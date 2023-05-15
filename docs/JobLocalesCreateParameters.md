@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Branch** | **string** | specify the branch to use | [optional] 
-**LocaleId** | **string** | locale id | 
+**LocaleId** | **string** | ID of a locale to be added | 
 **UserIds** | **[]string** | Array of user ids to be assigned to the job locale as translators | [optional] 
 **ReviewerIds** | **[]string** | Array of reviewer ids to be assigned to the job locale as reviewers | [optional] 
 **TranslatorTeamIds** | **[]string** | Array of team ids to be assigned to the job locale as translators | [optional] 

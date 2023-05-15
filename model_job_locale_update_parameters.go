@@ -4,7 +4,7 @@ package phrase
 type JobLocaleUpdateParameters struct {
 	// specify the branch to use
 	Branch string `json:"branch,omitempty"`
-	// locale id
+	// ID of a target locale to update
 	LocaleId string `json:"locale_id,omitempty"`
 	// Array of user ids to be assigned to the job locale
 	UserIds []string `json:"user_ids,omitempty"`
