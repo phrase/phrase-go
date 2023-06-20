@@ -542,7 +542,7 @@ type SpacesProjectsCreateOpts struct {
 }
 
 /*
-SpacesProjectsCreate Add Project
+SpacesProjectsCreate Add Project to Space
 Adds an existing project to the space.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
@@ -637,7 +637,7 @@ type SpacesProjectsDeleteOpts struct {
 }
 
 /*
-SpacesProjectsDelete Remove Project
+SpacesProjectsDelete Remove Project from Space
 Removes a specified project from the specified space.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
@@ -734,7 +734,7 @@ type SpacesProjectsListOpts struct {
 }
 
 /*
-SpacesProjectsList List Projects
+SpacesProjectsList List Projects in Space
 List all projects for the specified Space.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID

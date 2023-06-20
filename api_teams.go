@@ -542,7 +542,7 @@ type TeamsProjectsCreateOpts struct {
 }
 
 /*
-TeamsProjectsCreate Add Project
+TeamsProjectsCreate Add Project to Team
 Adds an existing project to the team.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
@@ -637,7 +637,7 @@ type TeamsProjectsDeleteOpts struct {
 }
 
 /*
-TeamsProjectsDelete Remove Project
+TeamsProjectsDelete Remove Project from Team
 Removes a specified project from the specified team.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID

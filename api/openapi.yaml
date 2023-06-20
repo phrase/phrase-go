@@ -21167,7 +21167,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: List Projects
+      summary: List Projects in Space
       tags:
       - Spaces
       x-code-samples:
@@ -21260,7 +21260,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Add Project
+      summary: Add Project to Space
       tags:
       - Spaces
       x-code-samples:
@@ -21353,7 +21353,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Remove Project
+      summary: Remove Project from Space
       tags:
       - Spaces
       x-code-samples:
@@ -21909,7 +21909,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Add Project
+      summary: Add Project to Team
       tags:
       - Teams
       x-code-samples:
@@ -22002,7 +22002,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Remove Project
+      summary: Remove Project from Team
       tags:
       - Teams
       x-code-samples:

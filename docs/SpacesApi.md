@@ -9,9 +9,9 @@ Method | HTTP request | Description
 [**SpaceShow**](SpacesApi.md#SpaceShow) | **Get** /accounts/{account_id}/spaces/{id} | Get Space
 [**SpaceUpdate**](SpacesApi.md#SpaceUpdate) | **Patch** /accounts/{account_id}/spaces/{id} | Update Space
 [**SpacesList**](SpacesApi.md#SpacesList) | **Get** /accounts/{account_id}/spaces | List Spaces
-[**SpacesProjectsCreate**](SpacesApi.md#SpacesProjectsCreate) | **Post** /accounts/{account_id}/spaces/{space_id}/projects | Add Project
-[**SpacesProjectsDelete**](SpacesApi.md#SpacesProjectsDelete) | **Delete** /accounts/{account_id}/spaces/{space_id}/projects/{id} | Remove Project
-[**SpacesProjectsList**](SpacesApi.md#SpacesProjectsList) | **Get** /accounts/{account_id}/spaces/{space_id}/projects | List Projects
+[**SpacesProjectsCreate**](SpacesApi.md#SpacesProjectsCreate) | **Post** /accounts/{account_id}/spaces/{space_id}/projects | Add Project to Space
+[**SpacesProjectsDelete**](SpacesApi.md#SpacesProjectsDelete) | **Delete** /accounts/{account_id}/spaces/{space_id}/projects/{id} | Remove Project from Space
+[**SpacesProjectsList**](SpacesApi.md#SpacesProjectsList) | **Get** /accounts/{account_id}/spaces/{space_id}/projects | List Projects in Space
 
 
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 > SpacesProjectsCreate(ctx, accountId, spaceId, spacesProjectsCreateParameters, optional)
 
-Add Project
+Add Project to Space
 
 Adds an existing project to the space.
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 > SpacesProjectsDelete(ctx, accountId, spaceId, id, optional)
 
-Remove Project
+Remove Project from Space
 
 Removes a specified project from the specified space.
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 > []Project SpacesProjectsList(ctx, accountId, spaceId, optional)
 
-List Projects
+List Projects in Space
 
 List all projects for the specified Space.
 
