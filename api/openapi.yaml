@@ -28022,7 +28022,7 @@ components:
             auto_import: false
       properties:
         status:
-          type: integer
+          type: string
         action:
           type: string
         errors:

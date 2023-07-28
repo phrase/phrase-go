@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **int32** |  | [optional] 
+**Status** | **string** |  | [optional] 
 **Action** | **string** |  | [optional] 
 **Errors** | **[]string** |  | [optional] 
 **Date** | [**time.Time**](time.Time.md) |  | [optional] 
