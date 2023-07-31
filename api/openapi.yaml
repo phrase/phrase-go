@@ -28015,8 +28015,8 @@ components:
           status: success
           action: import
           errors:
-          - error message one
-          - error message two
+          - error: error type
+            message: can't be blank
           date: 2015-01-28T12:55:14.000+00:00
           details:
             auto_import: false
@@ -28027,7 +28027,7 @@ components:
           type: string
         errors:
           items:
-            type: string
+            $ref: '#/components/schemas/gitlab_sync_history_errors'
           type: array
         date:
           format: date-time
@@ -32728,6 +32728,12 @@ components:
       example: '{"token":"abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234abcd1234cdef1234"}'
       properties:
         token:
+          type: string
+    gitlab_sync_history_errors:
+      properties:
+        error:
+          type: string
+        message:
           type: string
     subscription:
       example: '{"is_current":true,"trial_expired":false}'
