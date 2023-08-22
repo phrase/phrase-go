@@ -91,6 +91,10 @@ Class | Method | HTTP request | Description
 *BranchesApi* | [**BranchShow**](docs/BranchesApi.md#branchshow) | **Get** /projects/{project_id}/branches/{name} | Get a single branch
 *BranchesApi* | [**BranchUpdate**](docs/BranchesApi.md#branchupdate) | **Patch** /projects/{project_id}/branches/{name} | Update a branch
 *BranchesApi* | [**BranchesList**](docs/BranchesApi.md#brancheslist) | **Get** /projects/{project_id}/branches | List branches
+*CommentReactionsApi* | [**ReactionCreate**](docs/CommentReactionsApi.md#reactioncreate) | **Post** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions | Create a reaction
+*CommentReactionsApi* | [**ReactionDelete**](docs/CommentReactionsApi.md#reactiondelete) | **Delete** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions/{id} | Delete a reaction
+*CommentReactionsApi* | [**ReactionShow**](docs/CommentReactionsApi.md#reactionshow) | **Get** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions/{id} | Get a single reaction
+*CommentReactionsApi* | [**ReactionsList**](docs/CommentReactionsApi.md#reactionslist) | **Get** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions | List reactions
 *CommentsApi* | [**CommentCreate**](docs/CommentsApi.md#commentcreate) | **Post** /projects/{project_id}/keys/{key_id}/comments | Create a comment
 *CommentsApi* | [**CommentDelete**](docs/CommentsApi.md#commentdelete) | **Delete** /projects/{project_id}/keys/{key_id}/comments/{id} | Delete a comment
 *CommentsApi* | [**CommentMarkCheck**](docs/CommentsApi.md#commentmarkcheck) | **Get** /projects/{project_id}/keys/{key_id}/comments/{id}/read | Check if comment is read
@@ -334,6 +338,7 @@ Class | Method | HTTP request | Description
  - [Comment](docs/Comment.md)
  - [CommentCreateParameters](docs/CommentCreateParameters.md)
  - [CommentMarkReadParameters](docs/CommentMarkReadParameters.md)
+ - [CommentReaction](docs/CommentReaction.md)
  - [CommentUpdateParameters](docs/CommentUpdateParameters.md)
  - [CurrentUser](docs/CurrentUser.md)
  - [Distribution](docs/Distribution.md)

@@ -49,6 +49,8 @@ type APIClient struct {
 
 	BranchesApi *BranchesApiService
 
+	CommentReactionsApi *CommentReactionsApiService
+
 	CommentsApi *CommentsApiService
 
 	DistributionsApi *DistributionsApiService
@@ -151,6 +153,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BitbucketSyncApi = (*BitbucketSyncApiService)(&c.common)
 	c.BlacklistedKeysApi = (*BlacklistedKeysApiService)(&c.common)
 	c.BranchesApi = (*BranchesApiService)(&c.common)
+	c.CommentReactionsApi = (*CommentReactionsApiService)(&c.common)
 	c.CommentsApi = (*CommentsApiService)(&c.common)
 	c.DistributionsApi = (*DistributionsApiService)(&c.common)
 	c.DocumentsApi = (*DocumentsApiService)(&c.common)
