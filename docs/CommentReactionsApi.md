@@ -42,6 +42,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **branch** | **optional.String**| specify the branch to use | 
+ **emoji** | **optional.String**| specify the emoji for the reaction | 
 
 ### Return type
 

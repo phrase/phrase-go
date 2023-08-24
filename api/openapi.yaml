@@ -1508,6 +1508,7 @@ tags:
   name: Branches
 - name: Comments
 - name: Comment Reactions
+- name: Comment Replies
 - name: Distributions
 - name: Documents
 - name: Formats
@@ -9428,6 +9429,26 @@ paths:
         schema:
           type: string
         style: simple
+      - description: specify the message for the comment
+        example: some message...
+        explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: specify the locales for the comment
+        example: someId
+        explode: true
+        in: query
+        name: locale_ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/comment_create_parameters'
         content:
@@ -9495,14 +9516,14 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
-            -d '{"branch":"my-feature-branch","message":"Some message..."}' \
+            -d '{"branch":"my-feature-branch", "message":"Some message...", "locale_ids": ["someId"]}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase comments create \
           --project_id <project_id> \
           --key_id <key_id> \
-          --data '{"branch":"my-feature-branch", "message": "Some message..."}' \
+          --data '{"branch":"my-feature-branch", "message": "Some message...", "locale_ids": ["someId"]}' \
           --access_token <token>
       x-cli-version: "2.5"
   /projects/{project_id}/keys/{key_id}/comments/{id}:
@@ -10320,6 +10341,15 @@ paths:
         schema:
           type: string
         style: form
+      - description: specify the emoji for the reaction
+        example: 👍
+        explode: true
+        in: query
+        name: emoji
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "201":
           content:
@@ -10379,7 +10409,7 @@ paths:
           curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/reactions/" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X DELETE \
-            -d '{"branch":"my-feature-branch"}' \
+            -d '{"branch":"my-feature-branch", "emoji": "👍"}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
@@ -10387,7 +10417,7 @@ paths:
           --project_id <project_id> \
           --key_id <key_id> \
           --comment_id <comment_id> \
-          --branch my-feature-branch \
+          --data '{"branch":"my-feature-branch", "emoji": "👍"]}' \
           --access_token <token>
       x-cli-version: "2.9"
   /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions/{id}:
@@ -10635,6 +10665,758 @@ paths:
           --branch my-feature-branch \
           --access_token <token>
       x-cli-version: "2.9"
+  /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies:
+    get:
+      description: List all replies for a comment.
+      operationId: replies/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Translation Key ID
+        explode: false
+        in: path
+        name: key_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Comment ID
+        explode: false
+        in: path
+        name: comment_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/comment'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List replies
+      tags:
+      - Comment Replies
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X GET \
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase replies list \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --comment_id <comment_id> \
+          --data '{"branch":"my-feature-branch"]}' \
+          --access_token <token>
+      x-cli-version: "2.10"
+    post:
+      description: Create a new reply for a comment.
+      operationId: reply/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Translation Key ID
+        explode: false
+        in: path
+        name: key_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Comment ID
+        explode: false
+        in: path
+        name: comment_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: specify the message for the comment
+        example: some message...
+        explode: true
+        in: query
+        name: message
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/comment'
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create a reply
+      tags:
+      - Comment Replies
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies/" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"branch":"my-feature-branch", "message":"Some message..."}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase replies create \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --comment_id <comment_id> \
+          --data '{"branch":"my-feature-branch", "message": "Some message..."]}' \
+          --access_token <token>
+      x-cli-version: "2.10"
+  /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id}:
+    delete:
+      description: Delete an existing reply.
+      operationId: reply/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Translation Key ID
+        explode: false
+        in: path
+        name: key_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Comment ID
+        explode: false
+        in: path
+        name: comment_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Delete a reply
+      tags:
+      - Comment Replies
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE \
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase replies delete \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --comment_id <comment_id> \
+          --id <id> \
+          --data '{"branch":"my-feature-branch"]}' \
+          --access_token <token>
+      x-cli-version: "2.10"
+    get:
+      description: Get details on a single reply.
+      operationId: reply/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Translation Key ID
+        explode: false
+        in: path
+        name: key_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Comment ID
+        explode: false
+        in: path
+        name: comment_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/comment'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single reply
+      tags:
+      - Comment Replies
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X GET \
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase replies show \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --comment_id <comment_id> \
+          --id <id> \
+          --data '{"branch":"my-feature-branch"]}' \
+          --access_token <token>
+      x-cli-version: "2.10"
+  /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id}/mark_as_read:
+    patch:
+      description: Mark a reply as read.
+      operationId: reply/mark_as_read
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Translation Key ID
+        explode: false
+        in: path
+        name: key_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Comment ID
+        explode: false
+        in: path
+        name: comment_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Mark a reply as read
+      tags:
+      - Comment Replies
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies/:id/mark_as_read" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase replies mark_as_read \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --comment_id <comment_id> \
+          --id <id> \
+          --data '{"branch":"my-feature-branch"]}' \
+          --access_token <token>
+      x-cli-version: "2.10"
+  /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id}/mark_as_unread:
+    patch:
+      description: Mark a reply as unread.
+      operationId: reply/mark_as_unread
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Translation Key ID
+        explode: false
+        in: path
+        name: key_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Comment ID
+        explode: false
+        in: path
+        name: comment_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Mark a reply as unread
+      tags:
+      - Comment Replies
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies/:id/mark_as_unread" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase replies mark_as_unread \
+          --project_id <project_id> \
+          --key_id <key_id> \
+          --comment_id <comment_id> \
+          --id <id> \
+          --data '{"branch":"my-feature-branch"]}' \
+          --access_token <token>
+      x-cli-version: "2.10"
   /projects/{project_id}/webhooks:
     get:
       description: List all webhooks for the given project.
@@ -28570,17 +29352,24 @@ components:
       example:
         id: abcd1234cdef1234abcd1234cdef1234
         message: Some message...
+        has_replies: true
         user:
           id: abcd1234cdef1234abcd1234cdef1234
           username: joe.doe
           name: Joe Doe
         created_at: 2015-01-28T09:52:53Z
         updated_at: 2015-01-28T09:52:53Z
+        locales:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: English
+          code: en-GB
       properties:
         id:
           type: string
         message:
           type: string
+        has_replies:
+          type: boolean
         user:
           $ref: '#/components/schemas/user_preview'
         created_at:
@@ -28592,6 +29381,10 @@ components:
         mentioned_users:
           items:
             $ref: '#/components/schemas/user_preview'
+          type: array
+        locales:
+          items:
+            $ref: '#/components/schemas/locale_preview'
           type: array
       title: comment
       type: object
@@ -33546,6 +34339,7 @@ x-tagGroups:
   - Organization Job Template Locales
   - Comments
   - Comment Reactions
+  - Comment Replies
   - Branches
 - name: Quality
   tags:

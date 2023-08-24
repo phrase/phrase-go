@@ -22,6 +22,7 @@ type CommentReactionsApiService service
 type ReactionCreateOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Branch        optional.String `json:"branch,omitempty"`
+	Emoji         optional.String `json:"emoji,omitempty"`
 }
 
 /*
@@ -34,6 +35,7 @@ Create a new reaction for a comment.
   - @param optional nil or *ReactionCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Emoji" (optional.String) -  specify the emoji for the reaction
 
 @return CommentReaction
 */
@@ -61,6 +63,9 @@ func (a *CommentReactionsApiService) ReactionCreate(ctx _context.Context, projec
 
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Emoji.IsSet() {
+		localVarQueryParams.Add("emoji", parameterToString(localVarOptionals.Emoji.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

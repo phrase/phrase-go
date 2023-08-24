@@ -45,6 +45,8 @@ Name | Type | Description  | Notes
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **message** | **optional.String**| specify the message for the comment | 
+ **localeIds** | [**optional.Interface of []string**](string.md)| specify the locales for the comment | 
 
 ### Return type
 

@@ -95,6 +95,12 @@ Class | Method | HTTP request | Description
 *CommentReactionsApi* | [**ReactionDelete**](docs/CommentReactionsApi.md#reactiondelete) | **Delete** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions/{id} | Delete a reaction
 *CommentReactionsApi* | [**ReactionShow**](docs/CommentReactionsApi.md#reactionshow) | **Get** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions/{id} | Get a single reaction
 *CommentReactionsApi* | [**ReactionsList**](docs/CommentReactionsApi.md#reactionslist) | **Get** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions | List reactions
+*CommentRepliesApi* | [**RepliesList**](docs/CommentRepliesApi.md#replieslist) | **Get** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies | List replies
+*CommentRepliesApi* | [**ReplyCreate**](docs/CommentRepliesApi.md#replycreate) | **Post** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies | Create a reply
+*CommentRepliesApi* | [**ReplyDelete**](docs/CommentRepliesApi.md#replydelete) | **Delete** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id} | Delete a reply
+*CommentRepliesApi* | [**ReplyMarkAsRead**](docs/CommentRepliesApi.md#replymarkasread) | **Patch** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id}/mark_as_read | Mark a reply as read
+*CommentRepliesApi* | [**ReplyMarkAsUnread**](docs/CommentRepliesApi.md#replymarkasunread) | **Patch** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id}/mark_as_unread | Mark a reply as unread
+*CommentRepliesApi* | [**ReplyShow**](docs/CommentRepliesApi.md#replyshow) | **Get** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id} | Get a single reply
 *CommentsApi* | [**CommentCreate**](docs/CommentsApi.md#commentcreate) | **Post** /projects/{project_id}/keys/{key_id}/comments | Create a comment
 *CommentsApi* | [**CommentDelete**](docs/CommentsApi.md#commentdelete) | **Delete** /projects/{project_id}/keys/{key_id}/comments/{id} | Delete a comment
 *CommentsApi* | [**CommentMarkCheck**](docs/CommentsApi.md#commentmarkcheck) | **Get** /projects/{project_id}/keys/{key_id}/comments/{id}/read | Check if comment is read
