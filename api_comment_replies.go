@@ -5,6 +5,7 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"reflect"
 	"strings"
 
 	"github.com/antihax/optional"
@@ -20,10 +21,12 @@ type CommentRepliesApiService service
 
 // RepliesListOpts Optional parameters for the method 'RepliesList'
 type RepliesListOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32  `json:"page,omitempty"`
-	PerPage       optional.Int32  `json:"per_page,omitempty"`
-	Branch        optional.String `json:"branch,omitempty"`
+	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	Page          optional.Int32     `json:"page,omitempty"`
+	PerPage       optional.Int32     `json:"per_page,omitempty"`
+	Branch        optional.String    `json:"branch,omitempty"`
+	Query         optional.String    `json:"query,omitempty"`
+	Filters       optional.Interface `json:"filters,omitempty"`
 }
 
 /*
@@ -33,15 +36,18 @@ List all replies for a comment.
   - @param projectId Project ID
   - @param keyId Translation Key ID
   - @param commentId Comment ID
+  - @param repliesListParameters
   - @param optional nil or *RepliesListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Query" (optional.String) -  Search query for comment messages
+  - @param "Filters" (optional.Interface of []string) -  Specify the filter for the comments
 
 @return []Comment
 */
-func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId string, keyId string, commentId string, localVarOptionals *RepliesListOpts) ([]Comment, *APIResponse, error) {
+func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId string, keyId string, commentId string, repliesListParameters RepliesListParameters, localVarOptionals *RepliesListOpts) ([]Comment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -72,8 +78,22 @@ func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId s
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Query.IsSet() {
+		localVarQueryParams.Add("query", parameterToString(localVarOptionals.Query.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Filters.IsSet() {
+		t := localVarOptionals.Filters.Value()
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				localVarQueryParams.Add("filters", parameterToString(s.Index(i), "multi"))
+			}
+		} else {
+			localVarQueryParams.Add("filters", parameterToString(t, "multi"))
+		}
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -92,6 +112,8 @@ func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId s
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
+	// body params
+	localVarPostBody = &repliesListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

@@ -766,10 +766,13 @@ func (a *CommentsApiService) CommentUpdate(ctx _context.Context, projectId strin
 
 // CommentsListOpts Optional parameters for the method 'CommentsList'
 type CommentsListOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32  `json:"page,omitempty"`
-	PerPage       optional.Int32  `json:"per_page,omitempty"`
-	Branch        optional.String `json:"branch,omitempty"`
+	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	Page          optional.Int32     `json:"page,omitempty"`
+	PerPage       optional.Int32     `json:"per_page,omitempty"`
+	Branch        optional.String    `json:"branch,omitempty"`
+	Query         optional.String    `json:"query,omitempty"`
+	LocaleIds     optional.Interface `json:"locale_ids,omitempty"`
+	Filters       optional.Interface `json:"filters,omitempty"`
 }
 
 /*
@@ -778,15 +781,19 @@ List all comments for a key.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param keyId Translation Key ID
+  - @param commentsListParameters
   - @param optional nil or *CommentsListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Query" (optional.String) -  Search query for comment messages
+  - @param "LocaleIds" (optional.Interface of []string) -  Search comments by their assigned locales
+  - @param "Filters" (optional.Interface of []string) -  Specify the filter for the comments
 
 @return []Comment
 */
-func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, localVarOptionals *CommentsListOpts) ([]Comment, *APIResponse, error) {
+func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string, keyId string, commentsListParameters CommentsListParameters, localVarOptionals *CommentsListOpts) ([]Comment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -815,8 +822,33 @@ func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.Query.IsSet() {
+		localVarQueryParams.Add("query", parameterToString(localVarOptionals.Query.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.LocaleIds.IsSet() {
+		t := localVarOptionals.LocaleIds.Value()
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				localVarQueryParams.Add("locale_ids", parameterToString(s.Index(i), "multi"))
+			}
+		} else {
+			localVarQueryParams.Add("locale_ids", parameterToString(t, "multi"))
+		}
+	}
+	if localVarOptionals != nil && localVarOptionals.Filters.IsSet() {
+		t := localVarOptionals.Filters.Value()
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				localVarQueryParams.Add("filters", parameterToString(s.Index(i), "multi"))
+			}
+		} else {
+			localVarQueryParams.Add("filters", parameterToString(t, "multi"))
+		}
+	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -835,6 +867,8 @@ func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
+	// body params
+	localVarPostBody = &commentsListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

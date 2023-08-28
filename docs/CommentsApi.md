@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 ## CommentsList
 
-> []Comment CommentsList(ctx, projectId, keyId, optional)
+> []Comment CommentsList(ctx, projectId, keyId, commentsListParameters, optional)
 
 List comments
 
@@ -384,6 +384,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
+**commentsListParameters** | [**CommentsListParameters**](CommentsListParameters.md)|  | 
  **optional** | ***CommentsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -395,10 +396,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
  **branch** | **optional.String**| specify the branch to use | 
+ **query** | **optional.String**| Search query for comment messages | 
+ **localeIds** | [**optional.Interface of []string**](string.md)| Search comments by their assigned locales | 
+ **filters** | [**optional.Interface of []string**](string.md)| Specify the filter for the comments | 
 
 ### Return type
 
@@ -410,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
