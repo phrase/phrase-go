@@ -247,7 +247,7 @@ LocaleDelete Delete a locale
 Delete an existing locale.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
-  - @param id ID
+  - @param id Locale ID or locale name
   - @param optional nil or *LocaleDeleteOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
@@ -361,7 +361,7 @@ LocaleDownload Download a locale
 Download a locale in a specific file format.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
-  - @param id ID
+  - @param id Locale ID or locale name
   - @param optional nil or *LocaleDownloadOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "IfModifiedSince" (optional.String) -  Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
@@ -540,7 +540,7 @@ LocaleShow Get a single locale
 Get details on a single locale for a given project.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
-  - @param id ID
+  - @param id Locale ID or locale name
   - @param optional nil or *LocaleShowOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
@@ -648,7 +648,7 @@ LocaleUpdate Update a locale
 Update an existing locale.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
-  - @param id ID
+  - @param id Locale ID or locale name
   - @param localeUpdateParameters
   - @param optional nil or *LocaleUpdateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)

@@ -4366,7 +4366,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: ID
+      - description: Locale ID or locale name
         explode: false
         in: path
         name: id
@@ -4459,7 +4459,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: ID
+      - description: Locale ID or locale name
         explode: false
         in: path
         name: id
@@ -4553,7 +4553,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: ID
+      - description: Locale ID or locale name
         explode: false
         in: path
         name: id
@@ -4718,7 +4718,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: ID
+      - description: Locale ID or locale name
         explode: false
         in: path
         name: id
@@ -28537,6 +28537,15 @@ components:
       explode: false
       in: path
       name: locale_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    locale_id_as_id:
+      description: Locale ID or locale name
+      explode: false
+      in: path
+      name: id
       required: true
       schema:
         type: string

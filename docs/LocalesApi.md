@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**id** | **string**| ID | 
+**id** | **string**| Locale ID or locale name | 
  **optional** | ***LocaleDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**id** | **string**| ID | 
+**id** | **string**| Locale ID or locale name | 
  **optional** | ***LocaleDownloadOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**id** | **string**| ID | 
+**id** | **string**| Locale ID or locale name | 
  **optional** | ***LocaleShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**id** | **string**| ID | 
+**id** | **string**| Locale ID or locale name | 
 **localeUpdateParameters** | [**LocaleUpdateParameters**](LocaleUpdateParameters.md)|  | 
  **optional** | ***LocaleUpdateOpts** | optional parameters | nil if no parameters
 
