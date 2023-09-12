@@ -23,22 +23,23 @@ type UploadsApiService service
 
 // UploadCreateOpts Optional parameters for the method 'UploadCreate'
 type UploadCreateOpts struct {
-	XPhraseAppOTP      optional.String    `json:"X-PhraseApp-OTP,omitempty"`
-	Branch             optional.String    `json:"branch,omitempty"`
-	File               optional.Interface `json:"file,omitempty"`
-	FileFormat         optional.String    `json:"file_format,omitempty"`
-	LocaleId           optional.String    `json:"locale_id,omitempty"`
-	Tags               optional.String    `json:"tags,omitempty"`
-	UpdateTranslations optional.Bool      `json:"update_translations,omitempty"`
-	UpdateDescriptions optional.Bool      `json:"update_descriptions,omitempty"`
-	ConvertEmoji       optional.Bool      `json:"convert_emoji,omitempty"`
-	SkipUploadTags     optional.Bool      `json:"skip_upload_tags,omitempty"`
-	SkipUnverification optional.Bool      `json:"skip_unverification,omitempty"`
-	FileEncoding       optional.String    `json:"file_encoding,omitempty"`
-	LocaleMapping      optional.Interface `json:"locale_mapping,omitempty"`
-	FormatOptions      optional.Interface `json:"format_options,omitempty"`
-	Autotranslate      optional.Bool      `json:"autotranslate,omitempty"`
-	MarkReviewed       optional.Bool      `json:"mark_reviewed,omitempty"`
+	XPhraseAppOTP       optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	Branch              optional.String    `json:"branch,omitempty"`
+	File                optional.Interface `json:"file,omitempty"`
+	FileFormat          optional.String    `json:"file_format,omitempty"`
+	LocaleId            optional.String    `json:"locale_id,omitempty"`
+	Tags                optional.String    `json:"tags,omitempty"`
+	UpdateTranslations  optional.Bool      `json:"update_translations,omitempty"`
+	UpdateDescriptions  optional.Bool      `json:"update_descriptions,omitempty"`
+	ConvertEmoji        optional.Bool      `json:"convert_emoji,omitempty"`
+	SkipUploadTags      optional.Bool      `json:"skip_upload_tags,omitempty"`
+	SkipUnverification  optional.Bool      `json:"skip_unverification,omitempty"`
+	FileEncoding        optional.String    `json:"file_encoding,omitempty"`
+	LocaleMapping       optional.Interface `json:"locale_mapping,omitempty"`
+	FormatOptions       optional.Interface `json:"format_options,omitempty"`
+	Autotranslate       optional.Bool      `json:"autotranslate,omitempty"`
+	MarkReviewed        optional.Bool      `json:"mark_reviewed,omitempty"`
+	TagOnlyAffectedKeys optional.Bool      `json:"tag_only_affected_keys,omitempty"`
 }
 
 /*
@@ -63,6 +64,7 @@ Upload a new language file. Creates necessary resources in your project.
   - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional options available for specific formats. See our format guide for complete list.
   - @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
   - @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
+  - @param "TagOnlyAffectedKeys" (optional.Bool) -  Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
 
 @return Upload
 */
@@ -164,6 +166,9 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 	if localVarOptionals != nil && localVarOptionals.MarkReviewed.IsSet() {
 		localVarFormParams.Add("mark_reviewed", parameterToString(localVarOptionals.MarkReviewed.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.TagOnlyAffectedKeys.IsSet() {
+		localVarFormParams.Add("tag_only_affected_keys", parameterToString(localVarOptionals.TagOnlyAffectedKeys.Value(), ""))
 	}
 	if ctx != nil {
 		// API Key Authentication

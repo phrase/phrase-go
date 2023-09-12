@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **FormatOptions** | [**map[string]interface{}**](.md) | Additional options available for specific formats. See our format guide for complete list. | [optional] 
 **Autotranslate** | **bool** | If set, translations for the uploaded language will be fetched automatically. | [optional] 
 **MarkReviewed** | **bool** | Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | [optional] 
+**TagOnlyAffectedKeys** | **bool** | Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -51,6 +51,7 @@ Name | Type | Description  | Notes
  **formatOptions** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Additional options available for specific formats. See our format guide for complete list. | 
  **autotranslate** | **optional.Bool**| If set, translations for the uploaded language will be fetched automatically. | 
  **markReviewed** | **optional.Bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | 
+ **tagOnlyAffectedKeys** | **optional.Bool**| Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; | [default to false]
 
 ### Return type
 

@@ -36,4 +36,6 @@ type UploadCreateParameters struct {
 	Autotranslate *bool `json:"autotranslate,omitempty"`
 	// Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
 	MarkReviewed *bool `json:"mark_reviewed,omitempty"`
+	// Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
+	TagOnlyAffectedKeys *bool `json:"tag_only_affected_keys,omitempty"`
 }
