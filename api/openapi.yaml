@@ -2014,6 +2014,733 @@ paths:
           --id <id> \
           --access_token <token>
       x-cli-version: "2.5"
+  /projects/{project_id}/figma_attachments:
+    get:
+      description: List all Figma attachments for the given project
+      operationId: figma_attachments/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: Limit on the number of objects to be returned, between 1 and
+          100. 25 by default
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/figma_attachment'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List Figma attachments
+      tags:
+      - Figma attachments
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/figma_attachments?branch=my-feature-branch" \
+            -X GET \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase figma_attachments list \
+          --project_id <project_id> \
+          --branch my-feature-branch \
+          --access_token <token>
+      x-cli-version: "2.13"
+    post:
+      description: Create a new Figma attachment.
+      operationId: figma_attachment/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        $ref: '#/components/requestBodies/figma_attachment_create_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                branch:
+                  description: specify the branch to use
+                  example: my-feature-branch
+                  type: string
+                url:
+                  description: Figma file url
+                  example: https://figma.com/file/xxxxx/sample
+                  type: string
+              title: figma_attachment/create/parameters
+              type: object
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/figma_attachment'
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create a Figma attachment
+      tags:
+      - Figma attachments
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/figma_attachments" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -F branch=my-feature-branch \
+            -F url=https://figma.com/file/xxxxx/sample \
+      - lang: CLI v2
+        source: |-
+          phrase figma_attachment create \
+          --project_id <project_id> \
+          --data '{"branch":"my-feature-branch", "url":"https://figma.com/file/xxxxx/sample"}' \
+          --access_token <token>
+      x-cli-version: "2.13"
+  /projects/{project_id}/figma_attachments/{id}:
+    delete:
+      description: Delete an existing Figma attachment.
+      operationId: figma_attachment/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Delete a Figma attachment
+      tags:
+      - Figma attachments
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/figma_attachments/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE \
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase figma_attachment delete \
+          --project_id <project_id> \
+          --id <id> \
+          --branch my-feature-branch \
+          --access_token <token>
+      x-cli-version: "2.13"
+    get:
+      description: Get details on a single Figma attachment for a given project.
+      operationId: figma_attachment/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/figma_attachment'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single Figma attachment
+      tags:
+      - Figma attachments
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/figma_attachments/:id?branch=my-feature-branch" \
+            -X GET \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase figma_attachment show \
+          --project_id <project_id> \
+          --id <id> \
+          --branch my-feature-branch \
+          --access_token <token>
+      x-cli-version: "2.13"
+    patch:
+      description: Update an existing Figma attachment.
+      operationId: figma_attachment/update
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        $ref: '#/components/requestBodies/figma_attachment_update_parameters'
+        content:
+          application/json:
+            schema:
+              properties:
+                branch:
+                  description: specify the branch to use
+                  example: my-feature-branch
+                  type: string
+                url:
+                  description: Figma file url
+                  example: https://figma.com/file/xxxxx/sample
+                  type: string
+              title: figma_attachment/update/parameters
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/figma_attachment'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Update a Figma attachment
+      tags:
+      - Figma attachments
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/figma_attachments/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -F branch=my-feature-branch \
+            -F url=https://figma.com/file/xxxxx/sample \
+      - lang: CLI v2
+        source: |-
+          phrase figma_attachment update \
+          --project_id <project_id> \
+          --id <id> \
+          --data '{"branch":"my-feature-branch", "url":"https://figma.com/file/xxxxx/sample" }' \
+          --access_token <token>
+      x-cli-version: "2.13"
+  /projects/{project_id}/figma_attachments/{figma_attachment_id}/keys:
+    post:
+      description: Attach the Figma attachment to a key
+      operationId: figma_attachment/attach_to_key
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Figma attachment ID
+        explode: false
+        in: path
+        name: figma_attachment_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Attach the Figma attachment to a key
+      tags:
+      - Key's Figma attachments
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/figma_attachments/:figma_attachment_id/keys" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -F branch=my-feature-branch \
+            -F id=key_id \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase figma_attachment attach_to_key \
+          --project_id <project_id> \
+          --figma_attachment_id <figma_attachment_id> \
+          --id <id> \
+          --branch my-feature-branch \
+          --access_token <token>
+      x-cli-version: "2.13"
+  /projects/{project_id}/figma_attachments/{figma_attachment_id}/keys/{id}:
+    delete:
+      description: Detach the Figma attachment from a key
+      operationId: figma_attachment/detach_from_key
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Figma attachment ID
+        explode: false
+        in: path
+        name: figma_attachment_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: specify the branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Detach the Figma attachment from a key
+      tags:
+      - Key's Figma attachments
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/figma_attachments/:figma_attachment_id/keys/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE \
+            -F branch=my-feature-branch \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase figma_attachment detach_from_key \
+          --project_id <project_id> \
+          --figma_attachment_id <figma_attachment_id> \
+          --id <id> \
+          --branch my-feature-branch \
+          --access_token <token>
+      x-cli-version: "2.13"
   /projects/{project_id}/styleguides:
     get:
       description: List all styleguides for the given project.
@@ -28456,6 +29183,15 @@ components:
       schema:
         type: string
       style: simple
+    figma_attachment_id:
+      description: Figma attachment ID
+      explode: false
+      in: path
+      name: figma_attachment_id
+      required: true
+      schema:
+        type: string
+      style: simple
     job_id:
       description: Job ID
       explode: false
@@ -28954,6 +29690,12 @@ components:
           schema:
             $ref: '#/components/schemas/team_update_parameters'
       required: true
+    figma_attachment_create_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/figma_attachment_create_parameters'
+      required: true
     key_create_parameters:
       content:
         application/json:
@@ -28965,6 +29707,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/teams_projects_create_parameters'
+      required: true
+    figma_attachment_update_parameters:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/figma_attachment_update_parameters'
       required: true
     team_create_parameters:
       content:
@@ -29844,6 +30592,25 @@ components:
             $ref: '#/components/schemas/member_project_detail_project_roles'
           type: array
       title: invitation
+      type: object
+    figma_attachment:
+      example:
+        id: 626ea67628690c73ac86ac81eec2d185
+        url: https://figma.com/file/something
+        created_at: 2017-01-28T09:52:53Z
+        updated_at: 2017-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: figma_attachment
       type: object
     glossary:
       example:
@@ -31569,6 +32336,30 @@ components:
         updated_at:
           format: date-time
           type: string
+    figma_attachment_create_parameters:
+      properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
+        url:
+          description: Figma file url
+          example: https://figma.com/file/xxxxx/sample
+          type: string
+      title: figma_attachment/create/parameters
+      type: object
+    figma_attachment_update_parameters:
+      properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
+        url:
+          description: Figma file url
+          example: https://figma.com/file/xxxxx/sample
+          type: string
+      title: figma_attachment/update/parameters
+      type: object
     styleguide_create_parameters:
       properties:
         title:

@@ -116,6 +116,11 @@ Class | Method | HTTP request | Description
 *DistributionsApi* | [**DistributionsList**](docs/DistributionsApi.md#distributionslist) | **Get** /accounts/{account_id}/distributions | List distributions
 *DocumentsApi* | [**DocumentDelete**](docs/DocumentsApi.md#documentdelete) | **Delete** /projects/{project_id}/documents/{id} | Delete document
 *DocumentsApi* | [**DocumentsList**](docs/DocumentsApi.md#documentslist) | **Get** /projects/{project_id}/documents | List documents
+*FigmaAttachmentsApi* | [**FigmaAttachmentCreate**](docs/FigmaAttachmentsApi.md#figmaattachmentcreate) | **Post** /projects/{project_id}/figma_attachments | Create a Figma attachment
+*FigmaAttachmentsApi* | [**FigmaAttachmentDelete**](docs/FigmaAttachmentsApi.md#figmaattachmentdelete) | **Delete** /projects/{project_id}/figma_attachments/{id} | Delete a Figma attachment
+*FigmaAttachmentsApi* | [**FigmaAttachmentShow**](docs/FigmaAttachmentsApi.md#figmaattachmentshow) | **Get** /projects/{project_id}/figma_attachments/{id} | Get a single Figma attachment
+*FigmaAttachmentsApi* | [**FigmaAttachmentUpdate**](docs/FigmaAttachmentsApi.md#figmaattachmentupdate) | **Patch** /projects/{project_id}/figma_attachments/{id} | Update a Figma attachment
+*FigmaAttachmentsApi* | [**FigmaAttachmentsList**](docs/FigmaAttachmentsApi.md#figmaattachmentslist) | **Get** /projects/{project_id}/figma_attachments | List Figma attachments
 *FormatsApi* | [**FormatsList**](docs/FormatsApi.md#formatslist) | **Get** /formats | List formats
 *GitHubSyncApi* | [**GithubSyncExport**](docs/GitHubSyncApi.md#githubsyncexport) | **Post** /github_syncs/export | Export from Phrase Strings to GitHub
 *GitHubSyncApi* | [**GithubSyncImport**](docs/GitHubSyncApi.md#githubsyncimport) | **Post** /github_syncs/import | Import to Phrase Strings from GitHub
@@ -194,6 +199,8 @@ Class | Method | HTTP request | Description
 *KeysApi* | [**KeysSearch**](docs/KeysApi.md#keyssearch) | **Post** /projects/{project_id}/keys/search | Search keys
 *KeysApi* | [**KeysTag**](docs/KeysApi.md#keystag) | **Patch** /projects/{project_id}/keys/tag | Add tags to collection of keys
 *KeysApi* | [**KeysUntag**](docs/KeysApi.md#keysuntag) | **Patch** /projects/{project_id}/keys/untag | Remove tags from collection of keys
+*KeysFigmaAttachmentsApi* | [**FigmaAttachmentAttachToKey**](docs/KeysFigmaAttachmentsApi.md#figmaattachmentattachtokey) | **Post** /projects/{project_id}/figma_attachments/{figma_attachment_id}/keys | Attach the Figma attachment to a key
+*KeysFigmaAttachmentsApi* | [**FigmaAttachmentDetachFromKey**](docs/KeysFigmaAttachmentsApi.md#figmaattachmentdetachfromkey) | **Delete** /projects/{project_id}/figma_attachments/{figma_attachment_id}/keys/{id} | Detach the Figma attachment from a key
 *LocalesApi* | [**AccountLocales**](docs/LocalesApi.md#accountlocales) | **Get** /accounts/{id}/locales | List locales used in account
 *LocalesApi* | [**LocaleCreate**](docs/LocalesApi.md#localecreate) | **Post** /projects/{project_id}/locales | Create a locale
 *LocalesApi* | [**LocaleDelete**](docs/LocalesApi.md#localedelete) | **Delete** /projects/{project_id}/locales/{id} | Delete a locale
@@ -353,6 +360,9 @@ Class | Method | HTTP request | Description
  - [DistributionPreview](docs/DistributionPreview.md)
  - [DistributionUpdateParameters](docs/DistributionUpdateParameters.md)
  - [Document](docs/Document.md)
+ - [FigmaAttachment](docs/FigmaAttachment.md)
+ - [FigmaAttachmentCreateParameters](docs/FigmaAttachmentCreateParameters.md)
+ - [FigmaAttachmentUpdateParameters](docs/FigmaAttachmentUpdateParameters.md)
  - [Format](docs/Format.md)
  - [GithubSyncExportParameters](docs/GithubSyncExportParameters.md)
  - [GithubSyncImportParameters](docs/GithubSyncImportParameters.md)

@@ -59,6 +59,8 @@ type APIClient struct {
 
 	DocumentsApi *DocumentsApiService
 
+	FigmaAttachmentsApi *FigmaAttachmentsApiService
+
 	FormatsApi *FormatsApiService
 
 	GitHubSyncApi *GitHubSyncApiService
@@ -86,6 +88,8 @@ type APIClient struct {
 	JobsApi *JobsApiService
 
 	KeysApi *KeysApiService
+
+	KeysFigmaAttachmentsApi *KeysFigmaAttachmentsApiService
 
 	LocalesApi *LocalesApiService
 
@@ -160,6 +164,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CommentsApi = (*CommentsApiService)(&c.common)
 	c.DistributionsApi = (*DistributionsApiService)(&c.common)
 	c.DocumentsApi = (*DocumentsApiService)(&c.common)
+	c.FigmaAttachmentsApi = (*FigmaAttachmentsApiService)(&c.common)
 	c.FormatsApi = (*FormatsApiService)(&c.common)
 	c.GitHubSyncApi = (*GitHubSyncApiService)(&c.common)
 	c.GitLabSyncApi = (*GitLabSyncApiService)(&c.common)
@@ -174,6 +179,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.JobTemplatesApi = (*JobTemplatesApiService)(&c.common)
 	c.JobsApi = (*JobsApiService)(&c.common)
 	c.KeysApi = (*KeysApiService)(&c.common)
+	c.KeysFigmaAttachmentsApi = (*KeysFigmaAttachmentsApiService)(&c.common)
 	c.LocalesApi = (*LocalesApiService)(&c.common)
 	c.MembersApi = (*MembersApiService)(&c.common)
 	c.NotificationGroupsApi = (*NotificationGroupsApiService)(&c.common)
