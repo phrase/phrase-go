@@ -5812,6 +5812,7 @@ paths:
                     * `ios`
                     * `flutter`
                     * `i18next`
+                    * `rails`
                   example:
                   - android
                   - ios
@@ -32797,6 +32798,7 @@ components:
             * `ios`
             * `flutter`
             * `i18next`
+            * `rails`
           example:
           - android
           - ios
