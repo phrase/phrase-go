@@ -35265,7 +35265,7 @@ components:
           type: string
     job_details_1:
       example: '{"owner":{"id":"abcd1234cdef1234abcd1234cdef1234","username":"joe.doe","name":"Joe
-        Doe"},"job_tag_name":"Job_123","source_locale":[{"id":"abcd1234cdef1234abcd1234cdef1235","name":"de-DE","code":"de-DE"}],"locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}],"keys":[{"id":"dbcd1234cdef1234abcd1234cdef1234","name":"greeting.hello"}]}'
+        Doe"},"job_tag_name":"Job_123","source_locale":{"id":"abcd1234cdef1234abcd1234cdef1235","name":"de-DE","code":"de-DE"},"locales":[{"id":"abcd1234cdef1234abcd1234cdef1234","name":"English","code":"en-GB"}],"keys":[{"id":"dbcd1234cdef1234abcd1234cdef1234","name":"greeting.hello"}]}'
       properties:
         owner:
           $ref: '#/components/schemas/user_preview'
