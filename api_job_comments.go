@@ -451,6 +451,7 @@ func (a *JobCommentsApiService) JobCommentUpdate(ctx _context.Context, projectId
 type JobCommentsListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Branch        optional.String `json:"branch,omitempty"`
+	Order         optional.String `json:"order,omitempty"`
 }
 
 /*
@@ -462,6 +463,7 @@ List all comments for a job.
   - @param optional nil or *JobCommentsListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
 
 @return []JobComment
 */
@@ -487,6 +489,9 @@ func (a *JobCommentsApiService) JobCommentsList(ctx _context.Context, projectId 
 
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Order.IsSet() {
+		localVarQueryParams.Add("order", parameterToString(localVarOptionals.Order.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

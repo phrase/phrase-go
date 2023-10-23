@@ -773,6 +773,7 @@ type CommentsListOpts struct {
 	Query         optional.String    `json:"query,omitempty"`
 	LocaleIds     optional.Interface `json:"locale_ids,omitempty"`
 	Filters       optional.Interface `json:"filters,omitempty"`
+	Order         optional.String    `json:"order,omitempty"`
 }
 
 /*
@@ -790,6 +791,7 @@ List all comments for a key.
   - @param "Query" (optional.String) -  Search query for comment messages
   - @param "LocaleIds" (optional.Interface of []string) -  Search comments by their assigned locales
   - @param "Filters" (optional.Interface of []string) -  Specify the filter for the comments
+  - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
 
 @return []Comment
 */
@@ -846,6 +848,9 @@ func (a *CommentsApiService) CommentsList(ctx _context.Context, projectId string
 		} else {
 			localVarQueryParams.Add("filters", parameterToString(t, "multi"))
 		}
+	}
+	if localVarOptionals != nil && localVarOptionals.Order.IsSet() {
+		localVarQueryParams.Add("order", parameterToString(localVarOptionals.Order.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

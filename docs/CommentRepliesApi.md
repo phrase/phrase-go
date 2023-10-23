@@ -50,6 +50,7 @@ Name | Type | Description  | Notes
  **branch** | **optional.String**| specify the branch to use | 
  **query** | **optional.String**| Search query for comment messages | 
  **filters** | [**optional.Interface of []string**](string.md)| Specify the filter for the comments | 
+ **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
 
 ### Return type
 

@@ -10102,6 +10102,15 @@ paths:
             type: string
           type: array
         style: form
+      - description: 'Order direction. Can be one of: asc, desc.'
+        example: desc
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/comments_list_parameters'
         content:
@@ -10132,6 +10141,10 @@ paths:
                   items:
                     type: string
                   type: array
+                order:
+                  description: Specify ordering of comments
+                  example: desc
+                  type: string
               title: comments/list/parameters
               type: object
         required: true
@@ -10186,7 +10199,7 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments?branch=my-feature-branch&filters=unread&query=something&locale_ids=someId" \
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments?branch=my-feature-branch&filters=unread&query=something&locale_ids=someId&order=desc" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X GET \
             -H 'Content-Type: application/json'
@@ -10197,6 +10210,7 @@ paths:
           --key_id <key_id> \
           --branch "my-feature-branch" \
           --filters unread \
+          --order desc \
           --query "Some comment content" \
           --locale_ids someId \
           --access_token <token>
@@ -11554,6 +11568,15 @@ paths:
             type: string
           type: array
         style: form
+      - description: 'Order direction. Can be one of: asc, desc.'
+        example: desc
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         $ref: '#/components/requestBodies/replies_list_parameters'
         content:
@@ -11576,6 +11599,10 @@ paths:
                   items:
                     type: string
                   type: array
+                order:
+                  description: Specify ordering of comments
+                  example: desc
+                  type: string
               title: replies/list/parameters
               type: object
         required: true
@@ -11639,7 +11666,7 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies?branch=my-feature-branch&filters=unread&query=something" \
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies?branch=my-feature-branch&filters=unread&query=something&order=desc" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X GET \
             -H 'Content-Type: application/json'
@@ -11651,6 +11678,7 @@ paths:
           --comment_id <comment_id> \
           --branch "my-feature-branch" \
           --filters unread \
+          --order desc \
           --query "Some comment content" \
           --access_token <token>
       x-cli-version: "2.10"
@@ -27560,6 +27588,15 @@ paths:
         schema:
           type: string
         style: form
+      - description: 'Order direction. Can be one of: asc, desc.'
+        example: desc
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -27611,7 +27648,7 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/comments?branch=my-feature-branch" \
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/comments?branch=my-feature-branch&order=desc" \
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
@@ -27619,6 +27656,7 @@ paths:
           --project_id <project_id> \
           --job_id <key_id> \
           --branch my-feature-branch \
+          --order desc \
           --access_token <token>
       x-cli-version: "2.5"
     post:
@@ -33230,6 +33268,10 @@ components:
           items:
             type: string
           type: array
+        order:
+          description: Specify ordering of comments
+          example: desc
+          type: string
       title: comments/list/parameters
       type: object
     comment_create_parameters:
@@ -33282,6 +33324,10 @@ components:
           items:
             type: string
           type: array
+        order:
+          description: Specify ordering of comments
+          example: desc
+          type: string
       title: replies/list/parameters
       type: object
     webhook_create_parameters:

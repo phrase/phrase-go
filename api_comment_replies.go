@@ -27,6 +27,7 @@ type RepliesListOpts struct {
 	Branch        optional.String    `json:"branch,omitempty"`
 	Query         optional.String    `json:"query,omitempty"`
 	Filters       optional.Interface `json:"filters,omitempty"`
+	Order         optional.String    `json:"order,omitempty"`
 }
 
 /*
@@ -44,6 +45,7 @@ List all replies for a comment.
   - @param "Branch" (optional.String) -  specify the branch to use
   - @param "Query" (optional.String) -  Search query for comment messages
   - @param "Filters" (optional.Interface of []string) -  Specify the filter for the comments
+  - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
 
 @return []Comment
 */
@@ -91,6 +93,9 @@ func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId s
 		} else {
 			localVarQueryParams.Add("filters", parameterToString(t, "multi"))
 		}
+	}
+	if localVarOptionals != nil && localVarOptionals.Order.IsSet() {
+		localVarQueryParams.Add("order", parameterToString(localVarOptionals.Order.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

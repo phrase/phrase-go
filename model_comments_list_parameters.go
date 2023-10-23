@@ -10,4 +10,6 @@ type CommentsListParameters struct {
 	LocaleIds []string `json:"locale_ids,omitempty"`
 	// Specify filters to find comments by
 	Filters []string `json:"filters,omitempty"`
+	// Specify ordering of comments
+	Order string `json:"order,omitempty"`
 }

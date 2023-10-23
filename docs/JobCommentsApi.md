@@ -241,6 +241,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **branch** | **optional.String**| specify the branch to use | 
+ **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
 
 ### Return type
 
