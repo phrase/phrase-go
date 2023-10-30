@@ -108,7 +108,7 @@ func (a *InvitationsApiService) InvitationCreate(ctx _context.Context, accountId
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
+			var v InvitationCreate422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

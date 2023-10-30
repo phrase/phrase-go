@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Variable**](variable.md)
+[**Variable**](Variable.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Variable**](variable.md)
+[**Variable**](Variable.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Variable**](variable.md)
+[**Variable**](Variable.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Variable**](variable.md)
+[**[]Variable**](Variable.md)
 
 ### Authorization
 

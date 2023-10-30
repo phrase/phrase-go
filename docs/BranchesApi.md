@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Branch**](branch.md)
+[**Branch**](Branch.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Branch**](branch.md)
+[**Branch**](Branch.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Branch**](branch.md)
+[**Branch**](Branch.md)
 
 ### Authorization
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Branch**](branch.md)
+[**[]Branch**](Branch.md)
 
 ### Authorization
 

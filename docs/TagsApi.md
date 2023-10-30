@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TagWithStats**](tag_with_stats.md)
+[**TagWithStats**](TagWithStats.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TagWithStats**](tag_with_stats.md)
+[**TagWithStats**](TagWithStats.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Tag**](tag.md)
+[**[]Tag**](Tag.md)
 
 ### Authorization
 

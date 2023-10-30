@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Release**](release.md)
+[**Release**](Release.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Release**](release.md)
+[**Release**](Release.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Release**](release.md)
+[**Release**](Release.md)
 
 ### Authorization
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Release**](release.md)
+[**Release**](Release.md)
 
 ### Authorization
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ReleasePreview**](release_preview.md)
+[**[]ReleasePreview**](ReleasePreview.md)
 
 ### Authorization
 

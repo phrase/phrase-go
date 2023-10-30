@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationOrder**](translation_order.md)
+[**TranslationOrder**](TranslationOrder.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationOrder**](translation_order.md)
+[**TranslationOrder**](TranslationOrder.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationOrder**](translation_order.md)
+[**TranslationOrder**](TranslationOrder.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TranslationOrder**](translation_order.md)
+[**[]TranslationOrder**](TranslationOrder.md)
 
 ### Authorization
 

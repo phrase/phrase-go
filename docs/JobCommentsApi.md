@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobComment**](job_comment.md)
+[**JobComment**](JobComment.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobComment**](job_comment.md)
+[**JobComment**](JobComment.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobComment**](job_comment.md)
+[**JobComment**](JobComment.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]JobComment**](job_comment.md)
+[**[]JobComment**](JobComment.md)
 
 ### Authorization
 

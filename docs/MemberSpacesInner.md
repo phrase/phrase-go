@@ -1,12 +1,14 @@
-# JobTemplateDetails1
+# MemberSpacesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Owner** | [**UserPreview**](user_preview.md) |  | [optional] 
-**Creator** | [**UserPreview**](user_preview.md) |  | [optional] 
-**Locales** | [**[]LocalePreview**](locale_preview.md) |  | [optional] 
+**Id** | **string** |  | [optional] 
+**Name** | **string** |  | [optional] 
+**CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
+**UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
+**ProjectsCount** | **int32** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

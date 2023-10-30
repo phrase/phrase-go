@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Screenshot**](screenshot.md)
+[**Screenshot**](Screenshot.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Screenshot**](screenshot.md)
+[**Screenshot**](Screenshot.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Screenshot**](screenshot.md)
+[**Screenshot**](Screenshot.md)
 
 ### Authorization
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Screenshot**](screenshot.md)
+[**[]Screenshot**](Screenshot.md)
 
 ### Authorization
 

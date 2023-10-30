@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **Description** | **string** |  | [optional] 
 **Platforms** | **[]string** |  | [optional] 
 **Environments** | **[]string** |  | [optional] 
-**Locales** | [**[]LocalePreview**](locale_preview.md) |  | [optional] 
+**Locales** | [**[]LocalePreview**](LocalePreview.md) |  | [optional] 
 **Tags** | **[]string** |  | [optional] 
-**Project** | [**ProjectShort**](project_short.md) |  | [optional] 
+**Project** | [**ProjectShort**](ProjectShort.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Distribution**](distribution.md)
+[**Distribution**](Distribution.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Distribution**](distribution.md)
+[**Distribution**](Distribution.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Distribution**](distribution.md)
+[**Distribution**](Distribution.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]DistributionPreview**](distribution_preview.md)
+[**[]DistributionPreview**](DistributionPreview.md)
 
 ### Authorization
 

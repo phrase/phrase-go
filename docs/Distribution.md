@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
-**Project** | [**ProjectShort**](project_short.md) |  | [optional] 
+**Project** | [**ProjectShort**](ProjectShort.md) |  | [optional] 
 **Platforms** | **[]string** |  | [optional] 
-**Locales** | [**[]LocalePreview**](locale_preview.md) |  | [optional] 
-**Releases** | [**[]ReleasePreview**](release_preview.md) |  | [optional] 
+**Locales** | [**[]LocalePreview**](LocalePreview.md) |  | [optional] 
+**Releases** | [**[]ReleasePreview**](ReleasePreview.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **DeletedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobLocale**](job_locale.md)
+[**JobLocale**](JobLocale.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobLocale**](job_locale.md)
+[**JobLocale**](JobLocale.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobLocale**](job_locale.md)
+[**JobLocale**](JobLocale.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobLocale**](job_locale.md)
+[**JobLocale**](JobLocale.md)
 
 ### Authorization
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobLocale**](job_locale.md)
+[**JobLocale**](JobLocale.md)
 
 ### Authorization
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobLocale**](job_locale.md)
+[**JobLocale**](JobLocale.md)
 
 ### Authorization
 
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]JobLocale**](job_locale.md)
+[**[]JobLocale**](JobLocale.md)
 
 ### Authorization
 

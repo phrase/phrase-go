@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Document**](document.md)
+[**[]Document**](Document.md)
 
 ### Authorization
 

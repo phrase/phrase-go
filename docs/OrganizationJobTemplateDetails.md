@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **Briefing** | **string** |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
-**Owner** | [**UserPreview**](user_preview.md) |  | [optional] 
-**Creator** | [**UserPreview**](user_preview.md) |  | [optional] 
-**Locales** | [**[]LocalePreview**](locale_preview.md) |  | [optional] 
+**Owner** | [**UserPreview**](UserPreview.md) |  | [optional] 
+**Creator** | [**UserPreview**](UserPreview.md) |  | [optional] 
+**Locales** | [**[]LocalePreview**](LocalePreview.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

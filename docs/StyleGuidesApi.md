@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StyleguideDetails**](styleguide_details.md)
+[**StyleguideDetails**](StyleguideDetails.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StyleguideDetails**](styleguide_details.md)
+[**StyleguideDetails**](StyleguideDetails.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StyleguideDetails**](styleguide_details.md)
+[**StyleguideDetails**](StyleguideDetails.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Styleguide**](styleguide.md)
+[**[]Styleguide**](Styleguide.md)
 
 ### Authorization
 

@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AuthorizationWithToken**](authorization_with_token.md)
+[**AuthorizationWithToken**](AuthorizationWithToken.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authorization**](authorization.md)
+[**Authorization**](Authorization.md)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Authorization**](authorization.md)
+[**Authorization**](Authorization.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Authorization**](authorization.md)
+[**[]Authorization**](Authorization.md)
 
 ### Authorization
 

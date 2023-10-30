@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]LocalePreview1**](locale_preview_1.md)
+[**[]LocalePreview1**](LocalePreview1.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LocaleDetails**](locale_details.md)
+[**LocaleDetails**](LocaleDetails.md)
 
 ### Authorization
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LocaleDetails**](locale_details.md)
+[**LocaleDetails**](LocaleDetails.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LocaleDetails**](locale_details.md)
+[**LocaleDetails**](LocaleDetails.md)
 
 ### Authorization
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Locale**](locale.md)
+[**[]Locale**](Locale.md)
 
 ### Authorization
 

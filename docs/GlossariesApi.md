@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Glossary**](glossary.md)
+[**[]Glossary**](Glossary.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Glossary**](glossary.md)
+[**Glossary**](Glossary.md)
 
 ### Authorization
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Glossary**](glossary.md)
+[**Glossary**](Glossary.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Glossary**](glossary.md)
+[**Glossary**](Glossary.md)
 
 ### Authorization
 

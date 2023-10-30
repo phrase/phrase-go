@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScreenshotMarker**](screenshot_marker.md)
+[**ScreenshotMarker**](ScreenshotMarker.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScreenshotMarker**](screenshot_marker.md)
+[**ScreenshotMarker**](ScreenshotMarker.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScreenshotMarker**](screenshot_marker.md)
+[**ScreenshotMarker**](ScreenshotMarker.md)
 
 ### Authorization
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ScreenshotMarker**](screenshot_marker.md)
+[**[]ScreenshotMarker**](ScreenshotMarker.md)
 
 ### Authorization
 

@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]NotificationGroupDetail**](notification_group_detail.md)
+[**[]NotificationGroupDetail**](NotificationGroupDetail.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]NotificationGroupDetail**](notification_group_detail.md)
+[**[]NotificationGroupDetail**](NotificationGroupDetail.md)
 
 ### Authorization
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NotificationGroupDetail**](notification_group_detail.md)
+[**NotificationGroupDetail**](NotificationGroupDetail.md)
 
 ### Authorization
 

@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Upload**](upload.md)
+[**Upload**](Upload.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Upload**](upload.md)
+[**Upload**](Upload.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Upload**](upload.md)
+[**[]Upload**](Upload.md)
 
 ### Authorization
 

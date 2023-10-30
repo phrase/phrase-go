@@ -1,10 +1,11 @@
-# LocaleDetails1
+# InvitationCreate422Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Statistics** | [**LocaleStatistics**](locale_statistics.md) |  | [optional] 
+**Message** | **string** |  | [optional] 
+**Errors** | [**[]InvitationCreate422ResponseErrorsInner**](InvitationCreate422ResponseErrorsInner.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

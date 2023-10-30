@@ -16,5 +16,5 @@ type Member struct {
 	Permissions        map[string]interface{} `json:"permissions,omitempty"`
 	DefaultLocaleCodes []string               `json:"default_locale_codes,omitempty"`
 	Teams              []TeamShort            `json:"teams,omitempty"`
-	Spaces             []MemberSpaces         `json:"spaces,omitempty"`
+	Spaces             []MemberSpacesInner    `json:"spaces,omitempty"`
 }

@@ -327,7 +327,6 @@ Class | Method | HTTP request | Description
 
  - [Account](docs/Account.md)
  - [AccountDetails](docs/AccountDetails.md)
- - [AccountDetails1](docs/AccountDetails1.md)
  - [AccountSearchResult](docs/AccountSearchResult.md)
  - [AffectedCount](docs/AffectedCount.md)
  - [AffectedResources](docs/AffectedResources.md)
@@ -335,7 +334,6 @@ Class | Method | HTTP request | Description
  - [AuthorizationCreateParameters](docs/AuthorizationCreateParameters.md)
  - [AuthorizationUpdateParameters](docs/AuthorizationUpdateParameters.md)
  - [AuthorizationWithToken](docs/AuthorizationWithToken.md)
- - [AuthorizationWithToken1](docs/AuthorizationWithToken1.md)
  - [BitbucketSync](docs/BitbucketSync.md)
  - [BitbucketSyncExportParameters](docs/BitbucketSyncExportParameters.md)
  - [BitbucketSyncExportResponse](docs/BitbucketSyncExportResponse.md)
@@ -370,7 +368,7 @@ Class | Method | HTTP request | Description
  - [GitlabSyncExport](docs/GitlabSyncExport.md)
  - [GitlabSyncExportParameters](docs/GitlabSyncExportParameters.md)
  - [GitlabSyncHistory](docs/GitlabSyncHistory.md)
- - [GitlabSyncHistoryErrors](docs/GitlabSyncHistoryErrors.md)
+ - [GitlabSyncHistoryErrorsInner](docs/GitlabSyncHistoryErrorsInner.md)
  - [GitlabSyncImportParameters](docs/GitlabSyncImportParameters.md)
  - [Glossary](docs/Glossary.md)
  - [GlossaryCreateParameters](docs/GlossaryCreateParameters.md)
@@ -383,9 +381,9 @@ Class | Method | HTTP request | Description
  - [GlossaryUpdateParameters](docs/GlossaryUpdateParameters.md)
  - [Icu](docs/Icu.md)
  - [IcuSkeletonParameters](docs/IcuSkeletonParameters.md)
- - [InlineResponse422](docs/InlineResponse422.md)
- - [InlineResponse422Errors](docs/InlineResponse422Errors.md)
  - [Invitation](docs/Invitation.md)
+ - [InvitationCreate422Response](docs/InvitationCreate422Response.md)
+ - [InvitationCreate422ResponseErrorsInner](docs/InvitationCreate422ResponseErrorsInner.md)
  - [InvitationCreateParameters](docs/InvitationCreateParameters.md)
  - [InvitationUpdateParameters](docs/InvitationUpdateParameters.md)
  - [InvitationUpdateSettingsParameters](docs/InvitationUpdateSettingsParameters.md)
@@ -396,7 +394,6 @@ Class | Method | HTTP request | Description
  - [JobCompleteParameters](docs/JobCompleteParameters.md)
  - [JobCreateParameters](docs/JobCreateParameters.md)
  - [JobDetails](docs/JobDetails.md)
- - [JobDetails1](docs/JobDetails1.md)
  - [JobKeysCreateParameters](docs/JobKeysCreateParameters.md)
  - [JobLocale](docs/JobLocale.md)
  - [JobLocaleCompleteParameters](docs/JobLocaleCompleteParameters.md)
@@ -410,7 +407,6 @@ Class | Method | HTTP request | Description
  - [JobTemplate](docs/JobTemplate.md)
  - [JobTemplateCreateParameters](docs/JobTemplateCreateParameters.md)
  - [JobTemplateDetails](docs/JobTemplateDetails.md)
- - [JobTemplateDetails1](docs/JobTemplateDetails1.md)
  - [JobTemplateLocaleUpdateParameters](docs/JobTemplateLocaleUpdateParameters.md)
  - [JobTemplateLocales](docs/JobTemplateLocales.md)
  - [JobTemplateLocalesCreateParameters](docs/JobTemplateLocalesCreateParameters.md)
@@ -428,7 +424,6 @@ Class | Method | HTTP request | Description
  - [Locale](docs/Locale.md)
  - [LocaleCreateParameters](docs/LocaleCreateParameters.md)
  - [LocaleDetails](docs/LocaleDetails.md)
- - [LocaleDetails1](docs/LocaleDetails1.md)
  - [LocalePreview](docs/LocalePreview.md)
  - [LocalePreview1](docs/LocalePreview1.md)
  - [LocaleStatistics](docs/LocaleStatistics.md)
@@ -437,8 +432,8 @@ Class | Method | HTTP request | Description
  - [LocaleUserPreview](docs/LocaleUserPreview.md)
  - [Member](docs/Member.md)
  - [MemberProjectDetail](docs/MemberProjectDetail.md)
- - [MemberProjectDetailProjectRoles](docs/MemberProjectDetailProjectRoles.md)
- - [MemberSpaces](docs/MemberSpaces.md)
+ - [MemberProjectDetailProjectRolesInner](docs/MemberProjectDetailProjectRolesInner.md)
+ - [MemberSpacesInner](docs/MemberSpacesInner.md)
  - [MemberUpdateParameters](docs/MemberUpdateParameters.md)
  - [MemberUpdateSettingsParameters](docs/MemberUpdateSettingsParameters.md)
  - [Notification](docs/Notification.md)
@@ -455,10 +450,7 @@ Class | Method | HTTP request | Description
  - [Project](docs/Project.md)
  - [ProjectCreateParameters](docs/ProjectCreateParameters.md)
  - [ProjectDetails](docs/ProjectDetails.md)
- - [ProjectDetails1](docs/ProjectDetails1.md)
  - [ProjectLocales](docs/ProjectLocales.md)
- - [ProjectLocales1](docs/ProjectLocales1.md)
- - [ProjectMemberSpecific](docs/ProjectMemberSpecific.md)
  - [ProjectShort](docs/ProjectShort.md)
  - [ProjectUpdateParameters](docs/ProjectUpdateParameters.md)
  - [Release](docs/Release.md)
@@ -467,7 +459,6 @@ Class | Method | HTTP request | Description
  - [ReleaseUpdateParameters](docs/ReleaseUpdateParameters.md)
  - [RepliesListParameters](docs/RepliesListParameters.md)
  - [Screenshot](docs/Screenshot.md)
- - [ScreenshotCreateParameters](docs/ScreenshotCreateParameters.md)
  - [ScreenshotMarker](docs/ScreenshotMarker.md)
  - [ScreenshotMarkerCreateParameters](docs/ScreenshotMarkerCreateParameters.md)
  - [ScreenshotMarkerUpdateParameters](docs/ScreenshotMarkerUpdateParameters.md)
@@ -481,14 +472,12 @@ Class | Method | HTTP request | Description
  - [Styleguide](docs/Styleguide.md)
  - [StyleguideCreateParameters](docs/StyleguideCreateParameters.md)
  - [StyleguideDetails](docs/StyleguideDetails.md)
- - [StyleguideDetails1](docs/StyleguideDetails1.md)
  - [StyleguidePreview](docs/StyleguidePreview.md)
  - [StyleguideUpdateParameters](docs/StyleguideUpdateParameters.md)
  - [Subscription](docs/Subscription.md)
  - [Tag](docs/Tag.md)
  - [TagCreateParameters](docs/TagCreateParameters.md)
  - [TagWithStats](docs/TagWithStats.md)
- - [TagWithStats1](docs/TagWithStats1.md)
  - [TagWithStats1Statistics](docs/TagWithStats1Statistics.md)
  - [TagWithStats1Statistics1](docs/TagWithStats1Statistics1.md)
  - [Team](docs/Team.md)
@@ -502,12 +491,10 @@ Class | Method | HTTP request | Description
  - [Translation](docs/Translation.md)
  - [TranslationCreateParameters](docs/TranslationCreateParameters.md)
  - [TranslationDetails](docs/TranslationDetails.md)
- - [TranslationDetails1](docs/TranslationDetails1.md)
  - [TranslationExcludeParameters](docs/TranslationExcludeParameters.md)
  - [TranslationIncludeParameters](docs/TranslationIncludeParameters.md)
  - [TranslationKey](docs/TranslationKey.md)
  - [TranslationKeyDetails](docs/TranslationKeyDetails.md)
- - [TranslationKeyDetails1](docs/TranslationKeyDetails1.md)
  - [TranslationOrder](docs/TranslationOrder.md)
  - [TranslationReviewParameters](docs/TranslationReviewParameters.md)
  - [TranslationUnverifyParameters](docs/TranslationUnverifyParameters.md)
@@ -515,7 +502,6 @@ Class | Method | HTTP request | Description
  - [TranslationVerifyParameters](docs/TranslationVerifyParameters.md)
  - [TranslationVersion](docs/TranslationVersion.md)
  - [TranslationVersionWithUser](docs/TranslationVersionWithUser.md)
- - [TranslationVersionWithUser1](docs/TranslationVersionWithUser1.md)
  - [TranslationsExcludeParameters](docs/TranslationsExcludeParameters.md)
  - [TranslationsIncludeParameters](docs/TranslationsIncludeParameters.md)
  - [TranslationsReviewParameters](docs/TranslationsReviewParameters.md)
@@ -523,7 +509,6 @@ Class | Method | HTTP request | Description
  - [TranslationsUnverifyParameters](docs/TranslationsUnverifyParameters.md)
  - [TranslationsVerifyParameters](docs/TranslationsVerifyParameters.md)
  - [Upload](docs/Upload.md)
- - [UploadCreateParameters](docs/UploadCreateParameters.md)
  - [UploadSummary](docs/UploadSummary.md)
  - [User](docs/User.md)
  - [UserPreview](docs/UserPreview.md)
@@ -546,6 +531,53 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
+support@phrase.com
 support@phrase.com
 
 

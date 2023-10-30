@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectDetails**](project_details.md)
+[**ProjectDetails**](ProjectDetails.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectDetails**](project_details.md)
+[**ProjectDetails**](ProjectDetails.md)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectDetails**](project_details.md)
+[**ProjectDetails**](ProjectDetails.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Project**](project.md)
+[**[]Project**](Project.md)
 
 ### Authorization
 

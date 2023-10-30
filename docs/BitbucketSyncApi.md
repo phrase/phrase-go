@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BitbucketSyncExportResponse**](bitbucket_sync_export_response.md)
+[**BitbucketSyncExportResponse**](BitbucketSyncExportResponse.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]BitbucketSync**](bitbucket_sync.md)
+[**[]BitbucketSync**](BitbucketSync.md)
 
 ### Authorization
 

@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Invitation**](invitation.md)
+[**Invitation**](Invitation.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Invitation**](invitation.md)
+[**Invitation**](Invitation.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Invitation**](invitation.md)
+[**Invitation**](Invitation.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Invitation**](invitation.md)
+[**Invitation**](Invitation.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Invitation**](invitation.md)
+[**Invitation**](Invitation.md)
 
 ### Authorization
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Invitation**](invitation.md)
+[**[]Invitation**](Invitation.md)
 
 ### Authorization
 

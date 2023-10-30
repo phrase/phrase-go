@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Briefing** | **string** |  | [optional] 
-**Project** | [**ProjectShort**](project_short.md) |  | [optional] 
-**Branch** | [**Branch**](branch.md) |  | [optional] 
+**Project** | [**ProjectShort**](ProjectShort.md) |  | [optional] 
+**Branch** | [**Branch**](Branch.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

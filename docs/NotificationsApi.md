@@ -40,7 +40,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Notification**](notification.md)
+[**[]Notification**](Notification.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Notification**](notification.md)
+[**[]Notification**](Notification.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Notification**](notification.md)
+[**Notification**](Notification.md)
 
 ### Authorization
 

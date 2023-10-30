@@ -11,11 +11,11 @@ Name | Type | Description | Notes
 **Main** | **bool** |  | [optional] 
 **Rtl** | **bool** |  | [optional] 
 **PluralForms** | **[]string** |  | [optional] 
-**SourceLocale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
-**FallbackLocale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
+**SourceLocale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
+**FallbackLocale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
-**Statistics** | [**LocaleStatistics**](locale_statistics.md) |  | [optional] 
+**Statistics** | [**LocaleStatistics**](LocaleStatistics.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

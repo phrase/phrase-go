@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **LastActivityAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **Role** | **string** |  | [optional] 
-**Projects** | [**[]ProjectLocales**](project_locales.md) |  | [optional] 
-**Permissions** | [**map[string]interface{}**](.md) |  | [optional] 
+**Projects** | [**[]ProjectLocales**](ProjectLocales.md) |  | [optional] 
+**Permissions** | **map[string]interface{}** |  | [optional] 
 **DefaultLocaleCodes** | **[]string** |  | [optional] 
-**Teams** | [**[]TeamShort**](team_short.md) |  | [optional] 
-**Spaces** | [**[]MemberSpaces**](member_spaces.md) |  | [optional] 
+**Teams** | [**[]TeamShort**](TeamShort.md) |  | [optional] 
+**Spaces** | [**[]MemberSpacesInner**](MemberSpacesInner.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

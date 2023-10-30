@@ -35,7 +35,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CurrentUser**](current_user.md)
+[**CurrentUser**](CurrentUser.md)
 
 ### Authorization
 

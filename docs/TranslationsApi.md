@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationDetails**](translation_details.md)
+[**TranslationDetails**](TranslationDetails.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationDetails**](translation_details.md)
+[**TranslationDetails**](TranslationDetails.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationDetails**](translation_details.md)
+[**TranslationDetails**](TranslationDetails.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationDetails**](translation_details.md)
+[**TranslationDetails**](TranslationDetails.md)
 
 ### Authorization
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationDetails**](translation_details.md)
+[**TranslationDetails**](TranslationDetails.md)
 
 ### Authorization
 
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationDetails**](translation_details.md)
+[**TranslationDetails**](TranslationDetails.md)
 
 ### Authorization
 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationDetails**](translation_details.md)
+[**TranslationDetails**](TranslationDetails.md)
 
 ### Authorization
 
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationDetails**](translation_details.md)
+[**TranslationDetails**](TranslationDetails.md)
 
 ### Authorization
 
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Translation**](translation.md)
+[**[]Translation**](Translation.md)
 
 ### Authorization
 
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Translation**](translation.md)
+[**[]Translation**](Translation.md)
 
 ### Authorization
 
@@ -550,7 +550,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedCount**](affected_count.md)
+[**AffectedCount**](AffectedCount.md)
 
 ### Authorization
 
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedCount**](affected_count.md)
+[**AffectedCount**](AffectedCount.md)
 
 ### Authorization
 
@@ -650,7 +650,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Translation**](translation.md)
+[**[]Translation**](Translation.md)
 
 ### Authorization
 
@@ -697,7 +697,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedCount**](affected_count.md)
+[**AffectedCount**](AffectedCount.md)
 
 ### Authorization
 
@@ -746,7 +746,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Translation**](translation.md)
+[**[]Translation**](Translation.md)
 
 ### Authorization
 
@@ -793,7 +793,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedCount**](affected_count.md)
+[**AffectedCount**](AffectedCount.md)
 
 ### Authorization
 
@@ -840,7 +840,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedCount**](affected_count.md)
+[**AffectedCount**](AffectedCount.md)
 
 ### Authorization
 

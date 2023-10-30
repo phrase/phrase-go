@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobTemplateLocales**](job_template_locales.md)
+[**JobTemplateLocales**](JobTemplateLocales.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobTemplateLocales**](job_template_locales.md)
+[**JobTemplateLocales**](JobTemplateLocales.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobTemplateLocales**](job_template_locales.md)
+[**JobTemplateLocales**](JobTemplateLocales.md)
 
 ### Authorization
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]JobTemplateLocales**](job_template_locales.md)
+[**[]JobTemplateLocales**](JobTemplateLocales.md)
 
 ### Authorization
 

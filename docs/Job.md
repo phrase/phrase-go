@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **DueDate** | [**time.Time**](time.Time.md) |  | [optional] 
 **State** | **string** |  | [optional] 
 **TicketUrl** | **string** |  | [optional] 
-**Project** | [**ProjectShort**](project_short.md) |  | [optional] 
-**Branch** | [**BranchName**](branch_name.md) |  | [optional] 
+**Project** | [**ProjectShort**](ProjectShort.md) |  | [optional] 
+**Branch** | [**BranchName**](BranchName.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

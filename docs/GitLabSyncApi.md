@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GitlabSyncExport**](gitlab_sync_export.md)
+[**GitlabSyncExport**](GitlabSyncExport.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]GitlabSyncHistory**](gitlab_sync_history.md)
+[**[]GitlabSyncHistory**](GitlabSyncHistory.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Upload**](upload.md)
+[**[]Upload**](Upload.md)
 
 ### Authorization
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]GitlabSync**](gitlab_sync.md)
+[**[]GitlabSync**](GitlabSync.md)
 
 ### Authorization
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GitlabSync**](gitlab_sync.md)
+[**GitlabSync**](GitlabSync.md)
 
 ### Authorization
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GitlabSync**](gitlab_sync.md)
+[**GitlabSync**](GitlabSync.md)
 
 ### Authorization
 

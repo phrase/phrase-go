@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobDetails**](job_details.md)
+[**JobDetails**](JobDetails.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobDetails**](job_details.md)
+[**JobDetails**](JobDetails.md)
 
 ### Authorization
 
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobDetails**](job_details.md)
+[**JobDetails**](JobDetails.md)
 
 ### Authorization
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobDetails**](job_details.md)
+[**JobDetails**](JobDetails.md)
 
 ### Authorization
 
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobDetails**](job_details.md)
+[**JobDetails**](JobDetails.md)
 
 ### Authorization
 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobDetails**](job_details.md)
+[**JobDetails**](JobDetails.md)
 
 ### Authorization
 
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobDetails**](job_details.md)
+[**JobDetails**](JobDetails.md)
 
 ### Authorization
 
@@ -587,7 +587,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Job**](job.md)
+[**[]Job**](Job.md)
 
 ### Authorization
 
@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Job**](job.md)
+[**[]Job**](Job.md)
 
 ### Authorization
 

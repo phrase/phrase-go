@@ -35,7 +35,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Format**](format.md)
+[**[]Format**](Format.md)
 
 ### Authorization
 

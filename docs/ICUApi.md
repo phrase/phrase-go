@@ -37,7 +37,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Icu**](icu.md)
+[**Icu**](Icu.md)
 
 ### Authorization
 

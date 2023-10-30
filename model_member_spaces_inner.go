@@ -4,8 +4,8 @@ import (
 	"time"
 )
 
-// MemberSpaces struct for MemberSpaces
-type MemberSpaces struct {
+// MemberSpacesInner struct for MemberSpacesInner
+type MemberSpacesInner struct {
 	Id            string    `json:"id,omitempty"`
 	Name          string    `json:"name,omitempty"`
 	CreatedAt     time.Time `json:"created_at,omitempty"`

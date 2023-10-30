@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Format** | **string** |  | [optional] 
 **State** | **string** |  | [optional] 
 **Tag** | **string** |  | [optional] 
-**Summary** | [**UploadSummary**](upload_summary.md) |  | [optional] 
+**Summary** | [**UploadSummary**](UploadSummary.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

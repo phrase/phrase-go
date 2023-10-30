@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationVersionWithUser**](translation_version_with_user.md)
+[**TranslationVersionWithUser**](TranslationVersionWithUser.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TranslationVersion**](translation_version.md)
+[**[]TranslationVersion**](TranslationVersion.md)
 
 ### Authorization
 

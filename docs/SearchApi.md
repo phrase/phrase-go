@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AccountSearchResult**](account_search_result.md)
+[**AccountSearchResult**](AccountSearchResult.md)
 
 ### Authorization
 

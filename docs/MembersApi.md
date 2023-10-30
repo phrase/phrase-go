@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Member**](member.md)
+[**Member**](Member.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Member**](member.md)
+[**Member**](Member.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MemberProjectDetail**](member_project_detail.md)
+[**MemberProjectDetail**](MemberProjectDetail.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Member**](member.md)
+[**[]Member**](Member.md)
 
 ### Authorization
 

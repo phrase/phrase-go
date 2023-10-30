@@ -1,11 +1,12 @@
-# InlineResponse422
+# InvitationCreate422ResponseErrorsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Resource** | **string** |  | [optional] 
+**Field** | **string** |  | [optional] 
 **Message** | **string** |  | [optional] 
-**Errors** | [**[]InlineResponse422Errors**](inline_response_422_errors.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

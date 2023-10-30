@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationKeyDetails**](translation_key_details.md)
+[**TranslationKeyDetails**](TranslationKeyDetails.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationKeyDetails**](translation_key_details.md)
+[**TranslationKeyDetails**](TranslationKeyDetails.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TranslationKeyDetails**](translation_key_details.md)
+[**TranslationKeyDetails**](TranslationKeyDetails.md)
 
 ### Authorization
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedResources**](affected_resources.md)
+[**AffectedResources**](AffectedResources.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedResources**](affected_resources.md)
+[**AffectedResources**](AffectedResources.md)
 
 ### Authorization
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedResources**](affected_resources.md)
+[**AffectedResources**](AffectedResources.md)
 
 ### Authorization
 
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TranslationKey**](translation_key.md)
+[**[]TranslationKey**](TranslationKey.md)
 
 ### Authorization
 
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TranslationKey**](translation_key.md)
+[**[]TranslationKey**](TranslationKey.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedResources**](affected_resources.md)
+[**AffectedResources**](AffectedResources.md)
 
 ### Authorization
 
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AffectedResources**](affected_resources.md)
+[**AffectedResources**](AffectedResources.md)
 
 ### Authorization
 

@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **Main** | **bool** |  | [optional] 
 **Rtl** | **bool** |  | [optional] 
 **PluralForms** | **[]string** |  | [optional] 
-**SourceLocale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
-**FallbackLocale** | [**LocalePreview**](locale_preview.md) |  | [optional] 
+**SourceLocale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
+**FallbackLocale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

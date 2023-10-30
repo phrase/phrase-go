@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlacklistedKey**](blacklisted_key.md)
+[**BlacklistedKey**](BlacklistedKey.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlacklistedKey**](blacklisted_key.md)
+[**BlacklistedKey**](BlacklistedKey.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlacklistedKey**](blacklisted_key.md)
+[**BlacklistedKey**](BlacklistedKey.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]BlacklistedKey**](blacklisted_key.md)
+[**[]BlacklistedKey**](BlacklistedKey.md)
 
 ### Authorization
 

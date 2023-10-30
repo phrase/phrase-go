@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Comment**](comment.md)
+[**Comment**](Comment.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Comment**](comment.md)
+[**Comment**](Comment.md)
 
 ### Authorization
 
@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Comment**](comment.md)
+[**Comment**](Comment.md)
 
 ### Authorization
 
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Comment**](comment.md)
+[**[]Comment**](Comment.md)
 
 ### Authorization
 

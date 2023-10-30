@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommentReaction**](comment_reaction.md)
+[**CommentReaction**](CommentReaction.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CommentReaction**](comment_reaction.md)
+[**CommentReaction**](CommentReaction.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]CommentReaction**](comment_reaction.md)
+[**[]CommentReaction**](CommentReaction.md)
 
 ### Authorization
 

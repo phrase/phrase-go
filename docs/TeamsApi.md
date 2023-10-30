@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TeamDetail**](team_detail.md)
+[**TeamDetail**](TeamDetail.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TeamDetail**](team_detail.md)
+[**TeamDetail**](TeamDetail.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TeamDetail**](team_detail.md)
+[**TeamDetail**](TeamDetail.md)
 
 ### Authorization
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Team**](team.md)
+[**[]Team**](Team.md)
 
 ### Authorization
 

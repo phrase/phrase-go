@@ -38,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AccountDetails**](account_details.md)
+[**AccountDetails**](AccountDetails.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Account**](account.md)
+[**[]Account**](Account.md)
 
 ### Authorization
 

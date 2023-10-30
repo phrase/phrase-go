@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobTemplateDetails**](job_template_details.md)
+[**JobTemplateDetails**](JobTemplateDetails.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobTemplateDetails**](job_template_details.md)
+[**JobTemplateDetails**](JobTemplateDetails.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]JobTemplate**](job_template.md)
+[**[]JobTemplate**](JobTemplate.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**JobTemplateDetails**](job_template_details.md)
+[**JobTemplateDetails**](JobTemplateDetails.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Description** | **string** |  | [optional] 
 **Translatable** | **bool** |  | [optional] 
 **CaseSensitive** | **bool** |  | [optional] 
-**Translations** | [**[]GlossaryTermTranslation**](glossary_term_translation.md) |  | [optional] 
+**Translations** | [**[]GlossaryTermTranslation**](GlossaryTermTranslation.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Webhook**](webhook.md)
+[**Webhook**](Webhook.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Webhook**](webhook.md)
+[**Webhook**](Webhook.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Webhook**](webhook.md)
+[**Webhook**](Webhook.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]Webhook**](webhook.md)
+[**[]Webhook**](Webhook.md)
 
 ### Authorization
 

@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationJobTemplateDetails**](organization_job_template_details.md)
+[**OrganizationJobTemplateDetails**](OrganizationJobTemplateDetails.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationJobTemplateDetails**](organization_job_template_details.md)
+[**OrganizationJobTemplateDetails**](OrganizationJobTemplateDetails.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]OrganizationJobTemplate**](organization_job_template.md)
+[**[]OrganizationJobTemplate**](OrganizationJobTemplate.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationJobTemplateDetails**](organization_job_template_details.md)
+[**OrganizationJobTemplateDetails**](OrganizationJobTemplateDetails.md)
 
 ### Authorization
 

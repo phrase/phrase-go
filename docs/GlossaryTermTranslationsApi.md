@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GlossaryTermTranslation**](glossary_term_translation.md)
+[**GlossaryTermTranslation**](GlossaryTermTranslation.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GlossaryTermTranslation**](glossary_term_translation.md)
+[**GlossaryTermTranslation**](GlossaryTermTranslation.md)
 
 ### Authorization
 

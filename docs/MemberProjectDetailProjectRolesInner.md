@@ -1,11 +1,11 @@
-# AccountDetails1
+# MemberProjectDetailProjectRolesInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Subscription** | [**Subscription**](subscription.md) |  | [optional] 
-**Slug** | **string** |  | [optional] 
+**ProjectId** | **string** |  | [optional] 
+**Role** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

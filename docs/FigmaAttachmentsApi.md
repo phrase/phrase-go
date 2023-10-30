@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FigmaAttachment**](figma_attachment.md)
+[**FigmaAttachment**](FigmaAttachment.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FigmaAttachment**](figma_attachment.md)
+[**FigmaAttachment**](FigmaAttachment.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FigmaAttachment**](figma_attachment.md)
+[**FigmaAttachment**](FigmaAttachment.md)
 
 ### Authorization
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]FigmaAttachment**](figma_attachment.md)
+[**[]FigmaAttachment**](FigmaAttachment.md)
 
 ### Authorization
 
