@@ -245,6 +245,8 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**ReleaseShow**](docs/ReleasesApi.md#releaseshow) | **Get** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Get a single release
 *ReleasesApi* | [**ReleaseUpdate**](docs/ReleasesApi.md#releaseupdate) | **Patch** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Update a release
 *ReleasesApi* | [**ReleasesList**](docs/ReleasesApi.md#releaseslist) | **Get** /accounts/{account_id}/distributions/{distribution_id}/releases | List releases
+*ReportsApi* | [**ReportLocalesList**](docs/ReportsApi.md#reportlocaleslist) | **Get** /projects/{project_id}/report/locales | List Locale Reports
+*ReportsApi* | [**ReportShow**](docs/ReportsApi.md#reportshow) | **Get** /projects/{project_id}/report | Get Project Report
 *ScreenshotMarkersApi* | [**ScreenshotMarkerCreate**](docs/ScreenshotMarkersApi.md#screenshotmarkercreate) | **Post** /projects/{project_id}/screenshots/{screenshot_id}/markers | Create a screenshot marker
 *ScreenshotMarkersApi* | [**ScreenshotMarkerDelete**](docs/ScreenshotMarkersApi.md#screenshotmarkerdelete) | **Delete** /projects/{project_id}/screenshots/{screenshot_id}/markers | Delete a screenshot marker
 *ScreenshotMarkersApi* | [**ScreenshotMarkerShow**](docs/ScreenshotMarkersApi.md#screenshotmarkershow) | **Get** /projects/{project_id}/screenshots/{screenshot_id}/markers/{id} | Get a single screenshot marker
@@ -426,6 +428,7 @@ Class | Method | HTTP request | Description
  - [LocaleDetails](docs/LocaleDetails.md)
  - [LocalePreview](docs/LocalePreview.md)
  - [LocalePreview1](docs/LocalePreview1.md)
+ - [LocaleReport](docs/LocaleReport.md)
  - [LocaleStatistics](docs/LocaleStatistics.md)
  - [LocaleTeamPreview](docs/LocaleTeamPreview.md)
  - [LocaleUpdateParameters](docs/LocaleUpdateParameters.md)
@@ -451,6 +454,7 @@ Class | Method | HTTP request | Description
  - [ProjectCreateParameters](docs/ProjectCreateParameters.md)
  - [ProjectDetails](docs/ProjectDetails.md)
  - [ProjectLocales](docs/ProjectLocales.md)
+ - [ProjectReport](docs/ProjectReport.md)
  - [ProjectShort](docs/ProjectShort.md)
  - [ProjectUpdateParameters](docs/ProjectUpdateParameters.md)
  - [Release](docs/Release.md)
@@ -531,6 +535,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com

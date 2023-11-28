@@ -36,6 +36,7 @@ api_organization_job_template_locales.go
 api_organization_job_templates.go
 api_projects.go
 api_releases.go
+api_reports.go
 api_screenshot_markers.go
 api_screenshots.go
 api_search.go
@@ -179,6 +180,7 @@ docs/LocaleCreateParameters.md
 docs/LocaleDetails.md
 docs/LocalePreview.md
 docs/LocalePreview1.md
+docs/LocaleReport.md
 docs/LocaleStatistics.md
 docs/LocaleTeamPreview.md
 docs/LocaleUpdateParameters.md
@@ -211,6 +213,7 @@ docs/Project.md
 docs/ProjectCreateParameters.md
 docs/ProjectDetails.md
 docs/ProjectLocales.md
+docs/ProjectReport.md
 docs/ProjectShort.md
 docs/ProjectUpdateParameters.md
 docs/ProjectsApi.md
@@ -220,6 +223,7 @@ docs/ReleasePreview.md
 docs/ReleaseUpdateParameters.md
 docs/ReleasesApi.md
 docs/RepliesListParameters.md
+docs/ReportsApi.md
 docs/Screenshot.md
 docs/ScreenshotMarker.md
 docs/ScreenshotMarkerCreateParameters.md
@@ -399,6 +403,7 @@ model_locale_create_parameters.go
 model_locale_details.go
 model_locale_preview.go
 model_locale_preview_1.go
+model_locale_report.go
 model_locale_statistics.go
 model_locale_team_preview.go
 model_locale_update_parameters.go
@@ -424,6 +429,7 @@ model_project.go
 model_project_create_parameters.go
 model_project_details.go
 model_project_locales.go
+model_project_report.go
 model_project_short.go
 model_project_update_parameters.go
 model_release.go
