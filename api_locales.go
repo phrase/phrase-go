@@ -354,6 +354,7 @@ type LocaleDownloadOpts struct {
 	UseLastReviewedVersion        optional.Bool      `json:"use_last_reviewed_version,omitempty"`
 	FallbackLocaleId              optional.String    `json:"fallback_locale_id,omitempty"`
 	SourceLocaleId                optional.String    `json:"source_locale_id,omitempty"`
+	CustomMetadataFilters         optional.Interface `json:"custom_metadata_filters,omitempty"`
 }
 
 /*
@@ -382,6 +383,7 @@ Download a locale in a specific file format.
   - @param "UseLastReviewedVersion" (optional.Bool) -  If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project.
   - @param "FallbackLocaleId" (optional.String) -  If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to <code>true</code>.
   - @param "SourceLocaleId" (optional.String) -  Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a <code>tag</code> parameter indicating a specific job.
+  - @param "CustomMetadataFilters" (optional.Interface of map[string]interface{}) -  Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.
 
 @return *os.File
 */
@@ -454,6 +456,11 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	}
 	if localVarOptionals != nil && localVarOptionals.SourceLocaleId.IsSet() {
 		localVarQueryParams.Add("source_locale_id", parameterToString(localVarOptionals.SourceLocaleId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.CustomMetadataFilters.IsSet() {
+		for key, value := range localVarOptionals.CustomMetadataFilters.Value().(map[string]interface{}) {
+			localVarQueryParams.Add(fmt.Sprintf("custom_metadata_filters[%s]", key), parameterToString(value, ""))
+		}
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
