@@ -36,4 +36,6 @@ type KeyUpdateParameters struct {
 	LocalizedFormatString string `json:"localized_format_string,omitempty"`
 	// NSStringLocalizedFormatKey attribute. Used in .stringsdict format.
 	LocalizedFormatKey string `json:"localized_format_key,omitempty"`
+	// Updates/Creates custom metadata property name and value pairs to be associated with key. If you want to delete a custom metadata property, you can set its value to null. If you want to update a custom metadata property, you can set its value to the new value.
+	CustomMetadata map[string]interface{} `json:"custom_metadata,omitempty"`
 }

@@ -55,6 +55,8 @@ type APIClient struct {
 
 	CommentsApi *CommentsApiService
 
+	CustomMetadataApi *CustomMetadataApiService
+
 	DistributionsApi *DistributionsApiService
 
 	DocumentsApi *DocumentsApiService
@@ -164,6 +166,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CommentReactionsApi = (*CommentReactionsApiService)(&c.common)
 	c.CommentRepliesApi = (*CommentRepliesApiService)(&c.common)
 	c.CommentsApi = (*CommentsApiService)(&c.common)
+	c.CustomMetadataApi = (*CustomMetadataApiService)(&c.common)
 	c.DistributionsApi = (*DistributionsApiService)(&c.common)
 	c.DocumentsApi = (*DocumentsApiService)(&c.common)
 	c.FigmaAttachmentsApi = (*FigmaAttachmentsApiService)(&c.common)

@@ -1523,6 +1523,7 @@ tags:
 - name: Comments
 - name: Comment Reactions
 - name: Comment Replies
+- name: Custom Metadata
 - name: Distributions
 - name: Documents
 - name: Figma Attachments
@@ -3369,6 +3370,605 @@ paths:
           --data '{"title": "Web application style guide", "audience":"customer-facing", "target_audience":"teenager", "grammatical_person":"first_person_singular", "vocabulary_type":"technical", "business": "We are a travel site that helps customers find the best hotels and flights.", "company_branding": "ACME Inc. should never be translated.", "formatting": "Never use capital letters", "glossary_terms": "Apartment, cabin, loft", "grammar_consistency":", "literal_translation":"Neutral", "overall_tone": "Tone should be fun and light", "samples": "http://www.myexample.com/my/document/path/to/samples.pdf"}' \
           --access_token <token>
       x-cli-version: "2.5"
+  /accounts/{account_id}/custom_metadata/properties:
+    get:
+      description: |
+        List all custom metadata properties for an account.
+
+        This endpoint is only available to accounts with advanced plans or above.
+      operationId: custom_metadata_properties/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Data Type of Custom Metadata Property
+        example: boolean
+        explode: true
+        in: query
+        name: data_type
+        required: false
+        schema:
+          $ref: '#/components/schemas/custom_metadata_data_type'
+        style: form
+      - description: id of project that the properties belong to
+        example: abcd1234cdef1234abcd1234cdef1234
+        explode: true
+        in: query
+        name: project_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: "Limit on the number of objects to be returned, between 1 and\
+          \ 100. 25 by default"
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Sort criteria. Can be one of: name, data_type, created_at."
+        example: updated_at
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Order direction. Can be one of: asc, desc."
+        example: desc
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/custom_metadata_property'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List properties
+      tags:
+      - Custom Metadata
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/custom_metadata/properties?data_type=boolean&project_id=1&page=1&per_page=10&sort=created_at&order=desc" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase custom_metadata_properties list \
+          --account_id <account_id> \
+          --data_type boolean \
+          --project_id 1 \
+          --page 1 \
+          --per_page 10 \
+          --sort created_at \
+          --order desc \
+          --access_token <token>
+      x-cli-version: "2.9"
+    post:
+      description: Create a new custom metadata property.
+      operationId: custom_metadata_property/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: name of the property
+        example:
+        - Fruit
+        explode: true
+        in: query
+        name: name
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Data Type of Custom Metadata Property
+        example: boolean
+        explode: true
+        in: query
+        name: data_type
+        required: true
+        schema:
+          $ref: '#/components/schemas/custom_metadata_data_type'
+        style: form
+      - description: description of property
+        example:
+        - A healthy snack for all ages
+        explode: true
+        in: query
+        name: description
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: ids of projects that the property belongs to
+        example:
+        - abcd1234cdef1234abcd1234cdef1234
+        explode: true
+        in: query
+        name: project_ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: value options of property (only applies to single or multi select
+          properties)
+        example:
+        - Apple
+        - Banana
+        - Coconut
+        explode: true
+        in: query
+        name: value_options
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create a property
+      tags:
+      - Custom Metadata
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/custom_metadata/properties" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"name":"Fruit","data_type":"multi_select","description":"A healthy snack for all ages","project_ids":["1","2","3"],"value_options":["apple","banana","coconut"]}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase custom_metadata_properties create \
+          --account_id <account_id> \
+          --data '{"name":"Fruit","data_type":"multi_select","description":"A healthy snack for all ages","project_ids":["1","2","3"],"value_options":["apple","banana","coconut"]}' \
+          --access_token <token>
+      x-cli-version: "2.9"
+  /accounts/{account_id}/custom_metadata/properties/{id}:
+    delete:
+      description: |
+        Destroy a custom metadata property of an account.
+
+        This endpoint is only available to accounts with advanced plans or above.
+      operationId: custom_metadata_properties/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Destroy property
+      tags:
+      - Custom Metadata
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/custom_metadata/properties/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN
+            -X DELETE
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase custom_metadata_properties delete \
+          --account_id <account_id> \
+          --id <id> \
+          --access_token <token>
+      x-cli-version: "2.9"
+    get:
+      description: Get details of a single custom property.
+      operationId: custom_metadata_property/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single property
+      tags:
+      - Custom Metadata
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/custom_metadata/properties/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase custom_metadata_properties show \
+          --account_id <account_id> \
+          --id <id> \
+          --access_token <token>
+      x-cli-version: "2.9"
+    patch:
+      description: Update an existing custom metadata property.
+      operationId: custom_metadata_property/update
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: name of the property
+        example:
+        - Fruit
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: description of property
+        example:
+        - A healthy snack for all ages
+        explode: true
+        in: query
+        name: description
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: ids of projects that the property belongs to
+        example:
+        - abcd1234cdef1234abcd1234cdef1234
+        explode: true
+        in: query
+        name: project_ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: value options of property (only applies to single or multi select
+          properties)
+        example:
+        - Apple
+        - Banana
+        - Coconut
+        explode: true
+        in: query
+        name: value_options
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Update a property
+      tags:
+      - Custom Metadata
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/custom_metadata/properties/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"name":"Fruit","description":"A healthy snack for all ages","project_ids":["1","2","3"],"value_options":["apple","banana","coconut"]}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase custom_metadata_properties update \
+          --account_id <account_id> \
+          --id <id> \
+          --data '{"name":"Fruit","description":"A healthy snack for all ages","project_ids":["1","2","3"],"value_options":["apple","banana","coconut"]}' \
+          --access_token <token>
+      x-cli-version: "2.9"
   /accounts/{account_id}/invitations:
     get:
       description: List invitations for an account. It will also list the accessible
@@ -3559,7 +4159,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/invitation_create_422_response'
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
           description: Unprocessable entity
           headers:
             X-Rate-Limit-Limit:
@@ -12479,7 +13079,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/invitation_create_422_response'
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
           description: Unprocessable entity
           headers:
             X-Rate-Limit-Limit:
@@ -12564,7 +13164,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/invitation_create_422_response'
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
           description: Unprocessable entity
           headers:
             X-Rate-Limit-Limit:
@@ -19610,11 +20210,12 @@ paths:
             -F tags=awesome-feature,needs-proofreading \
             -F max_characters_allowed=140 \
             -F screenshot=@/path/to/my/screenshot.png
+            -F custom_metadata[property]=value
       - lang: CLI v2
         source: |-
           phrase keys create \
           --project_id <project_id> \
-          --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description": "Some description worth knowing...", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png"}' \
+          --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description": "Some description worth knowing...", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png", "custom_metadata": {"property" => "value"}}' \
           --access_token <token>
       x-cli-version: "2.5"
   /projects/{project_id}/keys/search:
@@ -20006,12 +20607,13 @@ paths:
             -F tags=awesome-feature,needs-proofreading \
             -F max_characters_allowed=140 \
             -F screenshot=@/path/to/my/screenshot.png
+            -F custom_metadata[property]=value
       - lang: CLI v2
         source: |-
           phrase keys update \
           --project_id <project_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description": "Some description worth knowing...", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png"}' \
+          --data '{"branch":"my-feature-branch", "name":"home.index.headline", "description": "Some description worth knowing...", "name_plural":"home.index.headlines", "data_type":"number", "tags":"awesome-feature,needs-proofreading", "max_characters_allowed":"140", "screenshot":"/path/to/my/screenshot.png", "custom_metadata": {"property" => "value"}}' \
           --access_token <token>
       x-cli-version: "2.5"
   /projects/{project_id}/keys/tag:
@@ -26758,6 +27360,16 @@ components:
       schema:
         type: string
       style: simple
+    custom_metadata_data_type:
+      description: Data Type of Custom Metadata Property
+      example: boolean
+      explode: true
+      in: query
+      name: data_type
+      required: false
+      schema:
+        $ref: '#/components/schemas/custom_metadata_data_type'
+      style: form
     query_account_id:
       description: Filter by Account ID
       explode: true
@@ -27058,7 +27670,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/invitation_create_422_response'
+            $ref: '#/components/schemas/custom_metadata_property_create_422_response'
       description: Unprocessable entity
       headers:
         X-Rate-Limit-Limit:
@@ -27333,6 +27945,66 @@ components:
           $ref: '#/components/schemas/user_preview'
       title: comment_reaction
       type: object
+    custom_metadata_property:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        name: Nuts
+        description: A healthy snack for all ages
+        data_type: multi_select
+        user:
+          id: abcd1234cdef1234abcd1234cdef1234
+          username: joe.doe
+          name: Joe Doe
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+        projects:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        value_options:
+        - apple
+        - banana
+        - coconut
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        data_type:
+          $ref: '#/components/schemas/custom_metadata_data_type'
+        user:
+          $ref: '#/components/schemas/user_preview'
+        projects:
+          items:
+            $ref: '#/components/schemas/project_short'
+          type: array
+        value_options:
+          items:
+            type: string
+          type: array
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: custom_metadata_property
+      type: object
+    custom_metadata_data_type:
+      enum:
+      - boolean
+      - date
+      - link
+      - multi_select
+      - number
+      - single_select
+      - string
+      - text
+      type: string
     key_preview:
       properties:
         id:
@@ -28377,6 +29049,9 @@ components:
             id: abcd1234cdef1234abcd1234cdef1234
             username: joe.doe
             name: Joe Doe
+          custom_metadata:
+            fruit: Apple
+            vegetable: Tomato
         properties:
           name_plural:
             type: string
@@ -28396,6 +29071,11 @@ components:
             type: string
           creator:
             $ref: '#/components/schemas/user_preview'
+          custom_metadata:
+            additionalProperties:
+              type: string
+            title: custom_metadata
+            type: object
         title: translation_key_details
         type: object
     affected_resources:
@@ -29868,6 +30548,30 @@ components:
           type: string
       title: styleguide/update/parameters
       type: object
+    custom_metadata_property_create_422_response_errors_inner:
+      properties:
+        resource:
+          type: string
+        field:
+          type: string
+        message:
+          type: string
+      type: object
+    custom_metadata_property_create_422_response:
+      example:
+        message: Validation Failed
+        errors:
+        - resource: Resource
+          field: name
+          message: can't be blank
+      properties:
+        message:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/custom_metadata_property_create_422_response_errors_inner'
+          type: array
+      type: object
     invitation_create_parameters:
       properties:
         email:
@@ -29921,30 +30625,6 @@ components:
             review_translations: true
           type: object
       title: invitation/create/parameters
-      type: object
-    invitation_create_422_response_errors_inner:
-      properties:
-        resource:
-          type: string
-        field:
-          type: string
-        message:
-          type: string
-      type: object
-    invitation_create_422_response:
-      example:
-        message: Validation Failed
-        errors:
-        - resource: Resource
-          field: name
-          message: can't be blank
-      properties:
-        message:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/invitation_create_422_response_errors_inner'
-          type: array
       type: object
     invitation_update_parameters:
       properties:
@@ -31668,6 +32348,13 @@ components:
             format.
           type: string
           example: null
+        custom_metadata:
+          description: Custom metadata property name and value pairs to be associated
+            with key.
+          example:
+            fruit: Apple
+            vegetable: Tomato
+          type: object
       title: key/create/parameters
       type: object
     keys_search_parameters:
@@ -31783,6 +32470,15 @@ components:
             format.
           type: string
           example: null
+        custom_metadata:
+          description: "Updates/Creates custom metadata property name and value pairs\
+            \ to be associated with key. If you want to delete a custom metadata property,\
+            \ you can set its value to null. If you want to update a custom metadata\
+            \ property, you can set its value to the new value."
+          example:
+            fruit: Apple
+            vegetable: Tomato
+          type: object
       title: key/update/parameters
       type: object
     keys_tag_parameters:
@@ -32739,6 +33435,7 @@ x-tagGroups:
   - Translations
   - Uploads
   - Tags
+  - Custom Metadata Properties
   - Blacklisted Keys
   - Versions / History
 - name: Workflows

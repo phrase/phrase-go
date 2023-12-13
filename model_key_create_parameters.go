@@ -38,4 +38,6 @@ type KeyCreateParameters struct {
 	LocalizedFormatString string `json:"localized_format_string,omitempty"`
 	// NSStringLocalizedFormatKey attribute. Used in .stringsdict format.
 	LocalizedFormatKey string `json:"localized_format_key,omitempty"`
+	// Custom metadata property name and value pairs to be associated with key.
+	CustomMetadata map[string]interface{} `json:"custom_metadata,omitempty"`
 }

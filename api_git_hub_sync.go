@@ -101,7 +101,7 @@ func (a *GitHubSyncApiService) GithubSyncExport(ctx _context.Context, githubSync
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvitationCreate422Response
+			var v CustomMetadataPropertyCreate422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -200,7 +200,7 @@ func (a *GitHubSyncApiService) GithubSyncImport(ctx _context.Context, githubSync
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvitationCreate422Response
+			var v CustomMetadataPropertyCreate422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

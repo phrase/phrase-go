@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **OriginalFile** | **string** | Original file attribute. Used in some formats, e.g. XLIFF. | [optional] 
 **LocalizedFormatString** | **string** | NSStringLocalizedFormatKey attribute. Used in .stringsdict format. | [optional] 
 **LocalizedFormatKey** | **string** | NSStringLocalizedFormatKey attribute. Used in .stringsdict format. | [optional] 
+**CustomMetadata** | **map[string]interface{}** | Custom metadata property name and value pairs to be associated with key. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
