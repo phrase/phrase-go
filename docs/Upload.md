@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Format** | **string** |  | [optional] 
 **State** | **string** |  | [optional] 
 **Tag** | **string** |  | [optional] 
+**Url** | **string** | The URL to the upload in Phrase Strings app.  | [optional] 
 **Summary** | [**UploadSummary**](UploadSummary.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 

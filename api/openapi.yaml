@@ -28039,6 +28039,10 @@ components:
           type: string
         tag:
           type: string
+        url:
+          description: |
+            The URL to the upload in Phrase Strings app.
+          type: string
         summary:
           $ref: '#/components/schemas/upload_summary'
         created_at:
