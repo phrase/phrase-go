@@ -153,12 +153,12 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 	if localVarOptionals != nil && localVarOptionals.LocaleMapping.IsSet() {
 		for key, value := range localVarOptionals.LocaleMapping.Value().(map[string]interface{}) {
-			localVarFormParams.Add(fmt.Sprintf("locale_mapping[%s]", key), parameterToString(value, ""))
+			localVarFormParams = serializeMapParams(fmt.Sprintf("locale_mapping[%s]", key), value, localVarFormParams)
 		}
 	}
 	if localVarOptionals != nil && localVarOptionals.FormatOptions.IsSet() {
 		for key, value := range localVarOptionals.FormatOptions.Value().(map[string]interface{}) {
-			localVarFormParams.Add(fmt.Sprintf("format_options[%s]", key), parameterToString(value, ""))
+			localVarFormParams = serializeMapParams(fmt.Sprintf("format_options[%s]", key), value, localVarFormParams)
 		}
 	}
 	if localVarOptionals != nil && localVarOptionals.Autotranslate.IsSet() {
