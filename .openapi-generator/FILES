@@ -92,6 +92,8 @@ docs/CommentsListParameters.md
 docs/CurrentUser.md
 docs/CustomMetadataApi.md
 docs/CustomMetadataDataType.md
+docs/CustomMetadataPropertiesCreateParameters.md
+docs/CustomMetadataPropertiesUpdateParameters.md
 docs/CustomMetadataProperty.md
 docs/CustomMetadataPropertyCreate422Response.md
 docs/CustomMetadataPropertyCreate422ResponseErrorsInner.md
@@ -335,6 +337,8 @@ model_comment_update_parameters.go
 model_comments_list_parameters.go
 model_current_user.go
 model_custom_metadata_data_type.go
+model_custom_metadata_properties_create_parameters.go
+model_custom_metadata_properties_update_parameters.go
 model_custom_metadata_property.go
 model_custom_metadata_property_create_422_response.go
 model_custom_metadata_property_create_422_response_errors_inner.go

@@ -3536,62 +3536,12 @@ paths:
         schema:
           type: string
         style: simple
-      - description: name of the property
-        example:
-        - Fruit
-        explode: true
-        in: query
-        name: name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/custom_metadata_properties_create_parameters'
         required: true
-        schema:
-          type: string
-        style: form
-      - description: Data Type of Custom Metadata Property
-        example: boolean
-        explode: true
-        in: query
-        name: data_type
-        required: true
-        schema:
-          $ref: '#/components/schemas/custom_metadata_data_type'
-        style: form
-      - description: description of property
-        example:
-        - A healthy snack for all ages
-        explode: true
-        in: query
-        name: description
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: ids of projects that the property belongs to
-        example:
-        - abcd1234cdef1234abcd1234cdef1234
-        explode: true
-        in: query
-        name: project_ids
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - description: value options of property (only applies to single or multi select
-          properties)
-        example:
-        - Apple
-        - Banana
-        - Coconut
-        explode: true
-        in: query
-        name: value_options
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
       responses:
         "200":
           content:
@@ -3862,53 +3812,12 @@ paths:
         schema:
           type: string
         style: simple
-      - description: name of the property
-        example:
-        - Fruit
-        explode: true
-        in: query
-        name: name
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: description of property
-        example:
-        - A healthy snack for all ages
-        explode: true
-        in: query
-        name: description
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: ids of projects that the property belongs to
-        example:
-        - abcd1234cdef1234abcd1234cdef1234
-        explode: true
-        in: query
-        name: project_ids
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      - description: value options of property (only applies to single or multi select
-          properties)
-        example:
-        - Apple
-        - Banana
-        - Coconut
-        explode: true
-        in: query
-        name: value_options
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/custom_metadata_properties_update_parameters'
+        required: true
       responses:
         "200":
           content:
@@ -27995,6 +27904,7 @@ components:
       title: custom_metadata_property
       type: object
     custom_metadata_data_type:
+      description: data type of the property
       enum:
       - boolean
       - date
@@ -28004,6 +27914,7 @@ components:
       - single_select
       - string
       - text
+      example: string
       type: string
     key_preview:
       properties:
@@ -30548,6 +30459,41 @@ components:
           type: string
       title: styleguide/update/parameters
       type: object
+    custom_metadata_properties_create_parameters:
+      properties:
+        name:
+          description: name of the property
+          example: Fruit
+          type: string
+        data_type:
+          $ref: '#/components/schemas/custom_metadata_data_type'
+        project_ids:
+          description: ids of projects that the property belongs to
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          - abcd1234cdef1234abcd1234cdef4321
+          items:
+            type: string
+          type: array
+        description:
+          description: description of property
+          example: A healthy snack for all ages
+          type: string
+        value_options:
+          description: value options of property (only applies to single or multi
+            select properties)
+          example:
+          - Apple
+          - Banana
+          - Coconut
+          items:
+            type: string
+          type: array
+      required:
+      - data_type
+      - name
+      title: custom_metadata_properties/create/parameters
+      type: object
     custom_metadata_property_create_422_response_errors_inner:
       properties:
         resource:
@@ -30571,6 +30517,36 @@ components:
           items:
             $ref: '#/components/schemas/custom_metadata_property_create_422_response_errors_inner'
           type: array
+      type: object
+    custom_metadata_properties_update_parameters:
+      properties:
+        name:
+          description: name of the property
+          example: Fruit
+          type: string
+        project_ids:
+          description: ids of projects that the property belongs to
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          - abcd1234cdef1234abcd1234cdef4321
+          items:
+            type: string
+          type: array
+        description:
+          description: description of property
+          example: A healthy snack for all ages
+          type: string
+        value_options:
+          description: value options of property (only applies to single or multi
+            select properties)
+          example:
+          - Apple
+          - Banana
+          - Coconut
+          items:
+            type: string
+          type: array
+      title: custom_metadata_properties/update/parameters
       type: object
     invitation_create_parameters:
       properties:

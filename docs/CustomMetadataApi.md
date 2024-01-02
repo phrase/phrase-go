@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ## CustomMetadataPropertyCreate
 
-> CustomMetadataProperty CustomMetadataPropertyCreate(ctx, accountId, name, dataType, optional)
+> CustomMetadataProperty CustomMetadataPropertyCreate(ctx, accountId, customMetadataPropertiesCreateParameters, optional)
 
 Create a property
 
@@ -125,8 +125,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**name** | **string**| name of the property | 
-**dataType** | [**CustomMetadataDataType**](.md)| Data Type of Custom Metadata Property | 
+**customMetadataPropertiesCreateParameters** | [**CustomMetadataPropertiesCreateParameters**](CustomMetadataPropertiesCreateParameters.md)|  | 
  **optional** | ***CustomMetadataPropertyCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -138,11 +137,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
-
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **description** | **optional.String**| description of property | 
- **projectIds** | [**optional.Interface of []string**](string.md)| ids of projects that the property belongs to | 
- **valueOptions** | [**optional.Interface of []string**](string.md)| value options of property (only applies to single or multi select properties) | 
 
 ### Return type
 
@@ -154,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -211,7 +206,7 @@ Name | Type | Description  | Notes
 
 ## CustomMetadataPropertyUpdate
 
-> CustomMetadataProperty CustomMetadataPropertyUpdate(ctx, accountId, id, optional)
+> CustomMetadataProperty CustomMetadataPropertyUpdate(ctx, accountId, id, customMetadataPropertiesUpdateParameters, optional)
 
 Update a property
 
@@ -225,6 +220,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
 **id** | **string**| ID | 
+**customMetadataPropertiesUpdateParameters** | [**CustomMetadataPropertiesUpdateParameters**](CustomMetadataPropertiesUpdateParameters.md)|  | 
  **optional** | ***CustomMetadataPropertyUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -236,11 +232,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **name** | **optional.String**| name of the property | 
- **description** | **optional.String**| description of property | 
- **projectIds** | [**optional.Interface of []string**](string.md)| ids of projects that the property belongs to | 
- **valueOptions** | [**optional.Interface of []string**](string.md)| value options of property (only applies to single or multi select properties) | 
 
 ### Return type
 
@@ -252,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

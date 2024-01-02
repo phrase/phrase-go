@@ -7,7 +7,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"reflect"
 	"strings"
 
 	"github.com/antihax/optional"
@@ -248,10 +247,7 @@ func (a *CustomMetadataApiService) CustomMetadataPropertiesList(ctx _context.Con
 
 // CustomMetadataPropertyCreateOpts Optional parameters for the method 'CustomMetadataPropertyCreate'
 type CustomMetadataPropertyCreateOpts struct {
-	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
-	Description   optional.String    `json:"description,omitempty"`
-	ProjectIds    optional.Interface `json:"project_ids,omitempty"`
-	ValueOptions  optional.Interface `json:"value_options,omitempty"`
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -259,17 +255,13 @@ CustomMetadataPropertyCreate Create a property
 Create a new custom metadata property.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
-  - @param name name of the property
-  - @param dataType Data Type of Custom Metadata Property
+  - @param customMetadataPropertiesCreateParameters
   - @param optional nil or *CustomMetadataPropertyCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Description" (optional.String) -  description of property
-  - @param "ProjectIds" (optional.Interface of []string) -  ids of projects that the property belongs to
-  - @param "ValueOptions" (optional.Interface of []string) -  value options of property (only applies to single or multi select properties)
 
 @return CustomMetadataProperty
 */
-func (a *CustomMetadataApiService) CustomMetadataPropertyCreate(ctx _context.Context, accountId string, name string, dataType CustomMetadataDataType, localVarOptionals *CustomMetadataPropertyCreateOpts) (CustomMetadataProperty, *APIResponse, error) {
+func (a *CustomMetadataApiService) CustomMetadataPropertyCreate(ctx _context.Context, accountId string, customMetadataPropertiesCreateParameters CustomMetadataPropertiesCreateParameters, localVarOptionals *CustomMetadataPropertyCreateOpts) (CustomMetadataProperty, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -287,35 +279,8 @@ func (a *CustomMetadataApiService) CustomMetadataPropertyCreate(ctx _context.Con
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	localVarQueryParams.Add("name", parameterToString(name, ""))
-	localVarQueryParams.Add("data_type", parameterToString(dataType, ""))
-	if localVarOptionals != nil && localVarOptionals.Description.IsSet() {
-		localVarQueryParams.Add("description", parameterToString(localVarOptionals.Description.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.ProjectIds.IsSet() {
-		t := localVarOptionals.ProjectIds.Value()
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("project_ids", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("project_ids", parameterToString(t, "multi"))
-		}
-	}
-	if localVarOptionals != nil && localVarOptionals.ValueOptions.IsSet() {
-		t := localVarOptionals.ValueOptions.Value()
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("value_options", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("value_options", parameterToString(t, "multi"))
-		}
-	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -334,6 +299,8 @@ func (a *CustomMetadataApiService) CustomMetadataPropertyCreate(ctx _context.Con
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
+	// body params
+	localVarPostBody = &customMetadataPropertiesCreateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -498,11 +465,7 @@ func (a *CustomMetadataApiService) CustomMetadataPropertyShow(ctx _context.Conte
 
 // CustomMetadataPropertyUpdateOpts Optional parameters for the method 'CustomMetadataPropertyUpdate'
 type CustomMetadataPropertyUpdateOpts struct {
-	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
-	Name          optional.String    `json:"name,omitempty"`
-	Description   optional.String    `json:"description,omitempty"`
-	ProjectIds    optional.Interface `json:"project_ids,omitempty"`
-	ValueOptions  optional.Interface `json:"value_options,omitempty"`
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -511,16 +474,13 @@ Update an existing custom metadata property.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
+  - @param customMetadataPropertiesUpdateParameters
   - @param optional nil or *CustomMetadataPropertyUpdateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Name" (optional.String) -  name of the property
-  - @param "Description" (optional.String) -  description of property
-  - @param "ProjectIds" (optional.Interface of []string) -  ids of projects that the property belongs to
-  - @param "ValueOptions" (optional.Interface of []string) -  value options of property (only applies to single or multi select properties)
 
 @return CustomMetadataProperty
 */
-func (a *CustomMetadataApiService) CustomMetadataPropertyUpdate(ctx _context.Context, accountId string, id string, localVarOptionals *CustomMetadataPropertyUpdateOpts) (CustomMetadataProperty, *APIResponse, error) {
+func (a *CustomMetadataApiService) CustomMetadataPropertyUpdate(ctx _context.Context, accountId string, id string, customMetadataPropertiesUpdateParameters CustomMetadataPropertiesUpdateParameters, localVarOptionals *CustomMetadataPropertyUpdateOpts) (CustomMetadataProperty, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -540,36 +500,8 @@ func (a *CustomMetadataApiService) CustomMetadataPropertyUpdate(ctx _context.Con
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.Name.IsSet() {
-		localVarQueryParams.Add("name", parameterToString(localVarOptionals.Name.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Description.IsSet() {
-		localVarQueryParams.Add("description", parameterToString(localVarOptionals.Description.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.ProjectIds.IsSet() {
-		t := localVarOptionals.ProjectIds.Value()
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("project_ids", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("project_ids", parameterToString(t, "multi"))
-		}
-	}
-	if localVarOptionals != nil && localVarOptionals.ValueOptions.IsSet() {
-		t := localVarOptionals.ValueOptions.Value()
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("value_options", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("value_options", parameterToString(t, "multi"))
-		}
-	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -588,6 +520,8 @@ func (a *CustomMetadataApiService) CustomMetadataPropertyUpdate(ctx _context.Con
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
+	// body params
+	localVarPostBody = &customMetadataPropertiesUpdateParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

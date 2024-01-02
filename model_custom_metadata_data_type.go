@@ -1,6 +1,6 @@
 package phrase
 
-// CustomMetadataDataType the model 'CustomMetadataDataType'
+// CustomMetadataDataType data type of the property
 type CustomMetadataDataType string
 
 // List of custom_metadata_data_type
