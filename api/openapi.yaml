@@ -21349,6 +21349,109 @@ paths:
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
       x-cli-version: "2.5"
+  /projects/{id}/quality_performance_score:
+    post:
+      description: Get project's translations' quality performance scores
+      operationId: projects/quality_performance_score
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/projects_quality_performance_score_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_quality_performance_score_200_response'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "504":
+          description: Gateway timeout
+      summary: Get project's translations' quality performance scores
+      tags:
+      - Quality performance score
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:id/quality_performance_score" \
+            -X POST \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -d '{"translation_ids":["translation_id_1", "translation_id_2"]}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase projects quality_performance_score \
+          --id <id> \
+          --data '{"translation_ids":["translation_id_1", "translation_id_2"]}' \
+          --access_token <token>
+      x-cli-version: "2.20"
   /accounts/{account_id}/spaces:
     get:
       description: List all Spaces for the given account.
@@ -27599,6 +27702,8 @@ components:
           $ref: '#/components/headers/X-Rate-Limit-Reset'
     "503":
       description: Server error
+    "504":
+      description: Gateway timeout
   schemas:
     authorization:
       example:
@@ -32675,6 +32780,83 @@ components:
           type: string
       title: order/confirm/parameters
       type: object
+    projects_quality_performance_score_request:
+      properties:
+        translation_ids:
+          description: Translation ids you want to get the quality performance score
+            for
+          items:
+            example: translation_id_1
+            type: string
+          type: array
+      type: object
+    error_error:
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+      type: object
+    error:
+      description: Error field for when the request completely fails
+      properties:
+        error:
+          $ref: '#/components/schemas/error_error'
+      title: error
+      type: object
+    projects_quality_performance_score_200_response_anyOf_data_translations_inner:
+      properties:
+        engine:
+          description: Engine used for the translation scoring
+          type: string
+        score:
+          description: Quality score for the translation
+          type: number
+        id:
+          description: One of the translation ids passed in arguments
+          type: string
+      type: object
+    projects_quality_performance_score_200_response_anyOf_data:
+      properties:
+        translations:
+          items:
+            $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf_data_translations_inner'
+          type: array
+      type: object
+    projects_quality_performance_score_200_response_anyOf_errors_inner:
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+        id:
+          description: One of the translation ids passed in arguments
+          type: string
+      type: object
+    projects_quality_performance_score_200_response_anyOf:
+      properties:
+        data:
+          $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf_data'
+        errors:
+          description: Array of errors for any failing translation ids
+          items:
+            $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf_errors_inner'
+          type: array
+      type: object
+    projects_quality_performance_score_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/error'
+      - $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf'
+      example:
+        data:
+          translations:
+          - engine: qe_v4
+            score: 0.78
+            id: translation_id_1
+          - engine: qe_v4
+            score: 0.95
+            id: translation_id_2
+        errors: []
     space_create_parameters:
       properties:
         name:
