@@ -4,6 +4,6 @@ package phrase
 type ProjectsQualityPerformanceScore200Response struct {
 	Error ErrorError                                          `json:"error,omitempty"`
 	Data  ProjectsQualityPerformanceScore200ResponseAnyOfData `json:"data,omitempty"`
-	// Array of errors for any failing translation ids
+	// Array of errors for any failing translation IDs
 	Errors []ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner `json:"errors,omitempty"`
 }

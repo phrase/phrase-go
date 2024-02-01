@@ -4,17 +4,17 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ProjectsQualityPerformanceScore**](QualityPerformanceScoreApi.md#ProjectsQualityPerformanceScore) | **Post** /projects/{id}/quality_performance_score | Get project&#39;s translations&#39; quality performance scores
+[**ProjectsQualityPerformanceScore**](QualityPerformanceScoreApi.md#ProjectsQualityPerformanceScore) | **Post** /projects/{project_id}/quality_performance_score | Get Translation Quality
 
 
 
 ## ProjectsQualityPerformanceScore
 
-> ProjectsQualityPerformanceScore200Response ProjectsQualityPerformanceScore(ctx, id, projectsQualityPerformanceScoreRequest, optional)
+> ProjectsQualityPerformanceScore200Response ProjectsQualityPerformanceScore(ctx, projectId, projectsQualityPerformanceScoreRequest, optional)
 
-Get project's translations' quality performance scores
+Get Translation Quality
 
-Get project's translations' quality performance scores
+Retrieves the quality scores for your Strings translations. Returns a score, measured by Phrase QPS
 
 ### Required Parameters
 
@@ -22,7 +22,7 @@ Get project's translations' quality performance scores
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string**| ID | 
+**projectId** | **string**| Project ID | 
 **projectsQualityPerformanceScoreRequest** | [**ProjectsQualityPerformanceScoreRequest**](ProjectsQualityPerformanceScoreRequest.md)|  | 
  **optional** | ***ProjectsQualityPerformanceScoreOpts** | optional parameters | nil if no parameters
 

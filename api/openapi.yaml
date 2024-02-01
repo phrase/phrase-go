@@ -21349,9 +21349,10 @@ paths:
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
       x-cli-version: "2.5"
-  /projects/{id}/quality_performance_score:
+  /projects/{project_id}/quality_performance_score:
     post:
-      description: Get project's translations' quality performance scores
+      description: "Retrieves the quality scores for your Strings translations. Returns\
+        \ a score, measured by Phrase QPS"
       operationId: projects/quality_performance_score
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -21362,10 +21363,10 @@ paths:
         schema:
           type: string
         style: simple
-      - description: ID
+      - description: Project ID
         explode: false
         in: path
-        name: id
+        name: project_id
         required: true
         schema:
           type: string
@@ -21434,13 +21435,13 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
         "504":
           description: Gateway timeout
-      summary: Get project's translations' quality performance scores
+      summary: Get Translation Quality
       tags:
       - Quality performance score
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:id/quality_performance_score" \
+          curl "https://api.phrase.com/v2/projects/:project_id/quality_performance_score" \
             -X POST \
             -u USERNAME_OR_ACCESS_TOKEN \
             -d '{"translation_ids":["translation_id_1", "translation_id_2"]}' \
@@ -21448,7 +21449,7 @@ paths:
       - lang: CLI v2
         source: |-
           phrase projects quality_performance_score \
-          --id <id> \
+          --project_id <project_id> \
           --data '{"translation_ids":["translation_id_1", "translation_id_2"]}' \
           --access_token <token>
       x-cli-version: "2.20"
@@ -32838,7 +32839,7 @@ components:
         data:
           $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf_data'
         errors:
-          description: Array of errors for any failing translation ids
+          description: Array of errors for any failing translation IDs
           items:
             $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf_errors_inner'
           type: array

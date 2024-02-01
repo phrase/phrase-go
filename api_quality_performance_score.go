@@ -24,17 +24,17 @@ type ProjectsQualityPerformanceScoreOpts struct {
 }
 
 /*
-ProjectsQualityPerformanceScore Get project's translations' quality performance scores
-Get project&#39;s translations&#39; quality performance scores
+ProjectsQualityPerformanceScore Get Translation Quality
+Retrieves the quality scores for your Strings translations. Returns a score, measured by Phrase QPS
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @param id ID
+  - @param projectId Project ID
   - @param projectsQualityPerformanceScoreRequest
   - @param optional nil or *ProjectsQualityPerformanceScoreOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return ProjectsQualityPerformanceScore200Response
 */
-func (a *QualityPerformanceScoreApiService) ProjectsQualityPerformanceScore(ctx _context.Context, id string, projectsQualityPerformanceScoreRequest ProjectsQualityPerformanceScoreRequest, localVarOptionals *ProjectsQualityPerformanceScoreOpts) (ProjectsQualityPerformanceScore200Response, *APIResponse, error) {
+func (a *QualityPerformanceScoreApiService) ProjectsQualityPerformanceScore(ctx _context.Context, projectId string, projectsQualityPerformanceScoreRequest ProjectsQualityPerformanceScoreRequest, localVarOptionals *ProjectsQualityPerformanceScoreOpts) (ProjectsQualityPerformanceScore200Response, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -45,8 +45,8 @@ func (a *QualityPerformanceScoreApiService) ProjectsQualityPerformanceScore(ctx 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/projects/{id}/quality_performance_score"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
+	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/quality_performance_score"
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
