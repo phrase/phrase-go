@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Briefing** | **string** |  | [optional] 
-**DueDate** | [**time.Time**](time.Time.md) |  | [optional] 
+**DueDate** | Pointer to [**NullableTime**](time.Time.md) |  | [optional] 
 **State** | **string** |  | [optional] 
 **TicketUrl** | **string** |  | [optional] 
 **Project** | [**ProjectShort**](ProjectShort.md) |  | [optional] 

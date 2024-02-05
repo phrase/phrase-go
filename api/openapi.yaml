@@ -29540,6 +29540,7 @@ components:
           type: string
         due_date:
           format: date-time
+          nullable: true
           type: string
         state:
           type: string
@@ -31149,6 +31150,7 @@ components:
         due_date:
           description: Date the job should be finished
           format: date-time
+          nullable: true
           type: string
         ticket_url:
           description: "URL to a ticket for this job (e.g. Jira, Trello)"
@@ -31193,6 +31195,7 @@ components:
         due_date:
           description: Date the job should be finished
           format: date-time
+          nullable: true
           type: string
         ticket_url:
           description: "URL to a ticket for this job (e.g. Jira, Trello)"
