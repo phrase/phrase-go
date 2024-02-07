@@ -89,6 +89,7 @@ Name | Type | Description  | Notes
  **projectId** | **optional.String**| id of project that the properties belong to | 
  **page** | **optional.Int32**| Page number | 
  **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+ **q** | **optional.String**| query to find a property by name | 
  **sort** | **optional.String**| Sort criteria. Can be one of: name, data_type, created_at. | 
  **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
 

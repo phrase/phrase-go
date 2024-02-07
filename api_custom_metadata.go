@@ -119,6 +119,7 @@ type CustomMetadataPropertiesListOpts struct {
 	ProjectId     optional.String    `json:"project_id,omitempty"`
 	Page          optional.Int32     `json:"page,omitempty"`
 	PerPage       optional.Int32     `json:"per_page,omitempty"`
+	Q             optional.String    `json:"q,omitempty"`
 	Sort          optional.String    `json:"sort,omitempty"`
 	Order         optional.String    `json:"order,omitempty"`
 }
@@ -134,6 +135,7 @@ List all custom metadata properties for an account.  This endpoint is only avail
   - @param "ProjectId" (optional.String) -  id of project that the properties belong to
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
+  - @param "Q" (optional.String) -  query to find a property by name
   - @param "Sort" (optional.String) -  Sort criteria. Can be one of: name, data_type, created_at.
   - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
 
@@ -170,6 +172,9 @@ func (a *CustomMetadataApiService) CustomMetadataPropertiesList(ctx _context.Con
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Q.IsSet() {
+		localVarQueryParams.Add("q", parameterToString(localVarOptionals.Q.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
 		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))

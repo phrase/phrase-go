@@ -3433,6 +3433,15 @@ paths:
         schema:
           type: integer
         style: form
+      - description: query to find a property by name
+        example: character_name
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+        style: form
       - description: "Sort criteria. Can be one of: name, data_type, created_at."
         example: updated_at
         explode: true
