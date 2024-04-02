@@ -27411,6 +27411,196 @@ paths:
           --data '{"locale_name": "de-1", "locale_code: "de-DE", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234","translator_team_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
       x-cli-version: 2.7.0
+  /projects/{project_id}/keys/{id}/key_links:
+    delete:
+      description: Unlinks multiple child keys from a given parent key in a single
+        operation.
+      operationId: key_links/batch_destroy
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Whether to unlink the parent key as well and unmark it as linked-key.
+        explode: true
+        in: query
+        name: unlink_parent
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/key_links_batch_destroy_parameters'
+        required: true
+      responses:
+        "200":
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Batch unlink child keys from a parent key
+      tags:
+      - Linked Keys
+    get:
+      description: "Returns detailed information about a parent key, including its\
+        \ linked child keys."
+      operationId: key_links/index
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/key_link'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/key_links_index_400_response'
+          description: Bad Request
+      summary: Retrieve all child keys linked to a specific parent key
+      tags:
+      - Linked Keys
+    post:
+      description: Creates links between a given parent key and one or more child
+        keys.
+      operationId: key_links/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/key_links_create_parameters'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/key_link'
+          description: Created
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Link child keys to a parent key
+      tags:
+      - Linked Keys
+  /projects/{project_id}/keys/{id}/key_links/{child_key_id}:
+    delete:
+      description: Unlinks a single child key from a given parent key.
+      operationId: key_links/destroy
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The ID of the child key to unlink.
+        explode: false
+        in: path
+        name: child_key_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Unlink a child key from a parent key
+      tags:
+      - Linked Keys
 components:
   headers:
     Link:
@@ -28167,6 +28357,10 @@ components:
       example: string
       type: string
     key_preview:
+      example:
+        plural: true
+        name: name
+        id: id
       properties:
         id:
           type: string
@@ -28176,7 +28370,6 @@ components:
           type: boolean
       title: key_preview
       type: object
-      example: null
     affected_count:
       example:
         records_affected: 96
@@ -29372,6 +29565,11 @@ components:
         title: translation_version_with_user
         type: object
     user_preview:
+      example:
+        name: name
+        id: id
+        gravatar_uid: gravatar_uid
+        username: username
       properties:
         id:
           type: string
@@ -29383,7 +29581,6 @@ components:
           type: string
       title: user_preview
       type: object
-      example: null
     user:
       example:
         id: abcd1234cdef1234abcd1234cdef1234
@@ -30507,6 +30704,70 @@ components:
             type: array
         title: organization_job_template_details
         type: object
+    key_link:
+      example:
+        parent:
+          plural: true
+          name: name
+          id: id
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        children:
+        - plural: true
+          name: name
+          id: id
+        - plural: true
+          name: name
+          id: id
+        updated_by:
+          name: name
+          id: id
+          gravatar_uid: gravatar_uid
+          username: username
+        created_at: 2000-01-23T04:56:07.000+00:00
+        created_by:
+          name: name
+          id: id
+          gravatar_uid: gravatar_uid
+          username: username
+        account:
+          id: abcd1234
+          name: Company Account
+          slug: company_account
+          company: My Awesome Company
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+          company_logo_url: http://assets.example.com/company_logo.png
+      properties:
+        created_at:
+          description: The timestamp when the link was created.
+          format: date-time
+          type: string
+        updated_at:
+          description: The timestamp when the link was last updated.
+          format: date-time
+          type: string
+        created_by:
+          $ref: '#/components/schemas/user_preview'
+        updated_by:
+          $ref: '#/components/schemas/user_preview'
+        account:
+          $ref: '#/components/schemas/account'
+        parent:
+          $ref: '#/components/schemas/key_preview'
+        children:
+          description: The child translation keys linked to the parent.
+          items:
+            $ref: '#/components/schemas/key_preview'
+          type: array
+      required:
+      - account
+      - children
+      - created_at
+      - created_by
+      - parent
+      - updated_at
+      - updated_by
+      type: object
     icu_skeleton_parameters:
       properties:
         content:
@@ -33606,6 +33867,42 @@ components:
             type: string
           type: array
       title: organization_job_template_locale/update/parameters
+      type: object
+    key_links_index_400_response:
+      example:
+        message: Key <parent_key_code> is not a parent key
+      properties:
+        message:
+          type: string
+      type: object
+    key_links_create_parameters:
+      properties:
+        child_key_ids:
+          description: "The IDs of the child keys to link to the parent key. Can be\
+            \ left empty, to only mark the given translation-key as parent"
+          example:
+          - child_key_id1
+          - child_key_id2
+          items:
+            type: string
+          type: array
+      required:
+      - child_key_ids
+      title: key_links/create/parameters
+      type: object
+    key_links_batch_destroy_parameters:
+      properties:
+        child_key_ids:
+          description: The IDs of the child keys to unlink from the parent key.
+          example:
+          - child_key_id1
+          - child_key_id2
+          items:
+            type: string
+          type: array
+      required:
+      - child_key_ids
+      title: key_links/batch_destroy/parameters
       type: object
     gitlab_sync_history_errors_inner:
       properties:

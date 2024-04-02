@@ -206,6 +206,10 @@ Class | Method | HTTP request | Description
 *KeysApi* | [**KeysUntag**](docs/KeysApi.md#keysuntag) | **Patch** /projects/{project_id}/keys/untag | Remove tags from collection of keys
 *KeysFigmaAttachmentsApi* | [**FigmaAttachmentAttachToKey**](docs/KeysFigmaAttachmentsApi.md#figmaattachmentattachtokey) | **Post** /projects/{project_id}/figma_attachments/{figma_attachment_id}/keys | Attach the Figma attachment to a key
 *KeysFigmaAttachmentsApi* | [**FigmaAttachmentDetachFromKey**](docs/KeysFigmaAttachmentsApi.md#figmaattachmentdetachfromkey) | **Delete** /projects/{project_id}/figma_attachments/{figma_attachment_id}/keys/{id} | Detach the Figma attachment from a key
+*LinkedKeysApi* | [**KeyLinksBatchDestroy**](docs/LinkedKeysApi.md#keylinksbatchdestroy) | **Delete** /projects/{project_id}/keys/{id}/key_links | Batch unlink child keys from a parent key
+*LinkedKeysApi* | [**KeyLinksCreate**](docs/LinkedKeysApi.md#keylinkscreate) | **Post** /projects/{project_id}/keys/{id}/key_links | Link child keys to a parent key
+*LinkedKeysApi* | [**KeyLinksDestroy**](docs/LinkedKeysApi.md#keylinksdestroy) | **Delete** /projects/{project_id}/keys/{id}/key_links/{child_key_id} | Unlink a child key from a parent key
+*LinkedKeysApi* | [**KeyLinksIndex**](docs/LinkedKeysApi.md#keylinksindex) | **Get** /projects/{project_id}/keys/{id}/key_links | Retrieve all child keys linked to a specific parent key
 *LocalesApi* | [**AccountLocales**](docs/LocalesApi.md#accountlocales) | **Get** /accounts/{id}/locales | List locales used in account
 *LocalesApi* | [**LocaleCreate**](docs/LocalesApi.md#localecreate) | **Post** /projects/{project_id}/locales | Create a locale
 *LocalesApi* | [**LocaleDelete**](docs/LocalesApi.md#localedelete) | **Delete** /projects/{project_id}/locales/{id} | Delete a locale
@@ -427,6 +431,10 @@ Class | Method | HTTP request | Description
  - [JobTemplateUpdateParameters](docs/JobTemplateUpdateParameters.md)
  - [JobUpdateParameters](docs/JobUpdateParameters.md)
  - [KeyCreateParameters](docs/KeyCreateParameters.md)
+ - [KeyLink](docs/KeyLink.md)
+ - [KeyLinksBatchDestroyParameters](docs/KeyLinksBatchDestroyParameters.md)
+ - [KeyLinksCreateParameters](docs/KeyLinksCreateParameters.md)
+ - [KeyLinksIndex400Response](docs/KeyLinksIndex400Response.md)
  - [KeyPreview](docs/KeyPreview.md)
  - [KeyUpdateParameters](docs/KeyUpdateParameters.md)
  - [KeysExcludeParameters](docs/KeysExcludeParameters.md)
@@ -553,6 +561,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com
