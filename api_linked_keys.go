@@ -28,13 +28,14 @@ type KeyLinksBatchDestroyOpts struct {
 KeyLinksBatchDestroy Batch unlink child keys from a parent key
 Unlinks multiple child keys from a given parent key in a single operation.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @param accountId Account ID
+  - @param projectId Project ID
+  - @param id Parent Translation Key ID
   - @param keyLinksBatchDestroyParameters
   - @param optional nil or *KeyLinksBatchDestroyOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "UnlinkParent" (optional.Bool) -  Whether to unlink the parent key as well and unmark it as linked-key.
 */
-func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, accountId string, keyLinksBatchDestroyParameters KeyLinksBatchDestroyParameters, localVarOptionals *KeyLinksBatchDestroyOpts) ([]byte, *APIResponse, error) {
+func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, projectId string, id string, keyLinksBatchDestroyParameters KeyLinksBatchDestroyParameters, localVarOptionals *KeyLinksBatchDestroyOpts) ([]byte, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -45,7 +46,9 @@ func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, accoun
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/keys/{id}/key_links"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -133,14 +136,15 @@ type KeyLinksCreateOpts struct {
 KeyLinksCreate Link child keys to a parent key
 Creates links between a given parent key and one or more child keys.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @param accountId Account ID
+  - @param projectId Project ID
+  - @param id Parent Translation Key ID
   - @param keyLinksCreateParameters
   - @param optional nil or *KeyLinksCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return KeyLink
 */
-func (a *LinkedKeysApiService) KeyLinksCreate(ctx _context.Context, accountId string, keyLinksCreateParameters KeyLinksCreateParameters, localVarOptionals *KeyLinksCreateOpts) (KeyLink, *APIResponse, error) {
+func (a *LinkedKeysApiService) KeyLinksCreate(ctx _context.Context, projectId string, id string, keyLinksCreateParameters KeyLinksCreateParameters, localVarOptionals *KeyLinksCreateOpts) (KeyLink, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -152,7 +156,9 @@ func (a *LinkedKeysApiService) KeyLinksCreate(ctx _context.Context, accountId st
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/keys/{id}/key_links"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -246,12 +252,13 @@ type KeyLinksDestroyOpts struct {
 KeyLinksDestroy Unlink a child key from a parent key
 Unlinks a single child key from a given parent key.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @param accountId Account ID
+  - @param projectId Project ID
+  - @param id Parent Translation Key ID
   - @param childKeyId The ID of the child key to unlink.
   - @param optional nil or *KeyLinksDestroyOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 */
-func (a *LinkedKeysApiService) KeyLinksDestroy(ctx _context.Context, accountId string, childKeyId string, localVarOptionals *KeyLinksDestroyOpts) ([]byte, *APIResponse, error) {
+func (a *LinkedKeysApiService) KeyLinksDestroy(ctx _context.Context, projectId string, id string, childKeyId string, localVarOptionals *KeyLinksDestroyOpts) ([]byte, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -262,7 +269,9 @@ func (a *LinkedKeysApiService) KeyLinksDestroy(ctx _context.Context, accountId s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/keys/{id}/key_links/{child_key_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarPath = strings.Replace(localVarPath, "{"+"child_key_id"+"}", _neturl.QueryEscape(parameterToString(childKeyId, "")), -1)
 
@@ -347,13 +356,14 @@ type KeyLinksIndexOpts struct {
 KeyLinksIndex Retrieve all child keys linked to a specific parent key
 Returns detailed information about a parent key, including its linked child keys.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @param accountId Account ID
+  - @param projectId Project ID
+  - @param id Parent Translation Key ID
   - @param optional nil or *KeyLinksIndexOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return KeyLink
 */
-func (a *LinkedKeysApiService) KeyLinksIndex(ctx _context.Context, accountId string, localVarOptionals *KeyLinksIndexOpts) (KeyLink, *APIResponse, error) {
+func (a *LinkedKeysApiService) KeyLinksIndex(ctx _context.Context, projectId string, id string, localVarOptionals *KeyLinksIndexOpts) (KeyLink, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -365,7 +375,9 @@ func (a *LinkedKeysApiService) KeyLinksIndex(ctx _context.Context, accountId str
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/projects/{project_id}/keys/{id}/key_links"
-	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"project_id"+"}", _neturl.QueryEscape(parameterToString(projectId, "")), -1)
+
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

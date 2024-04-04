@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## KeyLinksBatchDestroy
 
-> KeyLinksBatchDestroy(ctx, accountId, keyLinksBatchDestroyParameters, optional)
+> KeyLinksBatchDestroy(ctx, projectId, id, keyLinksBatchDestroyParameters, optional)
 
 Batch unlink child keys from a parent key
 
@@ -25,7 +25,8 @@ Unlinks multiple child keys from a given parent key in a single operation.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
+**projectId** | **string**| Project ID | 
+**id** | **string**| Parent Translation Key ID | 
 **keyLinksBatchDestroyParameters** | [**KeyLinksBatchDestroyParameters**](KeyLinksBatchDestroyParameters.md)|  | 
  **optional** | ***KeyLinksBatchDestroyOpts** | optional parameters | nil if no parameters
 
@@ -36,6 +37,7 @@ Optional parameters are passed through a pointer to a KeyLinksBatchDestroyOpts s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
@@ -61,7 +63,7 @@ Name | Type | Description  | Notes
 
 ## KeyLinksCreate
 
-> KeyLink KeyLinksCreate(ctx, accountId, keyLinksCreateParameters, optional)
+> KeyLink KeyLinksCreate(ctx, projectId, id, keyLinksCreateParameters, optional)
 
 Link child keys to a parent key
 
@@ -73,7 +75,8 @@ Creates links between a given parent key and one or more child keys.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
+**projectId** | **string**| Project ID | 
+**id** | **string**| Parent Translation Key ID | 
 **keyLinksCreateParameters** | [**KeyLinksCreateParameters**](KeyLinksCreateParameters.md)|  | 
  **optional** | ***KeyLinksCreateOpts** | optional parameters | nil if no parameters
 
@@ -84,6 +87,7 @@ Optional parameters are passed through a pointer to a KeyLinksCreateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
@@ -108,7 +112,7 @@ Name | Type | Description  | Notes
 
 ## KeyLinksDestroy
 
-> KeyLinksDestroy(ctx, accountId, childKeyId, optional)
+> KeyLinksDestroy(ctx, projectId, id, childKeyId, optional)
 
 Unlink a child key from a parent key
 
@@ -120,7 +124,8 @@ Unlinks a single child key from a given parent key.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
+**projectId** | **string**| Project ID | 
+**id** | **string**| Parent Translation Key ID | 
 **childKeyId** | **string**| The ID of the child key to unlink. | 
  **optional** | ***KeyLinksDestroyOpts** | optional parameters | nil if no parameters
 
@@ -131,6 +136,7 @@ Optional parameters are passed through a pointer to a KeyLinksDestroyOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
@@ -155,7 +161,7 @@ Name | Type | Description  | Notes
 
 ## KeyLinksIndex
 
-> KeyLink KeyLinksIndex(ctx, accountId, optional)
+> KeyLink KeyLinksIndex(ctx, projectId, id, optional)
 
 Retrieve all child keys linked to a specific parent key
 
@@ -167,7 +173,8 @@ Returns detailed information about a parent key, including its linked child keys
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
+**projectId** | **string**| Project ID | 
+**id** | **string**| Parent Translation Key ID | 
  **optional** | ***KeyLinksIndexOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -177,6 +184,7 @@ Optional parameters are passed through a pointer to a KeyLinksIndexOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 

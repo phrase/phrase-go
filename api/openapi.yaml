@@ -27425,10 +27425,18 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Account ID
+      - description: Project ID
         explode: false
         in: path
-        name: account_id
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Parent Translation Key ID
+        explode: false
+        in: path
+        name: id
         required: true
         schema:
           type: string
@@ -27479,10 +27487,18 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Account ID
+      - description: Project ID
         explode: false
         in: path
-        name: account_id
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Parent Translation Key ID
+        explode: false
+        in: path
+        name: id
         required: true
         schema:
           type: string
@@ -27516,10 +27532,18 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Account ID
+      - description: Project ID
         explode: false
         in: path
-        name: account_id
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Parent Translation Key ID
+        explode: false
+        in: path
+        name: id
         required: true
         schema:
           type: string
@@ -27566,10 +27590,18 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Account ID
+      - description: Project ID
         explode: false
         in: path
-        name: account_id
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Parent Translation Key ID
+        explode: false
+        in: path
+        name: id
         required: true
         schema:
           type: string
@@ -27758,6 +27790,15 @@ components:
       explode: false
       in: path
       name: key_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    key_id_as_id:
+      description: Parent Translation Key ID
+      explode: false
+      in: path
+      name: id
       required: true
       schema:
         type: string
