@@ -1604,6 +1604,10 @@ tags:
 - name: Projects
 - name: Quality
 - name: Releases
+- description: |
+    The Repo Syncs API allows you to synchronize your Phrase projects with your code repositories.
+    You can import translations from your repository to Phrase and export translations from Phrase to your repository.
+  name: Repo Syncs
 - name: Reports
 - name: Search
 - name: Screenshot Markers
@@ -21540,6 +21544,626 @@ paths:
           --data '{"translation_ids":["translation_id_1", "translation_id_2"]}' \
           --access_token <token>
       x-cli-version: "2.20"
+  /accounts/{account_id}/repo_syncs:
+    get:
+      description: Lists all Repo Syncs from an account
+      operationId: repo_sync/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/repo_sync'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+            Pagination:
+              $ref: '#/components/headers/Pagination'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get Repo Syncs
+      tags:
+      - Repo Syncs
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs"\
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase repo_sync list \
+          --account_id abcd1234 \
+          --access_token <token>
+      x-cli-version: "2.24"
+  /accounts/{account_id}/repo_syncs/{repo_sync_id}:
+    get:
+      description: Shows a single Repo Sync setting.
+      operationId: repo_sync/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Repo Sync ID
+        explode: false
+        in: path
+        name: repo_sync_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/repo_sync'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single Repo Sync
+      tags:
+      - Repo Syncs
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs/56ef78"\
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase repo_sync show \
+          --id <id> \
+          --account_id abcd1234 \
+          --access_token <token>
+      x-cli-version: "2.24"
+  /accounts/{account_id}/repo_syncs/{repo_sync_id}/export:
+    post:
+      description: |-
+        > Beta: this feature will change in the future.
+
+        Export translations from Phrase Strings to repository provider according to the
+        .phrase.yml file within the code repository.
+
+        *Export is done asynchronously and may take several seconds depending on the project size.*
+      operationId: repo_sync/export
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Repo Sync ID
+        explode: false
+        in: path
+        name: repo_sync_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/repo_sync_export'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Export to code repository
+      tags:
+      - Repo Syncs
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs/45ef6789/export"\
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase repo_sync export \
+          --repo_sync_id <repo_sync_id> \
+          --access_token <token>
+      x-cli-version: "2.24"
+  /accounts/{account_id}/repo_syncs/{repo_sync_id}/import:
+    post:
+      description: |-
+        > Beta: this feature will change in the future.
+
+        Import translations from repository provider to Phrase Strings according to the .phrase.yml file
+        within the code repository.
+
+        _Import is done asynchronously and may take several seconds depending on the project size._
+      operationId: repo_sync/import
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Repo Sync ID
+        explode: false
+        in: path
+        name: repo_sync_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/repo_sync_import'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Import from code repository
+      tags:
+      - Repo Syncs
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs/45ef6789/import"\
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase repo_sync import \
+          --repo_sync_id <repo_sync_id> \
+          --access_token <token>
+      x-cli-version: "2.24"
+  /accounts/{account_id}/repo_syncs/{repo_sync_id}/events:
+    get:
+      description: |-
+        Get the history of a single Repo Sync. The history includes all imports and exports
+        performed by the Repo Sync.
+      operationId: repo_sync/events
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Repo Sync ID
+        explode: false
+        in: path
+        name: repo_sync_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/repo_sync_event'
+                type: array
+          description: Successful response
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+            Pagination:
+              $ref: '#/components/headers/Pagination'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Repository Syncs History
+      tags:
+      - Repo Syncs
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs/56ef78/events"\
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase repo_sync events \
+          --id <id> \
+          --account_id abcd1234 \
+          --access_token <token>
+      x-cli-version: "2.24"
+  /accounts/{account_id}/repo_syncs/{repo_sync_id}/deactivate:
+    post:
+      description: |-
+        Deactivate an active Repo Sync. Import and export can't be performed on deactivated syncs
+        and the pushes to the repository won't trigger the import to Phrase.
+      operationId: repo_sync/deactivate
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Repo Sync ID
+        explode: false
+        in: path
+        name: repo_sync_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/repo_sync'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Deactivate a Repo Sync
+      tags:
+      - Repo Syncs
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs/45ef6789/deactivate"\
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase repo_sync deactivate \
+          --repo_sync_id <repo_sync_id> \
+          --access_token <token>
+      x-cli-version: "2.24"
+  /accounts/{account_id}/repo_syncs/{repo_sync_id}/activate:
+    post:
+      description: |-
+        Activate a deactivated Repo Sync. Active syncs can be used to import and export translations,
+        and imports to Phrase are automatically triggered by pushes to the repository, if configured.
+      operationId: repo_sync/activate
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Repo Sync ID
+        explode: false
+        in: path
+        name: repo_sync_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/repo_sync'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Activate a Repo Sync
+      tags:
+      - Repo Syncs
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs/45ef6789/activate"\
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase repo_sync activate \
+          --repo_sync_id <repo_sync_id> \
+          --access_token <token>
+      x-cli-version: "2.24"
   /accounts/{account_id}/spaces:
     get:
       description: List all Spaces for the given account.
@@ -27758,6 +28382,15 @@ components:
       schema:
         type: string
       style: form
+    repo_sync_id:
+      description: Repo Sync ID
+      explode: false
+      in: path
+      name: repo_sync_id
+      required: true
+      schema:
+        type: string
+      style: simple
     space_id:
       description: Space ID
       explode: false
@@ -30809,6 +31442,83 @@ components:
       - updated_at
       - updated_by
       type: object
+    repo_sync:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        project:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        provider: github
+        enabled: true
+        auto_import: true
+        repo_name: organization/repo
+        created_at: 2015-01-28T09:52:53Z
+        last_import_at: 2015-01-28T09:52:53Z
+        last_export_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        project:
+          $ref: '#/components/schemas/project_short'
+        provider:
+          type: string
+        enabled:
+          type: boolean
+        auto_import:
+          type: boolean
+        repo_name:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        last_import_at:
+          format: date-time
+          type: string
+        last_export_at:
+          format: date-time
+          type: string
+      title: repo_sync
+      type: object
+    repo_sync_event:
+      example:
+        event_type: import
+        created_at: 2015-01-28T09:52:53Z
+        status: failure
+        auto_import: true
+        errors:
+        - Error message
+        - Error message
+      properties:
+        event_type:
+          enum:
+          - import
+          - export
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        status:
+          enum:
+          - running
+          - success
+          - failure
+          type: string
+        pull_request_url:
+          description: URL of the pull request created on export
+          type: string
+        auto_import:
+          description: Whether the import was triggered by the repo push event
+          type: boolean
+        errors:
+          description: "List of error messages, in case of failure"
+          items:
+            $ref: '#/components/schemas/repo_sync_event_errors_inner'
+          type: array
+      title: repo_sync_event
+      type: object
     icu_skeleton_parameters:
       properties:
         content:
@@ -33307,6 +34017,24 @@ components:
             score: 0.95
             id: translation_id_2
         errors: []
+    repo_sync_export:
+      example:
+        message: Export started
+      properties:
+        message:
+          example: Export started
+          type: string
+      title: repo_sync/export
+      type: object
+    repo_sync_import:
+      example:
+        message: Import started
+      properties:
+        message:
+          example: Import started
+          type: string
+      title: repo_sync/import
+      type: object
     space_create_parameters:
       properties:
         name:
@@ -34061,6 +34789,10 @@ components:
       title: job_template_preview
       type: object
       example: null
+    repo_sync_event_errors_inner:
+      anyOf:
+      - type: string
+      - type: object
   securitySchemes:
     Token:
       description: Enter your token in the format `token TOKEN`
