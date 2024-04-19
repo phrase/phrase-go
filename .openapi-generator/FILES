@@ -298,6 +298,7 @@ docs/TranslationIncludeParameters.md
 docs/TranslationKey.md
 docs/TranslationKeyDetails.md
 docs/TranslationOrder.md
+docs/TranslationParent.md
 docs/TranslationReviewParameters.md
 docs/TranslationUnverifyParameters.md
 docs/TranslationUpdateParameters.md
@@ -525,6 +526,7 @@ model_translation_include_parameters.go
 model_translation_key.go
 model_translation_key_details.go
 model_translation_order.go
+model_translation_parent.go
 model_translation_review_parameters.go
 model_translation_unverify_parameters.go
 model_translation_update_parameters.go

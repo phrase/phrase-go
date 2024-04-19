@@ -30020,6 +30020,8 @@ components:
             $ref: '#/components/schemas/user_preview'
           word_count:
             type: integer
+          linked_translation:
+            $ref: '#/components/schemas/translation_parent'
         title: translation_details
         type: object
     translation_key:
@@ -34772,6 +34774,16 @@ components:
           $ref: '#/components/schemas/tag_with_stats_1_statistics'
       type: object
       example: null
+    translation_parent:
+      example: "{\"id\":\"abcd1234cdef1234abcd1234cdef1234\",\"content\":\"My parent\
+        \ translation\"}"
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+      title: translation_parent
+      type: object
     branch_name:
       example:
         name: new-branch
