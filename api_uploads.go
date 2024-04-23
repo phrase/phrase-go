@@ -25,9 +25,6 @@ type UploadsApiService service
 type UploadCreateOpts struct {
 	XPhraseAppOTP       optional.String    `json:"X-PhraseApp-OTP,omitempty"`
 	Branch              optional.String    `json:"branch,omitempty"`
-	File                optional.Interface `json:"file,omitempty"`
-	FileFormat          optional.String    `json:"file_format,omitempty"`
-	LocaleId            optional.String    `json:"locale_id,omitempty"`
 	Tags                optional.String    `json:"tags,omitempty"`
 	UpdateTranslations  optional.Bool      `json:"update_translations,omitempty"`
 	UpdateDescriptions  optional.Bool      `json:"update_descriptions,omitempty"`
@@ -47,12 +44,12 @@ UploadCreate Upload a new file
 Upload a new language file. Creates necessary resources in your project.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
+  - @param file File to be imported
+  - @param fileFormat File format. Auto-detected when possible and not specified.
+  - @param localeId Locale of the file's content. Can be the name or id of the locale. Preferred is id.
   - @param optional nil or *UploadCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
-  - @param "File" (optional.Interface of *os.File) -  File to be imported
-  - @param "FileFormat" (optional.String) -  File format. Auto-detected when possible and not specified.
-  - @param "LocaleId" (optional.String) -  Locale of the file's content. Can be the name or public id of the locale. Preferred is the public id.
   - @param "Tags" (optional.String) -  List of tags separated by comma to be associated with the new keys contained in the upload.
   - @param "UpdateTranslations" (optional.Bool) -  Indicates whether existing translations should be updated with the file content.
   - @param "UpdateDescriptions" (optional.Bool) -  Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
@@ -60,7 +57,7 @@ Upload a new language file. Creates necessary resources in your project.
   - @param "SkipUploadTags" (optional.Bool) -  Indicates whether the upload should not create upload tags.
   - @param "SkipUnverification" (optional.Bool) -  Indicates whether the upload should unverify updated translations.
   - @param "FileEncoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \\\"UTF-8\\\", \\\"UTF-16\\\" and \\\"ISO-8859-1\\\".
-  - @param "LocaleMapping" (optional.Interface of map[string]interface{}) -  Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
+  - @param "LocaleMapping" (optional.Interface of map[string]interface{}) -  Mapping between locale names and translation columns. Required in some formats like CSV or XLSX.
   - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional options available for specific formats. See our format guide for complete list.
   - @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
   - @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
@@ -68,7 +65,7 @@ Upload a new language file. Creates necessary resources in your project.
 
 @return Upload
 */
-func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, localVarOptionals *UploadCreateOpts) (Upload, *APIResponse, error) {
+func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string, file *os.File, fileFormat string, localeId string, localVarOptionals *UploadCreateOpts) (Upload, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -110,26 +107,15 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 		localVarFormParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
 	}
 	localVarFormFileName = "file"
-	var localVarFile *os.File
-	if localVarOptionals != nil && localVarOptionals.File.IsSet() {
-		localVarFileOk := false
-		localVarFile, localVarFileOk = localVarOptionals.File.Value().(*os.File)
-		if !localVarFileOk {
-			return localVarReturnValue, nil, reportError("file should be *os.File")
-		}
-	}
+	localVarFile := file
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	if localVarOptionals != nil && localVarOptionals.FileFormat.IsSet() {
-		localVarFormParams.Add("file_format", parameterToString(localVarOptionals.FileFormat.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.LocaleId.IsSet() {
-		localVarFormParams.Add("locale_id", parameterToString(localVarOptionals.LocaleId.Value(), ""))
-	}
+	localVarFormParams.Add("file_format", parameterToString(fileFormat, ""))
+	localVarFormParams.Add("locale_id", parameterToString(localeId, ""))
 	if localVarOptionals != nil && localVarOptionals.Tags.IsSet() {
 		localVarFormParams.Add("tags", parameterToString(localVarOptionals.Tags.Value(), ""))
 	}

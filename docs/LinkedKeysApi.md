@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**KeyLinksBatchDestroy**](LinkedKeysApi.md#KeyLinksBatchDestroy) | **Delete** /projects/{project_id}/keys/{id}/key_links | Batch unlink child keys from a parent key
 [**KeyLinksCreate**](LinkedKeysApi.md#KeyLinksCreate) | **Post** /projects/{project_id}/keys/{id}/key_links | Link child keys to a parent key
 [**KeyLinksDestroy**](LinkedKeysApi.md#KeyLinksDestroy) | **Delete** /projects/{project_id}/keys/{id}/key_links/{child_key_id} | Unlink a child key from a parent key
-[**KeyLinksIndex**](LinkedKeysApi.md#KeyLinksIndex) | **Get** /projects/{project_id}/keys/{id}/key_links | Retrieve all child keys linked to a specific parent key
+[**KeyLinksIndex**](LinkedKeysApi.md#KeyLinksIndex) | **Get** /projects/{project_id}/keys/{id}/key_links | List child keys of a parent key
 
 
 
@@ -41,7 +41,6 @@ Name | Type | Description  | Notes
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **unlinkParent** | **optional.Bool**| Whether to unlink the parent key as well and unmark it as linked-key. | 
 
 ### Return type
 
@@ -163,7 +162,7 @@ Name | Type | Description  | Notes
 
 > KeyLink KeyLinksIndex(ctx, projectId, id, optional)
 
-Retrieve all child keys linked to a specific parent key
+List child keys of a parent key
 
 Returns detailed information about a parent key, including its linked child keys.
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Term** | **string** | Glossary term | [optional] 
+**Term** | **string** | Glossary term | 
 **Description** | **string** | Description of term | [optional] 
 **Translatable** | **bool** | Indicates whether the term should be used for all languages or can be translated | [optional] 
 **CaseSensitive** | **bool** | Indicates whether the term is case sensitive | [optional] 

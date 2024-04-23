@@ -3,7 +3,7 @@ package phrase
 // StyleguideCreateParameters struct for StyleguideCreateParameters
 type StyleguideCreateParameters struct {
 	// Style guide title
-	Title string `json:"title,omitempty"`
+	Title string `json:"title"`
 	// Audience description
 	Audience string `json:"audience,omitempty"`
 	// Can be one of: not_specified, children, teenager, young_adults, adults, old_adults.

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Note** | **string** | A note to help you remember what the access is used for. | [optional] 
+**Note** | **string** | A note to help you remember what the access is used for. | 
 **Scopes** | **[]string** | A list of scopes that the access can be used for. | [optional] 
 **ExpiresAt** | [**time.Time**](time.Time.md) | Expiration date for the authorization token. Null means no expiration date (default). | [optional] 
 

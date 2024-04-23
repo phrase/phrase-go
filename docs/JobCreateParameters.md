@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Branch** | **string** | specify the branch to use | [optional] 
-**Name** | **string** | Job name | [optional] 
+**Name** | **string** | Job name | 
 **SourceLocaleId** | **string** | The API id of the source language | [optional] 
 **Briefing** | **string** | Briefing for the translators | [optional] 
 **DueDate** | Pointer to [**NullableTime**](time.Time.md) | Date the job should be finished | [optional] 

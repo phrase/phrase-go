@@ -17,7 +17,7 @@ import (
 	"context"
 	"fmt"
 
-	phrase "github.com/phrase/phrase-go/v2"
+	phrase "github.com/phrase/phrase-go/v2" // x-release-please-major
 )
 
 func main() {
@@ -149,7 +149,7 @@ Class | Method | HTTP request | Description
 *GlossaryTermsApi* | [**GlossaryTermShow**](docs/GlossaryTermsApi.md#glossarytermshow) | **Get** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single term
 *GlossaryTermsApi* | [**GlossaryTermUpdate**](docs/GlossaryTermsApi.md#glossarytermupdate) | **Patch** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a term
 *GlossaryTermsApi* | [**GlossaryTermsList**](docs/GlossaryTermsApi.md#glossarytermslist) | **Get** /accounts/{account_id}/glossaries/{glossary_id}/terms | List terms
-*ICUApi* | [**IcuSkeleton**](docs/ICUApi.md#icuskeleton) | **Post** /icu/skeleton | Build icu skeletons
+*ICUApi* | [**IcuSkeleton**](docs/ICUApi.md#icuskeleton) | **Post** /icu/skeleton | Build ICU skeletons
 *InvitationsApi* | [**InvitationCreate**](docs/InvitationsApi.md#invitationcreate) | **Post** /accounts/{account_id}/invitations | Create a new invitation
 *InvitationsApi* | [**InvitationDelete**](docs/InvitationsApi.md#invitationdelete) | **Delete** /accounts/{account_id}/invitations/{id} | Delete an invitation
 *InvitationsApi* | [**InvitationResend**](docs/InvitationsApi.md#invitationresend) | **Post** /accounts/{account_id}/invitations/{id}/resend | Resend an invitation
@@ -209,7 +209,7 @@ Class | Method | HTTP request | Description
 *LinkedKeysApi* | [**KeyLinksBatchDestroy**](docs/LinkedKeysApi.md#keylinksbatchdestroy) | **Delete** /projects/{project_id}/keys/{id}/key_links | Batch unlink child keys from a parent key
 *LinkedKeysApi* | [**KeyLinksCreate**](docs/LinkedKeysApi.md#keylinkscreate) | **Post** /projects/{project_id}/keys/{id}/key_links | Link child keys to a parent key
 *LinkedKeysApi* | [**KeyLinksDestroy**](docs/LinkedKeysApi.md#keylinksdestroy) | **Delete** /projects/{project_id}/keys/{id}/key_links/{child_key_id} | Unlink a child key from a parent key
-*LinkedKeysApi* | [**KeyLinksIndex**](docs/LinkedKeysApi.md#keylinksindex) | **Get** /projects/{project_id}/keys/{id}/key_links | Retrieve all child keys linked to a specific parent key
+*LinkedKeysApi* | [**KeyLinksIndex**](docs/LinkedKeysApi.md#keylinksindex) | **Get** /projects/{project_id}/keys/{id}/key_links | List child keys of a parent key
 *LocalesApi* | [**AccountLocales**](docs/LocalesApi.md#accountlocales) | **Get** /accounts/{id}/locales | List locales used in account
 *LocalesApi* | [**LocaleCreate**](docs/LocalesApi.md#localecreate) | **Post** /projects/{project_id}/locales | Create a locale
 *LocalesApi* | [**LocaleDelete**](docs/LocalesApi.md#localedelete) | **Delete** /projects/{project_id}/locales/{id} | Delete a locale

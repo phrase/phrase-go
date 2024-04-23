@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Branch** | **string** | specify the branch to use | [optional] 
-**LocaleId** | **string** | Locale. Can be the name or public id of the locale. Preferred is the public id. | [optional] 
+**LocaleId** | **string** | Locale. Can be the name or id of the locale. Preferred is id | [optional] 
 **KeyId** | **string** | Key | [optional] 
 **Content** | **string** | Translation content | [optional] 
 **PluralSuffix** | **string** | Plural suffix. Can be one of: zero, one, two, few, many, other. Must be specified if the key associated to the translation is pluralized. | [optional] 

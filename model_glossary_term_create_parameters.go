@@ -3,7 +3,7 @@ package phrase
 // GlossaryTermCreateParameters struct for GlossaryTermCreateParameters
 type GlossaryTermCreateParameters struct {
 	// Glossary term
-	Term string `json:"term,omitempty"`
+	Term string `json:"term"`
 	// Description of term
 	Description string `json:"description,omitempty"`
 	// Indicates whether the term should be used for all languages or can be translated

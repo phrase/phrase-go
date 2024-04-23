@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## UploadCreate
 
-> Upload UploadCreate(ctx, projectId, optional)
+> Upload UploadCreate(ctx, projectId, file, fileFormat, localeId, optional)
 
 Upload a new file
 
@@ -25,6 +25,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
+**file** | ***os.File*****os.File**| File to be imported | 
+**fileFormat** | **string**| File format. Auto-detected when possible and not specified. | 
+**localeId** | **string**| Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. | 
  **optional** | ***UploadCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -35,11 +38,11 @@ Optional parameters are passed through a pointer to a UploadCreateOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+
+
+
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **branch** | **optional.String**| specify the branch to use | 
- **file** | **optional.Interface of *os.File****optional.*os.File**| File to be imported | 
- **fileFormat** | **optional.String**| File format. Auto-detected when possible and not specified. | 
- **localeId** | **optional.String**| Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. | 
  **tags** | **optional.String**| List of tags separated by comma to be associated with the new keys contained in the upload. | 
  **updateTranslations** | **optional.Bool**| Indicates whether existing translations should be updated with the file content. | 
  **updateDescriptions** | **optional.Bool**| Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. | 
@@ -47,7 +50,7 @@ Name | Type | Description  | Notes
  **skipUploadTags** | **optional.Bool**| Indicates whether the upload should not create upload tags. | 
  **skipUnverification** | **optional.Bool**| Indicates whether the upload should unverify updated translations. | 
  **fileEncoding** | **optional.String**| Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. | 
- **localeMapping** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. | 
+ **localeMapping** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. | 
  **formatOptions** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Additional options available for specific formats. See our format guide for complete list. | 
  **autotranslate** | **optional.Bool**| If set, translations for the uploaded language will be fetched automatically. | 
  **markReviewed** | **optional.Bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | 

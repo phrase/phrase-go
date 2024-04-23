@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | **string** | The email of the invited user. The &lt;code&gt;email&lt;/code&gt; can not be updated once created. Create a new invitation for each unique email. | [optional] 
-**Role** | **string** | Invitiation role, can be any of Manager, Developer, Translator. | [optional] 
+**Email** | **string** | The email of the invited user. The &lt;code&gt;email&lt;/code&gt; can not be updated once created. Create a new invitation for each unique email. | 
+**Role** | **string** | Invitiation role, can be any of Manager, Developer, Translator. | 
 **ProjectIds** | **string** | List of project ids the invited user has access to. | [optional] 
 **LocaleIds** | **string** | List of locale ids the invited user has access to. | [optional] 
 **SpaceIds** | **[]string** | List of spaces the user is assigned to. | [optional] 

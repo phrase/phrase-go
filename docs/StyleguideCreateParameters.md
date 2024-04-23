@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Title** | **string** | Style guide title | [optional] 
+**Title** | **string** | Style guide title | 
 **Audience** | **string** | Audience description | [optional] 
 **TargetAudience** | **string** | Can be one of: not_specified, children, teenager, young_adults, adults, old_adults. | [optional] 
 **GrammaticalPerson** | **string** | Can be one of: not_specified, first_person_singular, second_person_singular, third_person_singular_masculine, third_person_singular_feminine, third_person_singular_neuter, first_person_plural, second_person_plural, third_person_plural. | [optional] 

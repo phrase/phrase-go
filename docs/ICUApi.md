@@ -4,7 +4,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**IcuSkeleton**](ICUApi.md#IcuSkeleton) | **Post** /icu/skeleton | Build icu skeletons
+[**IcuSkeleton**](ICUApi.md#IcuSkeleton) | **Post** /icu/skeleton | Build ICU skeletons
 
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 
 > Icu IcuSkeleton(ctx, icuSkeletonParameters, optional)
 
-Build icu skeletons
+Build ICU skeletons
 
-Returns icu skeletons for multiple locale codes based on a source content.
+Returns ICU skeletons for multiple locale codes based on a source content.
 
 ### Required Parameters
 

@@ -21,7 +21,6 @@ type LinkedKeysApiService service
 // KeyLinksBatchDestroyOpts Optional parameters for the method 'KeyLinksBatchDestroy'
 type KeyLinksBatchDestroyOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	UnlinkParent  optional.Bool   `json:"unlink_parent,omitempty"`
 }
 
 /*
@@ -33,7 +32,6 @@ Unlinks multiple child keys from a given parent key in a single operation.
   - @param keyLinksBatchDestroyParameters
   - @param optional nil or *KeyLinksBatchDestroyOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "UnlinkParent" (optional.Bool) -  Whether to unlink the parent key as well and unmark it as linked-key.
 */
 func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, projectId string, id string, keyLinksBatchDestroyParameters KeyLinksBatchDestroyParameters, localVarOptionals *KeyLinksBatchDestroyOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -54,9 +52,6 @@ func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, projec
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.UnlinkParent.IsSet() {
-		localVarQueryParams.Add("unlink_parent", parameterToString(localVarOptionals.UnlinkParent.Value(), ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -353,7 +348,7 @@ type KeyLinksIndexOpts struct {
 }
 
 /*
-KeyLinksIndex Retrieve all child keys linked to a specific parent key
+KeyLinksIndex List child keys of a parent key
 Returns detailed information about a parent key, including its linked child keys.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID

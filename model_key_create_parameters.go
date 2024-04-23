@@ -9,7 +9,7 @@ type KeyCreateParameters struct {
 	// specify the branch to use
 	Branch string `json:"branch,omitempty"`
 	// Key name
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Key description (usually includes contextual information for translators)
 	Description string `json:"description,omitempty"`
 	// Indicates whether key supports pluralization

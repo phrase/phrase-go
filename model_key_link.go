@@ -7,13 +7,13 @@ import (
 // KeyLink struct for KeyLink
 type KeyLink struct {
 	// The timestamp when the link was created.
-	CreatedAt time.Time `json:"created_at"`
+	CreatedAt time.Time `json:"created_at,omitempty"`
 	// The timestamp when the link was last updated.
-	UpdatedAt time.Time   `json:"updated_at"`
-	CreatedBy UserPreview `json:"created_by"`
-	UpdatedBy UserPreview `json:"updated_by"`
-	Account   Account     `json:"account"`
-	Parent    KeyPreview  `json:"parent"`
+	UpdatedAt time.Time   `json:"updated_at,omitempty"`
+	CreatedBy UserPreview `json:"created_by,omitempty"`
+	UpdatedBy UserPreview `json:"updated_by,omitempty"`
+	Account   Account     `json:"account,omitempty"`
+	Parent    KeyPreview  `json:"parent,omitempty"`
 	// The child translation keys linked to the parent.
-	Children []KeyPreview `json:"children"`
+	Children []KeyPreview `json:"children,omitempty"`
 }

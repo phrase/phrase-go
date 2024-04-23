@@ -5,12 +5,12 @@ type OrderCreateParameters struct {
 	// specify the branch to use
 	Branch string `json:"branch,omitempty"`
 	// the name of the order, default name is: Translation order from 'current datetime'
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Name of the LSP that should process this order. Can be one of gengo, textmaster.
-	Lsp string `json:"lsp,omitempty"`
-	// Source locale for the order. Can be the name or public id of the source locale. Preferred is the public id.
+	Lsp string `json:"lsp"`
+	// Source locale for the order. Can be the name or id of the source locale. Preferred is id.
 	SourceLocaleId string `json:"source_locale_id,omitempty"`
-	// List of target locales you want the source content translate to. Can be the name or public id of the target locales. Preferred is the public id.
+	// List of target locales you want the source content translate to. Can be the name or id of the target locales. Preferred is id.
 	TargetLocaleIds []string `json:"target_locale_ids,omitempty"`
 	// Name of the quality level, availability depends on the LSP. Can be one of:  standard, pro (for orders processed by Gengo) and one of regular, premium, enterprise (for orders processed by TextMaster)
 	TranslationType string `json:"translation_type,omitempty"`

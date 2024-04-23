@@ -3,9 +3,9 @@ package phrase
 // DistributionCreateParameters struct for DistributionCreateParameters
 type DistributionCreateParameters struct {
 	// Name of the distribution
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Project id the distribution should be assigned to.
-	ProjectId string `json:"project_id,omitempty"`
+	ProjectId string `json:"project_id"`
 	// List of platforms the distribution should support. Valid values are: * `android` * `ios` * `flutter` * `i18next` * `rails`
 	Platforms []string `json:"platforms,omitempty"`
 	// List of locale ids that will be part of distribution releases

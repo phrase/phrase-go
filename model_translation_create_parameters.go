@@ -4,7 +4,7 @@ package phrase
 type TranslationCreateParameters struct {
 	// specify the branch to use
 	Branch string `json:"branch,omitempty"`
-	// Locale. Can be the name or public id of the locale. Preferred is the public id.
+	// Locale. Can be the name or id of the locale. Preferred is id
 	LocaleId string `json:"locale_id,omitempty"`
 	// Key
 	KeyId string `json:"key_id,omitempty"`

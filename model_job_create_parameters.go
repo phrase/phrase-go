@@ -5,7 +5,7 @@ type JobCreateParameters struct {
 	// specify the branch to use
 	Branch string `json:"branch,omitempty"`
 	// Job name
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 	// The API id of the source language
 	SourceLocaleId string `json:"source_locale_id,omitempty"`
 	// Briefing for the translators

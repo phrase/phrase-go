@@ -1673,7 +1673,7 @@ tags:
 paths:
   /icu/skeleton:
     post:
-      description: Returns icu skeletons for multiple locale codes based on a source
+      description: Returns ICU skeletons for multiple locale codes based on a source
         content.
       operationId: icu/skeleton
       parameters:
@@ -1734,7 +1734,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
-      summary: Build icu skeletons
+      summary: Build ICU skeletons
       tags:
       - ICU
       x-code-samples:
@@ -5915,8 +5915,8 @@ paths:
           type: boolean
         style: form
       - description: If a key has no translation in the locale being downloaded the
-          translation in the fallback locale will be used. Provide the public ID of
-          the locale that should be used as the fallback. Requires include_empty_translations
+          translation in the fallback locale will be used. Provide the ID of the locale
+          that should be used as the fallback. Requires include_empty_translations
           to be set to <code>true</code>.
         explode: true
         in: query
@@ -28065,14 +28065,6 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Whether to unlink the parent key as well and unmark it as linked-key.
-        explode: true
-        in: query
-        name: unlink_parent
-        required: false
-        schema:
-          type: boolean
-        style: form
       requestBody:
         content:
           application/json:
@@ -28140,7 +28132,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/key_links_index_400_response'
           description: Bad Request
-      summary: Retrieve all child keys linked to a specific parent key
+      summary: List child keys of a parent key
       tags:
       - Linked Keys
     post:
@@ -31435,14 +31427,6 @@ components:
           items:
             $ref: '#/components/schemas/key_preview'
           type: array
-      required:
-      - account
-      - children
-      - created_at
-      - created_by
-      - parent
-      - updated_at
-      - updated_by
       type: object
     repo_sync:
       example:
@@ -31582,6 +31566,8 @@ components:
           description: Figma file url
           example: https://figma.com/file/xxxxx/sample
           type: string
+      required:
+      - url
       title: figma_attachment/create/parameters
       type: object
     figma_attachment_update_parameters:
@@ -31658,6 +31644,8 @@ components:
             \ consistency."
           example: http://www.myexample.com/my/document/path/to/samples.pdf
           type: string
+      required:
+      - title
       title: styleguide/create/parameters
       type: object
     styleguide_update_parameters:
@@ -31865,6 +31853,9 @@ components:
             create_upload: true
             review_translations: true
           type: object
+      required:
+      - email
+      - role
       title: invitation/create/parameters
       type: object
     invitation_update_parameters:
@@ -31950,6 +31941,8 @@ components:
             of the marker itself (<code>w</code> and <code>h</code> in pixels).
           example: "{ \"x\": 100, \"y\": 100, \"w\": 100, \"h\": 100 }"
           type: string
+      required:
+      - key_id
       title: screenshot_marker/create/parameters
       type: object
     screenshot_marker_update_parameters:
@@ -32027,8 +32020,8 @@ components:
           type: boolean
           example: null
         source_locale_id:
-          description: Source locale. Can be the name or public id of the locale.
-            Preferred is the public id.
+          description: Source locale. Can be the name or id of the locale. Preferred
+            is id.
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
         fallback_locale_id:
@@ -32053,6 +32046,9 @@ components:
             \ right after creation."
           type: boolean
           example: null
+      required:
+      - code
+      - name
       title: locale/create/parameters
       type: object
     locale_update_parameters:
@@ -32086,8 +32082,8 @@ components:
           type: boolean
           example: null
         source_locale_id:
-          description: Source locale. Can be the name or public id of the locale.
-            Preferred is the public id.
+          description: Source locale. Can be the name or id of the locale. Preferred
+            is id.
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
         fallback_locale_id:
@@ -32173,6 +32169,9 @@ components:
           description: Use last reviewed instead of latest translation in a project
           example: true
           type: boolean
+      required:
+      - name
+      - project_id
       title: distribution/create/parameters
       type: object
     distribution_update_parameters:
@@ -32334,6 +32333,8 @@ components:
             attributes.
           example: abcd1234cdef1234abcd1234cdef1234
           type: string
+      required:
+      - name
       title: job/create/parameters
       type: object
     job_update_parameters:
@@ -32454,6 +32455,8 @@ components:
           items:
             type: string
           type: array
+      required:
+      - name
       title: glossary/create/parameters
       type: object
     glossary_update_parameters:
@@ -32496,6 +32499,8 @@ components:
           example: 2015-03-30T09:52:53Z
           format: date-time
           type: string
+      required:
+      - note
       title: authorization/create/parameters
       type: object
     authorization_update_parameters:
@@ -32656,6 +32661,8 @@ components:
             \ branches of the project specified."
           type: boolean
           example: null
+      required:
+      - callback_url
       title: webhook/create/parameters
       type: object
     webhook_update_parameters:
@@ -32705,8 +32712,8 @@ components:
           example: json
           type: string
         locale_id:
-          description: Locale of the file's content. Can be the name or public id
-            of the locale. Preferred is the public id.
+          description: Locale of the file's content. Can be the name or id of the
+            locale. Preferred is id.
           example: abcd1234cdef1234abcd1234cdef1234
           type: string
         tags:
@@ -32744,8 +32751,8 @@ components:
           type: string
           example: null
         locale_mapping:
-          description: "Optional, format specific mapping between locale names and\
-            \ the columns the translations to those locales are contained in."
+          description: Mapping between locale names and translation columns. Required
+            in some formats like CSV or XLSX.
           example: "{\"en\": \"2\"}"
           properties: {}
           type: object
@@ -32772,6 +32779,10 @@ components:
             the upload should be tagged. The default is `false`
           type: boolean
           example: null
+      required:
+      - file
+      - file_format
+      - locale_id
       title: upload/create/parameters
       type: object
     github_sync_export_parameters:
@@ -32822,6 +32833,9 @@ components:
           description: The content of the translation
           example: My translated term
           type: string
+      required:
+      - content
+      - locale_code
       title: glossary_term_translation/create/parameters
       type: object
     glossary_term_translation_update_parameters:
@@ -32968,6 +32982,8 @@ components:
           description: (Optional) Requires smart_suggest_enabled to be true
           example: true
           type: boolean
+      required:
+      - name
       title: project/create/parameters
       type: object
     project_update_parameters:
@@ -33296,6 +33312,8 @@ components:
           description: Value of the variable
           example: Hello World
           type: string
+      required:
+      - name
       title: variable/create/parameters
       type: object
     variable_update_parameters:
@@ -33316,6 +33334,8 @@ components:
           description: Name of the branch
           example: my-branch
           type: string
+      required:
+      - name
       title: branch/create/parameters
       type: object
     branch_update_parameters:
@@ -33461,6 +33481,8 @@ components:
           description: Indicates whether the term is case sensitive
           example: true
           type: boolean
+      required:
+      - term
       title: glossary_term/create/parameters
       type: object
     glossary_term_update_parameters:
@@ -33494,6 +33516,8 @@ components:
           description: Name of the tag
           example: my-feature
           type: string
+      required:
+      - name
       title: tag/create/parameters
       type: object
     blacklisted_key_create_parameters:
@@ -33502,6 +33526,8 @@ components:
           description: Blocked key name
           example: date.formats.*
           type: string
+      required:
+      - name
       title: blacklisted_key/create/parameters
       type: object
     blacklisted_key_update_parameters:
@@ -33598,6 +33624,8 @@ components:
             fruit: Apple
             vegetable: Tomato
           type: object
+      required:
+      - name
       title: key/create/parameters
       type: object
     keys_search_parameters:
@@ -33871,14 +33899,13 @@ components:
           example: textmaster
           type: string
         source_locale_id:
-          description: Source locale for the order. Can be the name or public id of
-            the source locale. Preferred is the public id.
+          description: Source locale for the order. Can be the name or id of the source
+            locale. Preferred is id.
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
         target_locale_ids:
           description: List of target locales you want the source content translate
-            to. Can be the name or public id of the target locales. Preferred is the
-            public id.
+            to. Can be the name or id of the target locales. Preferred is id.
           example:
           - 1234abcd1234abcd1234abcd1234abcd
           - abcd1234abcd1234abcd1234abcd1234
@@ -33932,6 +33959,9 @@ components:
             by TextMaster.
           type: boolean
           example: null
+      required:
+      - lsp
+      - name
       title: order/create/parameters
       type: object
     order_confirm_parameters:
@@ -34043,6 +34073,8 @@ components:
           description: Name of the space
           example: My Android Projects
           type: string
+      required:
+      - name
       title: space/create/parameters
       type: object
     space_update_parameters:
@@ -34059,6 +34091,8 @@ components:
           description: Project ID to add or to the Space
           example: a4b3c2d1
           type: string
+      required:
+      - id
       title: spaces/projects/create/parameters
       type: object
     team_create_parameters:
@@ -34067,6 +34101,8 @@ components:
           description: Name of the team
           example: German Translators
           type: string
+      required:
+      - name
       title: team/create/parameters
       type: object
     team_update_parameters:
@@ -34083,6 +34119,8 @@ components:
           description: Project ID to add to the Team
           example: a4b3c2d1
           type: string
+      required:
+      - id
       title: teams/projects/create/parameters
       type: object
     teams_spaces_create_parameters:
@@ -34091,6 +34129,8 @@ components:
           description: Space ID to add to the Team
           example: a4b3c2d1
           type: string
+      required:
+      - id
       title: teams/spaces/create/parameters
       type: object
     teams_users_create_parameters:
@@ -34099,6 +34139,8 @@ components:
           description: User ID to add to the Team
           example: a4b3c2d1
           type: string
+      required:
+      - id
       title: teams/users/create/parameters
       type: object
     translation_create_parameters:
@@ -34108,8 +34150,7 @@ components:
           example: my-feature-branch
           type: string
         locale_id:
-          description: Locale. Can be the name or public id of the locale. Preferred
-            is the public id.
+          description: Locale. Can be the name or id of the locale. Preferred is id
           example: abcd1234cdef1234abcd1234cdef1234
           type: string
         key_id:
@@ -34671,6 +34712,10 @@ components:
           items:
             type: string
           type: array
+        unlink_parent:
+          default: false
+          description: Whether to unlink the parent key as well and unmark it as linked-key.
+          type: boolean
       required:
       - child_key_ids
       title: key_links/batch_destroy/parameters

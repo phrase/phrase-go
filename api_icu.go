@@ -23,8 +23,8 @@ type IcuSkeletonOpts struct {
 }
 
 /*
-IcuSkeleton Build icu skeletons
-Returns icu skeletons for multiple locale codes based on a source content.
+IcuSkeleton Build ICU skeletons
+Returns ICU skeletons for multiple locale codes based on a source content.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param icuSkeletonParameters
   - @param optional nil or *IcuSkeletonOpts - Optional Parameters:

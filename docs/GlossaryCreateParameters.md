@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Name of the glossary | [optional] 
+**Name** | **string** | Name of the glossary | 
 **ProjectIds** | **string** | List of project ids the glossary should be assigned to. | [optional] 
 **SpaceIds** | **[]string** | List of space ids the glossary should be assigned to. | [optional] 
 

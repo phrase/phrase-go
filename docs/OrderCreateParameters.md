@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Branch** | **string** | specify the branch to use | [optional] 
-**Name** | **string** | the name of the order, default name is: Translation order from &#39;current datetime&#39; | [optional] 
-**Lsp** | **string** | Name of the LSP that should process this order. Can be one of gengo, textmaster. | [optional] 
-**SourceLocaleId** | **string** | Source locale for the order. Can be the name or public id of the source locale. Preferred is the public id. | [optional] 
-**TargetLocaleIds** | **[]string** | List of target locales you want the source content translate to. Can be the name or public id of the target locales. Preferred is the public id. | [optional] 
+**Name** | **string** | the name of the order, default name is: Translation order from &#39;current datetime&#39; | 
+**Lsp** | **string** | Name of the LSP that should process this order. Can be one of gengo, textmaster. | 
+**SourceLocaleId** | **string** | Source locale for the order. Can be the name or id of the source locale. Preferred is id. | [optional] 
+**TargetLocaleIds** | **[]string** | List of target locales you want the source content translate to. Can be the name or id of the target locales. Preferred is id. | [optional] 
 **TranslationType** | **string** | Name of the quality level, availability depends on the LSP. Can be one of:  standard, pro (for orders processed by Gengo) and one of regular, premium, enterprise (for orders processed by TextMaster) | [optional] 
 **Tag** | **string** | Tag you want to order translations for. | [optional] 
 **Message** | **string** | Message that is displayed to the translators for description. | [optional] 
