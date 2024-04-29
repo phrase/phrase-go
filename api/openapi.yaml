@@ -32726,6 +32726,12 @@ components:
             the file content.
           type: boolean
           example: null
+        update_translation_keys:
+          default: true
+          description: Pass `false` here to prevent new keys from being created and
+            existing keys updated.
+          type: boolean
+          example: null
         update_descriptions:
           description: Existing key descriptions will be updated with the file content.
             Empty descriptions overwrite existing descriptions.
