@@ -1,4 +1,4 @@
-module github.com/phrase/phrase-go/v3 // x-release-please-major
+module github.com/phrase/phrase-go/v3
 
 go 1.14
 
