@@ -21626,7 +21626,7 @@ paths:
           --account_id abcd1234 \
           --access_token <token>
       x-cli-version: "2.24"
-  /accounts/{account_id}/repo_syncs/{repo_sync_id}:
+  /accounts/{account_id}/repo_syncs/{id}:
     get:
       description: Shows a single Repo Sync setting.
       operationId: repo_sync/show
@@ -21647,10 +21647,10 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Repo Sync ID
+      - description: ID
         explode: false
         in: path
-        name: repo_sync_id
+        name: id
         required: true
         schema:
           type: string
@@ -21711,7 +21711,7 @@ paths:
           --account_id abcd1234 \
           --access_token <token>
       x-cli-version: "2.24"
-  /accounts/{account_id}/repo_syncs/{repo_sync_id}/export:
+  /accounts/{account_id}/repo_syncs/{id}/export:
     post:
       description: |-
         > Beta: this feature will change in the future.
@@ -21738,10 +21738,10 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Repo Sync ID
+      - description: ID
         explode: false
         in: path
-        name: repo_sync_id
+        name: id
         required: true
         schema:
           type: string
@@ -21800,10 +21800,10 @@ paths:
       - lang: CLI v2
         source: |-
           phrase repo_sync export \
-          --repo_sync_id <repo_sync_id> \
+          --id <repo_sync_id> \
           --access_token <token>
       x-cli-version: "2.24"
-  /accounts/{account_id}/repo_syncs/{repo_sync_id}/import:
+  /accounts/{account_id}/repo_syncs/{id}/import:
     post:
       description: |-
         > Beta: this feature will change in the future.
@@ -21830,10 +21830,10 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Repo Sync ID
+      - description: ID
         explode: false
         in: path
-        name: repo_sync_id
+        name: id
         required: true
         schema:
           type: string
@@ -21892,10 +21892,10 @@ paths:
       - lang: CLI v2
         source: |-
           phrase repo_sync import \
-          --repo_sync_id <repo_sync_id> \
+          --id <repo_sync_id> \
           --access_token <token>
       x-cli-version: "2.24"
-  /accounts/{account_id}/repo_syncs/{repo_sync_id}/events:
+  /accounts/{account_id}/repo_syncs/{id}/events:
     get:
       description: |-
         Get the history of a single Repo Sync. The history includes all imports and exports
@@ -21918,10 +21918,10 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Repo Sync ID
+      - description: ID
         explode: false
         in: path
-        name: repo_sync_id
+        name: id
         required: true
         schema:
           type: string
@@ -21988,7 +21988,7 @@ paths:
           --account_id abcd1234 \
           --access_token <token>
       x-cli-version: "2.24"
-  /accounts/{account_id}/repo_syncs/{repo_sync_id}/deactivate:
+  /accounts/{account_id}/repo_syncs/{id}/deactivate:
     post:
       description: |-
         Deactivate an active Repo Sync. Import and export can't be performed on deactivated syncs
@@ -22011,10 +22011,10 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Repo Sync ID
+      - description: ID
         explode: false
         in: path
-        name: repo_sync_id
+        name: id
         required: true
         schema:
           type: string
@@ -22073,10 +22073,10 @@ paths:
       - lang: CLI v2
         source: |-
           phrase repo_sync deactivate \
-          --repo_sync_id <repo_sync_id> \
+          --id <repo_sync_id> \
           --access_token <token>
       x-cli-version: "2.24"
-  /accounts/{account_id}/repo_syncs/{repo_sync_id}/activate:
+  /accounts/{account_id}/repo_syncs/{id}/activate:
     post:
       description: |-
         Activate a deactivated Repo Sync. Active syncs can be used to import and export translations,
@@ -22099,10 +22099,10 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Repo Sync ID
+      - description: ID
         explode: false
         in: path
-        name: repo_sync_id
+        name: id
         required: true
         schema:
           type: string
@@ -22161,7 +22161,7 @@ paths:
       - lang: CLI v2
         source: |-
           phrase repo_sync activate \
-          --repo_sync_id <repo_sync_id> \
+          --id <repo_sync_id> \
           --access_token <token>
       x-cli-version: "2.24"
   /accounts/{account_id}/spaces:
@@ -28374,15 +28374,6 @@ components:
       schema:
         type: string
       style: form
-    repo_sync_id:
-      description: Repo Sync ID
-      explode: false
-      in: path
-      name: repo_sync_id
-      required: true
-      schema:
-        type: string
-      style: simple
     space_id:
       description: Space ID
       explode: false

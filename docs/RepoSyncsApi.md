@@ -4,19 +4,19 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RepoSyncActivate**](RepoSyncsApi.md#RepoSyncActivate) | **Post** /accounts/{account_id}/repo_syncs/{repo_sync_id}/activate | Activate a Repo Sync
-[**RepoSyncDeactivate**](RepoSyncsApi.md#RepoSyncDeactivate) | **Post** /accounts/{account_id}/repo_syncs/{repo_sync_id}/deactivate | Deactivate a Repo Sync
-[**RepoSyncEvents**](RepoSyncsApi.md#RepoSyncEvents) | **Get** /accounts/{account_id}/repo_syncs/{repo_sync_id}/events | Repository Syncs History
-[**RepoSyncExport**](RepoSyncsApi.md#RepoSyncExport) | **Post** /accounts/{account_id}/repo_syncs/{repo_sync_id}/export | Export to code repository
-[**RepoSyncImport**](RepoSyncsApi.md#RepoSyncImport) | **Post** /accounts/{account_id}/repo_syncs/{repo_sync_id}/import | Import from code repository
+[**RepoSyncActivate**](RepoSyncsApi.md#RepoSyncActivate) | **Post** /accounts/{account_id}/repo_syncs/{id}/activate | Activate a Repo Sync
+[**RepoSyncDeactivate**](RepoSyncsApi.md#RepoSyncDeactivate) | **Post** /accounts/{account_id}/repo_syncs/{id}/deactivate | Deactivate a Repo Sync
+[**RepoSyncEvents**](RepoSyncsApi.md#RepoSyncEvents) | **Get** /accounts/{account_id}/repo_syncs/{id}/events | Repository Syncs History
+[**RepoSyncExport**](RepoSyncsApi.md#RepoSyncExport) | **Post** /accounts/{account_id}/repo_syncs/{id}/export | Export to code repository
+[**RepoSyncImport**](RepoSyncsApi.md#RepoSyncImport) | **Post** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
 [**RepoSyncList**](RepoSyncsApi.md#RepoSyncList) | **Get** /accounts/{account_id}/repo_syncs | Get Repo Syncs
-[**RepoSyncShow**](RepoSyncsApi.md#RepoSyncShow) | **Get** /accounts/{account_id}/repo_syncs/{repo_sync_id} | Get a single Repo Sync
+[**RepoSyncShow**](RepoSyncsApi.md#RepoSyncShow) | **Get** /accounts/{account_id}/repo_syncs/{id} | Get a single Repo Sync
 
 
 
 ## RepoSyncActivate
 
-> RepoSync RepoSyncActivate(ctx, accountId, repoSyncId, optional)
+> RepoSync RepoSyncActivate(ctx, accountId, id, optional)
 
 Activate a Repo Sync
 
@@ -29,7 +29,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**repoSyncId** | **string**| Repo Sync ID | 
+**id** | **string**| ID | 
  **optional** | ***RepoSyncActivateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ## RepoSyncDeactivate
 
-> RepoSync RepoSyncDeactivate(ctx, accountId, repoSyncId, optional)
+> RepoSync RepoSyncDeactivate(ctx, accountId, id, optional)
 
 Deactivate a Repo Sync
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**repoSyncId** | **string**| Repo Sync ID | 
+**id** | **string**| ID | 
  **optional** | ***RepoSyncDeactivateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ## RepoSyncEvents
 
-> []RepoSyncEvent RepoSyncEvents(ctx, accountId, repoSyncId, optional)
+> []RepoSyncEvent RepoSyncEvents(ctx, accountId, id, optional)
 
 Repository Syncs History
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**repoSyncId** | **string**| Repo Sync ID | 
+**id** | **string**| ID | 
  **optional** | ***RepoSyncEventsOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ## RepoSyncExport
 
-> RepoSyncExport RepoSyncExport(ctx, accountId, repoSyncId, optional)
+> RepoSyncExport RepoSyncExport(ctx, accountId, id, optional)
 
 Export to code repository
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**repoSyncId** | **string**| Repo Sync ID | 
+**id** | **string**| ID | 
  **optional** | ***RepoSyncExportOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ## RepoSyncImport
 
-> RepoSyncImport RepoSyncImport(ctx, accountId, repoSyncId, optional)
+> RepoSyncImport RepoSyncImport(ctx, accountId, id, optional)
 
 Import from code repository
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**repoSyncId** | **string**| Repo Sync ID | 
+**id** | **string**| ID | 
  **optional** | ***RepoSyncImportOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ## RepoSyncShow
 
-> RepoSync RepoSyncShow(ctx, accountId, repoSyncId, optional)
+> RepoSync RepoSyncShow(ctx, accountId, id, optional)
 
 Get a single Repo Sync
 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **accountId** | **string**| Account ID | 
-**repoSyncId** | **string**| Repo Sync ID | 
+**id** | **string**| ID | 
  **optional** | ***RepoSyncShowOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters

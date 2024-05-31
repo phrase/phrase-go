@@ -28,13 +28,13 @@ RepoSyncActivate Activate a Repo Sync
 Activate a deactivated Repo Sync. Active syncs can be used to import and export translations, and imports to Phrase are automatically triggered by pushes to the repository, if configured.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
-  - @param repoSyncId Repo Sync ID
+  - @param id ID
   - @param optional nil or *RepoSyncActivateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return RepoSync
 */
-func (a *RepoSyncsApiService) RepoSyncActivate(ctx _context.Context, accountId string, repoSyncId string, localVarOptionals *RepoSyncActivateOpts) (RepoSync, *APIResponse, error) {
+func (a *RepoSyncsApiService) RepoSyncActivate(ctx _context.Context, accountId string, id string, localVarOptionals *RepoSyncActivateOpts) (RepoSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -45,10 +45,10 @@ func (a *RepoSyncsApiService) RepoSyncActivate(ctx _context.Context, accountId s
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{repo_sync_id}/activate"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{id}/activate"
 	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"repo_sync_id"+"}", _neturl.QueryEscape(parameterToString(repoSyncId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -132,13 +132,13 @@ RepoSyncDeactivate Deactivate a Repo Sync
 Deactivate an active Repo Sync. Import and export can&#39;t be performed on deactivated syncs and the pushes to the repository won&#39;t trigger the import to Phrase.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
-  - @param repoSyncId Repo Sync ID
+  - @param id ID
   - @param optional nil or *RepoSyncDeactivateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return RepoSync
 */
-func (a *RepoSyncsApiService) RepoSyncDeactivate(ctx _context.Context, accountId string, repoSyncId string, localVarOptionals *RepoSyncDeactivateOpts) (RepoSync, *APIResponse, error) {
+func (a *RepoSyncsApiService) RepoSyncDeactivate(ctx _context.Context, accountId string, id string, localVarOptionals *RepoSyncDeactivateOpts) (RepoSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -149,10 +149,10 @@ func (a *RepoSyncsApiService) RepoSyncDeactivate(ctx _context.Context, accountId
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{repo_sync_id}/deactivate"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{id}/deactivate"
 	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"repo_sync_id"+"}", _neturl.QueryEscape(parameterToString(repoSyncId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -236,13 +236,13 @@ RepoSyncEvents Repository Syncs History
 Get the history of a single Repo Sync. The history includes all imports and exports performed by the Repo Sync.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
-  - @param repoSyncId Repo Sync ID
+  - @param id ID
   - @param optional nil or *RepoSyncEventsOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return []RepoSyncEvent
 */
-func (a *RepoSyncsApiService) RepoSyncEvents(ctx _context.Context, accountId string, repoSyncId string, localVarOptionals *RepoSyncEventsOpts) ([]RepoSyncEvent, *APIResponse, error) {
+func (a *RepoSyncsApiService) RepoSyncEvents(ctx _context.Context, accountId string, id string, localVarOptionals *RepoSyncEventsOpts) ([]RepoSyncEvent, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -253,10 +253,10 @@ func (a *RepoSyncsApiService) RepoSyncEvents(ctx _context.Context, accountId str
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{repo_sync_id}/events"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{id}/events"
 	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"repo_sync_id"+"}", _neturl.QueryEscape(parameterToString(repoSyncId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -340,13 +340,13 @@ RepoSyncExport Export to code repository
 &gt; Beta: this feature will change in the future.  Export translations from Phrase Strings to repository provider according to the .phrase.yml file within the code repository.  *Export is done asynchronously and may take several seconds depending on the project size.*
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
-  - @param repoSyncId Repo Sync ID
+  - @param id ID
   - @param optional nil or *RepoSyncExportOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return RepoSyncExport
 */
-func (a *RepoSyncsApiService) RepoSyncExport(ctx _context.Context, accountId string, repoSyncId string, localVarOptionals *RepoSyncExportOpts) (RepoSyncExport, *APIResponse, error) {
+func (a *RepoSyncsApiService) RepoSyncExport(ctx _context.Context, accountId string, id string, localVarOptionals *RepoSyncExportOpts) (RepoSyncExport, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -357,10 +357,10 @@ func (a *RepoSyncsApiService) RepoSyncExport(ctx _context.Context, accountId str
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{repo_sync_id}/export"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{id}/export"
 	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"repo_sync_id"+"}", _neturl.QueryEscape(parameterToString(repoSyncId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -444,13 +444,13 @@ RepoSyncImport Import from code repository
 &gt; Beta: this feature will change in the future.  Import translations from repository provider to Phrase Strings according to the .phrase.yml file within the code repository.  _Import is done asynchronously and may take several seconds depending on the project size._
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
-  - @param repoSyncId Repo Sync ID
+  - @param id ID
   - @param optional nil or *RepoSyncImportOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return RepoSyncImport
 */
-func (a *RepoSyncsApiService) RepoSyncImport(ctx _context.Context, accountId string, repoSyncId string, localVarOptionals *RepoSyncImportOpts) (RepoSyncImport, *APIResponse, error) {
+func (a *RepoSyncsApiService) RepoSyncImport(ctx _context.Context, accountId string, id string, localVarOptionals *RepoSyncImportOpts) (RepoSyncImport, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -461,10 +461,10 @@ func (a *RepoSyncsApiService) RepoSyncImport(ctx _context.Context, accountId str
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{repo_sync_id}/import"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{id}/import"
 	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"repo_sync_id"+"}", _neturl.QueryEscape(parameterToString(repoSyncId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -649,13 +649,13 @@ RepoSyncShow Get a single Repo Sync
 Shows a single Repo Sync setting.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
-  - @param repoSyncId Repo Sync ID
+  - @param id ID
   - @param optional nil or *RepoSyncShowOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return RepoSync
 */
-func (a *RepoSyncsApiService) RepoSyncShow(ctx _context.Context, accountId string, repoSyncId string, localVarOptionals *RepoSyncShowOpts) (RepoSync, *APIResponse, error) {
+func (a *RepoSyncsApiService) RepoSyncShow(ctx _context.Context, accountId string, id string, localVarOptionals *RepoSyncShowOpts) (RepoSync, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -666,10 +666,10 @@ func (a *RepoSyncsApiService) RepoSyncShow(ctx _context.Context, accountId strin
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{repo_sync_id}"
+	localVarPath := a.client.cfg.BasePath + "/accounts/{account_id}/repo_syncs/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", _neturl.QueryEscape(parameterToString(accountId, "")), -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"repo_sync_id"+"}", _neturl.QueryEscape(parameterToString(repoSyncId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
