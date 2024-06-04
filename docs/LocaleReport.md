@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **KeysCount** | **int32** |  | [optional] 
-**TranslatedTranslationsPercentage** | **int32** |  | [optional] 
-**UnverifiedTranslationsPercentage** | **int32** |  | [optional] 
-**ReviewedTranslationsPercentage** | **int32** |  | [optional] 
-**UntranslatedKeysPercentage** | **int32** |  | [optional] 
+**TranslatedTranslationsPercentage** | **float32** |  | [optional] 
+**UnverifiedTranslationsPercentage** | **float32** |  | [optional] 
+**ReviewedTranslationsPercentage** | **float32** |  | [optional] 
+**UntranslatedKeysPercentage** | **float32** |  | [optional] 
 **CompletedTranslationsCount** | **int32** |  | [optional] 
 **UntranslatedKeysCount** | **int32** |  | [optional] 
 **UnverifiedTranslationsCount** | **int32** |  | [optional] 

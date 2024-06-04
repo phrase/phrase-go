@@ -29605,9 +29605,9 @@ components:
     locale_report:
       example:
         completed_translations_count: 2
-        translated_translations_percentage: 6
+        translated_translations_percentage: 6.027456183070403
         word_count_missing: 1
-        reviewed_translations_percentage: 5
+        reviewed_translations_percentage: 5.962133916683182
         locale:
           id: abcd1234cdef1234abcd1234cdef1234
           name: English
@@ -29616,22 +29616,22 @@ components:
         word_count_unverified: 7
         word_count: 4
         keys_count: 0
-        unverified_translations_percentage: 1
+        unverified_translations_percentage: 1.4658129805029452
         untranslated_keys_count: 7
-        untranslated_keys_percentage: 5
+        untranslated_keys_percentage: 5.637376656633329
         reviewed_translations_count: 3
         source_word_count: 2
       properties:
         keys_count:
           type: integer
         translated_translations_percentage:
-          type: integer
+          type: number
         unverified_translations_percentage:
-          type: integer
+          type: number
         reviewed_translations_percentage:
-          type: integer
+          type: number
         untranslated_keys_percentage:
-          type: integer
+          type: number
         completed_translations_count:
           type: integer
         untranslated_keys_count:
