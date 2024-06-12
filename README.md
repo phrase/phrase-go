@@ -249,6 +249,11 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**ProjectUpdate**](docs/ProjectsApi.md#projectupdate) | **Patch** /projects/{id} | Update a project
 *ProjectsApi* | [**ProjectsList**](docs/ProjectsApi.md#projectslist) | **Get** /projects | List projects
 *QualityPerformanceScoreApi* | [**ProjectsQualityPerformanceScore**](docs/QualityPerformanceScoreApi.md#projectsqualityperformancescore) | **Post** /projects/{project_id}/quality_performance_score | Get Translation Quality
+*ReleaseTriggersApi* | [**ReleaseTriggersCreate**](docs/ReleaseTriggersApi.md#releasetriggerscreate) | **Post** /accounts/{account_id}/distributions/{distribution_id}/release_triggers | Create a release trigger
+*ReleaseTriggersApi* | [**ReleaseTriggersDestroy**](docs/ReleaseTriggersApi.md#releasetriggersdestroy) | **Delete** /accounts/{account_id}/distributions/{distribution_id}/release_triggers/{id} | Delete a single release trigger
+*ReleaseTriggersApi* | [**ReleaseTriggersList**](docs/ReleaseTriggersApi.md#releasetriggerslist) | **Get** /accounts/{account_id}/distributions/{distribution_id}/release_triggers | List release triggers
+*ReleaseTriggersApi* | [**ReleaseTriggersShow**](docs/ReleaseTriggersApi.md#releasetriggersshow) | **Get** /accounts/{account_id}/distributions/{distribution_id}/release_triggers/{id} | Get a single release trigger
+*ReleaseTriggersApi* | [**ReleaseTriggersUpdate**](docs/ReleaseTriggersApi.md#releasetriggersupdate) | **Patch** /accounts/{account_id}/distributions/{distribution_id}/release_triggers/{id} | Update a release trigger
 *ReleasesApi* | [**ReleaseCreate**](docs/ReleasesApi.md#releasecreate) | **Post** /accounts/{account_id}/distributions/{distribution_id}/releases | Create a release
 *ReleasesApi* | [**ReleaseDelete**](docs/ReleasesApi.md#releasedelete) | **Delete** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Delete a release
 *ReleasesApi* | [**ReleasePublish**](docs/ReleasesApi.md#releasepublish) | **Post** /accounts/{account_id}/distributions/{distribution_id}/releases/{id}/publish | Publish a release
@@ -492,8 +497,11 @@ Class | Method | HTTP request | Description
  - [ProjectsQualityPerformanceScoreRequest](docs/ProjectsQualityPerformanceScoreRequest.md)
  - [Release](docs/Release.md)
  - [ReleaseCreateParameters](docs/ReleaseCreateParameters.md)
+ - [ReleaseCreateParameters1](docs/ReleaseCreateParameters1.md)
  - [ReleasePreview](docs/ReleasePreview.md)
+ - [ReleaseTrigger](docs/ReleaseTrigger.md)
  - [ReleaseUpdateParameters](docs/ReleaseUpdateParameters.md)
+ - [ReleaseUpdateParameters1](docs/ReleaseUpdateParameters1.md)
  - [RepliesListParameters](docs/RepliesListParameters.md)
  - [RepoSync](docs/RepoSync.md)
  - [RepoSyncEvent](docs/RepoSyncEvent.md)
@@ -574,6 +582,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com

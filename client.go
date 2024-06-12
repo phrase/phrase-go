@@ -113,6 +113,8 @@ type APIClient struct {
 
 	QualityPerformanceScoreApi *QualityPerformanceScoreApiService
 
+	ReleaseTriggersApi *ReleaseTriggersApiService
+
 	ReleasesApi *ReleasesApiService
 
 	RepoSyncsApi *RepoSyncsApiService
@@ -201,6 +203,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.OrganizationJobTemplatesApi = (*OrganizationJobTemplatesApiService)(&c.common)
 	c.ProjectsApi = (*ProjectsApiService)(&c.common)
 	c.QualityPerformanceScoreApi = (*QualityPerformanceScoreApiService)(&c.common)
+	c.ReleaseTriggersApi = (*ReleaseTriggersApiService)(&c.common)
 	c.ReleasesApi = (*ReleasesApiService)(&c.common)
 	c.RepoSyncsApi = (*RepoSyncsApiService)(&c.common)
 	c.ReportsApi = (*ReportsApiService)(&c.common)

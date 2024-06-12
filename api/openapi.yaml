@@ -1604,6 +1604,7 @@ tags:
 - name: Projects
 - name: Quality
 - name: Releases
+- name: Release Triggers
 - description: |
     The Repo Syncs API allows you to synchronize your Phrase projects with your code repositories.
     You can import translations from your repository to Phrase and export translations from Phrase to your repository.
@@ -7043,6 +7044,478 @@ paths:
           --id <id> \
           --access_token <token>
       x-cli-version: "2.5"
+  /accounts/{account_id}/distributions/{distribution_id}/release_triggers:
+    get:
+      description: |
+        List all release triggers for the given distribution.<br>
+        Note: Currently only one release trigger can exist per distribution.
+      operationId: release_triggers/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Distribution ID
+        explode: false
+        in: path
+        name: distribution_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/release_trigger'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List release triggers
+      tags:
+      - Release Triggers
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/distributions/:distribution_id/release_triggers" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase release_triggers list \
+          --account_id <account_id> \
+          --distribution_id <distribution_id> \
+          --access_token <token>
+      x-cli-version: "2.28"
+    post:
+      description: "Create a new recurring release. New releases will be published\
+        \ automatically, based on the cron schedule provided. Currently, only one\
+        \ release trigger can exist per distribution."
+      operationId: release_triggers/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Distribution ID
+        explode: false
+        in: path
+        name: distribution_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/release_create_parameters_1'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/release_trigger'
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create a release trigger
+      tags:
+      - Release Triggers
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/distributions/:distribution_id/release_triggers" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"cron_schedule":"15 18 * * 1,3","time_zone":"Europe/Berlin","locale_ids":["abcd1234cdef1234abcd1234cdef1234","fff565db236400772368235db2c6117e"],"tags":["android","feature1"],"branch":"my-feature-branch","app_min_version":"1.0.0","app_max_version":"2.0.0"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase release_triggers create \
+          --account_id <account_id> \
+          --distribution_id <distribution_id> \
+          --data '{"cron_schedule":"15 18 * * 1,3","time_zone":"Europe/Berlin","locale_ids":["abcd1234cdef1234abcd1234cdef1234","fff565db236400772368235db2c6117e"],"tags":["android","feature1"],"branch":"my-feature-branch","app_min_version":"1.0.0","app_max_version":"2.0.0"}' \
+          --access_token <token>
+      x-cli-version: "2.28"
+  /accounts/{account_id}/distributions/{distribution_id}/release_triggers/{id}:
+    delete:
+      description: Delete a single release trigger.
+      operationId: release_triggers/destroy
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Distribution ID
+        explode: false
+        in: path
+        name: distribution_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: The resource was deleted successfully.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Delete a single release trigger
+      tags:
+      - Release Triggers
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/distributions/:distribution_id/release_triggers/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase release_triggers delete \
+          --account_id <account_id> \
+          --distribution_id <distribution_id> \
+          --id <id> \
+          --access_token <token>
+      x-cli-version: "2.28"
+    get:
+      description: Get details of a single release trigger.
+      operationId: release_triggers/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Distribution ID
+        explode: false
+        in: path
+        name: distribution_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/release_trigger'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single release trigger
+      tags:
+      - Release Triggers
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/distributions/:distribution_id/release_triggers/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase release_triggers show \
+          --account_id <account_id> \
+          --distribution_id <distribution_id> \
+          --id <id> \
+          --access_token <token>
+      x-cli-version: "2.28"
+    patch:
+      description: Update a recurring release.
+      operationId: release_triggers/update
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Distribution ID
+        explode: false
+        in: path
+        name: distribution_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/release_update_parameters_1'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/release_trigger'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Update a release trigger
+      tags:
+      - Release Triggers
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/distributions/:distribution_id/release_triggers/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"cron_schedule":"15 18 * * 1,3","time_zone":"Europe/Berlin","locale_ids":["abcd1234cdef1234abcd1234cdef1234","fff565db236400772368235db2c6117e"],"tags":["android","feature1"],"branch":"my-feature-branch","app_min_version":"1.0.0","app_max_version":"2.0.0"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase release_triggers update \
+          --account_id <account_id> \
+          --distribution_id <distribution_id> \
+          --id <id> \
+          --data '{"cron_schedule":"15 18 * * 1,3","time_zone":"Europe/Berlin","locale_ids":["abcd1234cdef1234abcd1234cdef1234","fff565db236400772368235db2c6117e"],"tags":["android","feature1"],"branch":"my-feature-branch","app_min_version":"1.0.0","app_max_version":"2.0.0"}' \
+          --access_token <token>
+      x-cli-version: "2.28"
   /projects/{project_id}/jobs:
     get:
       description: List all jobs for the given project.
@@ -31032,6 +31505,60 @@ components:
           type: string
       title: release
       type: object
+    release_trigger:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        locales:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          name: English
+          code: en-GB
+        branch: my-feature-branch
+        tags:
+        - android
+        - feature1
+        cron_schedule: "15 18 * * 1,3"
+        time_zone: Europe/Berlin
+        next_run_at: 2015-01-28T09:52:53Z
+        app_min_version: 1.0.0
+        app_max_version: 2.0.0
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        branch:
+          type: string
+        cron_schedule:
+          description: Cron schedule for the scheduler. Read more about the format
+            of this field at https://en.wikipedia.org/wiki/Cron
+          type: string
+        time_zone:
+          description: Time zone for the scheduler
+          type: string
+        next_run_at:
+          description: The next time a release will be created for this trigger
+          format: date-time
+          type: string
+        app_min_version:
+          type: string
+        app_max_version:
+          type: string
+        locales:
+          items:
+            $ref: '#/components/schemas/locale_preview'
+          type: array
+        tags:
+          items:
+            type: string
+          type: array
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: release_trigger
+      type: object
     screenshot:
       example:
         id: d2e056aa9e70b01121f41693e344f5ee
@@ -32274,6 +32801,94 @@ components:
         branch:
           description: Branch used for release
           example: my-feature-branch
+          type: string
+      title: release/update/parameters
+      type: object
+    release_create_parameters_1:
+      properties:
+        cron_schedule:
+          description: Cron schedule for the scheduler. Read more about the format
+            of this field at https://en.wikipedia.org/wiki/Cron
+          example: "15 18 * * 1,3"
+          type: string
+        time_zone:
+          description: Time zone for the scheduler
+          example: Europe/Berlin
+          type: string
+        locale_ids:
+          description: List of locale ids that will be included in the release.
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          - fff565db236400772368235db2c6117e
+          items:
+            type: string
+          type: array
+        tags:
+          description: Only include tagged keys in the release. For a key to be included
+            it must be tagged with all tags provided
+          example:
+          - android
+          - feature1
+          items:
+            type: string
+          type: array
+        branch:
+          description: Branch used for release
+          example: my-feature-branch
+          type: string
+        app_min_version:
+          description: The created releases will be available only for apps with version
+            greater or equal to this value
+          example: 1.0.0
+          type: string
+        app_max_version:
+          description: The created releases will be available only for apps with version
+            less or equal to this value
+          example: 2.0.0
+          type: string
+      title: release/create/parameters
+      type: object
+    release_update_parameters_1:
+      properties:
+        cron_schedule:
+          description: Cron schedule for the scheduler. Read more about the format
+            of this field at https://en.wikipedia.org/wiki/Cron
+          example: "15 18 * * 1,3"
+          type: string
+        time_zone:
+          description: Time zone for the scheduler
+          example: Europe/Berlin
+          type: string
+        locale_ids:
+          description: List of locale ids that will be included in the release.
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          - fff565db236400772368235db2c6117e
+          items:
+            type: string
+          type: array
+        tags:
+          description: Only include tagged keys in the release. For a key to be included
+            it must be tagged with all tags provided
+          example:
+          - android
+          - feature1
+          items:
+            type: string
+          type: array
+        branch:
+          description: Branch used for release
+          example: my-feature-branch
+          type: string
+        app_min_version:
+          description: The created releases will be available only for apps with version
+            greater or equal to this value
+          example: 1.0.0
+          type: string
+        app_max_version:
+          description: The created releases will be available only for apps with version
+            less or equal to this value
+          example: 2.0.0
           type: string
       title: release/update/parameters
       type: object
@@ -34895,6 +35510,7 @@ x-tagGroups:
   - Webhooks
   - Distributions
   - Releases
+  - Release Triggers
 - name: Ordering
   tags:
   - Orders

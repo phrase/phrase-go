@@ -38,6 +38,7 @@ api_organization_job_template_locales.go
 api_organization_job_templates.go
 api_projects.go
 api_quality_performance_score.go
+api_release_triggers.go
 api_releases.go
 api_repo_syncs.go
 api_reports.go
@@ -242,8 +243,12 @@ docs/ProjectsQualityPerformanceScoreRequest.md
 docs/QualityPerformanceScoreApi.md
 docs/Release.md
 docs/ReleaseCreateParameters.md
+docs/ReleaseCreateParameters1.md
 docs/ReleasePreview.md
+docs/ReleaseTrigger.md
+docs/ReleaseTriggersApi.md
 docs/ReleaseUpdateParameters.md
+docs/ReleaseUpdateParameters1.md
 docs/ReleasesApi.md
 docs/RepliesListParameters.md
 docs/RepoSync.md
@@ -480,8 +485,11 @@ model_projects_quality_performance_score_200_response_any_of_errors_inner.go
 model_projects_quality_performance_score_request.go
 model_release.go
 model_release_create_parameters.go
+model_release_create_parameters_1.go
 model_release_preview.go
+model_release_trigger.go
 model_release_update_parameters.go
+model_release_update_parameters_1.go
 model_replies_list_parameters.go
 model_repo_sync.go
 model_repo_sync_event.go
