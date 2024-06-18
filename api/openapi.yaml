@@ -32778,6 +32778,16 @@ components:
           items:
             type: string
           type: array
+        app_min_version:
+          description: Minimum version of the app that the release supports in semver
+            format
+          example: 2.5.0
+          type: string
+        app_max_version:
+          description: Maximum version of the app that the release supports in semver
+            format
+          example: 3.0.0
+          type: string
         branch:
           description: Branch used for release
           example: my-feature-branch
@@ -32798,6 +32808,16 @@ components:
           items:
             type: string
           type: array
+        app_min_version:
+          description: Minimum version of the app that the release supports in semver
+            format
+          example: 2.5.0
+          type: string
+        app_max_version:
+          description: Maximum version of the app that the release supports in semver
+            format
+          example: 3.0.0
+          type: string
         branch:
           description: Branch used for release
           example: my-feature-branch
