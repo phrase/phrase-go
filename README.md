@@ -210,6 +210,8 @@ Class | Method | HTTP request | Description
 *LinkedKeysApi* | [**KeyLinksCreate**](docs/LinkedKeysApi.md#keylinkscreate) | **Post** /projects/{project_id}/keys/{id}/key_links | Link child keys to a parent key
 *LinkedKeysApi* | [**KeyLinksDestroy**](docs/LinkedKeysApi.md#keylinksdestroy) | **Delete** /projects/{project_id}/keys/{id}/key_links/{child_key_id} | Unlink a child key from a parent key
 *LinkedKeysApi* | [**KeyLinksIndex**](docs/LinkedKeysApi.md#keylinksindex) | **Get** /projects/{project_id}/keys/{id}/key_links | List child keys of a parent key
+*LocaleDownloadsApi* | [**LocaleDownloadCreate**](docs/LocaleDownloadsApi.md#localedownloadcreate) | **Post** /projects/{project_id}/locales/{locale_id}/downloads | Initiate async download of a locale
+*LocaleDownloadsApi* | [**LocaleDownloadShow**](docs/LocaleDownloadsApi.md#localedownloadshow) | **Get** /projects/{project_id}/locales/{locale_id}/downloads/{id} | Show status of an async locale download
 *LocalesApi* | [**AccountLocales**](docs/LocalesApi.md#accountlocales) | **Get** /accounts/{id}/locales | List locales used in account
 *LocalesApi* | [**LocaleCreate**](docs/LocalesApi.md#localecreate) | **Post** /projects/{project_id}/locales | Create a locale
 *LocalesApi* | [**LocaleDelete**](docs/LocalesApi.md#localedelete) | **Delete** /projects/{project_id}/locales/{id} | Delete a locale
@@ -457,6 +459,10 @@ Class | Method | HTTP request | Description
  - [Locale](docs/Locale.md)
  - [LocaleCreateParameters](docs/LocaleCreateParameters.md)
  - [LocaleDetails](docs/LocaleDetails.md)
+ - [LocaleDownload](docs/LocaleDownload.md)
+ - [LocaleDownloadCreateParameters](docs/LocaleDownloadCreateParameters.md)
+ - [LocaleDownloadParams](docs/LocaleDownloadParams.md)
+ - [LocaleDownloadResult](docs/LocaleDownloadResult.md)
  - [LocalePreview](docs/LocalePreview.md)
  - [LocalePreview1](docs/LocalePreview1.md)
  - [LocaleReport](docs/LocaleReport.md)
@@ -582,6 +588,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com

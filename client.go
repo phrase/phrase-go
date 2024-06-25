@@ -95,6 +95,8 @@ type APIClient struct {
 
 	LinkedKeysApi *LinkedKeysApiService
 
+	LocaleDownloadsApi *LocaleDownloadsApiService
+
 	LocalesApi *LocalesApiService
 
 	MembersApi *MembersApiService
@@ -194,6 +196,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.KeysApi = (*KeysApiService)(&c.common)
 	c.KeysFigmaAttachmentsApi = (*KeysFigmaAttachmentsApiService)(&c.common)
 	c.LinkedKeysApi = (*LinkedKeysApiService)(&c.common)
+	c.LocaleDownloadsApi = (*LocaleDownloadsApiService)(&c.common)
 	c.LocalesApi = (*LocalesApiService)(&c.common)
 	c.MembersApi = (*MembersApiService)(&c.common)
 	c.NotificationGroupsApi = (*NotificationGroupsApiService)(&c.common)

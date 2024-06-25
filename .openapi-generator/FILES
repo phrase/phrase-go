@@ -29,6 +29,7 @@ api_jobs.go
 api_keys.go
 api_keys_figma_attachments.go
 api_linked_keys.go
+api_locale_downloads.go
 api_locales.go
 api_members.go
 api_notification_groups.go
@@ -194,6 +195,11 @@ docs/LinkedKeysApi.md
 docs/Locale.md
 docs/LocaleCreateParameters.md
 docs/LocaleDetails.md
+docs/LocaleDownload.md
+docs/LocaleDownloadCreateParameters.md
+docs/LocaleDownloadParams.md
+docs/LocaleDownloadResult.md
+docs/LocaleDownloadsApi.md
 docs/LocalePreview.md
 docs/LocalePreview1.md
 docs/LocaleReport.md
@@ -446,6 +452,10 @@ model_keys_untag_parameters.go
 model_locale.go
 model_locale_create_parameters.go
 model_locale_details.go
+model_locale_download.go
+model_locale_download_create_parameters.go
+model_locale_download_params.go
+model_locale_download_result.go
 model_locale_preview.go
 model_locale_preview_1.go
 model_locale_report.go
