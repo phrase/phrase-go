@@ -260,8 +260,6 @@ docs/RepliesListParameters.md
 docs/RepoSync.md
 docs/RepoSyncEvent.md
 docs/RepoSyncEventErrorsInner.md
-docs/RepoSyncExport.md
-docs/RepoSyncImport.md
 docs/RepoSyncsApi.md
 docs/ReportsApi.md
 docs/Screenshot.md
@@ -504,8 +502,6 @@ model_replies_list_parameters.go
 model_repo_sync.go
 model_repo_sync_event.go
 model_repo_sync_event_errors_inner.go
-model_repo_sync_export.go
-model_repo_sync_import.go
 model_screenshot.go
 model_screenshot_marker.go
 model_screenshot_marker_create_parameters.go

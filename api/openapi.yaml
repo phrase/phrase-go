@@ -22455,7 +22455,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/repo_sync_export'
+                $ref: '#/components/schemas/repo_sync_event'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -22547,7 +22547,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/repo_sync_import'
+                $ref: '#/components/schemas/repo_sync_event'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -22689,6 +22689,100 @@ paths:
         source: |-
           phrase repo_sync events \
           --id <id> \
+          --account_id abcd1234 \
+          --access_token <token>
+      x-cli-version: "2.24"
+  /accounts/{account_id}/repo_syncs/{repo_sync_id}/events/{id}:
+    get:
+      description: Shows a single Repo Sync event.
+      operationId: repo_sync_event/show
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Repo Sync ID
+        explode: false
+        in: path
+        name: repo_sync_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/repo_sync_event'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Get a single Repo Sync Event
+      tags:
+      - Repo Syncs
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs/56ef78/events/78dfgj"\
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase repo_sync_event show \
+          --id <id> \
+          --repo_sync_id <repo_sync_id> \
           --account_id abcd1234 \
           --access_token <token>
       x-cli-version: "2.24"
@@ -29078,6 +29172,15 @@ components:
       schema:
         type: string
       style: form
+    repo_sync_id:
+      description: Repo Sync ID
+      explode: false
+      in: path
+      name: repo_sync_id
+      required: true
+      schema:
+        type: string
+      style: simple
     space_id:
       description: Space ID
       explode: false
@@ -32268,6 +32371,8 @@ components:
         - Error message
         - Error message
       properties:
+        id:
+          type: string
         event_type:
           enum:
           - import
@@ -35033,24 +35138,6 @@ components:
             score: 0.95
             id: translation_id_2
         errors: []
-    repo_sync_export:
-      example:
-        message: Export started
-      properties:
-        message:
-          example: Export started
-          type: string
-      title: repo_sync/export
-      type: object
-    repo_sync_import:
-      example:
-        message: Import started
-      properties:
-        message:
-          example: Import started
-          type: string
-      title: repo_sync/import
-      type: object
     space_create_parameters:
       properties:
         name:
