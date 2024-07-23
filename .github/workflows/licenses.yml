@@ -35,4 +35,4 @@ jobs:
       - name: Run lawa
         run: BUNDLE_GEMFILE=Gemfile.lawa bundle _2.4.12_ exec lawa --enabled-package-managers=gomodules --decisions-file=.license-decisions.yml
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_LAWA_ACCESS_TOKEN }}
