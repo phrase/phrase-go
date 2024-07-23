@@ -31,7 +31,7 @@ jobs:
           bundle _2.4.12_ config unset deployment
           BUNDLE_GEMFILE=Gemfile.lawa bundle _2.4.12_ install
         env:
-          BUNDLE_GITHUB__COM: x-access-token:${{ secrets.API_TOKEN_GITHUB }}
+          BUNDLE_GITHUB__COM: x-access-token:${{ secrets.GITHUB_TOKEN }}
       - name: Run lawa
         run: BUNDLE_GEMFILE=Gemfile.lawa bundle _2.4.12_ exec lawa --enabled-package-managers=gomodules --decisions-file=.license-decisions.yml
         env:
