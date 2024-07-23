@@ -1,0 +1,38 @@
+name: License Check
+on:
+  push:
+    branches:
+      - tsi-2537-license-check
+
+jobs:
+  lawa:
+    name: lawa
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout app
+        uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.19
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@0cde4689ba33c09f1b890c1725572ad96751a3fc # pin@v1.178.0
+        with:
+          ruby-version: 3.1.3
+        env:
+          BUNDLE_GITHUB__COM: x-access-token:${{ secrets.github-token }}
+      - name: Install compatible bundler version
+        run: gem install bundler:2.1.4
+      - name: Install lawa
+        run: |
+          touch Gemfile.lawa
+          echo "source 'https://rubygems.org'" >> Gemfile.lawa
+          echo -e "gem 'lawa', :git => 'https://github.com/phrase/lawa.git'" >> Gemfile.lawa
+          bundle _2.1.4_ config unset deployment
+          BUNDLE_GEMFILE=Gemfile.lawa bundle _2.1.4_ install
+        env:
+          BUNDLE_GITHUB__COM: x-access-token:${{ secrets.github-token }}
+      - name: Run lawa
+        run: BUNDLE_GEMFILE=Gemfile.lawa bundle _2.1.4_ exec lawa --enabled-package-managers=gomodules --decisions-file=.license-decisions.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.github-token }}
