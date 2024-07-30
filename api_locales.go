@@ -436,7 +436,7 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	}
 	if localVarOptionals != nil && localVarOptionals.FormatOptions.IsSet() {
 		for key, value := range localVarOptionals.FormatOptions.Value().(map[string]interface{}) {
-			localVarQueryParams.Add(fmt.Sprintf("format_options[%s]", key), parameterToString(value, ""))
+			localVarQueryParams = serializeMapParams(fmt.Sprintf("format_options[%s]", key), value, localVarQueryParams)
 		}
 	}
 	if localVarOptionals != nil && localVarOptionals.Encoding.IsSet() {
@@ -459,7 +459,7 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	}
 	if localVarOptionals != nil && localVarOptionals.CustomMetadataFilters.IsSet() {
 		for key, value := range localVarOptionals.CustomMetadataFilters.Value().(map[string]interface{}) {
-			localVarQueryParams.Add(fmt.Sprintf("custom_metadata_filters[%s]", key), parameterToString(value, ""))
+			localVarQueryParams = serializeMapParams(fmt.Sprintf("custom_metadata_filters[%s]", key), value, localVarQueryParams)
 		}
 	}
 	// to determine the Content-Type header

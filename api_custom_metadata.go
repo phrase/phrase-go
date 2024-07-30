@@ -161,7 +161,7 @@ func (a *CustomMetadataApiService) CustomMetadataPropertiesList(ctx _context.Con
 
 	if localVarOptionals != nil && localVarOptionals.DataType.IsSet() {
 		for key, value := range localVarOptionals.DataType.Value().(map[string]interface{}) {
-			localVarQueryParams.Add(fmt.Sprintf("data_type[%s]", key), parameterToString(value, ""))
+			localVarQueryParams = serializeMapParams(fmt.Sprintf("data_type[%s]", key), value, localVarQueryParams)
 		}
 	}
 	if localVarOptionals != nil && localVarOptionals.ProjectId.IsSet() {
