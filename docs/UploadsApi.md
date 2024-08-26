@@ -46,6 +46,7 @@ Name | Type | Description  | Notes
  **tags** | **optional.String**| List of tags separated by comma to be associated with the new keys contained in the upload. | 
  **updateTranslations** | **optional.Bool**| Indicates whether existing translations should be updated with the file content. | 
  **updateTranslationKeys** | **optional.Bool**| Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. | [default to true]
+ **updateTranslationsOnSourceMatch** | **optional.Bool**| Update target translations only if the source translations of the uploaded multilingual file match the stored translations. | [default to false]
  **updateDescriptions** | **optional.Bool**| Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. | 
  **convertEmoji** | **optional.Bool**| This option is obsolete. Providing the option will cause a bad request error. | 
  **skipUploadTags** | **optional.Bool**| Indicates whether the upload should not create upload tags. | 

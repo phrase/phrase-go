@@ -33818,6 +33818,12 @@ components:
             existing keys updated.
           type: boolean
           example: null
+        update_translations_on_source_match:
+          default: false
+          description: Update target translations only if the source translations
+            of the uploaded multilingual file match the stored translations.
+          type: boolean
+          example: null
         update_descriptions:
           description: Existing key descriptions will be updated with the file content.
             Empty descriptions overwrite existing descriptions.
