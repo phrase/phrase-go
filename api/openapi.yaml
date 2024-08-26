@@ -6109,8 +6109,7 @@ paths:
       - Locale Downloads
       x-code-samples:
       - lang: Curl
-        source: |2-
-
+        source: |-
           curl "https://api.phrase.com/v2/projects/:project_id/locales/:locale_id/downloads" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
@@ -33065,6 +33064,14 @@ components:
             project.
           type: boolean
           example: null
+        locale_ids:
+          description: Locale IDs or locale names
+          example:
+          - de
+          - en
+          items:
+            type: string
+          type: array
         fallback_locale_id:
           description: If a key has no translation in the locale being downloaded
             the translation in the fallback locale will be used. Provide the ID of
