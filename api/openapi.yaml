@@ -8903,7 +8903,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: ids of keys that should added to the job
+      - description: ids of keys that should be removed from the job
         example:
         - abcd1234cdef1234abcd1234cdef1234
         explode: true
@@ -34026,7 +34026,7 @@ components:
           type: string
         machine_translation_enabled:
           description: (Optional) Enable machine translation support in the project.
-            Required for Autopilot and Smart Suggest
+            Required for Pre-Translation
           example: true
           type: boolean
         enable_branching:
@@ -34083,18 +34083,6 @@ components:
           type: boolean
         autotranslate_use_translation_memory:
           description: (Optional) Requires autotranslate_enabled to be true
-          example: true
-          type: boolean
-        smart_suggest_enabled:
-          description: "(Optional) Smart Suggest, requires machine_translation_enabled"
-          example: true
-          type: boolean
-        smart_suggest_use_glossary:
-          description: (Optional) Requires smart_suggest_enabled to be true
-          example: true
-          type: boolean
-        smart_suggest_use_machine_translation:
-          description: (Optional) Requires smart_suggest_enabled to be true
           example: true
           type: boolean
       required:
@@ -34156,7 +34144,7 @@ components:
           type: string
         machine_translation_enabled:
           description: (Optional) Enable machine translation support in the project.
-            Required for Autopilot and Smart Suggest
+            Required for Pre-Translation
           example: true
           type: boolean
         enable_branching:
@@ -34213,18 +34201,6 @@ components:
           type: boolean
         autotranslate_use_translation_memory:
           description: (Optional) Requires autotranslate_enabled to be true
-          example: true
-          type: boolean
-        smart_suggest_enabled:
-          description: "(Optional) Smart Suggest, requires machine_translation_enabled"
-          example: true
-          type: boolean
-        smart_suggest_use_glossary:
-          description: (Optional) Requires smart_suggest_enabled to be true
-          example: true
-          type: boolean
-        smart_suggest_use_machine_translation:
-          description: (Optional) Requires smart_suggest_enabled to be true
           example: true
           type: boolean
       title: project/update/parameters

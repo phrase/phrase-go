@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **PointOfContact** | **string** | (Optional) User ID of the point of contact for the project. | [optional] 
 **SourceProjectId** | **string** | When a source project ID is given, a clone of that project will be created, including all locales, keys and translations as well as the main project settings if they are not defined otherwise through the params. | [optional] 
 **Workflow** | **string** | (Optional) Review Workflow. \&quot;simple\&quot; / \&quot;review\&quot;. &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/articles/5784094755484\&quot;&gt;Read more&lt;/a&gt; | [optional] 
-**MachineTranslationEnabled** | **bool** | (Optional) Enable machine translation support in the project. Required for Autopilot and Smart Suggest | [optional] 
+**MachineTranslationEnabled** | **bool** | (Optional) Enable machine translation support in the project. Required for Pre-Translation | [optional] 
 **EnableBranching** | **bool** | (Optional) Enable branching in the project | [optional] 
 **ProtectMasterBranch** | **bool** | (Optional) Protect the master branch in project where branching is enabled | [optional] 
 **EnableAllDataTypeTranslationKeysForTranslators** | **bool** | (Optional) Otherwise, translators are not allowed to edit translations other than strings | [optional] 
@@ -27,9 +27,6 @@ Name | Type | Description | Notes
 **AutotranslateMarkAsUnverified** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **AutotranslateUseMachineTranslation** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **AutotranslateUseTranslationMemory** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
-**SmartSuggestEnabled** | **bool** | (Optional) Smart Suggest, requires machine_translation_enabled | [optional] 
-**SmartSuggestUseGlossary** | **bool** | (Optional) Requires smart_suggest_enabled to be true | [optional] 
-**SmartSuggestUseMachineTranslation** | **bool** | (Optional) Requires smart_suggest_enabled to be true | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

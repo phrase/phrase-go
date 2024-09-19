@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
  **branch** | **optional.String**| specify the branch to use | 
- **translationKeyIds** | [**optional.Interface of []string**](string.md)| ids of keys that should added to the job | 
+ **translationKeyIds** | [**optional.Interface of []string**](string.md)| ids of keys that should be removed from the job | 
 
 ### Return type
 

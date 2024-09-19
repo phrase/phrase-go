@@ -24,7 +24,7 @@ type ProjectUpdateParameters struct {
 	RemoveProjectImage *bool `json:"remove_project_image,omitempty"`
 	// (Optional) Review Workflow. \"simple\" / \"review\". <a href=\"https://support.phrase.com/hc/en-us/articles/5784094755484\">Read more</a>
 	Workflow string `json:"workflow,omitempty"`
-	// (Optional) Enable machine translation support in the project. Required for Autopilot and Smart Suggest
+	// (Optional) Enable machine translation support in the project. Required for Pre-Translation
 	MachineTranslationEnabled *bool `json:"machine_translation_enabled,omitempty"`
 	// (Optional) Enable branching in the project
 	EnableBranching *bool `json:"enable_branching,omitempty"`
@@ -50,10 +50,4 @@ type ProjectUpdateParameters struct {
 	AutotranslateUseMachineTranslation *bool `json:"autotranslate_use_machine_translation,omitempty"`
 	// (Optional) Requires autotranslate_enabled to be true
 	AutotranslateUseTranslationMemory *bool `json:"autotranslate_use_translation_memory,omitempty"`
-	// (Optional) Smart Suggest, requires machine_translation_enabled
-	SmartSuggestEnabled *bool `json:"smart_suggest_enabled,omitempty"`
-	// (Optional) Requires smart_suggest_enabled to be true
-	SmartSuggestUseGlossary *bool `json:"smart_suggest_use_glossary,omitempty"`
-	// (Optional) Requires smart_suggest_enabled to be true
-	SmartSuggestUseMachineTranslation *bool `json:"smart_suggest_use_machine_translation,omitempty"`
 }

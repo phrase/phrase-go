@@ -450,7 +450,7 @@ Remove multiple keys from existing job.
   - @param optional nil or *JobKeysDeleteOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
-  - @param "TranslationKeyIds" (optional.Interface of []string) -  ids of keys that should added to the job
+  - @param "TranslationKeyIds" (optional.Interface of []string) -  ids of keys that should be removed from the job
 */
 func (a *JobsApiService) JobKeysDelete(ctx _context.Context, projectId string, id string, localVarOptionals *JobKeysDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
