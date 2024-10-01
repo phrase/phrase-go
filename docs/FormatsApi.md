@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## FormatsList
 
-> []Format FormatsList(ctx, optional)
+> []Format FormatsList(ctx, )
 
 List formats
 
@@ -18,20 +18,7 @@ Get a handy list of all localization file formats supported in Phrase.
 
 ### Required Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
- **optional** | ***FormatsListOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a FormatsListOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+This endpoint does not need any parameter.
 
 ### Return type
 

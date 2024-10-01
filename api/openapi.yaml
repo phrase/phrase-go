@@ -1759,15 +1759,6 @@ paths:
       description: Get a handy list of all localization file formats supported in
         Phrase.
       operationId: formats/list
-      parameters:
-      - description: Two-Factor-Authentication token (optional)
-        explode: false
-        in: header
-        name: X-PhraseApp-OTP
-        required: false
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1777,37 +1768,8 @@ paths:
                   $ref: '#/components/schemas/format'
                 type: array
           description: OK
-          headers:
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X-Rate-Limit-Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X-Rate-Limit-Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X-Rate-Limit-Reset'
-            Link:
-              $ref: '#/components/headers/Link'
-            Pagination:
-              $ref: '#/components/headers/Pagination'
         "400":
           description: Bad request
-          headers:
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X-Rate-Limit-Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X-Rate-Limit-Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X-Rate-Limit-Reset'
-        "404":
-          description: Not Found
-          headers:
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X-Rate-Limit-Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X-Rate-Limit-Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X-Rate-Limit-Reset'
-        "429":
-          description: Rate Limiting
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'

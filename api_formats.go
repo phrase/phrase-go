@@ -5,8 +5,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-
-	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -17,21 +15,14 @@ var (
 // FormatsApiService FormatsApi service
 type FormatsApiService service
 
-// FormatsListOpts Optional parameters for the method 'FormatsList'
-type FormatsListOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-}
-
 /*
 FormatsList List formats
 Get a handy list of all localization file formats supported in Phrase.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @param optional nil or *FormatsListOpts - Optional Parameters:
-  - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
 @return []Format
 */
-func (a *FormatsApiService) FormatsList(ctx _context.Context, localVarOptionals *FormatsListOpts) ([]Format, *APIResponse, error) {
+func (a *FormatsApiService) FormatsList(ctx _context.Context) ([]Format, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -63,9 +54,6 @@ func (a *FormatsApiService) FormatsList(ctx _context.Context, localVarOptionals 
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
-		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	if ctx != nil {
 		// API Key Authentication
