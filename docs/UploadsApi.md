@@ -57,6 +57,7 @@ Name | Type | Description  | Notes
  **autotranslate** | **optional.Bool**| If set, translations for the uploaded language will be fetched automatically. | 
  **markReviewed** | **optional.Bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | 
  **tagOnlyAffectedKeys** | **optional.Bool**| Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; | [default to false]
+ **translationKeyPrefix** | **optional.String**| This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. | 
 
 ### Return type
 

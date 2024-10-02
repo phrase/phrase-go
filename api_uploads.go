@@ -39,6 +39,7 @@ type UploadCreateOpts struct {
 	Autotranslate                   optional.Bool      `json:"autotranslate,omitempty"`
 	MarkReviewed                    optional.Bool      `json:"mark_reviewed,omitempty"`
 	TagOnlyAffectedKeys             optional.Bool      `json:"tag_only_affected_keys,omitempty"`
+	TranslationKeyPrefix            optional.String    `json:"translation_key_prefix,omitempty"`
 }
 
 /*
@@ -66,6 +67,7 @@ Upload a new language file. Creates necessary resources in your project.
   - @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
   - @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
   - @param "TagOnlyAffectedKeys" (optional.Bool) -  Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
+  - @param "TranslationKeyPrefix" (optional.String) -  This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized.
 
 @return Upload
 */
@@ -165,6 +167,9 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 	if localVarOptionals != nil && localVarOptionals.TagOnlyAffectedKeys.IsSet() {
 		localVarFormParams.Add("tag_only_affected_keys", parameterToString(localVarOptionals.TagOnlyAffectedKeys.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.TranslationKeyPrefix.IsSet() {
+		localVarFormParams.Add("translation_key_prefix", parameterToString(localVarOptionals.TranslationKeyPrefix.Value(), ""))
 	}
 	if ctx != nil {
 		// API Key Authentication

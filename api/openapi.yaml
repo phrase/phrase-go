@@ -5901,6 +5901,26 @@ paths:
         schema:
           type: string
         style: form
+      - description: "Download all translation keys, and remove the specified prefix\
+          \ where possible. Warning: this may create duplicate key names if other\
+          \ keys share the same name after the prefix is removed."
+        example: prefix_
+        explode: true
+        in: query
+        name: translation_key_prefix
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Only download translation keys containing the specified prefix,\
+          \ and remove the prefix from the generated file."
+        explode: true
+        in: query
+        name: filter_by_prefix
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: |
           Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.
         explode: true
@@ -33856,6 +33876,12 @@ components:
             the upload should be tagged. The default is `false`
           type: boolean
           example: null
+        translation_key_prefix:
+          description: This prefix will be added to all uploaded translation key names
+            to prevent collisions. Use a meaningful prefix related to your project
+            or file to keep key names organized.
+          example: prefix_
+          type: string
       required:
       - file
       - file_format
