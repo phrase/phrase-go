@@ -20978,6 +20978,8 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Pagination:
+              $ref: '#/components/headers/Pagination'
         "400":
           description: Bad request
           headers:
@@ -25345,6 +25347,8 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Pagination:
+              $ref: '#/components/headers/Pagination'
         "400":
           description: Bad request
           headers:
@@ -27031,6 +27035,8 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Pagination:
+              $ref: '#/components/headers/Pagination'
         "400":
           description: Bad request
           headers:
