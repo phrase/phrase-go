@@ -33860,8 +33860,8 @@ components:
           properties: {}
           type: object
         format_options:
-          description: Additional options available for specific formats. See our
-            format guide for complete list.
+          description: "Additional options available for specific formats. See our\
+            \ format guide for the [complete list](https://support.phrase.com/hc/en-us/articles/9652464547740-List-of-Supported-File-Types-Strings)."
           example: "{\"foo\": \"bar\"}"
           properties: {}
           type: object

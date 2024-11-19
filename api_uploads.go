@@ -63,7 +63,7 @@ Upload a new language file. Creates necessary resources in your project.
   - @param "SkipUnverification" (optional.Bool) -  Indicates whether the upload should unverify updated translations.
   - @param "FileEncoding" (optional.String) -  Enforces a specific encoding on the file contents. Valid options are \\\"UTF-8\\\", \\\"UTF-16\\\" and \\\"ISO-8859-1\\\".
   - @param "LocaleMapping" (optional.Interface of map[string]interface{}) -  Mapping between locale names and translation columns. Required in some formats like CSV or XLSX.
-  - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional options available for specific formats. See our format guide for complete list.
+  - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional options available for specific formats. See our format guide for the [complete list](https://support.phrase.com/hc/en-us/articles/9652464547740-List-of-Supported-File-Types-Strings).
   - @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
   - @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
   - @param "TagOnlyAffectedKeys" (optional.Bool) -  Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
