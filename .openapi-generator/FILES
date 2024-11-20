@@ -87,6 +87,7 @@ docs/BranchUpdateParameters.md
 docs/BranchesApi.md
 docs/Comment.md
 docs/CommentCreateParameters.md
+docs/CommentCreateParameters1.md
 docs/CommentMarkReadParameters.md
 docs/CommentReaction.md
 docs/CommentReactionsApi.md
@@ -364,6 +365,7 @@ model_branch_name.go
 model_branch_update_parameters.go
 model_comment.go
 model_comment_create_parameters.go
+model_comment_create_parameters_1.go
 model_comment_mark_read_parameters.go
 model_comment_reaction.go
 model_comment_update_parameters.go

@@ -10839,26 +10839,6 @@ paths:
         schema:
           type: string
         style: simple
-      - description: specify the message for the comment
-        example: some message...
-        explode: true
-        in: query
-        name: message
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: specify the locales for the comment
-        example: someId
-        explode: true
-        in: query
-        name: locale_ids
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
       requestBody:
         content:
           application/json:
@@ -12266,24 +12246,12 @@ paths:
         schema:
           type: string
         style: simple
-      - description: specify the branch to use
-        example: my-feature-branch
-        explode: true
-        in: query
-        name: branch
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: specify the message for the comment
-        example: some message...
-        explode: true
-        in: query
-        name: message
-        required: false
-        schema:
-          type: string
-        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/comment_create_parameters_1'
+        required: true
       responses:
         "201":
           content:
@@ -12340,7 +12308,7 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies/" \
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:key_id/comments/:comment_id/replies" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
             -d '{"branch":"my-feature-branch", "message":"Some message..."}' \
@@ -33670,14 +33638,24 @@ components:
       type: object
     comment_create_parameters:
       properties:
-        branch:
-          description: specify the branch to use
-          example: my-feature-branch
-          type: string
         message:
           description: Comment message
           example: Some message...
           type: string
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
+        locale_ids:
+          description: specify the locales for the comment
+          example:
+          - someId
+          - someOtherId
+          items:
+            type: string
+          type: array
+      required:
+      - message
       title: comment/create/parameters
       type: object
     comment_update_parameters:
@@ -33723,6 +33701,20 @@ components:
           example: desc
           type: string
       title: replies/list/parameters
+      type: object
+    comment_create_parameters_1:
+      properties:
+        message:
+          description: Reply message body
+          example: Some message...
+          type: string
+        branch:
+          description: Specify the branch to use
+          example: my-feature-branch
+          type: string
+      required:
+      - message
+      title: comment/create/parameters
       type: object
     webhook_create_parameters:
       properties:

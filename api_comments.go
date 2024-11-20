@@ -21,9 +21,7 @@ type CommentsApiService service
 
 // CommentCreateOpts Optional parameters for the method 'CommentCreate'
 type CommentCreateOpts struct {
-	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
-	Message       optional.String    `json:"message,omitempty"`
-	LocaleIds     optional.Interface `json:"locale_ids,omitempty"`
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
@@ -35,8 +33,6 @@ Create a new comment for a key.
   - @param commentCreateParameters
   - @param optional nil or *CommentCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Message" (optional.String) -  specify the message for the comment
-  - @param "LocaleIds" (optional.Interface of []string) -  specify the locales for the comment
 
 @return Comment
 */
@@ -60,20 +56,6 @@ func (a *CommentsApiService) CommentCreate(ctx _context.Context, projectId strin
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.Message.IsSet() {
-		localVarQueryParams.Add("message", parameterToString(localVarOptionals.Message.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.LocaleIds.IsSet() {
-		t := localVarOptionals.LocaleIds.Value()
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("locale_ids", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("locale_ids", parameterToString(t, "multi"))
-		}
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

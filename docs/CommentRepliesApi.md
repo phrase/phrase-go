@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ## ReplyCreate
 
-> Comment ReplyCreate(ctx, projectId, keyId, commentId, optional)
+> Comment ReplyCreate(ctx, projectId, keyId, commentId, commentCreateParameters1, optional)
 
 Create a reply
 
@@ -87,6 +87,7 @@ Name | Type | Description  | Notes
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
 **commentId** | **string**| Comment ID | 
+**commentCreateParameters1** | [**CommentCreateParameters1**](CommentCreateParameters1.md)|  | 
  **optional** | ***ReplyCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -99,9 +100,8 @@ Name | Type | Description  | Notes
 
 
 
+
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
- **message** | **optional.String**| specify the message for the comment | 
 
 ### Return type
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -170,8 +170,6 @@ func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId s
 // ReplyCreateOpts Optional parameters for the method 'ReplyCreate'
 type ReplyCreateOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Branch        optional.String `json:"branch,omitempty"`
-	Message       optional.String `json:"message,omitempty"`
 }
 
 /*
@@ -181,14 +179,13 @@ Create a new reply for a comment.
   - @param projectId Project ID
   - @param keyId Translation Key ID
   - @param commentId Comment ID
+  - @param commentCreateParameters1
   - @param optional nil or *ReplyCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Branch" (optional.String) -  specify the branch to use
-  - @param "Message" (optional.String) -  specify the message for the comment
 
 @return Comment
 */
-func (a *CommentRepliesApiService) ReplyCreate(ctx _context.Context, projectId string, keyId string, commentId string, localVarOptionals *ReplyCreateOpts) (Comment, *APIResponse, error) {
+func (a *CommentRepliesApiService) ReplyCreate(ctx _context.Context, projectId string, keyId string, commentId string, commentCreateParameters1 CommentCreateParameters1, localVarOptionals *ReplyCreateOpts) (Comment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -210,14 +207,8 @@ func (a *CommentRepliesApiService) ReplyCreate(ctx _context.Context, projectId s
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
-		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Message.IsSet() {
-		localVarQueryParams.Add("message", parameterToString(localVarOptionals.Message.Value(), ""))
-	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -236,6 +227,8 @@ func (a *CommentRepliesApiService) ReplyCreate(ctx _context.Context, projectId s
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
+	// body params
+	localVarPostBody = &commentCreateParameters1
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
