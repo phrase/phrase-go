@@ -253,7 +253,7 @@ Removes a target locale from a job.
   - @param id ID
   - @param optional nil or *JobLocaleDeleteOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Branch" (optional.String) -  Branch to use
 */
 func (a *JobLocalesApiService) JobLocaleDelete(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobLocaleDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -463,7 +463,7 @@ Get a single target locale for a given job.
   - @param id ID
   - @param optional nil or *JobLocaleShowOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Branch" (optional.String) -  Branch to use
 
 @return JobLocale
 */
@@ -795,7 +795,7 @@ List all target locales for a given job.
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
-  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Branch" (optional.String) -  Branch to use
 
 @return []JobLocale
 */

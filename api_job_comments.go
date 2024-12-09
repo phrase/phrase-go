@@ -140,7 +140,7 @@ Delete an existing job comment.
   - @param id ID
   - @param optional nil or *JobCommentDeleteOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Branch" (optional.String) -  Branch to use
 */
 func (a *JobCommentsApiService) JobCommentDelete(ctx _context.Context, projectId string, jobId string, id string, localVarOptionals *JobCommentDeleteOpts) ([]byte, *APIResponse, error) {
 	var (
@@ -240,7 +240,7 @@ Get details on a single job comment.
   - @param id ID
   - @param optional nil or *JobCommentShowOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Branch" (optional.String) -  Branch to use
 
 @return JobComment
 */
@@ -462,7 +462,7 @@ List all comments for a job.
   - @param jobId Job ID
   - @param optional nil or *JobCommentsListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Branch" (optional.String) -  Branch to use
   - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
 
 @return []JobComment

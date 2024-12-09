@@ -15515,7 +15515,7 @@ paths:
         schema:
           type: integer
         style: form
-      - description: specify the branch to use
+      - description: Branch to use
         example: my-feature-branch
         explode: true
         in: query
@@ -15718,7 +15718,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: specify the branch to use
+      - description: Branch to use
         example: my-feature-branch
         explode: true
         in: query
@@ -15820,7 +15820,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: specify the branch to use
+      - description: Branch to use
         example: my-feature-branch
         explode: true
         in: query
@@ -27089,7 +27089,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: specify the branch to use
+      - description: Branch to use
         example: my-feature-branch
         explode: true
         in: query
@@ -27191,7 +27191,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: specify the branch to use
+      - description: Branch to use
         example: my-feature-branch
         explode: true
         in: query
@@ -27390,7 +27390,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: specify the branch to use
+      - description: Branch to use
         example: my-feature-branch
         explode: true
         in: query
@@ -29343,6 +29343,16 @@ components:
       explode: true
       in: query
       name: tag
+      required: false
+      schema:
+        type: string
+      style: form
+    branch:
+      description: Branch to use
+      example: my-feature-branch
+      explode: true
+      in: query
+      name: branch
       required: false
       schema:
         type: string
@@ -35623,6 +35633,10 @@ components:
           description: Comment message
           example: Some message...
           type: string
+        branch:
+          description: Branch name for the job
+          example: my-feature-branch
+          type: string
       title: job_comment/update/parameters
       type: object
     job_comment_create_parameters:
@@ -35630,6 +35644,10 @@ components:
         message:
           description: Job comment message
           example: Some message...
+          type: string
+        branch:
+          description: Branch name for the job
+          example: my-feature-branch
           type: string
       title: job_comment/create/parameters
       type: object
