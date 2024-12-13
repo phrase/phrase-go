@@ -34195,6 +34195,19 @@ components:
           description: (Optional) Requires autotranslate_enabled to be true
           example: true
           type: boolean
+        default_encoding:
+          description: "(Optional) Sets the default encoding for Uploads. If you leave\
+            \ it empty, we will try to guess it automatically for you when you Upload\
+            \ a file. You can still override this value by setting the <a href='#post-/projects/-project_id-/uploads'>`file_encoding`</a>\
+            \ parameter for Uploads."
+          enum:
+          - UTF-8
+          - UTF-16
+          - UTF-16BE
+          - UTF-16LE
+          - ISO-8859-1
+          example: UTF-8
+          type: string
       title: project/update/parameters
       type: object
     job_locales_create_parameters:
