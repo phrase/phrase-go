@@ -5,7 +5,7 @@ Phrase Strings is a translation management platform for software projects. You c
 ## Installation
 
 ```shell
-go get github.com/phrase/phrase-go/v3 
+go get github.com/phrase/phrase-go/v4 
 ```
 
 ## Getting Started
@@ -17,7 +17,7 @@ import (
 	"context"
 	"fmt"
 
-	phrase "github.com/phrase/phrase-go/v3" 
+	phrase "github.com/phrase/phrase-go/v4" 
 )
 
 func main() {
