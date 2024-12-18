@@ -43,8 +43,6 @@ type APIClient struct {
 
 	AuthorizationsApi *AuthorizationsApiService
 
-	BitbucketSyncApi *BitbucketSyncApiService
-
 	BlacklistedKeysApi *BlacklistedKeysApiService
 
 	BranchesApi *BranchesApiService
@@ -64,10 +62,6 @@ type APIClient struct {
 	FigmaAttachmentsApi *FigmaAttachmentsApiService
 
 	FormatsApi *FormatsApiService
-
-	GitHubSyncApi *GitHubSyncApiService
-
-	GitLabSyncApi *GitLabSyncApiService
 
 	GlossariesApi *GlossariesApiService
 
@@ -170,7 +164,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.AccountsApi = (*AccountsApiService)(&c.common)
 	c.AuthorizationsApi = (*AuthorizationsApiService)(&c.common)
-	c.BitbucketSyncApi = (*BitbucketSyncApiService)(&c.common)
 	c.BlacklistedKeysApi = (*BlacklistedKeysApiService)(&c.common)
 	c.BranchesApi = (*BranchesApiService)(&c.common)
 	c.CommentReactionsApi = (*CommentReactionsApiService)(&c.common)
@@ -181,8 +174,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DocumentsApi = (*DocumentsApiService)(&c.common)
 	c.FigmaAttachmentsApi = (*FigmaAttachmentsApiService)(&c.common)
 	c.FormatsApi = (*FormatsApiService)(&c.common)
-	c.GitHubSyncApi = (*GitHubSyncApiService)(&c.common)
-	c.GitLabSyncApi = (*GitLabSyncApiService)(&c.common)
 	c.GlossariesApi = (*GlossariesApiService)(&c.common)
 	c.GlossaryTermTranslationsApi = (*GlossaryTermTranslationsApiService)(&c.common)
 	c.GlossaryTermsApi = (*GlossaryTermsApiService)(&c.common)
