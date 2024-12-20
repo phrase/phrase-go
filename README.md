@@ -250,10 +250,10 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**ReleaseShow**](docs/ReleasesApi.md#releaseshow) | **Get** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Get a single release
 *ReleasesApi* | [**ReleaseUpdate**](docs/ReleasesApi.md#releaseupdate) | **Patch** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Update a release
 *ReleasesApi* | [**ReleasesList**](docs/ReleasesApi.md#releaseslist) | **Get** /accounts/{account_id}/distributions/{distribution_id}/releases | List releases
+*RepoSyncEventsApi* | [**RepoSyncEventList**](docs/RepoSyncEventsApi.md#reposynceventlist) | **Get** /accounts/{account_id}/repo_syncs/{id}/events | Repository Syncs History
+*RepoSyncEventsApi* | [**RepoSyncEventShow**](docs/RepoSyncEventsApi.md#reposynceventshow) | **Get** /accounts/{account_id}/repo_syncs/{repo_sync_id}/events/{id} | Get a single Repo Sync Event
 *RepoSyncsApi* | [**RepoSyncActivate**](docs/RepoSyncsApi.md#reposyncactivate) | **Post** /accounts/{account_id}/repo_syncs/{id}/activate | Activate a Repo Sync
 *RepoSyncsApi* | [**RepoSyncDeactivate**](docs/RepoSyncsApi.md#reposyncdeactivate) | **Post** /accounts/{account_id}/repo_syncs/{id}/deactivate | Deactivate a Repo Sync
-*RepoSyncsApi* | [**RepoSyncEventShow**](docs/RepoSyncsApi.md#reposynceventshow) | **Get** /accounts/{account_id}/repo_syncs/{repo_sync_id}/events/{id} | Get a single Repo Sync Event
-*RepoSyncsApi* | [**RepoSyncEvents**](docs/RepoSyncsApi.md#reposyncevents) | **Get** /accounts/{account_id}/repo_syncs/{id}/events | Repository Syncs History
 *RepoSyncsApi* | [**RepoSyncExport**](docs/RepoSyncsApi.md#reposyncexport) | **Post** /accounts/{account_id}/repo_syncs/{id}/export | Export to code repository
 *RepoSyncsApi* | [**RepoSyncImport**](docs/RepoSyncsApi.md#reposyncimport) | **Post** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
 *RepoSyncsApi* | [**RepoSyncList**](docs/RepoSyncsApi.md#reposynclist) | **Get** /accounts/{account_id}/repo_syncs | Get Repo Syncs
@@ -564,6 +564,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com

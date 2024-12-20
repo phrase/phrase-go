@@ -21186,7 +21186,7 @@ paths:
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
-          phrase repo_sync list \
+          phrase repo_syncs list \
           --account_id abcd1234 \
           --access_token <token>
       x-cli-version: "2.24"
@@ -21270,7 +21270,7 @@ paths:
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
-          phrase repo_sync show \
+          phrase repo_syncs show \
           --id <id> \
           --account_id abcd1234 \
           --access_token <token>
@@ -21361,7 +21361,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase repo_sync export \
+          phrase repo_syncs export \
           --id <repo_sync_id> \
           --access_token <token>
       x-cli-version: "2.24"
@@ -21451,7 +21451,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase repo_sync import \
+          phrase repo_syncs import \
           --id <repo_sync_id> \
           --access_token <token>
       x-cli-version: "2.24"
@@ -21460,7 +21460,7 @@ paths:
       description: |-
         Get the history of a single Repo Sync. The history includes all imports and exports
         performed by the Repo Sync.
-      operationId: repo_sync/events
+      operationId: repo_sync_event/list
       parameters:
       - description: Two-Factor-Authentication token (optional)
         explode: false
@@ -21535,7 +21535,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Repository Syncs History
       tags:
-      - Repo Syncs
+      - Repo Sync Events
       x-code-samples:
       - lang: Curl
         source: |-
@@ -21543,7 +21543,7 @@ paths:
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
-          phrase repo_sync events \
+          phrase repo_sync_events list \
           --id <id> \
           --account_id abcd1234 \
           --access_token <token>
@@ -21628,7 +21628,7 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
       summary: Get a single Repo Sync Event
       tags:
-      - Repo Syncs
+      - Repo Sync Events
       x-code-samples:
       - lang: Curl
         source: |-
@@ -21636,7 +21636,7 @@ paths:
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
-          phrase repo_sync_event show \
+          phrase repo_sync_events show \
           --id <id> \
           --repo_sync_id <repo_sync_id> \
           --account_id abcd1234 \
@@ -21726,7 +21726,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase repo_sync deactivate \
+          phrase repo_syncs deactivate \
           --id <repo_sync_id> \
           --access_token <token>
       x-cli-version: "2.24"
@@ -21814,7 +21814,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase repo_sync activate \
+          phrase repo_syncs activate \
           --id <repo_sync_id> \
           --access_token <token>
       x-cli-version: "2.24"
@@ -31105,7 +31105,7 @@ components:
       type: object
     repo_sync_event:
       example:
-        event_type: import
+        type: import
         created_at: 2015-01-28T09:52:53Z
         status: failure
         auto_import: true
@@ -31115,7 +31115,7 @@ components:
       properties:
         id:
           type: string
-        event_type:
+        type:
           enum:
           - import
           - export

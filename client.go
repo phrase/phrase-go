@@ -113,6 +113,8 @@ type APIClient struct {
 
 	ReleasesApi *ReleasesApiService
 
+	RepoSyncEventsApi *RepoSyncEventsApiService
+
 	RepoSyncsApi *RepoSyncsApiService
 
 	ReportsApi *ReportsApiService
@@ -199,6 +201,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.QualityPerformanceScoreApi = (*QualityPerformanceScoreApiService)(&c.common)
 	c.ReleaseTriggersApi = (*ReleaseTriggersApiService)(&c.common)
 	c.ReleasesApi = (*ReleasesApiService)(&c.common)
+	c.RepoSyncEventsApi = (*RepoSyncEventsApiService)(&c.common)
 	c.RepoSyncsApi = (*RepoSyncsApiService)(&c.common)
 	c.ReportsApi = (*ReportsApiService)(&c.common)
 	c.ScreenshotMarkersApi = (*ScreenshotMarkersApiService)(&c.common)

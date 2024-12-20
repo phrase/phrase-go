@@ -38,6 +38,7 @@ api_projects.go
 api_quality_performance_score.go
 api_release_triggers.go
 api_releases.go
+api_repo_sync_events.go
 api_repo_syncs.go
 api_reports.go
 api_screenshot_markers.go
@@ -243,6 +244,7 @@ docs/RepliesListParameters.md
 docs/RepoSync.md
 docs/RepoSyncEvent.md
 docs/RepoSyncEventErrorsInner.md
+docs/RepoSyncEventsApi.md
 docs/RepoSyncsApi.md
 docs/ReportsApi.md
 docs/Screenshot.md

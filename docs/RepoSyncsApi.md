@@ -6,8 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**RepoSyncActivate**](RepoSyncsApi.md#RepoSyncActivate) | **Post** /accounts/{account_id}/repo_syncs/{id}/activate | Activate a Repo Sync
 [**RepoSyncDeactivate**](RepoSyncsApi.md#RepoSyncDeactivate) | **Post** /accounts/{account_id}/repo_syncs/{id}/deactivate | Deactivate a Repo Sync
-[**RepoSyncEventShow**](RepoSyncsApi.md#RepoSyncEventShow) | **Get** /accounts/{account_id}/repo_syncs/{repo_sync_id}/events/{id} | Get a single Repo Sync Event
-[**RepoSyncEvents**](RepoSyncsApi.md#RepoSyncEvents) | **Get** /accounts/{account_id}/repo_syncs/{id}/events | Repository Syncs History
 [**RepoSyncExport**](RepoSyncsApi.md#RepoSyncExport) | **Post** /accounts/{account_id}/repo_syncs/{id}/export | Export to code repository
 [**RepoSyncImport**](RepoSyncsApi.md#RepoSyncImport) | **Post** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
 [**RepoSyncList**](RepoSyncsApi.md#RepoSyncList) | **Get** /accounts/{account_id}/repo_syncs | Get Repo Syncs
@@ -94,102 +92,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**RepoSync**](RepoSync.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [Token](../README.md#Token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RepoSyncEventShow
-
-> RepoSyncEvent RepoSyncEventShow(ctx, accountId, repoSyncId, id, optional)
-
-Get a single Repo Sync Event
-
-Shows a single Repo Sync event.
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
-**repoSyncId** | **string**| Repo Sync ID | 
-**id** | **string**| ID | 
- **optional** | ***RepoSyncEventShowOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a RepoSyncEventShowOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
-
-### Return type
-
-[**RepoSyncEvent**](RepoSyncEvent.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [Token](../README.md#Token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RepoSyncEvents
-
-> []RepoSyncEvent RepoSyncEvents(ctx, accountId, id, optional)
-
-Repository Syncs History
-
-Get the history of a single Repo Sync. The history includes all imports and exports performed by the Repo Sync.
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **string**| Account ID | 
-**id** | **string**| ID | 
- **optional** | ***RepoSyncEventsOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a RepoSyncEventsOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
-
-### Return type
-
-[**[]RepoSyncEvent**](RepoSyncEvent.md)
 
 ### Authorization
 
