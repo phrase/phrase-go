@@ -243,7 +243,6 @@ docs/ReleasesApi.md
 docs/RepliesListParameters.md
 docs/RepoSync.md
 docs/RepoSyncEvent.md
-docs/RepoSyncEventErrorsInner.md
 docs/RepoSyncEventsApi.md
 docs/RepoSyncsApi.md
 docs/ReportsApi.md
@@ -475,7 +474,6 @@ model_release_update_parameters_1.go
 model_replies_list_parameters.go
 model_repo_sync.go
 model_repo_sync_event.go
-model_repo_sync_event_errors_inner.go
 model_screenshot.go
 model_screenshot_marker.go
 model_screenshot_marker_create_parameters.go

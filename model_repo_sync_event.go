@@ -15,5 +15,5 @@ type RepoSyncEvent struct {
 	// Whether the import was triggered by the repo push event
 	AutoImport *bool `json:"auto_import,omitempty"`
 	// List of error messages, in case of failure
-	Errors []RepoSyncEventErrorsInner `json:"errors,omitempty"`
+	Errors []string `json:"errors,omitempty"`
 }

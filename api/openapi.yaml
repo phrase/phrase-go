@@ -1608,6 +1608,7 @@ tags:
     The Repo Syncs API allows you to synchronize your Phrase projects with your code repositories.
     You can import translations from your repository to Phrase and export translations from Phrase to your repository.
   name: Repo Syncs
+- name: Repo Sync Events
 - name: Reports
 - name: Search
 - name: Screenshot Markers
@@ -31110,8 +31111,8 @@ components:
         status: failure
         auto_import: true
         errors:
-        - Error message
-        - Error message
+        - Error message 1
+        - Error message 2
       properties:
         id:
           type: string
@@ -31138,7 +31139,7 @@ components:
         errors:
           description: "List of error messages, in case of failure"
           items:
-            $ref: '#/components/schemas/repo_sync_event_errors_inner'
+            type: string
           type: array
       title: repo_sync_event
       type: object
@@ -34667,10 +34668,6 @@ components:
       title: job_template_preview
       type: object
       example: null
-    repo_sync_event_errors_inner:
-      anyOf:
-      - type: string
-      - type: object
   securitySchemes:
     Token:
       description: Enter your token in the format `token TOKEN`
