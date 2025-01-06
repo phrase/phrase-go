@@ -21009,7 +21009,7 @@ paths:
     post:
       description: "Retrieves the quality scores for your Strings translations. Returns\
         \ a score, measured by Phrase QPS"
-      operationId: projects/quality_performance_score
+      operationId: quality_performance_score/list
       parameters:
       - description: Two-Factor-Authentication token (optional)
         explode: false
@@ -21031,14 +21031,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/projects_quality_performance_score_request'
+              $ref: '#/components/schemas/quality_performance_score_list_request'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/projects_quality_performance_score_200_response'
+                $ref: '#/components/schemas/quality_performance_score_list_200_response'
           description: OK
           headers:
             X-Rate-Limit-Limit:
@@ -21104,7 +21104,7 @@ paths:
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
-          phrase projects quality_performance_score \
+          phrase quality_performance_score list \
           --project_id <project_id> \
           --data '{"translation_ids":["translation_id_1", "translation_id_2"]}' \
           --access_token <token>
@@ -33784,7 +33784,7 @@ components:
           type: string
       title: order/confirm/parameters
       type: object
-    projects_quality_performance_score_request:
+    quality_performance_score_list_request:
       properties:
         translation_ids:
           description: Translation ids you want to get the quality performance score
@@ -33808,7 +33808,7 @@ components:
           $ref: '#/components/schemas/error_error'
       title: error
       type: object
-    projects_quality_performance_score_200_response_anyOf_data_translations_inner:
+    quality_performance_score_list_200_response_anyOf_data_translations_inner:
       properties:
         engine:
           description: Engine used for the translation scoring
@@ -33820,14 +33820,14 @@ components:
           description: One of the translation ids passed in arguments
           type: string
       type: object
-    projects_quality_performance_score_200_response_anyOf_data:
+    quality_performance_score_list_200_response_anyOf_data:
       properties:
         translations:
           items:
-            $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf_data_translations_inner'
+            $ref: '#/components/schemas/quality_performance_score_list_200_response_anyOf_data_translations_inner'
           type: array
       type: object
-    projects_quality_performance_score_200_response_anyOf_errors_inner:
+    quality_performance_score_list_200_response_anyOf_errors_inner:
       properties:
         message:
           type: string
@@ -33837,20 +33837,20 @@ components:
           description: One of the translation ids passed in arguments
           type: string
       type: object
-    projects_quality_performance_score_200_response_anyOf:
+    quality_performance_score_list_200_response_anyOf:
       properties:
         data:
-          $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf_data'
+          $ref: '#/components/schemas/quality_performance_score_list_200_response_anyOf_data'
         errors:
           description: Array of errors for any failing translation IDs
           items:
-            $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf_errors_inner'
+            $ref: '#/components/schemas/quality_performance_score_list_200_response_anyOf_errors_inner'
           type: array
       type: object
-    projects_quality_performance_score_200_response:
+    quality_performance_score_list_200_response:
       anyOf:
       - $ref: '#/components/schemas/error'
-      - $ref: '#/components/schemas/projects_quality_performance_score_200_response_anyOf'
+      - $ref: '#/components/schemas/quality_performance_score_list_200_response_anyOf'
       example:
         data:
           translations:

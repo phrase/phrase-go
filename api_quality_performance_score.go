@@ -18,30 +18,30 @@ var (
 // QualityPerformanceScoreApiService QualityPerformanceScoreApi service
 type QualityPerformanceScoreApiService service
 
-// ProjectsQualityPerformanceScoreOpts Optional parameters for the method 'ProjectsQualityPerformanceScore'
-type ProjectsQualityPerformanceScoreOpts struct {
+// QualityPerformanceScoreListOpts Optional parameters for the method 'QualityPerformanceScoreList'
+type QualityPerformanceScoreListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 }
 
 /*
-ProjectsQualityPerformanceScore Get Translation Quality
+QualityPerformanceScoreList Get Translation Quality
 Retrieves the quality scores for your Strings translations. Returns a score, measured by Phrase QPS
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
-  - @param projectsQualityPerformanceScoreRequest
-  - @param optional nil or *ProjectsQualityPerformanceScoreOpts - Optional Parameters:
+  - @param qualityPerformanceScoreListRequest
+  - @param optional nil or *QualityPerformanceScoreListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
-@return ProjectsQualityPerformanceScore200Response
+@return QualityPerformanceScoreList200Response
 */
-func (a *QualityPerformanceScoreApiService) ProjectsQualityPerformanceScore(ctx _context.Context, projectId string, projectsQualityPerformanceScoreRequest ProjectsQualityPerformanceScoreRequest, localVarOptionals *ProjectsQualityPerformanceScoreOpts) (ProjectsQualityPerformanceScore200Response, *APIResponse, error) {
+func (a *QualityPerformanceScoreApiService) QualityPerformanceScoreList(ctx _context.Context, projectId string, qualityPerformanceScoreListRequest QualityPerformanceScoreListRequest, localVarOptionals *QualityPerformanceScoreListOpts) (QualityPerformanceScoreList200Response, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ProjectsQualityPerformanceScore200Response
+		localVarReturnValue  QualityPerformanceScoreList200Response
 	)
 
 	// create path and map variables
@@ -73,7 +73,7 @@ func (a *QualityPerformanceScoreApiService) ProjectsQualityPerformanceScore(ctx 
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &projectsQualityPerformanceScoreRequest
+	localVarPostBody = &qualityPerformanceScoreListRequest
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

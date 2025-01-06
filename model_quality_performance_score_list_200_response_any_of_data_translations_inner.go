@@ -1,7 +1,7 @@
 package phrase
 
-// ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner struct for ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner
-type ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner struct {
+// QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner struct for QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner
+type QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner struct {
 	// Engine used for the translation scoring
 	Engine string `json:"engine,omitempty"`
 	// Quality score for the translation

@@ -1,0 +1,6 @@
+package phrase
+
+// QualityPerformanceScoreList200ResponseAnyOfData struct for QualityPerformanceScoreList200ResponseAnyOfData
+type QualityPerformanceScoreList200ResponseAnyOfData struct {
+	Translations []QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner `json:"translations,omitempty"`
+}

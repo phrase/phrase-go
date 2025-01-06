@@ -4,13 +4,13 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ProjectsQualityPerformanceScore**](QualityPerformanceScoreApi.md#ProjectsQualityPerformanceScore) | **Post** /projects/{project_id}/quality_performance_score | Get Translation Quality
+[**QualityPerformanceScoreList**](QualityPerformanceScoreApi.md#QualityPerformanceScoreList) | **Post** /projects/{project_id}/quality_performance_score | Get Translation Quality
 
 
 
-## ProjectsQualityPerformanceScore
+## QualityPerformanceScoreList
 
-> ProjectsQualityPerformanceScore200Response ProjectsQualityPerformanceScore(ctx, projectId, projectsQualityPerformanceScoreRequest, optional)
+> QualityPerformanceScoreList200Response QualityPerformanceScoreList(ctx, projectId, qualityPerformanceScoreListRequest, optional)
 
 Get Translation Quality
 
@@ -23,12 +23,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
-**projectsQualityPerformanceScoreRequest** | [**ProjectsQualityPerformanceScoreRequest**](ProjectsQualityPerformanceScoreRequest.md)|  | 
- **optional** | ***ProjectsQualityPerformanceScoreOpts** | optional parameters | nil if no parameters
+**qualityPerformanceScoreListRequest** | [**QualityPerformanceScoreListRequest**](QualityPerformanceScoreListRequest.md)|  | 
+ **optional** | ***QualityPerformanceScoreListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 
-Optional parameters are passed through a pointer to a ProjectsQualityPerformanceScoreOpts struct
+Optional parameters are passed through a pointer to a QualityPerformanceScoreListOpts struct
 
 
 Name | Type | Description  | Notes
@@ -39,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectsQualityPerformanceScore200Response**](ProjectsQualityPerformanceScore200Response.md)
+[**QualityPerformanceScoreList200Response**](QualityPerformanceScoreList200Response.md)
 
 ### Authorization
 

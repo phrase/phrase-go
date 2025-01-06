@@ -1,4 +1,4 @@
-# ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner
+# QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner
 
 ## Properties
 
