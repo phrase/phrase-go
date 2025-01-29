@@ -139,6 +139,7 @@ docs/JobCompleteParameters.md
 docs/JobCreateParameters.md
 docs/JobDetails.md
 docs/JobKeysCreateParameters.md
+docs/JobKeysDeleteParameters.md
 docs/JobLocale.md
 docs/JobLocaleCompleteParameters.md
 docs/JobLocaleCompleteReviewParameters.md
@@ -390,6 +391,7 @@ model_job_complete_parameters.go
 model_job_create_parameters.go
 model_job_details.go
 model_job_keys_create_parameters.go
+model_job_keys_delete_parameters.go
 model_job_locale.go
 model_job_locale_complete_parameters.go
 model_job_locale_complete_review_parameters.go

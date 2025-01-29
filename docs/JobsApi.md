@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## JobKeysDelete
 
-> JobKeysDelete(ctx, projectId, id, optional)
+> JobKeysDelete(ctx, projectId, id, jobKeysDeleteParameters, optional)
 
 Remove keys from job
 
@@ -229,6 +229,7 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| ID | 
+**jobKeysDeleteParameters** | [**JobKeysDeleteParameters**](JobKeysDeleteParameters.md)|  | 
  **optional** | ***JobKeysDeleteOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -240,9 +241,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
- **translationKeyIds** | [**optional.Interface of []string**](string.md)| ids of keys that should be removed from the job | 
 
 ### Return type
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

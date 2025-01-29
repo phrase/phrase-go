@@ -8874,27 +8874,12 @@ paths:
         schema:
           type: string
         style: simple
-      - description: specify the branch to use
-        example: my-feature-branch
-        explode: true
-        in: query
-        name: branch
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: ids of keys that should be removed from the job
-        example:
-        - abcd1234cdef1234abcd1234cdef1234
-        explode: true
-        in: query
-        name: translation_key_ids
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/job_keys_delete_parameters'
+        required: true
       responses:
         "204":
           description: The resource was deleted successfully.
@@ -8949,9 +8934,8 @@ paths:
           --project_id <project_id> \
           --id <id> \
           --branch my-feature-branch \
-          --translation_key_ids "abcd1234cdef1234abcd1234cdef1234" \
+          --data '{"branch": "my-feature-branch", "translation_key_ids": ["abcd1234cdef1234abcd1234cdef1234"]}' \
           --access_token <token>
-      x-cli-version: "2.5"
     post:
       description: Add multiple keys to a existing job.
       operationId: job/keys/create
@@ -32235,6 +32219,23 @@ components:
             type: string
           type: array
       title: job/keys/create/parameters
+      type: object
+    job_keys_delete_parameters:
+      properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
+        translation_key_ids:
+          description: ids of keys that should be deleted from the job
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+      required:
+      - translation_key_ids
+      title: job/keys/delete/parameters
       type: object
     job_template_create_parameters:
       properties:
