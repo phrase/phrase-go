@@ -205,6 +205,7 @@ Name | Type | Description  | Notes
  **translationKeyPrefix** | **optional.String**| Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. | 
  **filterByPrefix** | **optional.Bool**| Only download translation keys containing the specified prefix, and remove the prefix from the generated file. | 
  **customMetadataFilters** | [**optional.Interface of map[string]interface{}**](.md)| Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.  | 
+ **localeIds** | [**optional.Interface of []string**](string.md)| Locale IDs or locale names | 
 
 ### Return type
 

@@ -357,6 +357,7 @@ type LocaleDownloadOpts struct {
 	TranslationKeyPrefix          optional.String    `json:"translation_key_prefix,omitempty"`
 	FilterByPrefix                optional.Bool      `json:"filter_by_prefix,omitempty"`
 	CustomMetadataFilters         optional.Interface `json:"custom_metadata_filters,omitempty"`
+	LocaleIds                     []string           `json:"locale_ids,omitempty"`
 }
 
 /*
@@ -388,6 +389,7 @@ Download a locale in a specific file format.
   - @param "TranslationKeyPrefix" (optional.String) -  Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed.
   - @param "FilterByPrefix" (optional.Bool) -  Only download translation keys containing the specified prefix, and remove the prefix from the generated file.
   - @param "CustomMetadataFilters" (optional.Interface of map[string]interface{}) -  Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.
+  - @param "LocaleIds" (optional.Interface of []string) -  Locale IDs or locale names
 
 @return *os.File
 */
@@ -470,6 +472,12 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	if localVarOptionals != nil && localVarOptionals.CustomMetadataFilters.IsSet() {
 		for key, value := range localVarOptionals.CustomMetadataFilters.Value().(map[string]interface{}) {
 			localVarQueryParams = serializeMapParams(fmt.Sprintf("custom_metadata_filters[%s]", key), value, localVarQueryParams)
+		}
+	}
+	if localVarOptionals != nil && localVarOptionals.LocaleIds != nil {
+		t := localVarOptionals.LocaleIds
+		for i := range t {
+			localVarQueryParams.Add("locale_ids[]", parameterToString(t[i], "multi"))
 		}
 	}
 	// to determine the Content-Type header

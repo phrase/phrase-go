@@ -5,7 +5,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"reflect"
 	"strings"
 
 	"github.com/antihax/optional"
@@ -416,12 +415,12 @@ func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, proj
 
 // ProjectsListOpts Optional parameters for the method 'ProjectsList'
 type ProjectsListOpts struct {
-	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32     `json:"page,omitempty"`
-	PerPage       optional.Int32     `json:"per_page,omitempty"`
-	AccountId     optional.String    `json:"account_id,omitempty"`
-	SortBy        optional.String    `json:"sort_by,omitempty"`
-	Filters       optional.Interface `json:"filters,omitempty"`
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	AccountId     optional.String `json:"account_id,omitempty"`
+	SortBy        optional.String `json:"sort_by,omitempty"`
+	Filters       []string        `json:"filters,omitempty"`
 }
 
 /*
@@ -466,15 +465,10 @@ func (a *ProjectsApiService) ProjectsList(ctx _context.Context, localVarOptional
 	if localVarOptionals != nil && localVarOptionals.SortBy.IsSet() {
 		localVarQueryParams.Add("sort_by", parameterToString(localVarOptionals.SortBy.Value(), ""))
 	}
-	if localVarOptionals != nil && localVarOptionals.Filters.IsSet() {
-		t := localVarOptionals.Filters.Value()
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("filters", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("filters", parameterToString(t, "multi"))
+	if localVarOptionals != nil && localVarOptionals.Filters != nil {
+		t := localVarOptionals.Filters
+		for i := range t {
+			localVarQueryParams.Add("filters[]", parameterToString(t[i], "multi"))
 		}
 	}
 	// to determine the Content-Type header

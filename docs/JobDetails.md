@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **Owner** | [**UserPreview**](UserPreview.md) |  | [optional] 
 **JobTagName** | **string** |  | [optional] 
+**SourceTranslationsUpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **SourceLocale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
 **Locales** | [**[]LocalePreview**](LocalePreview.md) |  | [optional] 
 **Keys** | [**[]KeyPreview**](KeyPreview.md) |  | [optional] 

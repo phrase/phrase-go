@@ -5,7 +5,6 @@ import (
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
-	"reflect"
 	"strings"
 
 	"github.com/antihax/optional"
@@ -21,13 +20,13 @@ type CommentRepliesApiService service
 
 // RepliesListOpts Optional parameters for the method 'RepliesList'
 type RepliesListOpts struct {
-	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32     `json:"page,omitempty"`
-	PerPage       optional.Int32     `json:"per_page,omitempty"`
-	Branch        optional.String    `json:"branch,omitempty"`
-	Query         optional.String    `json:"query,omitempty"`
-	Filters       optional.Interface `json:"filters,omitempty"`
-	Order         optional.String    `json:"order,omitempty"`
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
+	Query         optional.String `json:"query,omitempty"`
+	Filters       []string        `json:"filters,omitempty"`
+	Order         optional.String `json:"order,omitempty"`
 }
 
 /*
@@ -83,15 +82,10 @@ func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId s
 	if localVarOptionals != nil && localVarOptionals.Query.IsSet() {
 		localVarQueryParams.Add("query", parameterToString(localVarOptionals.Query.Value(), ""))
 	}
-	if localVarOptionals != nil && localVarOptionals.Filters.IsSet() {
-		t := localVarOptionals.Filters.Value()
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				localVarQueryParams.Add("filters", parameterToString(s.Index(i), "multi"))
-			}
-		} else {
-			localVarQueryParams.Add("filters", parameterToString(t, "multi"))
+	if localVarOptionals != nil && localVarOptionals.Filters != nil {
+		t := localVarOptionals.Filters
+		for i := range t {
+			localVarQueryParams.Add("filters[]", parameterToString(t[i], "multi"))
 		}
 	}
 	if localVarOptionals != nil && localVarOptionals.Order.IsSet() {
