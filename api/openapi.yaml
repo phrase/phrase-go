@@ -29310,7 +29310,15 @@ components:
         state:
           type: string
         tag:
+          description: |
+            Unique tag of the upload
           type: string
+        tags:
+          description: |
+            List of tags that were assigned to the uploaded keys
+          items:
+            type: string
+          type: array
         url:
           description: |
             The URL to the upload in Phrase Strings app.
