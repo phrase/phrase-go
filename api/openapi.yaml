@@ -7781,7 +7781,7 @@ paths:
         schema:
           type: integer
         style: form
-      - description: specify the branch to use
+      - description: Branch to use
         example: my-feature-branch
         explode: true
         in: query
@@ -7808,12 +7808,21 @@ paths:
         schema:
           type: string
         style: form
-      - description: "filter by state of job Valid states are <code>draft</code>,\
+      - description: "filter by state of job; valid states are: <code>draft</code>,\
           \ <code>in_progress</code>, <code>completed</code>"
         example: completed
         explode: true
         in: query
         name: state
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: filter by jobs updated since given date
+        example: 2013-02-21T00:00:00.000Z
+        explode: true
+        in: query
+        name: updated_since
         required: false
         schema:
           type: string
@@ -8028,12 +8037,21 @@ paths:
         schema:
           type: string
         style: form
-      - description: "filter by state of job Valid states are <code>draft</code>,\
+      - description: "filter by state of job; valid states are: <code>draft</code>,\
           \ <code>in_progress</code>, <code>completed</code>"
         example: completed
         explode: true
         in: query
         name: state
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: filter by jobs updated since given date
+        example: 2013-02-21T00:00:00.000Z
+        explode: true
+        in: query
+        name: updated_since
         required: false
         schema:
           type: string
@@ -28301,6 +28319,47 @@ components:
       explode: true
       in: query
       name: q
+      required: false
+      schema:
+        type: string
+      style: form
+    job_owner:
+      description: filter by user owning job
+      example: abcd1234cdef1234abcd1234cdef1234
+      explode: true
+      in: query
+      name: owned_by
+      required: false
+      schema:
+        type: string
+      style: form
+    job_assignee:
+      description: filter by user assigned to job
+      example: abcd1234cdef1234abcd1234cdef1234
+      explode: true
+      in: query
+      name: assigned_to
+      required: false
+      schema:
+        type: string
+      style: form
+    job_state:
+      description: "filter by state of job; valid states are: <code>draft</code>,\
+        \ <code>in_progress</code>, <code>completed</code>"
+      example: completed
+      explode: true
+      in: query
+      name: state
+      required: false
+      schema:
+        type: string
+      style: form
+    job_updated_since:
+      description: filter by jobs updated since given date
+      example: 2013-02-21T00:00:00.000Z
+      explode: true
+      in: query
+      name: updated_since
       required: false
       schema:
         type: string

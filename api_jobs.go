@@ -1160,6 +1160,7 @@ type JobsByAccountOpts struct {
 	OwnedBy       optional.String `json:"owned_by,omitempty"`
 	AssignedTo    optional.String `json:"assigned_to,omitempty"`
 	State         optional.String `json:"state,omitempty"`
+	UpdatedSince  optional.String `json:"updated_since,omitempty"`
 }
 
 /*
@@ -1173,7 +1174,8 @@ List all jobs for the given account.
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "OwnedBy" (optional.String) -  filter by user owning job
   - @param "AssignedTo" (optional.String) -  filter by user assigned to job
-  - @param "State" (optional.String) -  filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+  - @param "State" (optional.String) -  filter by state of job; valid states are: <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+  - @param "UpdatedSince" (optional.String) -  filter by jobs updated since given date
 
 @return []Job
 */
@@ -1209,6 +1211,9 @@ func (a *JobsApiService) JobsByAccount(ctx _context.Context, accountId string, l
 	}
 	if localVarOptionals != nil && localVarOptionals.State.IsSet() {
 		localVarQueryParams.Add("state", parameterToString(localVarOptionals.State.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.UpdatedSince.IsSet() {
+		localVarQueryParams.Add("updated_since", parameterToString(localVarOptionals.UpdatedSince.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1287,6 +1292,7 @@ type JobsListOpts struct {
 	OwnedBy       optional.String `json:"owned_by,omitempty"`
 	AssignedTo    optional.String `json:"assigned_to,omitempty"`
 	State         optional.String `json:"state,omitempty"`
+	UpdatedSince  optional.String `json:"updated_since,omitempty"`
 }
 
 /*
@@ -1298,10 +1304,11 @@ List all jobs for the given project.
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
-  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Branch" (optional.String) -  Branch to use
   - @param "OwnedBy" (optional.String) -  filter by user owning job
   - @param "AssignedTo" (optional.String) -  filter by user assigned to job
-  - @param "State" (optional.String) -  filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+  - @param "State" (optional.String) -  filter by state of job; valid states are: <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+  - @param "UpdatedSince" (optional.String) -  filter by jobs updated since given date
 
 @return []Job
 */
@@ -1340,6 +1347,9 @@ func (a *JobsApiService) JobsList(ctx _context.Context, projectId string, localV
 	}
 	if localVarOptionals != nil && localVarOptionals.State.IsSet() {
 		localVarQueryParams.Add("state", parameterToString(localVarOptionals.State.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.UpdatedSince.IsSet() {
+		localVarQueryParams.Add("updated_since", parameterToString(localVarOptionals.UpdatedSince.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
