@@ -28701,11 +28701,18 @@ components:
       - example:
           slug: company-account
           subscription: subscription
+          roles:
+          - Owner
+          - Admin
         properties:
           subscription:
             $ref: '#/components/schemas/subscription'
           slug:
             type: string
+          roles:
+            items:
+              type: string
+            type: array
         title: account_details
         type: object
     member:
