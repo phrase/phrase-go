@@ -87,7 +87,6 @@ docs/CommentReactionsApi.md
 docs/CommentRepliesApi.md
 docs/CommentUpdateParameters.md
 docs/CommentsApi.md
-docs/CommentsListParameters.md
 docs/CurrentUser.md
 docs/CustomMetadataApi.md
 docs/CustomMetadataDataType.md
@@ -241,7 +240,6 @@ docs/ReleaseTriggersApi.md
 docs/ReleaseUpdateParameters.md
 docs/ReleaseUpdateParameters1.md
 docs/ReleasesApi.md
-docs/RepliesListParameters.md
 docs/RepoSync.md
 docs/RepoSyncEvent.md
 docs/RepoSyncEventsApi.md
@@ -349,7 +347,6 @@ model_comment_create_parameters_1.go
 model_comment_mark_read_parameters.go
 model_comment_reaction.go
 model_comment_update_parameters.go
-model_comments_list_parameters.go
 model_current_user.go
 model_custom_metadata_data_type.go
 model_custom_metadata_properties_create_parameters.go
@@ -473,7 +470,6 @@ model_release_preview.go
 model_release_trigger.go
 model_release_update_parameters.go
 model_release_update_parameters_1.go
-model_replies_list_parameters.go
 model_repo_sync.go
 model_repo_sync_event.go
 model_screenshot.go

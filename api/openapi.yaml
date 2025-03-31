@@ -10490,12 +10490,6 @@ paths:
         schema:
           type: string
         style: form
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/comments_list_parameters'
-        required: true
       responses:
         "200":
           content:
@@ -11880,12 +11874,6 @@ paths:
         schema:
           type: string
         style: form
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/replies_list_parameters'
-        required: true
       responses:
         "200":
           content:
@@ -32477,38 +32465,6 @@ components:
           type: string
       title: authorization/update/parameters
       type: object
-    comments_list_parameters:
-      properties:
-        branch:
-          description: Specify the branch to use
-          example: my-feature-branch
-          type: string
-        query:
-          description: Search query for comment messages
-          example: Some comment content
-          type: string
-        locale_ids:
-          description: Search comments by their assigned locales
-          example:
-          - someId
-          - otherId
-          items:
-            type: string
-          type: array
-        filters:
-          description: Specify filters to find comments by
-          example:
-          - read
-          - unread
-          items:
-            type: string
-          type: array
-        order:
-          description: Specify ordering of comments
-          example: desc
-          type: string
-      title: comments/list/parameters
-      type: object
     comment_create_parameters:
       properties:
         message:
@@ -32550,30 +32506,6 @@ components:
           example: my-feature-branch
           type: string
       title: comment/mark/read/parameters
-      type: object
-    replies_list_parameters:
-      properties:
-        branch:
-          description: Specify the branch to use
-          example: my-feature-branch
-          type: string
-        query:
-          description: Search query for comment messages
-          example: Some comment content
-          type: string
-        filters:
-          description: Specify filters to find comments by
-          example:
-          - read
-          - unread
-          items:
-            type: string
-          type: array
-        order:
-          description: Specify ordering of comments
-          example: desc
-          type: string
-      title: replies/list/parameters
       type: object
     comment_create_parameters_1:
       properties:

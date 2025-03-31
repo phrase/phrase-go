@@ -36,7 +36,6 @@ List all replies for a comment.
   - @param projectId Project ID
   - @param keyId Translation Key ID
   - @param commentId Comment ID
-  - @param repliesListParameters
   - @param optional nil or *RepliesListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
@@ -48,7 +47,7 @@ List all replies for a comment.
 
 @return []Comment
 */
-func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId string, keyId string, commentId string, repliesListParameters RepliesListParameters, localVarOptionals *RepliesListOpts) ([]Comment, *APIResponse, error) {
+func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId string, keyId string, commentId string, localVarOptionals *RepliesListOpts) ([]Comment, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -92,7 +91,7 @@ func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId s
 		localVarQueryParams.Add("order", parameterToString(localVarOptionals.Order.Value(), ""))
 	}
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
+	localVarHTTPContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -111,8 +110,6 @@ func (a *CommentRepliesApiService) RepliesList(ctx _context.Context, projectId s
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
-	// body params
-	localVarPostBody = &repliesListParameters
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {

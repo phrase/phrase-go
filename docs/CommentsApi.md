@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ## CommentsList
 
-> []Comment CommentsList(ctx, projectId, keyId, commentsListParameters, optional)
+> []Comment CommentsList(ctx, projectId, keyId, optional)
 
 List comments
 
@@ -382,7 +382,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **keyId** | **string**| Translation Key ID | 
-**commentsListParameters** | [**CommentsListParameters**](CommentsListParameters.md)|  | 
  **optional** | ***CommentsListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -392,7 +391,6 @@ Optional parameters are passed through a pointer to a CommentsListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
@@ -414,7 +412,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
