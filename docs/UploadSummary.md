@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **TranslationsUpdated** | **int32** |  | [optional] 
 **TagsCreated** | **int32** |  | [optional] 
 **TranslationKeysIgnored** | **int32** |  | [optional] 
+**ProcessedTranslations** | **int32** |  | [optional] 
+**UploadTotalTranslations** | **int32** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

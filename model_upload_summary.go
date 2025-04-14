@@ -10,4 +10,6 @@ type UploadSummary struct {
 	TranslationsUpdated        int32 `json:"translations_updated,omitempty"`
 	TagsCreated                int32 `json:"tags_created,omitempty"`
 	TranslationKeysIgnored     int32 `json:"translation_keys_ignored,omitempty"`
+	ProcessedTranslations      int32 `json:"processed_translations,omitempty"`
+	UploadTotalTranslations    int32 `json:"upload_total_translations,omitempty"`
 }
