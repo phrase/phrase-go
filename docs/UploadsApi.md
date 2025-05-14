@@ -55,6 +55,7 @@ Name | Type | Description  | Notes
  **localeMapping** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. | 
  **formatOptions** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Additional options available for specific formats. See our format guide for the [complete list](https://support.phrase.com/hc/en-us/articles/9652464547740-List-of-Supported-File-Types-Strings). | 
  **autotranslate** | **optional.Bool**| If set, translations for the uploaded language will be fetched automatically. | 
+ **verifyMentionedTranslations** | **optional.Bool**| Indicates whether all translations mentioned in the upload should be verified. | [default to false]
  **markReviewed** | **optional.Bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | 
  **tagOnlyAffectedKeys** | **optional.Bool**| Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; | [default to false]
  **translationKeyPrefix** | **optional.String**| This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. | 

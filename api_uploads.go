@@ -37,6 +37,7 @@ type UploadCreateOpts struct {
 	LocaleMapping                   optional.Interface `json:"locale_mapping,omitempty"`
 	FormatOptions                   optional.Interface `json:"format_options,omitempty"`
 	Autotranslate                   optional.Bool      `json:"autotranslate,omitempty"`
+	VerifyMentionedTranslations     optional.Bool      `json:"verify_mentioned_translations,omitempty"`
 	MarkReviewed                    optional.Bool      `json:"mark_reviewed,omitempty"`
 	TagOnlyAffectedKeys             optional.Bool      `json:"tag_only_affected_keys,omitempty"`
 	TranslationKeyPrefix            optional.String    `json:"translation_key_prefix,omitempty"`
@@ -65,6 +66,7 @@ Upload a new language file. Creates necessary resources in your project.
   - @param "LocaleMapping" (optional.Interface of map[string]interface{}) -  Mapping between locale names and translation columns. Required in some formats like CSV or XLSX.
   - @param "FormatOptions" (optional.Interface of map[string]interface{}) -  Additional options available for specific formats. See our format guide for the [complete list](https://support.phrase.com/hc/en-us/articles/9652464547740-List-of-Supported-File-Types-Strings).
   - @param "Autotranslate" (optional.Bool) -  If set, translations for the uploaded language will be fetched automatically.
+  - @param "VerifyMentionedTranslations" (optional.Bool) -  Indicates whether all translations mentioned in the upload should be verified.
   - @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
   - @param "TagOnlyAffectedKeys" (optional.Bool) -  Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
   - @param "TranslationKeyPrefix" (optional.String) -  This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized.
@@ -161,6 +163,9 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 	if localVarOptionals != nil && localVarOptionals.Autotranslate.IsSet() {
 		localVarFormParams.Add("autotranslate", parameterToString(localVarOptionals.Autotranslate.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.VerifyMentionedTranslations.IsSet() {
+		localVarFormParams.Add("verify_mentioned_translations", parameterToString(localVarOptionals.VerifyMentionedTranslations.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.MarkReviewed.IsSet() {
 		localVarFormParams.Add("mark_reviewed", parameterToString(localVarOptionals.MarkReviewed.Value(), ""))
