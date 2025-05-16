@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**TranslationInclude**](TranslationsApi.md#TranslationInclude) | **Patch** /projects/{project_id}/translations/{id}/include | Include a translation
 [**TranslationReview**](TranslationsApi.md#TranslationReview) | **Patch** /projects/{project_id}/translations/{id}/review | Review a translation
 [**TranslationShow**](TranslationsApi.md#TranslationShow) | **Get** /projects/{project_id}/translations/{id} | Get a single translation
+[**TranslationUnreview**](TranslationsApi.md#TranslationUnreview) | **Patch** /projects/{project_id}/translations/{id}/unreview | Unreview a translation
 [**TranslationUnverify**](TranslationsApi.md#TranslationUnverify) | **Patch** /projects/{project_id}/translations/{id}/unverify | Mark a translation as unverified
 [**TranslationUpdate**](TranslationsApi.md#TranslationUpdate) | **Patch** /projects/{project_id}/translations/{id} | Update a translation
 [**TranslationVerify**](TranslationsApi.md#TranslationVerify) | **Patch** /projects/{project_id}/translations/{id}/verify | Verify a translation
@@ -19,6 +20,7 @@ Method | HTTP request | Description
 [**TranslationsList**](TranslationsApi.md#TranslationsList) | **Get** /projects/{project_id}/translations | List all translations
 [**TranslationsReviewCollection**](TranslationsApi.md#TranslationsReviewCollection) | **Patch** /projects/{project_id}/translations/review | Review translations selected by query
 [**TranslationsSearch**](TranslationsApi.md#TranslationsSearch) | **Post** /projects/{project_id}/translations/search | Search translations
+[**TranslationsUnreviewCollection**](TranslationsApi.md#TranslationsUnreviewCollection) | **Patch** /projects/{project_id}/translations/unreview | Unreview translations selected by query
 [**TranslationsUnverifyCollection**](TranslationsApi.md#TranslationsUnverifyCollection) | **Patch** /projects/{project_id}/translations/unverify | Unverify translations by query
 [**TranslationsVerifyCollection**](TranslationsApi.md#TranslationsVerifyCollection) | **Patch** /projects/{project_id}/translations/verify | Verify translations by query
 
@@ -259,6 +261,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TranslationUnreview
+
+> TranslationDetails TranslationUnreview(ctx, projectId, id, translationUnreviewParameters, optional)
+
+Unreview a translation
+
+Mark a reviewed translation as translated.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**id** | **string**| ID | 
+**translationUnreviewParameters** | [**TranslationUnreviewParameters**](TranslationUnreviewParameters.md)|  | 
+ **optional** | ***TranslationUnreviewOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a TranslationUnreviewOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**TranslationDetails**](TranslationDetails.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -747,6 +798,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]Translation**](Translation.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TranslationsUnreviewCollection
+
+> AffectedCount TranslationsUnreviewCollection(ctx, projectId, translationsUnreviewParameters, optional)
+
+Unreview translations selected by query
+
+Unreview translations matching query.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**translationsUnreviewParameters** | [**TranslationsUnreviewParameters**](TranslationsUnreviewParameters.md)|  | 
+ **optional** | ***TranslationsUnreviewCollectionOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a TranslationsUnreviewCollectionOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**AffectedCount**](AffectedCount.md)
 
 ### Authorization
 

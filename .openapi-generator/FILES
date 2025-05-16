@@ -292,6 +292,7 @@ docs/TranslationKeyDetails.md
 docs/TranslationOrder.md
 docs/TranslationParent.md
 docs/TranslationReviewParameters.md
+docs/TranslationUnreviewParameters.md
 docs/TranslationUnverifyParameters.md
 docs/TranslationUpdateParameters.md
 docs/TranslationVerifyParameters.md
@@ -302,6 +303,7 @@ docs/TranslationsExcludeParameters.md
 docs/TranslationsIncludeParameters.md
 docs/TranslationsReviewParameters.md
 docs/TranslationsSearchParameters.md
+docs/TranslationsUnreviewParameters.md
 docs/TranslationsUnverifyParameters.md
 docs/TranslationsVerifyParameters.md
 docs/Upload.md
@@ -512,6 +514,7 @@ model_translation_key_details.go
 model_translation_order.go
 model_translation_parent.go
 model_translation_review_parameters.go
+model_translation_unreview_parameters.go
 model_translation_unverify_parameters.go
 model_translation_update_parameters.go
 model_translation_verify_parameters.go
@@ -521,6 +524,7 @@ model_translations_exclude_parameters.go
 model_translations_include_parameters.go
 model_translations_review_parameters.go
 model_translations_search_parameters.go
+model_translations_unreview_parameters.go
 model_translations_unverify_parameters.go
 model_translations_verify_parameters.go
 model_upload.go

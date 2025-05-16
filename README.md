@@ -304,6 +304,7 @@ Class | Method | HTTP request | Description
 *TranslationsApi* | [**TranslationInclude**](docs/TranslationsApi.md#translationinclude) | **Patch** /projects/{project_id}/translations/{id}/include | Include a translation
 *TranslationsApi* | [**TranslationReview**](docs/TranslationsApi.md#translationreview) | **Patch** /projects/{project_id}/translations/{id}/review | Review a translation
 *TranslationsApi* | [**TranslationShow**](docs/TranslationsApi.md#translationshow) | **Get** /projects/{project_id}/translations/{id} | Get a single translation
+*TranslationsApi* | [**TranslationUnreview**](docs/TranslationsApi.md#translationunreview) | **Patch** /projects/{project_id}/translations/{id}/unreview | Unreview a translation
 *TranslationsApi* | [**TranslationUnverify**](docs/TranslationsApi.md#translationunverify) | **Patch** /projects/{project_id}/translations/{id}/unverify | Mark a translation as unverified
 *TranslationsApi* | [**TranslationUpdate**](docs/TranslationsApi.md#translationupdate) | **Patch** /projects/{project_id}/translations/{id} | Update a translation
 *TranslationsApi* | [**TranslationVerify**](docs/TranslationsApi.md#translationverify) | **Patch** /projects/{project_id}/translations/{id}/verify | Verify a translation
@@ -314,6 +315,7 @@ Class | Method | HTTP request | Description
 *TranslationsApi* | [**TranslationsList**](docs/TranslationsApi.md#translationslist) | **Get** /projects/{project_id}/translations | List all translations
 *TranslationsApi* | [**TranslationsReviewCollection**](docs/TranslationsApi.md#translationsreviewcollection) | **Patch** /projects/{project_id}/translations/review | Review translations selected by query
 *TranslationsApi* | [**TranslationsSearch**](docs/TranslationsApi.md#translationssearch) | **Post** /projects/{project_id}/translations/search | Search translations
+*TranslationsApi* | [**TranslationsUnreviewCollection**](docs/TranslationsApi.md#translationsunreviewcollection) | **Patch** /projects/{project_id}/translations/unreview | Unreview translations selected by query
 *TranslationsApi* | [**TranslationsUnverifyCollection**](docs/TranslationsApi.md#translationsunverifycollection) | **Patch** /projects/{project_id}/translations/unverify | Unverify translations by query
 *TranslationsApi* | [**TranslationsVerifyCollection**](docs/TranslationsApi.md#translationsverifycollection) | **Patch** /projects/{project_id}/translations/verify | Verify translations by query
 *UploadsApi* | [**UploadCreate**](docs/UploadsApi.md#uploadcreate) | **Post** /projects/{project_id}/uploads | Upload a new file
@@ -528,6 +530,7 @@ Class | Method | HTTP request | Description
  - [TranslationOrder](docs/TranslationOrder.md)
  - [TranslationParent](docs/TranslationParent.md)
  - [TranslationReviewParameters](docs/TranslationReviewParameters.md)
+ - [TranslationUnreviewParameters](docs/TranslationUnreviewParameters.md)
  - [TranslationUnverifyParameters](docs/TranslationUnverifyParameters.md)
  - [TranslationUpdateParameters](docs/TranslationUpdateParameters.md)
  - [TranslationVerifyParameters](docs/TranslationVerifyParameters.md)
@@ -537,6 +540,7 @@ Class | Method | HTTP request | Description
  - [TranslationsIncludeParameters](docs/TranslationsIncludeParameters.md)
  - [TranslationsReviewParameters](docs/TranslationsReviewParameters.md)
  - [TranslationsSearchParameters](docs/TranslationsSearchParameters.md)
+ - [TranslationsUnreviewParameters](docs/TranslationsUnreviewParameters.md)
  - [TranslationsUnverifyParameters](docs/TranslationsUnverifyParameters.md)
  - [TranslationsVerifyParameters](docs/TranslationsVerifyParameters.md)
  - [Upload](docs/Upload.md)

@@ -24733,6 +24733,101 @@ paths:
           --data '{"branch":"my-feature-branch"}' \
           --access_token <token>
       x-cli-version: "2.5"
+  /projects/{project_id}/translations/{id}/unreview:
+    patch:
+      description: Mark a reviewed translation as translated.
+      operationId: translation/unreview
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/translation_unreview_parameters'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/translation_details'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Unreview a translation
+      tags:
+      - Translations
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/translations/:id/unreview" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"branch":"my-feature-branch"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase translations unreview \
+          --project_id <project_id> \
+          --id <id> \
+          --data '{"branch":"my-feature-branch"}' \
+          --access_token <token>
+      x-cli-version: "2.41"
   /projects/{project_id}/translations/{id}/exclude:
     patch:
       description: Set exclude from export flag on an existing translation.
@@ -25181,6 +25276,92 @@ paths:
           --data '{"branch":"my-feature-branch", "q":"'PhraseApp*%reviewed:false%20tags:feature,center'"}' \
           --access_token <token>
       x-cli-version: "2.5"
+  /projects/{project_id}/translations/unreview:
+    patch:
+      description: Unreview translations matching query.
+      operationId: translations/unreview-collection
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/translations_unreview_parameters'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/affected_count'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Unreview translations selected by query
+      tags:
+      - Translations
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/translations/unreview" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"branch":"my-feature-branch","q":"PhraseApp*%reviewed:false%20tags:feature,center"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase translations unreview-collection \
+          --project_id <project_id> \
+          --data '{"branch":"my-feature-branch", "q":"'PhraseApp*%reviewed:false%20tags:feature,center'"}' \
+          --access_token <token>
+      x-cli-version: "2.41"
   /projects/{project_id}/translations/exclude:
     patch:
       description: Exclude translations matching query from locale export.
@@ -34122,6 +34303,14 @@ components:
           type: string
       title: translation/review/parameters
       type: object
+    translation_unreview_parameters:
+      properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
+      title: translation/unreview/parameters
+      type: object
     translation_exclude_parameters:
       properties:
         branch:
@@ -34218,6 +34407,29 @@ components:
           example: "PhraseApp*%reviewed:false%20tags:feature,center"
           type: string
       title: translations/review/parameters
+      type: object
+    translations_unreview_parameters:
+      properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
+        q:
+          description: |
+            Specify a query to find translations by content (including wildcards).<br><br>
+            <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br>
+            The following qualifiers are supported in the query:<br>
+            <ul>
+              <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>
+              <li><code>tags:XYZ</code> for tags on the translation</li>
+              <li><code>unverified:{true|false}</code> for verification status</li>
+              <li><code>excluded:{true|false}</code> for exclusion status</li>
+              <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li>
+            </ul>
+            Find more examples <a href="#overview--usage-examples">here</a>.
+          example: "PhraseApp*%reviewed:true%20tags:feature,center"
+          type: string
+      title: translations/unreview/parameters
       type: object
     translations_exclude_parameters:
       properties:
