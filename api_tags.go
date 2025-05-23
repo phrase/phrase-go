@@ -221,8 +221,9 @@ func (a *TagsApiService) TagDelete(ctx _context.Context, projectId string, name 
 
 // TagShowOpts Optional parameters for the method 'TagShow'
 type TagShowOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Branch        optional.String `json:"branch,omitempty"`
+	XPhraseAppOTP  optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	OmitStatistics optional.Bool   `json:"omit_statistics,omitempty"`
+	Branch         optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -233,6 +234,7 @@ Get details and progress information on a single tag for a given project.
   - @param name name
   - @param optional nil or *TagShowOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "OmitStatistics" (optional.Bool) -  omit statistics in the response
   - @param "Branch" (optional.String) -  specify the branch to use
 
 @return TagWithStats
@@ -257,6 +259,9 @@ func (a *TagsApiService) TagShow(ctx _context.Context, projectId string, name st
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.OmitStatistics.IsSet() {
+		localVarQueryParams.Add("omit_statistics", parameterToString(localVarOptionals.OmitStatistics.Value(), ""))
+	}
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
 	}

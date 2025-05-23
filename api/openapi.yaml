@@ -18874,6 +18874,15 @@ paths:
         schema:
           type: string
         style: simple
+      - description: omit statistics in the response
+        example: true
+        explode: true
+        in: query
+        name: omit_statistics
+        required: false
+        schema:
+          type: boolean
+        style: form
       - description: specify the branch to use
         example: my-feature-branch
         explode: true

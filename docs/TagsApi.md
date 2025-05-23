@@ -134,6 +134,7 @@ Name | Type | Description  | Notes
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+ **omitStatistics** | **optional.Bool**| omit statistics in the response | 
  **branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
