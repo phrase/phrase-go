@@ -34,8 +34,8 @@ Prepare a locale for download in a specific file format.
   - @param localeDownloadCreateParameters
   - @param optional nil or *LocaleDownloadCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "IfModifiedSince" (optional.String) -  Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
-  - @param "IfNoneMatch" (optional.String) -  ETag condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
+  - @param "IfModifiedSince" (optional.String) -  Last modified condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional)
+  - @param "IfNoneMatch" (optional.String) -  ETag condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional)
 
 @return LocaleDownload
 */
@@ -151,8 +151,8 @@ Show status of already started async locale download. If the download is finishe
   - @param id ID
   - @param optional nil or *LocaleDownloadShowOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "IfModifiedSince" (optional.String) -  Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
-  - @param "IfNoneMatch" (optional.String) -  ETag condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
+  - @param "IfModifiedSince" (optional.String) -  Last modified condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional)
+  - @param "IfNoneMatch" (optional.String) -  ETag condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional)
 
 @return LocaleDownload
 */

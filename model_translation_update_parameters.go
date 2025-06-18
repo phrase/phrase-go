@@ -8,7 +8,7 @@ type TranslationUpdateParameters struct {
 	Content string `json:"content,omitempty"`
 	// Plural suffix. Can be one of: zero, one, two, few, many, other. Must be specified if the key associated to the translation is pluralized.
 	PluralSuffix string `json:"plural_suffix,omitempty"`
-	// Indicates whether translation is unverified. Part of the <a href=\"https://support.phrase.com/hc/en-us/articles/5784094755484\" target=\"_blank\">Advanced Workflows</a> feature.
+	// Indicates whether translation is unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature.
 	Unverified *bool `json:"unverified,omitempty"`
 	// Indicates whether translation is excluded.
 	Excluded *bool `json:"excluded,omitempty"`

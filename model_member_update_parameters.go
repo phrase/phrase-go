@@ -14,6 +14,6 @@ type MemberUpdateParameters struct {
 	DefaultLocaleCodes []string `json:"default_locale_codes,omitempty"`
 	// List of spaces the user is assigned to.
 	SpaceIds []string `json:"space_ids,omitempty"`
-	// Additional permissions depending on member role. Available permissions are <code>create_upload</code> and <code>review_translations</code>
+	// Additional permissions depending on member role. Available permissions are `create_upload` and `review_translations`
 	Permissions map[string]string `json:"permissions,omitempty"`
 }

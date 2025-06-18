@@ -25,7 +25,7 @@ type InvitationCreateOpts struct {
 
 /*
 InvitationCreate Create a new invitation
-Invite a person to an account. Developers and translators need &lt;code&gt;project_ids&lt;/code&gt; and &lt;code&gt;locale_ids&lt;/code&gt; assigned to access them. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
+Invite a person to an account. Developers and translators need &#x60;project_ids&#x60; and &#x60;locale_ids&#x60; assigned to access them. Access token scope must include &#x60;team.manage&#x60;.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param invitationCreateParameters
@@ -139,7 +139,7 @@ type InvitationDeleteOpts struct {
 
 /*
 InvitationDelete Delete an invitation
-Delete an existing invitation (must not be accepted yet). Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
+Delete an existing invitation (must not be accepted yet). Access token scope must include &#x60;team.manage&#x60;.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
@@ -231,7 +231,7 @@ type InvitationResendOpts struct {
 
 /*
 InvitationResend Resend an invitation
-Resend the invitation email (must not be accepted yet). Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
+Resend the invitation email (must not be accepted yet). Access token scope must include &#x60;team.manage&#x60;.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
@@ -335,7 +335,7 @@ type InvitationShowOpts struct {
 
 /*
 InvitationShow Get a single invitation
-Get details on a single invitation. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
+Get details on a single invitation. Access token scope must include &#x60;team.manage&#x60;.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
@@ -439,7 +439,7 @@ type InvitationUpdateOpts struct {
 
 /*
 InvitationUpdate Update an invitation
-Update an existing invitation (must not be accepted yet). The &lt;code&gt;email&lt;/code&gt; cannot be updated. Developers and translators need &lt;code&gt;project_ids&lt;/code&gt; and &lt;code&gt;locale_ids&lt;/code&gt; assigned to access them. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
+Update an existing invitation (must not be accepted yet). The &#x60;email&#x60; cannot be updated. Developers and translators need &#x60;project_ids&#x60; and &#x60;locale_ids&#x60; assigned to access them. Access token scope must include &#x60;team.manage&#x60;.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
@@ -546,7 +546,7 @@ type InvitationUpdateSettingsOpts struct {
 
 /*
 InvitationUpdateSettings Update a member's invitation access
-Update member&#39;s settings in the invitations. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
+Update member&#39;s settings in the invitations. Access token scope must include &#x60;team.manage&#x60;.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param id ID
@@ -655,7 +655,7 @@ type InvitationsListOpts struct {
 
 /*
 InvitationsList List invitations
-List invitations for an account. It will also list the accessible resources like projects and locales the invited user has access to. In case nothing is shown the default access from the role is used. Access token scope must include &lt;code&gt;team.manage&lt;/code&gt;.
+List invitations for an account. It will also list the accessible resources like projects and locales the invited user has access to. In case nothing is shown the default access from the role is used. Access token scope must include &#x60;team.manage&#x60;.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param optional nil or *InvitationsListOpts - Optional Parameters:

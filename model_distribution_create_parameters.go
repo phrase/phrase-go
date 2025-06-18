@@ -10,7 +10,7 @@ type DistributionCreateParameters struct {
 	Platforms []string `json:"platforms,omitempty"`
 	// List of locale ids that will be part of distribution releases
 	LocaleIds []string `json:"locale_ids,omitempty"`
-	// Additional formatting and render options. Only <code>enclose_in_cdata</code> is available for platform <code>android</code>.
+	// Additional formatting and render options. Only `enclose_in_cdata` is available for platform `android`.
 	FormatOptions map[string]string `json:"format_options,omitempty"`
 	// Use fallback locale if there is no translation in the current locale.
 	FallbackLocalesEnabled *bool `json:"fallback_locales_enabled,omitempty"`

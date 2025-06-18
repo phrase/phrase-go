@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Create a new invitation
 
-Invite a person to an account. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.
+Invite a person to an account. Developers and translators need `project_ids` and `locale_ids` assigned to access them. Access token scope must include `team.manage`.
 
 ### Required Parameters
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 Delete an invitation
 
-Delete an existing invitation (must not be accepted yet). Access token scope must include <code>team.manage</code>.
+Delete an existing invitation (must not be accepted yet). Access token scope must include `team.manage`.
 
 ### Required Parameters
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 Resend an invitation
 
-Resend the invitation email (must not be accepted yet). Access token scope must include <code>team.manage</code>.
+Resend the invitation email (must not be accepted yet). Access token scope must include `team.manage`.
 
 ### Required Parameters
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 Get a single invitation
 
-Get details on a single invitation. Access token scope must include <code>team.manage</code>.
+Get details on a single invitation. Access token scope must include `team.manage`.
 
 ### Required Parameters
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 Update an invitation
 
-Update an existing invitation (must not be accepted yet). The <code>email</code> cannot be updated. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.
+Update an existing invitation (must not be accepted yet). The `email` cannot be updated. Developers and translators need `project_ids` and `locale_ids` assigned to access them. Access token scope must include `team.manage`.
 
 ### Required Parameters
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 Update a member's invitation access
 
-Update member's settings in the invitations. Access token scope must include <code>team.manage</code>.
+Update member's settings in the invitations. Access token scope must include `team.manage`.
 
 ### Required Parameters
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 List invitations
 
-List invitations for an account. It will also list the accessible resources like projects and locales the invited user has access to. In case nothing is shown the default access from the role is used. Access token scope must include <code>team.manage</code>.
+List invitations for an account. It will also list the accessible resources like projects and locales the invited user has access to. In case nothing is shown the default access from the role is used. Access token scope must include `team.manage`.
 
 ### Required Parameters
 

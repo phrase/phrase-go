@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
  **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
  **ownedBy** | **optional.String**| filter by user owning job | 
  **assignedTo** | **optional.String**| filter by user assigned to job | 
- **state** | **optional.String**| filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | 
+ **state** | **optional.String**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | 
  **updatedSince** | **optional.String**| filter by jobs updated since given date | 
 
 ### Return type
@@ -635,7 +635,7 @@ Name | Type | Description  | Notes
  **branch** | **optional.String**| Branch to use | 
  **ownedBy** | **optional.String**| filter by user owning job | 
  **assignedTo** | **optional.String**| filter by user assigned to job | 
- **state** | **optional.String**| filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | 
+ **state** | **optional.String**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | 
  **updatedSince** | **optional.String**| filter by jobs updated since given date | 
 
 ### Return type

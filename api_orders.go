@@ -132,7 +132,7 @@ type OrderCreateOpts struct {
 
 /*
 OrderCreate Create a new order
-Create a new order. Access token scope must include &lt;code&gt;orders.create&lt;/code&gt;.
+Create a new order. Access token scope must include &#x60;orders.create&#x60;.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param orderCreateParameters

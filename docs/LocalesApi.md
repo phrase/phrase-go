@@ -184,10 +184,10 @@ Name | Type | Description  | Notes
 
 
  **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **ifModifiedSince** | **optional.String**| Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | 
- **ifNoneMatch** | **optional.String**| ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | 
+ **ifModifiedSince** | **optional.String**| Last modified condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | 
+ **ifNoneMatch** | **optional.String**| ETag condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | 
  **branch** | **optional.String**| specify the branch to use | 
- **fileFormat** | **optional.String**| File format name. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/sections/6111343326364\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. | 
+ **fileFormat** | **optional.String**| File format name. See the [format guide](https://support.phrase.com/hc/en-us/sections/6111343326364) for all supported file formats. | 
  **tags** | **optional.String**| Limit results to keys tagged with a list of comma separated tag names. | 
  **tag** | **optional.String**| Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead | 
  **includeEmptyTranslations** | **optional.Bool**| Indicates whether keys without translations should be included in the output as well. | 
@@ -195,13 +195,13 @@ Name | Type | Description  | Notes
  **includeTranslatedKeys** | **optional.Bool**| Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. | 
  **keepNotranslateTags** | **optional.Bool**| Indicates whether [NOTRANSLATE] tags should be kept. | 
  **convertEmoji** | **optional.Bool**| This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. | 
- **formatOptions** | [**optional.Interface of map[string]interface{}**](.md)| Additional formatting and render options. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/sections/6111343326364\&quot;&gt;format guide&lt;/a&gt; for a list of options available for each format. Specify format options like this: &lt;code&gt;...&amp;format_options[foo]&#x3D;bar&lt;/code&gt; | 
+ **formatOptions** | [**optional.Interface of map[string]interface{}**](.md)| Additional formatting and render options. See the [format guide](https://support.phrase.com/hc/en-us/sections/6111343326364) for a list of options available for each format. Specify format options like this: &#x60;...&amp;format_options[foo]&#x3D;bar&#x60; | 
  **encoding** | **optional.String**| Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. | 
- **skipUnverifiedTranslations** | **optional.Bool**| Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &lt;code&gt;include_unverified_translations&lt;/code&gt;. | 
+ **skipUnverifiedTranslations** | **optional.Bool**| Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &#x60;include_unverified_translations&#x60;. | 
  **includeUnverifiedTranslations** | **optional.Bool**| if set to false unverified translations are excluded | 
  **useLastReviewedVersion** | **optional.Bool**| If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. | 
- **fallbackLocaleId** | **optional.String**| If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. | 
- **sourceLocaleId** | **optional.String**| Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. | 
+ **fallbackLocaleId** | **optional.String**| If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &#x60;true&#x60;. | 
+ **sourceLocaleId** | **optional.String**| Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &#x60;tag&#x60; parameter indicating a specific job. | 
  **translationKeyPrefix** | **optional.String**| Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. | 
  **filterByPrefix** | **optional.Bool**| Only download translation keys containing the specified prefix, and remove the prefix from the generated file. | 
  **customMetadataFilters** | [**optional.Interface of map[string]interface{}**](.md)| Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.  | 

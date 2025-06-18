@@ -1174,7 +1174,7 @@ List all jobs for the given account.
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "OwnedBy" (optional.String) -  filter by user owning job
   - @param "AssignedTo" (optional.String) -  filter by user assigned to job
-  - @param "State" (optional.String) -  filter by state of job; valid states are: <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+  - @param "State" (optional.String) -  filter by state of job; valid states are: `draft`, `in_progress`, `completed`
   - @param "UpdatedSince" (optional.String) -  filter by jobs updated since given date
 
 @return []Job
@@ -1307,7 +1307,7 @@ List all jobs for the given project.
   - @param "Branch" (optional.String) -  Branch to use
   - @param "OwnedBy" (optional.String) -  filter by user owning job
   - @param "AssignedTo" (optional.String) -  filter by user assigned to job
-  - @param "State" (optional.String) -  filter by state of job; valid states are: <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+  - @param "State" (optional.String) -  filter by state of job; valid states are: `draft`, `in_progress`, `completed`
   - @param "UpdatedSince" (optional.String) -  filter by jobs updated since given date
 
 @return []Job

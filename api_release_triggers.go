@@ -227,7 +227,7 @@ type ReleaseTriggersListOpts struct {
 
 /*
 ReleaseTriggersList List release triggers
-List all release triggers for the given distribution.&lt;br&gt; Note: Currently only one release trigger can exist per distribution.
+List all release triggers for the given distribution.  Note: Currently only one release trigger can exist per distribution.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param distributionId Distribution ID
