@@ -1,4 +1,4 @@
-# \TranslationsApi
+# phrase.TranslationsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -51,9 +51,7 @@ Optional parameters are passed through a pointer to a TranslationCreateOpts stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -99,10 +97,7 @@ Optional parameters are passed through a pointer to a TranslationExcludeOpts str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -148,10 +143,7 @@ Optional parameters are passed through a pointer to a TranslationIncludeOpts str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -197,10 +189,7 @@ Optional parameters are passed through a pointer to a TranslationReviewOpts stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -245,10 +234,8 @@ Optional parameters are passed through a pointer to a TranslationShowOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -294,10 +281,7 @@ Optional parameters are passed through a pointer to a TranslationUnreviewOpts st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -343,10 +327,7 @@ Optional parameters are passed through a pointer to a TranslationUnverifyOpts st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -392,10 +373,7 @@ Optional parameters are passed through a pointer to a TranslationUpdateOpts stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -441,10 +419,7 @@ Optional parameters are passed through a pointer to a TranslationVerifyOpts stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -489,15 +464,13 @@ Optional parameters are passed through a pointer to a TranslationsByKeyOpts stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **branch** | **optional.String**| specify the branch to use | 
- **sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
- **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
- **q** | **optional.String**| Specify a query to find translations by content (including wildcards).  The following qualifiers are supported in the query:  * &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids * &#x60;unverified:{true|false}&#x60; for verification status * &#x60;tags:XYZ&#x60; for tags on the translation * &#x60;excluded:{true|false}&#x60; for exclusion status * &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries  Find more examples [here](/en/api/strings/usage-examples).  | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**branch** | **optional.String**| specify the branch to use | 
+**sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
+**order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+**q** | **optional.String**| Specify a query to find translations by content (including wildcards).  The following qualifiers are supported in the query:  * &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids * &#x60;unverified:{true|false}&#x60; for verification status * &#x60;tags:XYZ&#x60; for tags on the translation * &#x60;excluded:{true|false}&#x60; for exclusion status * &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries  Find more examples [here](/en/api/strings/usage-examples).  | 
 
 ### Return type
 
@@ -542,15 +515,13 @@ Optional parameters are passed through a pointer to a TranslationsByLocaleOpts s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **branch** | **optional.String**| specify the branch to use | 
- **sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
- **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
- **q** | **optional.String**| Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query: - &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids - &#x60;unverified:{true|false}&#x60; for verification status - &#x60;tags:XYZ&#x60; for tags on the translation - &#x60;excluded:{true|false}&#x60; for exclusion status - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries  Find more examples [here](/en/api/strings/usage-examples).  | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**branch** | **optional.String**| specify the branch to use | 
+**sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
+**order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+**q** | **optional.String**| Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query: - &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids - &#x60;unverified:{true|false}&#x60; for verification status - &#x60;tags:XYZ&#x60; for tags on the translation - &#x60;excluded:{true|false}&#x60; for exclusion status - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries  Find more examples [here](/en/api/strings/usage-examples).  | 
 
 ### Return type
 
@@ -595,9 +566,7 @@ Optional parameters are passed through a pointer to a TranslationsExcludeCollect
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -642,9 +611,7 @@ Optional parameters are passed through a pointer to a TranslationsIncludeCollect
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -688,16 +655,15 @@ Optional parameters are passed through a pointer to a TranslationsListOpts struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **ifModifiedSince** | **optional.String**| Last modified condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | 
- **ifNoneMatch** | **optional.String**| ETag condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **branch** | **optional.String**| specify the branch to use | 
- **sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
- **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
- **q** | **optional.String**| Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query:  * &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids * &#x60;tags:XYZ&#x60; for tags on the translation * &#x60;unverified:{true|false}&#x60; for verification status * &#x60;excluded:{true|false}&#x60; for exclusion status * &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries * &#x60;reviewed_after:2013-02-21T00:00:00Z&#x60; for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples).  | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**ifModifiedSince** | **optional.String**| Last modified condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | 
+**ifNoneMatch** | **optional.String**| ETag condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**branch** | **optional.String**| specify the branch to use | 
+**sort** | **optional.String**| Sort criteria. Can be one of: key_name, created_at, updated_at. | 
+**order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+**q** | **optional.String**| Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query:  * &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids * &#x60;tags:XYZ&#x60; for tags on the translation * &#x60;unverified:{true|false}&#x60; for verification status * &#x60;excluded:{true|false}&#x60; for exclusion status * &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries * &#x60;reviewed_after:2013-02-21T00:00:00Z&#x60; for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples).  | 
 
 ### Return type
 
@@ -742,9 +708,7 @@ Optional parameters are passed through a pointer to a TranslationsReviewCollecti
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -789,11 +753,9 @@ Optional parameters are passed through a pointer to a TranslationsSearchOpts str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
 
 ### Return type
 
@@ -838,9 +800,7 @@ Optional parameters are passed through a pointer to a TranslationsUnreviewCollec
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -885,9 +845,7 @@ Optional parameters are passed through a pointer to a TranslationsUnverifyCollec
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -932,9 +890,7 @@ Optional parameters are passed through a pointer to a TranslationsVerifyCollecti
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 

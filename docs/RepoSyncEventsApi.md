@@ -1,4 +1,4 @@
-# \RepoSyncEventsApi
+# phrase.RepoSyncEventsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -34,9 +34,7 @@ Optional parameters are passed through a pointer to a RepoSyncEventListOpts stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -82,10 +80,7 @@ Optional parameters are passed through a pointer to a RepoSyncEventShowOpts stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 

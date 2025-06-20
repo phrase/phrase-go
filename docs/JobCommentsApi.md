@@ -1,4 +1,4 @@
-# \JobCommentsApi
+# phrase.JobCommentsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -38,10 +38,7 @@ Optional parameters are passed through a pointer to a JobCommentCreateOpts struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -87,11 +84,8 @@ Optional parameters are passed through a pointer to a JobCommentDeleteOpts struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| Branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| Branch to use | 
 
 ### Return type
 
@@ -137,11 +131,8 @@ Optional parameters are passed through a pointer to a JobCommentShowOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| Branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| Branch to use | 
 
 ### Return type
 
@@ -188,11 +179,7 @@ Optional parameters are passed through a pointer to a JobCommentUpdateOpts struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -237,11 +224,9 @@ Optional parameters are passed through a pointer to a JobCommentsListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| Branch to use | 
- **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| Branch to use | 
+**order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
 
 ### Return type
 

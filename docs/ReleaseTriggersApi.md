@@ -1,4 +1,4 @@
-# \ReleaseTriggersApi
+# phrase.ReleaseTriggersApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -38,10 +38,7 @@ Optional parameters are passed through a pointer to a ReleaseTriggersCreateOpts 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -87,10 +84,7 @@ Optional parameters are passed through a pointer to a ReleaseTriggersDestroyOpts
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -135,9 +129,7 @@ Optional parameters are passed through a pointer to a ReleaseTriggersListOpts st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -183,10 +175,7 @@ Optional parameters are passed through a pointer to a ReleaseTriggersShowOpts st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -233,11 +222,7 @@ Optional parameters are passed through a pointer to a ReleaseTriggersUpdateOpts 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 

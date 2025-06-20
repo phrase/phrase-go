@@ -1,4 +1,4 @@
-# \JobLocalesApi
+# phrase.JobLocalesApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -42,11 +42,7 @@ Optional parameters are passed through a pointer to a JobLocaleCompleteOpts stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -93,11 +89,7 @@ Optional parameters are passed through a pointer to a JobLocaleCompleteReviewOpt
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -143,11 +135,8 @@ Optional parameters are passed through a pointer to a JobLocaleDeleteOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| Branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| Branch to use | 
 
 ### Return type
 
@@ -194,11 +183,7 @@ Optional parameters are passed through a pointer to a JobLocaleReopenOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -244,11 +229,8 @@ Optional parameters are passed through a pointer to a JobLocaleShowOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| Branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| Branch to use | 
 
 ### Return type
 
@@ -295,11 +277,7 @@ Optional parameters are passed through a pointer to a JobLocaleUpdateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -345,10 +323,7 @@ Optional parameters are passed through a pointer to a JobLocalesCreateOpts struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -393,12 +368,10 @@ Optional parameters are passed through a pointer to a JobLocalesListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **branch** | **optional.String**| Branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**branch** | **optional.String**| Branch to use | 
 
 ### Return type
 

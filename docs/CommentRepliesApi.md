@@ -1,4 +1,4 @@
-# \CommentRepliesApi
+# phrase.CommentRepliesApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -39,16 +39,13 @@ Optional parameters are passed through a pointer to a RepliesListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **branch** | **optional.String**| specify the branch to use | 
- **query** | **optional.String**| Search query for comment messages | 
- **filters** | [**optional.Interface of []string**](string.md)| Specify the filter for the comments | 
- **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**branch** | **optional.String**| specify the branch to use | 
+**query** | **optional.String**| Search query for comment messages | 
+**filters** | [**optional.Interface of []string**](string.md)| Specify the filter for the comments | 
+**order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
 
 ### Return type
 
@@ -95,11 +92,7 @@ Optional parameters are passed through a pointer to a ReplyCreateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -146,12 +139,8 @@ Optional parameters are passed through a pointer to a ReplyDeleteOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -198,12 +187,8 @@ Optional parameters are passed through a pointer to a ReplyMarkAsReadOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -250,12 +235,8 @@ Optional parameters are passed through a pointer to a ReplyMarkAsUnreadOpts stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -302,12 +283,8 @@ Optional parameters are passed through a pointer to a ReplyShowOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 

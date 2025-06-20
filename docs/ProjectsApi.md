@@ -1,4 +1,4 @@
-# \ProjectsApi
+# phrase.ProjectsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -36,8 +36,7 @@ Optional parameters are passed through a pointer to a ProjectCreateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -81,8 +80,7 @@ Optional parameters are passed through a pointer to a ProjectDeleteOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -126,8 +124,7 @@ Optional parameters are passed through a pointer to a ProjectShowOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -172,9 +169,7 @@ Optional parameters are passed through a pointer to a ProjectUpdateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -217,12 +212,12 @@ Optional parameters are passed through a pointer to a ProjectsListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **accountId** | **optional.String**| Filter by Account ID | 
- **sortBy** | **optional.String**| Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. | 
- **filters** | [**optional.Interface of []string**](string.md)| Filter projects. Valid options are [\&quot;favorites\&quot;]. | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**accountId** | **optional.String**| Filter by Account ID | 
+**sortBy** | **optional.String**| Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. | 
+**filters** | [**optional.Interface of []string**](string.md)| Filter projects. Valid options are [\&quot;favorites\&quot;]. | 
 
 ### Return type
 

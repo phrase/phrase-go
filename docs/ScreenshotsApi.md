@@ -1,4 +1,4 @@
-# \ScreenshotsApi
+# phrase.ScreenshotsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -36,12 +36,11 @@ Optional parameters are passed through a pointer to a ScreenshotCreateOpts struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
- **name** | **optional.String**| Name of the screenshot | 
- **description** | **optional.String**| Description of the screenshot | 
- **filename** | **optional.Interface of *os.File****optional.*os.File**| Screenshot file | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
+**name** | **optional.String**| Name of the screenshot | 
+**description** | **optional.String**| Description of the screenshot | 
+**filename** | **optional.Interface of *os.File****optional.*os.File**| Screenshot file | 
 
 ### Return type
 
@@ -86,10 +85,8 @@ Optional parameters are passed through a pointer to a ScreenshotDeleteOpts struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -134,10 +131,8 @@ Optional parameters are passed through a pointer to a ScreenshotShowOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -183,10 +178,7 @@ Optional parameters are passed through a pointer to a ScreenshotUpdateOpts struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -230,12 +222,11 @@ Optional parameters are passed through a pointer to a ScreenshotsListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **branch** | **optional.String**| specify the branch to use | 
- **keyId** | **optional.String**| filter by key | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**branch** | **optional.String**| specify the branch to use | 
+**keyId** | **optional.String**| filter by key | 
 
 ### Return type
 

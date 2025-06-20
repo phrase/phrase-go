@@ -1,4 +1,4 @@
-# \KeysApi
+# phrase.KeysApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -43,9 +43,7 @@ Optional parameters are passed through a pointer to a KeyCreateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -90,10 +88,8 @@ Optional parameters are passed through a pointer to a KeyDeleteOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -138,10 +134,8 @@ Optional parameters are passed through a pointer to a KeyShowOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -187,10 +181,7 @@ Optional parameters are passed through a pointer to a KeyUpdateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -234,11 +225,10 @@ Optional parameters are passed through a pointer to a KeysDeleteCollectionOpts s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
- **q** | **optional.String**| Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples).  | 
- **localeId** | **optional.String**| Locale used to determine the translation state of a key when filtering for untranslated or translated keys. | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
+**q** | **optional.String**| Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples).  | 
+**localeId** | **optional.String**| Locale used to determine the translation state of a key when filtering for untranslated or translated keys. | 
 
 ### Return type
 
@@ -283,9 +273,7 @@ Optional parameters are passed through a pointer to a KeysExcludeOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -330,9 +318,7 @@ Optional parameters are passed through a pointer to a KeysIncludeOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -376,15 +362,14 @@ Optional parameters are passed through a pointer to a KeysListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **branch** | **optional.String**| specify the branch to use | 
- **sort** | **optional.String**| Sort by field. Can be one of: name, created_at, updated_at. | 
- **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
- **q** | **optional.String**| Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples).  | 
- **localeId** | **optional.String**| Locale used to determine the translation state of a key when filtering for untranslated or translated keys. | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**branch** | **optional.String**| specify the branch to use | 
+**sort** | **optional.String**| Sort by field. Can be one of: name, created_at, updated_at. | 
+**order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+**q** | **optional.String**| Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples).  | 
+**localeId** | **optional.String**| Locale used to determine the translation state of a key when filtering for untranslated or translated keys. | 
 
 ### Return type
 
@@ -429,11 +414,9 @@ Optional parameters are passed through a pointer to a KeysSearchOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
 
 ### Return type
 
@@ -478,9 +461,7 @@ Optional parameters are passed through a pointer to a KeysTagOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -525,9 +506,7 @@ Optional parameters are passed through a pointer to a KeysUntagOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 

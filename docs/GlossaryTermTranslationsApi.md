@@ -1,4 +1,4 @@
-# \GlossaryTermTranslationsApi
+# phrase.GlossaryTermTranslationsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -37,11 +37,7 @@ Optional parameters are passed through a pointer to a GlossaryTermTranslationCre
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -88,11 +84,7 @@ Optional parameters are passed through a pointer to a GlossaryTermTranslationDel
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -140,12 +132,7 @@ Optional parameters are passed through a pointer to a GlossaryTermTranslationUpd
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 

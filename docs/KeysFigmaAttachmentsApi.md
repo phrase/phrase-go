@@ -1,4 +1,4 @@
-# \KeysFigmaAttachmentsApi
+# phrase.KeysFigmaAttachmentsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -35,11 +35,8 @@ Optional parameters are passed through a pointer to a FigmaAttachmentAttachToKey
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -85,11 +82,8 @@ Optional parameters are passed through a pointer to a FigmaAttachmentDetachFromK
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 

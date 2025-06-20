@@ -1,4 +1,4 @@
-# \JobsApi
+# phrase.JobsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -46,10 +46,7 @@ Optional parameters are passed through a pointer to a JobCompleteOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -94,9 +91,7 @@ Optional parameters are passed through a pointer to a JobCreateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -141,10 +136,8 @@ Optional parameters are passed through a pointer to a JobDeleteOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -190,10 +183,7 @@ Optional parameters are passed through a pointer to a JobKeysCreateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -239,10 +229,7 @@ Optional parameters are passed through a pointer to a JobKeysDeleteOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -287,10 +274,8 @@ Optional parameters are passed through a pointer to a JobLockOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -336,10 +321,7 @@ Optional parameters are passed through a pointer to a JobReopenOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -384,10 +366,8 @@ Optional parameters are passed through a pointer to a JobShowOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -433,10 +413,7 @@ Optional parameters are passed through a pointer to a JobStartOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -481,10 +458,8 @@ Optional parameters are passed through a pointer to a JobUnlockOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -530,10 +505,7 @@ Optional parameters are passed through a pointer to a JobUpdateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -577,14 +549,13 @@ Optional parameters are passed through a pointer to a JobsByAccountOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **ownedBy** | **optional.String**| filter by user owning job | 
- **assignedTo** | **optional.String**| filter by user assigned to job | 
- **state** | **optional.String**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | 
- **updatedSince** | **optional.String**| filter by jobs updated since given date | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**ownedBy** | **optional.String**| filter by user owning job | 
+**assignedTo** | **optional.String**| filter by user assigned to job | 
+**state** | **optional.String**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | 
+**updatedSince** | **optional.String**| filter by jobs updated since given date | 
 
 ### Return type
 
@@ -628,15 +599,14 @@ Optional parameters are passed through a pointer to a JobsListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **branch** | **optional.String**| Branch to use | 
- **ownedBy** | **optional.String**| filter by user owning job | 
- **assignedTo** | **optional.String**| filter by user assigned to job | 
- **state** | **optional.String**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | 
- **updatedSince** | **optional.String**| filter by jobs updated since given date | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**branch** | **optional.String**| Branch to use | 
+**ownedBy** | **optional.String**| filter by user owning job | 
+**assignedTo** | **optional.String**| filter by user assigned to job | 
+**state** | **optional.String**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | 
+**updatedSince** | **optional.String**| filter by jobs updated since given date | 
 
 ### Return type
 

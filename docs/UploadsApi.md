@@ -1,4 +1,4 @@
-# \UploadsApi
+# phrase.UploadsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -37,28 +37,24 @@ Optional parameters are passed through a pointer to a UploadCreateOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
- **tags** | **optional.String**| List of tags separated by comma to be associated with the new keys contained in the upload. | 
- **updateTranslations** | **optional.Bool**| Indicates whether existing translations should be updated with the file content. | 
- **updateTranslationKeys** | **optional.Bool**| Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. | [default to true]
- **updateTranslationsOnSourceMatch** | **optional.Bool**| Update target translations only if the source translations of the uploaded multilingual file match the stored translations. | [default to false]
- **updateDescriptions** | **optional.Bool**| Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. | 
- **convertEmoji** | **optional.Bool**| This option is obsolete. Providing the option will cause a bad request error. | 
- **skipUploadTags** | **optional.Bool**| Indicates whether the upload should not create upload tags. | 
- **skipUnverification** | **optional.Bool**| Indicates whether the upload should unverify updated translations. | 
- **fileEncoding** | **optional.String**| Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. | 
- **localeMapping** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. | 
- **formatOptions** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Additional options available for specific formats. See our format guide for the [complete list](https://support.phrase.com/hc/en-us/articles/9652464547740-List-of-Supported-File-Types-Strings). | 
- **autotranslate** | **optional.Bool**| If set, translations for the uploaded language will be fetched automatically. | 
- **verifyMentionedTranslations** | **optional.Bool**| Indicates whether all translations mentioned in the upload should be verified. | [default to false]
- **markReviewed** | **optional.Bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | 
- **tagOnlyAffectedKeys** | **optional.Bool**| Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; | [default to false]
- **translationKeyPrefix** | **optional.String**| This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
+**tags** | **optional.String**| List of tags separated by comma to be associated with the new keys contained in the upload. | 
+**updateTranslations** | **optional.Bool**| Indicates whether existing translations should be updated with the file content. | 
+**updateTranslationKeys** | **optional.Bool**| Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. | [default to true]
+**updateTranslationsOnSourceMatch** | **optional.Bool**| Update target translations only if the source translations of the uploaded multilingual file match the stored translations. | [default to false]
+**updateDescriptions** | **optional.Bool**| Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. | 
+**convertEmoji** | **optional.Bool**| This option is obsolete. Providing the option will cause a bad request error. | 
+**skipUploadTags** | **optional.Bool**| Indicates whether the upload should not create upload tags. | 
+**skipUnverification** | **optional.Bool**| Indicates whether the upload should unverify updated translations. | 
+**fileEncoding** | **optional.String**| Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. | 
+**localeMapping** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. | 
+**formatOptions** | [**optional.Interface of map[string]interface{}**](map[string]interface{}.md)| Additional options available for specific formats. See our format guide for the [complete list](https://support.phrase.com/hc/en-us/articles/9652464547740-List-of-Supported-File-Types-Strings). | 
+**autotranslate** | **optional.Bool**| If set, translations for the uploaded language will be fetched automatically. | 
+**verifyMentionedTranslations** | **optional.Bool**| Indicates whether all translations mentioned in the upload should be verified. | [default to false]
+**markReviewed** | **optional.Bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | 
+**tagOnlyAffectedKeys** | **optional.Bool**| Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; | [default to false]
+**translationKeyPrefix** | **optional.String**| This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. | 
 
 ### Return type
 
@@ -103,10 +99,8 @@ Optional parameters are passed through a pointer to a UploadShowOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 
@@ -150,11 +144,10 @@ Optional parameters are passed through a pointer to a UploadsListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **branch** | **optional.String**| specify the branch to use | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**branch** | **optional.String**| specify the branch to use | 
 
 ### Return type
 

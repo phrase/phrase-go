@@ -1,4 +1,4 @@
-# \WebhookDeliveriesApi
+# phrase.WebhookDeliveriesApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -35,10 +35,8 @@ Optional parameters are passed through a pointer to a WebhookDeliveriesListOpts 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **responseStatusCodes** | **optional.String**| List of Response Status Codes | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**responseStatusCodes** | **optional.String**| List of Response Status Codes | 
 
 ### Return type
 
@@ -84,10 +82,7 @@ Optional parameters are passed through a pointer to a WebhookDeliveriesRedeliver
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -133,10 +128,7 @@ Optional parameters are passed through a pointer to a WebhookDeliveriesShowOpts 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 

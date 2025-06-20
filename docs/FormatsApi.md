@@ -1,4 +1,4 @@
-# \FormatsApi
+# phrase.FormatsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 

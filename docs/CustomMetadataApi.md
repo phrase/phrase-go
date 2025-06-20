@@ -1,4 +1,4 @@
-# \CustomMetadataApi
+# phrase.CustomMetadataApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
@@ -37,9 +37,7 @@ Optional parameters are passed through a pointer to a CustomMetadataPropertiesDe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -83,15 +81,14 @@ Optional parameters are passed through a pointer to a CustomMetadataPropertiesLi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
- **dataType** | [**optional.Interface of CustomMetadataDataType**](.md)| Data Type of Custom Metadata Property | 
- **projectId** | **optional.String**| id of project that the properties belong to | 
- **page** | **optional.Int32**| Page number | 
- **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
- **q** | **optional.String**| query to find a property by name | 
- **sort** | **optional.String**| Sort criteria. Can be one of: name, data_type, created_at. | 
- **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**dataType** | [**optional.Interface of CustomMetadataDataType**](.md)| Data Type of Custom Metadata Property | 
+**projectId** | **optional.String**| id of project that the properties belong to | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**q** | **optional.String**| query to find a property by name | 
+**sort** | **optional.String**| Sort criteria. Can be one of: name, data_type, created_at. | 
+**order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
 
 ### Return type
 
@@ -136,9 +133,7 @@ Optional parameters are passed through a pointer to a CustomMetadataPropertyCrea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -183,9 +178,7 @@ Optional parameters are passed through a pointer to a CustomMetadataPropertyShow
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
@@ -231,10 +224,7 @@ Optional parameters are passed through a pointer to a CustomMetadataPropertyUpda
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
- **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 
 ### Return type
 
