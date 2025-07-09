@@ -32,4 +32,6 @@ type LocaleDownloadCreateParameters struct {
 	SourceLocaleId string `json:"source_locale_id,omitempty"`
 	// Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.
 	CustomMetadataFilters map[string]interface{} `json:"custom_metadata_filters,omitempty"`
+	// Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
+	UpdatedSince string `json:"updated_since,omitempty"`
 }

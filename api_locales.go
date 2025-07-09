@@ -358,6 +358,7 @@ type LocaleDownloadOpts struct {
 	FilterByPrefix                optional.Bool      `json:"filter_by_prefix,omitempty"`
 	CustomMetadataFilters         optional.Interface `json:"custom_metadata_filters,omitempty"`
 	LocaleIds                     []string           `json:"locale_ids,omitempty"`
+	UpdatedSince                  optional.String    `json:"updated_since,omitempty"`
 }
 
 /*
@@ -390,6 +391,7 @@ Download a locale in a specific file format.
   - @param "FilterByPrefix" (optional.Bool) -  Only download translation keys containing the specified prefix, and remove the prefix from the generated file.
   - @param "CustomMetadataFilters" (optional.Interface of map[string]interface{}) -  Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.
   - @param "LocaleIds" (optional.Interface of []string) -  Locale IDs or locale names
+  - @param "UpdatedSince" (optional.String) -  Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
 
 @return *os.File
 */
@@ -479,6 +481,9 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 		for i := range t {
 			localVarQueryParams.Add("locale_ids[]", parameterToString(t[i], "multi"))
 		}
+	}
+	if localVarOptionals != nil && localVarOptionals.UpdatedSince.IsSet() {
+		localVarQueryParams.Add("updated_since", parameterToString(localVarOptionals.UpdatedSince.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
