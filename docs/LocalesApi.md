@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 **filterByPrefix** | **optional.Bool**| Only download translation keys containing the specified prefix, and remove the prefix from the generated file. | 
 **customMetadataFilters** | [**optional.Interface of map[string]interface{}**](.md)| Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.  | 
 **localeIds** | [**optional.Interface of []string**](string.md)| Locale IDs or locale names | 
-**updatedSince** | **optional.String**| Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;).  | 
+**updatedSince** | **optional.String**| Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;).  | 
 
 ### Return type
 

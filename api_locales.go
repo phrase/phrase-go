@@ -391,7 +391,7 @@ Download a locale in a specific file format.
   - @param "FilterByPrefix" (optional.Bool) -  Only download translation keys containing the specified prefix, and remove the prefix from the generated file.
   - @param "CustomMetadataFilters" (optional.Interface of map[string]interface{}) -  Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.
   - @param "LocaleIds" (optional.Interface of []string) -  Locale IDs or locale names
-  - @param "UpdatedSince" (optional.String) -  Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
+  - @param "UpdatedSince" (optional.String) -  Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
 
 @return *os.File
 */

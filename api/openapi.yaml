@@ -4527,7 +4527,7 @@ paths:
           type: array
         style: form
       - description: |
-          Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
+          Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
         example: 2023-01-01T00:00:00Z
         explode: true
         in: query
@@ -30713,7 +30713,8 @@ components:
           type: object
         updated_since:
           description: |
-            Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
+            Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
+          example: 2023-01-01T00:00:00Z
           type: string
       required:
       - file_format
