@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Main** | **bool** |  | [optional] 
 **Rtl** | **bool** |  | [optional] 
 **PluralForms** | **[]string** |  | [optional] 
+**OrdinalPluralForms** | **[]string** |  | [optional] 
 **SourceLocale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
 **FallbackLocale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 

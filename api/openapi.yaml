@@ -27965,6 +27965,9 @@ components:
         - zero
         - one
         - other
+        ordinal_plural_forms:
+        - zero
+        - other
         source_locale:
           id: abcd1234cdef1234abcd1234cdef1234
           name: en
@@ -27989,6 +27992,10 @@ components:
         rtl:
           type: boolean
         plural_forms:
+          items:
+            type: string
+          type: array
+        ordinal_plural_forms:
           items:
             type: string
           type: array
@@ -28420,6 +28427,7 @@ components:
           id: abcd1234cdef1234abcd1234cdef1234
           name: home.index.headline
           plural: false
+          use_ordinal_rules: false
         locale:
           id: abcd1234cdef1234abcd1234cdef1234
           name: de
@@ -28484,6 +28492,7 @@ components:
         description: My description for this key...
         name_hash: 1b31d2580ce324f246f66b3be00ed399
         plural: false
+        use_ordinal_rules: false
         tags:
         - awesome-feature
         - needs-proofreading
@@ -28500,6 +28509,8 @@ components:
         name_hash:
           type: string
         plural:
+          type: boolean
+        use_ordinal_rules:
           type: boolean
         tags:
           items:

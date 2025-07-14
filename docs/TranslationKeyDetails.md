@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Description** | **string** |  | [optional] 
 **NameHash** | **string** |  | [optional] 
 **Plural** | **bool** |  | [optional] 
+**UseOrdinalRules** | **bool** |  | [optional] 
 **Tags** | **[]string** |  | [optional] 
 **DataType** | **string** |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 

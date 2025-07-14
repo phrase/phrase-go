@@ -11,6 +11,7 @@ type TranslationKeyDetails struct {
 	Description          string            `json:"description,omitempty"`
 	NameHash             string            `json:"name_hash,omitempty"`
 	Plural               *bool             `json:"plural,omitempty"`
+	UseOrdinalRules      *bool             `json:"use_ordinal_rules,omitempty"`
 	Tags                 []string          `json:"tags,omitempty"`
 	DataType             string            `json:"data_type,omitempty"`
 	CreatedAt            time.Time         `json:"created_at,omitempty"`
