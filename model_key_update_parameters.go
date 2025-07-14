@@ -14,6 +14,8 @@ type KeyUpdateParameters struct {
 	Description string `json:"description,omitempty"`
 	// Indicates whether key supports pluralization
 	Plural *bool `json:"plural,omitempty"`
+	// Indicates whether key uses ordinal rules for pluralization
+	UseOrdinalRules *bool `json:"use_ordinal_rules,omitempty"`
 	// Plural name for the key (used in some file formats, e.g. Gettext)
 	NamePlural string `json:"name_plural,omitempty"`
 	// Type of the key. Can be one of the following: string, number, boolean, array, markdown.
