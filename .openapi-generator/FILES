@@ -18,6 +18,7 @@ api_glossary_term_translations.go
 api_glossary_terms.go
 api_icu.go
 api_invitations.go
+api_job_annotations.go
 api_job_comments.go
 api_job_locales.go
 api_job_template_locales.go
@@ -130,6 +131,10 @@ docs/InvitationUpdateParameters.md
 docs/InvitationUpdateSettingsParameters.md
 docs/InvitationsApi.md
 docs/Job.md
+docs/JobAnnotation.md
+docs/JobAnnotationShort.md
+docs/JobAnnotationUpdateParameters.md
+docs/JobAnnotationsApi.md
 docs/JobComment.md
 docs/JobCommentCreateParameters.md
 docs/JobCommentUpdateParameters.md
@@ -383,6 +388,9 @@ model_invitation_create_parameters.go
 model_invitation_update_parameters.go
 model_invitation_update_settings_parameters.go
 model_job.go
+model_job_annotation.go
+model_job_annotation_short.go
+model_job_annotation_update_parameters.go
 model_job_comment.go
 model_job_comment_create_parameters.go
 model_job_comment_update_parameters.go

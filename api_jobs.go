@@ -734,8 +734,9 @@ func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id st
 
 // JobShowOpts Optional parameters for the method 'JobShow'
 type JobShowOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Branch        optional.String `json:"branch,omitempty"`
+	XPhraseAppOTP      optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch             optional.String `json:"branch,omitempty"`
+	IncludeAnnotations optional.Bool   `json:"include_annotations,omitempty"`
 }
 
 /*
@@ -746,7 +747,8 @@ Get details on a single job for a given project.
   - @param id ID
   - @param optional nil or *JobShowOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Branch" (optional.String) -  Branch to use
+  - @param "IncludeAnnotations" (optional.Bool) -  Include job-locale annotations in the response
 
 @return JobDetails
 */
@@ -772,6 +774,9 @@ func (a *JobsApiService) JobShow(ctx _context.Context, projectId string, id stri
 
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.IncludeAnnotations.IsSet() {
+		localVarQueryParams.Add("include_annotations", parameterToString(localVarOptionals.IncludeAnnotations.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

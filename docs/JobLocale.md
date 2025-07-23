@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Completed** | **bool** |  | [optional] 
 **TranslationCompletedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **ReviewCompletedAt** | [**time.Time**](time.Time.md) |  | [optional] 
+**Annotations** | [**[]JobAnnotationShort**](JobAnnotationShort.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

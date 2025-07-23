@@ -120,6 +120,9 @@ tags:
 - description: |
     With the invitation endpoint you can [manage and invite users](https://support.phrase.com/hc/en-us/articles/5709742418716) to Phrase Strings via API. A user can have the role Manager, Developer or Translator each with its own access rights. Developers and translators need resources like projects and locales assigned in order to access them.
   name: Invitations
+- description: |
+    The job annotations endpoints allow you to create, update and delete annotations for jobs and job locales. Annotations are used to add metadata to a job or job locale.
+  name: Job Annotations
 - name: Job Comments
 - name: Job Locales
 - name: Job Template Locales
@@ -6839,7 +6842,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: specify the branch to use
+      - description: Branch to use
         example: my-feature-branch
         explode: true
         in: query
@@ -6847,6 +6850,15 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Include job-locale annotations in the response
+        explode: true
+        in: query
+        name: include_annotations
+        required: false
+        schema:
+          default: false
+          type: boolean
         style: form
       responses:
         "200":
@@ -13021,6 +13033,15 @@ paths:
         schema:
           type: string
         style: form
+      - description: Include job-locale annotations in the response
+        explode: true
+        in: query
+        name: include_annotations
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -13325,6 +13346,15 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Include job-locale annotations in the response
+        explode: true
+        in: query
+        name: include_annotations
+        required: false
+        schema:
+          default: false
+          type: boolean
         style: form
       responses:
         "200":
@@ -14324,6 +14354,582 @@ paths:
           --data '{"branch":"my-feature-branch", "locale_id":"abcd1234cdef1234abcd1234cdef1234", "user_ids": "abcd1234cdef1234abcd1234cdef1234", "reviewer_ids": "abcd1234cdef1234abcd1234cdef1234", "translator_team_ids": "abcd1234cdef1234abcd1234cdef1234"}' \
           --access_token <token>
       x-cli-version: 2.6.8
+  /projects/{project_id}/jobs/{job_id}/annotations:
+    get:
+      description: Retrieve a list of annotations for a job.
+      operationId: job_annotations/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Job ID
+        explode: false
+        in: path
+        name: job_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/job_annotation'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List job annotations
+      tags:
+      - Job Annotations
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/annotations" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X GET
+      - lang: CLI v2
+        source: |-
+          phrase job_annotations list \
+          --project_id <project_id> \
+          --job_id <job_id> \
+          --access_token <token>
+      x-cli-version: "2.43"
+  /projects/{project_id}/jobs/{job_id}/annotations/{id}:
+    delete:
+      description: Delete an annotation for a job.
+      operationId: job_annotation/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Job ID
+        explode: false
+        in: path
+        name: job_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Name of the annotation to delete.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Delete a job annotation
+      tags:
+      - Job Annotations
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/annotations/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase job_annotations delete \
+          --project_id <project_id> \
+          --job_id <job_id> \
+          --id <id> \
+          --access_token <token>
+      x-cli-version: "2.43"
+    patch:
+      description: "Create or update an annotation for a job. If the annotation already\
+        \ exists, it will be updated; otherwise, a new annotation will be created."
+      operationId: job_annotation/update
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job ID
+        explode: false
+        in: path
+        name: job_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Name of the annotation to set or update.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/job_annotation_update_parameters'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job_annotation'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create/Update a job annotation
+      tags:
+      - Job Annotations
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/annotations/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"value":"Some value..."}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase job_annotations update \
+          --project_id <project_id> \
+          --job_id <job_id> \
+          --id <id> \
+          --data '{"value": "Some value..."}' \
+          --access_token <token>
+      x-cli-version: "2.43"
+  /projects/{project_id}/jobs/{job_id}/locales/{job_locale_id}/annotations:
+    get:
+      description: Retrieve a list of annotations for a job locale.
+      operationId: job_locale_annotations/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Job ID
+        explode: false
+        in: path
+        name: job_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Locale ID
+        explode: false
+        in: path
+        name: job_locale_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/job_annotation'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List job locale annotations
+      tags:
+      - Job Annotations
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/locales/:job_locale_id/annotations" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X GET
+      - lang: CLI v2
+        source: |-
+          phrase job_locale_annotations list \
+          --project_id <project_id> \
+          --job_id <job_id> \
+          --job_locale_id <job_locale_id> \
+          --access_token <token>
+      x-cli-version: "2.43"
+  /projects/{project_id}/jobs/{job_id}/locales/{job_locale_id}/annotations/{id}:
+    delete:
+      description: Delete an annotation for a job locale.
+      operationId: job_locale_annotation/delete
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Job ID
+        explode: false
+        in: path
+        name: job_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Locale ID
+        explode: false
+        in: path
+        name: job_locale_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Name of the annotation to delete.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Delete a job locale annotation
+      tags:
+      - Job Annotations
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/locales/:job_locale_id/annotations/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE
+      - lang: CLI v2
+        source: |-
+          phrase job_locale_annotations delete \
+          --project_id <project_id> \
+          --job_id <job_id> \
+          --job_locale_id <job_locale_id> \
+          --id <id> \
+          --access_token <token>
+      x-cli-version: "2.43"
+    patch:
+      description: "Create or update an annotation for a job locale. If the annotation\
+        \ already exists, it will be updated; otherwise, a new annotation will be\
+        \ created."
+      operationId: job_locale_annotation/update
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job ID
+        explode: false
+        in: path
+        name: job_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Job Locale ID
+        explode: false
+        in: path
+        name: job_locale_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Name of the annotation to set or update.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/job_annotation_update_parameters'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/job_annotation'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create/Update a job locale annotation
+      tags:
+      - Job Annotations
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:job_id/locales/:job_locale_id/annotations/:id" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"value":"Some value..."}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase job_locale_annotations update \
+          --project_id <project_id> \
+          --job_id <job_id> \
+          --job_locale_id <job_locale_id> \
+          --id <id> \
+          --data '{"value": "Some value..."}' \
+          --access_token <token>
+      x-cli-version: "2.43"
   /projects/{project_id}/variables:
     get:
       description: List all variables for the current project.
@@ -26904,6 +27510,15 @@ components:
       schema:
         type: string
       style: simple
+    job_locale_id:
+      description: Job Locale ID
+      explode: false
+      in: path
+      name: job_locale_id
+      required: true
+      schema:
+        type: string
+      style: simple
     job_template_id:
       description: Job Template ID
       explode: false
@@ -27145,6 +27760,16 @@ components:
       required: false
       schema:
         type: string
+      style: form
+    include_annotations:
+      description: Include job-locale annotations in the response
+      explode: true
+      in: query
+      name: include_annotations
+      required: false
+      schema:
+        default: false
+        type: boolean
       style: form
   responses:
     "200":
@@ -29042,6 +29667,42 @@ components:
           type: string
       title: job
       type: object
+    job_annotation:
+      example:
+        name: priority
+        value: high
+        created_at: 2023-10-01T12:00:00Z
+        updated_at: 2023-10-01T12:00:00Z
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      required:
+      - name
+      - value
+      title: job_annotation
+      type: object
+    job_annotation_short:
+      example:
+        name: priority
+        value: high
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      required:
+      - name
+      - value
+      title: job_annotation
+      type: object
     job_details:
       allOf:
       - $ref: '#/components/schemas/job'
@@ -29081,6 +29742,10 @@ components:
             items:
               $ref: '#/components/schemas/key_preview'
             type: array
+          annotations:
+            items:
+              $ref: '#/components/schemas/job_annotation_short'
+            type: array
         title: job_details
         type: object
     job_preview:
@@ -29114,6 +29779,11 @@ components:
           id: abcd1234cdef1234abcd1234cdef1234
           name: English
           code: en-GB
+        annotations:
+        - name: priority
+          value: high
+          created_at: 2023-10-01T12:00:00Z
+          updated_at: 2023-10-01T12:00:00Z
         completed: true
         translation_completed_at: 2017-01-28T09:52:53Z
         review_completed_at: 2017-01-28T09:52:53Z
@@ -29140,6 +29810,10 @@ components:
         review_completed_at:
           format: date-time
           type: string
+        annotations:
+          items:
+            $ref: '#/components/schemas/job_annotation_short'
+          type: array
       title: job_locale
       type: object
     job_template:
@@ -31972,6 +32646,18 @@ components:
             type: string
           type: array
       title: job_template_locale/update/parameters
+      type: object
+    job_annotation_update_parameters:
+      properties:
+        value:
+          description: Annotation value
+          example: Some value...
+          type: string
+        branch:
+          description: Branch name of the job
+          example: my-feature-branch
+          type: string
+      title: job_annotation/update/parameters
       type: object
     variable_create_parameters:
       properties:

@@ -367,7 +367,8 @@ Optional parameters are passed through a pointer to a JobShowOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
-**branch** | **optional.String**| specify the branch to use | 
+**branch** | **optional.String**| Branch to use | 
+**includeAnnotations** | **optional.Bool**| Include job-locale annotations in the response | [default to false]
 
 ### Return type
 

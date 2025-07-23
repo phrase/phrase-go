@@ -231,6 +231,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 **branch** | **optional.String**| Branch to use | 
+**includeAnnotations** | **optional.Bool**| Include job-locale annotations in the response | [default to false]
 
 ### Return type
 
@@ -372,6 +373,7 @@ Name | Type | Description  | Notes
 **page** | **optional.Int32**| Page number | 
 **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
 **branch** | **optional.String**| Branch to use | 
+**includeAnnotations** | **optional.Bool**| Include job-locale annotations in the response | [default to false]
 
 ### Return type
 
