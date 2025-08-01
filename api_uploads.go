@@ -27,6 +27,7 @@ type UploadCreateOpts struct {
 	Branch                          optional.String    `json:"branch,omitempty"`
 	Tags                            optional.String    `json:"tags,omitempty"`
 	UpdateTranslations              optional.Bool      `json:"update_translations,omitempty"`
+	UpdateCustomMetadata            optional.Bool      `json:"update_custom_metadata,omitempty"`
 	UpdateTranslationKeys           optional.Bool      `json:"update_translation_keys,omitempty"`
 	UpdateTranslationsOnSourceMatch optional.Bool      `json:"update_translations_on_source_match,omitempty"`
 	UpdateDescriptions              optional.Bool      `json:"update_descriptions,omitempty"`
@@ -56,6 +57,7 @@ Upload a new language file. Creates necessary resources in your project.
   - @param "Branch" (optional.String) -  specify the branch to use
   - @param "Tags" (optional.String) -  List of tags separated by comma to be associated with the new keys contained in the upload.
   - @param "UpdateTranslations" (optional.Bool) -  Indicates whether existing translations should be updated with the file content.
+  - @param "UpdateCustomMetadata" (optional.Bool) -  Indicates whether existing custom metadata properties should be updated with the file content
   - @param "UpdateTranslationKeys" (optional.Bool) -  Pass `false` here to prevent new keys from being created and existing keys updated.
   - @param "UpdateTranslationsOnSourceMatch" (optional.Bool) -  Update target translations only if the source translations of the uploaded multilingual file match the stored translations.
   - @param "UpdateDescriptions" (optional.Bool) -  Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
@@ -129,6 +131,9 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 	if localVarOptionals != nil && localVarOptionals.UpdateTranslations.IsSet() {
 		localVarFormParams.Add("update_translations", parameterToString(localVarOptionals.UpdateTranslations.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.UpdateCustomMetadata.IsSet() {
+		localVarFormParams.Add("update_custom_metadata", parameterToString(localVarOptionals.UpdateCustomMetadata.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.UpdateTranslationKeys.IsSet() {
 		localVarFormParams.Add("update_translation_keys", parameterToString(localVarOptionals.UpdateTranslationKeys.Value(), ""))
