@@ -57,7 +57,7 @@ Upload a new language file. Creates necessary resources in your project.
   - @param "Branch" (optional.String) -  specify the branch to use
   - @param "Tags" (optional.String) -  List of tags separated by comma to be associated with the new keys contained in the upload.
   - @param "UpdateTranslations" (optional.Bool) -  Indicates whether existing translations should be updated with the file content.
-  - @param "UpdateCustomMetadata" (optional.Bool) -  Indicates whether existing custom metadata properties should be updated with the file content
+  - @param "UpdateCustomMetadata" (optional.Bool) -  Determines whether to update custom metadata values when uploading a file. If set to true, existing metadata can be changed or removed. Passing an empty value deletes the corresponding metadata property.
   - @param "UpdateTranslationKeys" (optional.Bool) -  Pass `false` here to prevent new keys from being created and existing keys updated.
   - @param "UpdateTranslationsOnSourceMatch" (optional.Bool) -  Update target translations only if the source translations of the uploaded multilingual file match the stored translations.
   - @param "UpdateDescriptions" (optional.Bool) -  Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
