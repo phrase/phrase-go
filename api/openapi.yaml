@@ -33608,6 +33608,10 @@ components:
             locale or the project does not have the Autopilot feature enabled.
           type: boolean
           example: null
+        reviewed:
+          description: "When set to `true`, the translation will be marked as reviewed."
+          example: true
+          type: boolean
       title: translation/update/parameters
       type: object
     translation_verify_parameters:

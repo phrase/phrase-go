@@ -14,4 +14,6 @@ type TranslationUpdateParameters struct {
 	Excluded *bool `json:"excluded,omitempty"`
 	// Indicates whether the translation should be auto-translated. Responses with status 422 if provided for translation within a non-default locale or the project does not have the Autopilot feature enabled.
 	Autotranslate *bool `json:"autotranslate,omitempty"`
+	// When set to `true`, the translation will be marked as reviewed.
+	Reviewed *bool `json:"reviewed,omitempty"`
 }
