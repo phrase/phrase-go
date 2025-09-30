@@ -76,6 +76,13 @@ Class | Method | HTTP request | Description
 *AuthorizationsApi* | [**AuthorizationShow**](docs/AuthorizationsApi.md#authorizationshow) | **Get** /authorizations/{id} | Get a single authorization
 *AuthorizationsApi* | [**AuthorizationUpdate**](docs/AuthorizationsApi.md#authorizationupdate) | **Patch** /authorizations/{id} | Update an authorization
 *AuthorizationsApi* | [**AuthorizationsList**](docs/AuthorizationsApi.md#authorizationslist) | **Get** /authorizations | List authorizations
+*AutomationsApi* | [**AutomationActivate**](docs/AutomationsApi.md#automationactivate) | **Post** /accounts/{account_id}/automations/{automation_id}/activate | Activate an automation
+*AutomationsApi* | [**AutomationCreate**](docs/AutomationsApi.md#automationcreate) | **Post** /accounts/{account_id}/automations | Create an automation
+*AutomationsApi* | [**AutomationDeactivate**](docs/AutomationsApi.md#automationdeactivate) | **Post** /accounts/{account_id}/automations/{automation_id}/deactivate | Deactivate an automation
+*AutomationsApi* | [**AutomationDelete**](docs/AutomationsApi.md#automationdelete) | **Delete** /accounts/{account_id}/automations/{automation_id} | Destroy automation
+*AutomationsApi* | [**AutomationShow**](docs/AutomationsApi.md#automationshow) | **Get** /accounts/{account_id}/automations/{automation_id} | Get a single automation
+*AutomationsApi* | [**AutomationUpdate**](docs/AutomationsApi.md#automationupdate) | **Patch** /accounts/{account_id}/automations/{automation_id} | Update an automation
+*AutomationsApi* | [**AutomationsList**](docs/AutomationsApi.md#automationslist) | **Get** /accounts/{account_id}/automations | List automations
 *BlacklistedKeysApi* | [**BlacklistedKeyCreate**](docs/BlacklistedKeysApi.md#blacklistedkeycreate) | **Post** /projects/{project_id}/blacklisted_keys | Create a blocked key
 *BlacklistedKeysApi* | [**BlacklistedKeyDelete**](docs/BlacklistedKeysApi.md#blacklistedkeydelete) | **Delete** /projects/{project_id}/blacklisted_keys/{id} | Delete a blocked key
 *BlacklistedKeysApi* | [**BlacklistedKeyShow**](docs/BlacklistedKeysApi.md#blacklistedkeyshow) | **Get** /projects/{project_id}/blacklisted_keys/{id} | Get a single blocked key
@@ -357,6 +364,9 @@ Class | Method | HTTP request | Description
  - [AuthorizationCreateParameters](docs/AuthorizationCreateParameters.md)
  - [AuthorizationUpdateParameters](docs/AuthorizationUpdateParameters.md)
  - [AuthorizationWithToken](docs/AuthorizationWithToken.md)
+ - [Automation](docs/Automation.md)
+ - [AutomationsCreateParameters](docs/AutomationsCreateParameters.md)
+ - [AutomationsCreateParameters1](docs/AutomationsCreateParameters1.md)
  - [BlacklistedKey](docs/BlacklistedKey.md)
  - [BlacklistedKeyCreateParameters](docs/BlacklistedKeyCreateParameters.md)
  - [BlacklistedKeyUpdateParameters](docs/BlacklistedKeyUpdateParameters.md)
@@ -575,6 +585,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com

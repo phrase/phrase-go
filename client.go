@@ -43,6 +43,8 @@ type APIClient struct {
 
 	AuthorizationsApi *AuthorizationsApiService
 
+	AutomationsApi *AutomationsApiService
+
 	BlacklistedKeysApi *BlacklistedKeysApiService
 
 	BranchesApi *BranchesApiService
@@ -168,6 +170,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.AccountsApi = (*AccountsApiService)(&c.common)
 	c.AuthorizationsApi = (*AuthorizationsApiService)(&c.common)
+	c.AutomationsApi = (*AutomationsApiService)(&c.common)
 	c.BlacklistedKeysApi = (*BlacklistedKeysApiService)(&c.common)
 	c.BranchesApi = (*BranchesApiService)(&c.common)
 	c.CommentReactionsApi = (*CommentReactionsApiService)(&c.common)

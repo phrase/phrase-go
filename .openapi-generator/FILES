@@ -3,6 +3,7 @@ README.md
 api/openapi.yaml
 api_accounts.go
 api_authorizations.go
+api_automations.go
 api_blacklisted_keys.go
 api_branches.go
 api_comment_reactions.go
@@ -69,6 +70,10 @@ docs/AuthorizationCreateParameters.md
 docs/AuthorizationUpdateParameters.md
 docs/AuthorizationWithToken.md
 docs/AuthorizationsApi.md
+docs/Automation.md
+docs/AutomationsApi.md
+docs/AutomationsCreateParameters.md
+docs/AutomationsCreateParameters1.md
 docs/BlacklistedKey.md
 docs/BlacklistedKeyCreateParameters.md
 docs/BlacklistedKeyUpdateParameters.md
@@ -340,6 +345,9 @@ model_authorization.go
 model_authorization_create_parameters.go
 model_authorization_update_parameters.go
 model_authorization_with_token.go
+model_automation.go
+model_automations_create_parameters.go
+model_automations_create_parameters_1.go
 model_blacklisted_key.go
 model_blacklisted_key_create_parameters.go
 model_blacklisted_key_update_parameters.go
