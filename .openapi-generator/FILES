@@ -82,6 +82,7 @@ docs/Branch.md
 docs/BranchCreateParameters.md
 docs/BranchMergeParameters.md
 docs/BranchName.md
+docs/BranchSyncParameters.md
 docs/BranchUpdateParameters.md
 docs/BranchesApi.md
 docs/Comment.md
@@ -355,6 +356,7 @@ model_branch.go
 model_branch_create_parameters.go
 model_branch_merge_parameters.go
 model_branch_name.go
+model_branch_sync_parameters.go
 model_branch_update_parameters.go
 model_comment.go
 model_comment_create_parameters.go

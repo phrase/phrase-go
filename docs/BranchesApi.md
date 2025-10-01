@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**BranchDelete**](BranchesApi.md#BranchDelete) | **Delete** /projects/{project_id}/branches/{name} | Delete a branch
 [**BranchMerge**](BranchesApi.md#BranchMerge) | **Patch** /projects/{project_id}/branches/{name}/merge | Merge a branch
 [**BranchShow**](BranchesApi.md#BranchShow) | **Get** /projects/{project_id}/branches/{name} | Get a single branch
+[**BranchSync**](BranchesApi.md#BranchSync) | **Patch** /projects/{project_id}/branches/{name}/sync | Sync a branch
 [**BranchUpdate**](BranchesApi.md#BranchUpdate) | **Patch** /projects/{project_id}/branches/{name} | Update a branch
 [**BranchesList**](BranchesApi.md#BranchesList) | **Get** /projects/{project_id}/branches | List branches
 
@@ -155,7 +156,7 @@ Name | Type | Description  | Notes
 
 Merge a branch
 
-Merge an existing branch.   *Note: Merging a branch may take several minutes depending on diff size.* 
+Merge an existing branch.  *Note: Merging a branch may take several minutes depending on diff size.* 
 
 ### Required Parameters
 
@@ -234,6 +235,52 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BranchSync
+
+> BranchSync(ctx, projectId, name, branchSyncParameters, optional)
+
+Sync a branch
+
+Sync an existing branch.  *Note: Only available for branches created with new branching. New branching is currently in private beta* 
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**name** | **string**| name | 
+**branchSyncParameters** | [**BranchSyncParameters**](BranchSyncParameters.md)|  | 
+ **optional** | ***BranchSyncOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a BranchSyncOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

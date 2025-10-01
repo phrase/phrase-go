@@ -15831,8 +15831,10 @@ paths:
       x-cli-version: "2.5"
   /projects/{project_id}/branches/{name}/merge:
     patch:
-      description: "Merge an existing branch. \n\n*Note: Merging a branch may take\
-        \ several minutes depending on diff size.*\n"
+      description: |
+        Merge an existing branch.
+
+        *Note: Merging a branch may take several minutes depending on diff size.*
       operationId: branch/merge
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -15920,7 +15922,99 @@ paths:
           --name <name> \
           --data '{"strategy":"use_main"}' \
           --access_token <token>
-      x-cli-version: "2.5"
+  /projects/{project_id}/branches/{name}/sync:
+    patch:
+      description: |
+        Sync an existing branch.
+
+        *Note: Only available for branches created with new branching. New branching is currently in private beta*
+      operationId: branch/sync
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: name
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/branch_sync_parameters'
+        required: true
+      responses:
+        "200":
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Sync a branch
+      tags:
+      - Branches
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/branches/:name/sync" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH \
+            -d '{"strategy":"use_main"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase branches sync \
+          --project_id <project_id> \
+          --name <name> \
+          --data '{"strategy":"use_main"}' \
+          --access_token <token>
   /projects/{project_id}/branches/{name}/compare:
     get:
       description: "Compare branch with main branch. \n\n*Note: Comparing a branch\
@@ -33425,10 +33519,18 @@ components:
     branch_merge_parameters:
       properties:
         strategy:
-          description: "strategy used for merge blocking, use_main or use_branch"
+          description: "strategy used for merge conflicts, use_main or use_branch"
           example: use_main
           type: string
       title: branch/merge/parameters
+      type: object
+    branch_sync_parameters:
+      properties:
+        strategy:
+          description: "strategy used for conflicts, use_main or use_branch"
+          example: use_main
+          type: string
+      title: branch/sync/parameters
       type: object
     member_update_parameters:
       properties:
