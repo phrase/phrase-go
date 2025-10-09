@@ -25,6 +25,7 @@ type AutomationActivateOpts struct {
 
 /*
 AutomationActivate Activate an automation
+Activate an automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
@@ -128,7 +129,7 @@ type AutomationCreateOpts struct {
 
 /*
 AutomationCreate Create an automation
-Create a new automation.
+Create a new automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param automationsCreateParameters
@@ -242,6 +243,7 @@ type AutomationDeactivateOpts struct {
 
 /*
 AutomationDeactivate Deactivate an automation
+Deactivate an automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
@@ -345,7 +347,7 @@ type AutomationDeleteOpts struct {
 
 /*
 AutomationDelete Destroy automation
-Destroy an automation of an account.  This endpoint is only available to accounts with advanced plans or above.
+Destroy an automation of an account.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
@@ -437,7 +439,7 @@ type AutomationShowOpts struct {
 
 /*
 AutomationShow Get a single automation
-Get details of a single automation.
+Get details of a single automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
@@ -541,7 +543,7 @@ type AutomationUpdateOpts struct {
 
 /*
 AutomationUpdate Update an automation
-Update an existing automation.
+Update an existing automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param id ID
@@ -650,7 +652,7 @@ type AutomationsListOpts struct {
 
 /*
 AutomationsList List automations
-List all automations for an account.  This endpoint is only available to accounts with advanced plans or above.
+List all automations for an account.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param accountId Account ID
   - @param optional nil or *AutomationsListOpts - Optional Parameters:

@@ -20,6 +20,8 @@ Method | HTTP request | Description
 
 Activate an automation
 
+Activate an automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings). 
+
 ### Required Parameters
 
 
@@ -63,7 +65,7 @@ Name | Type | Description  | Notes
 
 Create an automation
 
-Create a new automation.
+Create a new automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings). 
 
 ### Required Parameters
 
@@ -108,6 +110,8 @@ Name | Type | Description  | Notes
 
 Deactivate an automation
 
+Deactivate an automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings). 
+
 ### Required Parameters
 
 
@@ -151,7 +155,7 @@ Name | Type | Description  | Notes
 
 Destroy automation
 
-Destroy an automation of an account.  This endpoint is only available to accounts with advanced plans or above. 
+Destroy an automation of an account.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings). 
 
 ### Required Parameters
 
@@ -196,7 +200,7 @@ Name | Type | Description  | Notes
 
 Get a single automation
 
-Get details of a single automation.
+Get details of a single automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings). 
 
 ### Required Parameters
 
@@ -241,7 +245,7 @@ Name | Type | Description  | Notes
 
 Update an automation
 
-Update an existing automation.
+Update an existing automation.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings). 
 
 ### Required Parameters
 
@@ -287,7 +291,7 @@ Name | Type | Description  | Notes
 
 List automations
 
-List all automations for an account.  This endpoint is only available to accounts with advanced plans or above. 
+List all automations for an account.  For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings). 
 
 ### Required Parameters
 

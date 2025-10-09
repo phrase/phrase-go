@@ -27410,7 +27410,7 @@ paths:
       description: |
         List all automations for an account.
 
-        This endpoint is only available to accounts with advanced plans or above.
+        For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
       operationId: automations/list
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -27522,7 +27522,10 @@ paths:
           --per_page 10 \
           --access_token <token>
     post:
-      description: Create a new automation.
+      description: |
+        Create a new automation.
+
+        For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
       operationId: automation/create
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -27623,7 +27626,7 @@ paths:
       description: |
         Destroy an automation of an account.
 
-        This endpoint is only available to accounts with advanced plans or above.
+        For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
       operationId: automation/delete
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -27704,7 +27707,10 @@ paths:
           --id <id> \
           --access_token <token>
     get:
-      description: Get details of a single automation.
+      description: |
+        Get details of a single automation.
+
+        For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
       operationId: automation/show
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -27787,7 +27793,10 @@ paths:
           --id <id> \
           --access_token <token>
     patch:
-      description: Update an existing automation.
+      description: |
+        Update an existing automation.
+
+        For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
       operationId: automation/update
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -27881,6 +27890,10 @@ paths:
           --access_token <token>
   /accounts/{account_id}/automations/{automation_id}/activate:
     post:
+      description: |
+        Activate an automation.
+
+        For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
       operationId: automation/activate
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -27966,6 +27979,10 @@ paths:
           --access_token <token>
   /accounts/{account_id}/automations/{automation_id}/deactivate:
     post:
+      description: |
+        Deactivate an automation.
+
+        For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
       operationId: automation/deactivate
       parameters:
       - description: Two-Factor-Authentication token (optional)
