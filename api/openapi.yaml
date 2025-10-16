@@ -30713,6 +30713,9 @@ components:
           username: joe.doe
           name: Joe Doe
         state: success
+        child_branches:
+        - feature_2
+        - feature_3
       properties:
         base_project_id:
           type: string
@@ -30735,6 +30738,10 @@ components:
           $ref: '#/components/schemas/user_preview'
         state:
           type: string
+        child_branches:
+          items:
+            type: string
+          type: array
       title: branch
       type: object
     distribution_preview:

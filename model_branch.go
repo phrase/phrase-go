@@ -15,4 +15,5 @@ type Branch struct {
 	MergedBy        UserPreview `json:"merged_by,omitempty"`
 	CreatedBy       UserPreview `json:"created_by,omitempty"`
 	State           string      `json:"state,omitempty"`
+	ChildBranches   []string    `json:"child_branches,omitempty"`
 }
