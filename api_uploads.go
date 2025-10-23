@@ -30,6 +30,7 @@ type UploadCreateOpts struct {
 	UpdateCustomMetadata            optional.Bool      `json:"update_custom_metadata,omitempty"`
 	UpdateTranslationKeys           optional.Bool      `json:"update_translation_keys,omitempty"`
 	UpdateTranslationsOnSourceMatch optional.Bool      `json:"update_translations_on_source_match,omitempty"`
+	SourceLocaleId                  optional.String    `json:"source_locale_id,omitempty"`
 	UpdateDescriptions              optional.Bool      `json:"update_descriptions,omitempty"`
 	ConvertEmoji                    optional.Bool      `json:"convert_emoji,omitempty"`
 	SkipUploadTags                  optional.Bool      `json:"skip_upload_tags,omitempty"`
@@ -60,6 +61,7 @@ Upload a new language file. Creates necessary resources in your project.
   - @param "UpdateCustomMetadata" (optional.Bool) -  Determines whether to update custom metadata values when uploading a file. If set to true, existing metadata can be changed or removed. Passing an empty value deletes the corresponding metadata property.
   - @param "UpdateTranslationKeys" (optional.Bool) -  Pass `false` here to prevent new keys from being created and existing keys updated.
   - @param "UpdateTranslationsOnSourceMatch" (optional.Bool) -  Update target translations only if the source translations of the uploaded multilingual file match the stored translations.
+  - @param "SourceLocaleId" (optional.String) -  Specifies the source locale for multilingual files. Can be the name or id of the locale. Preferred is id.
   - @param "UpdateDescriptions" (optional.Bool) -  Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
   - @param "ConvertEmoji" (optional.Bool) -  This option is obsolete. Providing the option will cause a bad request error.
   - @param "SkipUploadTags" (optional.Bool) -  Indicates whether the upload should not create upload tags.
@@ -140,6 +142,9 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	}
 	if localVarOptionals != nil && localVarOptionals.UpdateTranslationsOnSourceMatch.IsSet() {
 		localVarFormParams.Add("update_translations_on_source_match", parameterToString(localVarOptionals.UpdateTranslationsOnSourceMatch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.SourceLocaleId.IsSet() {
+		localVarFormParams.Add("source_locale_id", parameterToString(localVarOptionals.SourceLocaleId.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.UpdateDescriptions.IsSet() {
 		localVarFormParams.Add("update_descriptions", parameterToString(localVarOptionals.UpdateDescriptions.Value(), ""))

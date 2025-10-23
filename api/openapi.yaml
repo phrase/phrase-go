@@ -32949,6 +32949,11 @@ components:
             of the uploaded multilingual file match the stored translations.
           example: true
           type: boolean
+        source_locale_id:
+          description: Specifies the source locale for multilingual files. Can be
+            the name or id of the locale. Preferred is id.
+          example: abcd1234cdef1234abcd1234cdef1234
+          type: string
         update_descriptions:
           description: Existing key descriptions will be updated with the file content.
             Empty descriptions overwrite existing descriptions.
