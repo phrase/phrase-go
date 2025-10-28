@@ -34071,7 +34071,7 @@ components:
           example: mykey* translated:true
           type: string
         target_locale_id:
-          description: Locale used to exlcude or include keys.
+          description: Exclude translations in locale
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
         tags:
@@ -34104,7 +34104,7 @@ components:
           example: mykey* translated:true
           type: string
         target_locale_id:
-          description: Locale used to exlcude or include keys.
+          description: Include translations in locale
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
         tags:
