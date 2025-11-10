@@ -47,7 +47,7 @@ type UploadCreateOpts struct {
 
 /*
 UploadCreate Upload a new file
-Upload a new language file. Creates necessary resources in your project.
+Upload a new language file. Creates necessary resources in your project.  Note: be aware of [upload limits](https://support.phrase.com/hc/en-us/articles/8548271212188-Phrase-Strings-Limits#file-size-upload-limits-0-0).
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param file File to be imported
