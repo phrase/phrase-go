@@ -6860,6 +6860,16 @@ paths:
           default: false
           type: boolean
         style: form
+      - description: Omit translation keys in the response to reduce payload size
+          for bigger jobs
+        explode: true
+        in: query
+        name: omit_translation_keys
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       responses:
         "200":
           content:

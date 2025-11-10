@@ -369,6 +369,7 @@ Name | Type | Description  | Notes
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 **branch** | **optional.String**| Branch to use | 
 **includeAnnotations** | **optional.Bool**| Include job-locale annotations in the response | [default to false]
+**omitTranslationKeys** | **optional.Bool**| Omit translation keys in the response to reduce payload size for bigger jobs | [default to false]
 
 ### Return type
 
