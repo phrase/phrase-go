@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**AutomationDeactivate**](AutomationsApi.md#AutomationDeactivate) | **Post** /accounts/{account_id}/automations/{automation_id}/deactivate | Deactivate an automation
 [**AutomationDelete**](AutomationsApi.md#AutomationDelete) | **Delete** /accounts/{account_id}/automations/{automation_id} | Destroy automation
 [**AutomationShow**](AutomationsApi.md#AutomationShow) | **Get** /accounts/{account_id}/automations/{automation_id} | Get a single automation
+[**AutomationTrigger**](AutomationsApi.md#AutomationTrigger) | **Post** /accounts/{account_id}/automations/{automation_id}/trigger | Trigger an automation
 [**AutomationUpdate**](AutomationsApi.md#AutomationUpdate) | **Patch** /accounts/{account_id}/automations/{automation_id} | Update an automation
 [**AutomationsList**](AutomationsApi.md#AutomationsList) | **Get** /accounts/{account_id}/automations | List automations
 
@@ -233,6 +234,51 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AutomationTrigger
+
+> AutomationTrigger(ctx, accountId, id, optional)
+
+Trigger an automation
+
+Trigger an automation. 
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **string**| Account ID | 
+**id** | **string**| ID | 
+ **optional** | ***AutomationTriggerOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a AutomationTriggerOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

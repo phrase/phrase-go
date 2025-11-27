@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 *AutomationsApi* | [**AutomationDeactivate**](docs/AutomationsApi.md#automationdeactivate) | **Post** /accounts/{account_id}/automations/{automation_id}/deactivate | Deactivate an automation
 *AutomationsApi* | [**AutomationDelete**](docs/AutomationsApi.md#automationdelete) | **Delete** /accounts/{account_id}/automations/{automation_id} | Destroy automation
 *AutomationsApi* | [**AutomationShow**](docs/AutomationsApi.md#automationshow) | **Get** /accounts/{account_id}/automations/{automation_id} | Get a single automation
+*AutomationsApi* | [**AutomationTrigger**](docs/AutomationsApi.md#automationtrigger) | **Post** /accounts/{account_id}/automations/{automation_id}/trigger | Trigger an automation
 *AutomationsApi* | [**AutomationUpdate**](docs/AutomationsApi.md#automationupdate) | **Patch** /accounts/{account_id}/automations/{automation_id} | Update an automation
 *AutomationsApi* | [**AutomationsList**](docs/AutomationsApi.md#automationslist) | **Get** /accounts/{account_id}/automations | List automations
 *BlacklistedKeysApi* | [**BlacklistedKeyCreate**](docs/BlacklistedKeysApi.md#blacklistedkeycreate) | **Post** /projects/{project_id}/blacklisted_keys | Create a blocked key
