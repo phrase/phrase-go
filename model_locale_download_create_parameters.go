@@ -26,8 +26,10 @@ type LocaleDownloadCreateParameters struct {
 	UseLastReviewedVersion *bool `json:"use_last_reviewed_version,omitempty"`
 	// Locale IDs or locale names
 	LocaleIds []string `json:"locale_ids,omitempty"`
-	// If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to `true`.
+	// If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `use_locale_fallback`.
 	FallbackLocaleId string `json:"fallback_locale_id,omitempty"`
+	// If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Fallback locale is defined in [locale's settings](/en/api/strings/locales/update-a-locale#body-fallback-locale-id). Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `fallback_locale_id`.
+	UseLocaleFallback *bool `json:"use_locale_fallback,omitempty"`
 	// Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a `tag` parameter indicating a specific job.
 	SourceLocaleId string `json:"source_locale_id,omitempty"`
 	// Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.
