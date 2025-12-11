@@ -79,6 +79,7 @@ docs/BlacklistedKeyCreateParameters.md
 docs/BlacklistedKeyUpdateParameters.md
 docs/BlacklistedKeysApi.md
 docs/Branch.md
+docs/BranchCreateComparisonParameters.md
 docs/BranchCreateParameters.md
 docs/BranchMergeParameters.md
 docs/BranchName.md
@@ -353,6 +354,7 @@ model_blacklisted_key.go
 model_blacklisted_key_create_parameters.go
 model_blacklisted_key_update_parameters.go
 model_branch.go
+model_branch_create_comparison_parameters.go
 model_branch_create_parameters.go
 model_branch_merge_parameters.go
 model_branch_name.go

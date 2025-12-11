@@ -5,6 +5,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BranchCompare**](BranchesApi.md#BranchCompare) | **Get** /projects/{project_id}/branches/{name}/compare | Compare branches
+[**BranchComparisonCreate**](BranchesApi.md#BranchComparisonCreate) | **Post** /projects/{project_id}/branches/{name}/compare | Create comparison (async.)
 [**BranchCreate**](BranchesApi.md#BranchCreate) | **Post** /projects/{project_id}/branches | Create a branch
 [**BranchDelete**](BranchesApi.md#BranchDelete) | **Delete** /projects/{project_id}/branches/{name} | Delete a branch
 [**BranchMerge**](BranchesApi.md#BranchMerge) | **Patch** /projects/{project_id}/branches/{name}/merge | Merge a branch
@@ -21,7 +22,7 @@ Method | HTTP request | Description
 
 Compare branches
 
-Compare branch with main branch.   *Note: Comparing a branch may take several minutes depending on the project size.* 
+Compare branch with main branch.  *Note: Comparing a branch may take several minutes depending on the project size. Consider using the `POST /compare` endpoint for creating comparison asynchronously.* 
 
 ### Required Parameters
 
@@ -53,6 +54,52 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BranchComparisonCreate
+
+> BranchComparisonCreate(ctx, projectId, name, branchCreateComparisonParameters, optional)
+
+Create comparison (async.)
+
+Create a branch comparison asynchronously. 
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+**name** | **string**| name | 
+**branchCreateComparisonParameters** | [**BranchCreateComparisonParameters**](BranchCreateComparisonParameters.md)|  | 
+ **optional** | ***BranchComparisonCreateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a BranchComparisonCreateOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -247,7 +294,7 @@ Name | Type | Description  | Notes
 
 Sync a branch
 
-Sync an existing branch.  *Note: Only available for branches created with new branching. New branching is currently in private beta* 
+Sync an existing branch.  *Note: Only available for branches created with new branching.* 
 
 ### Required Parameters
 

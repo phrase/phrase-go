@@ -15951,7 +15951,7 @@ paths:
       description: |
         Sync an existing branch.
 
-        *Note: Only available for branches created with new branching. New branching is currently in private beta*
+        *Note: Only available for branches created with new branching.*
       operationId: branch/sync
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -16041,8 +16041,10 @@ paths:
           --access_token <token>
   /projects/{project_id}/branches/{name}/compare:
     get:
-      description: "Compare branch with main branch. \n\n*Note: Comparing a branch\
-        \ may take several minutes depending on the project size.*\n"
+      description: |
+        Compare branch with main branch.
+
+        *Note: Comparing a branch may take several minutes depending on the project size. Consider using the `POST /compare` endpoint for creating comparison asynchronously.*
       operationId: branch/compare
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -16097,6 +16099,15 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "409":
+          description: Conflict
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "429":
           description: Rate Limiting
           headers:
@@ -16122,6 +16133,104 @@ paths:
           --name my-branch \
           --access_token <token>
       x-cli-version: "2.5"
+    post:
+      description: |
+        Create a branch comparison asynchronously.
+      operationId: branch/comparison/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: name
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/branch_create_comparison_parameters'
+        required: true
+      responses:
+        "202":
+          description: Accepted
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "409":
+          description: Conflict
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create comparison (async.)
+      tags:
+      - Branches
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/branches/:name/compare" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X POST \
+            -d '{"direction":"merge"}' \
+            -H 'Content-Type: application/json'
+      - lang: CLI v2
+        source: |-
+          phrase branches create_comparison \
+          --project_id <project_id> \
+          --name <name> \
+          --access_token <token>
   /accounts:
     get:
       description: List all accounts the current user has access to.
@@ -28663,6 +28772,15 @@ components:
           $ref: '#/components/headers/X-Rate-Limit-Remaining'
         X-Rate-Limit-Reset:
           $ref: '#/components/headers/X-Rate-Limit-Reset'
+    "202":
+      description: Accepted
+      headers:
+        X-Rate-Limit-Limit:
+          $ref: '#/components/headers/X-Rate-Limit-Limit'
+        X-Rate-Limit-Remaining:
+          $ref: '#/components/headers/X-Rate-Limit-Remaining'
+        X-Rate-Limit-Reset:
+          $ref: '#/components/headers/X-Rate-Limit-Reset'
     "204":
       description: The resource was deleted successfully.
       headers:
@@ -28694,6 +28812,15 @@ components:
           $ref: '#/components/headers/X-Rate-Limit-Reset'
     "404":
       description: Not Found
+      headers:
+        X-Rate-Limit-Limit:
+          $ref: '#/components/headers/X-Rate-Limit-Limit'
+        X-Rate-Limit-Remaining:
+          $ref: '#/components/headers/X-Rate-Limit-Remaining'
+        X-Rate-Limit-Reset:
+          $ref: '#/components/headers/X-Rate-Limit-Reset'
+    "409":
+      description: Conflict
       headers:
         X-Rate-Limit-Limit:
           $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -33685,6 +33812,16 @@ components:
           example: use_main
           type: string
       title: branch/sync/parameters
+      type: object
+    branch_create_comparison_parameters:
+      properties:
+        direction:
+          default: merge
+          description: "direction of comparison, possible values are sync or merge\
+            \ (only for v2 branches)"
+          example: merge
+          type: string
+      title: branch/create_comparison/parameters
       type: object
     member_update_parameters:
       properties:
