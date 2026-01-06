@@ -24,8 +24,6 @@ type LocalesApiService service
 // AccountLocalesOpts Optional parameters for the method 'AccountLocales'
 type AccountLocalesOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32  `json:"page,omitempty"`
-	PerPage       optional.Int32  `json:"per_page,omitempty"`
 }
 
 /*
@@ -35,8 +33,6 @@ List all locales unique by locale code used across all projects within an accoun
   - @param id ID
   - @param optional nil or *AccountLocalesOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
-  - @param "Page" (optional.Int32) -  Page number
-  - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
 @return []LocalePreview1
 */
@@ -58,12 +54,6 @@ func (a *LocalesApiService) AccountLocales(ctx _context.Context, id string, loca
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.Page.IsSet() {
-		localVarQueryParams.Add("page", parameterToString(localVarOptionals.Page.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
-		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
-	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

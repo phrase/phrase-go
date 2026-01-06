@@ -39,8 +39,6 @@ Optional parameters are passed through a pointer to a AccountLocalesOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
-**page** | **optional.Int32**| Page number | 
-**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
 
 ### Return type
 

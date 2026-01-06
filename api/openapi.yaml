@@ -3713,27 +3713,6 @@ paths:
         schema:
           type: string
         style: simple
-      - allowEmptyValue: false
-        description: Page number
-        example: 1
-        explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          type: integer
-        style: form
-      - allowEmptyValue: false
-        description: "Limit on the number of objects to be returned, between 1 and\
-          \ 100. 25 by default"
-        example: 25
-        explode: true
-        in: query
-        name: per_page
-        required: false
-        schema:
-          type: integer
-        style: form
       responses:
         "200":
           content:
@@ -32252,18 +32231,14 @@ components:
       type: object
     locale_preview_1:
       example:
-        id: abcd1234cdef1234abcd1234cdef1234
         name: English
         code: en-GB
         project:
-          id: abcd1234cdef1234abcd1234cdef1234
           name: My Android Project
           main_format: xml
           created_at: 2015-01-28T09:52:53Z
           updated_at: 2015-01-28T09:52:53Z
       properties:
-        id:
-          type: string
         name:
           type: string
         code:
