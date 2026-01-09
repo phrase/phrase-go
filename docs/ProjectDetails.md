@@ -16,6 +16,20 @@ Name | Type | Description | Notes
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **SharesTranslationMemory** | **bool** |  | [optional] 
+**MachineTranslationEnabled** | **bool** |  | [optional] 
+**ZeroPluralFormEnabled** | **bool** |  | [optional] 
+**EnableAllDataTypeTranslationKeysForTranslators** | **bool** |  | [optional] 
+**EnableIcuMessageFormat** | **bool** |  | [optional] 
+**EnableBranching** | **bool** |  | [optional] 
+**ProtectMasterBranch** | **bool** |  | [optional] 
+**AutotranslateEnabled** | **bool** |  | [optional] 
+**AutotranslateCheckNewTranslationKeys** | **bool** |  | [optional] 
+**AutotranslateCheckNewUploads** | **bool** |  | [optional] 
+**AutotranslateCheckNewLocales** | **bool** |  | [optional] 
+**AutotranslateMarkAsUnverified** | **bool** |  | [optional] 
+**AutotranslateUseMachineTranslation** | **bool** |  | [optional] 
+**AutotranslateUseTranslationMemory** | **bool** |  | [optional] 
+**DefaultEncoding** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -29899,11 +29899,67 @@ components:
       - example:
           slug: my-android-project
           shares_translation_memory: true
+          machine_translation_enabled: true
+          zero_plural_form_enabled: true
+          enable_all_data_type_translation_keys_for_translators: false
+          enable_icu_message_format: false
+          enable_branching: false
+          protect_master_branch: false
+          autotranslate_enabled: false
+          autotranslate_check_new_translation_keys: false
+          autotranslate_check_new_uploads: false
+          autotranslate_check_new_locales: false
+          autotranslate_mark_as_unverified: false
+          autotranslate_use_machine_translation: false
+          autotranslate_use_translation_memory: true
+          default_encoding: UTF-8
         properties:
           slug:
             type: string
           shares_translation_memory:
             type: boolean
+          machine_translation_enabled:
+            example: true
+            type: boolean
+          zero_plural_form_enabled:
+            example: true
+            type: boolean
+          enable_all_data_type_translation_keys_for_translators:
+            example: false
+            type: boolean
+          enable_icu_message_format:
+            example: false
+            type: boolean
+          enable_branching:
+            example: false
+            type: boolean
+          protect_master_branch:
+            example: false
+            type: boolean
+          autotranslate_enabled:
+            example: false
+            type: boolean
+          autotranslate_check_new_translation_keys:
+            example: false
+            type: boolean
+          autotranslate_check_new_uploads:
+            example: false
+            type: boolean
+          autotranslate_check_new_locales:
+            example: false
+            type: boolean
+          autotranslate_mark_as_unverified:
+            example: false
+            type: boolean
+          autotranslate_use_machine_translation:
+            example: false
+            type: boolean
+          autotranslate_use_translation_memory:
+            example: true
+            type: boolean
+          default_encoding:
+            example: UTF-8
+            type: string
         title: project_details
         type: object
     styleguide:
