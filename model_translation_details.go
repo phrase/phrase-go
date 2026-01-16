@@ -17,7 +17,7 @@ type TranslationDetails struct {
 	State             string            `json:"state,omitempty"`
 	CreatedAt         time.Time         `json:"created_at,omitempty"`
 	UpdatedAt         time.Time         `json:"updated_at,omitempty"`
+	LinkedTranslation TranslationParent `json:"linked_translation,omitempty"`
 	User              UserPreview       `json:"user,omitempty"`
 	WordCount         int32             `json:"word_count,omitempty"`
-	LinkedTranslation TranslationParent `json:"linked_translation,omitempty"`
 }

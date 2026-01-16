@@ -30128,6 +30128,8 @@ components:
         updated_at:
           format: date-time
           type: string
+        linked_translation:
+          $ref: '#/components/schemas/translation_parent'
       title: translation
       type: object
     translation_details:
@@ -30144,8 +30146,6 @@ components:
             $ref: '#/components/schemas/user_preview'
           word_count:
             type: integer
-          linked_translation:
-            $ref: '#/components/schemas/translation_parent'
         title: translation_details
         type: object
     translation_key:
@@ -35519,8 +35519,9 @@ components:
       type: object
       example: null
     translation_parent:
-      example: "{\"id\":\"abcd1234cdef1234abcd1234cdef1234\",\"content\":\"My parent\
-        \ translation\"}"
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        content: My parent translation
       properties:
         id:
           type: string
