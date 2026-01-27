@@ -139,6 +139,8 @@ type APIClient struct {
 
 	TranslationsApi *TranslationsApiService
 
+	UploadBatchesApi *UploadBatchesApiService
+
 	UploadsApi *UploadsApiService
 
 	UsersApi *UsersApiService
@@ -218,6 +220,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TagsApi = (*TagsApiService)(&c.common)
 	c.TeamsApi = (*TeamsApiService)(&c.common)
 	c.TranslationsApi = (*TranslationsApiService)(&c.common)
+	c.UploadBatchesApi = (*UploadBatchesApiService)(&c.common)
 	c.UploadsApi = (*UploadsApiService)(&c.common)
 	c.UsersApi = (*UsersApiService)(&c.common)
 	c.VariablesApi = (*VariablesApiService)(&c.common)

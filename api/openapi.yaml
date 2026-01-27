@@ -11998,6 +11998,106 @@ paths:
           --branch my-feature-branch \
           --access_token <token>
       x-cli-version: "2.5"
+  /projects/{project_id}/upload_batches:
+    post:
+      description: |
+        Groups multiple file uploads into a single batch. Optionally, launches the deletion of unmentioned translation keys
+        after all uploads in the batch are completed.
+      operationId: upload_batches/create
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/upload_batches_create_parameters'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/upload_batch'
+          description: Created
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: Bad request
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Rate Limiting
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Create upload batch
+      tags:
+      - Upload Batches
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/upload_batches" \
+          -X POST \
+          -H "Content-Type: application/json" \
+          -d '{
+            "branch": "my-feature-branch",
+            "delete_unmentioned_keys": true,
+            "upload_ids": [
+              "abcd1234cdef1234abcd1234cdef1234",
+              "bcde2345defg2345bcde2345defg2345"
+            ]
+          }' \
+          -u <token>:
+      - lang: CLI v2
+        source: |-
+          phrase upload_batches create --project-id :project_id \
+          --data '{
+            "branch": "my-feature-branch",
+            "delete_unmentioned_keys": true,
+            "upload_ids": [
+              "abcd1234cdef1234abcd1234cdef1234",
+              "bcde2345defg2345bcde2345defg2345"
+            ]
+          }' \
+          --access_token <token>
   /projects/{project_id}/translations/{translation_id}/versions:
     get:
       description: List all changes done to a given translation.
@@ -30386,10 +30486,10 @@ components:
         type: object
     user_preview:
       example:
-        name: name
-        id: id
-        gravatar_uid: gravatar_uid
-        username: username
+        id: abcd1234cdef1234abcd1234cdef1234
+        username: johndoe
+        name: John Doe
+        gravatar_uid: 205e460b479e2e5b48aec07710c08d50
       properties:
         id:
           type: string
@@ -31656,16 +31756,16 @@ components:
           id: id
           use_ordinal_rules: true
         updated_by:
-          name: name
-          id: id
-          gravatar_uid: gravatar_uid
-          username: username
+          id: abcd1234cdef1234abcd1234cdef1234
+          username: johndoe
+          name: John Doe
+          gravatar_uid: 205e460b479e2e5b48aec07710c08d50
         created_at: 2000-01-23T04:56:07.000+00:00
         created_by:
-          name: name
-          id: id
-          gravatar_uid: gravatar_uid
-          username: username
+          id: abcd1234cdef1234abcd1234cdef1234
+          username: johndoe
+          name: John Doe
+          gravatar_uid: 205e460b479e2e5b48aec07710c08d50
         account:
           id: abcd1234
           name: Company Account
@@ -33317,6 +33417,107 @@ components:
       - file_format
       - locale_id
       title: upload/create/parameters
+      type: object
+    upload_batches_create_parameters:
+      properties:
+        branch:
+          description: specify the branch to use
+          example: my-feature-branch
+          type: string
+        delete_unmentioned_keys:
+          description: "If set to true, after all uploads in the batch are completed,\
+            \ translation keys that were not mentioned in any of the uploaded files\
+            \ will be deleted."
+          example: true
+          type: boolean
+        upload_ids:
+          description: Array of upload IDs to include in the batch
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          - bcde2345defg2345bcde2345defg2345
+          items:
+            type: string
+          type: array
+      required:
+      - upload_ids
+      title: upload_batches/create/parameters
+      type: object
+    upload_batch:
+      example:
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        created_at: 2000-01-23T04:56:07.000+00:00
+        project:
+          id: abcd1234cdef1234abcd1234cdef1234
+          name: My Android Project
+          main_format: xml
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        state: started
+        delete_unmentioned_keys: true
+        user:
+          id: abcd1234cdef1234abcd1234cdef1234
+          username: johndoe
+          name: John Doe
+          gravatar_uid: 205e460b479e2e5b48aec07710c08d50
+        uploads:
+        - id: abcd1234cdef1234abcd1234cdef1234
+          filename: example.json
+          format: json
+          state: success
+          tag: tag
+          summary:
+            locales_created: 2
+            translation_keys_created: 162
+            translation_keys_updated: 10
+            translation_keys_unmentioned: 0
+            translations_created: 291
+            translations_updated: 3
+            tags_created: 2
+            translation_keys_ignored: 0
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+        - id: abcd1234cdef1234abcd1234cdef1234
+          filename: example.json
+          format: json
+          state: success
+          tag: tag
+          summary:
+            locales_created: 2
+            translation_keys_created: 162
+            translation_keys_updated: 10
+            translation_keys_unmentioned: 0
+            translations_created: 291
+            translations_updated: 3
+            tags_created: 2
+            translation_keys_ignored: 0
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+      properties:
+        state:
+          description: Processing state of the upload batch
+          enum:
+          - started
+          - done
+          type: string
+        delete_unmentioned_keys:
+          description: Indicates whether unmentioned keys will be deleted after processing
+            all uploads in the batch
+          type: boolean
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        project:
+          $ref: '#/components/schemas/project_short'
+        user:
+          $ref: '#/components/schemas/user_preview'
+        uploads:
+          items:
+            $ref: '#/components/schemas/upload'
+          type: array
+      title: upload_batch
       type: object
     glossary_term_translation_create_parameters:
       properties:

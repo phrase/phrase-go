@@ -51,6 +51,7 @@ api_style_guides.go
 api_tags.go
 api_teams.go
 api_translations.go
+api_upload_batches.go
 api_uploads.go
 api_users.go
 api_variables.go
@@ -320,6 +321,9 @@ docs/TranslationsUnreviewParameters.md
 docs/TranslationsUnverifyParameters.md
 docs/TranslationsVerifyParameters.md
 docs/Upload.md
+docs/UploadBatch.md
+docs/UploadBatchesApi.md
+docs/UploadBatchesCreateParameters.md
 docs/UploadSummary.md
 docs/UploadsApi.md
 docs/User.md
@@ -550,6 +554,8 @@ model_translations_unreview_parameters.go
 model_translations_unverify_parameters.go
 model_translations_verify_parameters.go
 model_upload.go
+model_upload_batch.go
+model_upload_batches_create_parameters.go
 model_upload_summary.go
 model_user.go
 model_user_preview.go
