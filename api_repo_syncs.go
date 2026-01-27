@@ -333,6 +333,7 @@ func (a *RepoSyncsApiService) RepoSyncExport(ctx _context.Context, accountId str
 // RepoSyncImportOpts Optional parameters for the method 'RepoSyncImport'
 type RepoSyncImportOpts struct {
 	XPhraseAppOTP            optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	Branch                   optional.String    `json:"branch,omitempty"`
 	RepoSyncImportParameters optional.Interface `json:"RepoSyncImportParameters,omitempty"`
 }
 
@@ -344,6 +345,7 @@ Import translations from repository provider to Phrase Strings according to the 
   - @param id ID
   - @param optional nil or *RepoSyncImportOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  Branch to use
   - @param "RepoSyncImportParameters" (optional.Interface of RepoSyncImportParameters) -
 
 @return RepoSyncEvent
@@ -368,6 +370,9 @@ func (a *RepoSyncsApiService) RepoSyncImport(ctx _context.Context, accountId str
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

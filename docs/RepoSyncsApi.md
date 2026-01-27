@@ -174,6 +174,7 @@ Optional parameters are passed through a pointer to a RepoSyncImportOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| Branch to use | 
 **repoSyncImportParameters** | [**optional.Interface of RepoSyncImportParameters**](RepoSyncImportParameters.md)|  | 
 
 ### Return type

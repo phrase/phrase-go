@@ -20823,6 +20823,15 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         content:
           application/json:
