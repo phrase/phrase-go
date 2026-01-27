@@ -332,7 +332,8 @@ func (a *RepoSyncsApiService) RepoSyncExport(ctx _context.Context, accountId str
 
 // RepoSyncImportOpts Optional parameters for the method 'RepoSyncImport'
 type RepoSyncImportOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	XPhraseAppOTP            optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	RepoSyncImportParameters optional.Interface `json:"RepoSyncImportParameters,omitempty"`
 }
 
 /*
@@ -343,6 +344,7 @@ Import translations from repository provider to Phrase Strings according to the 
   - @param id ID
   - @param optional nil or *RepoSyncImportOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "RepoSyncImportParameters" (optional.Interface of RepoSyncImportParameters) -
 
 @return RepoSyncEvent
 */
@@ -367,7 +369,7 @@ func (a *RepoSyncsApiService) RepoSyncImport(ctx _context.Context, accountId str
 	localVarFormParams := _neturl.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -386,6 +388,15 @@ func (a *RepoSyncsApiService) RepoSyncImport(ctx _context.Context, accountId str
 	if localVarOptionals != nil && localVarOptionals.XPhraseAppOTP.IsSet() {
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
+	// body params
+	if localVarOptionals != nil && localVarOptionals.RepoSyncImportParameters.IsSet() {
+		localVarOptionalRepoSyncImportParameters, localVarOptionalRepoSyncImportParametersok := localVarOptionals.RepoSyncImportParameters.Value().(RepoSyncImportParameters)
+		if !localVarOptionalRepoSyncImportParametersok {
+			return localVarReturnValue, nil, reportError("repoSyncImportParameters should be RepoSyncImportParameters")
+		}
+		localVarPostBody = &localVarOptionalRepoSyncImportParameters
+	}
+
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
