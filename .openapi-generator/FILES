@@ -256,6 +256,7 @@ docs/ReleasesApi.md
 docs/RepoSync.md
 docs/RepoSyncEvent.md
 docs/RepoSyncEventsApi.md
+docs/RepoSyncExportParameters.md
 docs/RepoSyncImportParameters.md
 docs/RepoSyncsApi.md
 docs/ReportsApi.md
@@ -499,6 +500,7 @@ model_release_update_parameters.go
 model_release_update_parameters_1.go
 model_repo_sync.go
 model_repo_sync_event.go
+model_repo_sync_export_parameters.go
 model_repo_sync_import_parameters.go
 model_screenshot.go
 model_screenshot_marker.go

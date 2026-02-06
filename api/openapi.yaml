@@ -20833,6 +20833,12 @@ paths:
         schema:
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/repo_sync_export_parameters'
+        required: false
       responses:
         "200":
           content:
@@ -20880,14 +20886,16 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs/45ef6789/export"\
+          curl "https://api.phrase.com/v2/accounts/ab12cd34/repo_syncs/45ef6789/export" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X POST \
-            -H 'Content-Type: application/json'
+            -H 'Content-Type: application/json' \
+            -d '{"pr_branch":"my-feature-branch"}'
       - lang: CLI v2
         source: |-
           phrase repo_syncs export \
           --id <repo_sync_id> \
+          --pr_branch my-feature-branch \
           --access_token <token>
       x-cli-version: "2.24"
   /accounts/{account_id}/repo_syncs/{id}/import:
@@ -34774,6 +34782,14 @@ components:
             score: 0.95
             id: translation_id_2
         errors: []
+    repo_sync_export_parameters:
+      properties:
+        pr_branch:
+          description: Source branch to open a pull request from
+          example: my-feature-branch
+          type: string
+      title: repo_sync/export/parameters
+      type: object
     repo_sync_import_parameters:
       properties:
         repository_branch:

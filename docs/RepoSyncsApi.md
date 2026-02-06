@@ -129,6 +129,7 @@ Optional parameters are passed through a pointer to a RepoSyncExportOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**repoSyncExportParameters** | [**optional.Interface of RepoSyncExportParameters**](RepoSyncExportParameters.md)|  | 
 
 ### Return type
 
@@ -140,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
