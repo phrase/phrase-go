@@ -95,7 +95,11 @@ func NewConfiguration() *Configuration {
 		Servers: []ServerConfiguration{
 			{
 				Url:         "https://api.phrase.com/v2",
-				Description: "No description provided",
+				Description: "EU production server",
+			},
+			{
+				Url:         "https://api.us.app.phrase.com/v2",
+				Description: "US production server",
 			},
 		},
 	}
