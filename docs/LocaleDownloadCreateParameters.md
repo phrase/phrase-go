@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ExcludeEmptyZeroForms** | **bool** | Indicates whether zero forms should be included when empty in pluralized keys. | [optional] 
 **IncludeTranslatedKeys** | **bool** | Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. | [optional] 
 **KeepNotranslateTags** | **bool** | Indicates whether [NOTRANSLATE] tags should be kept. | [optional] 
-**FormatOptions** | **map[string]interface{}** | Additional formatting and render options. See the [format guide](https://support.phrase.com/hc/en-us/sections/6111343326364) for a list of options available for each format. Specify format options like this: &#x60;...&amp;format_options[foo]&#x3D;bar&#x60; | [optional] 
+**FormatOptions** | **map[string]interface{}** | Additional formatting and render options. See the [format guide](https://support.phrase.com/hc/en-us/sections/6111343326364) for a list of options available for each format. Pass format options as a JSON object with key-value pairs corresponding to the option name and value. For example, to include comments in a Gettext file, pass &#x60;{\&quot;include_comments\&quot;: true}&#x60;.  | [optional] 
 **Encoding** | **string** | Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. | [optional] 
 **IncludeUnverifiedTranslations** | **bool** | if set to false unverified translations are excluded | [optional] 
 **UseLastReviewedVersion** | **bool** | If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. | [optional] 
