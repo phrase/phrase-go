@@ -132,10 +132,11 @@ func (a *VersionsHistoryApiService) VersionShow(ctx _context.Context, projectId 
 
 // VersionsListOpts Optional parameters for the method 'VersionsList'
 type VersionsListOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32  `json:"page,omitempty"`
-	PerPage       optional.Int32  `json:"per_page,omitempty"`
-	Branch        optional.String `json:"branch,omitempty"`
+	XPhraseAppOTP      optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page               optional.Int32  `json:"page,omitempty"`
+	PerPage            optional.Int32  `json:"per_page,omitempty"`
+	Branch             optional.String `json:"branch,omitempty"`
+	OnlyContentUpdates optional.Bool   `json:"only_content_updates,omitempty"`
 }
 
 /*
@@ -149,17 +150,18 @@ List all changes done to a given translation.
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "OnlyContentUpdates" (optional.Bool) -  Indicates whether only content updates should be returned
 
-@return []TranslationVersion
+@return []TranslationVersionWithUser
 */
-func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId string, translationId string, localVarOptionals *VersionsListOpts) ([]TranslationVersion, *APIResponse, error) {
+func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId string, translationId string, localVarOptionals *VersionsListOpts) ([]TranslationVersionWithUser, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []TranslationVersion
+		localVarReturnValue  []TranslationVersionWithUser
 	)
 
 	// create path and map variables
@@ -180,6 +182,9 @@ func (a *VersionsHistoryApiService) VersionsList(ctx _context.Context, projectId
 	}
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.OnlyContentUpdates.IsSet() {
+		localVarQueryParams.Add("only_content_updates", parameterToString(localVarOptionals.OnlyContentUpdates.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

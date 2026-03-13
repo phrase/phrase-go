@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ## VersionsList
 
-> []TranslationVersion VersionsList(ctx, projectId, translationId, optional)
+> []TranslationVersionWithUser VersionsList(ctx, projectId, translationId, optional)
 
 List all versions
 
@@ -85,10 +85,11 @@ Name | Type | Description  | Notes
 **page** | **optional.Int32**| Page number | 
 **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
 **branch** | **optional.String**| specify the branch to use | 
+**onlyContentUpdates** | **optional.Bool**| Indicates whether only content updates should be returned | [default to false]
 
 ### Return type
 
-[**[]TranslationVersion**](TranslationVersion.md)
+[**[]TranslationVersionWithUser**](TranslationVersionWithUser.md)
 
 ### Authorization
 

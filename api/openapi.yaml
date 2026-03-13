@@ -12160,13 +12160,23 @@ paths:
         schema:
           type: string
         style: form
+      - description: Indicates whether only content updates should be returned
+        example: true
+        explode: true
+        in: query
+        name: only_content_updates
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/translation_version'
+                  $ref: '#/components/schemas/translation_version_with_user'
                 type: array
           description: OK
           headers:
@@ -12213,7 +12223,7 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/translations/:translation_id/versions?branch=my-feature-branch" \
+          curl "https://api.phrase.com/v2/projects/:project_id/translations/:translation_id/versions?branch=my-feature-branch&only_content_updates=true" \
             -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
@@ -12221,6 +12231,7 @@ paths:
           --project_id <project_id> \
           --translation_id <translation_id> \
           --branch my-feature-branch \
+          --only_content_updates true \
           --access_token <token>
       x-cli-version: "2.5"
   /projects/{project_id}/translations/{translation_id}/versions/{id}:
