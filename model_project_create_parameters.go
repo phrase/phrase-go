@@ -52,4 +52,6 @@ type ProjectCreateParameters struct {
 	AutotranslateUseMachineTranslation *bool `json:"autotranslate_use_machine_translation,omitempty"`
 	// (Optional) Requires autotranslate_enabled to be true
 	AutotranslateUseTranslationMemory *bool `json:"autotranslate_use_translation_memory,omitempty"`
+	// (Optional) List of placeholder styles enabled for the project.
+	PlaceholderStyles []string `json:"placeholder_styles,omitempty"`
 }

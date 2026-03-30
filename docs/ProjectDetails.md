@@ -30,6 +30,9 @@ Name | Type | Description | Notes
 **AutotranslateUseMachineTranslation** | **bool** |  | [optional] 
 **AutotranslateUseTranslationMemory** | **bool** |  | [optional] 
 **DefaultEncoding** | **string** |  | [optional] 
+**CldrVersion** | **string** |  | [optional] 
+**JobLockingEnabled** | **bool** |  | [optional] 
+**PlaceholderStyles** | **[]string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

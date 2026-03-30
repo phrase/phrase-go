@@ -30052,6 +30052,11 @@ components:
           autotranslate_use_machine_translation: false
           autotranslate_use_translation_memory: true
           default_encoding: UTF-8
+          cldr_version: legacy
+          job_locking_enabled: false
+          placeholder_styles:
+          - angular
+          - iOS
         properties:
           slug:
             type: string
@@ -30099,6 +30104,19 @@ components:
           default_encoding:
             example: UTF-8
             type: string
+          cldr_version:
+            example: legacy
+            type: string
+          job_locking_enabled:
+            example: false
+            type: boolean
+          placeholder_styles:
+            example:
+            - angular
+            - iOS
+            items:
+              type: string
+            type: array
         title: project_details
         type: object
     styleguide:
@@ -33689,6 +33707,14 @@ components:
           description: (Optional) Requires autotranslate_enabled to be true
           example: true
           type: boolean
+        placeholder_styles:
+          description: (Optional) List of placeholder styles enabled for the project.
+          example:
+          - angular
+          - iOS
+          items:
+            type: string
+          type: array
       required:
       - name
       title: project/create/parameters
@@ -33818,6 +33844,14 @@ components:
           - ISO-8859-1
           example: UTF-8
           type: string
+        placeholder_styles:
+          description: (Optional) List of placeholder styles enabled for the project.
+          example:
+          - angular
+          - iOS
+          items:
+            type: string
+          type: array
       title: project/update/parameters
       type: object
     job_locales_create_parameters:

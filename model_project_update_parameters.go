@@ -52,4 +52,6 @@ type ProjectUpdateParameters struct {
 	AutotranslateUseTranslationMemory *bool `json:"autotranslate_use_translation_memory,omitempty"`
 	// (Optional) Sets the default encoding for Uploads. If you leave it empty, we will try to guess it automatically for you when you Upload a file. You can still override this value by setting the [`file_encoding`](/en/api/strings/uploads/upload-a-new-file) parameter for Uploads.
 	DefaultEncoding string `json:"default_encoding,omitempty"`
+	// (Optional) List of placeholder styles enabled for the project.
+	PlaceholderStyles []string `json:"placeholder_styles,omitempty"`
 }

@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **AutotranslateUseMachineTranslation** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **AutotranslateUseTranslationMemory** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **DefaultEncoding** | **string** | (Optional) Sets the default encoding for Uploads. If you leave it empty, we will try to guess it automatically for you when you Upload a file. You can still override this value by setting the [&#x60;file_encoding&#x60;](/en/api/strings/uploads/upload-a-new-file) parameter for Uploads. | [optional] 
+**PlaceholderStyles** | **[]string** | (Optional) List of placeholder styles enabled for the project. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
