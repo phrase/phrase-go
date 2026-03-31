@@ -4,4 +4,6 @@ package phrase
 type RepoSyncExportParameters struct {
 	// Source branch to open a pull request from
 	PrBranch string `json:"pr_branch,omitempty"`
+	// Strings branch to export from
+	Branch string `json:"branch,omitempty"`
 }

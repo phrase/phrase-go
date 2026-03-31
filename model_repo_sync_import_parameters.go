@@ -4,4 +4,6 @@ package phrase
 type RepoSyncImportParameters struct {
 	// Branch to import from
 	RepositoryBranch string `json:"repository_branch,omitempty"`
+	// Strings branch to import to
+	Branch string `json:"branch,omitempty"`
 }
