@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **AutotranslateMarkAsUnverified** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **AutotranslateUseMachineTranslation** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **AutotranslateUseTranslationMemory** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
+**AutotranslateOverwriteUnverifiedTranslations** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **PlaceholderStyles** | **[]string** | (Optional) List of placeholder styles enabled for the project. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

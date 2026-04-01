@@ -6,4 +6,6 @@ type OrganizationJobTemplateCreateParameters struct {
 	Name string `json:"name"`
 	// Briefing for the translators
 	Briefing string `json:"briefing,omitempty"`
+	// Automatically translate the job using machine translation.
+	Autotranslate *bool `json:"autotranslate,omitempty"`
 }

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Briefing** | **string** | Briefing for the translators | [optional] 
 **DueDate** | Pointer to [**NullableTime**](time.Time.md) | Date the job should be finished | [optional] 
 **TicketUrl** | **string** | URL to a ticket for this job (e.g. Jira, Trello) | [optional] 
+**Autotranslate** | **bool** | Automatically translate the job using machine translation | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
