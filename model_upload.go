@@ -16,6 +16,7 @@ type Upload struct {
 	Tags []string `json:"tags,omitempty"`
 	// The URL to the upload in Phrase Strings app.
 	Url       string        `json:"url,omitempty"`
+	User      UserPreview   `json:"user,omitempty"`
 	Summary   UploadSummary `json:"summary,omitempty"`
 	CreatedAt time.Time     `json:"created_at,omitempty"`
 	UpdatedAt time.Time     `json:"updated_at,omitempty"`
