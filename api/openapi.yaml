@@ -33115,6 +33115,12 @@ components:
           description: Automatically translate the job using machine translation.
           example: true
           type: boolean
+        source_locale_id:
+          description: "The API id of the source language. This locale will be set\
+            \ as source locale for the job template. If not provided, the project\
+            \ default locale will be used."
+          example: abcd1234cdef1234abcd1234cdef1234
+          type: string
       required:
       - name
       title: job_template/create/parameters
@@ -33137,6 +33143,12 @@ components:
           description: Automatically translate the job using machine translation.
           example: true
           type: boolean
+        source_locale_id:
+          description: "The API id of the source language. This locale will be set\
+            \ as source locale for the job template. If not provided, the project\
+            \ default locale will be used."
+          example: abcd1234cdef1234abcd1234cdef1234
+          type: string
       required:
       - name
       title: job_template/update/parameters
