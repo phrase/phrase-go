@@ -5,6 +5,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**RepoSyncActivate**](RepoSyncsApi.md#RepoSyncActivate) | **Post** /accounts/{account_id}/repo_syncs/{id}/activate | Activate a Repo Sync
+[**RepoSyncCreate**](RepoSyncsApi.md#RepoSyncCreate) | **Post** /accounts/{account_id}/repo_syncs | Create a Repo Sync
 [**RepoSyncDeactivate**](RepoSyncsApi.md#RepoSyncDeactivate) | **Post** /accounts/{account_id}/repo_syncs/{id}/deactivate | Deactivate a Repo Sync
 [**RepoSyncExport**](RepoSyncsApi.md#RepoSyncExport) | **Post** /accounts/{account_id}/repo_syncs/{id}/export | Export to code repository
 [**RepoSyncImport**](RepoSyncsApi.md#RepoSyncImport) | **Post** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
@@ -51,6 +52,51 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RepoSyncCreate
+
+> RepoSync RepoSyncCreate(ctx, accountId, repoSyncCreateParameters, optional)
+
+Create a Repo Sync
+
+Create a new Repo Sync.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **string**| Account ID | 
+**repoSyncCreateParameters** | [**RepoSyncCreateParameters**](RepoSyncCreateParameters.md)|  | 
+ **optional** | ***RepoSyncCreateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a RepoSyncCreateOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**RepoSync**](RepoSync.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
