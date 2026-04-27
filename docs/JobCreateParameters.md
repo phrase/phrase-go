@@ -12,7 +12,8 @@ Name | Type | Description | Notes
 **TicketUrl** | **string** | URL to a ticket for this job (e.g. Jira, Trello) | [optional] 
 **Tags** | **[]string** | tags of keys that should be included within the job | [optional] 
 **TranslationKeyIds** | **[]string** | ids of keys that should be included within the job | [optional] 
-**JobTemplateId** | **string** | id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes. | [optional] 
+**TargetLocaleIds** | **[]string** | List of target locales for the job. Mutually exclusive with &#x60;job_template_id&#x60;. | [optional] 
+**JobTemplateId** | **string** | id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes. Mutually exclusive with &#x60;target_locale_ids&#x60;. | [optional] 
 **Autotranslate** | **bool** | Automatically translate the job using machine translation. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

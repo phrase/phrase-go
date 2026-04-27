@@ -12,6 +12,8 @@ type JobUpdateParameters struct {
 	DueDate *NullableTime `json:"due_date,omitempty"`
 	// URL to a ticket for this job (e.g. Jira, Trello)
 	TicketUrl string `json:"ticket_url,omitempty"`
+	// List of target locales for the job.
+	TargetLocaleIds []string `json:"target_locale_ids,omitempty"`
 	// Automatically translate the job using machine translation
 	Autotranslate *bool `json:"autotranslate,omitempty"`
 }
