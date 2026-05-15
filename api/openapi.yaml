@@ -3837,6 +3837,16 @@ paths:
         schema:
           type: string
         style: form
+      - description: "Specify a query to filter locales. Currently supports `name`\
+          \ argument, filtering only locales with names starting with the given string."
+        example: name:en
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:

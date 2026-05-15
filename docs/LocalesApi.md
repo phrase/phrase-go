@@ -339,6 +339,7 @@ Name | Type | Description  | Notes
 **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
 **sortBy** | **optional.String**| Sort locales. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;default_asc\&quot;, \&quot;default_desc\&quot;. | 
 **branch** | **optional.String**| specify the branch to use | 
+**q** | **optional.String**| Specify a query to filter locales. Currently supports &#x60;name&#x60; argument, filtering only locales with names starting with the given string. | 
 
 ### Return type
 

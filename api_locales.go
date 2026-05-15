@@ -777,6 +777,7 @@ type LocalesListOpts struct {
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
 	SortBy        optional.String `json:"sort_by,omitempty"`
 	Branch        optional.String `json:"branch,omitempty"`
+	Q             optional.String `json:"q,omitempty"`
 }
 
 /*
@@ -790,6 +791,7 @@ List all locales for the given project.
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "SortBy" (optional.String) -  Sort locales. Valid options are \"name_asc\", \"name_desc\", \"default_asc\", \"default_desc\".
   - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "Q" (optional.String) -  Specify a query to filter locales. Currently supports `name` argument, filtering only locales with names starting with the given string.
 
 @return []Locale
 */
@@ -822,6 +824,9 @@ func (a *LocalesApiService) LocalesList(ctx _context.Context, projectId string, 
 	}
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Q.IsSet() {
+		localVarQueryParams.Add("q", parameterToString(localVarOptionals.Q.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
