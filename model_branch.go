@@ -6,14 +6,16 @@ import (
 
 // Branch struct for Branch
 type Branch struct {
-	BaseProjectId   string      `json:"base_project_id,omitempty"`
-	BranchProjectId string      `json:"branch_project_id,omitempty"`
-	Name            string      `json:"name,omitempty"`
-	CreatedAt       time.Time   `json:"created_at,omitempty"`
-	UpdatedAt       time.Time   `json:"updated_at,omitempty"`
-	MergedAt        time.Time   `json:"merged_at,omitempty"`
-	MergedBy        UserPreview `json:"merged_by,omitempty"`
-	CreatedBy       UserPreview `json:"created_by,omitempty"`
-	State           string      `json:"state,omitempty"`
-	ChildBranches   []string    `json:"child_branches,omitempty"`
+	BaseProjectId   string `json:"base_project_id,omitempty"`
+	BranchProjectId string `json:"branch_project_id,omitempty"`
+	Name            string `json:"name,omitempty"`
+	// Name of the base branch this branch was created from. Only present for branches created with the newer branching system.
+	Base          *NullableString `json:"base,omitempty"`
+	CreatedAt     time.Time       `json:"created_at,omitempty"`
+	UpdatedAt     time.Time       `json:"updated_at,omitempty"`
+	MergedAt      time.Time       `json:"merged_at,omitempty"`
+	MergedBy      UserPreview     `json:"merged_by,omitempty"`
+	CreatedBy     UserPreview     `json:"created_by,omitempty"`
+	State         string          `json:"state,omitempty"`
+	ChildBranches []string        `json:"child_branches,omitempty"`
 }

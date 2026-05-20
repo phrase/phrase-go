@@ -212,7 +212,7 @@ type BranchCreateOpts struct {
 
 /*
 BranchCreate Create a branch
-Create a new branch.  *Note: Creating a new branch may take several minutes depending on the project size.*
+Create a new branch.  Branch project provisioning runs asynchronously, so the newly created branch is returned in a transitional state (typically &#x60;creating_branch&#x60;) and only reaches &#x60;success&#x60; once the underlying project has been set up. Poll the branch resource until its &#x60;state&#x60; becomes &#x60;success&#x60; before performing further operations on it.  Requires the Branching feature to be enabled on the account.  *Note: Creating a new branch may take several minutes depending on the project size.*
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param branchCreateParameters
@@ -294,6 +294,16 @@ func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CustomMetadataPropertyCreate422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -316,7 +326,7 @@ type BranchDeleteOpts struct {
 
 /*
 BranchDelete Delete a branch
-Delete an existing branch.
+Delete an existing branch.  A branch cannot be deleted while it still has open jobs or open translation orders attached to its branch project — in that case the request is rejected with &#x60;409 Conflict&#x60;. A branch whose current &#x60;state&#x60; does not allow deletion (for example, while a merge or sync is in progress) is rejected with &#x60;422 Unprocessable Entity&#x60;.  Requires the Branching feature to be enabled on the account.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param name name
@@ -352,7 +362,7 @@ func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -395,6 +405,16 @@ func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CustomMetadataPropertyCreate422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return nil, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return nil, localVarHTTPResponse, newErr
+		}
 		return localVarBody, localVarHTTPResponse, newErr
 	}
 
@@ -408,7 +428,7 @@ type BranchMergeOpts struct {
 
 /*
 BranchMerge Merge a branch
-Merge an existing branch.  *Note: Merging a branch may take several minutes depending on diff size.*
+Merge an existing branch back into its base branch.  The merge runs asynchronously. The branch transitions to &#x60;merging_branch&#x60; and settles in &#x60;merged&#x60;, &#x60;merge_error&#x60;, or &#x60;merge_conflict&#x60; once the background job completes; the response body for this request is empty. Poll the branch resource to observe the final state.  A branch cannot be merged while it still has open jobs or open translation orders attached to its branch project — in that case the request is rejected with &#x60;409 Conflict&#x60;. A branch whose current &#x60;state&#x60; does not allow a merge is rejected with &#x60;422 Unprocessable Entity&#x60;.  Requires the Branching feature to be enabled on the account.  *Note: Merging a branch may take several minutes depending on diff size.*
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param name name
@@ -445,7 +465,7 @@ func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string,
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -490,6 +510,16 @@ func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CustomMetadataPropertyCreate422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return nil, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return nil, localVarHTTPResponse, newErr
+		}
 		return localVarBody, localVarHTTPResponse, newErr
 	}
 
@@ -503,7 +533,7 @@ type BranchShowOpts struct {
 
 /*
 BranchShow Get a single branch
-Get details on a single branch for a given project.
+Get details on a single branch for a given project.  Requires the Branching feature to be enabled on the account.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param name name
@@ -607,7 +637,7 @@ type BranchSyncOpts struct {
 
 /*
 BranchSync Sync a branch
-Sync an existing branch.  *Note: Only available for branches created with new branching.*
+Pull changes from the base branch into this branch, applying the chosen conflict-resolution strategy.  The sync runs asynchronously. The branch transitions to &#x60;syncing_branch&#x60; and settles back into &#x60;success&#x60; (or &#x60;merge_conflict&#x60; / &#x60;branch_error&#x60;) once the background job completes; the response body for this request is empty. Poll the branch resource to observe the final state.  Only branches created with the newer branching system can be synced. Requests against branches from the older system, or against branches whose current state does not allow a sync, are rejected with &#x60;422 Unprocessable Entity&#x60; and an empty body.  Requires the Branching feature to be enabled on the account.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param name name
@@ -644,7 +674,7 @@ func (a *BranchesApiService) BranchSync(ctx _context.Context, projectId string, 
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -689,6 +719,16 @@ func (a *BranchesApiService) BranchSync(ctx _context.Context, projectId string, 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CustomMetadataPropertyCreate422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return nil, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return nil, localVarHTTPResponse, newErr
+		}
 		return localVarBody, localVarHTTPResponse, newErr
 	}
 
@@ -702,7 +742,7 @@ type BranchUpdateOpts struct {
 
 /*
 BranchUpdate Update a branch
-Update an existing branch.
+Update an existing branch. Only the branch name can be changed.  Requires the Branching feature to be enabled on the account.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param name name
@@ -787,6 +827,16 @@ func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v CustomMetadataPropertyCreate422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -811,7 +861,7 @@ type BranchesListOpts struct {
 
 /*
 BranchesList List branches
-List all branches the of the current project.
+List all branches of the current project.  Requires the Branching feature to be enabled on the account.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param optional nil or *BranchesListOpts - Optional Parameters:

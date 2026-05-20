@@ -15507,7 +15507,10 @@ paths:
       x-cli-version: "2.5"
   /projects/{project_id}/branches:
     get:
-      description: List all branches the of the current project.
+      description: |
+        List all branches of the current project.
+
+        Requires the Branching feature to be enabled on the account.
       operationId: branches/list
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -15576,6 +15579,17 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "404":
           description: Not Found
           headers:
@@ -15611,6 +15625,10 @@ paths:
     post:
       description: |
         Create a new branch.
+
+        Branch project provisioning runs asynchronously, so the newly created branch is returned in a transitional state (typically `creating_branch`) and only reaches `success` once the underlying project has been set up. Poll the branch resource until its `state` becomes `success` before performing further operations on it.
+
+        Requires the Branching feature to be enabled on the account.
 
         *Note: Creating a new branch may take several minutes depending on the project size.*
       operationId: branch/create
@@ -15660,8 +15678,32 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "404":
           description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -15698,7 +15740,12 @@ paths:
       x-cli-version: "2.5"
   /projects/{project_id}/branches/{name}:
     delete:
-      description: Delete an existing branch.
+      description: |
+        Delete an existing branch.
+
+        A branch cannot be deleted while it still has open jobs or open translation orders attached to its branch project — in that case the request is rejected with `409 Conflict`. A branch whose current `state` does not allow deletion (for example, while a merge or sync is in progress) is rejected with `422 Unprocessable Entity`.
+
+        Requires the Branching feature to be enabled on the account.
       operationId: branch/delete
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -15744,8 +15791,41 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "404":
           description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "409":
+          description: Conflict
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -15779,7 +15859,10 @@ paths:
           --access_token <token>
       x-cli-version: "2.5"
     get:
-      description: Get details on a single branch for a given project.
+      description: |
+        Get details on a single branch for a given project.
+
+        Requires the Branching feature to be enabled on the account.
       operationId: branch/show
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -15829,6 +15912,17 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "404":
           description: Not Found
           headers:
@@ -15863,7 +15957,10 @@ paths:
           --access_token <token>
       x-cli-version: "2.5"
     patch:
-      description: Update an existing branch.
+      description: |
+        Update an existing branch. Only the branch name can be changed.
+
+        Requires the Branching feature to be enabled on the account.
       operationId: branch/update
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -15919,8 +16016,32 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "404":
           description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -15959,7 +16080,13 @@ paths:
   /projects/{project_id}/branches/{name}/merge:
     patch:
       description: |
-        Merge an existing branch.
+        Merge an existing branch back into its base branch.
+
+        The merge runs asynchronously. The branch transitions to `merging_branch` and settles in `merged`, `merge_error`, or `merge_conflict` once the background job completes; the response body for this request is empty. Poll the branch resource to observe the final state.
+
+        A branch cannot be merged while it still has open jobs or open translation orders attached to its branch project — in that case the request is rejected with `409 Conflict`. A branch whose current `state` does not allow a merge is rejected with `422 Unprocessable Entity`.
+
+        Requires the Branching feature to be enabled on the account.
 
         *Note: Merging a branch may take several minutes depending on diff size.*
       operationId: branch/merge
@@ -15996,7 +16123,8 @@ paths:
         required: true
       responses:
         "200":
-          description: OK
+          description: OK. The merge has been scheduled. The response body is empty;
+            observe progress by polling the branch resource.
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -16013,8 +16141,41 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "404":
           description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "409":
+          description: Conflict
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -16052,9 +16213,13 @@ paths:
   /projects/{project_id}/branches/{name}/sync:
     patch:
       description: |
-        Sync an existing branch.
+        Pull changes from the base branch into this branch, applying the chosen conflict-resolution strategy.
 
-        *Note: Only available for branches created with new branching.*
+        The sync runs asynchronously. The branch transitions to `syncing_branch` and settles back into `success` (or `merge_conflict` / `branch_error`) once the background job completes; the response body for this request is empty. Poll the branch resource to observe the final state.
+
+        Only branches created with the newer branching system can be synced. Requests against branches from the older system, or against branches whose current state does not allow a sync, are rejected with `422 Unprocessable Entity` and an empty body.
+
+        Requires the Branching feature to be enabled on the account.
       operationId: branch/sync
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -16089,7 +16254,8 @@ paths:
         required: true
       responses:
         "200":
-          description: OK
+          description: OK. The sync has been scheduled. The response body is empty;
+            observe progress by polling the branch resource.
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -16106,8 +16272,32 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "404":
           description: Not Found
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/custom_metadata_property_create_422_response'
+          description: Unprocessable entity
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'
@@ -31279,6 +31469,11 @@ components:
           type: string
         name:
           type: string
+        base:
+          description: Name of the base branch this branch was created from. Only
+            present for branches created with the newer branching system.
+          nullable: true
+          type: string
         created_at:
           format: date-time
           type: string
@@ -31293,6 +31488,14 @@ components:
         created_by:
           $ref: '#/components/schemas/user_preview'
         state:
+          enum:
+          - creating_branch
+          - merging_branch
+          - syncing_branch
+          - merged
+          - success
+          - branch_error
+          - merge_conflict
           type: string
         child_branches:
           items:
@@ -34266,6 +34469,10 @@ components:
           description: Name of the branch
           example: my-branch
           type: string
+        base:
+          description: Name of an existing branch to use as the base for the new branch.
+          example: parent-branch
+          type: string
       required:
       - name
       title: branch/create/parameters
@@ -34281,7 +34488,11 @@ components:
     branch_merge_parameters:
       properties:
         strategy:
-          description: "strategy used for merge conflicts, use_main or use_branch"
+          description: |
+            Conflict resolution strategy applied when the branch and its base have diverged. `use_main` keeps the values from the base branch; `use_branch` keeps the values from the branch being merged.
+          enum:
+          - use_main
+          - use_branch
           example: use_main
           type: string
       title: branch/merge/parameters
@@ -34289,7 +34500,11 @@ components:
     branch_sync_parameters:
       properties:
         strategy:
-          description: "strategy used for conflicts, use_main or use_branch"
+          description: |
+            Conflict resolution strategy applied when the branch and its base have diverged. `use_main` keeps the values from the base branch; `use_branch` keeps the values from this branch.
+          enum:
+          - use_main
+          - use_branch
           example: use_main
           type: string
       title: branch/sync/parameters

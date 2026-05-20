@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **BaseProjectId** | **string** |  | [optional] 
 **BranchProjectId** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
+**Base** | Pointer to **NullableString** | Name of the base branch this branch was created from. Only present for branches created with the newer branching system. | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **MergedAt** | [**time.Time**](time.Time.md) |  | [optional] 
