@@ -14,5 +14,6 @@ type AccountDetails struct {
 	UpdatedAt      time.Time    `json:"updated_at,omitempty"`
 	CompanyLogoUrl string       `json:"company_logo_url,omitempty"`
 	Subscription   Subscription `json:"subscription,omitempty"`
-	Roles          []string     `json:"roles,omitempty"`
+	// Roles the requesting user holds in the account.
+	Roles []string `json:"roles,omitempty"`
 }

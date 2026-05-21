@@ -295,7 +295,7 @@ func (a *BranchesApiService) BranchCreate(ctx _context.Context, projectId string
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CustomMetadataPropertyCreate422Response
+			var v DocumentDelete422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -406,7 +406,7 @@ func (a *BranchesApiService) BranchDelete(ctx _context.Context, projectId string
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CustomMetadataPropertyCreate422Response
+			var v DocumentDelete422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -511,7 +511,7 @@ func (a *BranchesApiService) BranchMerge(ctx _context.Context, projectId string,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CustomMetadataPropertyCreate422Response
+			var v DocumentDelete422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -720,7 +720,7 @@ func (a *BranchesApiService) BranchSync(ctx _context.Context, projectId string, 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CustomMetadataPropertyCreate422Response
+			var v DocumentDelete422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -828,7 +828,7 @@ func (a *BranchesApiService) BranchUpdate(ctx _context.Context, projectId string
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CustomMetadataPropertyCreate422Response
+			var v DocumentDelete422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

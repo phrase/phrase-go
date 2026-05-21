@@ -6,11 +6,11 @@ type StyleguideCreateParameters struct {
 	Title string `json:"title"`
 	// Audience description
 	Audience string `json:"audience,omitempty"`
-	// Can be one of: not_specified, children, teenager, young_adults, adults, old_adults.
+	// Target audience for the translations.
 	TargetAudience string `json:"target_audience,omitempty"`
-	// Can be one of: not_specified, first_person_singular, second_person_singular, third_person_singular_masculine, third_person_singular_feminine, third_person_singular_neuter, first_person_plural, second_person_plural, third_person_plural.
+	// Preferred grammatical person.
 	GrammaticalPerson string `json:"grammatical_person,omitempty"`
-	// Can be one of: not_specified, popular, technical, fictional.
+	// Vocabulary register the translations should use.
 	VocabularyType string `json:"vocabulary_type,omitempty"`
 	// Description of the business
 	Business string `json:"business,omitempty"`

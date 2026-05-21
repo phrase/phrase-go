@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Content** | **string** | Source content | [optional] 
+**Content** | **string** | Source content to derive skeletons from. Mutually exclusive with &#x60;id&#x60;; exactly one of the two must be provided.  | [optional] 
+**Id** | **string** | Translation code to source content from. Mutually exclusive with &#x60;content&#x60;; exactly one of the two must be provided.  | [optional] 
 **LocaleCodes** | **[]string** | Locale codes | [optional] 
 **KeepContent** | **bool** | Keep the content and add missing plural forms for each locale | [optional] 
 **ZeroFormEnabled** | **bool** | Indicates whether the zero form should be included or excluded in the returned skeletons | [optional] 

@@ -340,7 +340,7 @@ func (a *CustomMetadataApiService) CustomMetadataPropertyCreate(ctx _context.Con
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CustomMetadataPropertyCreate422Response
+			var v DocumentDelete422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

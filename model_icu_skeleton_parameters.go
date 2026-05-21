@@ -2,8 +2,10 @@ package phrase
 
 // IcuSkeletonParameters struct for IcuSkeletonParameters
 type IcuSkeletonParameters struct {
-	// Source content
+	// Source content to derive skeletons from. Mutually exclusive with `id`; exactly one of the two must be provided.
 	Content string `json:"content,omitempty"`
+	// Translation code to source content from. Mutually exclusive with `content`; exactly one of the two must be provided.
+	Id string `json:"id,omitempty"`
 	// Locale codes
 	LocaleCodes []string `json:"locale_codes,omitempty"`
 	// Keep the content and add missing plural forms for each locale

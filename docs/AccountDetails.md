@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **CompanyLogoUrl** | **string** |  | [optional] 
 **Subscription** | [**Subscription**](Subscription.md) |  | [optional] 
-**Roles** | **[]string** |  | [optional] 
+**Roles** | **[]string** | Roles the requesting user holds in the account.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

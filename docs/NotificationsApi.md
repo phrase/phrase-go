@@ -37,6 +37,7 @@ Name | Type | Description  | Notes
 **page** | **optional.Int32**| Page number | 
 **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
 **unseen** | **optional.Bool**| Include only unseen notifications | 
+**lastDays** | **optional.Int32**| Restrict the results to notifications created within the last N days. Coerced to integer; non-numeric values resolve to 0 (returning nothing). | 
 
 ### Return type
 

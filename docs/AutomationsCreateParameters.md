@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **Tags** | **[]string** | used to filter which keys are added to jobs | [optional] 
 **CronSchedule** | **string** | along with time_zone, specifies when the scheduled automation is supposed to run | [optional] 
 **TimeZone** | **string** | along with cron_schedule, specifies when the scheduled automation is supposed to run | [optional] 
+**JobOwnerId** | **string** | User ID of the job owner that newly created jobs are assigned to.  | [optional] 
+**IncludeOnlyUpdatedLocales** | **bool** | When &#x60;true&#x60;, the automation only acts on locales that changed since its last run. Defaults to &#x60;false&#x60;.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

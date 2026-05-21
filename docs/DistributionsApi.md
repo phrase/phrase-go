@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## DistributionCreate
 
-> Distribution DistributionCreate(ctx, accountId, distributionCreateParameters, optional)
+> DistributionDetails DistributionCreate(ctx, accountId, distributionCreateParameters, optional)
 
 Create a distribution
 
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Distribution**](Distribution.md)
+[**DistributionDetails**](DistributionDetails.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ## DistributionShow
 
-> Distribution DistributionShow(ctx, accountId, id, optional)
+> DistributionDetails DistributionShow(ctx, accountId, id, optional)
 
 Get a single distribution
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Distribution**](Distribution.md)
+[**DistributionDetails**](DistributionDetails.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## DistributionUpdate
 
-> Distribution DistributionUpdate(ctx, accountId, id, distributionUpdateParameters, optional)
+> DistributionDetails DistributionUpdate(ctx, accountId, id, distributionUpdateParameters, optional)
 
 Update a distribution
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Distribution**](Distribution.md)
+[**DistributionDetails**](DistributionDetails.md)
 
 ### Authorization
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ## DistributionsList
 
-> []DistributionPreview DistributionsList(ctx, accountId, optional)
+> []Distribution DistributionsList(ctx, accountId, optional)
 
 List distributions
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]DistributionPreview**](DistributionPreview.md)
+[**[]Distribution**](Distribution.md)
 
 ### Authorization
 

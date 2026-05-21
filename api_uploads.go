@@ -43,6 +43,7 @@ type UploadCreateOpts struct {
 	MarkReviewed                    optional.Bool      `json:"mark_reviewed,omitempty"`
 	TagOnlyAffectedKeys             optional.Bool      `json:"tag_only_affected_keys,omitempty"`
 	TranslationKeyPrefix            optional.String    `json:"translation_key_prefix,omitempty"`
+	SkipAutomatedJobCreation        optional.Bool      `json:"skip_automated_job_creation,omitempty"`
 }
 
 /*
@@ -74,6 +75,7 @@ Upload a new language file. Creates necessary resources in your project.  Note: 
   - @param "MarkReviewed" (optional.Bool) -  Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
   - @param "TagOnlyAffectedKeys" (optional.Bool) -  Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
   - @param "TranslationKeyPrefix" (optional.String) -  This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized.
+  - @param "SkipAutomatedJobCreation" (optional.Bool) -  When `true`, the automation rules for the project will not fire for this upload, so no jobs are created as a side effect of importing this file. Defaults to `false`.
 
 @return Upload
 */
@@ -186,6 +188,9 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 	if localVarOptionals != nil && localVarOptionals.TranslationKeyPrefix.IsSet() {
 		localVarFormParams.Add("translation_key_prefix", parameterToString(localVarOptionals.TranslationKeyPrefix.Value(), ""))
 	}
+	if localVarOptionals != nil && localVarOptionals.SkipAutomatedJobCreation.IsSet() {
+		localVarFormParams.Add("skip_automated_job_creation", parameterToString(localVarOptionals.SkipAutomatedJobCreation.Value(), ""))
+	}
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -218,6 +223,16 @@ func (a *UploadsApiService) UploadCreate(ctx _context.Context, projectId string,
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

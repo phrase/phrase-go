@@ -10,4 +10,6 @@ type SearchInAccountParameters struct {
 	Page int32 `json:"page,omitempty"`
 	// Number of results per page
 	PerPage int32 `json:"per_page,omitempty"`
+	// Limit the search to the given project codes. When omitted, the search spans every project the user can access in this account.
+	ProjectIds []string `json:"project_ids,omitempty"`
 }

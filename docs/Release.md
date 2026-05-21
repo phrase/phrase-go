@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Environments** | **[]string** |  | [optional] 
 **Locales** | [**[]LocalePreview**](LocalePreview.md) |  | [optional] 
 **Tags** | **[]string** |  | [optional] 
+**State** | **string** |  | [optional] 
 **Project** | [**ProjectShort**](ProjectShort.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 

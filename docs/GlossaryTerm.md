@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Translatable** | **bool** |  | [optional] 
 **CaseSensitive** | **bool** |  | [optional] 
 **Translations** | [**[]GlossaryTermTranslation**](GlossaryTermTranslation.md) |  | [optional] 
+**Glossary** | [**GlossaryTermGlossary**](GlossaryTermGlossary.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

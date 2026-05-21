@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -223,6 +223,7 @@ Name | Type | Description  | Notes
 **page** | **optional.Int32**| Page number | 
 **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
 **branch** | **optional.String**| specify the branch to use | 
+**translationId** | **optional.String**| Filter the result to orders that include the given translation. When supplied with a translation code that does not exist, an empty list is returned. | 
 
 ### Return type
 

@@ -12,6 +12,7 @@ type GlossaryTerm struct {
 	Translatable  *bool                     `json:"translatable,omitempty"`
 	CaseSensitive *bool                     `json:"case_sensitive,omitempty"`
 	Translations  []GlossaryTermTranslation `json:"translations,omitempty"`
+	Glossary      GlossaryTermGlossary      `json:"glossary,omitempty"`
 	CreatedAt     time.Time                 `json:"created_at,omitempty"`
 	UpdatedAt     time.Time                 `json:"updated_at,omitempty"`
 }

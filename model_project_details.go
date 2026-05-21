@@ -31,8 +31,11 @@ type ProjectDetails struct {
 	AutotranslateMarkAsUnverified                  *bool       `json:"autotranslate_mark_as_unverified,omitempty"`
 	AutotranslateUseMachineTranslation             *bool       `json:"autotranslate_use_machine_translation,omitempty"`
 	AutotranslateUseTranslationMemory              *bool       `json:"autotranslate_use_translation_memory,omitempty"`
+	AutotranslateOverwriteUnverifiedTranslations   *bool       `json:"autotranslate_overwrite_unverified_translations,omitempty"`
+	AutocompleteJobEnabled                         *bool       `json:"autocomplete_job_enabled,omitempty"`
 	DefaultEncoding                                string      `json:"default_encoding,omitempty"`
 	CldrVersion                                    string      `json:"cldr_version,omitempty"`
 	JobLockingEnabled                              *bool       `json:"job_locking_enabled,omitempty"`
 	PlaceholderStyles                              []string    `json:"placeholder_styles,omitempty"`
+	Branch                                         Branch      `json:"branch,omitempty"`
 }

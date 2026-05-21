@@ -110,6 +110,16 @@ func (a *OrdersApiService) OrderConfirm(ctx _context.Context, projectId string, 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -214,6 +224,16 @@ func (a *OrdersApiService) OrderCreate(ctx _context.Context, projectId string, o
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -277,7 +297,7 @@ func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, i
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -319,6 +339,16 @@ func (a *OrdersApiService) OrderDelete(ctx _context.Context, projectId string, i
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return nil, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return nil, localVarHTTPResponse, newErr
 		}
 		return localVarBody, localVarHTTPResponse, newErr
 	}
@@ -441,6 +471,7 @@ type OrdersListOpts struct {
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
 	Branch        optional.String `json:"branch,omitempty"`
+	TranslationId optional.String `json:"translation_id,omitempty"`
 }
 
 /*
@@ -453,6 +484,7 @@ List all orders for the given project.
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Branch" (optional.String) -  specify the branch to use
+  - @param "TranslationId" (optional.String) -  Filter the result to orders that include the given translation. When supplied with a translation code that does not exist, an empty list is returned.
 
 @return []TranslationOrder
 */
@@ -482,6 +514,9 @@ func (a *OrdersApiService) OrdersList(ctx _context.Context, projectId string, lo
 	}
 	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
 		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.TranslationId.IsSet() {
+		localVarQueryParams.Add("translation_id", parameterToString(localVarOptionals.TranslationId.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

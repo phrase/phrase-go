@@ -108,13 +108,14 @@ func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, projec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CustomMetadataPropertyCreate422Response
+			var v DocumentDelete422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return nil, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+			return nil, localVarHTTPResponse, newErr
 		}
 		return localVarBody, localVarHTTPResponse, newErr
 	}
@@ -215,13 +216,14 @@ func (a *LinkedKeysApiService) KeyLinksCreate(ctx _context.Context, projectId st
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CustomMetadataPropertyCreate422Response
+			var v DocumentDelete422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -328,13 +330,14 @@ func (a *LinkedKeysApiService) KeyLinksDestroy(ctx _context.Context, projectId s
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CustomMetadataPropertyCreate422Response
+			var v DocumentDelete422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
 				return nil, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+			return nil, localVarHTTPResponse, newErr
 		}
 		return localVarBody, localVarHTTPResponse, newErr
 	}
@@ -439,6 +442,7 @@ func (a *LinkedKeysApiService) KeyLinksIndex(ctx _context.Context, projectId str
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

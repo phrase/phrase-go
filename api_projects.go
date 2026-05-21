@@ -25,7 +25,7 @@ type ProjectCreateOpts struct {
 
 /*
 ProjectCreate Create a project
-Create a new project.
+Create a new project in the given account.  When &#x60;source_project_id&#x60; is supplied, the new project is created as a clone of that project. All locales, keys, and translations are copied asynchronously after the response is returned, so they may not be available immediately. Settings from the source project are inherited unless explicitly overridden in the request; in clone mode, the &#x60;shares_translation_memory&#x60; field is ignored and inherited from the source.  &#x60;shares_translation_memory&#x60; defaults to &#x60;true&#x60; when omitted on a non-clone create.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectCreateParameters
   - @param optional nil or *ProjectCreateOpts - Optional Parameters:
@@ -104,6 +104,16 @@ func (a *ProjectsApiService) ProjectCreate(ctx _context.Context, projectCreatePa
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -126,7 +136,7 @@ type ProjectDeleteOpts struct {
 
 /*
 ProjectDelete Delete a project
-Delete an existing project.
+Delete an existing project. Associated repository syncs and OTA distributions are removed. A &#x60;project:delete&#x60; event is dispatched.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID
   - @param optional nil or *ProjectDeleteOpts - Optional Parameters:
@@ -159,7 +169,7 @@ func (a *ProjectsApiService) ProjectDelete(ctx _context.Context, id string, loca
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -201,6 +211,16 @@ func (a *ProjectsApiService) ProjectDelete(ctx _context.Context, id string, loca
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return nil, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return nil, localVarHTTPResponse, newErr
 		}
 		return localVarBody, localVarHTTPResponse, newErr
 	}
@@ -398,6 +418,16 @@ func (a *ProjectsApiService) ProjectUpdate(ctx _context.Context, id string, proj
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -421,19 +451,21 @@ type ProjectsListOpts struct {
 	AccountId     optional.String `json:"account_id,omitempty"`
 	SortBy        optional.String `json:"sort_by,omitempty"`
 	Filters       []string        `json:"filters,omitempty"`
+	Q             optional.String `json:"q,omitempty"`
 }
 
 /*
 ProjectsList List projects
-List all projects the current user has access to.
+List all projects the current user has access to.  When the &#x60;account_id&#x60; query parameter is omitted, the response includes projects across every account the user is a member of. Pass &#x60;account_id&#x60; to scope the results to a single account.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param optional nil or *ProjectsListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "AccountId" (optional.String) -  Filter by Account ID
-  - @param "SortBy" (optional.String) -  Sort projects. Valid options are \"name_asc\", \"name_desc\", \"updated_at_asc\", \"updated_at_desc\", \"space_asc\" and \"space_desc\".
-  - @param "Filters" (optional.Interface of []string) -  Filter projects. Valid options are [\"favorites\"].
+  - @param "SortBy" (optional.String) -  Sort projects. Valid values are `name_asc`, `name_desc`, `updated_at_asc`, `updated_at_desc`, `space_asc`, and `space_desc`. The trailing direction segment is optional; if omitted or invalid, projects are sorted ascending. Any other value is ignored and the default ordering is returned.
+  - @param "Filters" (optional.Interface of []string) -  Filter projects. The only supported value is `favorites`, which restricts the results to projects the current user has starred.
+  - @param "Q" (optional.String) -  Search query. The only supported syntax is `name:<text>` — for example `name:android` returns projects whose name matches `android` (case-insensitive substring). Any value that does not match the `name:` prefix is ignored.
 
 @return []Project
 */
@@ -470,6 +502,9 @@ func (a *ProjectsApiService) ProjectsList(ctx _context.Context, localVarOptional
 		for i := range t {
 			localVarQueryParams.Add("filters[]", parameterToString(t[i], "multi"))
 		}
+	}
+	if localVarOptionals != nil && localVarOptionals.Q.IsSet() {
+		localVarQueryParams.Add("q", parameterToString(localVarOptionals.Q.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

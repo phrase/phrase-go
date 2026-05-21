@@ -29,10 +29,13 @@ Name | Type | Description | Notes
 **AutotranslateMarkAsUnverified** | **bool** |  | [optional] 
 **AutotranslateUseMachineTranslation** | **bool** |  | [optional] 
 **AutotranslateUseTranslationMemory** | **bool** |  | [optional] 
+**AutotranslateOverwriteUnverifiedTranslations** | **bool** |  | [optional] 
+**AutocompleteJobEnabled** | **bool** |  | [optional] 
 **DefaultEncoding** | **string** |  | [optional] 
 **CldrVersion** | **string** |  | [optional] 
 **JobLockingEnabled** | **bool** |  | [optional] 
 **PlaceholderStyles** | **[]string** |  | [optional] 
+**Branch** | [**Branch**](Branch.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

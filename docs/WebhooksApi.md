@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -150,11 +150,11 @@ Name | Type | Description  | Notes
 
 ## WebhookTest
 
-> WebhookTest(ctx, projectId, id, optional)
+> Webhook WebhookTest(ctx, projectId, id, optional)
 
 Test a webhook
 
-Perform a test request for a webhook.
+Perform a test request for a webhook. Sends a synthetic `test:event` payload to the webhook's `callback_url` and returns the webhook resource. 
 
 ### Required Parameters
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**Webhook**](Webhook.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

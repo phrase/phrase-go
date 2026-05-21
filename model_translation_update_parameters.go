@@ -16,4 +16,6 @@ type TranslationUpdateParameters struct {
 	Autotranslate *bool `json:"autotranslate,omitempty"`
 	// When set to `true`, the translation will be marked as reviewed.
 	Reviewed *bool `json:"reviewed,omitempty"`
+	// When `true`, the update is treated as a minor edit and does not trigger downstream re-verification on the linked locales' translations.
+	MinorChange *bool `json:"minor_change,omitempty"`
 }

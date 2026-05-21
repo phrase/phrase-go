@@ -24,6 +24,7 @@ type NotificationsListOpts struct {
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
 	Unseen        optional.Bool   `json:"unseen,omitempty"`
+	LastDays      optional.Int32  `json:"last_days,omitempty"`
 }
 
 /*
@@ -35,6 +36,7 @@ List all notifications from the current user
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
   - @param "Unseen" (optional.Bool) -  Include only unseen notifications
+  - @param "LastDays" (optional.Int32) -  Restrict the results to notifications created within the last N days. Coerced to integer; non-numeric values resolve to 0 (returning nothing).
 
 @return []Notification
 */
@@ -62,6 +64,9 @@ func (a *NotificationsApiService) NotificationsList(ctx _context.Context, localV
 	}
 	if localVarOptionals != nil && localVarOptionals.Unseen.IsSet() {
 		localVarQueryParams.Add("unseen", parameterToString(localVarOptionals.Unseen.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.LastDays.IsSet() {
+		localVarQueryParams.Add("last_days", parameterToString(localVarOptionals.LastDays.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

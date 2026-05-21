@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -374,8 +374,8 @@ Name | Type | Description  | Notes
 **branch** | **optional.String**| specify the branch to use | 
 **query** | **optional.String**| Search query for comment messages | 
 **localeIds** | [**optional.Interface of []string**](string.md)| Search comments by their assigned locales | 
-**filters** | [**optional.Interface of []string**](string.md)| Specify the filter for the comments | 
-**order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
+**filters** | [**optional.Interface of []string**](string.md)| Specify the filter for the comments. Supported values are &#x60;read&#x60; and &#x60;unread&#x60;. Combine both to return all comments (read + unread) without filtering. | 
+**order** | **optional.String**| Order direction. Defaults to &#x60;desc&#x60;. Values other than &#x60;asc&#x60; and &#x60;desc&#x60; fall back to &#x60;desc&#x60;. | 
 
 ### Return type
 

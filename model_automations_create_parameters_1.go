@@ -17,4 +17,8 @@ type AutomationsCreateParameters1 struct {
 	CronSchedule string `json:"cron_schedule,omitempty"`
 	// along with cron_schedule, specifies when the scheduled automation is supposed to run
 	TimeZone string `json:"time_zone,omitempty"`
+	// User ID of the job owner that newly created jobs are assigned to.
+	JobOwnerId string `json:"job_owner_id,omitempty"`
+	// When `true`, the automation only acts on locales that changed since its last run.
+	IncludeOnlyUpdatedLocales *bool `json:"include_only_updated_locales,omitempty"`
 }

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | [optional] 
-**Presentation** | **string** |  | [optional] 
-**PresentationType** | **string** |  | [optional] 
+**Presentation** | [**ScreenshotMarkerPresentation**](ScreenshotMarkerPresentation.md) |  | [optional] 
+**PresentationType** | **string** | Marker presentation style. The default value is &#x60;default&#x60;.  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **TranslationKey** | [**TranslationKey**](TranslationKey.md) |  | [optional] 

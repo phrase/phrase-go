@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Briefing** | **string** |  | [optional] 
 **Project** | [**ProjectShort**](ProjectShort.md) |  | [optional] 
 **Branch** | [**Branch**](Branch.md) |  | [optional] 
+**AutotranslateEnabled** | **bool** | When &#x60;true&#x60;, jobs created from this template are auto-translated on creation.  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 

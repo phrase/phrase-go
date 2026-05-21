@@ -32,16 +32,16 @@ Create a new distribution.
   - @param optional nil or *DistributionCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
-@return Distribution
+@return DistributionDetails
 */
-func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accountId string, distributionCreateParameters DistributionCreateParameters, localVarOptionals *DistributionCreateOpts) (Distribution, *APIResponse, error) {
+func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accountId string, distributionCreateParameters DistributionCreateParameters, localVarOptionals *DistributionCreateOpts) (DistributionDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Distribution
+		localVarReturnValue  DistributionDetails
 	)
 
 	// create path and map variables
@@ -107,6 +107,16 @@ func (a *DistributionsApiService) DistributionCreate(ctx _context.Context, accou
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -165,7 +175,7 @@ func (a *DistributionsApiService) DistributionDelete(ctx _context.Context, accou
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -208,6 +218,16 @@ func (a *DistributionsApiService) DistributionDelete(ctx _context.Context, accou
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return nil, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return nil, localVarHTTPResponse, newErr
+		}
 		return localVarBody, localVarHTTPResponse, newErr
 	}
 
@@ -228,16 +248,16 @@ Get details on a single distribution.
   - @param optional nil or *DistributionShowOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
-@return Distribution
+@return DistributionDetails
 */
-func (a *DistributionsApiService) DistributionShow(ctx _context.Context, accountId string, id string, localVarOptionals *DistributionShowOpts) (Distribution, *APIResponse, error) {
+func (a *DistributionsApiService) DistributionShow(ctx _context.Context, accountId string, id string, localVarOptionals *DistributionShowOpts) (DistributionDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Distribution
+		localVarReturnValue  DistributionDetails
 	)
 
 	// create path and map variables
@@ -333,16 +353,16 @@ Update an existing distribution.
   - @param optional nil or *DistributionUpdateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
 
-@return Distribution
+@return DistributionDetails
 */
-func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accountId string, id string, distributionUpdateParameters DistributionUpdateParameters, localVarOptionals *DistributionUpdateOpts) (Distribution, *APIResponse, error) {
+func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accountId string, id string, distributionUpdateParameters DistributionUpdateParameters, localVarOptionals *DistributionUpdateOpts) (DistributionDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Distribution
+		localVarReturnValue  DistributionDetails
 	)
 
 	// create path and map variables
@@ -410,6 +430,16 @@ func (a *DistributionsApiService) DistributionUpdate(ctx _context.Context, accou
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -442,16 +472,16 @@ List all distributions for the given account.
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
-@return []DistributionPreview
+@return []Distribution
 */
-func (a *DistributionsApiService) DistributionsList(ctx _context.Context, accountId string, localVarOptionals *DistributionsListOpts) ([]DistributionPreview, *APIResponse, error) {
+func (a *DistributionsApiService) DistributionsList(ctx _context.Context, accountId string, localVarOptionals *DistributionsListOpts) ([]Distribution, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []DistributionPreview
+		localVarReturnValue  []Distribution
 	)
 
 	// create path and map variables

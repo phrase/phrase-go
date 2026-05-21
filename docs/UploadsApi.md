@@ -57,6 +57,7 @@ Name | Type | Description  | Notes
 **markReviewed** | **optional.Bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | 
 **tagOnlyAffectedKeys** | **optional.Bool**| Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; | [default to false]
 **translationKeyPrefix** | **optional.String**| This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. | 
+**skipAutomatedJobCreation** | **optional.Bool**| When &#x60;true&#x60;, the automation rules for the project will not fire for this upload, so no jobs are created as a side effect of importing this file. Defaults to &#x60;false&#x60;.  | [default to false]
 
 ### Return type
 

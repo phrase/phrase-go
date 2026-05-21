@@ -40,4 +40,8 @@ type KeyUpdateParameters struct {
 	LocalizedFormatKey string `json:"localized_format_key,omitempty"`
 	// Updates/Creates custom metadata property name and value pairs to be associated with key. If you want to delete a custom metadata property, you can set its value to null. If you want to update a custom metadata property, you can set its value to the new value.
 	CustomMetadata map[string]interface{} `json:"custom_metadata,omitempty"`
+	// Locales for which translations of this key are excluded from exports. Pass an empty array to clear exclusions.
+	ExcludedInLocales []string `json:"excluded_in_locales,omitempty"`
+	// Override of the value type for the key in the export. Most useful for formats like Android XML that distinguish string vs. plural resources.
+	FormatValueType string `json:"format_value_type,omitempty"`
 }

@@ -6,7 +6,7 @@ import (
 
 // ProjectUpdateParameters struct for ProjectUpdateParameters
 type ProjectUpdateParameters struct {
-	// Required if the requesting user is a member of multiple accounts. Account ID to specify the actual account the project should be created in.
+	// (Optional) ID of an account the requesting user belongs to. Used only to disambiguate the request context; the project itself cannot be moved between accounts through this endpoint.
 	AccountId string `json:"account_id,omitempty"`
 	// (Optional) Name of the project
 	Name string `json:"name,omitempty"`
@@ -56,4 +56,18 @@ type ProjectUpdateParameters struct {
 	DefaultEncoding string `json:"default_encoding,omitempty"`
 	// (Optional) List of placeholder styles enabled for the project.
 	PlaceholderStyles []string `json:"placeholder_styles,omitempty"`
+	// (Optional) Enable autocomplete-job behavior so that newly created keys and locales are automatically added to in-progress jobs.
+	AutocompleteJobEnabled *bool `json:"autocomplete_job_enabled,omitempty"`
+	// (Optional) When enabled, translations are locked once a job moves into review.
+	JobLockingEnabled *bool `json:"job_locking_enabled,omitempty"`
+	// (Optional) Enable Smart Suggest for the project.
+	SmartSuggestEnabled *bool `json:"smart_suggest_enabled,omitempty"`
+	// (Optional) Allow Smart Suggest to source suggestions from the project glossary.
+	SmartSuggestUseGlossary *bool `json:"smart_suggest_use_glossary,omitempty"`
+	// (Optional) Allow Smart Suggest to source suggestions from machine translation.
+	SmartSuggestUseMachineTranslation *bool `json:"smart_suggest_use_machine_translation,omitempty"`
+	// (Optional) Collation used when sorting translation keys alphabetically.
+	TranslationKeysSortCollation string `json:"translation_keys_sort_collation,omitempty"`
+	// (Optional) CLDR plural-rule version used by the project.
+	CldrVersion string `json:"cldr_version,omitempty"`
 }

@@ -54,6 +54,22 @@ type ProjectCreateParameters struct {
 	AutotranslateUseTranslationMemory *bool `json:"autotranslate_use_translation_memory,omitempty"`
 	// (Optional) Requires autotranslate_enabled to be true
 	AutotranslateOverwriteUnverifiedTranslations *bool `json:"autotranslate_overwrite_unverified_translations,omitempty"`
+	// (Optional) Enable autocomplete-job behavior so that newly created keys and locales are automatically added to in-progress jobs.
+	AutocompleteJobEnabled *bool `json:"autocomplete_job_enabled,omitempty"`
+	// (Optional) When enabled, translations are locked once a job moves into review.
+	JobLockingEnabled *bool `json:"job_locking_enabled,omitempty"`
+	// (Optional) Enable Smart Suggest for the project. Defaults to `true` when omitted.
+	SmartSuggestEnabled *bool `json:"smart_suggest_enabled,omitempty"`
+	// (Optional) Allow Smart Suggest to source suggestions from the project glossary. Defaults to `true` when omitted.
+	SmartSuggestUseGlossary *bool `json:"smart_suggest_use_glossary,omitempty"`
+	// (Optional) Allow Smart Suggest to source suggestions from machine translation. Defaults to `true` when omitted.
+	SmartSuggestUseMachineTranslation *bool `json:"smart_suggest_use_machine_translation,omitempty"`
+	// (Optional) Collation used when sorting translation keys alphabetically. Defaults to `unicode_ci` when omitted.
+	TranslationKeysSortCollation string `json:"translation_keys_sort_collation,omitempty"`
+	// (Optional) Sets the default encoding for Uploads. If you leave it empty, we will try to guess it automatically for you when you Upload a file. You can still override this value by setting the [`file_encoding`](/en/api/strings/uploads/upload-a-new-file) parameter for Uploads.
+	DefaultEncoding string `json:"default_encoding,omitempty"`
+	// (Optional) CLDR plural-rule version used by the project.
+	CldrVersion string `json:"cldr_version,omitempty"`
 	// (Optional) List of placeholder styles enabled for the project.
 	PlaceholderStyles []string `json:"placeholder_styles,omitempty"`
 }

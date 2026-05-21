@@ -110,6 +110,16 @@ func (a *JobsApiService) JobComplete(ctx _context.Context, projectId string, id 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -214,6 +224,16 @@ func (a *JobsApiService) JobCreate(ctx _context.Context, projectId string, jobCr
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -277,7 +297,7 @@ func (a *JobsApiService) JobDelete(ctx _context.Context, projectId string, id st
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -319,6 +339,16 @@ func (a *JobsApiService) JobDelete(ctx _context.Context, projectId string, id st
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return nil, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return nil, localVarHTTPResponse, newErr
 		}
 		return localVarBody, localVarHTTPResponse, newErr
 	}
@@ -543,14 +573,17 @@ If you are the job owner, you may lock a job using this API request.
   - @param optional nil or *JobLockOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
+
+@return JobDetails
 */
-func (a *JobsApiService) JobLock(ctx _context.Context, projectId string, id string, localVarOptionals *JobLockOpts) ([]byte, *APIResponse, error) {
+func (a *JobsApiService) JobLock(ctx _context.Context, projectId string, id string, localVarOptionals *JobLockOpts) (JobDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
+		localVarReturnValue  JobDetails
 	)
 
 	// create path and map variables
@@ -576,7 +609,7 @@ func (a *JobsApiService) JobLock(ctx _context.Context, projectId string, id stri
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -600,18 +633,18 @@ func (a *JobsApiService) JobLock(ctx _context.Context, projectId string, id stri
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -619,10 +652,29 @@ func (a *JobsApiService) JobLock(ctx _context.Context, projectId string, id stri
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarBody, localVarHTTPResponse, newErr
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarBody, localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 // JobReopenOpts Optional parameters for the method 'JobReopen'
@@ -716,6 +768,16 @@ func (a *JobsApiService) JobReopen(ctx _context.Context, projectId string, id st
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -943,6 +1005,16 @@ func (a *JobsApiService) JobStart(ctx _context.Context, projectId string, id str
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -973,14 +1045,17 @@ If you are the job owner, you may unlock a locked job using this API request.
   - @param optional nil or *JobUnlockOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
+
+@return JobDetails
 */
-func (a *JobsApiService) JobUnlock(ctx _context.Context, projectId string, id string, localVarOptionals *JobUnlockOpts) ([]byte, *APIResponse, error) {
+func (a *JobsApiService) JobUnlock(ctx _context.Context, projectId string, id string, localVarOptionals *JobUnlockOpts) (JobDetails, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
+		localVarReturnValue  JobDetails
 	)
 
 	// create path and map variables
@@ -1006,7 +1081,7 @@ func (a *JobsApiService) JobUnlock(ctx _context.Context, projectId string, id st
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -1030,18 +1105,18 @@ func (a *JobsApiService) JobUnlock(ctx _context.Context, projectId string, id st
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -1049,10 +1124,29 @@ func (a *JobsApiService) JobUnlock(ctx _context.Context, projectId string, id st
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarBody, localVarHTTPResponse, newErr
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarBody, localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 // JobUpdateOpts Optional parameters for the method 'JobUpdate'
@@ -1146,6 +1240,16 @@ func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id st
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v DocumentDelete422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1302,6 +1406,8 @@ type JobsListOpts struct {
 	OwnedBy       optional.String `json:"owned_by,omitempty"`
 	AssignedTo    optional.String `json:"assigned_to,omitempty"`
 	State         optional.String `json:"state,omitempty"`
+	States        []string        `json:"states,omitempty"`
+	KeyId         optional.String `json:"key_id,omitempty"`
 	UpdatedSince  optional.String `json:"updated_since,omitempty"`
 }
 
@@ -1318,6 +1424,8 @@ List all jobs for the given project.
   - @param "OwnedBy" (optional.String) -  filter by user owning job
   - @param "AssignedTo" (optional.String) -  filter by user assigned to job
   - @param "State" (optional.String) -  filter by state of job; valid states are: `draft`, `in_progress`, `completed`
+  - @param "States" (optional.Interface of []string) -  Filter by multiple job states at once. Accepted values are the same as `state`. When supplied, `state` is ignored. Rejected with `400 Bad Request` if any value is unknown.
+  - @param "KeyId" (optional.String) -  Filter to jobs that include the translation key identified by this code (matches via the job's tags).
   - @param "UpdatedSince" (optional.String) -  filter by jobs updated since given date
 
 @return []Job
@@ -1357,6 +1465,15 @@ func (a *JobsApiService) JobsList(ctx _context.Context, projectId string, localV
 	}
 	if localVarOptionals != nil && localVarOptionals.State.IsSet() {
 		localVarQueryParams.Add("state", parameterToString(localVarOptionals.State.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.States != nil {
+		t := localVarOptionals.States
+		for i := range t {
+			localVarQueryParams.Add("states[]", parameterToString(t[i], "multi"))
+		}
+	}
+	if localVarOptionals != nil && localVarOptionals.KeyId.IsSet() {
+		localVarQueryParams.Add("key_id", parameterToString(localVarOptionals.KeyId.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.UpdatedSince.IsSet() {
 		localVarQueryParams.Add("updated_since", parameterToString(localVarOptionals.UpdatedSince.Value(), ""))

@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ## JobLock
 
-> JobLock(ctx, projectId, id, optional)
+> JobDetails JobLock(ctx, projectId, id, optional)
 
 Lock a job
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**JobDetails**](JobDetails.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 
 ## JobUnlock
 
-> JobUnlock(ctx, projectId, id, optional)
+> JobDetails JobUnlock(ctx, projectId, id, optional)
 
 Unlock a job
 
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**JobDetails**](JobDetails.md)
 
 ### Authorization
 
@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -608,6 +608,8 @@ Name | Type | Description  | Notes
 **ownedBy** | **optional.String**| filter by user owning job | 
 **assignedTo** | **optional.String**| filter by user assigned to job | 
 **state** | **optional.String**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | 
+**states** | [**optional.Interface of []string**](string.md)| Filter by multiple job states at once. Accepted values are the same as &#x60;state&#x60;. When supplied, &#x60;state&#x60; is ignored. Rejected with &#x60;400 Bad Request&#x60; if any value is unknown. | 
+**keyId** | **optional.String**| Filter to jobs that include the translation key identified by this code (matches via the job&#39;s tags). | 
 **updatedSince** | **optional.String**| filter by jobs updated since given date | 
 
 ### Return type

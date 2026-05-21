@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **Unverified** | **bool** | Indicates whether translation is unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature. | [optional] 
 **Excluded** | **bool** | Indicates whether translation is excluded. | [optional] 
 **Autotranslate** | **bool** | Indicates whether the translation should be auto-translated. Responses with status 422 if provided for translation within a non-default locale or the project does not have the Autopilot feature enabled. | [optional] 
+**MinorChange** | **bool** | When &#x60;true&#x60;, the translation is marked as a minor edit and does not trigger downstream re-verification on the linked locales&#39; translations.  | [optional] 
+**Reviewed** | **bool** | When &#x60;true&#x60; and the project&#39;s review workflow is enabled, the translation is created in the &#x60;reviewed&#x60; state.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
