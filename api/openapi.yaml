@@ -34857,6 +34857,16 @@ components:
         updated_at:
           format: date-time
           type: string
+        automation_id:
+          description: "The ID of the automation that created this job, or null if\
+            \ the job was created manually."
+          nullable: true
+          type: string
+        job_template_id:
+          description: "The ID of the job template this job was created from, or null\
+            \ if no template was used."
+          nullable: true
+          type: string
       title: job
       type: object
     job_annotation:
@@ -34944,6 +34954,16 @@ components:
             description: |
               `true` if the job has been locked by the project's job-locking workflow (translations attached to the job are read-only until the job advances).
             type: boolean
+          automation_id:
+            description: "The ID of the automation that created this job, or null\
+              \ if the job was created manually."
+            nullable: true
+            type: string
+          job_template_id:
+            description: "The ID of the job template this job was created from, or\
+              \ null if no template was used."
+            nullable: true
+            type: string
         title: job_details
         type: object
     job_preview:

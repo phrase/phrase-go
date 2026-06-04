@@ -16,4 +16,8 @@ type Job struct {
 	Branch    BranchName    `json:"branch,omitempty"`
 	CreatedAt time.Time     `json:"created_at,omitempty"`
 	UpdatedAt time.Time     `json:"updated_at,omitempty"`
+	// The ID of the automation that created this job, or null if the job was created manually.
+	AutomationId *NullableString `json:"automation_id,omitempty"`
+	// The ID of the job template this job was created from, or null if no template was used.
+	JobTemplateId *NullableString `json:"job_template_id,omitempty"`
 }

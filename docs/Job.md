@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **Branch** | [**BranchName**](BranchName.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
+**AutomationId** | Pointer to **NullableString** | The ID of the automation that created this job, or null if the job was created manually. | [optional] 
+**JobTemplateId** | Pointer to **NullableString** | The ID of the job template this job was created from, or null if no template was used. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
