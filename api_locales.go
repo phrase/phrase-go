@@ -355,31 +355,32 @@ func (a *LocalesApiService) LocaleDelete(ctx _context.Context, projectId string,
 
 // LocaleDownloadOpts Optional parameters for the method 'LocaleDownload'
 type LocaleDownloadOpts struct {
-	XPhraseAppOTP                 optional.String    `json:"X-PhraseApp-OTP,omitempty"`
-	IfModifiedSince               optional.String    `json:"If-Modified-Since,omitempty"`
-	IfNoneMatch                   optional.String    `json:"If-None-Match,omitempty"`
-	Branch                        optional.String    `json:"branch,omitempty"`
-	FileFormat                    optional.String    `json:"file_format,omitempty"`
-	Tags                          optional.String    `json:"tags,omitempty"`
-	Tag                           optional.String    `json:"tag,omitempty"`
-	IncludeEmptyTranslations      optional.Bool      `json:"include_empty_translations,omitempty"`
-	ExcludeEmptyZeroForms         optional.Bool      `json:"exclude_empty_zero_forms,omitempty"`
-	IncludeTranslatedKeys         optional.Bool      `json:"include_translated_keys,omitempty"`
-	KeepNotranslateTags           optional.Bool      `json:"keep_notranslate_tags,omitempty"`
-	ConvertEmoji                  optional.Bool      `json:"convert_emoji,omitempty"`
-	FormatOptions                 optional.Interface `json:"format_options,omitempty"`
-	Encoding                      optional.String    `json:"encoding,omitempty"`
-	SkipUnverifiedTranslations    optional.Bool      `json:"skip_unverified_translations,omitempty"`
-	IncludeUnverifiedTranslations optional.Bool      `json:"include_unverified_translations,omitempty"`
-	UseLastReviewedVersion        optional.Bool      `json:"use_last_reviewed_version,omitempty"`
-	FallbackLocaleId              optional.String    `json:"fallback_locale_id,omitempty"`
-	UseLocaleFallback             optional.Bool      `json:"use_locale_fallback,omitempty"`
-	SourceLocaleId                optional.String    `json:"source_locale_id,omitempty"`
-	TranslationKeyPrefix          optional.String    `json:"translation_key_prefix,omitempty"`
-	FilterByPrefix                optional.Bool      `json:"filter_by_prefix,omitempty"`
-	CustomMetadataFilters         optional.Interface `json:"custom_metadata_filters,omitempty"`
-	LocaleIds                     []string           `json:"locale_ids,omitempty"`
-	UpdatedSince                  optional.String    `json:"updated_since,omitempty"`
+	XPhraseAppOTP                     optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	IfModifiedSince                   optional.String    `json:"If-Modified-Since,omitempty"`
+	IfNoneMatch                       optional.String    `json:"If-None-Match,omitempty"`
+	Branch                            optional.String    `json:"branch,omitempty"`
+	FileFormat                        optional.String    `json:"file_format,omitempty"`
+	Tags                              optional.String    `json:"tags,omitempty"`
+	Tag                               optional.String    `json:"tag,omitempty"`
+	IncludeEmptyTranslations          optional.Bool      `json:"include_empty_translations,omitempty"`
+	ExcludeEmptyZeroForms             optional.Bool      `json:"exclude_empty_zero_forms,omitempty"`
+	IncludeTranslatedKeys             optional.Bool      `json:"include_translated_keys,omitempty"`
+	KeepNotranslateTags               optional.Bool      `json:"keep_notranslate_tags,omitempty"`
+	ConvertEmoji                      optional.Bool      `json:"convert_emoji,omitempty"`
+	FormatOptions                     optional.Interface `json:"format_options,omitempty"`
+	Encoding                          optional.String    `json:"encoding,omitempty"`
+	SkipUnverifiedTranslations        optional.Bool      `json:"skip_unverified_translations,omitempty"`
+	IncludeUnverifiedTranslations     optional.Bool      `json:"include_unverified_translations,omitempty"`
+	UseLastReviewedVersion            optional.Bool      `json:"use_last_reviewed_version,omitempty"`
+	FallbackLocaleId                  optional.String    `json:"fallback_locale_id,omitempty"`
+	UseLocaleFallback                 optional.Bool      `json:"use_locale_fallback,omitempty"`
+	FallbackForUnverifiedTranslations optional.Bool      `json:"fallback_for_unverified_translations,omitempty"`
+	SourceLocaleId                    optional.String    `json:"source_locale_id,omitempty"`
+	TranslationKeyPrefix              optional.String    `json:"translation_key_prefix,omitempty"`
+	FilterByPrefix                    optional.Bool      `json:"filter_by_prefix,omitempty"`
+	CustomMetadataFilters             optional.Interface `json:"custom_metadata_filters,omitempty"`
+	LocaleIds                         []string           `json:"locale_ids,omitempty"`
+	UpdatedSince                      optional.String    `json:"updated_since,omitempty"`
 }
 
 /*
@@ -406,8 +407,9 @@ Download a locale in a specific file format.
   - @param "SkipUnverifiedTranslations" (optional.Bool) -  Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with `include_unverified_translations`.
   - @param "IncludeUnverifiedTranslations" (optional.Bool) -  if set to false unverified translations are excluded
   - @param "UseLastReviewedVersion" (optional.Bool) -  If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project.
-  - @param "FallbackLocaleId" (optional.String) -  If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `use_locale_fallback`.
-  - @param "UseLocaleFallback" (optional.Bool) -  If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Fallback locale is defined in [locale's settings](/en/api/strings/locales/update-a-locale#body-fallback-locale-id). Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `fallback_locale_id`.
+  - @param "FallbackLocaleId" (optional.String) -  If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires `include_empty_translations` to be set to `true` unless `fallback_for_unverified_translations` is also set to `true`. Mutually exclusive with `use_locale_fallback`.
+  - @param "UseLocaleFallback" (optional.Bool) -  If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Fallback locale is defined in [locale's settings](/en/api/strings/locales/update-a-locale#body-fallback-locale-id). Requires `include_empty_translations` to be set to `true` unless `fallback_for_unverified_translations` is also set to `true`. Mutually exclusive with `fallback_locale_id`.
+  - @param "FallbackForUnverifiedTranslations" (optional.Bool) -  If set to `true`, translations in a non-final state are replaced by the fallback locale's translation at export time. In the simple workflow, \"non-final\" means `unverified`. In the review workflow, it additionally includes `translated` (awaiting review). No stored translations are modified. Requires `fallback_locale_id` or `use_locale_fallback` to be set; a `422` validation error is returned otherwise.
   - @param "SourceLocaleId" (optional.String) -  Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a `tag` parameter indicating a specific job.
   - @param "TranslationKeyPrefix" (optional.String) -  Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed.
   - @param "FilterByPrefix" (optional.Bool) -  Only download translation keys containing the specified prefix, and remove the prefix from the generated file.
@@ -486,6 +488,9 @@ func (a *LocalesApiService) LocaleDownload(ctx _context.Context, projectId strin
 	}
 	if localVarOptionals != nil && localVarOptionals.UseLocaleFallback.IsSet() {
 		localVarQueryParams.Add("use_locale_fallback", parameterToString(localVarOptionals.UseLocaleFallback.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.FallbackForUnverifiedTranslations.IsSet() {
+		localVarQueryParams.Add("fallback_for_unverified_translations", parameterToString(localVarOptionals.FallbackForUnverifiedTranslations.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.SourceLocaleId.IsSet() {
 		localVarQueryParams.Add("source_locale_id", parameterToString(localVarOptionals.SourceLocaleId.Value(), ""))
