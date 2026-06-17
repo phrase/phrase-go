@@ -357,18 +357,52 @@ paths:
       x-cli-version: "2.9"
   /formats:
     get:
-      description: Get a handy list of all localization file formats supported in
-        Phrase.
+      description: |
+        Returns all file formats that Phrase Strings supports. Use the api_name value
+        from each format as the file_format parameter when uploading or downloading
+        locale files. Not every format supports both directions: check the importable
+        and exportable fields before using a format in a workflow. This endpoint does
+        not require authentication and is not subject to rate limiting.
       operationId: formats/list
       responses:
         "200":
           content:
             application/json:
+              examples:
+                default:
+                  value:
+                  - name: Ruby/Rails YAML
+                    api_name: yml
+                    description: YAML file format for use with Ruby/Rails applications
+                    extension: yml
+                    default_encoding: UTF-8
+                    importable: true
+                    exportable: true
+                    default_file: ./config/locales/<locale_name>.yml
+                    renders_default_locale: false
+                    includes_locale_information: false
+                  - name: Simple JSON
+                    api_name: simple_json
+                    description: A flat key/value JSON format
+                    extension: json
+                    default_encoding: UTF-8
+                    importable: true
+                    exportable: true
+                    default_file: ./config/locales/<locale_name>.json
+                    renders_default_locale: false
+                    includes_locale_information: false
               schema:
                 items:
                   $ref: '#/components/schemas/format'
                 type: array
           description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "400":
           description: Bad request
           headers:
@@ -383,7 +417,9 @@ paths:
       - Formats
       x-code-samples:
       - lang: Curl
-        source: curl "https://api.phrase.com/v2/formats"
+        source: |-
+          curl "https://api.phrase.com/v2/formats" \
+            -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
           phrase formats list \
@@ -33966,28 +34002,64 @@ components:
         exportable: true
         default_file: ./config/locales/<locale_name>.yml
         renders_default_locale: false
-        includes_locale_information: true
+        includes_locale_information: false
       properties:
         name:
+          description: Human-readable display name of the format.
+          example: Ruby/Rails YAML
           type: string
         api_name:
+          description: "Identifier used to reference this format in API requests,\
+            \ such as the file_format parameter on the uploads and downloads endpoints."
+          example: yml
           type: string
         description:
+          description: Human-readable summary of the format and its typical use case.
+          example: YAML file format for use with Ruby/Rails applications
           type: string
         extension:
+          description: Default file extension associated with this format.
+          example: yml
           type: string
         default_encoding:
+          description: Default character encoding used when reading or writing files
+            in this format.
+          example: UTF-8
           type: string
         importable:
+          description: Whether locale files can be imported using this format.
+          example: true
           type: boolean
         exportable:
+          description: Whether locale files can be exported using this format.
+          example: true
           type: boolean
         default_file:
+          description: Conventional file path pattern for this format. Contains locale_name
+            as a placeholder for the locale identifier.
+          example: ./config/locales/<locale_name>.yml
           type: string
         renders_default_locale:
+          description: "When true, exported files contain the default locale's content\
+            \ for any key that has no translation in the target locale."
+          example: false
           type: boolean
         includes_locale_information:
+          description: "When true, files in this format embed locale information so\
+            \ Phrase can detect the locale automatically on import."
+          example: false
           type: boolean
+      required:
+      - api_name
+      - default_encoding
+      - default_file
+      - description
+      - exportable
+      - extension
+      - importable
+      - includes_locale_information
+      - name
+      - renders_default_locale
       title: format
       type: object
     project:
