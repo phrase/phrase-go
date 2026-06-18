@@ -4,6 +4,8 @@ package phrase
 type RepoSyncCreateParameters struct {
 	// ID of the project to connect the Repo Sync to.
 	ProjectId string `json:"project_id"`
+	// Optional custom display name for this repo sync. Defaults to null; when null the project name is used as the display name.
+	Name *NullableString `json:"name,omitempty"`
 	// The Git provider to use.
 	GitProvider string `json:"git_provider,omitempty"`
 	// The authentication method used to connect to the Git provider. Defaults to `token` if not specified.  Valid values: - `token` — Personal access token stored on the Repo Sync. Supported by all providers. - `github_app` — Authenticate via the Phrase GitHub App installation on your account. GitHub only. The account must already have the GitHub App installed; if not, the response will include a `github_app_installation_url`. - `self_hosted` — Token-based auth for self-hosted Git instances. Requires `custom_api_endpoint`.

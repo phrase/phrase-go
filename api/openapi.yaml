@@ -35977,6 +35977,12 @@ components:
       properties:
         id:
           type: string
+        name:
+          description: |
+            Optional custom display name for this repo sync. When null or blank, the sync is displayed using the associated project name.
+          maxLength: 100
+          nullable: true
+          type: string
         project:
           $ref: '#/components/schemas/project_short'
         provider:
@@ -35997,9 +36003,11 @@ components:
           type: string
         last_import_at:
           format: date-time
+          nullable: true
           type: string
         last_export_at:
           format: date-time
+          nullable: true
           type: string
       title: repo_sync
       type: object
@@ -39229,6 +39237,12 @@ components:
         project_id:
           description: ID of the project to connect the Repo Sync to.
           example: abcd1234abcd1234abcd1234abcd1234
+          type: string
+        name:
+          description: |
+            Optional custom display name for this repo sync. Defaults to null; when null the project name is used as the display name.
+          maxLength: 100
+          nullable: true
           type: string
         git_provider:
           default: github
