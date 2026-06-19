@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **AutomationId** | Pointer to **NullableString** | The ID of the automation that created this job, or null if the job was created manually. | [optional] 
 **JobTemplateId** | Pointer to **NullableString** | The ID of the job template this job was created from, or null if no template was used. | [optional] 
+**ReviewDueDate** | Pointer to [**NullableTime**](time.Time.md) | The review due date for this job. Returns &#x60;null&#x60; when the project does not have review workflow enabled. | [optional] 
 **Owner** | [**UserPreview**](UserPreview.md) |  | [optional] 
 **JobTagName** | **string** |  | [optional] 
 **SourceTranslationsUpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 

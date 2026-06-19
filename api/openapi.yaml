@@ -34950,6 +34950,13 @@ components:
             \ if no template was used."
           nullable: true
           type: string
+        review_due_date:
+          description: The review due date for this job. Returns `null` when the project
+            does not have review workflow enabled.
+          example: 2015-03-25T11:43:52Z
+          format: date-time
+          nullable: true
+          type: string
       title: job
       type: object
     job_annotation:
@@ -35045,6 +35052,13 @@ components:
           job_template_id:
             description: "The ID of the job template this job was created from, or\
               \ null if no template was used."
+            nullable: true
+            type: string
+          review_due_date:
+            description: The review due date for this job. Returns `null` when the
+              project does not have review workflow enabled.
+            example: 2015-03-25T11:43:52Z
+            format: date-time
             nullable: true
             type: string
         title: job_details

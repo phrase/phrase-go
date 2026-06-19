@@ -20,4 +20,6 @@ type Job struct {
 	AutomationId *NullableString `json:"automation_id,omitempty"`
 	// The ID of the job template this job was created from, or null if no template was used.
 	JobTemplateId *NullableString `json:"job_template_id,omitempty"`
+	// The review due date for this job. Returns `null` when the project does not have review workflow enabled.
+	ReviewDueDate *NullableTime `json:"review_due_date,omitempty"`
 }
