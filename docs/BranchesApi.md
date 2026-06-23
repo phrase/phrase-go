@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## BranchCompare
 
-> BranchCompare(ctx, projectId, name, optional)
+> BranchComparison BranchCompare(ctx, projectId, name, optional)
 
 Compare branches
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**BranchComparison**](BranchComparison.md)
 
 ### Authorization
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

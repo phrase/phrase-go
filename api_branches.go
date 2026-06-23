@@ -31,14 +31,17 @@ Compare branch with main branch.  *Note: Comparing a branch may take several min
   - @param name name
   - @param optional nil or *BranchCompareOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+
+@return BranchComparison
 */
-func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, localVarOptionals *BranchCompareOpts) ([]byte, *APIResponse, error) {
+func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId string, name string, localVarOptionals *BranchCompareOpts) (BranchComparison, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
+		localVarReturnValue  BranchComparison
 	)
 
 	// create path and map variables
@@ -61,7 +64,7 @@ func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId strin
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -85,18 +88,18 @@ func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId strin
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -104,10 +107,19 @@ func (a *BranchesApiService) BranchCompare(ctx _context.Context, projectId strin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarBody, localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarBody, localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 // BranchComparisonCreateOpts Optional parameters for the method 'BranchComparisonCreate'
