@@ -21,28 +21,27 @@ type ScreenshotsApiService service
 
 // ScreenshotCreateOpts Optional parameters for the method 'ScreenshotCreate'
 type ScreenshotCreateOpts struct {
-	XPhraseAppOTP optional.String    `json:"X-PhraseApp-OTP,omitempty"`
-	Branch        optional.String    `json:"branch,omitempty"`
-	Name          optional.String    `json:"name,omitempty"`
-	Description   optional.String    `json:"description,omitempty"`
-	Filename      optional.Interface `json:"filename,omitempty"`
+	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
+	Name          optional.String `json:"name,omitempty"`
+	Description   optional.String `json:"description,omitempty"`
 }
 
 /*
 ScreenshotCreate Create a screenshot
-Create a new screenshot.
+Creates a screenshot in a project to provide visual context for in-context translation. Attach translation keys to regions of the uploaded image so translators can see where each string appears in your UI.  This endpoint accepts a multipart/form-data request with a binary file upload, unlike most Phrase API endpoints that use JSON. Use a multipart form client or the -F flag in curl rather than a JSON body.  The screenshot name must be unique within the project (case-insensitive). When name is omitted, it is derived from the uploaded filename. The account must have the Screenshots feature enabled; requests to projects on accounts without it return 403. Creating a screenshot requires a token with the write scope and manage access to the project.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
+  - @param filename Image file to upload. Accepted formats are JPEG (jpg/jpeg), GIF, and PNG. Maximum file size is 10 MB. Submitting an unsupported format or a file exceeding the size limit returns 422.
   - @param optional nil or *ScreenshotCreateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Branch" (optional.String) -  specify the branch to use
-  - @param "Name" (optional.String) -  Name of the screenshot
-  - @param "Description" (optional.String) -  Description of the screenshot
-  - @param "Filename" (optional.Interface of *os.File) -  Screenshot file
+  - @param "Name" (optional.String) -  Display name for the screenshot. Must be unique within the project (case-insensitive). When omitted, the name is derived from the uploaded filename.
+  - @param "Description" (optional.String) -  Optional free-text description of the screenshot.
 
 @return Screenshot
 */
-func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, localVarOptionals *ScreenshotCreateOpts) (Screenshot, *APIResponse, error) {
+func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId string, filename *os.File, localVarOptionals *ScreenshotCreateOpts) (Screenshot, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -90,14 +89,7 @@ func (a *ScreenshotsApiService) ScreenshotCreate(ctx _context.Context, projectId
 		localVarFormParams.Add("description", parameterToString(localVarOptionals.Description.Value(), ""))
 	}
 	localVarFormFileName = "filename"
-	var localVarFile *os.File
-	if localVarOptionals != nil && localVarOptionals.Filename.IsSet() {
-		localVarFileOk := false
-		localVarFile, localVarFileOk = localVarOptionals.Filename.Value().(*os.File)
-		if !localVarFileOk {
-			return localVarReturnValue, nil, reportError("filename should be *os.File")
-		}
-	}
+	localVarFile := filename
 	if localVarFile != nil {
 		fbs, _ := _ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs

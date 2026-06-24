@@ -14,11 +14,11 @@ Method | HTTP request | Description
 
 ## ScreenshotCreate
 
-> Screenshot ScreenshotCreate(ctx, projectId, optional)
+> Screenshot ScreenshotCreate(ctx, projectId, filename, optional)
 
 Create a screenshot
 
-Create a new screenshot.
+Creates a screenshot in a project to provide visual context for in-context translation. Attach translation keys to regions of the uploaded image so translators can see where each string appears in your UI.  This endpoint accepts a multipart/form-data request with a binary file upload, unlike most Phrase API endpoints that use JSON. Use a multipart form client or the -F flag in curl rather than a JSON body.  The screenshot name must be unique within the project (case-insensitive). When name is omitted, it is derived from the uploaded filename. The account must have the Screenshots feature enabled; requests to projects on accounts without it return 403. Creating a screenshot requires a token with the write scope and manage access to the project. 
 
 ### Required Parameters
 
@@ -27,6 +27,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
+**filename** | ***os.File*****os.File**| Image file to upload. Accepted formats are JPEG (jpg/jpeg), GIF, and PNG. Maximum file size is 10 MB. Submitting an unsupported format or a file exceeding the size limit returns 422. | 
  **optional** | ***ScreenshotCreateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -38,9 +39,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 **branch** | **optional.String**| specify the branch to use | 
-**name** | **optional.String**| Name of the screenshot | 
-**description** | **optional.String**| Description of the screenshot | 
-**filename** | **optional.Interface of *os.File****optional.*os.File**| Screenshot file | 
+**name** | **optional.String**| Display name for the screenshot. Must be unique within the project (case-insensitive). When omitted, the name is derived from the uploaded filename. | 
+**description** | **optional.String**| Optional free-text description of the screenshot. | 
 
 ### Return type
 
