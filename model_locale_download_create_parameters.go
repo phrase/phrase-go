@@ -36,6 +36,10 @@ type LocaleDownloadCreateParameters struct {
 	SourceLocaleId string `json:"source_locale_id,omitempty"`
 	// Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.
 	CustomMetadataFilters map[string]interface{} `json:"custom_metadata_filters,omitempty"`
+	// Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed.
+	TranslationKeyPrefix string `json:"translation_key_prefix,omitempty"`
+	// Only download translation keys containing the prefix specified by `translation_key_prefix`, and remove that prefix from the generated file. Requires `translation_key_prefix` to be set.
+	FilterByPrefix *bool `json:"filter_by_prefix,omitempty"`
 	// Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
 	UpdatedSince string `json:"updated_since,omitempty"`
 }
