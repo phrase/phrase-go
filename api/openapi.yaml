@@ -34183,8 +34183,12 @@ paths:
       x-cli-version: 2.7.0
   /projects/{project_id}/keys/{id}/key_links:
     delete:
-      description: Unlinks multiple child keys from a given parent key in a single
-        operation.
+      description: |
+        Removes one or more child keys from a parent key's linked-key group, or dissolves the entire group by setting unlink_parent to true.
+
+        Use this when you need to detach specific child keys from a shared translation source, or to fully break apart a linked-key group so each key manages its own translations independently. When child keys are unlinked, their translations are updated with a copy of the parent's current content (strategy keep_content, the default) or cleared (strategy remove_content).
+
+        This operation is only available on main projects. It returns 422 when a child key in `child_key_ids` is not currently linked to the parent, or when a translation update fails while unlinking.
       operationId: key_links/batch_destroy
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -34216,10 +34220,14 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/key_links_batch_destroy_parameters'
-        required: true
+        required: false
       responses:
         "200":
-          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/key_link'
+          description: Updated linked-key group reference after the unlink operation.
         "400":
           description: "Bad request. The request could not be parsed or a parameter\
             \ failed validation. Verify the request body, the content type, and the\
@@ -34288,6 +34296,14 @@ paths:
       summary: Batch unlink child keys from a parent key
       tags:
       - Linked Keys
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/keys/:id/key_links" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE \
+            -H "Content-Type: application/json" \
+            -d '{"child_key_ids": ["feature.subtitle", "nav.home"], "strategy": "keep_content"}'
     get:
       description: "Returns detailed information about a parent key, including its\
         \ linked child keys."
@@ -36479,11 +36495,6 @@ components:
       example: string
       type: string
     key_preview:
-      example:
-        plural: true
-        name: name
-        id: id
-        use_ordinal_rules: true
       properties:
         id:
           type: string
@@ -36495,6 +36506,7 @@ components:
           type: boolean
       title: key_preview
       type: object
+      example: null
     affected_count:
       example:
         records_affected: 96
@@ -39211,40 +39223,52 @@ components:
         type: object
     key_link:
       example:
-        parent:
-          plural: true
-          name: name
-          id: id
-          use_ordinal_rules: true
-        updated_at: 2000-01-23T04:56:07.000+00:00
-        children:
-        - plural: true
-          name: name
-          id: id
-          use_ordinal_rules: true
-        - plural: true
-          name: name
-          id: id
-          use_ordinal_rules: true
-        updated_by:
-          id: abcd1234cdef1234abcd1234cdef1234
-          username: johndoe
-          name: John Doe
-          gravatar_uid: 205e460b479e2e5b48aec07710c08d50
-        created_at: 2000-01-23T04:56:07.000+00:00
+        created_at: 2024-03-15T10:22:00Z
+        updated_at: 2024-03-15T10:22:00Z
         created_by:
-          id: abcd1234cdef1234abcd1234cdef1234
-          username: johndoe
-          name: John Doe
-          gravatar_uid: 205e460b479e2e5b48aec07710c08d50
+          id: usr1a2b3c4d5e6f7a8b9c
+          username: jane.doe
+          name: Jane Doe
+          gravatar_uid: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
+        updated_by:
+          id: usr1a2b3c4d5e6f7a8b9c
+          username: jane.doe
+          name: Jane Doe
+          gravatar_uid: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
         account:
-          id: abcd1234
-          name: Company Account
-          slug: company_account
-          company: My Awesome Company
-          created_at: 2015-01-28T09:52:53Z
-          updated_at: 2015-01-28T09:52:53Z
-          company_logo_url: http://assets.example.com/company_logo.png
+          id: acct9z8y7x6w5v4u3t2s
+          name: Acme Translations
+          slug: acme-translations
+          company: Acme Corp
+          created_at: 2023-01-10T08:00:00Z
+          updated_at: 2023-06-01T12:00:00Z
+          company_logo_url: https://example.com/logos/acme.png
+        parent:
+          id: ijkl9012mnop3456ijkl9012
+          name: home.hero.title
+          plural: false
+          use_ordinal_rules: false
+          data_type: string
+          tags:
+          - ui
+          - homepage
+        children:
+        - id: ijkl9012mnop3456ijkl9012mnop3456
+          name: home.hero.title_short
+          plural: false
+          use_ordinal_rules: false
+          data_type: string
+          tags:
+          - ui
+          - homepage
+        - id: abcd1234efgh5678abcd1234efgh5678
+          name: home.hero.title_long
+          plural: false
+          use_ordinal_rules: false
+          data_type: string
+          tags:
+          - ui
+          - homepage
       properties:
         created_at:
           description: The timestamp when the link was created.
@@ -43387,17 +43411,30 @@ components:
     key_links_batch_destroy_parameters:
       properties:
         child_key_ids:
-          description: The IDs of the child keys to unlink from the parent key.
+          description: Codes of the child keys to unlink. Required when unlink_parent
+            is false or omitted. Ignored when unlink_parent is true.
           example:
-          - child_key_id1
-          - child_key_id2
+          - feature.subtitle
+          - nav.home
           items:
+            example: feature.subtitle
             type: string
           type: array
         unlink_parent:
           default: false
-          description: Whether to unlink the parent key as well and unmark it as linked-key.
+          description: "When true, dissolves the entire linked-key group by unlinking\
+            \ all children and removing the group. The child_key_ids field is ignored\
+            \ when this is set to true."
           type: boolean
+        strategy:
+          default: keep_content
+          description: Controls what happens to child key translation content after
+            unlinking. keep_content (default) copies the parent translation into each
+            child; remove_content clears each child translation.
+          enum:
+          - keep_content
+          - remove_content
+          type: string
       required:
       - child_key_ids
       title: key_links/batch_destroy/parameters

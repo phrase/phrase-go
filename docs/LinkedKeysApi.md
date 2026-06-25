@@ -13,11 +13,11 @@ Method | HTTP request | Description
 
 ## KeyLinksBatchDestroy
 
-> KeyLinksBatchDestroy(ctx, projectId, id, keyLinksBatchDestroyParameters, optional)
+> KeyLink KeyLinksBatchDestroy(ctx, projectId, id, optional)
 
 Batch unlink child keys from a parent key
 
-Unlinks multiple child keys from a given parent key in a single operation.
+Removes one or more child keys from a parent key's linked-key group, or dissolves the entire group by setting unlink_parent to true.  Use this when you need to detach specific child keys from a shared translation source, or to fully break apart a linked-key group so each key manages its own translations independently. When child keys are unlinked, their translations are updated with a copy of the parent's current content (strategy keep_content, the default) or cleared (strategy remove_content).  This operation is only available on main projects. It returns 422 when a child key in `child_key_ids` is not currently linked to the parent, or when a translation update fails while unlinking. 
 
 ### Required Parameters
 
@@ -27,7 +27,6 @@ Name | Type | Description  | Notes
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **projectId** | **string**| Project ID | 
 **id** | **string**| Parent Translation Key ID | 
-**keyLinksBatchDestroyParameters** | [**KeyLinksBatchDestroyParameters**](KeyLinksBatchDestroyParameters.md)|  | 
  **optional** | ***KeyLinksBatchDestroyOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -38,10 +37,11 @@ Optional parameters are passed through a pointer to a KeyLinksBatchDestroyOpts s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**keyLinksBatchDestroyParameters** | [**optional.Interface of KeyLinksBatchDestroyParameters**](KeyLinksBatchDestroyParameters.md)|  | 
 
 ### Return type
 
- (empty response body)
+[**KeyLink**](KeyLink.md)
 
 ### Authorization
 

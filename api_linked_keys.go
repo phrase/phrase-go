@@ -20,26 +20,30 @@ type LinkedKeysApiService service
 
 // KeyLinksBatchDestroyOpts Optional parameters for the method 'KeyLinksBatchDestroy'
 type KeyLinksBatchDestroyOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	XPhraseAppOTP                  optional.String    `json:"X-PhraseApp-OTP,omitempty"`
+	KeyLinksBatchDestroyParameters optional.Interface `json:"KeyLinksBatchDestroyParameters,omitempty"`
 }
 
 /*
 KeyLinksBatchDestroy Batch unlink child keys from a parent key
-Unlinks multiple child keys from a given parent key in a single operation.
+Removes one or more child keys from a parent key&#39;s linked-key group, or dissolves the entire group by setting unlink_parent to true.  Use this when you need to detach specific child keys from a shared translation source, or to fully break apart a linked-key group so each key manages its own translations independently. When child keys are unlinked, their translations are updated with a copy of the parent&#39;s current content (strategy keep_content, the default) or cleared (strategy remove_content).  This operation is only available on main projects. It returns 422 when a child key in &#x60;child_key_ids&#x60; is not currently linked to the parent, or when a translation update fails while unlinking.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param id Parent Translation Key ID
-  - @param keyLinksBatchDestroyParameters
   - @param optional nil or *KeyLinksBatchDestroyOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "KeyLinksBatchDestroyParameters" (optional.Interface of KeyLinksBatchDestroyParameters) -
+
+@return KeyLink
 */
-func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, projectId string, id string, keyLinksBatchDestroyParameters KeyLinksBatchDestroyParameters, localVarOptionals *KeyLinksBatchDestroyOpts) ([]byte, *APIResponse, error) {
+func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, projectId string, id string, localVarOptionals *KeyLinksBatchDestroyOpts) (KeyLink, *APIResponse, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
+		localVarReturnValue  KeyLink
 	)
 
 	// create path and map variables
@@ -73,7 +77,14 @@ func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, projec
 		localVarHeaderParams["X-PhraseApp-OTP"] = parameterToString(localVarOptionals.XPhraseAppOTP.Value(), "")
 	}
 	// body params
-	localVarPostBody = &keyLinksBatchDestroyParameters
+	if localVarOptionals != nil && localVarOptionals.KeyLinksBatchDestroyParameters.IsSet() {
+		localVarOptionalKeyLinksBatchDestroyParameters, localVarOptionalKeyLinksBatchDestroyParametersok := localVarOptionals.KeyLinksBatchDestroyParameters.Value().(KeyLinksBatchDestroyParameters)
+		if !localVarOptionalKeyLinksBatchDestroyParametersok {
+			return localVarReturnValue, nil, reportError("keyLinksBatchDestroyParameters should be KeyLinksBatchDestroyParameters")
+		}
+		localVarPostBody = &localVarOptionalKeyLinksBatchDestroyParameters
+	}
+
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -88,18 +99,18 @@ func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, projec
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHTTPResponse == nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	if err != nil {
-		return nil, localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -112,15 +123,24 @@ func (a *LinkedKeysApiService) KeyLinksBatchDestroy(ctx _context.Context, projec
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return nil, localVarHTTPResponse, newErr
+				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
-			return nil, localVarHTTPResponse, newErr
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		return localVarBody, localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarBody, localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 // KeyLinksCreateOpts Optional parameters for the method 'KeyLinksCreate'
