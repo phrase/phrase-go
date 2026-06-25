@@ -34483,7 +34483,12 @@ paths:
       - Linked Keys
   /projects/{project_id}/keys/{id}/key_links/{child_key_id}:
     delete:
-      description: Unlinks a single child key from a given parent key.
+      description: |
+        Removes a single child key from a parent key's link group. A link group is the relationship model that keeps child keys synchronized with a parent: while linked, a child key's translations are derived from the parent's content. When you call this endpoint, the child key leaves the group and becomes independent — its existing translations are updated with the parent's current content and then marked unverified, signalling that reviewers should confirm the content is still appropriate for the child's context.
+
+        Use this endpoint when you need to detach one specific child key while keeping other children linked. To detach multiple children at once, use the batch unlink endpoint. This operation is only available on main projects.
+
+        It returns 422 when the child key is not currently linked to the specified parent key, or when a translation update fails during the unlink process.
       operationId: key_links/destroy
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -34510,17 +34515,27 @@ paths:
         schema:
           type: string
         style: simple
-      - description: The ID of the child key to unlink.
+      - description: The ID of the child translation key to unlink from the parent.
         explode: false
         in: path
         name: child_key_id
         required: true
         schema:
+          example: 1234abcd1234cdef1234abcd1234cdef
           type: string
         style: simple
       responses:
         "200":
-          description: OK
+          content: {}
+          description: The child key was successfully unlinked from the parent key.
+            The response body is empty.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "400":
           description: "Bad request. The request could not be parsed or a parameter\
             \ failed validation. Verify the request body, the content type, and the\
@@ -34589,6 +34604,12 @@ paths:
       summary: Unlink a child key from a parent key
       tags:
       - Linked Keys
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl -i "https://api.phrase.com/v2/projects/:project_id/keys/:id/key_links/1234abcd1234cdef1234abcd1234cdef" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X DELETE
   /accounts/{account_id}/automations:
     get:
       description: |
