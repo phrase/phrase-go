@@ -37018,6 +37018,7 @@ components:
           id: abcd1234cdef1234abcd1234cdef1234
           name: en
           code: en-GB
+        language_ai_profile: abcd1234abcd1234abcd1234abcd1234
         created_at: 2015-01-28T09:52:53Z
         updated_at: 2015-01-28T09:52:53Z
       properties:
@@ -37045,6 +37046,8 @@ components:
           $ref: '#/components/schemas/locale_preview'
         fallback_locale:
           $ref: '#/components/schemas/locale_preview'
+        language_ai_profile:
+          type: string
         created_at:
           format: date-time
           type: string
@@ -39988,6 +39991,10 @@ components:
             \ right after creation."
           type: boolean
           example: null
+        language_ai_profile:
+          description: Identifier of the Language AI profile to use for this locale.
+          example: abcd1234abcd1234abcd1234abcd1234
+          type: string
       required:
       - code
       - name
@@ -40050,6 +40057,10 @@ components:
             \ right after creation."
           type: boolean
           example: null
+        language_ai_profile:
+          description: Identifier of the Language AI profile to use for this locale.
+          example: abcd1234abcd1234abcd1234abcd1234
+          type: string
       title: locale/update/parameters
       type: object
     locale_download_create_parameters:

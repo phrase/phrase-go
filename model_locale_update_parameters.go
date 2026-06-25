@@ -24,4 +24,6 @@ type LocaleUpdateParameters struct {
 	UnverifyUpdatedTranslations *bool `json:"unverify_updated_translations,omitempty"`
 	// If set, translations for this locale will be fetched automatically, right after creation.
 	Autotranslate *bool `json:"autotranslate,omitempty"`
+	// Identifier of the Language AI profile to use for this locale.
+	LanguageAiProfile string `json:"language_ai_profile,omitempty"`
 }

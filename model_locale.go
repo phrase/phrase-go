@@ -16,6 +16,7 @@ type Locale struct {
 	OrdinalPluralForms []string      `json:"ordinal_plural_forms,omitempty"`
 	SourceLocale       LocalePreview `json:"source_locale,omitempty"`
 	FallbackLocale     LocalePreview `json:"fallback_locale,omitempty"`
+	LanguageAiProfile  string        `json:"language_ai_profile,omitempty"`
 	CreatedAt          time.Time     `json:"created_at,omitempty"`
 	UpdatedAt          time.Time     `json:"updated_at,omitempty"`
 }

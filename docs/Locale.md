@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **OrdinalPluralForms** | **[]string** |  | [optional] 
 **SourceLocale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
 **FallbackLocale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
+**LanguageAiProfile** | **string** |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 
