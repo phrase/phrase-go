@@ -2,6 +2,6 @@ package phrase
 
 // KeyLinksCreateParameters struct for KeyLinksCreateParameters
 type KeyLinksCreateParameters struct {
-	// The IDs of the child keys to link to the parent key. Can be left empty, to only mark the given translation-key as parent
+	// Codes of the keys to link as children. Pass an empty array to mark the parent key without linking any children.
 	ChildKeyIds []string `json:"child_key_ids"`
 }
