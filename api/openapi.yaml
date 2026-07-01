@@ -34313,8 +34313,10 @@ paths:
             -H "Content-Type: application/json" \
             -d '{"child_key_ids": ["feature.subtitle", "nav.home"], "strategy": "keep_content"}'
     get:
-      description: "Returns detailed information about a parent key, including its\
-        \ linked child keys."
+      description: |
+        Returns the key link record for a parent key, including all child keys associated with it. Key linking lets translation keys share translations — a child key inherits content from its designated parent. Use this endpoint to inspect which keys are linked under a given parent before unlinking them or auditing translation consistency across related keys.
+
+        The key identified by `id` must be designated as a parent key (it must have at least one child key linked to it). Listing the links of a key that is not a parent returns 400.
       operationId: key_links/index
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -34349,11 +34351,16 @@ paths:
                 $ref: '#/components/schemas/key_link'
           description: OK
         "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/key_links_index_400_response'
-          description: Bad Request
+          description: "Bad request. The request could not be parsed or a parameter\
+            \ failed validation. Verify the request body, the content type, and the\
+            \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
         "401":
           description: "Unauthorized. Authentication failed because the access token\
             \ is missing, expired, or invalid. Supply a valid access token and retry."
@@ -43423,13 +43430,6 @@ components:
             type: string
           type: array
       title: organization_job_template_locale/update/parameters
-      type: object
-    key_links_index_400_response:
-      example:
-        message: Key <parent_key_code> is not a parent key
-      properties:
-        message:
-          type: string
       type: object
     key_links_create_parameters:
       properties:
