@@ -162,7 +162,7 @@ type ScreenshotDeleteOpts struct {
 
 /*
 ScreenshotDelete Delete a screenshot
-Delete an existing screenshot.
+Permanently removes a screenshot and all its associated markers from the project. Use this when you need to fully remove a screenshot that is no longer relevant — for example, after a UI redesign renders the captured screen obsolete. This is a hard delete: the screenshot record and every key-to-region marker linked to it are destroyed together and cannot be recovered.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param id ID

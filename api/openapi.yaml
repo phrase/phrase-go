@@ -21542,7 +21542,8 @@ paths:
       x-cli-version: "2.5"
   /projects/{project_id}/screenshots/{id}:
     delete:
-      description: Delete an existing screenshot.
+      description: |
+        Permanently removes a screenshot and all its associated markers from the project. Use this when you need to fully remove a screenshot that is no longer relevant — for example, after a UI redesign renders the captured screen obsolete. This is a hard delete: the screenshot record and every key-to-region marker linked to it are destroyed together and cannot be recovered.
       operationId: screenshot/delete
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -21657,13 +21658,6 @@ paths:
       tags:
       - Screenshots
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:id" \
-            -u USERNAME_OR_ACCESS_TOKEN \
-            -X DELETE \
-            -d '{"branch":"my-feature-branch"}' \
-            -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase screenshots delete \
