@@ -130,14 +130,14 @@ type DocumentsListOpts struct {
 
 /*
 DocumentsList List documents
-List all documents the current user has access to.
+Returns all documents in a project that the authenticated user has read access to. A Document is a source file — an HTML or DOCX file — that has been uploaded to Phrase Strings and whose content is segmented into translation keys for localization.  Use this endpoint to enumerate documents before downloading, previewing, or triggering translation workflows for individual files.  The q parameter performs a prefix match on the document name (case-insensitive). For example, passing q&#x3D;invoice returns documents whose names begin with \&quot;invoice\&quot; but not documents containing \&quot;invoice\&quot; elsewhere in the name.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param optional nil or *DocumentsListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
-  - @param "Q" (optional.String) -  Search query. Filters documents by name (case-insensitive substring match).
+  - @param "Q" (optional.String) -  Filter documents by name prefix. Returns documents whose name starts with the given value (case-insensitive).
 
 @return []Document
 */

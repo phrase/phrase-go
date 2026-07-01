@@ -440,7 +440,12 @@ paths:
       x-cli-version: "2.5"
   /projects/{project_id}/documents:
     get:
-      description: List all documents the current user has access to.
+      description: |
+        Returns all documents in a project that the authenticated user has read access to. A Document is a source file — an HTML or DOCX file — that has been uploaded to Phrase Strings and whose content is segmented into translation keys for localization.
+
+        Use this endpoint to enumerate documents before downloading, previewing, or triggering translation workflows for individual files.
+
+        The q parameter performs a prefix match on the document name (case-insensitive). For example, passing q=invoice returns documents whose names begin with "invoice" but not documents containing "invoice" elsewhere in the name.
       operationId: documents/list
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -448,6 +453,14 @@ paths:
         in: header
         name: X-PhraseApp-OTP
         required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
         schema:
           type: string
         style: simple
@@ -472,16 +485,8 @@ paths:
         schema:
           type: integer
         style: form
-      - description: Project ID
-        explode: false
-        in: path
-        name: project_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Search query. Filters documents by name (case-insensitive substring
-          match).
+      - description: Filter documents by name prefix. Returns documents whose name
+          starts with the given value (case-insensitive).
         example: invoice
         explode: true
         in: query
@@ -494,6 +499,18 @@ paths:
         "200":
           content:
             application/json:
+              examples:
+                success:
+                  summary: Example document list response
+                  value:
+                  - id: abcd1234cdef1234abcd1234cdef1234
+                    name: email.html
+                    created_at: 2015-01-28T09:52:53Z
+                    updated_at: 2015-03-04T11:22:30Z
+                  - id: ef012345ef012345ef012345ef012345
+                    name: invoice.docx
+                    created_at: 2015-02-10T14:30:00Z
+                    updated_at: 2015-03-01T08:00:00Z
               schema:
                 items:
                   $ref: '#/components/schemas/document'
@@ -563,10 +580,6 @@ paths:
       tags:
       - Documents
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl "https://api.phrase.com/v2/documents?project_id=asdf" \
-            -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
           phrase documents list \
