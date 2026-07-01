@@ -266,8 +266,12 @@ tags:
 paths:
   /icu/skeleton:
     post:
-      description: Returns ICU skeletons for multiple locale codes based on a source
-        content.
+      description: |
+        Generates ICU (International Components for Unicode) message format skeletons for a given source string across one or more locales. An ICU skeleton strips the literal text from a pluralized or select message while preserving its structural rules — argument names, plural categories, select cases, and ordinal forms — adjusted to the pluralization rules of each requested locale.
+
+        Use this endpoint to normalize translation templates before importing them into locale files, or to validate that a source string carries the plural forms required by a target language.
+
+        Either `content` or `id` must be provided — supplying both or neither returns 400. When `id` is used and the referenced translation does not exist, the endpoint returns 404. When the source string is not valid ICU message format syntax, the endpoint returns 422 with an `error` field describing the parse failure.
       operationId: icu/skeleton
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -338,6 +342,15 @@ paths:
               $ref: '#/components/headers/X-Rate-Limit-Remaining'
             X-Rate-Limit-Reset:
               $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/icu_skeleton_error'
+          description: Unprocessable entity. Returned when the source string is not
+            valid ICU message format syntax. The response body contains an `error`
+            field with a human-readable description of the parse failure. Correct
+            the ICU syntax in the source string and retry.
         "429":
           description: Too many requests. The rate limit has been exceeded. Wait until
             the time indicated by the `X-Rate-Limit-Reset` response header before
@@ -353,13 +366,6 @@ paths:
       tags:
       - ICU
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl "https://api.phrase.com/v2/icu/skeleton" \
-            -u USERNAME_OR_ACCESS_TOKEN \
-            -X POST \
-            -d '{"content":"{number, plural, one {One} other {%{n}}}","locale_codes":["en"],"zero_form_enabled": true}' \
-            -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase icu skeleton \
@@ -39483,42 +39489,59 @@ components:
       title: automation
       type: object
     icu_skeleton_parameters:
+      nullable: true
+      oneOf: []
       properties:
         content:
           description: |
-            Source content to derive skeletons from. Mutually exclusive with `id`; exactly one of the two must be provided.
-          example: "{number, plural, one {One} other {%{n}}}"
+            Source ICU message string to derive skeletons from. Mutually exclusive with `id`; exactly one of the two must be provided.
+          example: "{count, plural, one {One item} other {# items}}"
           type: string
         id:
           description: |
-            Translation code to source content from. Mutually exclusive with `content`; exactly one of the two must be provided.
+            Code of an existing translation to source content from. Mutually exclusive with `content`; exactly one of the two must be provided. Returns 404 when the translation does not exist.
           example: abcd1234abcd1234abcd1234abcd1234
           type: string
         locale_codes:
-          description: Locale codes
+          description: |
+            Locale codes for which to generate skeletons. The pluralization rules of each locale determine which plural forms appear in the output.
           example:
           - en
+          - de
           items:
             example: en
             type: string
           type: array
         keep_content:
-          description: Keep the content and add missing plural forms for each locale
+          description: "When true, preserves the existing translation text in each\
+            \ plural form and adds any missing forms for the locale rather than stripping\
+            \ all literal content."
+          example: false
           type: boolean
-          example: null
         zero_form_enabled:
-          description: Indicates whether the zero form should be included or excluded
-            in the returned skeletons
+          description: "When true, includes the zero plural form in the generated\
+            \ skeleton for locales that support it."
+          example: false
           type: boolean
-          example: null
         cldr_version:
-          description: |-
-            Strings supports two CLDR variants, when it comes to pluralization rules. \
-            You can choose which one you want to use when constructing the skeletons. Possible values \
-            are `legacy` and `cldr_41`. Default value is `legacy`.
+          description: Pluralization rule set to apply when constructing skeletons.
+            Accepted values are `legacy` and `cldr_41`. Defaults to `legacy` when
+            omitted.
+          enum:
+          - legacy
+          - cldr_41
           example: cldr_41
           type: string
       title: icu/skeleton/parameters
+      type: object
+    icu_skeleton_error:
+      properties:
+        error:
+          description: Human-readable description of the ICU message format parse
+            failure.
+          example: Expected "#" but "x" found.
+          type: string
+      title: icu/skeleton/error
       type: object
     document:
       example:

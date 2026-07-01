@@ -137,6 +137,7 @@ docs/GlossaryTermsApi.md
 docs/GlossaryUpdateParameters.md
 docs/ICUApi.md
 docs/Icu.md
+docs/IcuSkeletonError.md
 docs/IcuSkeletonParameters.md
 docs/Invitation.md
 docs/InvitationCreateParameters.md
@@ -412,6 +413,7 @@ model_glossary_term_translation_update_parameters.go
 model_glossary_term_update_parameters.go
 model_glossary_update_parameters.go
 model_icu.go
+model_icu_skeleton_error.go
 model_icu_skeleton_parameters.go
 model_invitation.go
 model_invitation_create_parameters.go
