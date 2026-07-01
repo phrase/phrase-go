@@ -25,7 +25,7 @@ type DocumentDeleteOpts struct {
 
 /*
 DocumentDelete Delete document
-Delete an existing document.
+Permanently deletes a document and all of its associated translation segments from the project. Use this when you want to remove a document that is no longer needed; the deletion cannot be reversed and all associated segments will be lost.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param id ID
