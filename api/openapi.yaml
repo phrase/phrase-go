@@ -21673,7 +21673,10 @@ paths:
           --access_token <token>
       x-cli-version: "2.5"
     get:
-      description: Get details on a single screenshot for a given project.
+      description: |
+        Returns a single screenshot belonging to the specified project. Use this to retrieve the screenshot's name, description, hosted image URL, and marker count after uploading, or before creating, updating, or inspecting its markers. The response is a synchronous, idempotent read — repeated calls return the same record without side effects.
+
+        The Attachable Screenshots feature must be enabled on the account.
       operationId: screenshot/show
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -21776,10 +21779,6 @@ paths:
       tags:
       - Screenshots
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/screenshots/:id?branch=my-feature-branch" \
-            -u USERNAME_OR_ACCESS_TOKEN
       - lang: CLI v2
         source: |-
           phrase screenshots show \
