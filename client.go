@@ -87,6 +87,8 @@ type APIClient struct {
 
 	JobsApi *JobsApiService
 
+	KeyFormatAnnotationsApi *KeyFormatAnnotationsApiService
+
 	KeysApi *KeysApiService
 
 	KeysFigmaAttachmentsApi *KeysFigmaAttachmentsApiService
@@ -194,6 +196,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.JobTemplateLocalesApi = (*JobTemplateLocalesApiService)(&c.common)
 	c.JobTemplatesApi = (*JobTemplatesApiService)(&c.common)
 	c.JobsApi = (*JobsApiService)(&c.common)
+	c.KeyFormatAnnotationsApi = (*KeyFormatAnnotationsApiService)(&c.common)
 	c.KeysApi = (*KeysApiService)(&c.common)
 	c.KeysFigmaAttachmentsApi = (*KeysFigmaAttachmentsApiService)(&c.common)
 	c.LinkedKeysApi = (*LinkedKeysApiService)(&c.common)

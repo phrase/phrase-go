@@ -131,6 +131,7 @@ tags:
 - name: Job Template Locales
 - name: Job Templates
 - name: Jobs
+- name: Key Format Annotations
 - name: Keys
 - name: Linked Keys
 - name: Locales
@@ -34653,6 +34654,121 @@ paths:
           curl -i "https://api.phrase.com/v2/projects/:project_id/keys/:id/key_links/1234abcd1234cdef1234abcd1234cdef" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X DELETE
+  /projects/{project_id}/keys/{id}/format_annotations:
+    get:
+      description: |
+        Returns the format annotations stored on a translation key. Format annotations capture
+        file-format data recorded when the key was imported — for example, an ARB placeholder
+        block or an XLIFF note.
+
+        Results are limited to 1,000 entries.
+      operationId: key_format_annotations/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+              - file_format: xliff_2
+                original_representation: <note category="meaning">header</note>
+              schema:
+                items:
+                  $ref: '#/components/schemas/key_format_annotations_list_200_response_inner'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: "Bad request. The request could not be parsed or a parameter\
+            \ failed validation. Verify the request body, the content type, and the\
+            \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: "Unauthorized. Authentication failed because the access token\
+            \ is missing, expired, or invalid. Supply a valid access token and retry."
+        "403":
+          description: "Forbidden. The credentials are valid but not permitted for\
+            \ this request: the access token may lack the required scope, the user\
+            \ may lack permission on the resource, or the account plan may not include\
+            \ the feature. Use a token with the required scope on an account and user\
+            \ that hold the necessary permissions."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: "Not found. The requested resource does not exist or is not\
+            \ visible to the authenticated user. Verify the identifiers in the request\
+            \ path and that the token has access to them, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Too many requests. The rate limit has been exceeded. Wait until
+            the time indicated by the `X-Rate-Limit-Reset` response header before
+            retrying.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List format annotations for a key
+      tags:
+      - Key Format Annotations
+      x-cli-version: "2.5"
   /accounts/{account_id}/automations:
     get:
       description: |
@@ -43473,6 +43589,22 @@ components:
       - child_key_ids
       title: key_links/batch_destroy/parameters
       type: object
+    key_format_annotations_list_200_response_inner:
+      example:
+        original_representation: <note category="meaning">header</note>
+        file_format: xliff_2
+      properties:
+        file_format:
+          description: |
+            The file format that produced this annotation.
+          example: xliff_2
+          type: string
+        original_representation:
+          description: |
+            The original file-format snippet captured when the key was imported. Returned as-is, may contain multi-line content.
+          example: <note category="meaning">header</note>
+          type: string
+      type: object
     automations_create_parameters:
       properties:
         name:
@@ -43821,6 +43953,7 @@ x-tagGroups:
   - Projects
   - Locales
   - Keys
+  - Key Format Annotations
   - Translations
   - Uploads
   - Tags

@@ -25,6 +25,7 @@ api_job_locales.go
 api_job_template_locales.go
 api_job_templates.go
 api_jobs.go
+api_key_format_annotations.go
 api_keys.go
 api_keys_figma_attachments.go
 api_linked_keys.go
@@ -181,6 +182,8 @@ docs/JobTemplatesApi.md
 docs/JobUpdateParameters.md
 docs/JobsApi.md
 docs/KeyCreateParameters.md
+docs/KeyFormatAnnotationsApi.md
+docs/KeyFormatAnnotationsList200ResponseInner.md
 docs/KeyLink.md
 docs/KeyLinksBatchDestroyParameters.md
 docs/KeyLinksCreateParameters.md
@@ -449,6 +452,7 @@ model_job_template_preview.go
 model_job_template_update_parameters.go
 model_job_update_parameters.go
 model_key_create_parameters.go
+model_key_format_annotations_list_200_response_inner.go
 model_key_link.go
 model_key_links_batch_destroy_parameters.go
 model_key_links_create_parameters.go
