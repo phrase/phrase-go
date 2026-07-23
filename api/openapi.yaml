@@ -39530,13 +39530,10 @@ components:
           example: false
           type: boolean
         cldr_version:
-          description: Pluralization rule set to apply when constructing skeletons.
-            Accepted values are `legacy` and `cldr_41`. Defaults to `legacy` when
-            omitted.
-          enum:
-          - legacy
-          - cldr_41
-          example: cldr_41
+          description: "Pluralization rule set to use when constructing skeletons.\
+            \ Pass `legacy` for pre-CLDR behaviour, or a CLDR version string such\
+            \ as `cldr48`. Defaults to the project's configured version when omitted."
+          example: cldr48
           type: string
       title: icu/skeleton/parameters
       type: object
