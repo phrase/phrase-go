@@ -37,6 +37,7 @@ api_notifications.go
 api_orders.go
 api_organization_job_template_locales.go
 api_organization_job_templates.go
+api_pre_translations.go
 api_projects.go
 api_quality_performance_score.go
 api_release_triggers.go
@@ -237,6 +238,9 @@ docs/OrganizationJobTemplateLocalesApi.md
 docs/OrganizationJobTemplateLocalesCreateParameters.md
 docs/OrganizationJobTemplateUpdateParameters.md
 docs/OrganizationJobTemplatesApi.md
+docs/PreTranslation.md
+docs/PreTranslationCreateParameters.md
+docs/PreTranslationsApi.md
 docs/Project.md
 docs/ProjectCreateParameters.md
 docs/ProjectDetails.md
@@ -494,6 +498,8 @@ model_organization_job_template_details.go
 model_organization_job_template_locale_update_parameters.go
 model_organization_job_template_locales_create_parameters.go
 model_organization_job_template_update_parameters.go
+model_pre_translation.go
+model_pre_translation_create_parameters.go
 model_project.go
 model_project_create_parameters.go
 model_project_details.go

@@ -250,6 +250,9 @@ Class | Method | HTTP request | Description
 *OrganizationJobTemplatesApi* | [**OrganizationJobTemplateUpdate**](docs/OrganizationJobTemplatesApi.md#organizationjobtemplateupdate) | **Patch** /accounts/{account_id}/job_templates/{id} | Update an organization job template
 *OrganizationJobTemplatesApi* | [**OrganizationJobTemplatesList**](docs/OrganizationJobTemplatesApi.md#organizationjobtemplateslist) | **Get** /accounts/{account_id}/job_templates | List organization job templates
 *OrganizationJobTemplatesApi* | [**OrganizationJobTemplatesShow**](docs/OrganizationJobTemplatesApi.md#organizationjobtemplatesshow) | **Get** /accounts/{account_id}/job_templates/{id} | Get a single organization job template
+*PreTranslationsApi* | [**PreTranslationCreate**](docs/PreTranslationsApi.md#pretranslationcreate) | **Post** /projects/{project_id}/pre_translations | Create a pre-translation job
+*PreTranslationsApi* | [**PreTranslationShow**](docs/PreTranslationsApi.md#pretranslationshow) | **Get** /projects/{project_id}/pre_translations/{id} | Get a single pre-translation job
+*PreTranslationsApi* | [**PreTranslationsList**](docs/PreTranslationsApi.md#pretranslationslist) | **Get** /projects/{project_id}/pre_translations | List pre-translation jobs
 *ProjectsApi* | [**ProjectCreate**](docs/ProjectsApi.md#projectcreate) | **Post** /projects | Create a project
 *ProjectsApi* | [**ProjectDelete**](docs/ProjectsApi.md#projectdelete) | **Delete** /projects/{id} | Delete a project
 *ProjectsApi* | [**ProjectShow**](docs/ProjectsApi.md#projectshow) | **Get** /projects/{id} | Get a single project
@@ -501,6 +504,8 @@ Class | Method | HTTP request | Description
  - [OrganizationJobTemplateLocaleUpdateParameters](docs/OrganizationJobTemplateLocaleUpdateParameters.md)
  - [OrganizationJobTemplateLocalesCreateParameters](docs/OrganizationJobTemplateLocalesCreateParameters.md)
  - [OrganizationJobTemplateUpdateParameters](docs/OrganizationJobTemplateUpdateParameters.md)
+ - [PreTranslation](docs/PreTranslation.md)
+ - [PreTranslationCreateParameters](docs/PreTranslationCreateParameters.md)
  - [Project](docs/Project.md)
  - [ProjectCreateParameters](docs/ProjectCreateParameters.md)
  - [ProjectDetails](docs/ProjectDetails.md)
@@ -605,6 +610,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com
