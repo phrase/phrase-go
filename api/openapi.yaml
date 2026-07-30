@@ -71,6 +71,7 @@ tags:
       </table>
     </div>
   name: Authorizations
+- name: Automation Events
 - name: Blacklisted Keys
 - description: |
     ### Branch creation
@@ -7967,7 +7968,7 @@ paths:
           type: string
         style: form
       - description: filter by jobs updated since given date
-        example: 2013-02-21T00:00:00.000Z
+        example: 2013-02-21T00:00:00Z
         explode: true
         in: query
         name: updated_since
@@ -8256,7 +8257,7 @@ paths:
           type: string
         style: form
       - description: filter by jobs updated since given date
-        example: 2013-02-21T00:00:00.000Z
+        example: 2013-02-21T00:00:00Z
         explode: true
         in: query
         name: updated_since
@@ -36111,6 +36112,387 @@ paths:
           --account_id <account_id> \
           --id <id> \
           --access_token <token>
+  /accounts/{account_id}/automations/{automation_id}/events:
+    get:
+      description: |
+        Returns the run history for a specific automation, newest-first.
+
+        For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
+      operationId: automation_events/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: "Limit on the number of objects to be returned, between 1 and\
+          \ 100. 25 by default"
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter events by outcome state. Unrecognized values are ignored.
+        explode: true
+        in: query
+        name: state
+        required: false
+        schema:
+          enum:
+          - success
+          - failure
+          - in_progress
+          type: string
+        style: form
+      - description: Filter events by what triggered the automation run. Unrecognized
+          values are ignored.
+        explode: true
+        in: query
+        name: triggered_by
+        required: false
+        schema:
+          enum:
+          - manual
+          - schedule
+          - upload
+          - upload_batch
+          type: string
+        style: form
+      - description: Filter events by project ID. Accepts a single ID or a comma-separated
+          list of IDs.
+        explode: true
+        in: query
+        name: project_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter events by one or more project IDs.
+        explode: true
+        in: query
+        name: project_ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Return only events created after this ISO 8601 timestamp. Returns
+          400 if the value is not a valid date-time.
+        example: 2023-01-01T00:00:00Z
+        explode: true
+        in: query
+        name: created_after
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return only events created before this ISO 8601 timestamp. Returns
+          400 if the value is not a valid date-time.
+        example: 2023-01-01T00:00:00Z
+        explode: true
+        in: query
+        name: created_before
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/automation_event'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+            Pagination:
+              $ref: '#/components/headers/Pagination'
+        "400":
+          description: "Bad request. The request could not be parsed or a parameter\
+            \ failed validation. Verify the request body, the content type, and the\
+            \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: "Unauthorized. Authentication failed because the access token\
+            \ is missing, expired, or invalid. Supply a valid access token and retry."
+        "403":
+          description: "Forbidden. The credentials are valid but not permitted for\
+            \ this request: the access token may lack the required scope, the user\
+            \ may lack permission on the resource, or the account plan may not include\
+            \ the feature. Use a token with the required scope on an account and user\
+            \ that hold the necessary permissions."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: "Not found. The requested resource does not exist or is not\
+            \ visible to the authenticated user. Verify the identifiers in the request\
+            \ path and that the token has access to them, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Too many requests. The rate limit has been exceeded. Wait until
+            the time indicated by the `X-Rate-Limit-Reset` response header before
+            retrying.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List events for an automation
+      tags:
+      - Automation Events
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/automations/:id/events" \
+            -u USERNAME_OR_ACCESS_TOKEN
+  /accounts/{account_id}/automation_events:
+    get:
+      description: |
+        Returns the run history across all automations in the account, newest-first.
+
+        Use `automation_id` to narrow results to a single automation. Use `project_id` or `project_ids` to narrow by project.
+
+        For feature availability, see [Jobs (Strings)](https://support.phrase.com/hc/en-us/articles/5784100517788-Jobs-Strings).
+      operationId: account_automation_events/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: "Limit on the number of objects to be returned, between 1 and\
+          \ 100. 25 by default"
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Filter events to a single automation by its ID.
+        explode: true
+        in: query
+        name: automation_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter events by outcome state. Unrecognized values are ignored.
+        explode: true
+        in: query
+        name: state
+        required: false
+        schema:
+          enum:
+          - success
+          - failure
+          - in_progress
+          type: string
+        style: form
+      - description: Filter events by what triggered the automation run. Unrecognized
+          values are ignored.
+        explode: true
+        in: query
+        name: triggered_by
+        required: false
+        schema:
+          enum:
+          - manual
+          - schedule
+          - upload
+          - upload_batch
+          type: string
+        style: form
+      - description: Filter events by project ID. Accepts a single ID or a comma-separated
+          list of IDs.
+        explode: true
+        in: query
+        name: project_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter events by one or more project IDs.
+        explode: true
+        in: query
+        name: project_ids
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Return only events created after this ISO 8601 timestamp. Returns
+          400 if the value is not a valid date-time.
+        example: 2023-01-01T00:00:00Z
+        explode: true
+        in: query
+        name: created_after
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Return only events created before this ISO 8601 timestamp. Returns
+          400 if the value is not a valid date-time.
+        example: 2023-01-01T00:00:00Z
+        explode: true
+        in: query
+        name: created_before
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/automation_event'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+            Pagination:
+              $ref: '#/components/headers/Pagination'
+        "400":
+          description: "Bad request. The request could not be parsed or a parameter\
+            \ failed validation. Verify the request body, the content type, and the\
+            \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: "Unauthorized. Authentication failed because the access token\
+            \ is missing, expired, or invalid. Supply a valid access token and retry."
+        "403":
+          description: "Forbidden. The credentials are valid but not permitted for\
+            \ this request: the access token may lack the required scope, the user\
+            \ may lack permission on the resource, or the account plan may not include\
+            \ the feature. Use a token with the required scope on an account and user\
+            \ that hold the necessary permissions."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Too many requests. The rate limit has been exceeded. Wait until
+            the time indicated by the `X-Rate-Limit-Reset` response header before
+            retrying.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List automation events for an account
+      tags:
+      - Automation Events
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/accounts/:account_id/automation_events" \
+            -u USERNAME_OR_ACCESS_TOKEN
 components:
   headers:
     Link:
@@ -36234,6 +36616,15 @@ components:
       explode: true
       in: query
       name: account_id
+      required: false
+      schema:
+        type: string
+      style: form
+    query_automation_id:
+      description: Filter events to a single automation by its ID.
+      explode: true
+      in: query
+      name: automation_id
       required: false
       schema:
         type: string
@@ -36553,7 +36944,7 @@ components:
       style: form
     job_updated_since:
       description: filter by jobs updated since given date
-      example: 2013-02-21T00:00:00.000Z
+      example: 2013-02-21T00:00:00Z
       explode: true
       in: query
       name: updated_since
@@ -40019,6 +40410,64 @@ components:
           format: date-time
           type: string
       title: automation
+      type: object
+    automation_event:
+      example:
+        id: abcd1234ef56
+        automation_id: xyz9876abc123
+        state: success
+        triggered_by: schedule
+        created_at: 2021-06-28T09:52:53Z
+        jobs_created: 3
+        job_ids:
+        - job1abc
+        - job2def
+        project:
+          id: proj1234abcd
+          name: My Project
+        details: null
+      properties:
+        id:
+          description: Unique identifier of the automation event.
+          type: string
+        automation_id:
+          description: Identifier of the automation that produced this event.
+          type: string
+        state:
+          description: Outcome of the automation run.
+          enum:
+          - success
+          - failure
+          - in_progress
+          type: string
+        triggered_by:
+          description: What caused the automation to run.
+          enum:
+          - manual
+          - schedule
+          - upload
+          - upload_batch
+          type: string
+        created_at:
+          description: Timestamp when the event was created.
+          format: date-time
+          type: string
+        jobs_created:
+          description: Number of jobs created during this automation run.
+          type: integer
+        job_ids:
+          description: Identifiers of the jobs created during this automation run.
+          items:
+            type: string
+          type: array
+        project:
+          $ref: '#/components/schemas/automation_event_project'
+        details:
+          description: Error message describing the failure when state is `failure`;
+            null otherwise.
+          nullable: true
+          type: string
+      title: automation_event
       type: object
     icu_skeleton_parameters:
       nullable: true
@@ -44366,6 +44815,17 @@ components:
           type: integer
         h:
           type: integer
+      type: object
+    automation_event_project:
+      description: The project associated with this automation event. Null when no
+        project is set.
+      properties:
+        id:
+          description: Project identifier.
+          type: string
+        name:
+          description: Project name.
+          type: string
       type: object
   securitySchemes:
     Token:

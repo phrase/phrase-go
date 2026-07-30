@@ -76,6 +76,8 @@ Class | Method | HTTP request | Description
 *AuthorizationsApi* | [**AuthorizationShow**](docs/AuthorizationsApi.md#authorizationshow) | **Get** /authorizations/{id} | Get a single authorization
 *AuthorizationsApi* | [**AuthorizationUpdate**](docs/AuthorizationsApi.md#authorizationupdate) | **Patch** /authorizations/{id} | Update an authorization
 *AuthorizationsApi* | [**AuthorizationsList**](docs/AuthorizationsApi.md#authorizationslist) | **Get** /authorizations | List authorizations
+*AutomationEventsApi* | [**AccountAutomationEventsList**](docs/AutomationEventsApi.md#accountautomationeventslist) | **Get** /accounts/{account_id}/automation_events | List automation events for an account
+*AutomationEventsApi* | [**AutomationEventsList**](docs/AutomationEventsApi.md#automationeventslist) | **Get** /accounts/{account_id}/automations/{automation_id}/events | List events for an automation
 *AutomationsApi* | [**AutomationActivate**](docs/AutomationsApi.md#automationactivate) | **Post** /accounts/{account_id}/automations/{automation_id}/activate | Activate an automation
 *AutomationsApi* | [**AutomationCreate**](docs/AutomationsApi.md#automationcreate) | **Post** /accounts/{account_id}/automations | Create an automation
 *AutomationsApi* | [**AutomationDeactivate**](docs/AutomationsApi.md#automationdeactivate) | **Post** /accounts/{account_id}/automations/{automation_id}/deactivate | Deactivate an automation
@@ -374,6 +376,8 @@ Class | Method | HTTP request | Description
  - [AuthorizationUpdateParameters](docs/AuthorizationUpdateParameters.md)
  - [AuthorizationWithToken](docs/AuthorizationWithToken.md)
  - [Automation](docs/Automation.md)
+ - [AutomationEvent](docs/AutomationEvent.md)
+ - [AutomationEventProject](docs/AutomationEventProject.md)
  - [AutomationsCreateParameters](docs/AutomationsCreateParameters.md)
  - [AutomationsCreateParameters1](docs/AutomationsCreateParameters1.md)
  - [BlacklistedKey](docs/BlacklistedKey.md)
@@ -610,6 +614,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com
