@@ -22,6 +22,8 @@ type LocaleUpdateParameters struct {
 	UnverifyNewTranslations *bool `json:"unverify_new_translations,omitempty"`
 	// Indicates that updated translations for this locale should be marked as unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature.
 	UnverifyUpdatedTranslations *bool `json:"unverify_updated_translations,omitempty"`
+	// Indicates that translations for this locale should be marked as unverified when the source language has been changed.
+	UnverifyOnSourceChanges *bool `json:"unverify_on_source_changes,omitempty"`
 	// If set, translations for this locale will be fetched automatically, right after creation.
 	Autotranslate *bool `json:"autotranslate,omitempty"`
 	// Identifier of the Language AI profile to use for this locale.
