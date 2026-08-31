@@ -18,6 +18,10 @@ type ProjectUpdateParameters struct {
 	Media string `json:"media,omitempty"`
 	// (Optional) Indicates whether the project should share the account's translation memory
 	SharesTranslationMemory *bool `json:"shares_translation_memory,omitempty"`
+	// List of TMS translation memory IDs, used to provide reference translations for the AI translation agent.
+	TmIds []string `json:"tm_ids,omitempty"`
+	// List of TMS term base IDs, used to ensure consistent terminology for the AI translation agent.
+	TermBaseIds []string `json:"term_base_ids,omitempty"`
 	// (Optional) Image to identify the project
 	ProjectImage *os.File `json:"project_image,omitempty"`
 	// (Optional) Indicates whether the project image should be deleted.
