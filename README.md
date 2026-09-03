@@ -100,6 +100,8 @@ Class | Method | HTTP request | Description
 *BranchesApi* | [**BranchSync**](docs/BranchesApi.md#branchsync) | **Patch** /projects/{project_id}/branches/{name}/sync | Sync a branch
 *BranchesApi* | [**BranchUpdate**](docs/BranchesApi.md#branchupdate) | **Patch** /projects/{project_id}/branches/{name} | Update a branch
 *BranchesApi* | [**BranchesList**](docs/BranchesApi.md#brancheslist) | **Get** /projects/{project_id}/branches | List branches
+*ChecksApi* | [**CheckIssueDismiss**](docs/ChecksApi.md#checkissuedismiss) | **Patch** /projects/{project_id}/checks/issues/{id}/dismiss | Dismiss a check issue
+*ChecksApi* | [**CheckIssuesList**](docs/ChecksApi.md#checkissueslist) | **Get** /projects/{project_id}/checks/issues | List check issues
 *CommentReactionsApi* | [**ReactionCreate**](docs/CommentReactionsApi.md#reactioncreate) | **Post** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions | Create a reaction
 *CommentReactionsApi* | [**ReactionDelete**](docs/CommentReactionsApi.md#reactiondelete) | **Delete** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions/{id} | Delete a reaction
 *CommentReactionsApi* | [**ReactionShow**](docs/CommentReactionsApi.md#reactionshow) | **Get** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions/{id} | Get a single reaction
@@ -394,6 +396,7 @@ Class | Method | HTTP request | Description
  - [BranchName](docs/BranchName.md)
  - [BranchSyncParameters](docs/BranchSyncParameters.md)
  - [BranchUpdateParameters](docs/BranchUpdateParameters.md)
+ - [CheckIssue](docs/CheckIssue.md)
  - [Comment](docs/Comment.md)
  - [CommentCreateParameters](docs/CommentCreateParameters.md)
  - [CommentCreateParameters1](docs/CommentCreateParameters1.md)
@@ -614,6 +617,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com

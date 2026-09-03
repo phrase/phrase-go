@@ -109,6 +109,38 @@ tags:
       </table>
     </div>
   name: Branches
+- description: |
+    **Note:** The Checks API is still in development and might change in subsequent releases.
+
+    The Checks API lets you list the check issues detected in a project and dismiss issues that should no longer appear on the list of active check issues.
+
+    #### Available States
+
+    <div class="table-responsive">
+      <table class="basic-table">
+        <thead>
+          <tr class="basic-table__row basic-table__row--header">
+            <th class="basic-table__cell basic-table__cell--header">State</th>
+            <th class="basic-table__cell basic-table__cell--header">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="basic-table__cell"><code>active</code></td>
+            <td class="basic-table__cell">The issue is unresolved and not dismissed.</td>
+          </tr>
+          <tr>
+            <td class="basic-table__cell"><code>solved</code></td>
+            <td class="basic-table__cell">The issue has been resolved.</td>
+          </tr>
+          <tr>
+            <td class="basic-table__cell"><code>dismissed</code></td>
+            <td class="basic-table__cell">The issue has been dismissed by a user.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  name: Checks
 - name: Comments
 - name: Comment Reactions
 - name: Comment Replies
@@ -24099,6 +24131,308 @@ paths:
           --data '{"name":"'date.formats.*'"}' \
           --access_token <token>
       x-cli-version: "2.5"
+  /projects/{project_id}/checks/issues:
+    get:
+      description: |-
+        **Note:** The Checks API is still in development and might change in subsequent releases.
+
+        List check issues for the given project. Results can be filtered by locale, check name, and state.
+      operationId: check_issues/list
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: "Limit on the number of objects to be returned, between 1 and\
+          \ 100. 25 by default"
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: "Filter by state of the check issue. Can be one of: `active`,\
+          \ `solved`, `dismissed`, `all`. Defaults to `active`."
+        example: active
+        explode: true
+        in: query
+        name: state
+        required: false
+        schema:
+          default: active
+          enum:
+          - active
+          - solved
+          - dismissed
+          - all
+          type: string
+        style: form
+      - description: Filter by one or more locale IDs.
+        explode: true
+        in: query
+        name: locale_ids
+        required: false
+        schema:
+          example:
+          - abcd1234cdef1234abcd1234cdef1234
+          items:
+            type: string
+          type: array
+        style: form
+      - description: |-
+          Filter by one or more check names. Valid values are:
+
+          - `translation_content_length` — the translation exceeds the maximum character limit configured for the key.
+          - `translation_placeholder_usage` — the translation is missing placeholders present in the source, or contains unexpected ones.
+          - `translation_glossary_usage` — the translation does not follow the glossary term translations.
+        explode: true
+        in: query
+        name: check_names
+        required: false
+        schema:
+          example:
+          - translation_placeholder_usage
+          items:
+            enum:
+            - translation_content_length
+            - translation_placeholder_usage
+            - translation_glossary_usage
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/check_issue'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+            Pagination:
+              $ref: '#/components/headers/Pagination'
+        "400":
+          description: "Bad request. The request could not be parsed or a parameter\
+            \ failed validation. Verify the request body, the content type, and the\
+            \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: "Unauthorized. Authentication failed because the access token\
+            \ is missing, expired, or invalid. Supply a valid access token and retry."
+        "403":
+          description: "Forbidden. The credentials are valid but not permitted for\
+            \ this request: the access token may lack the required scope, the user\
+            \ may lack permission on the resource, or the account plan may not include\
+            \ the feature. Use a token with the required scope on an account and user\
+            \ that hold the necessary permissions."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: "Not found. The requested resource does not exist or is not\
+            \ visible to the authenticated user. Verify the identifiers in the request\
+            \ path and that the token has access to them, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Too many requests. The rate limit has been exceeded. Wait until
+            the time indicated by the `X-Rate-Limit-Reset` response header before
+            retrying.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List check issues
+      tags:
+      - Checks
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/checks/issues" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase check_issues list \
+          --project_id <project_id> \
+          --access_token <token>
+  /projects/{project_id}/checks/issues/{id}/dismiss:
+    patch:
+      description: |-
+        **Note:** The Checks API is still in development and might change in subsequent releases.
+
+        Mark a check issue as dismissed so it no longer appears on the list of active check issues.
+      operationId: check_issue/dismiss
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Check Issue ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/check_issue'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: "Bad request. The request could not be parsed or a parameter\
+            \ failed validation. Verify the request body, the content type, and the\
+            \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: "Unauthorized. Authentication failed because the access token\
+            \ is missing, expired, or invalid. Supply a valid access token and retry."
+        "403":
+          description: "Forbidden. The credentials are valid but not permitted for\
+            \ this request: the access token may lack the required scope, the user\
+            \ may lack permission on the resource, or the account plan may not include\
+            \ the feature. Use a token with the required scope on an account and user\
+            \ that hold the necessary permissions."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: "Not found. The requested resource does not exist or is not\
+            \ visible to the authenticated user. Verify the identifiers in the request\
+            \ path and that the token has access to them, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/document_delete_422_response'
+          description: "Unprocessable entity. The request was well-formed but failed\
+            \ validation. The response body lists each offending field in the `errors`\
+            \ array, with its resource, field, and a human-readable message. Correct\
+            \ the listed fields and retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Too many requests. The rate limit has been exceeded. Wait until
+            the time indicated by the `X-Rate-Limit-Reset` response header before
+            retrying.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Dismiss a check issue
+      tags:
+      - Checks
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/checks/issues/:id/dismiss" \
+            -u USERNAME_OR_ACCESS_TOKEN \
+            -X PATCH
+      - lang: CLI v2
+        source: |-
+          phrase check_issues dismiss \
+          --project_id <project_id> \
+          --id <id> \
+          --access_token <token>
   /projects/{project_id}/keys:
     delete:
       description: "Delete all keys matching query. Same constraints as list. Please\
@@ -37153,6 +37487,78 @@ components:
           type: string
       title: blacklisted_key
       type: object
+    check_issue:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        check_name: translation_placeholder_usage
+        state: active
+        description: "The translation contains invalid placeholders. (missing: %{count})"
+        dismissed_at: null
+        solved_at: null
+        created_at: 2015-01-28T09:52:53Z
+        updated_at: 2015-01-28T09:52:53Z
+        translation:
+          id: abcd1234cdef1234abcd1234cdef1234
+          content: My translation
+          unverified: false
+          excluded: false
+          plural_suffix: ""
+          key:
+            id: abcd1234cdef1234abcd1234cdef1234
+            name: home.index.headline
+            plural: false
+            use_ordinal_rules: false
+          locale:
+            id: abcd1234cdef1234abcd1234cdef1234
+            name: de
+            code: de-DE
+          placeholders:
+          - "%{count}"
+          state: translated
+          created_at: 2015-01-28T09:52:53Z
+          updated_at: 2015-01-28T09:52:53Z
+      properties:
+        id:
+          type: string
+        check_name:
+          description: "Identifier of the check that reported this issue. One of:\
+            \ `translation_content_length`, `translation_placeholder_usage`, `translation_glossary_usage`."
+          enum:
+          - translation_content_length
+          - translation_placeholder_usage
+          - translation_glossary_usage
+          type: string
+        state:
+          description: "Current state of the check issue. One of: `active`, `solved`,\
+            \ `dismissed`."
+          enum:
+          - active
+          - solved
+          - dismissed
+          type: string
+        description:
+          description: "Human-readable description of the reported issue, always in\
+            \ English. This message is intended for display only. Its wording may\
+            \ change at any time and it should not be parsed or relied upon programmatically."
+          type: string
+        dismissed_at:
+          format: date-time
+          nullable: true
+          type: string
+        solved_at:
+          format: date-time
+          nullable: true
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+        translation:
+          $ref: '#/components/schemas/translation'
+      title: check_issue
+      type: object
     branch_comparison:
       description: |
         Comparison result of a branch against its base branch. Top-level properties correspond to
@@ -44926,6 +45332,7 @@ x-tagGroups:
   - Branches
 - name: Quality
   tags:
+  - Checks
   - Glossaries
   - Glossary Terms
   - Glossary Term Translations
