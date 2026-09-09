@@ -33,6 +33,7 @@ api_keys_figma_attachments.go
 api_linked_keys.go
 api_locale_downloads.go
 api_locales.go
+api_machine_translation.go
 api_members.go
 api_notification_groups.go
 api_notifications.go
@@ -221,6 +222,11 @@ docs/LocaleTeamPreview.md
 docs/LocaleUpdateParameters.md
 docs/LocaleUserPreview.md
 docs/LocalesApi.md
+docs/MachineTranslationApi.md
+docs/MachineTranslationLocaleProviderMapping.md
+docs/MachineTranslationLocaleProviderMappingsCreateParameters.md
+docs/MachineTranslationSettings.md
+docs/MachineTranslationSettingsUpdateParameters.md
 docs/Member.md
 docs/MemberProjectDetail.md
 docs/MemberProjectDetailProjectRolesInner.md
@@ -491,6 +497,10 @@ model_locale_statistics.go
 model_locale_team_preview.go
 model_locale_update_parameters.go
 model_locale_user_preview.go
+model_machine_translation_locale_provider_mapping.go
+model_machine_translation_locale_provider_mappings_create_parameters.go
+model_machine_translation_settings.go
+model_machine_translation_settings_update_parameters.go
 model_member.go
 model_member_project_detail.go
 model_member_project_detail_project_roles_inner.go
