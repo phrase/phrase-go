@@ -84,6 +84,7 @@ Name | Type | Description  | Notes
 **state** | **optional.String**| Filter by state of the check issue. Can be one of: &#x60;active&#x60;, &#x60;solved&#x60;, &#x60;dismissed&#x60;, &#x60;all&#x60;. Defaults to &#x60;active&#x60;. | [default to &quot;active&quot;]
 **localeIds** | [**optional.Interface of []string**](string.md)| Filter by one or more locale IDs. | 
 **checkNames** | [**optional.Interface of []string**](string.md)| Filter by one or more check names. Valid values are:  - &#x60;translation_content_length&#x60; — the translation exceeds the maximum character limit configured for the key. - &#x60;translation_placeholder_usage&#x60; — the translation is missing placeholders present in the source, or contains unexpected ones. - &#x60;translation_glossary_usage&#x60; — the translation does not follow the glossary term translations. | 
+**createdSince** | **optional.String**| Return only check issues created on or after this ISO 8601 datetime. Returns 400 if the value is not a valid date-time. | 
 
 ### Return type
 

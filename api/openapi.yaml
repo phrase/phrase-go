@@ -24226,6 +24226,16 @@ paths:
             type: string
           type: array
         style: form
+      - description: Return only check issues created on or after this ISO 8601 datetime.
+          Returns 400 if the value is not a valid date-time.
+        example: 2026-01-01T12:00:00Z
+        explode: true
+        in: query
+        name: created_since
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:

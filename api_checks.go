@@ -140,6 +140,7 @@ type CheckIssuesListOpts struct {
 	State         optional.String `json:"state,omitempty"`
 	LocaleIds     []string        `json:"locale_ids,omitempty"`
 	CheckNames    []string        `json:"check_names,omitempty"`
+	CreatedSince  optional.String `json:"created_since,omitempty"`
 }
 
 /*
@@ -154,6 +155,7 @@ CheckIssuesList List check issues
   - @param "State" (optional.String) -  Filter by state of the check issue. Can be one of: `active`, `solved`, `dismissed`, `all`. Defaults to `active`.
   - @param "LocaleIds" (optional.Interface of []string) -  Filter by one or more locale IDs.
   - @param "CheckNames" (optional.Interface of []string) -  Filter by one or more check names. Valid values are:  - `translation_content_length` — the translation exceeds the maximum character limit configured for the key. - `translation_placeholder_usage` — the translation is missing placeholders present in the source, or contains unexpected ones. - `translation_glossary_usage` — the translation does not follow the glossary term translations.
+  - @param "CreatedSince" (optional.String) -  Return only check issues created on or after this ISO 8601 datetime. Returns 400 if the value is not a valid date-time.
 
 @return []CheckIssue
 */
@@ -195,6 +197,9 @@ func (a *ChecksApiService) CheckIssuesList(ctx _context.Context, projectId strin
 		for i := range t {
 			localVarQueryParams.Add("check_names[]", parameterToString(t[i], "multi"))
 		}
+	}
+	if localVarOptionals != nil && localVarOptionals.CreatedSince.IsSet() {
+		localVarQueryParams.Add("created_since", parameterToString(localVarOptionals.CreatedSince.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
