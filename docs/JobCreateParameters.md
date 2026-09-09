@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Briefing** | **string** | Briefing for the translators | [optional] 
 **DueDate** | Pointer to [**NullableTime**](time.Time.md) | Date the job should be finished | [optional] 
 **TicketUrl** | **string** | URL to a ticket for this job (e.g. Jira, Trello) | [optional] 
-**Tags** | **[]string** | tags of keys that should be included within the job | [optional] 
+**Tags** | **[]string** | tags of keys that should be included within the job.  *Note: a tag matches every key currently carrying that tag, not just the ones you just tagged. For example, if hundreds of pre-existing keys already share the tag &#x60;myUploadTag&#x60;, adding it here pulls in every one of them, not only the key you just tagged. Use &#x60;translation_key_ids&#x60; to scope the job to specific keys instead.*  | [optional] 
 **TranslationKeyIds** | **[]string** | ids of keys that should be included within the job | [optional] 
 **TargetLocaleIds** | **[]string** | List of target locales for the job. Mutually exclusive with &#x60;job_template_id&#x60;. | [optional] 
 **JobTemplateId** | **string** | id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes. Mutually exclusive with &#x60;target_locale_ids&#x60;. | [optional] 
