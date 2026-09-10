@@ -38223,6 +38223,32 @@ components:
       - text
       example: string
       type: string
+    placeholder_style:
+      description: Placeholder style supported for detecting and highlighting variable
+        placeholders in translation keys. This list may grow over time as new styles
+        are added.
+      example: rails_i18n
+      type: string
+      x-extensible-enum:
+      - rails_i18n
+      - i18next_nesting
+      - gettext_python
+      - cstyle
+      - python_strings
+      - dot_net
+      - java_properties
+      - laravel
+      - square_brackets
+      - single_percentage
+      - double_percentage
+      - emoji
+      - dollar_style
+      - nsis
+      - razor
+      - double_curly
+      - xliffg
+      - xliff
+      - liquid
     key_preview:
       properties:
         id:
@@ -39182,8 +39208,8 @@ components:
           cldr_version: legacy
           job_locking_enabled: false
           placeholder_styles:
-          - angular
-          - iOS
+          - rails_i18n
+          - java_properties
         properties:
           slug:
             type: string
@@ -39248,10 +39274,10 @@ components:
             type: boolean
           placeholder_styles:
             example:
-            - angular
-            - iOS
+            - rails_i18n
+            - java_properties
             items:
-              type: string
+              $ref: '#/components/schemas/placeholder_style'
             type: array
           branch:
             $ref: '#/components/schemas/branch'
@@ -43367,10 +43393,10 @@ components:
         placeholder_styles:
           description: (Optional) List of placeholder styles enabled for the project.
           example:
-          - angular
-          - iOS
+          - rails_i18n
+          - java_properties
           items:
-            type: string
+            $ref: '#/components/schemas/placeholder_style'
           type: array
       required:
       - name
@@ -43529,10 +43555,10 @@ components:
         placeholder_styles:
           description: (Optional) List of placeholder styles enabled for the project.
           example:
-          - angular
-          - iOS
+          - rails_i18n
+          - java_properties
           items:
-            type: string
+            $ref: '#/components/schemas/placeholder_style'
           type: array
         autocomplete_job_enabled:
           description: (Optional) Enable autocomplete-job behavior so that newly created
