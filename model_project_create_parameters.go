@@ -58,6 +58,8 @@ type ProjectCreateParameters struct {
 	AutotranslateUseTranslationMemory *bool `json:"autotranslate_use_translation_memory,omitempty"`
 	// (Optional) Requires autotranslate_enabled to be true
 	AutotranslateOverwriteUnverifiedTranslations *bool `json:"autotranslate_overwrite_unverified_translations,omitempty"`
+	// (Optional) When enabled, the fallback locale's translation is used on export for unverified translations in addition to empty ones. Requires a fallback locale to be configured on the locale.
+	FallbackForUnverifiedTranslations *bool `json:"fallback_for_unverified_translations,omitempty"`
 	// (Optional) Enable autocomplete-job behavior so that newly created keys and locales are automatically added to in-progress jobs.
 	AutocompleteJobEnabled *bool `json:"autocomplete_job_enabled,omitempty"`
 	// (Optional) When enabled, translations are locked once a job moves into review.

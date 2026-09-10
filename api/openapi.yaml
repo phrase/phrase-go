@@ -39176,6 +39176,7 @@ components:
           autotranslate_use_machine_translation: false
           autotranslate_use_translation_memory: true
           autotranslate_overwrite_unverified_translations: false
+          fallback_for_unverified_translations: false
           autocomplete_job_enabled: false
           default_encoding: UTF-8
           cldr_version: legacy
@@ -39228,6 +39229,9 @@ components:
             example: true
             type: boolean
           autotranslate_overwrite_unverified_translations:
+            example: false
+            type: boolean
+          fallback_for_unverified_translations:
             example: false
             type: boolean
           autocomplete_job_enabled:
@@ -43307,6 +43311,12 @@ components:
           description: (Optional) Requires autotranslate_enabled to be true
           example: true
           type: boolean
+        fallback_for_unverified_translations:
+          description: "(Optional) When enabled, the fallback locale's translation\
+            \ is used on export for unverified translations in addition to empty ones.\
+            \ Requires a fallback locale to be configured on the locale."
+          example: false
+          type: boolean
         autocomplete_job_enabled:
           description: (Optional) Enable autocomplete-job behavior so that newly created
             keys and locales are automatically added to in-progress jobs.
@@ -43496,6 +43506,12 @@ components:
         autotranslate_overwrite_unverified_translations:
           description: (Optional) Requires autotranslate_enabled to be true
           example: true
+          type: boolean
+        fallback_for_unverified_translations:
+          description: "(Optional) When enabled, the fallback locale's translation\
+            \ is used on export for unverified translations in addition to empty ones.\
+            \ Requires a fallback locale to be configured on the locale."
+          example: false
           type: boolean
         default_encoding:
           description: "(Optional) Sets the default encoding for Uploads. If you leave\

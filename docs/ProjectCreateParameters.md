@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **AutotranslateUseMachineTranslation** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **AutotranslateUseTranslationMemory** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **AutotranslateOverwriteUnverifiedTranslations** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
+**FallbackForUnverifiedTranslations** | **bool** | (Optional) When enabled, the fallback locale&#39;s translation is used on export for unverified translations in addition to empty ones. Requires a fallback locale to be configured on the locale. | [optional] 
 **AutocompleteJobEnabled** | **bool** | (Optional) Enable autocomplete-job behavior so that newly created keys and locales are automatically added to in-progress jobs. | [optional] 
 **JobLockingEnabled** | **bool** | (Optional) When enabled, translations are locked once a job moves into review. | [optional] 
 **SmartSuggestEnabled** | **bool** | (Optional) Enable Smart Suggest for the project. Defaults to &#x60;true&#x60; when omitted. | [optional] 

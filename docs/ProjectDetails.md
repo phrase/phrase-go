@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **AutotranslateUseMachineTranslation** | **bool** |  | [optional] 
 **AutotranslateUseTranslationMemory** | **bool** |  | [optional] 
 **AutotranslateOverwriteUnverifiedTranslations** | **bool** |  | [optional] 
+**FallbackForUnverifiedTranslations** | **bool** |  | [optional] 
 **AutocompleteJobEnabled** | **bool** |  | [optional] 
 **DefaultEncoding** | **string** |  | [optional] 
 **CldrVersion** | **string** |  | [optional] 

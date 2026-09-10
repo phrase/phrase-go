@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **AutotranslateUseMachineTranslation** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **AutotranslateUseTranslationMemory** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
 **AutotranslateOverwriteUnverifiedTranslations** | **bool** | (Optional) Requires autotranslate_enabled to be true | [optional] 
+**FallbackForUnverifiedTranslations** | **bool** | (Optional) When enabled, the fallback locale&#39;s translation is used on export for unverified translations in addition to empty ones. Requires a fallback locale to be configured on the locale. | [optional] 
 **DefaultEncoding** | **string** | (Optional) Sets the default encoding for Uploads. If you leave it empty, we will try to guess it automatically for you when you Upload a file. You can still override this value by setting the [&#x60;file_encoding&#x60;](/en/api/strings/uploads/upload-a-new-file) parameter for Uploads. | [optional] 
 **PlaceholderStyles** | **[]string** | (Optional) List of placeholder styles enabled for the project. | [optional] 
 **AutocompleteJobEnabled** | **bool** | (Optional) Enable autocomplete-job behavior so that newly created keys and locales are automatically added to in-progress jobs. | [optional] 

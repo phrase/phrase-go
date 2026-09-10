@@ -32,6 +32,7 @@ type ProjectDetails struct {
 	AutotranslateUseMachineTranslation             *bool       `json:"autotranslate_use_machine_translation,omitempty"`
 	AutotranslateUseTranslationMemory              *bool       `json:"autotranslate_use_translation_memory,omitempty"`
 	AutotranslateOverwriteUnverifiedTranslations   *bool       `json:"autotranslate_overwrite_unverified_translations,omitempty"`
+	FallbackForUnverifiedTranslations              *bool       `json:"fallback_for_unverified_translations,omitempty"`
 	AutocompleteJobEnabled                         *bool       `json:"autocomplete_job_enabled,omitempty"`
 	DefaultEncoding                                string      `json:"default_encoding,omitempty"`
 	CldrVersion                                    string      `json:"cldr_version,omitempty"`
