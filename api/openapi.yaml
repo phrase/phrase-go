@@ -15214,6 +15214,8 @@ paths:
       description: |
         Upload a new language file. Creates necessary resources in your project.
 
+        The upload is processed asynchronously: this endpoint returns `201 Created` once the file has been accepted and enqueued, not once processing has finished. Poll `GET /projects/{project_id}/uploads/{id}` and check the `state` field — `error` means processing failed (for example, an unparseable file or a `file_format` that doesn't match the file's actual content).
+
         Note: be aware of [upload limits](https://support.phrase.com/hc/en-us/articles/8548271212188-Phrase-Strings-Limits#file-size-upload-limits-0-0).
       operationId: upload/create
       parameters:
@@ -15329,7 +15331,6 @@ paths:
             -X POST \
             -F branch=my-feature-branch \
             -F file=@/path/to/my/file.json \
-            -F file_format=json \
             -F locale_id=abcd1234cdef1234abcd1234cdef1234 \
             -F tags=awesome-feature,needs-proofreading \
             -F locale_mapping[en]=2 \
@@ -15340,7 +15341,6 @@ paths:
           --project_id <project_id> \
           --branch my-feature-branch \
           --file /path/to/my/file.json \
-          --file_format json \
           --locale_id abcd1234cdef1234abcd1234cdef1234 \
           --tags awesome-feature,needs-proofreading \
           --locale_mapping '{"en": "2"}' \
@@ -15349,7 +15349,8 @@ paths:
       x-cli-version: "2.12"
   /projects/{project_id}/uploads/{id}:
     get:
-      description: View details and summary for a single upload.
+      description: |
+        View details and summary for a single upload. Use this endpoint to poll for the outcome of an upload created via `POST /projects/{project_id}/uploads` — check the `state` field.
       operationId: upload/show
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -39047,6 +39048,8 @@ components:
         format:
           type: string
         state:
+          description: |
+            Processing state of the upload: `initialized`, `processing`, `success`, or `error`. `error` means processing failed — for example the file could not be parsed, or a provided `file_format` didn't match the file's actual content. Poll this field until it leaves `initialized`/`processing` to get the final outcome.
           type: string
         error_message:
           description: |
@@ -42946,7 +42949,10 @@ components:
           format: binary
           type: string
         file_format:
-          description: File format. Auto-detected when possible and not specified.
+          description: |
+            File format of the uploaded file, given as a format's `api_name`. See our [Formats API Endpoint](/en/api/strings/formats/list-formats) for the full list of supported formats.
+
+            Optional. When omitted, Phrase tries to auto-detect the format from the file's content. This is not always possible for JSON files, since several JSON-based formats (e.g. `json`, `simple_json`, `nested_json`) share the same structure.
           example: json
           type: string
         locale_id:
