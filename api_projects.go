@@ -336,7 +336,7 @@ type ProjectUpdateOpts struct {
 
 /*
 ProjectUpdate Update a project
-Update an existing project.
+Update an existing project, including its review workflow, pre-translation/autotranslate rules, and machine-translation configuration (see workflow, machine_translation_enabled, and the autotranslate_* fields below).
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID
   - @param projectUpdateParameters
