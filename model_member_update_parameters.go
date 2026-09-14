@@ -8,9 +8,9 @@ type MemberUpdateParameters struct {
 	Role string `json:"role,omitempty"`
 	// List of project ids the user has access to.
 	ProjectIds string `json:"project_ids,omitempty"`
-	// List of locale ids the user has access to.
+	// List of locale ids the user has access to. This is project-scoped and must be paired with `project_ids` (and `strategy`) to take effect; it does not grant account-wide language access.
 	LocaleIds string `json:"locale_ids,omitempty"`
-	// List of default locales for the user.
+	// List of default locales for the user, applied across all of the user's projects. This is the account-level field corresponding to \"Language access\" in the translator profile UI.
 	DefaultLocaleCodes []string `json:"default_locale_codes,omitempty"`
 	// List of spaces the user is assigned to.
 	SpaceIds []string `json:"space_ids,omitempty"`
