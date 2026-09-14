@@ -74,7 +74,7 @@ type ProjectCreateParameters struct {
 	TranslationKeysSortCollation string `json:"translation_keys_sort_collation,omitempty"`
 	// (Optional) Sets the default encoding for Uploads. If you leave it empty, we will try to guess it automatically for you when you Upload a file. You can still override this value by setting the [`file_encoding`](/en/api/strings/uploads/upload-a-new-file) parameter for Uploads.
 	DefaultEncoding string `json:"default_encoding,omitempty"`
-	// (Optional) CLDR plural-rule version used by the project.
+	// (Optional) CLDR plural-rule version used by the project. Pass `legacy` for pre-CLDR pluralization behaviour, or a CLDR version string such as `cldr48`. Also used as the default version for the ICU skeleton endpoint (`POST /icu/skeleton`) when its own `cldr_version` parameter is omitted.
 	CldrVersion string `json:"cldr_version,omitempty"`
 	// (Optional) List of placeholder styles enabled for the project.
 	PlaceholderStyles []string `json:"placeholder_styles,omitempty"`

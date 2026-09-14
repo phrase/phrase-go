@@ -74,6 +74,6 @@ type ProjectUpdateParameters struct {
 	SmartSuggestUseMachineTranslation *bool `json:"smart_suggest_use_machine_translation,omitempty"`
 	// (Optional) Collation used when sorting translation keys alphabetically.
 	TranslationKeysSortCollation string `json:"translation_keys_sort_collation,omitempty"`
-	// (Optional) CLDR plural-rule version used by the project.
+	// (Optional) CLDR plural-rule version used by the project. Pass `legacy` for pre-CLDR pluralization behaviour, or a CLDR version string such as `cldr48`. Also used as the default version for the ICU skeleton endpoint (`POST /icu/skeleton`) when its own `cldr_version` parameter is omitted.
 	CldrVersion string `json:"cldr_version,omitempty"`
 }

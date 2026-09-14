@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **SmartSuggestUseGlossary** | **bool** | (Optional) Allow Smart Suggest to source suggestions from the project glossary. | [optional] 
 **SmartSuggestUseMachineTranslation** | **bool** | (Optional) Allow Smart Suggest to source suggestions from machine translation. | [optional] 
 **TranslationKeysSortCollation** | **string** | (Optional) Collation used when sorting translation keys alphabetically. | [optional] 
-**CldrVersion** | **string** | (Optional) CLDR plural-rule version used by the project. | [optional] 
+**CldrVersion** | **string** | (Optional) CLDR plural-rule version used by the project. Pass &#x60;legacy&#x60; for pre-CLDR pluralization behaviour, or a CLDR version string such as &#x60;cldr48&#x60;. Also used as the default version for the ICU skeleton endpoint (&#x60;POST /icu/skeleton&#x60;) when its own &#x60;cldr_version&#x60; parameter is omitted. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
