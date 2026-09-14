@@ -430,6 +430,7 @@ type SpacesListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	Page          optional.Int32  `json:"page,omitempty"`
 	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	Q             optional.String `json:"q,omitempty"`
 }
 
 /*
@@ -441,6 +442,7 @@ List all Spaces for the given account.
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
+  - @param "Q" (optional.String) -  Filter results by name. Supports the prefix-match syntax `name:<value>`, which returns only spaces whose names begin with `<value>`. Other query formats are ignored; omitting `q` returns all accessible spaces.
 
 @return []Space
 */
@@ -467,6 +469,9 @@ func (a *SpacesApiService) SpacesList(ctx _context.Context, accountId string, lo
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Q.IsSet() {
+		localVarQueryParams.Add("q", parameterToString(localVarOptionals.Q.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

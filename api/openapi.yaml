@@ -27753,6 +27753,16 @@ paths:
         schema:
           type: integer
         style: form
+      - description: |
+          Filter results by name. Supports the prefix-match syntax `name:<value>`, which returns only spaces whose names begin with `<value>`. Other query formats are ignored; omitting `q` returns all accessible spaces.
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          example: name:Engineering
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -27777,6 +27787,22 @@ paths:
           description: "Bad request. The request could not be parsed or a parameter\
             \ failed validation. Verify the request body, the content type, and the\
             \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: "Unauthorized. Authentication failed because the access token\
+            \ is missing, expired, or invalid. Supply a valid access token and retry."
+        "403":
+          description: "Forbidden. The credentials are valid but not permitted for\
+            \ this request: the access token may lack the required scope, the user\
+            \ may lack permission on the resource, or the account plan may not include\
+            \ the feature. Use a token with the required scope on an account and user\
+            \ that hold the necessary permissions."
           headers:
             X-Rate-Limit-Limit:
               $ref: '#/components/headers/X-Rate-Limit-Limit'

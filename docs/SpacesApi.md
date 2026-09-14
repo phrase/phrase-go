@@ -223,6 +223,7 @@ Name | Type | Description  | Notes
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 **page** | **optional.Int32**| Page number | 
 **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**q** | **optional.String**| Filter results by name. Supports the prefix-match syntax &#x60;name:&lt;value&gt;&#x60;, which returns only spaces whose names begin with &#x60;&lt;value&gt;&#x60;. Other query formats are ignored; omitting &#x60;q&#x60; returns all accessible spaces.  | 
 
 ### Return type
 
