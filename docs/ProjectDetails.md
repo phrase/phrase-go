@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **AutocompleteJobEnabled** | **bool** |  | [optional] 
 **DefaultEncoding** | **string** |  | [optional] 
 **CldrVersion** | **string** |  | [optional] 
+**TranslationKeysSortCollation** | **string** |  | [optional] 
 **JobLockingEnabled** | **bool** |  | [optional] 
 **PlaceholderStyles** | **[]string** |  | [optional] 
 **Branch** | [**Branch**](Branch.md) |  | [optional] 

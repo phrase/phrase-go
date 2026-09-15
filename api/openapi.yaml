@@ -39247,6 +39247,7 @@ components:
           autocomplete_job_enabled: false
           default_encoding: UTF-8
           cldr_version: legacy
+          translation_keys_sort_collation: unicode_ci
           job_locking_enabled: false
           placeholder_styles:
           - rails_i18n
@@ -39309,6 +39310,12 @@ components:
             type: string
           cldr_version:
             example: legacy
+            type: string
+          translation_keys_sort_collation:
+            enum:
+            - general_ci
+            - unicode_ci
+            example: unicode_ci
             type: string
           job_locking_enabled:
             example: false
@@ -43417,6 +43424,9 @@ components:
         translation_keys_sort_collation:
           description: (Optional) Collation used when sorting translation keys alphabetically.
             Defaults to `unicode_ci` when omitted.
+          enum:
+          - general_ci
+          - unicode_ci
           example: unicode_ci
           type: string
         default_encoding:
@@ -43636,6 +43646,9 @@ components:
           type: boolean
         translation_keys_sort_collation:
           description: (Optional) Collation used when sorting translation keys alphabetically.
+          enum:
+          - general_ci
+          - unicode_ci
           example: unicode_ci
           type: string
         cldr_version:

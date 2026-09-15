@@ -36,6 +36,7 @@ type ProjectDetails struct {
 	AutocompleteJobEnabled                         *bool       `json:"autocomplete_job_enabled,omitempty"`
 	DefaultEncoding                                string      `json:"default_encoding,omitempty"`
 	CldrVersion                                    string      `json:"cldr_version,omitempty"`
+	TranslationKeysSortCollation                   string      `json:"translation_keys_sort_collation,omitempty"`
 	JobLockingEnabled                              *bool       `json:"job_locking_enabled,omitempty"`
 	PlaceholderStyles                              []string    `json:"placeholder_styles,omitempty"`
 	Branch                                         Branch      `json:"branch,omitempty"`
