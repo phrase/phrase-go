@@ -21531,6 +21531,152 @@ paths:
           --data '{"role":"Developer", "strategy":"set", "project_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "locale_ids":"abcd1234abcd1234abcd1234,abcd1234abcd1234abcd1235", "default_locale_codes":["de","en"], "space_ids":["abcd1234abcd1234abcd1234","abcd1234abcd1234abcd1235"], "permissions":"{"create_upload"=>true, "review_translations"=>true}"}' \
           --access_token <token>
       x-cli-version: "2.5"
+  /projects/{project_id}/members:
+    get:
+      description: Get all members active in the project. Access token scope must
+        include `read`.
+      operationId: members/by_project
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Project ID
+        explode: false
+        in: path
+        name: project_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Specify a query to search for members by name or email (including
+          wildcards).
+        example: jane*
+        explode: true
+        in: query
+        name: q
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter members to those assigned to the job identified by this
+          id.
+        example: abcd1234cdef1234abcd1234cdef1234
+        explode: true
+        in: query
+        name: job_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: "Limit on the number of objects to be returned, between 1 and\
+          \ 100. 25 by default"
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/project_member'
+                type: array
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+            Link:
+              $ref: '#/components/headers/Link'
+            Pagination:
+              $ref: '#/components/headers/Pagination'
+        "400":
+          description: "Bad request. The request could not be parsed or a parameter\
+            \ failed validation. Verify the request body, the content type, and the\
+            \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: "Unauthorized. Authentication failed because the access token\
+            \ is missing, expired, or invalid. Supply a valid access token and retry."
+        "403":
+          description: "Forbidden. The credentials are valid but not permitted for\
+            \ this request: the access token may lack the required scope, the user\
+            \ may lack permission on the resource, or the account plan may not include\
+            \ the feature. Use a token with the required scope on an account and user\
+            \ that hold the necessary permissions."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "404":
+          description: "Not found. The requested resource does not exist or is not\
+            \ visible to the authenticated user. Verify the identifiers in the request\
+            \ path and that the token has access to them, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Too many requests. The rate limit has been exceeded. Wait until
+            the time indicated by the `X-Rate-Limit-Reset` response header before
+            retrying.
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List project members
+      tags:
+      - Members
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/projects/:project_id/members" \
+            -u USERNAME_OR_ACCESS_TOKEN
+      - lang: CLI v2
+        source: |-
+          phrase members by_project \
+          --project_id <project_id> \
+          --access_token <token>
+      x-cli-version: "2.5"
   /projects/{project_id}/members/{id}:
     patch:
       description: Update user settings in the project. Access token scope must include
@@ -43994,6 +44140,31 @@ components:
             review_translations: true
           type: object
       title: member/update/parameters
+      type: object
+    project_member:
+      example:
+        id: acbdacbdacbdacbdacbdacbd
+        username: myname
+        name: My Name
+        position: Lead Developer
+        created_at: 2020-12-07T12:56:21Z
+        updated_at: 2020-12-09T12:56:21Z
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        position:
+          type: string
+        created_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      title: project_member
       type: object
     member_update_settings_parameters:
       properties:

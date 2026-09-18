@@ -236,6 +236,7 @@ Class | Method | HTTP request | Description
 *MembersApi* | [**MemberShow**](docs/MembersApi.md#membershow) | **Get** /accounts/{account_id}/members/{id} | Get single member
 *MembersApi* | [**MemberUpdate**](docs/MembersApi.md#memberupdate) | **Patch** /accounts/{account_id}/members/{id} | Update a member
 *MembersApi* | [**MemberUpdateSettings**](docs/MembersApi.md#memberupdatesettings) | **Patch** /projects/{project_id}/members/{id} | Update a member&#39;s project settings
+*MembersApi* | [**MembersByProject**](docs/MembersApi.md#membersbyproject) | **Get** /projects/{project_id}/members | List project members
 *MembersApi* | [**MembersList**](docs/MembersApi.md#memberslist) | **Get** /accounts/{account_id}/members | List members
 *NotificationGroupsApi* | [**NotificationGroupsList**](docs/NotificationGroupsApi.md#notificationgroupslist) | **Get** /notification_groups | List notification groups
 *NotificationGroupsApi* | [**NotificationGroupsMarkAllAsRead**](docs/NotificationGroupsApi.md#notificationgroupsmarkallasread) | **Patch** /notification_groups/mark_all_as_read | Mark all notification groups as read
@@ -525,6 +526,7 @@ Class | Method | HTTP request | Description
  - [ProjectCreateParameters](docs/ProjectCreateParameters.md)
  - [ProjectDetails](docs/ProjectDetails.md)
  - [ProjectLocales](docs/ProjectLocales.md)
+ - [ProjectMember](docs/ProjectMember.md)
  - [ProjectReport](docs/ProjectReport.md)
  - [ProjectShort](docs/ProjectShort.md)
  - [ProjectUpdateParameters](docs/ProjectUpdateParameters.md)

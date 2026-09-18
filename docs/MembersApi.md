@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**MemberShow**](MembersApi.md#MemberShow) | **Get** /accounts/{account_id}/members/{id} | Get single member
 [**MemberUpdate**](MembersApi.md#MemberUpdate) | **Patch** /accounts/{account_id}/members/{id} | Update a member
 [**MemberUpdateSettings**](MembersApi.md#MemberUpdateSettings) | **Patch** /projects/{project_id}/members/{id} | Update a member&#39;s project settings
+[**MembersByProject**](MembersApi.md#MembersByProject) | **Get** /projects/{project_id}/members | List project members
 [**MembersList**](MembersApi.md#MembersList) | **Get** /accounts/{account_id}/members | List members
 
 
@@ -187,6 +188,54 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MembersByProject
+
+> []ProjectMember MembersByProject(ctx, projectId, optional)
+
+List project members
+
+Get all members active in the project. Access token scope must include `read`.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string**| Project ID | 
+ **optional** | ***MembersByProjectOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a MembersByProjectOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**q** | **optional.String**| Specify a query to search for members by name or email (including wildcards). | 
+**jobId** | **optional.String**| Filter members to those assigned to the job identified by this id. | 
+**page** | **optional.Int32**| Page number | 
+**perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+
+### Return type
+
+[**[]ProjectMember**](ProjectMember.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
