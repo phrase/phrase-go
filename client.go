@@ -143,6 +143,8 @@ type APIClient struct {
 
 	StyleGuidesApi *StyleGuidesApiService
 
+	SupportedLanguagesApi *SupportedLanguagesApiService
+
 	TagsApi *TagsApiService
 
 	TeamsApi *TeamsApiService
@@ -232,6 +234,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SearchApi = (*SearchApiService)(&c.common)
 	c.SpacesApi = (*SpacesApiService)(&c.common)
 	c.StyleGuidesApi = (*StyleGuidesApiService)(&c.common)
+	c.SupportedLanguagesApi = (*SupportedLanguagesApiService)(&c.common)
 	c.TagsApi = (*TagsApiService)(&c.common)
 	c.TeamsApi = (*TeamsApiService)(&c.common)
 	c.TranslationsApi = (*TranslationsApiService)(&c.common)

@@ -243,6 +243,7 @@ tags:
 - name: Screenshots
 - name: Spaces
 - name: Style guides
+- name: Supported Languages
 - name: Tags
 - name: Teams
 - name: Translations
@@ -480,6 +481,51 @@ paths:
           phrase formats list \
           --access_token <token>
       x-cli-version: "2.5"
+  /languages:
+    get:
+      description: |
+        Returns all languages/locale codes that Phrase Strings recognizes, mapped to their
+        human-readable display name. This endpoint does not require authentication.
+      operationId: languages/list
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default:
+                  value:
+                    de: German
+                    en: English
+                    fr: French
+              schema:
+                $ref: '#/components/schemas/languages'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: "Bad request. The request could not be parsed or a parameter\
+            \ failed validation. Verify the request body, the content type, and the\
+            \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: List supported languages
+      tags:
+      - Supported Languages
+      x-code-samples:
+      - lang: Curl
+        source: |-
+          curl "https://api.phrase.com/v2/languages" \
+            -u USERNAME_OR_ACCESS_TOKEN
   /projects/{project_id}/documents:
     get:
       description: |
@@ -39330,6 +39376,18 @@ components:
       - name
       - renders_default_locale
       title: format
+      type: object
+    languages:
+      additionalProperties:
+        type: string
+      description: "Map of all languages supported by Phrase Strings, keyed by their\
+        \ language/locale code. Each value is the human-readable display name for\
+        \ that code."
+      example:
+        de: German
+        en: English
+        fr: French
+      title: languages
       type: object
     project:
       example:

@@ -314,6 +314,7 @@ Class | Method | HTTP request | Description
 *StyleGuidesApi* | [**StyleguideShow**](docs/StyleGuidesApi.md#styleguideshow) | **Get** /projects/{project_id}/styleguides/{id} | Get a single style guide
 *StyleGuidesApi* | [**StyleguideUpdate**](docs/StyleGuidesApi.md#styleguideupdate) | **Patch** /projects/{project_id}/styleguides/{id} | Update a style guide
 *StyleGuidesApi* | [**StyleguidesList**](docs/StyleGuidesApi.md#styleguideslist) | **Get** /projects/{project_id}/styleguides | List style guides
+*SupportedLanguagesApi* | [**LanguagesList**](docs/SupportedLanguagesApi.md#languageslist) | **Get** /languages | List supported languages
 *TagsApi* | [**TagCreate**](docs/TagsApi.md#tagcreate) | **Post** /projects/{project_id}/tags | Create a tag
 *TagsApi* | [**TagDelete**](docs/TagsApi.md#tagdelete) | **Delete** /projects/{project_id}/tags/{name} | Delete a tag
 *TagsApi* | [**TagShow**](docs/TagsApi.md#tagshow) | **Get** /projects/{project_id}/tags/{name} | Get a single tag
@@ -627,6 +628,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com

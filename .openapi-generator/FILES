@@ -53,6 +53,7 @@ api_screenshots.go
 api_search.go
 api_spaces.go
 api_style_guides.go
+api_supported_languages.go
 api_tags.go
 api_teams.go
 api_translations.go
@@ -310,6 +311,7 @@ docs/StyleguideDetails.md
 docs/StyleguidePreview.md
 docs/StyleguideUpdateParameters.md
 docs/Subscription.md
+docs/SupportedLanguagesApi.md
 docs/Tag.md
 docs/TagCreateParameters.md
 docs/TagWithStats.md
