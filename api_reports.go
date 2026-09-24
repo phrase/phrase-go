@@ -29,8 +29,8 @@ type ReportLocalesListOpts struct {
 }
 
 /*
-ReportLocalesList List Locale Reports
-List all locale reports for the given project
+ReportLocalesList List Locale Reports (word count, character count, translation statistics)
+List all locale reports for the given project. Each report includes translation statistics per locale, including word count and character count fields (&#x60;source_word_count&#x60;, &#x60;word_count&#x60;, &#x60;word_count_unverified&#x60;, &#x60;word_count_missing&#x60;) as well as translation completion statistics (&#x60;keys_count&#x60;, &#x60;completed_translations_count&#x60;, &#x60;untranslated_keys_count&#x60;, &#x60;unverified_translations_count&#x60;, &#x60;reviewed_translations_count&#x60;, and their percentages). Use the &#x60;tag&#x60; parameter to scope the report to a specific job (e.g. its job tag) to get job-scoped word count statistics.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param optional nil or *ReportLocalesListOpts - Optional Parameters:
