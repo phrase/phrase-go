@@ -4,9 +4,9 @@ package phrase
 type LocaleCreateParameters struct {
 	// specify the branch to use
 	Branch string `json:"branch,omitempty"`
-	// Locale name
+	// Locale name. Must be unique per project.
 	Name string `json:"name"`
-	// Locale ISO code
+	// Locale ISO code. Unlike `name`, `code` is not required to be unique per project - creating a locale whose `code` duplicates an existing locale's `code` in the same project will succeed rather than error, resulting in two locales that share the same code.
 	Code string `json:"code"`
 	// Indicates whether locale is the default locale. If set to true, the previous default locale the project is no longer the default locale.
 	Default *bool `json:"default,omitempty"`
