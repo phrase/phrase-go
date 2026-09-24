@@ -613,6 +613,8 @@ func (a *RepoSyncsApiService) RepoSyncImport(ctx _context.Context, accountId str
 // RepoSyncListOpts Optional parameters for the method 'RepoSyncList'
 type RepoSyncListOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page          optional.Int32  `json:"page,omitempty"`
+	PerPage       optional.Int32  `json:"per_page,omitempty"`
 }
 
 /*
@@ -622,6 +624,8 @@ Lists all Repo Syncs from an account
   - @param accountId Account ID
   - @param optional nil or *RepoSyncListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Page" (optional.Int32) -  Page number
+  - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
 @return []RepoSync
 */
@@ -643,6 +647,12 @@ func (a *RepoSyncsApiService) RepoSyncList(ctx _context.Context, accountId strin
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Page.IsSet() {
+		localVarQueryParams.Add("page", parameterToString(localVarOptionals.Page.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
+		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

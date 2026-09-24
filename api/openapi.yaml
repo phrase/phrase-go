@@ -27281,6 +27281,27 @@ paths:
         schema:
           type: string
         style: simple
+      - allowEmptyValue: false
+        description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - allowEmptyValue: false
+        description: "Limit on the number of objects to be returned, between 1 and\
+          \ 100. 25 by default"
+        example: 25
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+        style: form
       responses:
         "200":
           content:
