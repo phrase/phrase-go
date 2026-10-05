@@ -2,8 +2,6 @@ package phrase
 
 // JobUpdateParameters struct for JobUpdateParameters
 type JobUpdateParameters struct {
-	// specify the branch to use
-	Branch string `json:"branch,omitempty"`
 	// Job name
 	Name string `json:"name,omitempty"`
 	// Briefing for the translators

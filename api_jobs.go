@@ -1152,6 +1152,7 @@ func (a *JobsApiService) JobUnlock(ctx _context.Context, projectId string, id st
 // JobUpdateOpts Optional parameters for the method 'JobUpdate'
 type JobUpdateOpts struct {
 	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Branch        optional.String `json:"branch,omitempty"`
 }
 
 /*
@@ -1163,6 +1164,7 @@ Update an existing job.
   - @param jobUpdateParameters
   - @param optional nil or *JobUpdateOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
+  - @param "Branch" (optional.String) -  Branch to use
 
 @return JobDetails
 */
@@ -1186,6 +1188,9 @@ func (a *JobsApiService) JobUpdate(ctx _context.Context, projectId string, id st
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.Branch.IsSet() {
+		localVarQueryParams.Add("branch", parameterToString(localVarOptionals.Branch.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

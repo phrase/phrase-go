@@ -8859,6 +8859,15 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Branch to use
+        example: my-feature-branch
+        explode: true
+        in: query
+        name: branch
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         content:
           application/json:
@@ -8952,17 +8961,18 @@ paths:
       x-code-samples:
       - lang: Curl
         source: |-
-          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:id" \
+          curl "https://api.phrase.com/v2/projects/:project_id/jobs/:id?branch=my-feature-branch" \
             -u USERNAME_OR_ACCESS_TOKEN \
             -X PATCH \
-            -d '{"branch":"my-feature-branch","name":"de","briefing":"de-DE","due_date":"2017-08-15","ticket_url":"https://example.atlassian.net/browse/FOO"}' \
+            -d '{"name":"de","briefing":"de-DE","due_date":"2017-08-15","ticket_url":"https://example.atlassian.net/browse/FOO"}' \
             -H 'Content-Type: application/json'
       - lang: CLI v2
         source: |-
           phrase jobs update \
           --project_id <project_id> \
           --id <id> \
-          --data '{"branch":"my-feature-branch", "name":"de", "briefing":"de-DE", "due_date":"2017-08-15", "ticket_url":"https://example.atlassian.net/browse/FOO"}' \
+          --branch my-feature-branch \
+          --data '{"name":"de", "briefing":"de-DE", "due_date":"2017-08-15", "ticket_url":"https://example.atlassian.net/browse/FOO"}' \
           --access_token <token>
       x-cli-version: "2.5"
   /projects/{project_id}/jobs/{id}/start:
@@ -43433,10 +43443,6 @@ components:
       type: object
     job_update_parameters:
       properties:
-        branch:
-          description: specify the branch to use
-          example: my-feature-branch
-          type: string
         name:
           description: Job name
           example: de

@@ -508,6 +508,7 @@ Optional parameters are passed through a pointer to a JobUpdateOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+**branch** | **optional.String**| Branch to use | 
 
 ### Return type
 

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Branch** | **string** | specify the branch to use | [optional] 
 **Name** | **string** | Job name | [optional] 
 **Briefing** | **string** | Briefing for the translators | [optional] 
 **DueDate** | Pointer to [**NullableTime**](time.Time.md) | Date the job should be finished | [optional] 
