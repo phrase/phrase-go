@@ -22,6 +22,7 @@ type WebhookDeliveriesApiService service
 type WebhookDeliveriesListOpts struct {
 	XPhraseAppOTP       optional.String `json:"X-PhraseApp-OTP,omitempty"`
 	ResponseStatusCodes optional.String `json:"response_status_codes,omitempty"`
+	Status              optional.String `json:"status,omitempty"`
 }
 
 /*
@@ -33,6 +34,7 @@ List all webhook deliveries for the given webhook_id.
   - @param optional nil or *WebhookDeliveriesListOpts - Optional Parameters:
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "ResponseStatusCodes" (optional.String) -  List of Response Status Codes
+  - @param "Status" (optional.String) -  Filter deliveries by outcome. `success` returns deliveries with a 2xx response code or a soft error. `failed` returns all other deliveries, including exceptions and timeouts without a response code.
 
 @return []WebhookDelivery
 */
@@ -58,6 +60,9 @@ func (a *WebhookDeliveriesApiService) WebhookDeliveriesList(ctx _context.Context
 
 	if localVarOptionals != nil && localVarOptionals.ResponseStatusCodes.IsSet() {
 		localVarQueryParams.Add("response_status_codes", parameterToString(localVarOptionals.ResponseStatusCodes.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Status.IsSet() {
+		localVarQueryParams.Add("status", parameterToString(localVarOptionals.Status.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

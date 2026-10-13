@@ -37,6 +37,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 **responseStatusCodes** | **optional.String**| List of Response Status Codes | 
+**status** | **optional.String**| Filter deliveries by outcome. &#x60;success&#x60; returns deliveries with a 2xx response code or a soft error. &#x60;failed&#x60; returns all other deliveries, including exceptions and timeouts without a response code.  | 
 
 ### Return type
 

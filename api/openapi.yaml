@@ -34285,6 +34285,19 @@ paths:
         schema:
           type: string
         style: form
+      - description: |
+          Filter deliveries by outcome. `success` returns deliveries with a 2xx response code or a soft error. `failed` returns all other deliveries, including exceptions and timeouts without a response code.
+        example: failed
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          enum:
+          - success
+          - failed
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -38509,6 +38522,20 @@ components:
       name: response_status_codes
       required: false
       schema:
+        type: string
+      style: form
+    webhook_delivery_status:
+      description: |
+        Filter deliveries by outcome. `success` returns deliveries with a 2xx response code or a soft error. `failed` returns all other deliveries, including exceptions and timeouts without a response code.
+      example: failed
+      explode: true
+      in: query
+      name: status
+      required: false
+      schema:
+        enum:
+        - success
+        - failed
         type: string
       style: form
     q:
