@@ -21,4 +21,6 @@ type AutomationsCreateParameters1 struct {
 	JobOwnerId string `json:"job_owner_id,omitempty"`
 	// When `true`, the automation only acts on locales that changed since its last run.
 	IncludeOnlyUpdatedLocales *bool `json:"include_only_updated_locales,omitempty"`
+	// When true, the automation also runs against branches of the configured projects. The designated job owner must have permission to create jobs in branches for every configured project; otherwise the request is rejected with 403.
+	IncludeBranches *bool `json:"include_branches,omitempty"`
 }

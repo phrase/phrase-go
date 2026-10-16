@@ -19,11 +19,13 @@ type Automation struct {
 	// User ID of the job owner that newly created jobs are assigned to.
 	JobOwnerId *NullableString `json:"job_owner_id,omitempty"`
 	// When `true`, the automation only acts on locales that changed since its last run.
-	IncludeOnlyUpdatedLocales *bool     `json:"include_only_updated_locales,omitempty"`
-	Tags                      []string  `json:"tags,omitempty"`
-	CronSchedule              string    `json:"cron_schedule,omitempty"`
-	TimeZone                  string    `json:"time_zone,omitempty"`
-	Account                   Account   `json:"account,omitempty"`
-	CreatedAt                 time.Time `json:"created_at,omitempty"`
-	UpdatedAt                 time.Time `json:"updated_at,omitempty"`
+	IncludeOnlyUpdatedLocales *bool `json:"include_only_updated_locales,omitempty"`
+	// When true, the automation targets branches of the configured projects in addition to the main project. Requires the designated job owner to have permission to create jobs in branches for every configured project.
+	IncludeBranches *bool     `json:"include_branches,omitempty"`
+	Tags            []string  `json:"tags,omitempty"`
+	CronSchedule    string    `json:"cron_schedule,omitempty"`
+	TimeZone        string    `json:"time_zone,omitempty"`
+	Account         Account   `json:"account,omitempty"`
+	CreatedAt       time.Time `json:"created_at,omitempty"`
+	UpdatedAt       time.Time `json:"updated_at,omitempty"`
 }
