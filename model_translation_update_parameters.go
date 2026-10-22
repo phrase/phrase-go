@@ -4,8 +4,8 @@ package phrase
 type TranslationUpdateParameters struct {
 	// specify the branch to use
 	Branch string `json:"branch,omitempty"`
-	// Translation content
-	Content string `json:"content,omitempty"`
+	// Translation content. Send an empty string or `null` to clear the translation's content; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	Content *NullableString `json:"content,omitempty"`
 	// Plural suffix. Can be one of: zero, one, two, few, many, other. Must be specified if the key associated to the translation is pluralized.
 	PluralSuffix string `json:"plural_suffix,omitempty"`
 	// Indicates whether translation is unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature.

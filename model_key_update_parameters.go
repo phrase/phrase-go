@@ -10,8 +10,8 @@ type KeyUpdateParameters struct {
 	Branch string `json:"branch,omitempty"`
 	// Key name
 	Name string `json:"name,omitempty"`
-	// Key description (usually includes contextual information for translators)
-	Description string `json:"description,omitempty"`
+	// Key description (usually includes contextual information for translators). Send an empty string or `null` to clear the description; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	Description *NullableString `json:"description,omitempty"`
 	// Indicates whether key supports pluralization
 	Plural *bool `json:"plural,omitempty"`
 	// Indicates whether key uses ordinal rules for pluralization

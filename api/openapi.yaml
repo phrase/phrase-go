@@ -39468,6 +39468,7 @@ components:
       example:
         id: abcd1234cdef1234abcd1234cdef1234
         name: My glossary
+        terms_count: 42
         projects:
         - id: abcd1234cdef1234abcd1234cdef1234
           name: My Android Project
@@ -39487,6 +39488,10 @@ components:
           type: string
         name:
           type: string
+        terms_count:
+          description: Number of terms in the glossary.
+          example: 42
+          type: integer
         projects:
           items:
             $ref: '#/components/schemas/project_short'
@@ -45234,9 +45239,12 @@ components:
           example: home.index.headline
           type: string
         description:
-          description: Key description (usually includes contextual information for
-            translators)
+          description: "Key description (usually includes contextual information for\
+            \ translators). Send an empty string or `null` to clear the description;\
+            \ omit the field to leave it unchanged. The Phrase CLI drops `null` values\
+            \ before sending, so use an empty string there."
           example: Some description worth knowing...
+          nullable: true
           type: string
         plural:
           description: Indicates whether key supports pluralization
@@ -45884,8 +45892,12 @@ components:
           example: my-feature-branch
           type: string
         content:
-          description: Translation content
+          description: "Translation content. Send an empty string or `null` to clear\
+            \ the translation's content; omit the field to leave it unchanged. The\
+            \ Phrase CLI drops `null` values before sending, so use an empty string\
+            \ there."
           example: My translation
+          nullable: true
           type: string
         plural_suffix:
           description: "Plural suffix. Can be one of: zero, one, two, few, many, other.\

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
+**TermsCount** | **int32** | Number of terms in the glossary. | [optional] 
 **Projects** | [**[]ProjectShort**](ProjectShort.md) |  | [optional] 
 **Spaces** | [**[]Space**](Space.md) |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 

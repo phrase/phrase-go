@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Branch** | **string** | specify the branch to use | [optional] 
 **Name** | **string** | Key name | [optional] 
-**Description** | **string** | Key description (usually includes contextual information for translators) | [optional] 
+**Description** | Pointer to **NullableString** | Key description (usually includes contextual information for translators). Send an empty string or &#x60;null&#x60; to clear the description; omit the field to leave it unchanged. The Phrase CLI drops &#x60;null&#x60; values before sending, so use an empty string there. | [optional] 
 **Plural** | **bool** | Indicates whether key supports pluralization | [optional] 
 **UseOrdinalRules** | **bool** | Indicates whether key uses ordinal rules for pluralization | [optional] 
 **NamePlural** | **string** | Plural name for the key (used in some file formats, e.g. Gettext) | [optional] 
