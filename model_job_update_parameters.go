@@ -1,5 +1,9 @@
 package phrase
 
+import (
+	"time"
+)
+
 // JobUpdateParameters struct for JobUpdateParameters
 type JobUpdateParameters struct {
 	// Job name
@@ -8,6 +12,8 @@ type JobUpdateParameters struct {
 	Briefing string `json:"briefing,omitempty"`
 	// Date the job should be finished
 	DueDate *NullableTime `json:"due_date,omitempty"`
+	// Date the review of the job should be finished. Must not be before `due_date`.
+	ReviewDueDate time.Time `json:"review_due_date,omitempty"`
 	// URL to a ticket for this job (e.g. Jira, Trello)
 	TicketUrl string `json:"ticket_url,omitempty"`
 	// List of target locales for the job.

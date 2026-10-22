@@ -43429,6 +43429,11 @@ components:
           format: date-time
           nullable: true
           type: string
+        review_due_date:
+          description: Date the review of the job should be finished. Must not be
+            before `due_date`.
+          format: date-time
+          type: string
         ticket_url:
           description: "URL to a ticket for this job (e.g. Jira, Trello)"
           example: https://example.atlassian.net/browse/FOO
@@ -43486,6 +43491,11 @@ components:
           description: Date the job should be finished
           format: date-time
           nullable: true
+          type: string
+        review_due_date:
+          description: Date the review of the job should be finished. Must not be
+            before `due_date`.
+          format: date-time
           type: string
         ticket_url:
           description: "URL to a ticket for this job (e.g. Jira, Trello)"
