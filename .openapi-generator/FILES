@@ -283,6 +283,7 @@ docs/ReleasesApi.md
 docs/RepoSync.md
 docs/RepoSyncCreateParameters.md
 docs/RepoSyncEvent.md
+docs/RepoSyncEventUploadsInner.md
 docs/RepoSyncEventsApi.md
 docs/RepoSyncExportParameters.md
 docs/RepoSyncImportParameters.md
@@ -547,6 +548,7 @@ model_release_update_parameters_1.go
 model_repo_sync.go
 model_repo_sync_create_parameters.go
 model_repo_sync_event.go
+model_repo_sync_event_uploads_inner.go
 model_repo_sync_export_parameters.go
 model_repo_sync_import_parameters.go
 model_screenshot.go
