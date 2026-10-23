@@ -1084,7 +1084,7 @@ List translations for a specific key.
   - @param "Branch" (optional.String) -  specify the branch to use
   - @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
   - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
-  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).  The following qualifiers are supported in the query:  * `id:translation_id,...` for queries on a comma-separated list of ids * `unverified:{true|false}` for verification status * `tags:XYZ` for tags on the translation * `excluded:{true|false}` for exclusion status * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries  Find more examples [here](/en/api/strings/usage-examples).
+  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query: * `id:translation_id,...` for queries on a comma-separated list of translation ids * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids * `locale.name:locale_name,...` for queries on a comma-separated list of locale names * `tags:XYZ` for tags on the translation * `unverified:{true|false}` for verification status * `excluded:{true|false}` for exclusion status * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples).
 
 @return []Translation
 */
@@ -1218,7 +1218,7 @@ List translations for a specific locale. If you want to download all translation
   - @param "Branch" (optional.String) -  specify the branch to use
   - @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
   - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
-  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query: - `id:translation_id,...` for queries on a comma-separated list of ids - `unverified:{true|false}` for verification status - `tags:XYZ` for tags on the translation - `excluded:{true|false}` for exclusion status - `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries  Find more examples [here](/en/api/strings/usage-examples).
+  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query: * `id:translation_id,...` for queries on a comma-separated list of translation ids * `key.id:key_id,...` for queries on a comma-separated list of translation key ids * `key.name:key_name,...` for queries on a comma-separated list of translation key names * `tags:XYZ` for tags on the translation * `unverified:{true|false}` for verification status * `excluded:{true|false}` for exclusion status * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples).
 
 @return []Translation
 */
@@ -1567,7 +1567,7 @@ List translations for the given project. If you want to download all translation
   - @param "LocaleId" (optional.String) -  Filter translations to those for the given locale (locale code or id). Equivalent to calling `GET /projects/{project_id}/locales/{locale_id}/translations`.
   - @param "Sort" (optional.String) -  Sort criteria. Can be one of: key_name, created_at, updated_at.
   - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
-  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query:  * `id:translation_id,...` for queries on a comma-separated list of ids * `tags:XYZ` for tags on the translation * `unverified:{true|false}` for verification status * `excluded:{true|false}` for exclusion status * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples).
+  - @param "Q" (optional.String) -  Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query: * `id:translation_id,...` for queries on a comma-separated list of translation ids * `key.id:key_id,...` for queries on a comma-separated list of translation key ids * `key.name:key_name,...` for queries on a comma-separated list of translation key names * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids * `locale.name:locale_name,...` for queries on a comma-separated list of locale names * `tags:XYZ` for tags on the translation * `unverified:{true|false}` for verification status * `excluded:{true|false}` for exclusion status * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples).
 
 @return []Translation
 */
@@ -2036,7 +2036,7 @@ type TranslationsUnverifyCollectionOpts struct {
 
 /*
 TranslationsUnverifyCollection Unverify translations by query
-Mark translations matching query as unverified.
+Mark translations matching query as unverified.  To unverify the translations of specific keys, filter by key id (and optionally locale) directly, for example &#x60;key.id:KEY_ID_1,KEY_ID_2 locale.id:LOCALE_ID&#x60;. There is no need to look up translation ids first.
   - @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param projectId Project ID
   - @param translationsUnverifyParameters

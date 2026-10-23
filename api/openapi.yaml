@@ -30404,8 +30404,11 @@ paths:
           *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
           The following qualifiers are supported in the query:
-
-          * `id:translation_id,...` for queries on a comma-separated list of ids
+          * `id:translation_id,...` for queries on a comma-separated list of translation ids
+          * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+          * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+          * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+          * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
           * `tags:XYZ` for tags on the translation
           * `unverified:{true|false}` for verification status
           * `excluded:{true|false}` for exclusion status
@@ -30719,11 +30722,14 @@ paths:
           *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
           The following qualifiers are supported in the query:
-          - `id:translation_id,...` for queries on a comma-separated list of ids
-          - `unverified:{true|false}` for verification status
-          - `tags:XYZ` for tags on the translation
-          - `excluded:{true|false}` for exclusion status
-          - `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+          * `id:translation_id,...` for queries on a comma-separated list of translation ids
+          * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+          * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+          * `tags:XYZ` for tags on the translation
+          * `unverified:{true|false}` for verification status
+          * `excluded:{true|false}` for exclusion status
+          * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+          * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
 
           Find more examples [here](/en/api/strings/usage-examples).
         example: "PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center"
@@ -30904,13 +30910,17 @@ paths:
       - description: |
           Specify a query to find translations by content (including wildcards).
 
-          The following qualifiers are supported in the query:
+          *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
-          * `id:translation_id,...` for queries on a comma-separated list of ids
-          * `unverified:{true|false}` for verification status
+          The following qualifiers are supported in the query:
+          * `id:translation_id,...` for queries on a comma-separated list of translation ids
+          * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+          * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
           * `tags:XYZ` for tags on the translation
+          * `unverified:{true|false}` for verification status
           * `excluded:{true|false}` for exclusion status
           * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+          * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
 
           Find more examples [here](/en/api/strings/usage-examples).
         example: "PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center"
@@ -32340,7 +32350,10 @@ paths:
       x-cli-version: "2.5"
   /projects/{project_id}/translations/unverify:
     patch:
-      description: Mark translations matching query as unverified.
+      description: |
+        Mark translations matching query as unverified.
+
+        To unverify the translations of specific keys, filter by key id (and optionally locale) directly, for example `key.id:KEY_ID_1,KEY_ID_2 locale.id:LOCALE_ID`. There is no need to look up translation ids first.
       operationId: translations/unverify-collection
       parameters:
       - description: Two-Factor-Authentication token (optional)
@@ -38568,6 +38581,83 @@ components:
       schema:
         type: string
       style: form
+    translations_q:
+      description: |
+        Specify a query to find translations by content (including wildcards).
+
+        *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
+
+        The following qualifiers are supported in the query:
+        * `id:translation_id,...` for queries on a comma-separated list of translation ids
+        * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+        * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+        * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+        * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
+        * `tags:XYZ` for tags on the translation
+        * `unverified:{true|false}` for verification status
+        * `excluded:{true|false}` for exclusion status
+        * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+        * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
+
+        Find more examples [here](/en/api/strings/usage-examples).
+      example: "PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center"
+      explode: true
+      in: query
+      name: q
+      required: false
+      schema:
+        type: string
+      style: form
+    translations_locale_q:
+      description: |
+        Specify a query to find translations by content (including wildcards).
+
+        *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
+
+        The following qualifiers are supported in the query:
+        * `id:translation_id,...` for queries on a comma-separated list of translation ids
+        * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+        * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+        * `tags:XYZ` for tags on the translation
+        * `unverified:{true|false}` for verification status
+        * `excluded:{true|false}` for exclusion status
+        * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+        * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
+
+        Find more examples [here](/en/api/strings/usage-examples).
+      example: "PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center"
+      explode: true
+      in: query
+      name: q
+      required: false
+      schema:
+        type: string
+      style: form
+    translations_key_q:
+      description: |
+        Specify a query to find translations by content (including wildcards).
+
+        *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
+
+        The following qualifiers are supported in the query:
+        * `id:translation_id,...` for queries on a comma-separated list of translation ids
+        * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+        * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
+        * `tags:XYZ` for tags on the translation
+        * `unverified:{true|false}` for verification status
+        * `excluded:{true|false}` for exclusion status
+        * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+        * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
+
+        Find more examples [here](/en/api/strings/usage-examples).
+      example: "PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center"
+      explode: true
+      in: query
+      name: q
+      required: false
+      schema:
+        type: string
+      style: form
     job_owner:
       description: filter by user owning job
       example: abcd1234cdef1234abcd1234cdef1234
@@ -40622,6 +40712,27 @@ components:
           format: date-time
           type: string
       type: object
+    translation_query:
+      description: |
+        Specify a query to find translations by content (including wildcards).
+
+        *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
+
+        The following qualifiers are supported in the query:
+        * `id:translation_id,...` for queries on a comma-separated list of translation ids
+        * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+        * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+        * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+        * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
+        * `tags:XYZ` for tags on the translation
+        * `unverified:{true|false}` for verification status
+        * `excluded:{true|false}` for exclusion status
+        * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+        * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
+
+        Find more examples [here](/en/api/strings/usage-examples).
+      example: "key.name:home.title,home.subtitle locale.name:de-DE tags:feature"
+      type: string
     translation_version:
       example:
         id: abcd1234cdef1234abcd1234cdef1234
@@ -45972,15 +46083,19 @@ components:
             *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
             The following qualifiers are supported in the query:
-
-            - `id:translation_id,...` for queries on a comma-separated list of ids
-            - `tags:XYZ` for tags on the translation
-            - `unverified:{true|false}` for verification status
-            - `excluded:{true|false}` for exclusion status
-            - `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+            * `id:translation_id,...` for queries on a comma-separated list of translation ids
+            * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+            * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+            * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+            * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
+            * `tags:XYZ` for tags on the translation
+            * `unverified:{true|false}` for verification status
+            * `excluded:{true|false}` for exclusion status
+            * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+            * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
 
             Find more examples [here](/en/api/strings/usage-examples).
-          example: "PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center"
+          example: "key.name:home.title,home.subtitle locale.name:de-DE tags:feature"
           type: string
       title: translations/search/parameters
       type: object
@@ -46095,14 +46210,19 @@ components:
             *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
             The following qualifiers are supported in the query:
-            * `id:translation_id,...` for queries on a comma-separated list of ids
+            * `id:translation_id,...` for queries on a comma-separated list of translation ids
+            * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+            * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+            * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+            * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
             * `tags:XYZ` for tags on the translation
             * `unverified:{true|false}` for verification status
             * `excluded:{true|false}` for exclusion status
             * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+            * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
 
             Find more examples [here](/en/api/strings/usage-examples).
-          example: "PhraseApp*%20unverified:true%20tags:feature,center"
+          example: "key.name:home.title,home.subtitle locale.name:de-DE tags:feature"
           type: string
       title: translations/verify/parameters
       type: object
@@ -46119,14 +46239,19 @@ components:
             *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
             The following qualifiers are supported in the query:
-            * `id:translation_id,...` for queries on a comma-separated list of ids
+            * `id:translation_id,...` for queries on a comma-separated list of translation ids
+            * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+            * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+            * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+            * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
             * `tags:XYZ` for tags on the translation
             * `unverified:{true|false}` for verification status
             * `excluded:{true|false}` for exclusion status
             * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+            * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
 
             Find more examples [here](/en/api/strings/usage-examples).
-          example: "PhraseApp*%20verified:true%20tags:feature,center"
+          example: "key.name:home.title,home.subtitle locale.name:de-DE tags:feature"
           type: string
         sort:
           description: "Sort criteria. Can be one of: key_name, created_at, updated_at."
@@ -46151,15 +46276,19 @@ components:
             *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
             The following qualifiers are supported in the query:
-
-            * `id:translation_id,...` for queries on a comma-separated list of ids
+            * `id:translation_id,...` for queries on a comma-separated list of translation ids
+            * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+            * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+            * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+            * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
             * `tags:XYZ` for tags on the translation
             * `unverified:{true|false}` for verification status
             * `excluded:{true|false}` for exclusion status
             * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+            * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
 
             Find more examples [here](/en/api/strings/usage-examples).
-          example: "PhraseApp*%reviewed:false%20tags:feature,center"
+          example: "key.name:home.title,home.subtitle locale.name:de-DE tags:feature"
           type: string
       title: translations/review/parameters
       type: object
@@ -46176,14 +46305,19 @@ components:
             *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
             The following qualifiers are supported in the query:
-            * `id:translation_id,...` for queries on a comma-separated list of ids
+            * `id:translation_id,...` for queries on a comma-separated list of translation ids
+            * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+            * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+            * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+            * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
             * `tags:XYZ` for tags on the translation
             * `unverified:{true|false}` for verification status
             * `excluded:{true|false}` for exclusion status
             * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+            * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
 
             Find more examples [here](/en/api/strings/usage-examples).
-          example: "PhraseApp*%reviewed:true%20tags:feature,center"
+          example: "key.name:home.title,home.subtitle locale.name:de-DE tags:feature"
           type: string
       title: translations/unreview/parameters
       type: object
@@ -46200,15 +46334,19 @@ components:
             *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
             The following qualifiers are supported in the query:
-
-            * `id:translation_id,...` for queries on a comma-separated list of ids
+            * `id:translation_id,...` for queries on a comma-separated list of translation ids
+            * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+            * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+            * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+            * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
             * `tags:XYZ` for tags on the translation
             * `unverified:{true|false}` for verification status
             * `excluded:{true|false}` for exclusion status
             * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+            * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
 
             Find more examples [here](/en/api/strings/usage-examples).
-          example: "PhraseApp*%20verified:true%20tags:feature,center"
+          example: "key.name:home.title,home.subtitle locale.name:de-DE tags:feature"
           type: string
         sort:
           description: "Sort criteria. Can be one of: key_name, created_at, updated_at."
@@ -46233,14 +46371,19 @@ components:
             *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*
 
             The following qualifiers are supported in the query:
-            - `id:translation_id,...` for queries on a comma-separated list of ids
-            - `tags:XYZ` for tags on the translation
-            - `unverified:{true|false}` for verification status
-            - `excluded:{true|false}` for exclusion status
-            - `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+            * `id:translation_id,...` for queries on a comma-separated list of translation ids
+            * `key.id:key_id,...` for queries on a comma-separated list of translation key ids
+            * `key.name:key_name,...` for queries on a comma-separated list of translation key names
+            * `locale.id:locale_id,...` for queries on a comma-separated list of locale ids
+            * `locale.name:locale_name,...` for queries on a comma-separated list of locale names
+            * `tags:XYZ` for tags on the translation
+            * `unverified:{true|false}` for verification status
+            * `excluded:{true|false}` for exclusion status
+            * `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries
+            * `reviewed_after:2013-02-21T00:00:00Z` for fetching translations that were reviewed after the given timestamp
 
             Find more examples [here](/en/api/strings/usage-examples).
-          example: "PhraseApp*%20verified:true%20tags:feature,center"
+          example: "key.name:home.title,home.subtitle locale.name:de-DE tags:feature"
           type: string
         sort:
           description: "Sort criteria. Can be one of: key_name, created_at, updated_at."
