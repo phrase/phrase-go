@@ -10,8 +10,8 @@ type ProjectUpdateParameters struct {
 	AccountId string `json:"account_id,omitempty"`
 	// (Optional) Name of the project
 	Name string `json:"name,omitempty"`
-	// (Optional) User ID of the point of contact for the project. Pass `null` to unset.
-	PointOfContact string `json:"point_of_contact,omitempty"`
+	// (Optional) User ID of the point of contact for the project. Pass `null` or an empty string to unset. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	PointOfContact *NullableString `json:"point_of_contact,omitempty"`
 	// (Optional) Main file format specified by its API Extension name. Used for locale downloads if no format is specified. For API Extension names of available file formats see [Format Guide](https://support.phrase.com/hc/en-us/sections/6111343326364) or our [Formats API Endpoint](#formats).
 	MainFormat string `json:"main_format,omitempty"`
 	// (Optional) Main technology stack used in the project. It affects for example the suggested placeholder style. Predefined values include: `Ruby`, `JavaScript`, `AngularJS`, `React`, `iOS`, `Android`, `Python`, `PHP`, `Java`, `Go`, `Windows Phone`, `Rails`, `Node.js`, `.NET`, `Django`, `Symfony`, `Yii Framework`, `Zend Framework`, `Apple App Store Description`, `Google Play Description`, but it can also take any other value.

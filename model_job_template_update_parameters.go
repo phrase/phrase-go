@@ -6,8 +6,8 @@ type JobTemplateUpdateParameters struct {
 	Branch string `json:"branch,omitempty"`
 	// Job template name
 	Name string `json:"name"`
-	// Briefing for the translators
-	Briefing string `json:"briefing,omitempty"`
+	// Briefing for the translators. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	Briefing *NullableString `json:"briefing,omitempty"`
 	// Automatically translate the job using machine translation.
 	Autotranslate *bool `json:"autotranslate,omitempty"`
 	// The API id of the source language. This locale will be set as source locale for the job template. If not provided, the project default locale will be used.

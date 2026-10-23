@@ -16,8 +16,8 @@ type LocaleUpdateParameters struct {
 	Rtl *bool `json:"rtl,omitempty"`
 	// Source locale. Can be the name or id of the locale. Preferred is id.
 	SourceLocaleId string `json:"source_locale_id,omitempty"`
-	// Fallback locale for empty translations. Can be a locale name or id.
-	FallbackLocaleId string `json:"fallback_locale_id,omitempty"`
+	// Fallback locale for empty translations. Can be a locale name or id. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	FallbackLocaleId *NullableString `json:"fallback_locale_id,omitempty"`
 	// Indicates that new translations for this locale should be marked as unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature.
 	UnverifyNewTranslations *bool `json:"unverify_new_translations,omitempty"`
 	// Indicates that updated translations for this locale should be marked as unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature.
@@ -26,6 +26,6 @@ type LocaleUpdateParameters struct {
 	UnverifyOnSourceChanges *bool `json:"unverify_on_source_changes,omitempty"`
 	// If set, translations for this locale will be fetched automatically, right after creation.
 	Autotranslate *bool `json:"autotranslate,omitempty"`
-	// Identifier of the Language AI profile to use for this locale.
-	LanguageAiProfile string `json:"language_ai_profile,omitempty"`
+	// Identifier of the Language AI profile to use for this locale. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	LanguageAiProfile *NullableString `json:"language_ai_profile,omitempty"`
 }

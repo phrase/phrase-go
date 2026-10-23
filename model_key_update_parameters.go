@@ -16,8 +16,8 @@ type KeyUpdateParameters struct {
 	Plural *bool `json:"plural,omitempty"`
 	// Indicates whether key uses ordinal rules for pluralization
 	UseOrdinalRules *bool `json:"use_ordinal_rules,omitempty"`
-	// Plural name for the key (used in some file formats, e.g. Gettext)
-	NamePlural string `json:"name_plural,omitempty"`
+	// Plural name for the key (used in some file formats, e.g. Gettext) Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	NamePlural *NullableString `json:"name_plural,omitempty"`
 	// Type of the key. Can be one of the following: string, number, boolean, array, markdown.
 	DataType string `json:"data_type,omitempty"`
 	// List of tags separated by comma to be associated with the key.
@@ -32,12 +32,12 @@ type KeyUpdateParameters struct {
 	Unformatted *bool `json:"unformatted,omitempty"`
 	// Indicates whether the key should be exported with \"xml:space=preserve\". Supported by several XML-based formats.
 	XmlSpacePreserve *bool `json:"xml_space_preserve,omitempty"`
-	// Original file attribute. Used in some formats, e.g. XLIFF.
-	OriginalFile string `json:"original_file,omitempty"`
-	// NSStringLocalizedFormatKey attribute. Used in .stringsdict format.
-	LocalizedFormatString string `json:"localized_format_string,omitempty"`
-	// NSStringLocalizedFormatKey attribute. Used in .stringsdict format.
-	LocalizedFormatKey string `json:"localized_format_key,omitempty"`
+	// Original file attribute. Used in some formats, e.g. XLIFF. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	OriginalFile *NullableString `json:"original_file,omitempty"`
+	// NSStringLocalizedFormatKey attribute. Used in .stringsdict format. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	LocalizedFormatString *NullableString `json:"localized_format_string,omitempty"`
+	// NSStringLocalizedFormatKey attribute. Used in .stringsdict format. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
+	LocalizedFormatKey *NullableString `json:"localized_format_key,omitempty"`
 	// Updates/Creates custom metadata property name and value pairs to be associated with key. If you want to delete a custom metadata property, you can set its value to null. If you want to update a custom metadata property, you can set its value to the new value.
 	CustomMetadata map[string]interface{} `json:"custom_metadata,omitempty"`
 	// Locales for which translations of this key are excluded from exports. Pass an empty array to clear exclusions.
