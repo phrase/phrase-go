@@ -26,7 +26,7 @@ type JobCreateParameters struct {
 	TranslationKeyIds []string `json:"translation_key_ids,omitempty"`
 	// List of target locales for the job. Mutually exclusive with `job_template_id`.
 	TargetLocaleIds []string `json:"target_locale_ids,omitempty"`
-	// id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes. Mutually exclusive with `target_locale_ids`.
+	// id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes. Mutually exclusive with `target_locale_ids`. The calling user must have read access to the template; if the template exists but is not accessible, the request returns 404.
 	JobTemplateId string `json:"job_template_id,omitempty"`
 	// Automatically translate the job using machine translation.
 	Autotranslate *bool `json:"autotranslate,omitempty"`

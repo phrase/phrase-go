@@ -8323,18 +8323,8 @@ paths:
           description: "Unauthorized. Authentication failed because the access token\
             \ is missing, expired, or invalid. Supply a valid access token and retry."
         "403":
-          description: "Forbidden. The credentials are valid but not permitted for\
-            \ this request: the access token may lack the required scope, the user\
-            \ may lack permission on the resource, or the account plan may not include\
-            \ the feature. Use a token with the required scope on an account and user\
-            \ that hold the necessary permissions."
-          headers:
-            X-Rate-Limit-Limit:
-              $ref: '#/components/headers/X-Rate-Limit-Limit'
-            X-Rate-Limit-Remaining:
-              $ref: '#/components/headers/X-Rate-Limit-Remaining'
-            X-Rate-Limit-Reset:
-              $ref: '#/components/headers/X-Rate-Limit-Reset'
+          description: |
+            Forbidden. Returned when the OAuth token lacks the `write` scope or when the authenticated user does not have permission to create jobs in the given project.
         "404":
           description: "Not found. The requested resource does not exist or is not\
             \ visible to the authenticated user. Verify the identifiers in the request\
@@ -43644,9 +43634,8 @@ components:
             type: string
           type: array
         job_template_id:
-          description: id of a job template you would like to model the created job
-            after. Any manually added parameters will take preference over template
-            attributes. Mutually exclusive with `target_locale_ids`.
+          description: |
+            id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes. Mutually exclusive with `target_locale_ids`. The calling user must have read access to the template; if the template exists but is not accessible, the request returns 404.
           example: abcd1234cdef1234abcd1234cdef1234
           type: string
         autotranslate:
