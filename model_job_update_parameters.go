@@ -20,4 +20,6 @@ type JobUpdateParameters struct {
 	TargetLocaleIds []string `json:"target_locale_ids,omitempty"`
 	// Automatically translate the job using machine translation
 	Autotranslate *bool `json:"autotranslate,omitempty"`
+	// Exclude linked child keys from the job. When set to `true`, linked child keys already in the job are removed and none can be added while the option is enabled.
+	ExcludeLinkedChildKeys *bool `json:"exclude_linked_child_keys,omitempty"`
 }

@@ -41211,6 +41211,11 @@ components:
             description: |
               `true` if the job has been locked by the project's job-locking workflow (translations attached to the job are read-only until the job advances).
             type: boolean
+          exclude_linked_child_keys:
+            description: |
+              `true` if linked child keys are excluded from this job. While enabled, linked child keys cannot be added to the job.
+            example: false
+            type: boolean
           automation_id:
             description: "The ID of the automation that created this job, or null\
               \ if the job was created manually."
@@ -41359,6 +41364,11 @@ components:
             items:
               $ref: '#/components/schemas/locale_preview'
             type: array
+          exclude_linked_child_keys:
+            description: |
+              `true` if jobs created from this template exclude linked child keys.
+            example: false
+            type: boolean
         title: job_template_details
         type: object
     job_template_locales:
@@ -42078,6 +42088,11 @@ components:
             items:
               $ref: '#/components/schemas/locale_preview'
             type: array
+          exclude_linked_child_keys:
+            description: |
+              `true` if jobs created from this template exclude linked child keys.
+            example: false
+            type: boolean
         title: organization_job_template_details
         type: object
     key_link:
@@ -43642,6 +43657,11 @@ components:
           description: Automatically translate the job using machine translation.
           example: true
           type: boolean
+        exclude_linked_child_keys:
+          description: "Exclude linked child keys from the job. While enabled, linked\
+            \ child keys cannot be added to the job. Defaults to `false`."
+          example: false
+          type: boolean
       required:
       - name
       title: job/create/parameters
@@ -43687,6 +43707,12 @@ components:
         autotranslate:
           description: Automatically translate the job using machine translation
           example: true
+          type: boolean
+        exclude_linked_child_keys:
+          description: "Exclude linked child keys from the job. When set to `true`,\
+            \ linked child keys already in the job are removed and none can be added\
+            \ while the option is enabled."
+          example: false
           type: boolean
       title: job/update/parameters
       type: object
@@ -43764,6 +43790,11 @@ components:
           description: Automatically translate the job using machine translation.
           example: true
           type: boolean
+        exclude_linked_child_keys:
+          description: Exclude linked child keys from jobs created from this template.
+            Defaults to `false`.
+          example: false
+          type: boolean
         source_locale_id:
           description: "The API id of the source language. This locale will be set\
             \ as source locale for the job template. If not provided, the project\
@@ -43802,6 +43833,10 @@ components:
         autotranslate:
           description: Automatically translate the job using machine translation.
           example: true
+          type: boolean
+        exclude_linked_child_keys:
+          description: Exclude linked child keys from jobs created from this template.
+          example: false
           type: boolean
         source_locale_id:
           description: "The API id of the source language. This locale will be set\
@@ -46552,6 +46587,11 @@ components:
           description: Automatically translate the job using machine translation.
           example: true
           type: boolean
+        exclude_linked_child_keys:
+          description: Exclude linked child keys from jobs created from this template.
+            Defaults to `false`.
+          example: false
+          type: boolean
         owner_id:
           description: |
             Code of the account member to set as the job template owner. When omitted
@@ -46578,6 +46618,10 @@ components:
         autotranslate:
           description: Automatically translate the job using machine translation.
           example: true
+          type: boolean
+        exclude_linked_child_keys:
+          description: Exclude linked child keys from jobs created from this template.
+          example: false
           type: boolean
         owner_id:
           description: |

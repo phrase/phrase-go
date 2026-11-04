@@ -18,4 +18,6 @@ type JobTemplateDetails struct {
 	Owner                UserPreview     `json:"owner,omitempty"`
 	Creator              UserPreview     `json:"creator,omitempty"`
 	Locales              []LocalePreview `json:"locales,omitempty"`
+	// `true` if jobs created from this template exclude linked child keys.
+	ExcludeLinkedChildKeys *bool `json:"exclude_linked_child_keys,omitempty"`
 }

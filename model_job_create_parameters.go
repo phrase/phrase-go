@@ -30,4 +30,6 @@ type JobCreateParameters struct {
 	JobTemplateId string `json:"job_template_id,omitempty"`
 	// Automatically translate the job using machine translation.
 	Autotranslate *bool `json:"autotranslate,omitempty"`
+	// Exclude linked child keys from the job. While enabled, linked child keys cannot be added to the job. Defaults to `false`.
+	ExcludeLinkedChildKeys *bool `json:"exclude_linked_child_keys,omitempty"`
 }

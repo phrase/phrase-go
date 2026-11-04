@@ -32,4 +32,6 @@ type JobDetails struct {
 	Annotations []JobAnnotationShort `json:"annotations,omitempty"`
 	// `true` if the job has been locked by the project's job-locking workflow (translations attached to the job are read-only until the job advances).
 	Locked *bool `json:"locked,omitempty"`
+	// `true` if linked child keys are excluded from this job. While enabled, linked child keys cannot be added to the job.
+	ExcludeLinkedChildKeys *bool `json:"exclude_linked_child_keys,omitempty"`
 }
