@@ -370,6 +370,7 @@ Name | Type | Description  | Notes
 **order** | **optional.String**| Order direction. Can be one of: asc, desc. | 
 **q** | **optional.String**| Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples).  | 
 **localeId** | **optional.String**| Locale used to determine the translation state of a key when filtering for untranslated or translated keys. | 
+**includeLinkedKeys** | **optional.Bool**| When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely.  | 
 
 ### Return type
 
@@ -417,6 +418,7 @@ Name | Type | Description  | Notes
 **xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
 **page** | **optional.Int32**| Page number | 
 **perPage** | **optional.Int32**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | 
+**includeLinkedKeys** | **optional.Bool**| When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely.  | 
 
 ### Return type
 

@@ -335,6 +335,8 @@ docs/TranslationExcludeParameters.md
 docs/TranslationIncludeParameters.md
 docs/TranslationKey.md
 docs/TranslationKeyDetails.md
+docs/TranslationKeyLinkedKey.md
+docs/TranslationKeyLinkedKeyParent.md
 docs/TranslationOrder.md
 docs/TranslationParent.md
 docs/TranslationReviewParameters.md
@@ -589,6 +591,8 @@ model_translation_exclude_parameters.go
 model_translation_include_parameters.go
 model_translation_key.go
 model_translation_key_details.go
+model_translation_key_linked_key.go
+model_translation_key_linked_key_parent.go
 model_translation_order.go
 model_translation_parent.go
 model_translation_review_parameters.go

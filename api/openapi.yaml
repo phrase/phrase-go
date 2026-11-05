@@ -25277,6 +25277,15 @@ paths:
         schema:
           type: string
         style: form
+      - description: |
+          When set to `true`, each key object in the response includes a `linked_key` field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent's id and name (for child keys). Keys with no active link return `linked_key: null`. Omit this parameter or set it to `false` to leave the `linked_key` field out of the response entirely.
+        explode: true
+        in: query
+        name: include_linked_keys
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -25540,6 +25549,15 @@ paths:
         required: false
         schema:
           type: integer
+        style: form
+      - description: |
+          When set to `true`, each key object in the response includes a `linked_key` field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent's id and name (for child keys). Keys with no active link return `linked_key: null`. Omit this parameter or set it to `false` to leave the `linked_key` field out of the response entirely.
+        explode: true
+        in: query
+        name: include_linked_keys
+        required: false
+        schema:
+          type: boolean
         style: form
       requestBody:
         content:
@@ -40526,6 +40544,8 @@ components:
         updated_at:
           format: date-time
           type: string
+        linked_key:
+          $ref: '#/components/schemas/translation_key_linked_key'
       title: translation_key
       type: object
     translation_key_details:
@@ -40574,6 +40594,43 @@ components:
             type: object
         title: translation_key_details
         type: object
+    translation_key_linked_key:
+      description: Describes a key's role in a parent–child link relationship.
+      example:
+        role: parent
+        parent: null
+        children_count: 3
+      nullable: true
+      properties:
+        role:
+          description: Whether this key is the parent or the child in the link relationship.
+          enum:
+          - parent
+          - child
+          type: string
+        parent:
+          $ref: '#/components/schemas/translation_key_linked_key_parent'
+        children_count:
+          description: The number of linked child keys. Set for parent keys.
+          example: 3
+          nullable: true
+          type: integer
+      title: translation_key_linked_key
+      type: object
+    translation_key_linked_key_parent:
+      description: The parent key's public identifier and name. Set for child keys.
+      nullable: true
+      properties:
+        id:
+          description: The parent key's public identifier (code).
+          example: abc12345def67890abc12345def67890
+          type: string
+        name:
+          description: The parent key's name.
+          example: home.welcome.title
+          type: string
+      title: translation_key_linked_key_parent
+      type: object
     affected_resources:
       example:
         records_affected: 2

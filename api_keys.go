@@ -791,14 +791,15 @@ func (a *KeysApiService) KeysInclude(ctx _context.Context, projectId string, key
 
 // KeysListOpts Optional parameters for the method 'KeysList'
 type KeysListOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32  `json:"page,omitempty"`
-	PerPage       optional.Int32  `json:"per_page,omitempty"`
-	Branch        optional.String `json:"branch,omitempty"`
-	Sort          optional.String `json:"sort,omitempty"`
-	Order         optional.String `json:"order,omitempty"`
-	Q             optional.String `json:"q,omitempty"`
-	LocaleId      optional.String `json:"locale_id,omitempty"`
+	XPhraseAppOTP     optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page              optional.Int32  `json:"page,omitempty"`
+	PerPage           optional.Int32  `json:"per_page,omitempty"`
+	Branch            optional.String `json:"branch,omitempty"`
+	Sort              optional.String `json:"sort,omitempty"`
+	Order             optional.String `json:"order,omitempty"`
+	Q                 optional.String `json:"q,omitempty"`
+	LocaleId          optional.String `json:"locale_id,omitempty"`
+	IncludeLinkedKeys optional.Bool   `json:"include_linked_keys,omitempty"`
 }
 
 /*
@@ -815,6 +816,7 @@ List all keys for the given project. Alternatively you can POST requests to /sea
   - @param "Order" (optional.String) -  Order direction. Can be one of: asc, desc.
   - @param "Q" (optional.String) -  Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - `ids:key_id,...` for queries on a comma-separated list of ids - `name:key_name` for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - `tags:tag_name` to filter for keys with certain tags - `translated:{true|false}` for translation status (also requires `locale_id` to be specified) - `updated_at:{>=|<=}2013-02-21T00:00:00Z` for date range queries - `unmentioned_in_upload:upload_id,...` to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples).
   - @param "LocaleId" (optional.String) -  Locale used to determine the translation state of a key when filtering for untranslated or translated keys.
+  - @param "IncludeLinkedKeys" (optional.Bool) -  When set to `true`, each key object in the response includes a `linked_key` field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent's id and name (for child keys). Keys with no active link return `linked_key: null`. Omit this parameter or set it to `false` to leave the `linked_key` field out of the response entirely.
 
 @return []TranslationKey
 */
@@ -856,6 +858,9 @@ func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, localV
 	}
 	if localVarOptionals != nil && localVarOptionals.LocaleId.IsSet() {
 		localVarQueryParams.Add("locale_id", parameterToString(localVarOptionals.LocaleId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.IncludeLinkedKeys.IsSet() {
+		localVarQueryParams.Add("include_linked_keys", parameterToString(localVarOptionals.IncludeLinkedKeys.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -927,9 +932,10 @@ func (a *KeysApiService) KeysList(ctx _context.Context, projectId string, localV
 
 // KeysSearchOpts Optional parameters for the method 'KeysSearch'
 type KeysSearchOpts struct {
-	XPhraseAppOTP optional.String `json:"X-PhraseApp-OTP,omitempty"`
-	Page          optional.Int32  `json:"page,omitempty"`
-	PerPage       optional.Int32  `json:"per_page,omitempty"`
+	XPhraseAppOTP     optional.String `json:"X-PhraseApp-OTP,omitempty"`
+	Page              optional.Int32  `json:"page,omitempty"`
+	PerPage           optional.Int32  `json:"per_page,omitempty"`
+	IncludeLinkedKeys optional.Bool   `json:"include_linked_keys,omitempty"`
 }
 
 /*
@@ -942,6 +948,7 @@ Search keys for the given project matching query.
   - @param "XPhraseAppOTP" (optional.String) -  Two-Factor-Authentication token (optional)
   - @param "Page" (optional.Int32) -  Page number
   - @param "PerPage" (optional.Int32) -  Limit on the number of objects to be returned, between 1 and 100. 25 by default
+  - @param "IncludeLinkedKeys" (optional.Bool) -  When set to `true`, each key object in the response includes a `linked_key` field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent's id and name (for child keys). Keys with no active link return `linked_key: null`. Omit this parameter or set it to `false` to leave the `linked_key` field out of the response entirely.
 
 @return []TranslationKey
 */
@@ -968,6 +975,9 @@ func (a *KeysApiService) KeysSearch(ctx _context.Context, projectId string, keys
 	}
 	if localVarOptionals != nil && localVarOptionals.PerPage.IsSet() {
 		localVarQueryParams.Add("per_page", parameterToString(localVarOptionals.PerPage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.IncludeLinkedKeys.IsSet() {
+		localVarQueryParams.Add("include_linked_keys", parameterToString(localVarOptionals.IncludeLinkedKeys.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}

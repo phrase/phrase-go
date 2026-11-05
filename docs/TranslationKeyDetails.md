@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **DataType** | **string** |  | [optional] 
 **CreatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
 **UpdatedAt** | [**time.Time**](time.Time.md) |  | [optional] 
+**LinkedKey** | Pointer to [**NullableTranslationKeyLinkedKey**](TranslationKeyLinkedKey.md) |  | [optional] 
 **NamePlural** | **string** |  | [optional] 
 **CommentsCount** | **int32** |  | [optional] 
 **MaxCharactersAllowed** | **int32** |  | [optional] 
