@@ -19,4 +19,8 @@ type RepoSync struct {
 	CreatedAt    time.Time       `json:"created_at,omitempty"`
 	LastImportAt *NullableTime   `json:"last_import_at,omitempty"`
 	LastExportAt *NullableTime   `json:"last_export_at,omitempty"`
+	Owner        UserShort       `json:"owner,omitempty"`
+	// Events that trigger an automatic export. Only present when the automatic export feature is enabled for the account. Possible values: `schedule` (runs on the configured schedule), `branch_merged` (runs when a branch is merged in the connected repository), `job_completed` (runs when a translation job completes in the project).
+	ExportTriggers []string                `json:"export_triggers,omitempty"`
+	ExportSchedule *RepoSyncExportSchedule `json:"export_schedule,omitempty"`
 }

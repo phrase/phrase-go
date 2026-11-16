@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**RepoSyncImport**](RepoSyncsApi.md#RepoSyncImport) | **Post** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
 [**RepoSyncList**](RepoSyncsApi.md#RepoSyncList) | **Get** /accounts/{account_id}/repo_syncs | Get Repo Syncs
 [**RepoSyncShow**](RepoSyncsApi.md#RepoSyncShow) | **Get** /accounts/{account_id}/repo_syncs/{id} | Get a single Repo Sync
+[**RepoSyncUpdate**](RepoSyncsApi.md#RepoSyncUpdate) | **Patch** /accounts/{account_id}/repo_syncs/{id} | Update a repo sync
 
 
 
@@ -325,6 +326,52 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RepoSyncUpdate
+
+> RepoSync RepoSyncUpdate(ctx, accountId, id, repoSyncUpdateParameters, optional)
+
+Update a repo sync
+
+Update settings for an existing Repo Sync. Sending `owner_id`, `export_triggers`, or `export_schedule` requires the caller to have `manage_github_sync?` permission on the project (returns `403` otherwise). Sending `export_triggers` or `export_schedule` when the automatic export feature is not enabled for the account returns `422`. 
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **string**| Account ID | 
+**id** | **string**| ID | 
+**repoSyncUpdateParameters** | [**RepoSyncUpdateParameters**](RepoSyncUpdateParameters.md)|  | 
+ **optional** | ***RepoSyncUpdateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a RepoSyncUpdateOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**xPhraseAppOTP** | **optional.String**| Two-Factor-Authentication token (optional) | 
+
+### Return type
+
+[**RepoSync**](RepoSync.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [Token](../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

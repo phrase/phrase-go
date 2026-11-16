@@ -282,11 +282,15 @@ docs/ReleaseUpdateParameters1.md
 docs/ReleasesApi.md
 docs/RepoSync.md
 docs/RepoSyncCreateParameters.md
+docs/RepoSyncCreateParametersExportSchedule.md
 docs/RepoSyncEvent.md
 docs/RepoSyncEventUploadsInner.md
 docs/RepoSyncEventsApi.md
 docs/RepoSyncExportParameters.md
+docs/RepoSyncExportSchedule.md
 docs/RepoSyncImportParameters.md
+docs/RepoSyncUpdateParameters.md
+docs/RepoSyncUpdateParametersExportSchedule.md
 docs/RepoSyncsApi.md
 docs/ReportsApi.md
 docs/Screenshot.md
@@ -362,6 +366,7 @@ docs/UploadSummary.md
 docs/UploadsApi.md
 docs/User.md
 docs/UserPreview.md
+docs/UserShort.md
 docs/UsersApi.md
 docs/Variable.md
 docs/VariableCreateParameters.md
@@ -549,10 +554,14 @@ model_release_update_parameters.go
 model_release_update_parameters_1.go
 model_repo_sync.go
 model_repo_sync_create_parameters.go
+model_repo_sync_create_parameters_export_schedule.go
 model_repo_sync_event.go
 model_repo_sync_event_uploads_inner.go
 model_repo_sync_export_parameters.go
+model_repo_sync_export_schedule.go
 model_repo_sync_import_parameters.go
+model_repo_sync_update_parameters.go
+model_repo_sync_update_parameters_export_schedule.go
 model_screenshot.go
 model_screenshot_marker.go
 model_screenshot_marker_create_parameters.go
@@ -615,6 +624,7 @@ model_upload_batches_create_parameters.go
 model_upload_summary.go
 model_user.go
 model_user_preview.go
+model_user_short.go
 model_variable.go
 model_variable_create_parameters.go
 model_variable_update_parameters.go

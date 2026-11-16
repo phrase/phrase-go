@@ -22,4 +22,9 @@ type RepoSyncCreateParameters struct {
 	AccessToken string `json:"access_token,omitempty"`
 	// Custom API endpoint URL for self-hosted Git instances. Required when `connection_type` is `self_hosted`.
 	CustomApiEndpoint string `json:"custom_api_endpoint,omitempty"`
+	// Code of the user who will own this repo sync. Automated actions run as this user. Defaults to the account owner when not set.
+	OwnerId string `json:"owner_id,omitempty"`
+	// Events that should trigger an automatic export. Requires the automatic export feature to be enabled for the account; returns `422` otherwise. Accepted values: `schedule`, `branch_merged`, `job_completed`.
+	ExportTriggers []string                               `json:"export_triggers,omitempty"`
+	ExportSchedule RepoSyncCreateParametersExportSchedule `json:"export_schedule,omitempty"`
 }

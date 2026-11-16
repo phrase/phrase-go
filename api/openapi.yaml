@@ -27645,6 +27645,115 @@ paths:
           --account_id abcd1234 \
           --access_token <token>
       x-cli-version: "2.24"
+    patch:
+      description: |
+        Update settings for an existing Repo Sync. Sending `owner_id`, `export_triggers`, or `export_schedule` requires the caller to have `manage_github_sync?` permission on the project (returns `403` otherwise). Sending `export_triggers` or `export_schedule` when the automatic export feature is not enabled for the account returns `422`.
+      operationId: repo_sync/update
+      parameters:
+      - description: Two-Factor-Authentication token (optional)
+        explode: false
+        in: header
+        name: X-PhraseApp-OTP
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Account ID
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/repo_sync_update_parameters'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/repo_sync'
+          description: OK
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "400":
+          description: "Bad request. The request could not be parsed or a parameter\
+            \ failed validation. Verify the request body, the content type, and the\
+            \ parameter types, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "401":
+          description: "Unauthorized. Authentication failed because the access token\
+            \ is missing, expired, or invalid. Supply a valid access token and retry."
+        "403":
+          description: |
+            Forbidden. Possible causes: insufficient OAuth scope (requires `write`); caller does not have `manage_git_syncs?` permission on the account; or `owner_id`, `export_triggers`, or `export_schedule` was provided but the caller does not have `manage_github_sync?` permission on the project.
+        "404":
+          description: "Not found. The requested resource does not exist or is not\
+            \ visible to the authenticated user. Verify the identifiers in the request\
+            \ path and that the token has access to them, then retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/document_delete_422_response'
+          description: "Unprocessable entity. The request was well-formed but failed\
+            \ validation. The response body lists each offending field in the `errors`\
+            \ array, with its resource, field, and a human-readable message. Correct\
+            \ the listed fields and retry."
+          headers:
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+        "429":
+          description: Too many requests. The rate limit has been exceeded. Wait until
+            the time indicated by the `X-Rate-Limit-Reset` response header before
+            retrying.
+          headers:
+            X-Rate-Limit-Reason:
+              $ref: '#/components/headers/X-Rate-Limit-Reason'
+            X-Rate-Limit-Limit:
+              $ref: '#/components/headers/X-Rate-Limit-Limit'
+            X-Rate-Limit-Remaining:
+              $ref: '#/components/headers/X-Rate-Limit-Remaining'
+            X-Rate-Limit-Reset:
+              $ref: '#/components/headers/X-Rate-Limit-Reset'
+      summary: Update a repo sync
+      tags:
+      - Repo Syncs
   /accounts/{account_id}/repo_syncs/{id}/export:
     post:
       description: |-
@@ -40848,6 +40957,23 @@ components:
           type: string
       title: user_preview
       type: object
+    user_short:
+      example:
+        id: abcd1234cdef1234abcd1234cdef1234
+        username: johndoe
+        name: John Doe
+        gravatar_uid: 205e460b479e2e5b48aec07710c08d50
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        gravatar_uid:
+          type: string
+      title: user_short
+      type: object
     user:
       example:
         id: abcd1234cdef1234abcd1234cdef1234
@@ -42274,6 +42400,20 @@ components:
           format: date-time
           nullable: true
           type: string
+        owner:
+          $ref: '#/components/schemas/user_short'
+        export_triggers:
+          description: |
+            Events that trigger an automatic export. Only present when the automatic export feature is enabled for the account. Possible values: `schedule` (runs on the configured schedule), `branch_merged` (runs when a branch is merged in the connected repository), `job_completed` (runs when a translation job completes in the project).
+          items:
+            enum:
+            - schedule
+            - branch_merged
+            - job_completed
+            type: string
+          type: array
+        export_schedule:
+          $ref: '#/components/schemas/repo_sync_export_schedule'
       title: repo_sync
       type: object
     repo_sync_event:
@@ -45922,6 +46062,40 @@ components:
             score: 0.95
             id: translation_id_2
         errors: []
+    repo_sync_create_parameters_export_schedule:
+      description: |
+        Schedule settings for automatic exports. Required when `export_triggers` includes `schedule`. Requires the automatic export feature to be enabled.
+      properties:
+        frequency:
+          enum:
+          - hour
+          - day
+          - week
+          - month
+          - cron
+          type: string
+        time:
+          description: "Time of day for the export (HH:MM format). Used with `day`,\
+            \ `week`, and `month` frequencies."
+          example: 09:00
+          type: string
+        time_zone:
+          description: IANA time zone name.
+          example: Europe/Berlin
+          type: string
+        days_of_week:
+          description: Comma-separated day numbers (0=Sunday … 6=Saturday). Used with
+            `week` frequency.
+          example: "1,3"
+          type: string
+        day_of_month:
+          description: Day of the month (1–31). Used with `month` frequency.
+          type: integer
+        cron_schedule:
+          description: Raw cron expression. Used when `frequency` is `cron`.
+          example: 0 9 * * 1
+          type: string
+      type: object
     repo_sync_create_parameters:
       properties:
         project_id:
@@ -45986,11 +46160,77 @@ components:
             when `connection_type` is `self_hosted`.
           example: https://git.example.com/api/v4
           type: string
+        owner_id:
+          description: |
+            Code of the user who will own this repo sync. Automated actions run as this user. Defaults to the account owner when not set.
+          type: string
+        export_triggers:
+          description: |
+            Events that should trigger an automatic export. Requires the automatic export feature to be enabled for the account; returns `422` otherwise. Accepted values: `schedule`, `branch_merged`, `job_completed`.
+          items:
+            enum:
+            - schedule
+            - branch_merged
+            - job_completed
+            type: string
+          type: array
+        export_schedule:
+          $ref: '#/components/schemas/repo_sync_create_parameters_export_schedule'
       required:
       - connection_type
       - project_id
       - repo_name
       title: repo_sync/create/parameters
+      type: object
+    repo_sync_update_parameters_export_schedule:
+      description: |
+        Updates the schedule for automatic exports. Only applied when `export_triggers` includes `schedule`. Requires `manage_github_sync?` permission and the automatic export feature to be enabled.
+      properties:
+        frequency:
+          enum:
+          - hour
+          - day
+          - week
+          - month
+          - cron
+          type: string
+        time:
+          example: 09:00
+          type: string
+        time_zone:
+          example: Europe/Berlin
+          type: string
+        days_of_week:
+          example: "1,3"
+          type: string
+        day_of_month:
+          type: integer
+        cron_schedule:
+          example: 0 9 * * 1
+          type: string
+      type: object
+    repo_sync_update_parameters:
+      properties:
+        name:
+          description: Display name for the repo sync.
+          type: string
+        owner_id:
+          description: |
+            Code of the user to assign as owner. Requires `manage_github_sync?` permission on the project; returns `403` if not satisfied.
+          type: string
+        export_triggers:
+          description: |
+            Replaces the current set of automatic export triggers. Requires `manage_github_sync?` permission on the project and the automatic export feature to be enabled for the account. Accepted values: `schedule`, `branch_merged`, `job_completed`.
+          items:
+            enum:
+            - schedule
+            - branch_merged
+            - job_completed
+            type: string
+          type: array
+        export_schedule:
+          $ref: '#/components/schemas/repo_sync_update_parameters_export_schedule'
+      title: repo_sync/update/parameters
       type: object
     repo_sync_export_parameters:
       properties:
@@ -47208,6 +47448,36 @@ components:
           type: integer
         h:
           type: integer
+      type: object
+    repo_sync_export_schedule:
+      description: |
+        Schedule configuration for automatic exports. Only present when the automatic export feature is enabled for the account. `null` when the `schedule` trigger is not active.
+      nullable: true
+      properties:
+        frequency:
+          description: |
+            How often the export runs. `cron` means a fully custom cron expression is used (`cron_schedule` holds the raw expression).
+          enum:
+          - hour
+          - day
+          - week
+          - month
+          - cron
+          type: string
+        cron_schedule:
+          description: |
+            The underlying cron expression. Derived automatically from `frequency`, `time`, and day fields when using a named frequency; provided verbatim when `frequency` is `cron`.
+          example: 0 9 * * 1
+          type: string
+        time_zone:
+          description: IANA time zone name used to interpret the schedule.
+          example: Europe/Berlin
+          type: string
+        next_run_at:
+          description: "When the next scheduled export will run, in UTC."
+          format: date-time
+          nullable: true
+          type: string
       type: object
     repo_sync_event_uploads_inner:
       properties:
