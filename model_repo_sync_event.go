@@ -10,9 +10,11 @@ type RepoSyncEvent struct {
 	Type      string    `json:"type,omitempty"`
 	CreatedAt time.Time `json:"created_at,omitempty"`
 	Status    string    `json:"status,omitempty"`
+	// When `true`, the sync was triggered automatically (for example by a Zero Touch Localization rule or an automation). When `false`, it was triggered manually.
+	Automatic *bool `json:"automatic,omitempty"`
 	// URL of the pull request created on export
 	PullRequestUrl string `json:"pull_request_url,omitempty"`
-	// Whether the import was triggered by the repo push event
+	// **Deprecated.** Use `automatic` instead. Only present on import events. Indicates whether the import was triggered automatically.
 	AutoImport *bool `json:"auto_import,omitempty"`
 	// List of error messages, in case of failure
 	Errors []string `json:"errors,omitempty"`
