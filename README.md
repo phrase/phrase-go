@@ -262,6 +262,9 @@ Class | Method | HTTP request | Description
 *PreTranslationsApi* | [**PreTranslationCreate**](docs/PreTranslationsApi.md#pretranslationcreate) | **Post** /projects/{project_id}/pre_translations | Create a pre-translation job
 *PreTranslationsApi* | [**PreTranslationShow**](docs/PreTranslationsApi.md#pretranslationshow) | **Get** /projects/{project_id}/pre_translations/{id} | Get a single pre-translation job
 *PreTranslationsApi* | [**PreTranslationsList**](docs/PreTranslationsApi.md#pretranslationslist) | **Get** /projects/{project_id}/pre_translations | List pre-translation jobs
+*ProjectNotesApi* | [**ProjectNoteDestroy**](docs/ProjectNotesApi.md#projectnotedestroy) | **Delete** /projects/{project_id}/note | Delete a project note
+*ProjectNotesApi* | [**ProjectNoteShow**](docs/ProjectNotesApi.md#projectnoteshow) | **Get** /projects/{project_id}/note | Get a project note
+*ProjectNotesApi* | [**ProjectNoteUpdate**](docs/ProjectNotesApi.md#projectnoteupdate) | **Patch** /projects/{project_id}/note | Create or update a project note
 *ProjectsApi* | [**ProjectCreate**](docs/ProjectsApi.md#projectcreate) | **Post** /projects | Create a project
 *ProjectsApi* | [**ProjectDelete**](docs/ProjectsApi.md#projectdelete) | **Delete** /projects/{id} | Delete a project
 *ProjectsApi* | [**ProjectShow**](docs/ProjectsApi.md#projectshow) | **Get** /projects/{id} | Get a single project
@@ -511,6 +514,7 @@ Class | Method | HTTP request | Description
  - [MemberUpdateParameters](docs/MemberUpdateParameters.md)
  - [MemberUpdateSettingsParameters](docs/MemberUpdateSettingsParameters.md)
  - [ModelError](docs/ModelError.md)
+ - [Note](docs/Note.md)
  - [Notification](docs/Notification.md)
  - [NotificationGroup](docs/NotificationGroup.md)
  - [NotificationGroupDetail](docs/NotificationGroupDetail.md)
@@ -529,6 +533,7 @@ Class | Method | HTTP request | Description
  - [ProjectDetails](docs/ProjectDetails.md)
  - [ProjectLocales](docs/ProjectLocales.md)
  - [ProjectMember](docs/ProjectMember.md)
+ - [ProjectNoteUpdateParameters](docs/ProjectNoteUpdateParameters.md)
  - [ProjectReport](docs/ProjectReport.md)
  - [ProjectShort](docs/ProjectShort.md)
  - [ProjectUpdateParameters](docs/ProjectUpdateParameters.md)
@@ -637,6 +642,7 @@ For more information, please visit [https://developers.phrase.com/api/](https://
 
 ## Author
 
+support@phrase.com
 support@phrase.com
 support@phrase.com
 support@phrase.com

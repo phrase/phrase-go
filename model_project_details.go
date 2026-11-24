@@ -40,4 +40,5 @@ type ProjectDetails struct {
 	JobLockingEnabled                              *bool       `json:"job_locking_enabled,omitempty"`
 	PlaceholderStyles                              []string    `json:"placeholder_styles,omitempty"`
 	Branch                                         Branch      `json:"branch,omitempty"`
+	Note                                           Note        `json:"note,omitempty"`
 }
